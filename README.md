@@ -4,16 +4,18 @@ Laravel Headless LMS REST API.
 
 ## Installation
 
-```sh
-docker-compose build
-docker-compose up -d
+To install defult docker enviroment.
 
-docker exec -it kibble_app bash
-composer update
-php artisan key:generate
-php artisan migrate:fresh --seed
-php artisan passport:keys --force
-php artisan passport:client --personal --no-interaction
+### Postgres (default)
+
+```sh
+make init
+```
+
+### Mysql
+
+```
+make init-mysql
 ```
 
 ## Demo & Credentials
@@ -28,6 +30,30 @@ php artisan passport:client --personal --no-interaction
 
 [http://localhost:1000/api/documentation](http://localhost:1000/api/documentation)
 
-```
-php artisan l5-swagger:generate
-```
+## Tasks
+
+See [makefile](makefile) for all availabe devops tasks
+
+- `make fix-style`
+- `make test-phpunit`
+- `make test-behat`
+- `make bash`
+- `make ide-helper`
+- `make migrate-fresh-quick`
+- `make composer-update`
+- `make swagger-generate`
+- `make h5p-seed`
+- `make migrate-fresh`
+- `make refresh`
+- `make docker-up`
+- `make switch-to-postgres`
+- `make switch-to-mysql`
+- `make migrate-mysql`
+- `make migrate-postgres`
+- `make test-phpunit-postgres`
+- `make test-behat-postgres`
+- `make test-phpunit-mysql`
+- `make test-behat-mysql`
+- `make init`
+- `make init-mysql`
+- `make init-postgres`

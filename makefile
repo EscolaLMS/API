@@ -42,4 +42,28 @@ refresh: composer-update migrate-fresh h5p-seed
 docker-up:
 	- docker-compose up -d
 
-init: docker-up composer-update migrate-fresh-quick
+switch-to-postgres:
+	- cp docker/envs/.env.postgres.example .env
+	- docker-compose exec escola_lms_app bash -c "php artisan config:cache"
+
+switch-to-mysql:
+	- cp docker/envs/.env.mysql.example .env
+	- docker-compose exec escola_lms_app bash -c "php artisan config:cache"
+
+migrate-mysql: switch-to-mysql migrate-fresh-quick
+
+migrate-postgres: switch-to-postgres migrate-fresh-quick
+
+test-phpunit-postgres: switch-to-postgres test-phpunit
+
+test-behat-postgres: switch-to-postgres test-behat
+
+test-phpunit-mysql: switch-to-mysql test-phpunit
+
+test-behat-mysql: switch-to-mysql test-behat
+
+init: docker-up switch-to-postgres composer-update migrate-fresh-quick
+
+init-mysql: docker-up switch-to-mysql composer-update migrate-fresh-quick
+
+init-postgres: docker-up switch-to-postgres composer-update migrate-fresh-quick

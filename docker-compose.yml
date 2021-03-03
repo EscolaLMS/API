@@ -24,28 +24,20 @@ services:
       - ./docker/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
     networks:
       - escola_lms
-  #  mysql:
-  #    networks:
-  #      - escola_lms
-  #    image: mariadb:10.5
-  #    volumes:
-  #      - ./docker/mysql-data:/var/lib/mysql
-  #      - ./docker/conf/mysql:/etc/mysql/conf.d
-  #    environment:
-  #      MYSQL_ROOT_PASSWORD: root
-  #      MYSQL_DATABASE: database
-  #  escola_lms_phpmyadmin:
-  #    networks:
-  #      - escola_lms
-  #    image: phpmyadmin/phpmyadmin
-  #    depends_on:
-  #      - mysql
-  #    ports:
-  #      - "8079:80"
-  #    environment:
-  #      MYSQL_ROOT_PASSWORD: root
-  #      MYSQL_USERNAME: root
-  #      PMA_HOST: mysql
+
+  mysql:
+    networks:
+      - escola_lms
+    image: mariadb:10.5
+    volumes:
+      - ./docker/mysql-data:/var/lib/mysql
+      - ./docker/conf/mysql:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: database
+      MYSQL_PASSWORD: password
+      MYSQL_USER: username
+
   postgres:
     image: postgres:12
     networks:
@@ -57,8 +49,6 @@ services:
       - POSTGRES_USER=default
       - POSTGRES_PASSWORD=secret
       - TZ=Europe/Warsaw
-    ports:
-      - "5432:5432"
 
   adminer:
     networks:

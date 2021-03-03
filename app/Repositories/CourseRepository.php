@@ -144,8 +144,10 @@ class CourseRepository extends BaseRepository implements CourseRepositoryContrac
      */
     public function all(array $search = [], ?int $skip = null, ?int $limit = null, array $columns = ['*'], string $orderDirection = 'asc', string $orderColumn = 'id')
     {
+        $like = DB::connection()->getPdo()->getAttribute(\PDO::ATTR_DRIVER_NAME) === 'pgsql' ? 'ILIKE' : 'LIKE';
+
         if (isset($search) && isset($search['course_title'])) {
-            $search['course_title'] = ['ILIKE', "%" . $search['course_title'] . "%"];
+            $search['course_title'] = [$like, "%" . $search['course_title'] . "%"];
         }
 
         /** search main category and all subcategories */
