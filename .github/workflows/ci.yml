@@ -28,6 +28,7 @@ jobs:
       - name: Prepare Laravel Application
         run: |
           cp docker/envs/.env.ci.mysql .env
+          cp docker/envs/.env.ci.mysql .env.testing
           php artisan key:generate
           php artisan migrate:fresh --seed
           php artisan passport:keys --force
