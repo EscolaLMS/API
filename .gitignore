@@ -27,3 +27,5 @@ storage/h5p/editor/**
 
 escolasoft/**/vendor
 .DS_Store
+
+bootstrap/cache/**/*
