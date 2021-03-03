@@ -36,110 +36,92 @@ jobs:
 
       - name: Run Testsuite
         run: vendor/bin/phpunit tests/
-
-  phpunit-postgres:
-    runs-on: ubuntu-latest
-    container:
-      image: escolasoft1/laravel-prod-docker:fpm
-
-    services:
-      postgres:
-        image: postgres:12
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: test
-          TZ: Europe/Warsaw
-        ports:
-          - 5432:5432
-
-    steps:
-      - uses: actions/checkout@v1
-        with:
-          fetch-depth: 1
-
-      - name: Install composer dependencies
-        run: |
-          composer install --no-scripts
-
-      - name: Prepare Laravel Application
-        run: |
-          cp docker/envs/.env.ci.postgres .env
-          php artisan key:generate
-          php artisan migrate:fresh --seed
-          php artisan passport:keys --force
-          php artisan passport:client --personal --no-interaction
-
-      - name: Run Testsuite
-        run: vendor/bin/phpunit tests/
-
-  behat-mysql:
-    runs-on: ubuntu-latest
-    container:
-      image: escolasoft1/laravel-prod-docker:fpm
-
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: test
-        ports:
-          - 33306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
-    steps:
-      - uses: actions/checkout@v1
-        with:
-          fetch-depth: 1
-
-      - name: Install composer dependencies
-        run: |
-          composer install --no-scripts
-
-      - name: Prepare Laravel Application
-        run: |
-          cp docker/envs/.env.ci.mysql .env
-          php artisan key:generate
-          php artisan migrate:fresh --seed
-          php artisan passport:keys --force
-          php artisan passport:client --personal --no-interaction
-
-      - name: Run Testsuite
-        run: vendor/bin/phpunit tests/
-
-  behat-postgres:
-    runs-on: ubuntu-latest
-    container:
-      image: escolasoft1/laravel-prod-docker:fpm
-
-    services:
-      postgres:
-        image: postgres:12
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: test
-          TZ: Europe/Warsaw
-        ports:
-          - 5432:5432
-
-    steps:
-      - uses: actions/checkout@v1
-        with:
-          fetch-depth: 1
-
-      - name: Install composer dependencies
-        run: |
-          composer install --no-scripts
-
-      - name: Prepare Laravel Application
-        run: |
-          cp docker/envs/.env.ci.postgres .env
-          php artisan key:generate
-          php artisan migrate:fresh --seed
-          php artisan passport:keys --force
-          php artisan passport:client --personal --no-interaction
-
-      - name: Run Testsuite
-        run: vendor/bin/phpunit tests/
+  # phpunit-postgres:
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: escolasoft1/laravel-prod-docker:fpm
+  #   services:
+  #     postgres:
+  #       image: postgres:12
+  #       env:
+  #         POSTGRES_USER: postgres
+  #         POSTGRES_PASSWORD: postgres
+  #         POSTGRES_DB: test
+  #         TZ: Europe/Warsaw
+  #       ports:
+  #         - 5432:5432
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #       with:
+  #         fetch-depth: 1
+  #     - name: Install composer dependencies
+  #       run: |
+  #         composer install --no-scripts
+  #     - name: Prepare Laravel Application
+  #       run: |
+  #         cp docker/envs/.env.ci.postgres .env
+  #         php artisan key:generate
+  #         php artisan migrate:fresh --seed
+  #         php artisan passport:keys --force
+  #         php artisan passport:client --personal --no-interaction
+  #     - name: Run Testsuite
+  #       run: vendor/bin/phpunit tests/
+  # behat-mysql:
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: escolasoft1/laravel-prod-docker:fpm
+  #   services:
+  #     mysql:
+  #       image: mysql:5.7
+  #       env:
+  #         MYSQL_ROOT_PASSWORD: password
+  #         MYSQL_DATABASE: test
+  #       ports:
+  #         - 33306:3306
+  #       options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #       with:
+  #         fetch-depth: 1
+  #     - name: Install composer dependencies
+  #       run: |
+  #         composer install --no-scripts
+  #     - name: Prepare Laravel Application
+  #       run: |
+  #         cp docker/envs/.env.ci.mysql .env
+  #         php artisan key:generate
+  #         php artisan migrate:fresh --seed
+  #         php artisan passport:keys --force
+  #         php artisan passport:client --personal --no-interaction
+  #     - name: Run Testsuite
+  #       run: vendor/bin/phpunit tests/
+  # behat-postgres:
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: escolasoft1/laravel-prod-docker:fpm
+  #   services:
+  #     postgres:
+  #       image: postgres:12
+  #       env:
+  #         POSTGRES_USER: postgres
+  #         POSTGRES_PASSWORD: postgres
+  #         POSTGRES_DB: test
+  #         TZ: Europe/Warsaw
+  #       ports:
+  #         - 5432:5432
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #       with:
+  #         fetch-depth: 1
+  #     - name: Install composer dependencies
+  #       run: |
+  #         composer install --no-scripts
+  #     - name: Prepare Laravel Application
+  #       run: |
+  #         cp docker/envs/.env.ci.postgres .env
+  #         php artisan key:generate
+  #         php artisan migrate:fresh --seed
+  #         php artisan passport:keys --force
+  #         php artisan passport:client --personal --no-interaction
+  #     - name: Run Testsuite
+  #       run: vendor/bin/phpunit tests/
