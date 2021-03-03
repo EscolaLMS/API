@@ -1,0 +1,2 @@
+[mysqld]
+innodb_flush_method=O_DSYNC

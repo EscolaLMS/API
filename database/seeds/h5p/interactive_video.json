@@ -1,0 +1,252 @@
+{
+  "params": {
+    "interactiveVideo": {
+      "video": {
+        "startScreenOptions": {
+          "title": "Interactive Video",
+          "hideStartTitle": false,
+          "poster": {
+            "path": "images/poster-5fedf22ae4094.jpg#tmp",
+            "mime": "image/jpeg",
+            "copyright": {
+              "license": "U"
+            },
+            "width": 254,
+            "height": 254
+          }
+        },
+        "textTracks": {
+          "videoTrack": [{
+            "label": "Subtitles",
+            "kind": "subtitles",
+            "srcLang": "en"
+          }]
+        },
+        "files": [{
+          "path": "videos/files-5fedf21bde878.mp4#tmp",
+          "mime": "video/mp4",
+          "copyright": {
+            "license": "U"
+          }
+        }]
+      },
+      "assets": {
+        "interactions": [{
+          "x": 21.126760563380284,
+          "y": 36.61971830985916,
+          "width": 10,
+          "height": 10,
+          "duration": {
+            "from": 0,
+            "to": 3
+          },
+          "libraryTitle": "Label",
+          "action": {
+            "library": "H5P.Nil 1.0",
+            "params": {},
+            "subContentId": "f2301048-a740-47ae-8c64-ccb2003c1af5",
+            "metadata": {
+              "contentType": "Label"
+            }
+          },
+          "label": "<p>Lorem ipsum dolor sit amet...</p>\n",
+          "pause": true,
+          "displayType": "button",
+          "buttonOnMobile": false
+        }, {
+          "x": 22.535211267605636,
+          "y": 66.19718309859155,
+          "width": 10,
+          "height": 10,
+          "duration": {
+            "from": 0.39,
+            "to": 3
+          },
+          "libraryTitle": "Statements",
+          "action": {
+            "library": "H5P.Summary 1.10",
+            "params": {
+              "intro": "Choose the correct statement.",
+              "summaries": [{
+                "subContentId": "d04069f4-9e8a-46fb-9b5b-1a81ccf0cad4",
+                "summary": ["<p>statemenet1</p>\n", "<p>statemenet 2</p>\n"],
+                "tip": ""
+              }],
+              "overallFeedback": [{
+                "from": 0,
+                "to": 100
+              }],
+              "solvedLabel": "Progress:",
+              "scoreLabel": "Wrong answers:",
+              "resultLabel": "Your result",
+              "labelCorrect": "Correct.",
+              "labelIncorrect": "Incorrect! Please try again.",
+              "alternativeIncorrectLabel": "Incorrect",
+              "labelCorrectAnswers": "Correct answers.",
+              "tipButtonLabel": "Show tip",
+              "scoreBarLabel": "You got :num out of :total points",
+              "progressText": "Progress :num of :total"
+            },
+            "subContentId": "aef8f53a-2e22-48dd-a03f-144815b2af9b",
+            "metadata": {
+              "contentType": "Summary",
+              "license": "U",
+              "title": "Untitled Summary",
+              "authors": [],
+              "changes": [],
+              "extraTitle": "Untitled Summary"
+            }
+          },
+          "pause": true,
+          "displayType": "button",
+          "buttonOnMobile": false,
+          "adaptivity": {
+            "correct": {
+              "allowOptOut": false,
+              "message": ""
+            },
+            "wrong": {
+              "allowOptOut": false,
+              "message": ""
+            }
+          },
+          "label": "<p>this is a statments</p>\n"
+        }, {
+          "x": 49.29577464788733,
+          "y": 16.901408450704228,
+          "width": 10,
+          "height": 10,
+          "duration": {
+            "from": 1.05,
+            "to": 3
+          },
+          "libraryTitle": "Crossroads",
+          "action": {
+            "library": "H5P.GoToQuestion 1.3",
+            "params": {
+              "choices": [{
+                "goTo": 0,
+                "text": "start again",
+                "ifChosenText": "start again then"
+              }, {
+                "text": "go to end",
+                "ifChosenText": "go to then",
+                "goTo": 2
+              }],
+              "continueButtonLabel": "Continue",
+              "text": "what should i do ?"
+            },
+            "subContentId": "410ea89e-f209-4598-929e-4b05430c1c8b",
+            "metadata": {
+              "contentType": "Crossroads"
+            }
+          },
+          "pause": true,
+          "displayType": "poster",
+          "buttonOnMobile": false
+        }],
+        "bookmarks": [],
+        "endscreens": [{
+          "time": 3.754667,
+          "label": "0:03 Submit screen"
+        }]
+      },
+      "summary": {
+        "task": {
+          "library": "H5P.Summary 1.10",
+          "params": {
+            "intro": "Choose the correct statement.",
+            "summaries": [{
+              "subContentId": "62ad8cf2-abd4-4218-b66c-b9144d2dbd87",
+              "summary": ["<p>Statement1</p>\n", "<p>Statement2</p>\n"],
+              "tip": "<p>this is a tip&nbsp;</p>\n"
+            }],
+            "overallFeedback": [{
+              "from": 0,
+              "to": 100
+            }],
+            "solvedLabel": "Progress:",
+            "scoreLabel": "Wrong answers:",
+            "resultLabel": "Your result",
+            "labelCorrect": "Correct.",
+            "labelIncorrect": "Incorrect! Please try again.",
+            "alternativeIncorrectLabel": "Incorrect",
+            "labelCorrectAnswers": "Correct answers.",
+            "tipButtonLabel": "Show tip",
+            "scoreBarLabel": "You got :num out of :total points",
+            "progressText": "Progress :num of :total"
+          },
+          "subContentId": "95764149-b607-4b45-9c30-23d9e56b2b19",
+          "metadata": {
+            "contentType": "Summary",
+            "license": "U",
+            "title": "Untitled Summary",
+            "authors": [],
+            "changes": [],
+            "extraTitle": "Untitled Summary"
+          }
+        },
+        "displayAt": 3
+      }
+    },
+    "override": {
+      "autoplay": false,
+      "loop": false,
+      "showBookmarksmenuOnLoad": false,
+      "showRewind10": false,
+      "preventSkipping": false,
+      "deactivateSound": false
+    },
+    "l10n": {
+      "interaction": "Interaction",
+      "play": "Play",
+      "pause": "Pause",
+      "mute": "Mute",
+      "unmute": "Unmute",
+      "quality": "Video Quality",
+      "captions": "Captions",
+      "close": "Close",
+      "fullscreen": "Fullscreen",
+      "exitFullscreen": "Exit Fullscreen",
+      "summary": "Open summary dialog",
+      "bookmarks": "Bookmarks",
+      "endscreen": "Submit screen",
+      "defaultAdaptivitySeekLabel": "Continue",
+      "continueWithVideo": "Continue with video",
+      "playbackRate": "Playback Rate",
+      "rewind10": "Rewind 10 Seconds",
+      "navDisabled": "Navigation is disabled",
+      "sndDisabled": "Sound is disabled",
+      "requiresCompletionWarning": "You need to answer all the questions correctly before continuing.",
+      "back": "Back",
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "seconds": "Seconds",
+      "currentTime": "Current time:",
+      "totalTime": "Total time:",
+      "singleInteractionAnnouncement": "Interaction appeared:",
+      "multipleInteractionsAnnouncement": "Multiple interactions appeared.",
+      "videoPausedAnnouncement": "Video is paused",
+      "content": "Content",
+      "answered": "@answered answered",
+      "endcardTitle": "@answered Question(s) answered",
+      "endcardInformation": "You have answered @answered questions, click below to submit your answers.",
+      "endcardInformationNoAnswers": "You have not answered any questions.",
+      "endcardInformationMustHaveAnswer": "You have to answer at least one question before you can submit your answers.",
+      "endcardSubmitButton": "Submit Answers",
+      "endcardSubmitMessage": "Your answers have been submitted!",
+      "endcardTableRowAnswered": "Answered questions",
+      "endcardTableRowScore": "Score",
+      "endcardAnsweredScore": "answered",
+      "endCardTableRowSummaryWithScore": "You got @score out of @total points for the @question that appeared after @minutes minutes and @seconds seconds.",
+      "endCardTableRowSummaryWithoutScore": "You have answered the @question that appeared after @minutes minutes and @seconds seconds."
+    }
+  },
+  "metadata": {
+    "license": "U",
+    "authors": [],
+    "changes": [],
+    "extraTitle": "Interactive Video",
+    "title": "Interactive Video"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "params": {
+    "timeline": {
+      "defaultZoomLevel": "0",
+      "height": 600,
+      "asset": {
+        "media": "https://www.youtube.com/watch?v=aH2mZtA5OhM",
+        "credit": "squash",
+        "caption": "squash is great"
+      },
+      "date": [{
+        "asset": {},
+        "startDate": "2000,01,01",
+        "endDate": "2002,01,01",
+        "headline": "Squash is inveneted",
+        "text": "<p>every body staretd playing&nbsp;</p>\n",
+        "tag": "tenis, squash, game"
+      }, {
+        "asset": {
+          "media": "https://www.youtube.com/watch?v=aH2mZtA5OhM",
+          "thumbnail": {
+            "path": "images/thumbnail-5fedff3700b38.jpg#tmp",
+            "mime": "image/jpeg",
+            "copyright": {
+              "license": "U"
+            },
+            "width": 254,
+            "height": 254
+          },
+          "credit": "Credits to the media",
+          "caption": "Caption text"
+        },
+        "startDate": "2003,01,01",
+        "endDate": "2019,01,01",
+        "headline": "Golden era",
+        "text": "<p>Squash is great&nbsp;</p>\n",
+        "tag": "sqaush, tenis, great"
+      }],
+      "language": "en",
+      "headline": "Timeline headline",
+      "text": "<div>this is a body of timeline&nbsp;</div>\n",
+      "backgroundImage": {
+        "path": "images/backgroundImage-5fedfebd9310d.jpg#tmp",
+        "mime": "image/jpeg",
+        "copyright": {
+          "license": "U"
+        },
+        "width": 254,
+        "height": 254
+      },
+      "era": [{
+        "startDate": "2003,01,01",
+        "endDate": "2013,01,01",
+        "headline": "Era of squash",
+        "text": "<div>\n<div>Era body</div>\n</div>\n",
+        "tag": "era, squash, great"
+      }]
+    }
+  },
+  "metadata": {
+    "license": "U",
+    "authors": [],
+    "changes": [],
+    "extraTitle": "Timeline",
+    "title": "Timeline"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "params": {
+    "titleScreen": {
+      "title": {
+        "display": true,
+        "text": "PErsonality Quiz"
+      },
+      "image": {},
+      "skip": false
+    },
+    "resultScreen": {
+      "animation": "wheel",
+      "displayTitle": true,
+      "displayDescription": true,
+      "imagePosition": "background"
+    },
+    "personalities": [{
+      "image": {
+        "file": {
+          "path": "images/file-5fedf8f23917a.jpg#tmp",
+          "mime": "image/jpeg",
+          "copyright": {
+            "license": "U"
+          },
+          "width": 254,
+          "height": 254
+        }
+      },
+      "name": "Super",
+      "description": "uuu i&#039;m super"
+    }, {
+      "image": {
+        "file": {
+          "path": "images/file-5fedf90d1e49f.png#tmp",
+          "mime": "image/png",
+          "copyright": {
+            "license": "U"
+          },
+          "width": 74,
+          "height": 88
+        }
+      },
+      "name": "Logo",
+      "description": "up up I&#039;m hero"
+    }],
+    "questions": [{
+      "image": {},
+      "answers": [{
+        "image": {},
+        "text": "yes",
+        "personality": "Hero"
+      }, {
+        "image": {},
+        "text": "no",
+        "personality": "Logo"
+      }],
+      "text": "Are you hero"
+    }],
+    "startText": "Start",
+    "progressText": "@question of @total",
+    "retakeText": "Retake the quiz",
+    "animation": true,
+    "buttonColor": "4D5DAA",
+    "progressbarColor": "38B755"
+  },
+  "metadata": {
+    "license": "U",
+    "authors": [],
+    "changes": [],
+    "extraTitle": "PErsonality Quiz",
+    "title": "PErsonality Quiz"
+  }
+}

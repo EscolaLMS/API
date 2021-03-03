@@ -1,0 +1,38 @@
+{
+  "params": {
+    "overallFeedback": [{
+      "from": 0,
+      "to": 100
+    }],
+    "checkAnswerButton": "Check",
+    "tryAgainButton": "Retry",
+    "showSolutionButton": "Show solution",
+    "behaviour": {
+      "enableRetry": true,
+      "enableSolutionsButton": true,
+      "enableCheckButton": true,
+      "showScorePoints": true
+    },
+    "correctAnswer": "Correct!",
+    "incorrectAnswer": "Incorrect!",
+    "missedAnswer": "Answer not found!",
+    "displaySolutionDescription": "Task is updated to contain the solution.",
+    "scoreBarLabel": "You got :num out of :total points",
+    "a11yFullTextLabel": "Full readable text",
+    "a11yClickableTextLabel": "Full text where words can be marked",
+    "a11ySolutionModeHeader": "Solution mode",
+    "a11yCheckingHeader": "Checking mode",
+    "a11yCheck": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
+    "a11yShowSolution": "Show the solution. The task will be marked with its correct solution.",
+    "a11yRetry": "Retry the task. Reset all responses and start the task over again.",
+    "taskDescription": "<p>MArk the Words</p>\n",
+    "textField": "<p>The correct words are marked like this: *correctword*&nbsp;</p>\n\n<p>The correct words are marked like lorem: *ipsum*</p>\n\n<p>The correct words are marked like foo: *bar*</p>\n"
+  },
+  "metadata": {
+    "license": "U",
+    "authors": [],
+    "changes": [],
+    "extraTitle": "MArk the Words",
+    "title": "MArk the Words"
+  }
+}

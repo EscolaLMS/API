@@ -1,0 +1,193 @@
+image: escolasoft/ubuntu-ssh
+
+include:
+  - template: Auto-DevOps.gitlab-ci.yml
+
+build:
+  tags:
+    - cluster
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"
+
+review:
+  tags:
+    - cluster
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web" &&  $CI_COMMIT_BRANCH != "master"
+
+production:
+  tags:
+    - cluster
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web" && $CI_COMMIT_BRANCH == "master"
+
+code_quality:
+  tags:
+    - cluster
+#  rules:
+#    - if: $CI_PIPELINE_SOURCE == "web"
+
+variables:
+  PERFORMANCE_DISABLED: PERFORMANCE_DISABLED
+  DB_MIGRATE: "php artisan migrate:fresh --seed"
+
+test:
+  image: edbizarro/gitlab-ci-pipeline-php:7.4-alpine
+  stage: test
+  #coverage: '^\s*Lines:\s*\d+.\d+\%'
+  services:
+    - postgres:12
+  variables:
+    POSTGRES_DB: default
+    POSTGRES_USER: default
+    POSTGRES_PASSWORD: secret
+    POSTGRES_HOST_AUTH_METHOD: trust
+  before_script:
+    - sudo sh -c "echo 'precedence ::ffff:0:0/96 100' >> /etc/gai.conf"
+    - cp .env.ci.testing .env
+    - cp .env.ci.testing .env.testing
+    - COMPOSER_MEMORY_LIMIT=-1 composer install
+    - php artisan migrate:fresh --seed
+    - php artisan passport:keys --force
+    - php artisan passport:client --personal --no-interaction
+  script:
+    - php vendor/bin/phpunit --log-junit test-report-phpunit.xml --coverage-text --colors=never
+  artifacts:
+    reports:
+      junit: test-report-phpunit.xml
+  tags:
+    - services
+  rules:
+    - if: "$TEST_DISABLED"
+      when: never
+    - if: "$CI_COMMIT_TAG || $CI_COMMIT_BRANCH"
+
+test-behat:
+  image: edbizarro/gitlab-ci-pipeline-php:7.4-alpine
+  stage: test
+  services:
+    - postgres:12-alpine
+  variables:
+    POSTGRES_DB: default
+    POSTGRES_USER: default
+    POSTGRES_PASSWORD: secret
+    POSTGRES_HOST_AUTH_METHOD: trust
+  before_script:
+    - sudo sh -c "echo 'precedence ::ffff:0:0/96 100' >> /etc/gai.conf"
+    - cp .env.ci.testing .env
+    - cp .env.ci.testing .env.testing
+    - COMPOSER_MEMORY_LIMIT=-1 composer install
+    - php artisan migrate:fresh --seed
+    - php artisan passport:keys --force
+    - php artisan passport:client --personal --no-interaction
+  script:
+    - vendor/bin/behat --colors  -f junit -o test-report-behat.xml -f pretty -o std
+  artifacts:
+    reports:
+      junit: test-report-behat.xml/default.xml
+    expire_in: 1 week
+  tags:
+    - services
+  rules:
+    - if: "$TEST_DISABLED"
+      when: never
+    - if: "$CI_COMMIT_TAG || $CI_COMMIT_BRANCH"
+
+deploy_stage:
+  stage: deploy
+  resource_group: staging
+  variables:
+    GIT_STRATEGY: none
+  environment:
+    name: stage
+    url: https://getkibble.stage.etd24.pl/
+  before_script:
+    - "which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )"
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script:
+    - echo "Deploy to staging server"
+    - ssh escola@stage.etd24.pl 'exec ~/scripts/getkibble-build.sh'
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+  tags:
+    - services
+
+deploy_clients_stage:
+  stage: deploy
+  resource_group: staging
+  variables:
+    GIT_STRATEGY: none
+  environment:
+    name: clients_stage
+    url: https://gk-admin.stage.etd24.pl/
+  before_script:
+    - "which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )"
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script:
+    - echo "Deploy to staging server"
+    - ssh escola@stage.etd24.pl 'exec ~/scripts/getkibble-client-build.sh'
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+      when: manual
+  tags:
+    - services
+
+deploy_clients_stage_migrate-fresh:
+  stage: deploy
+  resource_group: staging
+  variables:
+    GIT_STRATEGY: none
+  environment:
+    name: clients_stage
+    url: https://gk-admin.stage.etd24.pl/
+  before_script:
+    - "which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )"
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script:
+    - echo "Deploy to staging server"
+    - ssh escola@stage.etd24.pl 'exec ~/scripts/getkibble-client-migrate-fresh.sh'
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+      when: manual
+  tags:
+    - services
+
+
+## DISABLE some of SAST test but not all SAST task
+
+spotbugs-sast:
+  script: "echo hi"
+  rules:
+    - when: never
+
+eslint-sast:
+  script: "echo hi"
+  rules:
+    - when: never
+
+nodejs-scan-sast:
+  script: "echo hi"
+  rules:
+    - when: never
+
+flawfinder-sast:
+  script: "echo hi"
+  rules:
+    - when: never
+
+secret_detection:
+  allow_failure: true    
+
+cache:
+  paths:
+    - vendor/
+    - node_modules/

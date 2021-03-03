@@ -1,0 +1,132 @@
+{
+  "params": {
+    "media": {
+      "type": {
+        "params": {
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "l10n": {
+            "name": "Video",
+            "loading": "Video player loading...",
+            "noPlayers": "Found no video players that supports the given video format.",
+            "noSources": "Video is missing sources.",
+            "aborted": "Media playback has been aborted.",
+            "networkFailure": "Network failure.",
+            "cannotDecode": "Unable to decode media.",
+            "formatNotSupported": "Video format not supported.",
+            "mediaEncrypted": "Media encrypted.",
+            "unknownError": "Unknown error.",
+            "invalidYtId": "Invalid YouTube ID.",
+            "unknownYtId": "Unable to find video with the given YouTube ID.",
+            "restrictedYt": "The owner of this video does not allow it to be embedded."
+          },
+          "sources": [{
+            "path": "videos/sources-5fedf705ebaae.mp4#tmp",
+            "mime": "video/mp4",
+            "copyright": {
+              "license": "U"
+            }
+          }]
+        },
+        "library": "H5P.Video 1.5",
+        "metadata": {
+          "contentType": "Video",
+          "license": "U",
+          "title": "Untitled Video",
+          "authors": [],
+          "changes": [],
+          "extraTitle": "Untitled Video"
+        },
+        "subContentId": "102e2144-7ec7-460a-bd26-d44355e978d7"
+      },
+      "disableImageZooming": false
+    },
+    "answers": [{
+      "correct": true,
+      "tipsAndFeedback": {
+        "tip": "",
+        "chosenFeedback": "",
+        "notChosenFeedback": ""
+      },
+      "text": "<div>Bar</div>\n"
+    }, {
+      "correct": false,
+      "tipsAndFeedback": {
+        "tip": "",
+        "chosenFeedback": "",
+        "notChosenFeedback": ""
+      },
+      "text": "<div>fdssdff</div>\n"
+    }, {
+      "correct": false,
+      "tipsAndFeedback": {
+        "tip": "<p>foobrar?</p>\n",
+        "chosenFeedback": "<div>yes</div>\n",
+        "notChosenFeedback": "<div>no&nbsp;</div>\n"
+      },
+      "text": "<div>fdsfsd</div>\n"
+    }],
+    "overallFeedback": [{
+      "from": 0,
+      "to": 100
+    }],
+    "behaviour": {
+      "enableRetry": true,
+      "enableSolutionsButton": true,
+      "enableCheckButton": true,
+      "type": "auto",
+      "singlePoint": false,
+      "randomAnswers": true,
+      "showSolutionsRequiresInput": true,
+      "confirmCheckDialog": false,
+      "confirmRetryDialog": false,
+      "autoCheck": false,
+      "passPercentage": 100,
+      "showScorePoints": true
+    },
+    "UI": {
+      "checkAnswerButton": "Check",
+      "showSolutionButton": "Show solution",
+      "tryAgainButton": "Retry",
+      "tipsLabel": "Show tip",
+      "scoreBarLabel": "You got :num out of :total points",
+      "tipAvailable": "Tip available",
+      "feedbackAvailable": "Feedback available",
+      "readFeedback": "Read feedback",
+      "wrongAnswer": "Wrong answer",
+      "correctAnswer": "Correct answer",
+      "shouldCheck": "Should have been checked",
+      "shouldNotCheck": "Should not have been checked",
+      "noInput": "Please answer before viewing the solution",
+      "a11yCheck": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
+      "a11yShowSolution": "Show the solution. The task will be marked with its correct solution.",
+      "a11yRetry": "Retry the task. Reset all responses and start the task over again."
+    },
+    "confirmCheck": {
+      "header": "Finish ?",
+      "body": "Are you sure you wish to finish ?",
+      "cancelLabel": "Cancel",
+      "confirmLabel": "Finish"
+    },
+    "confirmRetry": {
+      "header": "Retry ?",
+      "body": "Are you sure you wish to retry ?",
+      "cancelLabel": "Cancel",
+      "confirmLabel": "Confirm"
+    },
+    "question": "<p>Foo</p>\n"
+  },
+  "metadata": {
+    "title": "Mutliple choise",
+    "license": "U",
+    "authors": [],
+    "changes": [],
+    "extraTitle": "Mutliple choise"
+  }
+}

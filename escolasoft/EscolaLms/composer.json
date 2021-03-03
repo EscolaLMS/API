@@ -1,0 +1,35 @@
+{
+  "name": "escolasoft/escola-lms",
+  "description": "Escola Headless LMS",
+  "type": "project",
+  "require": {
+    "php": "^7.4",
+    "laravel/framework": "^8.0",
+    "bensampo/laravel-enum": "3.x"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0",
+    "orchestra/testbench": "^6.0"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Marcin Lenkowski",
+      "email": "marcin.lenkowski@escola.pl"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "EscolaSoft\\EscolaLms\\": "src",
+      "EscolaSoft\\EscolaLms\\Tests\\": "tests",
+      "Database\\Factories\\EscolaSoft\\EscolaLms\\Models\\": "database/factories"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "EscolaSoft\\EscolaLms\\EscolaLmsServiceProvider"
+      ]
+    }
+  }
+}

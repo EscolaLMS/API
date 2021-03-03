@@ -1,0 +1,122 @@
+{
+  "params": {
+    "iconType": "icon",
+    "icon": "plus",
+    "color": "#981d99",
+    "hotspots": [{
+      "position": {
+        "x": 38.4,
+        "y": 42.13235294117647
+      },
+      "alwaysFullscreen": false,
+      "content": [{
+        "params": {
+          "text": "<p>this is eye</p>\n"
+        },
+        "library": "H5P.Text 1.1",
+        "metadata": {
+          "contentType": "Text",
+          "license": "U",
+          "title": "Untitled Text",
+          "authors": [],
+          "changes": [],
+          "extraTitle": "Untitled Text"
+        },
+        "subContentId": "dc5814cc-5fa0-4b65-ab03-4ebf84978d74"
+      }, {
+        "params": {
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "l10n": {
+            "name": "Video",
+            "loading": "Video player loading...",
+            "noPlayers": "Found no video players that supports the given video format.",
+            "noSources": "Video is missing sources.",
+            "aborted": "Media playback has been aborted.",
+            "networkFailure": "Network failure.",
+            "cannotDecode": "Unable to decode media.",
+            "formatNotSupported": "Video format not supported.",
+            "mediaEncrypted": "Media encrypted.",
+            "unknownError": "Unknown error.",
+            "invalidYtId": "Invalid YouTube ID.",
+            "unknownYtId": "Unable to find video with the given YouTube ID.",
+            "restrictedYt": "The owner of this video does not allow it to be embedded."
+          },
+          "sources": [{
+            "path": "videos/sources-5fede7de1aecc.mp4#tmp",
+            "mime": "video/mp4",
+            "copyright": {
+              "license": "U"
+            }
+          }]
+        },
+        "library": "H5P.Video 1.5",
+        "metadata": {
+          "contentType": "Video",
+          "license": "U",
+          "title": "Untitled Video",
+          "authors": [],
+          "changes": [],
+          "extraTitle": "Untitled Video"
+        },
+        "subContentId": "6854f0f5-35bf-496b-9cc6-a46b6b735072"
+      }],
+      "header": "eye1"
+    }, {
+      "position": {
+        "x": 76.4,
+        "y": 49.36274509803922
+      },
+      "alwaysFullscreen": false,
+      "content": [{
+        "params": {
+          "contentName": "Image",
+          "file": {
+            "path": "images/file-5fede805a8b59.png#tmp",
+            "mime": "image/png",
+            "copyright": {
+              "license": "U"
+            },
+            "width": 74,
+            "height": 88
+          }
+        },
+        "library": "H5P.Image 1.1",
+        "metadata": {
+          "contentType": "Image",
+          "license": "U",
+          "title": "Untitled Image",
+          "authors": [],
+          "changes": [],
+          "extraTitle": "Untitled Image"
+        },
+        "subContentId": "14f9eb3b-33ac-492f-a431-67d927bed715"
+      }],
+      "header": "this is ear"
+    }],
+    "hotspotNumberLabel": "Hotspot #num",
+    "closeButtonLabel": "Close",
+    "image": {
+      "path": "images/image-5fede7a562f20.jpg#tmp",
+      "mime": "image/jpeg",
+      "copyright": {
+        "license": "U"
+      },
+      "width": 254,
+      "height": 254
+    }
+  },
+  "metadata": {
+    "license": "U",
+    "authors": [],
+    "changes": [],
+    "extraTitle": "Image hotspots",
+    "title": "Image hotspots"
+  }
+}

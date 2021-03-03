@@ -1,0 +1,56 @@
+{
+  "params": {
+    "cards": [{
+      "image": {
+        "path": "images/image-5fede18899a53.jpg#tmp",
+        "mime": "image/jpeg",
+        "copyright": {
+          "license": "U"
+        },
+        "width": 254,
+        "height": 254
+      },
+      "text": "Is this a Man ?",
+      "answer": "Yes",
+      "tip": ""
+    }, {
+      "text": "Is this a woman ?",
+      "answer": "no",
+      "image": {
+        "path": "images/image-5fede1a9867ba.jpg#tmp",
+        "mime": "image/jpeg",
+        "copyright": {
+          "license": "U"
+        },
+        "width": 254,
+        "height": 254
+      },
+      "tip": ""
+    }],
+    "progressText": "Card @card of @total",
+    "next": "Next",
+    "previous": "Previous",
+    "checkAnswerText": "Check",
+    "showSolutionsRequiresInput": true,
+    "defaultAnswerText": "Your answer",
+    "correctAnswerText": "Correct",
+    "incorrectAnswerText": "Incorrect",
+    "showSolutionText": "Correct answer",
+    "results": "Results",
+    "ofCorrect": "@score of @total correct",
+    "showResults": "Show results",
+    "answerShortText": "A:",
+    "retry": "Retry",
+    "caseSensitive": false,
+    "cardAnnouncement": "Incorrect answer. Correct answer was @answer",
+    "pageAnnouncement": "Page @current of @total",
+    "description": "Flashcards task description"
+  },
+  "metadata": {
+    "license": "U",
+    "authors": [],
+    "changes": [],
+    "extraTitle": "Flashcars",
+    "title": "Flashcars"
+  }
+}

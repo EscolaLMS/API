@@ -1,0 +1,79 @@
+{
+  "params": {
+    "taskDescription": "Drag to arrange the images in the correct sequence",
+    "altTaskDescription": "Make the following list be ordered correctly. Use the cursor keys to navigate through the list items, use space to activate or deactivate an item and the cursor keys to move it",
+    "sequenceImages": [{
+      "image": {
+        "path": "images/image-5fedf0396c297.jpg#tmp",
+        "mime": "image/jpeg",
+        "copyright": {
+          "license": "U"
+        },
+        "width": 254,
+        "height": 254
+      },
+      "imageDescription": "man is first",
+      "audio": [{
+        "path": "audios/audio-5fedf04513dd0.mp3#tmp",
+        "mime": "audio/mpeg",
+        "copyright": {
+          "license": "U"
+        }
+      }]
+    }, {
+      "image": {
+        "path": "images/image-5fedf0499bba7.png#tmp",
+        "mime": "image/png",
+        "copyright": {
+          "license": "U"
+        },
+        "width": 74,
+        "height": 88
+      },
+      "imageDescription": "logo is second",
+      "audio": [{
+        "path": "audios/audio-5fedf0547fc52.mp3#tmp",
+        "mime": "audio/mpeg",
+        "copyright": {
+          "license": "U"
+        }
+      }]
+    }, {
+      "image": {
+        "path": "images/image-5fedf059d818c.jpg#tmp",
+        "mime": "image/jpeg",
+        "copyright": {
+          "license": "U"
+        },
+        "width": 254,
+        "height": 254
+      },
+      "imageDescription": "man is first or third"
+    }],
+    "behaviour": {
+      "enableSolution": true,
+      "enableRetry": true,
+      "enableResume": true
+    },
+    "l10n": {
+      "totalMoves": "Total Moves",
+      "timeSpent": "Time spent",
+      "score": "You got @score of @total points",
+      "checkAnswer": "Check",
+      "tryAgain": "Retry",
+      "showSolution": "ShowSolution",
+      "resume": "Resume",
+      "audioNotSupported": "Audio Error",
+      "ariaPlay": "Play the corresponding audio",
+      "ariaMoveDescription": "Moved @cardDesc from @posSrc to @posDes",
+      "ariaCardDesc": "sequencing item"
+    }
+  },
+  "metadata": {
+    "license": "U",
+    "authors": [],
+    "changes": [],
+    "extraTitle": "Image sequencing",
+    "title": "Image sequencing"
+  }
+}

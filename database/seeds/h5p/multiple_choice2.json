@@ -1,0 +1,112 @@
+{
+  "params": {
+    "media": {
+      "type": {
+        "params": {
+          "contentName": "Image",
+          "file": {
+            "path": "images/file-5fedf54f65320.jpg#tmp",
+            "mime": "image/jpeg",
+            "copyright": {
+              "license": "U"
+            },
+            "width": 254,
+            "height": 254
+          }
+        },
+        "library": "H5P.Image 1.1",
+        "metadata": {
+          "contentType": "Image",
+          "license": "U",
+          "title": "Untitled Image",
+          "authors": [],
+          "changes": [],
+          "extraTitle": "Untitled Image"
+        },
+        "subContentId": "8e66b13a-f851-448d-8c71-4f269d2b519c"
+      },
+      "disableImageZooming": false
+    },
+    "answers": [{
+      "correct": true,
+      "tipsAndFeedback": {
+        "tip": "",
+        "chosenFeedback": "",
+        "notChosenFeedback": ""
+      },
+      "text": "<div>Bar</div>\n"
+    }, {
+      "correct": true,
+      "tipsAndFeedback": {
+        "tip": "<p>this is a tip</p>\n",
+        "chosenFeedback": "",
+        "notChosenFeedback": ""
+      },
+      "text": "<div>foobrar</div>\n"
+    }, {
+      "correct": false,
+      "tipsAndFeedback": {
+        "tip": "<p>foobrar?</p>\n",
+        "chosenFeedback": "<div>yes</div>\n",
+        "notChosenFeedback": "<div>no&nbsp;</div>\n"
+      },
+      "text": "<div>fdsfsd</div>\n"
+    }],
+    "overallFeedback": [{
+      "from": 0,
+      "to": 100
+    }],
+    "behaviour": {
+      "enableRetry": true,
+      "enableSolutionsButton": true,
+      "enableCheckButton": true,
+      "type": "auto",
+      "singlePoint": false,
+      "randomAnswers": true,
+      "showSolutionsRequiresInput": true,
+      "confirmCheckDialog": false,
+      "confirmRetryDialog": false,
+      "autoCheck": false,
+      "passPercentage": 100,
+      "showScorePoints": true
+    },
+    "UI": {
+      "checkAnswerButton": "Check",
+      "showSolutionButton": "Show solution",
+      "tryAgainButton": "Retry",
+      "tipsLabel": "Show tip",
+      "scoreBarLabel": "You got :num out of :total points",
+      "tipAvailable": "Tip available",
+      "feedbackAvailable": "Feedback available",
+      "readFeedback": "Read feedback",
+      "wrongAnswer": "Wrong answer",
+      "correctAnswer": "Correct answer",
+      "shouldCheck": "Should have been checked",
+      "shouldNotCheck": "Should not have been checked",
+      "noInput": "Please answer before viewing the solution",
+      "a11yCheck": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
+      "a11yShowSolution": "Show the solution. The task will be marked with its correct solution.",
+      "a11yRetry": "Retry the task. Reset all responses and start the task over again."
+    },
+    "confirmCheck": {
+      "header": "Finish ?",
+      "body": "Are you sure you wish to finish ?",
+      "cancelLabel": "Cancel",
+      "confirmLabel": "Finish"
+    },
+    "confirmRetry": {
+      "header": "Retry ?",
+      "body": "Are you sure you wish to retry ?",
+      "cancelLabel": "Cancel",
+      "confirmLabel": "Confirm"
+    },
+    "question": "<p>Foo</p>\n"
+  },
+  "metadata": {
+    "title": "Mutliple choise",
+    "license": "U",
+    "authors": [],
+    "changes": [],
+    "extraTitle": "Mutliple choise"
+  }
+}

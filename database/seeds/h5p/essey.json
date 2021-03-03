@@ -1,0 +1,74 @@
+{
+  "params": {
+    "media": {
+      "type": {
+        "params": {}
+      },
+      "disableImageZooming": false
+    },
+    "solution": {
+      "introduction": "<div>This is an inctroduction of the essey. The essey should be about lorem ipsum and should contain the word \"keyword\"</div>\n",
+      "sample": "<div>&nbsp;</div>\n\n<div>Sample solution text</div>\n"
+    },
+    "keywords": [{
+      "options": {
+        "points": 1,
+        "occurrences": 1,
+        "caseSensitive": true,
+        "forgiveMistakes": false,
+        "feedbackIncludedWord": "keyword",
+        "feedbackMissedWord": "none"
+      },
+      "keyword": "keyword"
+    }, {
+      "options": {
+        "points": 1,
+        "occurrences": 1,
+        "caseSensitive": true,
+        "forgiveMistakes": false,
+        "feedbackIncludedWord": "keyword",
+        "feedbackMissedWord": "none"
+      },
+      "keyword": "lorem"
+    }, {
+      "options": {
+        "points": 1,
+        "occurrences": 1,
+        "caseSensitive": true,
+        "forgiveMistakes": false,
+        "feedbackIncludedWord": "keyword",
+        "feedbackMissedWord": "none"
+      },
+      "keyword": "ipsum"
+    }],
+    "overallFeedback": [{
+      "from": 0,
+      "to": 100
+    }],
+    "behaviour": {
+      "inputFieldSize": "10",
+      "enableRetry": true,
+      "ignoreScoring": false,
+      "pointsHost": 1
+    },
+    "checkAnswer": "Check",
+    "tryAgain": "Retry",
+    "showSolution": "Show solution",
+    "feedbackHeader": "Feedback",
+    "solutionTitle": "Sample solution",
+    "remainingChars": "Remaining characters: @chars",
+    "notEnoughChars": "You must enter at least @chars characters!",
+    "messageSave": "saved",
+    "ariaYourResult": "You got @score out of @total points",
+    "ariaNavigatedToSolution": "Navigated to newly included sample solution after textarea.",
+    "taskDescription": "<p>This is a summary. Write an essey about Lorem Ipsum</p>\n",
+    "placeholderText": "This text should help the user to get started."
+  },
+  "metadata": {
+    "license": "U",
+    "authors": [],
+    "changes": [],
+    "extraTitle": "Essey",
+    "title": "Essey"
+  }
+}

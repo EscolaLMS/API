@@ -1,0 +1,47 @@
+{
+  "params": {
+    "panels": [{
+      "content": {
+        "params": {
+          "text": "<p>Treść 1</p>\n"
+        },
+        "library": "H5P.AdvancedText 1.1",
+        "subContentId": "5e263fc2-e019-4f38-8945-af71c3ad5b80",
+        "metadata": {
+          "contentType": "Text",
+          "license": "U",
+          "title": "Untitled Text",
+          "authors": [],
+          "changes": [],
+          "extraTitle": "Untitled Text"
+        }
+      },
+      "title": "Tytuł 1"
+    }, {
+      "content": {
+        "params": {
+          "text": "<p>Treść 2</p>\n"
+        },
+        "library": "H5P.AdvancedText 1.1",
+        "subContentId": "99247d16-6bc1-4de3-bb82-da173fedbf82",
+        "metadata": {
+          "contentType": "Text",
+          "license": "U",
+          "title": "Untitled Text",
+          "authors": [],
+          "changes": [],
+          "extraTitle": "Untitled Text"
+        }
+      },
+      "title": "Tytuł 2"
+    }],
+    "hTag": "h2"
+  },
+  "metadata": {
+    "license": "U",
+    "authors": [],
+    "changes": [],
+    "extraTitle": "To jest akordeon",
+    "title": "To jest akordeon"
+  }
+}

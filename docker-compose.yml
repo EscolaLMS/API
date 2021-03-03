@@ -1,0 +1,68 @@
+version: "3.5"
+networks:
+  escola_lms:
+    name: escola_lms
+    driver: bridge
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "1000:80"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/conf/:/etc/nginx/conf.d/
+      - ./docker/www_logs/nginx:/var/log/nginx
+    links:
+      - escola_lms_app
+    networks:
+      - escola_lms
+  escola_lms_app:
+    image: escolasoft1/laravel-prod-docker:fpm
+    command: bash -c "/etc/init.d/cron start && php-fpm -F"
+    volumes:
+      - ./:/var/www/html:cached
+      - ./docker/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
+    networks:
+      - escola_lms
+  #  mysql:
+  #    networks:
+  #      - escola_lms
+  #    image: mariadb:10.5
+  #    volumes:
+  #      - ./docker/mysql-data:/var/lib/mysql
+  #      - ./docker/conf/mysql:/etc/mysql/conf.d
+  #    environment:
+  #      MYSQL_ROOT_PASSWORD: root
+  #      MYSQL_DATABASE: database
+  #  escola_lms_phpmyadmin:
+  #    networks:
+  #      - escola_lms
+  #    image: phpmyadmin/phpmyadmin
+  #    depends_on:
+  #      - mysql
+  #    ports:
+  #      - "8079:80"
+  #    environment:
+  #      MYSQL_ROOT_PASSWORD: root
+  #      MYSQL_USERNAME: root
+  #      PMA_HOST: mysql
+  postgres:
+    image: postgres:12
+    networks:
+      - escola_lms
+    volumes:
+      - ./docker/postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=default
+      - POSTGRES_USER=default
+      - POSTGRES_PASSWORD=secret
+      - TZ=Europe/Warsaw
+    ports:
+      - "5432:5432"
+
+  adminer:
+    networks:
+      - escola_lms
+    image: adminer
+    ports:
+      - 8079:8080

@@ -1,0 +1,40 @@
+{
+  "params": {
+    "media": {
+      "params": {
+        "contentName": "Image",
+        "file": {
+          "path": "images/file-5fede30200ec8.jpg#tmp",
+          "mime": "image/jpeg",
+          "copyright": {
+            "license": "U"
+          },
+          "width": 254,
+          "height": 254
+        },
+        "alt": "The man",
+        "title": "who is he ?"
+      },
+      "library": "H5P.Image 1.1",
+      "metadata": {
+        "contentType": "Image",
+        "license": "U",
+        "title": "The man",
+        "authors": [],
+        "changes": [],
+        "extraTitle": "The man"
+      },
+      "subContentId": "8aab536a-8bbe-4951-bcbb-c2fef3f4f024"
+    },
+    "solutionLabel": "Click to see the answer.",
+    "taskDescription": "<p>Guess The Answer task descrition</p>\n",
+    "solutionText": "this is a man"
+  },
+  "metadata": {
+    "license": "U",
+    "authors": [],
+    "changes": [],
+    "extraTitle": "Guess The Answer image",
+    "title": "Guess The Answer image"
+  }
+}
