@@ -42,7 +42,7 @@ jobs:
       image: escolasoft1/laravel-prod-docker:fpm
 
     services:
-      mysql:
+      postgres:
         image: postgres:12
         env:
           POSTGRES_USER: postgres
@@ -51,7 +51,6 @@ jobs:
           TZ: Europe/Warsaw
         ports:
           - 5432:5432
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - uses: actions/checkout@v1
@@ -114,7 +113,7 @@ jobs:
       image: escolasoft1/laravel-prod-docker:fpm
 
     services:
-      mysql:
+      postgres:
         image: postgres:12
         env:
           POSTGRES_USER: postgres
@@ -123,7 +122,6 @@ jobs:
           TZ: Europe/Warsaw
         ports:
           - 5432:5432
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - uses: actions/checkout@v1
