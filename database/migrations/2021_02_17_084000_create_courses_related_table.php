@@ -14,8 +14,8 @@ class CreateCoursesRelatedTable extends Migration
     public function up()
     {
         Schema::create('courses_related', function (Blueprint $table) {
-            $table->unsignedBigInteger('course_id')->index();
-            $table->unsignedBigInteger('course_related_id')->index();
+            $table->unsignedInteger('course_id')->index();
+            $table->unsignedInteger('course_related_id')->index();
 
             $table->primary(['course_id', 'course_related_id']);
 
