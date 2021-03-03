@@ -28,7 +28,7 @@ interface AuthSwagger
      *             @OA\Property(
      *                 property="return_url",
      *                 type="string",
-     *                 example="https://getkibble.com/password-reset",
+     *                 example="https://escolalms.com/password-reset",
      *             ),
      *         )
      *     ),
