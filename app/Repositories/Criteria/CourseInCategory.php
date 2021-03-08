@@ -3,6 +3,7 @@
 namespace App\Repositories\Criteria;
 
 use App\Models\Category;
+use EscolaLms\Core\Repositories\Criteria\Criterion;
 use Illuminate\Database\Eloquent\Builder;
 
 class CourseInCategory extends Criterion

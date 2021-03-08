@@ -36,10 +36,10 @@ use App\Repositories\Contracts\CurriculumSectionRepositoryContract;
 use App\Repositories\Contracts\UserRepositoryContract;
 use App\Repositories\Criteria\CourseInCategory;
 use App\Repositories\Criteria\CourseInstructor;
-use App\Repositories\Criteria\CourseSearch;
-use App\Repositories\Criteria\NotRelatedCourses;
-use App\Repositories\Criteria\Primitives\InCriterion;
-use App\Repositories\Criteria\UserCriterion;
+use EscolaLms\Core\Repositories\Criteria\CourseSearch;
+use EscolaLms\Core\Repositories\Criteria\NotRelatedCourses;
+use EscolaLms\Core\Repositories\Criteria\Primitives\InCriterion;
+use EscolaLms\Core\Repositories\Criteria\UserCriterion;
 use App\Services\Contracts\VideoServiceContract;
 use App\Services\EscolaLMS\Contracts\CourseServiceContract;
 use App\Services\EscolaLMS\Media\Media;
@@ -90,7 +90,8 @@ class CourseService implements CourseServiceContract
         CurriculumLecturesQuizRepositoryContract $curriculumLecturesQuizRepository,
         CourseFileRepositoryContract $courseFileRepository,
         UserRepositoryContract $userRepository
-    ) {
+    )
+    {
         $this->model = $course;
         $this->videoService = $videoService;
         $this->courseRepository = $courseRepository;

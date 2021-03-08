@@ -11,7 +11,7 @@ use App\Models\User;
 use App\Repositories\Contracts\CourseProgressRepositoryContract;
 use App\Repositories\Contracts\InstructorRepositoryContract;
 use App\Repositories\Contracts\UserRepositoryContract;
-use App\Repositories\Criteria\Primitives\DateCriterion;
+use EscolaLms\Core\Repositories\Criteria\Primitives\DateCriterion;
 use App\Services\Contracts\UserServiceContract;
 use Carbon\Carbon;
 use EscolaLms\Core\Dtos\PaginationDto;

@@ -246,7 +246,7 @@ class CourseApiTest extends TestCase
 
         $data = json_decode($this->response->getContent(), true);
 
-        foreach (['id', 'course_slug', 'instruction_level_id', 'instruction_level', 'course_title', 'keywords', 'video', 'overview', 'duration', 'price', 'strike_out_price', 'active', 'tags', 'shortDesc', 'author',  'related', 'category_id', 'instructor_id', 'is_active', 'created_at', 'updated_at'] as $key) {
+        foreach (['id', 'course_slug', 'instruction_level_id', 'instruction_level', 'course_title', 'keywords', 'video', 'overview', 'duration', 'price', 'strike_out_price', 'active', 'tags', 'shortDesc', 'author', 'related', 'category_id', 'instructor_id', 'is_active', 'created_at', 'updated_at'] as $key) {
             $this->assertArrayHasKey($key, $data);
         }
         $this->response->assertOk();

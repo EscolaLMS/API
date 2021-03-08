@@ -2,12 +2,12 @@
 
 namespace App\Dto;
 
-use App\Repositories\Criteria\PeriodCriterion;
-use App\Repositories\Criteria\Primitives\DoesntHasCriterion;
-use App\Repositories\Criteria\Primitives\EqualCriterion;
-use App\Repositories\Criteria\Primitives\HasCriterion;
-use App\Repositories\Criteria\RoleCriterion;
-use App\Repositories\Criteria\UserSearchCriterion;
+use EscolaLms\Core\Repositories\Criteria\PeriodCriterion;
+use EscolaLms\Core\Repositories\Criteria\Primitives\DoesntHasCriterion;
+use EscolaLms\Core\Repositories\Criteria\Primitives\EqualCriterion;
+use EscolaLms\Core\Repositories\Criteria\Primitives\HasCriterion;
+use EscolaLms\Core\Repositories\Criteria\RoleCriterion;
+use EscolaLms\Core\Repositories\Criteria\UserSearchCriterion;
 use Carbon\Carbon;
 use EscolaLms\Core\Dtos\Contracts\DtoContract;
 use EscolaLms\Core\Dtos\Contracts\InstantiateFromRequest;

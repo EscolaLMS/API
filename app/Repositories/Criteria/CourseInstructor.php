@@ -4,6 +4,7 @@
 namespace App\Repositories\Criteria;
 
 use App\Models\Instructor;
+use EscolaLms\Core\Repositories\Criteria\Criterion;
 use Illuminate\Database\Eloquent\Builder;
 
 class CourseInstructor extends Criterion
