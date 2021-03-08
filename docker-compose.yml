@@ -28,6 +28,8 @@ services:
   mysql:
     networks:
       - escola_lms
+    ports:
+      - "3306:3306"
     image: mariadb:10.5
     volumes:
       - ./docker/mysql-data:/var/lib/mysql
@@ -40,6 +42,8 @@ services:
 
   postgres:
     image: postgres:12
+    ports:
+      - "5432:5432"
     networks:
       - escola_lms
     volumes:
