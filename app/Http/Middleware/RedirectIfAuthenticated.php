@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Enum\UserRole;
+use EscolaLms\Core\Enum\UserRole;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 

@@ -2,7 +2,7 @@
 
 namespace App\Dto;
 
-use App\Enum\UserRole;
+use EscolaLms\Core\Enum\UserRole;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\Instructor;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Traits;
 
-use App\Enum\UserRole;
+use EscolaLms\Core\Enum\UserRole;
 
 trait WithRole
 {

@@ -18,7 +18,7 @@ use App\Enum\CourseTypeEnum;
 use App\Enum\InstructionLevel;
 use App\Enum\LectureType;
 use App\Enum\MediaType;
-use App\Enum\UserRole;
+use EscolaLms\Core\Enum\UserRole;
 use App\Library\VideoHelpers;
 use App\Models\Category;
 use App\Models\Contracts\MediaModelContract;

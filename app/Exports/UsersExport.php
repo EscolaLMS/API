@@ -3,7 +3,7 @@
 namespace App\Exports;
 
 use App\Enum\GenderType;
-use App\Enum\UserRole;
+use EscolaLms\Core\Enum\UserRole;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;

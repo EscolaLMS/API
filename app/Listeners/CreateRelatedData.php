@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Enum\UserRole;
+use EscolaLms\Core\Enum\UserRole;
 use App\Services\Contracts\UserServiceContract;
 use Illuminate\Auth\Events\Registered;
 

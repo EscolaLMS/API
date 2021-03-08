@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Enum\UserRole;
+use EscolaLms\Core\Enum\UserRole;
 use App\Models\Course;
 use App\Models\Credit;
 use App\Models\Instructor;

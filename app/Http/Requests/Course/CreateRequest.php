@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Course;
 
-use App\Enum\UserRole;
+use EscolaLms\Core\Enum\UserRole;
 
 class CreateRequest extends CourseRequest
 {
