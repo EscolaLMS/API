@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Dto\UserSaveDto;
-use EscolaLms\Core\Enum\UserRole;
+use EscolaLms\Core\Enums\UserRole;
 use App\Events\PasswordForgotten;
 use App\Repositories\Contracts\UserRepositoryContract;
 use App\Services\Contracts\AuthServiceContract;

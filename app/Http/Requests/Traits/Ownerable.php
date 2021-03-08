@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Traits;
 
-use EscolaLms\Core\Enum\UserRole;
+use EscolaLms\Core\Enums\UserRole;
 
 trait Ownerable
 {

@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use EscolaLms\Core\Enum\UserRole;
+use EscolaLms\Core\Enums\UserRole;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DocumentUploadRequest extends FormRequest

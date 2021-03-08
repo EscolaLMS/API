@@ -2,7 +2,7 @@
 
 namespace App\Dto;
 
-use EscolaLms\Core\Enum\UserRole;
+use EscolaLms\Core\Enums\UserRole;
 use EscolaLms\Core\Dtos\Contracts\InstantiateFromRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;

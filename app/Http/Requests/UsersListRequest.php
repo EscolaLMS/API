@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Enum\OnboardingStatus;
 use App\Enum\StatusEnum;
-use EscolaLms\Core\Enum\UserRole;
+use EscolaLms\Core\Enums\UserRole;
 use App\Http\Requests\Traits\WithRole;
 use BenSampo\Enum\Rules\EnumValue;
 use Illuminate\Foundation\Http\FormRequest;
