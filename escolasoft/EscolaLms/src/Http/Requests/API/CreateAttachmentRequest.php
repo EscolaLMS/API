@@ -1,6 +1,6 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\Http\Requests\API;
+namespace EscolaLms\Core\Http\Requests\API;
 
 use Illuminate\Foundation\Http\FormRequest;
 

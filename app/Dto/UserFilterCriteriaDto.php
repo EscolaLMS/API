@@ -9,8 +9,8 @@ use App\Repositories\Criteria\Primitives\HasCriterion;
 use App\Repositories\Criteria\RoleCriterion;
 use App\Repositories\Criteria\UserSearchCriterion;
 use Carbon\Carbon;
-use EscolaSoft\EscolaLms\Dtos\Contracts\DtoContract;
-use EscolaSoft\EscolaLms\Dtos\Contracts\InstantiateFromRequest;
+use EscolaLms\Core\Dtos\Contracts\DtoContract;
+use EscolaLms\Core\Dtos\Contracts\InstantiateFromRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 

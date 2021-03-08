@@ -3,7 +3,7 @@
 namespace App\ValueObjects\Contracts;
 
 use App\ValueObjects\ValueObject;
-use EscolaSoft\EscolaLms\Dtos\Contracts\DtoContract;
+use EscolaLms\Core\Dtos\Contracts\DtoContract;
 
 interface ValueObjectContract extends DtoContract
 {

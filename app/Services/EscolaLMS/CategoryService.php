@@ -7,8 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Repositories\Contracts\CategoriesRepositoryContract;
 use App\Services\EscolaLMS\Contracts\CategoryServiceContracts;
-use EscolaSoft\EscolaLms\Dtos\PaginationDto;
-use EscolaSoft\EscolaLms\Dtos\PeriodDto;
+use EscolaLms\Core\Dtos\PaginationDto;
+use EscolaLms\Core\Dtos\PeriodDto;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 

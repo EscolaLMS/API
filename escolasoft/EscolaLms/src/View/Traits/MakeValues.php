@@ -1,6 +1,6 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\View\Traits;
+namespace EscolaLms\Core\View\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\View;

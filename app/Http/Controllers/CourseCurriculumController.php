@@ -13,7 +13,7 @@ use App\Repositories\Criteria\Primitives\CourseSearch;
 use App\Services\EscolaLMS\Contracts\CourseServiceContract;
 use Crypt;
 use DB;
-use EscolaSoft\EscolaLms\Http\Resources\Status;
+use EscolaLms\Core\Http\Resources\Status;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;

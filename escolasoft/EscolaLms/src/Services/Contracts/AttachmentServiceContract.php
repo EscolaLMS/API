@@ -1,8 +1,8 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\Services\Contracts;
+namespace EscolaLms\Core\Services\Contracts;
 
-use EscolaSoft\EscolaLms\Models\Attachment;
+use EscolaLms\Core\Models\Attachment;
 use Illuminate\Http\UploadedFile;
 
 interface AttachmentServiceContract

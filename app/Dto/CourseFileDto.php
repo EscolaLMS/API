@@ -4,7 +4,7 @@ namespace App\Dto;
 
 use App\Models\Course;
 use App\Models\User;
-use EscolaSoft\EscolaLms\Dtos\Contracts\DtoContract;
+use EscolaLms\Core\Dtos\Contracts\DtoContract;
 
 class CourseFileDto implements DtoContract
 {

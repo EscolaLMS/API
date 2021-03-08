@@ -1,5 +1,5 @@
 {
-  "name": "escolasoft/escola-lms",
+  "name": "escolalms/core",
   "description": "Escola Headless LMS",
   "type": "project",
   "require": {
@@ -20,15 +20,15 @@
   ],
   "autoload": {
     "psr-4": {
-      "EscolaSoft\\EscolaLms\\": "src",
-      "EscolaSoft\\EscolaLms\\Tests\\": "tests",
-      "Database\\Factories\\EscolaSoft\\EscolaLms\\Models\\": "database/factories"
+      "EscolaLms\\Core\\": "src",
+      "EscolaLms\\Core\\Tests\\": "tests",
+      "Database\\Factories\\EscolaLms\\Core\\Models\\": "database/factories"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "EscolaSoft\\EscolaLms\\EscolaLmsServiceProvider"
+        "EscolaLms\\Core\\EscolaLmsServiceProvider"
       ]
     }
   }

@@ -1,9 +1,9 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\Tests;
+namespace EscolaLms\Core\Tests;
 
 use App\Models\User;
-use EscolaSoft\EscolaLms\EscolaLmsServiceProvider;
+use EscolaLms\Core\EscolaLmsServiceProvider;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 class TestCase extends OrchestraTestCase

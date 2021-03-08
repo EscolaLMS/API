@@ -6,7 +6,7 @@ use App\Enum\UserRole;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\Instructor;
-use EscolaSoft\EscolaLms\Dtos\Contracts\DtoContract;
+use EscolaLms\Core\Dtos\Contracts\DtoContract;
 use Illuminate\Http\Request;
 
 abstract class CourseDto implements DtoContract

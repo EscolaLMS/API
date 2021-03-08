@@ -1,14 +1,14 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\Tests\Features;
+namespace EscolaLms\Core\Tests\Features;
 
 use App\Models\User;
-use EscolaSoft\EscolaLms\Models\Attachment;
-use EscolaSoft\EscolaLms\Repositories\AttachmentRepository;
-use EscolaSoft\EscolaLms\Repositories\Contracts\AttachmentRepositoryContract;
-use EscolaSoft\EscolaLms\Services\AttachmentService;
-use EscolaSoft\EscolaLms\Services\Contracts\AttachmentServiceContract;
-use EscolaSoft\EscolaLms\Tests\TestCase;
+use EscolaLms\Core\Models\Attachment;
+use EscolaLms\Core\Repositories\AttachmentRepository;
+use EscolaLms\Core\Repositories\Contracts\AttachmentRepositoryContract;
+use EscolaLms\Core\Services\AttachmentService;
+use EscolaLms\Core\Services\Contracts\AttachmentServiceContract;
+use EscolaLms\Core\Tests\TestCase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 

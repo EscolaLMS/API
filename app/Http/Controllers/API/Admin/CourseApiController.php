@@ -21,7 +21,7 @@ use App\Models\CourseVideos;
 use App\Models\CurriculumLecturesQuiz;
 use App\Models\CurriculumSection;
 use App\Services\EscolaLMS\Contracts\CourseServiceContract;
-use EscolaSoft\EscolaLms\Http\Resources\Status;
+use EscolaLms\Core\Http\Resources\Status;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

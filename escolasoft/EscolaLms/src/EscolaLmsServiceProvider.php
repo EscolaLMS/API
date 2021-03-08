@@ -1,12 +1,12 @@
 <?php
 
-namespace EscolaSoft\EscolaLms;
+namespace EscolaLms\Core;
 
-use EscolaSoft\EscolaLms\Providers\Injectable;
-use EscolaSoft\EscolaLms\Repositories\AttachmentRepository;
-use EscolaSoft\EscolaLms\Repositories\Contracts\AttachmentRepositoryContract;
-use EscolaSoft\EscolaLms\Services\AttachmentService;
-use EscolaSoft\EscolaLms\Services\Contracts\AttachmentServiceContract;
+use EscolaLms\Core\Providers\Injectable;
+use EscolaLms\Core\Repositories\AttachmentRepository;
+use EscolaLms\Core\Repositories\Contracts\AttachmentRepositoryContract;
+use EscolaLms\Core\Services\AttachmentService;
+use EscolaLms\Core\Services\Contracts\AttachmentServiceContract;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 

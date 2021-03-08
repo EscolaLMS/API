@@ -1,9 +1,9 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\Repositories;
+namespace EscolaLms\Core\Repositories;
 
-use EscolaSoft\EscolaLms\Models\Attachment;
-use EscolaSoft\EscolaLms\Repositories\Contracts\AttachmentRepositoryContract;
+use EscolaLms\Core\Models\Attachment;
+use EscolaLms\Core\Repositories\Contracts\AttachmentRepositoryContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Symfony\Component\HttpFoundation\File\Exception\UploadException;

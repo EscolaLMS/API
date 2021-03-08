@@ -1,8 +1,8 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\View\Components\Forms;
+namespace EscolaLms\Core\View\Components\Forms;
 
-use EscolaSoft\EscolaLms\View\Traits\MakeValues;
+use EscolaLms\Core\View\Traits\MakeValues;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;

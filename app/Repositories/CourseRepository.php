@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Repositories\Contracts\CourseRepositoryContract;
 use App\ValueObjects\CourseProgressCollection;
 use Carbon\Carbon;
-use EscolaSoft\EscolaLms\Dtos\PaginationDto;
+use EscolaLms\Core\Dtos\PaginationDto;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

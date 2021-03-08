@@ -1,7 +1,7 @@
 <?php
 
 
-namespace EscolaSoft\EscolaLms\Dtos\Contracts;
+namespace EscolaLms\Core\Dtos\Contracts;
 
 use App\Models\Contracts\MediaModelContract;
 use App\Services\EscolaLMS\Contracts\MediaContract;

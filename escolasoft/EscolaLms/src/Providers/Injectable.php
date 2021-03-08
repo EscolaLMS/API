@@ -1,6 +1,6 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\Providers;
+namespace EscolaLms\Core\Providers;
 
 trait Injectable
 {

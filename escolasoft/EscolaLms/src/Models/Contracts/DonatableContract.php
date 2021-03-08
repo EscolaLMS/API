@@ -1,6 +1,6 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\Models\Contracts;
+namespace EscolaLms\Core\Models\Contracts;
 
 interface DonatableContract
 {

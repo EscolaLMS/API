@@ -2,7 +2,7 @@
 
 namespace App\Enum;
 
-use EscolaSoft\EscolaLms\Enums\BasicEnum;
+use EscolaLms\Core\Enums\BasicEnum;
 
 class LectureType extends BasicEnum
 {

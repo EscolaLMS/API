@@ -3,7 +3,7 @@
 namespace App\Dto;
 
 use App\Models\Instructor;
-use EscolaSoft\EscolaLms\Dtos\Contracts\DtoContract;
+use EscolaLms\Core\Dtos\Contracts\DtoContract;
 
 class CourseVideoDto implements DtoContract
 {

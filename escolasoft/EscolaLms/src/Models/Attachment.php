@@ -1,6 +1,6 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\Models;
+namespace EscolaLms\Core\Models;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

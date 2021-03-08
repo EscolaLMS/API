@@ -5,7 +5,7 @@ namespace App\Dto;
 
 use App\Models\Course;
 use App\Models\CourseVideos;
-use EscolaSoft\EscolaLms\Dtos\Contracts\DtoContract;
+use EscolaLms\Core\Dtos\Contracts\DtoContract;
 
 class CourseViewDto implements DtoContract
 {

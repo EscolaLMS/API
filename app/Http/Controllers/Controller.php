@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use EscolaSoft\EscolaLms\Http\Controllers\EscolaLmsBaseController;
+use EscolaLms\Core\Http\Controllers\EscolaLmsBaseController;
 use Illuminate\Http\RedirectResponse;
 use Redirect;
 use Session;

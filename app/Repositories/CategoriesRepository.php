@@ -6,7 +6,7 @@ use App\Models\Category;
 use App\Repositories\Contracts\CategoriesRepositoryContract;
 use App\Repositories\Traits\Activationable;
 use Carbon\Carbon;
-use EscolaSoft\EscolaLms\Dtos\PaginationDto;
+use EscolaLms\Core\Dtos\PaginationDto;
 use Illuminate\Database\Eloquent\Collection;
 
 /**

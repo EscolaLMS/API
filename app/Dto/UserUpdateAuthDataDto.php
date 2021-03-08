@@ -2,7 +2,7 @@
 
 namespace App\Dto;
 
-use EscolaSoft\EscolaLms\Dtos\Contracts\InstantiateFromRequest;
+use EscolaLms\Core\Dtos\Contracts\InstantiateFromRequest;
 use Illuminate\Http\Request;
 
 class UserUpdateAuthDataDto implements InstantiateFromRequest

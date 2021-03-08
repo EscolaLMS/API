@@ -1,8 +1,8 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\Http\Controllers\Swagger;
+namespace EscolaLms\Core\Http\Controllers\Swagger;
 
-use EscolaSoft\EscolaLms\Http\Requests\API\CreateAttachmentRequest;
+use EscolaLms\Core\Http\Requests\API\CreateAttachmentRequest;
 use Illuminate\Http\JsonResponse;
 
 interface AttachmentAPISwaggerInterface

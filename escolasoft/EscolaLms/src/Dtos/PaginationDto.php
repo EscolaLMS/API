@@ -1,9 +1,9 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\Dtos;
+namespace EscolaLms\Core\Dtos;
 
-use EscolaSoft\EscolaLms\Dtos\Contracts\DtoContract;
-use EscolaSoft\EscolaLms\Dtos\Contracts\InstantiateFromRequest;
+use EscolaLms\Core\Dtos\Contracts\DtoContract;
+use EscolaLms\Core\Dtos\Contracts\InstantiateFromRequest;
 use Illuminate\Http\Request;
 
 class PaginationDto implements DtoContract, InstantiateFromRequest

@@ -7,7 +7,7 @@ use App\Models\CurriculumLecturesQuiz;
 use App\Services\EscolaLMS\Contracts\CourseServiceContract;
 use App\Services\EscolaLMS\Media\Media;
 use App\ValueObjects\Contracts\ValueObjectContract;
-use EscolaSoft\EscolaLms\Dtos\Contracts\DtoContract;
+use EscolaLms\Core\Dtos\Contracts\DtoContract;
 use Illuminate\Support\Collection;
 
 class CourseContent extends ValueObject implements DtoContract, ValueObjectContract

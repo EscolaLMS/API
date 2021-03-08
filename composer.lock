@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8026ce2a03305dec9013f718d5888923",
+    "content-hash": "9bd2606b0a69654ce9a2307da3367812",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1549,12 +1549,12 @@
             "time": "2020-12-29T14:50:06+00:00"
         },
         {
-            "name": "escolasoft/escola-lms",
+            "name": "escolalms/core",
             "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "escolasoft/EscolaLms",
-                "reference": "0b0ac6cf0956f293cfe0760d43d91bc5779d5498"
+                "reference": "f8863f109a11ec075547abef8c264b88af486f93"
             },
             "require": {
                 "bensampo/laravel-enum": "3.x",
@@ -1569,15 +1569,15 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "EscolaSoft\\EscolaLms\\EscolaLmsServiceProvider"
+                        "EscolaLms\\Core\\EscolaLmsServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "EscolaSoft\\EscolaLms\\": "src",
-                    "EscolaSoft\\EscolaLms\\Tests\\": "tests",
-                    "Database\\Factories\\EscolaSoft\\EscolaLms\\Models\\": "database/factories"
+                    "EscolaLms\\Core\\": "src",
+                    "EscolaLms\\Core\\Tests\\": "tests",
+                    "Database\\Factories\\EscolaLms\\Core\\Models\\": "database/factories"
                 }
             },
             "license": [

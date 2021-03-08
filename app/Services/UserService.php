@@ -14,7 +14,7 @@ use App\Repositories\Contracts\UserRepositoryContract;
 use App\Repositories\Criteria\Primitives\DateCriterion;
 use App\Services\Contracts\UserServiceContract;
 use Carbon\Carbon;
-use EscolaSoft\EscolaLms\Dtos\PaginationDto;
+use EscolaLms\Core\Dtos\PaginationDto;
 use Exception;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;

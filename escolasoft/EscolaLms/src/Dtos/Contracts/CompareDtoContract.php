@@ -1,6 +1,6 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\Dtos\Contracts;
+namespace EscolaLms\Core\Dtos\Contracts;
 
 /**
  * Interface CompareDtoContract

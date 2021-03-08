@@ -2,7 +2,7 @@
 
 namespace Database\Factories\EscolaSoft\EscolaLms\Models;
 
-use EscolaSoft\EscolaLms\Models\Attachment;
+use EscolaLms\Core\Models\Attachment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AttachmentFactory extends Factory

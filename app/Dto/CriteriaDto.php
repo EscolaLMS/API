@@ -2,7 +2,7 @@
 
 namespace App\Dto;
 
-use EscolaSoft\EscolaLms\Dtos\Contracts\DtoContract;
+use EscolaLms\Core\Dtos\Contracts\DtoContract;
 use Illuminate\Support\Collection;
 
 class CriteriaDto implements DtoContract

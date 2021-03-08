@@ -15,7 +15,7 @@ use App\Repositories\CourseH5PProgressRepository;
 use App\Services\Contracts\ProgressServiceContract;
 use App\Services\EscolaLMS\Contracts\CourseServiceContract;
 use App\ValueObjects\CourseProgressCollection;
-use EscolaSoft\EscolaLms\Http\Resources\Status;
+use EscolaLms\Core\Http\Resources\Status;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Response;

@@ -1,6 +1,6 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\View\Components\Forms;
+namespace EscolaLms\Core\View\Components\Forms;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;

@@ -4,8 +4,8 @@ namespace App\Repositories;
 
 use App\Models\User;
 use App\Repositories\Contracts\BaseRepositoryContract;
-use EscolaSoft\EscolaLms\Dtos\Contracts\CompareDtoContract;
-use EscolaSoft\EscolaLms\Repositories\BaseRepository as BaseEscolaRepository;
+use EscolaLms\Core\Dtos\Contracts\CompareDtoContract;
+use EscolaLms\Core\Repositories\BaseRepository as BaseEscolaRepository;
 use Illuminate\Container\Container as Application;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

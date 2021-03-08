@@ -26,7 +26,7 @@ use App\Services\EscolaLMS\H5PContentService;
 use App\Services\EscolaLMS\InstructorService;
 use App\Services\UserService;
 use App\Services\VideoService;
-use EscolaSoft\EscolaLms\Providers\Injectable;
+use EscolaLms\Core\Providers\Injectable;
 use Illuminate\Database\SQLiteConnection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;

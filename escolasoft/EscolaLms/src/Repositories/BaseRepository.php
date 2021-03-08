@@ -1,13 +1,13 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\Repositories;
+namespace EscolaLms\Core\Repositories;
 
 use App\Models\User;
 use App\Repositories\Criteria\Criterion;
-use EscolaSoft\EscolaLms\Dtos\Contracts\CompareDtoContract;
-use EscolaSoft\EscolaLms\Dtos\Contracts\DtoContract;
-use EscolaSoft\EscolaLms\Dtos\PaginationDto;
-use EscolaSoft\EscolaLms\Repositories\Contracts\BaseRepositoryContract;
+use EscolaLms\Core\Dtos\Contracts\CompareDtoContract;
+use EscolaLms\Core\Dtos\Contracts\DtoContract;
+use EscolaLms\Core\Dtos\PaginationDto;
+use EscolaLms\Core\Repositories\Contracts\BaseRepositoryContract;
 use Illuminate\Container\Container as Application;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;

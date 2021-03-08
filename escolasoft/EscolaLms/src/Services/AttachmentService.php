@@ -1,10 +1,10 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\Services;
+namespace EscolaLms\Core\Services;
 
-use EscolaSoft\EscolaLms\Models\Attachment;
-use EscolaSoft\EscolaLms\Repositories\Contracts\AttachmentRepositoryContract;
-use EscolaSoft\EscolaLms\Services\Contracts\AttachmentServiceContract;
+use EscolaLms\Core\Models\Attachment;
+use EscolaLms\Core\Repositories\Contracts\AttachmentRepositoryContract;
+use EscolaLms\Core\Services\Contracts\AttachmentServiceContract;
 use Illuminate\Http\UploadedFile;
 
 class AttachmentService implements AttachmentServiceContract

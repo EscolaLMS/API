@@ -1,11 +1,11 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\Http\Controllers;
+namespace EscolaLms\Core\Http\Controllers;
 
-use EscolaSoft\EscolaLms\Http\Controllers\Swagger\AttachmentAPISwaggerInterface;
-use EscolaSoft\EscolaLms\Http\Requests\API\CreateAttachmentRequest;
-use EscolaSoft\EscolaLms\Http\Resources\AttachmentResource;
-use EscolaSoft\EscolaLms\Services\Contracts\AttachmentServiceContract;
+use EscolaLms\Core\Http\Controllers\Swagger\AttachmentAPISwaggerInterface;
+use EscolaLms\Core\Http\Requests\API\CreateAttachmentRequest;
+use EscolaLms\Core\Http\Resources\AttachmentResource;
+use EscolaLms\Core\Services\Contracts\AttachmentServiceContract;
 use Exception;
 use Illuminate\Http\JsonResponse;
 

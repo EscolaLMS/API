@@ -1,4 +1,4 @@
-<?php namespace EscolaSoft\EscolaLms\Tests;
+<?php namespace EscolaLms\Core\Tests;
 
 use Illuminate\Http\Request;
 

@@ -26,7 +26,7 @@ use App\Repositories\H5PContentRepository;
 use App\Repositories\InstructorRepository;
 use App\Repositories\TagRepository;
 use App\Repositories\UserRepository;
-use EscolaSoft\EscolaLms\Providers\Injectable;
+use EscolaLms\Core\Providers\Injectable;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider

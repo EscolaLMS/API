@@ -4,8 +4,8 @@ namespace App\Dto;
 
 use App\Models\Course;
 use App\Models\CurriculumSection;
-use EscolaSoft\EscolaLms\Dtos\Contracts\DtoContract;
-use EscolaSoft\EscolaLms\Dtos\Contracts\InstantiateFromRequest;
+use EscolaLms\Core\Dtos\Contracts\DtoContract;
+use EscolaLms\Core\Dtos\Contracts\InstantiateFromRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 

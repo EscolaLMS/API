@@ -7,7 +7,7 @@ use App\Dto\UserSaveDto;
 use App\Models\Instructor;
 use App\Models\User;
 use Carbon\Carbon;
-use EscolaSoft\EscolaLms\Dtos\PaginationDto;
+use EscolaLms\Core\Dtos\PaginationDto;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;

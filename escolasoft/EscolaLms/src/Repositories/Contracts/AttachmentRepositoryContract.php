@@ -1,6 +1,6 @@
 <?php
 
-namespace EscolaSoft\EscolaLms\Repositories\Contracts;
+namespace EscolaLms\Core\Repositories\Contracts;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
