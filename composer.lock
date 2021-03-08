@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fbd9347a5598cd3a71ce6b8834ba4d08",
+    "content-hash": "5f59ad8cebd1e245dcb43dbc03ea9c64",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1550,11 +1550,17 @@
         },
         {
             "name": "escolalms/core",
-            "version": "dev-master",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EscolaLMS/Core.git",
+                "reference": "795d2e26d0460049fcd053e20845866abb012e1b"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/Core",
-                "reference": "74b9f4e7dc0226a73f134cc54476a61df74dc9bf"
+                "type": "zip",
+                "url": "https://api.github.com/repos/EscolaLMS/Core/zipball/795d2e26d0460049fcd053e20845866abb012e1b",
+                "reference": "795d2e26d0460049fcd053e20845866abb012e1b",
+                "shasum": ""
             },
             "require": {
                 "bensampo/laravel-enum": "3.x",
@@ -1592,9 +1598,11 @@
                 }
             ],
             "description": "Escola Headless LMS",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/EscolaLMS/Core/tree/develop",
+                "issues": "https://github.com/EscolaLMS/Core/issues"
+            },
+            "time": "2021-03-08T13:11:04+00:00"
         },
         {
             "name": "escolasoft/h5p-core",
@@ -5084,16 +5092,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.45.1",
+            "version": "2.46.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "528783b188bdb853eb21239b1722831e0f000a8d"
+                "reference": "2fd2c4a77d58a4e95234c8a61c5df1f157a91bf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/528783b188bdb853eb21239b1722831e0f000a8d",
-                "reference": "528783b188bdb853eb21239b1722831e0f000a8d",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/2fd2c4a77d58a4e95234c8a61c5df1f157a91bf4",
+                "reference": "2fd2c4a77d58a4e95234c8a61c5df1f157a91bf4",
                 "shasum": ""
             },
             "require": {
@@ -5173,7 +5181,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-11T18:30:17+00:00"
+            "time": "2021-02-24T17:30:44+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -7201,16 +7209,16 @@
         },
         {
             "name": "sentry/sentry-laravel",
-            "version": "2.4.0",
+            "version": "2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-laravel.git",
-                "reference": "30ff06f586666f51e5cae418beaed566729fb7bf"
+                "reference": "63cca34fefab63af1dfe8474d4417f1df2803fec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-laravel/zipball/30ff06f586666f51e5cae418beaed566729fb7bf",
-                "reference": "30ff06f586666f51e5cae418beaed566729fb7bf",
+                "url": "https://api.github.com/repos/getsentry/sentry-laravel/zipball/63cca34fefab63af1dfe8474d4417f1df2803fec",
+                "reference": "63cca34fefab63af1dfe8474d4417f1df2803fec",
                 "shasum": ""
             },
             "require": {
@@ -7273,7 +7281,7 @@
             ],
             "support": {
                 "issues": "https://github.com/getsentry/sentry-laravel/issues",
-                "source": "https://github.com/getsentry/sentry-laravel/tree/2.4.0"
+                "source": "https://github.com/getsentry/sentry-laravel/tree/2.4.1"
             },
             "funding": [
                 {
@@ -7285,7 +7293,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-03-08T08:32:45+00:00"
+            "time": "2021-03-08T11:37:22+00:00"
         },
         {
             "name": "setasign/fpdi",
