@@ -1554,12 +1554,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Core.git",
-                "reference": "795d2e26d0460049fcd053e20845866abb012e1b"
+                "reference": "7a2efef0ab7dd7bf702c9e96c95a818f49585226"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Core/zipball/795d2e26d0460049fcd053e20845866abb012e1b",
-                "reference": "795d2e26d0460049fcd053e20845866abb012e1b",
+                "url": "https://api.github.com/repos/EscolaLMS/Core/zipball/7a2efef0ab7dd7bf702c9e96c95a818f49585226",
+                "reference": "7a2efef0ab7dd7bf702c9e96c95a818f49585226",
                 "shasum": ""
             },
             "require": {
@@ -1602,7 +1602,7 @@
                 "source": "https://github.com/EscolaLMS/Core/tree/develop",
                 "issues": "https://github.com/EscolaLMS/Core/issues"
             },
-            "time": "2021-03-08T13:11:04+00:00"
+            "time": "2021-03-08T14:28:05+00:00"
         },
         {
             "name": "escolasoft/h5p-core",
