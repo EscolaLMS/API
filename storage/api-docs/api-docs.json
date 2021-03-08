@@ -1534,45 +1534,6 @@
                     }
                 }
             }
-        },
-        "/api/attachments": {
-            "post": {
-                "tags": [
-                    "Attachments"
-                ],
-                "summary": "Store a attachment as file in storage",
-                "description": "Store Image",
-                "operationId": "EscolaLms\\Core\\Http\\Controllers\\Swagger\\AttachmentAPISwaggerInterface::store",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "properties": {
-                                    "file": {
-                                        "type": "string",
-                                        "format": "binary"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
         }
     },
     "components": {

@@ -6,6 +6,7 @@ use App\Models\Course;
 use App\Models\User;
 use Carbon\Carbon;
 use EscolaLms\Core\Dtos\PaginationDto;
+use EscolaLms\Core\Repositories\Contracts\BaseRepositoryContract;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;

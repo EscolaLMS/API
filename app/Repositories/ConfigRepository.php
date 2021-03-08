@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Config;
 use App\Repositories\Contracts\ConfigRepositoryContract;
+use EscolaLms\Core\Repositories\BaseRepository;
 
 class ConfigRepository extends BaseRepository implements ConfigRepositoryContract
 {

@@ -2,10 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Models\CourseFile;
 use App\Models\CourseFiles;
-use App\Repositories\BaseRepository;
 use App\Repositories\Contracts\CourseFileRepositoryContract;
+use EscolaLms\Core\Repositories\BaseRepository;
 
 /**
  * Class CourseFileRepository

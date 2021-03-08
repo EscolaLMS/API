@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\H5PUserProgress;
 use App\Models\CurriculumLecturesQuiz;
+use EscolaLms\Core\Repositories\BaseRepository;
 use Illuminate\Contracts\Auth\Authenticatable;
 
 /**
@@ -40,7 +41,7 @@ class CourseH5PProgressRepository extends BaseRepository
         return H5PUserProgress::class;
     }
 
-    public function store(CurriculumLecturesQuiz $lecture, Authenticatable $user, string $event, $data) : H5PUserProgress
+    public function store(CurriculumLecturesQuiz $lecture, Authenticatable $user, string $event, $data): H5PUserProgress
     {
         return $this->model->updateOrCreate([
             'quiz_id' => $lecture->lecture_quiz_id,
@@ -48,6 +49,6 @@ class CourseH5PProgressRepository extends BaseRepository
             'event' => $event
         ], [
             'data' => $data
-            ]);
+        ]);
     }
 }

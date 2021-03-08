@@ -7,6 +7,7 @@ use App\Repositories\Contracts\CategoriesRepositoryContract;
 use App\Repositories\Traits\Activationable;
 use Carbon\Carbon;
 use EscolaLms\Core\Dtos\PaginationDto;
+use EscolaLms\Core\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Collection;
 
 /**

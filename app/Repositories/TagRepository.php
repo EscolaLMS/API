@@ -4,14 +4,14 @@ namespace App\Repositories;
 
 use App\Models\Tag;
 use App\Repositories\Contracts\TagRepositoryContract;
+use EscolaLms\Core\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Class TagRepository
  * @package App\Repositories
  * @version December 7, 2020, 1:53 pm UTC
-*/
-
+ */
 class TagRepository extends BaseRepository implements TagRepositoryContract
 {
     /**

@@ -7,6 +7,7 @@ use App\Models\CourseProgress;
 use App\Models\CurriculumLecturesQuiz;
 use App\Repositories\Contracts\CourseProgressRepositoryContract;
 use Carbon\Carbon;
+use EscolaLms\Core\Repositories\BaseRepository;
 use Illuminate\Contracts\Auth\Authenticatable;
 
 /**

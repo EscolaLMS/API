@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\CurriculumLecturesQuiz;
 use App\Repositories\Contracts\CurriculumLecturesQuizRepositoryContract;
+use EscolaLms\Core\Repositories\BaseRepository;
 
 /**
  * Class CurriculumLecturesQuizRepository

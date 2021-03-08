@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 use App\Repositories\Contracts\UserRepositoryContract;
+use EscolaLms\Core\Repositories\BaseRepository;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
@@ -81,7 +82,6 @@ class UserRepository extends BaseRepository implements UserRepositoryContract
     }
 
 
-
     public function updateSettings(User $user, array $settings): void
     {
         foreach ($settings as $key => $value) {
@@ -96,7 +96,7 @@ class UserRepository extends BaseRepository implements UserRepositoryContract
 
     public function updatePassword(User $user, string $newPassword): bool
     {
-        return (bool) $this->update(['password' => Hash::make($newPassword)], $user->getKey());
+        return (bool)$this->update(['password' => Hash::make($newPassword)], $user->getKey());
     }
 
 

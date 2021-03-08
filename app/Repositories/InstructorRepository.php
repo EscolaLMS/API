@@ -9,6 +9,7 @@ use App\Models\Instructor;
 use App\Models\User;
 use App\Models\WithdrawRequest;
 use App\Repositories\Contracts\InstructorRepositoryContract;
+use EscolaLms\Core\Repositories\BaseRepository;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\Permission\Models\Role;
@@ -17,8 +18,7 @@ use Spatie\Permission\Models\Role;
  * Class InstructorRepository
  * @package App\Repositories
  * @version December 7, 2020, 1:50 pm UTC
-*/
-
+ */
 class InstructorRepository extends BaseRepository implements InstructorRepositoryContract
 {
     public const DEFAULT_IMAGE_PATH = 'images/instructor.jpg';
@@ -123,7 +123,7 @@ class InstructorRepository extends BaseRepository implements InstructorRepositor
             'user_id' => $user->getKey(),
             'first_name' => $user->first_name,
             'last_name' => $user->last_name,
-            'instructor_slug' => \App\Library\EscolaHelpers::slugify($user->first_name .' '. $user->last_name),
+            'instructor_slug' => \App\Library\EscolaHelpers::slugify($user->first_name . ' ' . $user->last_name),
             'contact_email' => $user->email,
             'instructor_image' => self::DEFAULT_IMAGE_PATH
         ]);

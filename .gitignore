@@ -29,3 +29,4 @@ escolasoft/**/vendor
 .DS_Store
 
 bootstrap/cache/**/*
+packages/*

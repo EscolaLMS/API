@@ -136,7 +136,7 @@
     },
     {
       "type": "path",
-      "url": "escolasoft/EscolaLms"
+      "url": "packages/Core"
     }
   ]
 }

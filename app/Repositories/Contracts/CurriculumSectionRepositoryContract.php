@@ -5,6 +5,7 @@ namespace App\Repositories\Contracts;
 use App\Dto\CurriculumSectionDto;
 use App\Models\CurriculumSection;
 use App\Models\User;
+use EscolaLms\Core\Repositories\Contracts\BaseRepositoryContract;
 
 interface CurriculumSectionRepositoryContract extends BaseRepositoryContract, SortableContract
 {

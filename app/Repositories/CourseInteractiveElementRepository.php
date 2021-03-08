@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\CourseVideos;
 use App\Models\User;
 use App\Repositories\Contracts\CourseVideoRepositoryContract;
+use EscolaLms\Core\Repositories\BaseRepository;
 use Illuminate\Support\Collection;
 
 /**

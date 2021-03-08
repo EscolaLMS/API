@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9bd2606b0a69654ce9a2307da3367812",
+    "content-hash": "fbd9347a5598cd3a71ce6b8834ba4d08",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1553,13 +1553,15 @@
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "escolasoft/EscolaLms",
-                "reference": "f8863f109a11ec075547abef8c264b88af486f93"
+                "url": "packages/Core",
+                "reference": "74b9f4e7dc0226a73f134cc54476a61df74dc9bf"
             },
             "require": {
                 "bensampo/laravel-enum": "3.x",
                 "laravel/framework": "^8.0",
-                "php": "^7.4"
+                "laravel/passport": "^10.1",
+                "php": "^7.4",
+                "spatie/laravel-permission": "^3.18"
             },
             "require-dev": {
                 "orchestra/testbench": "^6.0",

@@ -35,7 +35,7 @@ return [
                 */
                 'annotations' => [
                     app_path(),
-                    base_path('escolasoft/EscolaLms/src')
+//                    base_path('escolasoft/EscolaLms/src') // TODO: add path to escola vendor
                 ],
 
             ],

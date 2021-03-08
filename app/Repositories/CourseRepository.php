@@ -10,6 +10,7 @@ use App\Repositories\Contracts\CourseRepositoryContract;
 use App\ValueObjects\CourseProgressCollection;
 use Carbon\Carbon;
 use EscolaLms\Core\Dtos\PaginationDto;
+use EscolaLms\Core\Repositories\BaseRepository;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -154,7 +155,7 @@ class CourseRepository extends BaseRepository implements CourseRepositoryContrac
         if (isset($search) && isset($search['category_id'])) {
             $collection = Category::where('id', $search['category_id'])->with('children')->get();
             $flat = self::flatten($collection, 'children');
-            $flat_ids = array_map(fn ($cat) => $cat->id, $flat);
+            $flat_ids = array_map(fn($cat) => $cat->id, $flat);
             $flat_ids[] = $search['category_id'];
             unset($search['category_id']);
         }

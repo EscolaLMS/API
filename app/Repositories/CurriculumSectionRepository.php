@@ -7,6 +7,7 @@ use App\Models\CurriculumLecturesQuiz;
 use App\Models\CurriculumSection;
 use App\Models\User;
 use App\Repositories\Contracts\CurriculumSectionRepositoryContract;
+use EscolaLms\Core\Repositories\BaseRepository;
 
 /**
  * Class CurriculumSectionRepository
