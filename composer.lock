@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "655fc73a616ffd87b3cd5538d948d753",
+    "content-hash": "ccc9bec1c05e33baffdc45f87f7d9edf",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1597,22 +1597,28 @@
         },
         {
             "name": "escolalms/categories",
-            "version": "dev-master",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EscolaLMS/Categories.git",
+                "reference": "df1bf398662397cd8eaba06e6f77e33617bb8be9"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/Categories",
-                "reference": "4774c2f8e0649cd0421fe56651e6b6ef5804b298"
+                "type": "zip",
+                "url": "https://api.github.com/repos/EscolaLMS/Categories/zipball/df1bf398662397cd8eaba06e6f77e33617bb8be9",
+                "reference": "df1bf398662397cd8eaba06e6f77e33617bb8be9",
+                "shasum": ""
             },
             "require": {
                 "escolalms/core": "dev-develop",
                 "laravel/framework": "^8.0",
-                "laravel/socialite": "v5.1.3",
                 "php": "^7.4"
             },
             "require-dev": {
                 "orchestra/testbench": "^6.0",
                 "phpunit/phpunit": "^9.0"
             },
+            "default-branch": true,
             "type": "project",
             "extra": {
                 "laravel": {
@@ -1638,9 +1644,11 @@
                 }
             ],
             "description": "Escola Headless LMS Categories",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/EscolaLMS/Categories/tree/main",
+                "issues": "https://github.com/EscolaLMS/Categories/issues"
+            },
+            "time": "2021-03-09T18:07:55+00:00"
         },
         {
             "name": "escolalms/core",
@@ -1648,12 +1656,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Core.git",
-                "reference": "85046e0c7f338b8c8726183a8acfb5d7970d57d9"
+                "reference": "390ccd8fd3904ab1898168bc420595393257dec1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Core/zipball/85046e0c7f338b8c8726183a8acfb5d7970d57d9",
-                "reference": "85046e0c7f338b8c8726183a8acfb5d7970d57d9",
+                "url": "https://api.github.com/repos/EscolaLMS/Core/zipball/390ccd8fd3904ab1898168bc420595393257dec1",
+                "reference": "390ccd8fd3904ab1898168bc420595393257dec1",
                 "shasum": ""
             },
             "require": {
@@ -1696,7 +1704,7 @@
                 "source": "https://github.com/EscolaLMS/Core/tree/develop",
                 "issues": "https://github.com/EscolaLMS/Core/issues"
             },
-            "time": "2021-03-09T15:40:22+00:00"
+            "time": "2021-03-09T16:41:55+00:00"
         },
         {
             "name": "escolasoft/h5p-core",

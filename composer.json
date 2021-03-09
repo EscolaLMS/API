@@ -145,8 +145,8 @@
       "url": "packages/Auth"
     },
     {
-      "type": "path",
-      "url": "packages/Categories"
+      "type": "vcs",
+      "url": "https://github.com/EscolaLMS/Categories"
     }
   ]
 }

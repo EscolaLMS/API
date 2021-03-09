@@ -31,10 +31,6 @@ Route::middleware('auth:api')->prefix('share')->group(function () {
     Route::get('twitter', [ShareApiController::class, 'twitter']);
 });
 
-Route::group(['prefix' => 'categories'], function () {
-    require 'api/categories.php';
-});
-
 Route::group(['prefix' => 'courses'], function () {
     require 'api/courses.php';
 });
