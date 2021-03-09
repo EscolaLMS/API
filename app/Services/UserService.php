@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Dto\CriteriaDto;
 use App\Dto\UserSaveDto;
-use App\Events\UserLogged;
+use EscolaLms\Auth\Events\UserLogged;
 use App\Models\CourseProgress;
 use App\Models\Instructor;
 use App\Models\User;

@@ -6,7 +6,7 @@ use App\Events\CourseAssigned;
 use App\Events\CourseCompleted;
 use EscolaLms\Auth\Events\PasswordForgotten;
 use App\Events\SectionCompleted;
-use App\Events\UserLogged;
+use EscolaLms\Auth\Events\UserLogged;
 use App\Listeners\AttachOrderedCoursesToUser;
 use App\Listeners\CreatePasswordResetToken;
 use App\Listeners\CreateRelatedData;
