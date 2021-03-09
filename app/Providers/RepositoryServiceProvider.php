@@ -3,9 +3,7 @@
 namespace App\Providers;
 
 use App\Repositories\CategoriesRepository;
-use App\Repositories\ConfigRepository;
 use App\Repositories\Contracts\CategoriesRepositoryContract;
-use App\Repositories\Contracts\ConfigRepositoryContract;
 use App\Repositories\Contracts\CourseFileRepositoryContract;
 use App\Repositories\Contracts\CourseProgressRepositoryContract;
 use App\Repositories\Contracts\CourseRepositoryContract;
@@ -45,7 +43,6 @@ class RepositoryServiceProvider extends ServiceProvider
         UserRepositoryContract::class => UserRepository::class,
         H5PContentRepositoryContract::class => H5PContentRepository::class,
         CourseProgressRepositoryContract::class => CourseProgressRepository::class,
-        ConfigRepositoryContract::class => ConfigRepository::class,
     ];
 
     /**

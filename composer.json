@@ -25,6 +25,7 @@
     "doctrine/dbal": "^2",
     "escolalms/core": "*",
     "escolalms/auth": "*",
+    "escolalms/categories": "*",
     "escolasoft/laravel-h5p": "dev-dev-qunabu-patch-3",
     "fideloper/proxy": "^4.0",
     "fruitcake/laravel-cors": "^2.0",
@@ -142,6 +143,10 @@
     {
       "type": "path",
       "url": "packages/Auth"
+    },
+    {
+      "type": "path",
+      "url": "packages/Categories"
     }
   ]
 }
