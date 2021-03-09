@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use EscolaLms\Categories\Models\Category;
+use EscolaLms\Categories\Models\Traits\HasInterests;
 use EscolaSoft\Shopping\Models\Order;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -85,7 +87,7 @@ use Treestoneit\ShoppingCart\Models\Cart;
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, HasRoles, HasApiTokens;
+    use Notifiable, HasRoles, HasApiTokens, HasInterests;
 
     /**
      * The attributes that are mass assignable.
@@ -148,13 +150,6 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Instructor::class, 'user_id', 'id');
     }
 
-    public function interests(): BelongsToMany
-    {
-        return $this->belongsToMany(Category::class)->withTimestamps();
-    }
-
-
-
     /**
      * @param string|array $roles
      * @return bool
@@ -188,7 +183,6 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasVerifiedEmail();
     }
-
 
 
     public function courses(): BelongsToMany
