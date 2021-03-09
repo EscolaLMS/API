@@ -24,6 +24,7 @@
     "dmore/chrome-mink-driver": "^2.7",
     "doctrine/dbal": "^2",
     "escolalms/core": "*",
+    "escolalms/auth": "*",
     "escolasoft/laravel-h5p": "dev-dev-qunabu-patch-3",
     "fideloper/proxy": "^4.0",
     "fruitcake/laravel-cors": "^2.0",
@@ -137,6 +138,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/EscolaLMS/Core"
+    },
+    {
+      "type": "path",
+      "url": "packages/Auth"
     }
   ]
 }

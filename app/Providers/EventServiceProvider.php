@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use App\Events\CourseAssigned;
 use App\Events\CourseCompleted;
-use App\Events\PasswordForgotten;
+use EscolaLms\Auth\Events\PasswordForgotten;
 use App\Events\SectionCompleted;
 use App\Events\UserLogged;
 use App\Listeners\AttachOrderedCoursesToUser;

@@ -2,7 +2,7 @@
 
 namespace Tests\APIs;
 
-use App\Events\PasswordForgotten;
+use EscolaLms\Auth\Events\PasswordForgotten;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Auth\Notifications\VerifyEmail;

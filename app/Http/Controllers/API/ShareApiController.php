@@ -7,17 +7,14 @@ use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\ShareRequest;
 use App\Models\User;
 use App\Repositories\Contracts\ConfigRepositoryContract;
-use App\Repositories\Contracts\UserRepositoryContract;
 use Illuminate\Http\JsonResponse;
 
 class ShareApiController extends AppBaseController implements ShareSwagger
 {
-    private UserRepositoryContract $userRepository;
     private ConfigRepositoryContract $configRepository;
 
-    public function __construct(UserRepositoryContract $userRepository, ConfigRepositoryContract $configRepository)
+    public function __construct(ConfigRepositoryContract $configRepository)
     {
-        $this->userRepository = $userRepository;
         $this->configRepository = $configRepository;
     }
 

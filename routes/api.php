@@ -16,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::group(['prefix' => 'courses', 'middleware' => ['auth:api', 'role:instructor,admin']], function () {
     require 'api/admin.php';
 });
@@ -33,14 +29,6 @@ Route::middleware('auth:api')->prefix('share')->group(function () {
     Route::get('linkedin', [ShareApiController::class, 'linkedin']);
     Route::get('facebook', [ShareApiController::class, 'facebook']);
     Route::get('twitter', [ShareApiController::class, 'twitter']);
-});
-
-Route::group(['prefix' => 'auth'], function () {
-    require 'api/auth.php';
-});
-
-Route::middleware('auth:api')->prefix('profile')->group(function () {
-    require 'api/profile.php';
 });
 
 Route::group(['prefix' => 'categories'], function () {

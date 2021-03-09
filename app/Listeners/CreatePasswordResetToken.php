@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Events\PasswordForgotten;
+use EscolaLms\Auth\Events\PasswordForgotten;
 use App\Notifications\PasswordForgotten as PasswordForgottenNotification;
 use App\Repositories\Contracts\UserRepositoryContract;
 use Illuminate\Support\Str;

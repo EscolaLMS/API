@@ -2,23 +2,24 @@
 
 namespace App\Listeners;
 
+use App\Repositories\Contracts\InstructorRepositoryContract;
 use EscolaLms\Core\Enums\UserRole;
 use App\Services\Contracts\UserServiceContract;
 use Illuminate\Auth\Events\Registered;
 
 class CreateRelatedData
 {
-    private UserServiceContract $userService;
+    private InstructorRepositoryContract $instructorRepository;
 
     /**
-     * Create the event listener.
-     *
-     * @return void
+     * CreateRelatedData constructor.
+     * @param InstructorRepositoryContract $instructorRepository
      */
-    public function __construct(UserServiceContract $userService)
+    public function __construct(InstructorRepositoryContract $instructorRepository)
     {
-        $this->userService = $userService;
+        $this->instructorRepository = $instructorRepository;
     }
+
 
     /**
      * Handle the event.
@@ -29,7 +30,7 @@ class CreateRelatedData
     public function handle(Registered $event)
     {
         if ($event->user->hasAnyRole(UserRole::ADMIN, UserRole::INSTRUCTOR)) {
-            $this->userService->activateInstructor($event->user);
+            $this->instructorRepository->createUsingUser($event->user);
         }
     }
 }

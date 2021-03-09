@@ -26,9 +26,7 @@ use Illuminate\Support\Str;
 
 class UserService implements UserServiceContract
 {
-    private InstructorRepositoryContract $instructorRepository;
     private UserRepositoryContract $userRepository;
-    private CourseProgressRepositoryContract $courseProgressRepository;
 
     /**
      * UserService constructor.
@@ -120,28 +118,5 @@ class UserService implements UserServiceContract
         return $this->userRepository->searchByCriteria($criteriaDto->toArray(), $paginationDto->getSkip(), $paginationDto->getLimit());
     }
 
-    public function getUserCompletedTheMostModulesInWeek(Carbon $week): ?User
-    {
-        $result = [];
-        $courseProgress = $this->courseProgressRepository->searchByCriteria([
-            new DateCriterion('finished_at', $week->copy()->floorWeek()->format('Y-m-d'), '>='),
-            new DateCriterion('finished_at', $week->copy()->endOfWeek()->format('Y-m-d'), '<='),
-        ]);
-        $courseProgress->each(function (CourseProgress $courseProgress) use ($week, &$result) {
-            $sectionCompleted = $courseProgress->lecture->section->lectures()->whereHas('progress', function (Builder $query) use ($week) {
-                $query->whereDate('finished_at', '>=', $week->copy()->floorWeek()->format('Y-m-d'));
-                $query->whereDate('finished_at', '<=', $week->copy()->endOfWeek()->format('Y-m-d'));
-            })->count() === $courseProgress->lecture->section->lectures->count();
-            if ($sectionCompleted) {
-                $result[$courseProgress->user_id] = empty($result[$courseProgress->user_id]) ? 1 : $result[$courseProgress->user_id] + 1;
-            }
-        });
-        if ($result) {
-            arsort($result);
-            reset($result);
-            $userId = key($result);
-            return $this->userRepository->find($userId);
-        }
-        return null;
-    }
+
 }
