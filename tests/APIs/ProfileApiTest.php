@@ -2,7 +2,7 @@
 
 namespace Tests\APIs;
 
-use App\Enum\GenderType;
+use EscolaLms\Auth\Enum\GenderType;
 use App\Models\Category;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithoutMiddleware;

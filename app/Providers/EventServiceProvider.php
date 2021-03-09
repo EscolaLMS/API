@@ -9,7 +9,7 @@ use App\Events\SectionCompleted;
 use EscolaLms\Auth\Events\UserLogged;
 use App\Listeners\AttachOrderedCoursesToUser;
 use App\Listeners\CreatePasswordResetToken;
-use App\Listeners\CreateRelatedData;
+use App\Listeners\CreateUserInstructorData;
 use App\Listeners\CreateUserCart;
 use App\Listeners\LoadUserCart;
 use App\Listeners\NotifyOrderComplete;
@@ -27,12 +27,8 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         Registered::class => [
-            SendEmailVerificationNotification::class,
-            CreateRelatedData::class,
+            CreateUserInstructorData::class,
             CreateUserCart::class
-        ],
-        PasswordForgotten::class => [
-            CreatePasswordResetToken::class,
         ],
         CourseCompleted::class => [
 

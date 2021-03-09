@@ -7,7 +7,7 @@ use EscolaLms\Core\Enums\UserRole;
 use App\Services\Contracts\UserServiceContract;
 use Illuminate\Auth\Events\Registered;
 
-class CreateRelatedData
+class CreateUserInstructorData
 {
     private InstructorRepositoryContract $instructorRepository;
 
