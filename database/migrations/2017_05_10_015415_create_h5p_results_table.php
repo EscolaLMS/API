@@ -16,7 +16,7 @@ class CreateH5pResultsTable extends Migration
         Schema::create('h5p_results', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('content_id')->unsigned();
-            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->unsignedInteger('user_id')->unsigned();
             $table->bigInteger('score')->unsigned();
             $table->bigInteger('max_score')->unsigned();
             $table->bigInteger('opened')->unsigned();

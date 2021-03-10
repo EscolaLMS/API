@@ -1495,16 +1495,16 @@
         },
         {
             "name": "escolalms/auth",
-            "version": "0.1.2",
+            "version": "0.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Auth.git",
-                "reference": "1b943621877e1f7a044cdd9bd4147eb4affed591"
+                "reference": "181aa8156d366924eed0aa06201a0a68a54506d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Auth/zipball/1b943621877e1f7a044cdd9bd4147eb4affed591",
-                "reference": "1b943621877e1f7a044cdd9bd4147eb4affed591",
+                "url": "https://api.github.com/repos/EscolaLMS/Auth/zipball/181aa8156d366924eed0aa06201a0a68a54506d1",
+                "reference": "181aa8156d366924eed0aa06201a0a68a54506d1",
                 "shasum": ""
             },
             "require": {
@@ -1544,7 +1544,7 @@
                 }
             ],
             "description": "Escola Headless LMS Authorization",
-            "time": "2021-03-10T13:48:00+00:00"
+            "time": "2021-03-10T15:06:08+00:00"
         },
         {
             "name": "escolalms/categories",
@@ -1595,24 +1595,20 @@
                 }
             ],
             "description": "Escola Headless LMS Categories",
-            "support": {
-                "issues": "https://github.com/EscolaLMS/Categories/issues",
-                "source": "https://github.com/EscolaLMS/Categories/tree/0.1.1"
-            },
             "time": "2021-03-10T10:28:53+00:00"
         },
         {
             "name": "escolalms/core",
-            "version": "0.1",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Core.git",
-                "reference": "66335b74b90621f6b123acd11396228c27024fae"
+                "reference": "ac4cefc1a71bfe65d46d87a6e3df599fc4a37b25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Core/zipball/66335b74b90621f6b123acd11396228c27024fae",
-                "reference": "66335b74b90621f6b123acd11396228c27024fae",
+                "url": "https://api.github.com/repos/EscolaLMS/Core/zipball/ac4cefc1a71bfe65d46d87a6e3df599fc4a37b25",
+                "reference": "ac4cefc1a71bfe65d46d87a6e3df599fc4a37b25",
                 "shasum": ""
             },
             "require": {
@@ -1652,11 +1648,7 @@
                 }
             ],
             "description": "Escola Headless LMS",
-            "support": {
-                "issues": "https://github.com/EscolaLMS/Core/issues",
-                "source": "https://github.com/EscolaLMS/Core/tree/0.1"
-            },
-            "time": "2021-03-10T09:06:07+00:00"
+            "time": "2021-03-10T15:05:23+00:00"
         },
         {
             "name": "escolasoft/h5p-core",

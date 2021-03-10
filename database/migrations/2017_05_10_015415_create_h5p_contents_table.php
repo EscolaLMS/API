@@ -16,7 +16,7 @@ class CreateH5pContentsTable extends Migration
         Schema::create('h5p_contents', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->unsignedInteger('user_id')->unsigned();
             $table->string('title');
             $table->bigInteger('library_id')->unsigned();
             $table->text('parameters');

@@ -22,7 +22,7 @@ class CreateCourseFilesTable extends Migration
             $table->string('file_size', 50);
             $table->string('duration', 50)->nullable();
             $table->text('file_tag');
-            $table->unsignedInteger('uploader_id');
+            $table->unsignedBigInteger('uploader_id');
             $table->unsignedInteger('course_id');
             $table->integer('processed')->default(1)->comment('0-not processed,1-processed');
             $table->timestamps();

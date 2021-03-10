@@ -21,7 +21,7 @@ class CreateCourseVideosTable extends Migration
             $table->string('duration', 50)->nullable();
             $table->text('image_name')->nullable();
             $table->text('video_tag')->nullable();
-            $table->unsignedInteger('uploader_id')->nullable();
+            $table->unsignedBigInteger('uploader_id')->nullable();
             $table->unsignedInteger('course_id')->nullable();
             $table->boolean('processed')->default(true);
             $table->timestamps();

@@ -15,7 +15,7 @@ class CreateH5pContentsUserDataTable extends Migration
     {
         Schema::create('h5p_contents_user_data', function (Blueprint $table) {
             $table->bigInteger('content_id')->unsigned();
-            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->unsignedInteger('user_id')->unsigned();
             $table->bigInteger('sub_content_id')->unsigned();
             $table->string('data_id', 127);
             $table->text('data');

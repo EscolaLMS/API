@@ -15,7 +15,7 @@ class CreateCourseProgress extends Migration
     {
         Schema::create('course_progress', function (Blueprint $table) {
             $table->increments('progress_id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedInteger('course_id');
             $table->unsignedInteger('lecture_id');
             $table->tinyInteger('status')->default(0)->comment('0-incomplete,1-complete');
