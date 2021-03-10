@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Course;
 
-use App\Http\Requests\Traits\Ownerable;
+use EscolaLms\Auth\Http\Requests\Traits\Ownerable;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CourseRequest extends FormRequest

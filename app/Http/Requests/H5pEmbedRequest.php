@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use EscolaLms\Core\Enums\UserRole;
-use App\Http\Requests\Traits\WithRole;
+use EscolaLms\Auth\Http\Requests\Traits\WithRole;
 use Illuminate\Foundation\Http\FormRequest;
 
 class H5pEmbedRequest extends FormRequest

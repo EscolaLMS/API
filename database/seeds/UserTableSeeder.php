@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Enum\UserRole;
+use EscolaLms\Core\Enums\UserRole;
 use App\Models\Instructor;
 use App\Models\User;
 use App\Repositories\Contracts\InstructorRepositoryContract;

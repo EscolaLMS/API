@@ -3,7 +3,7 @@
 namespace Tests\Integrations;
 
 use App\Dto\ExternalResourceDto;
-use App\Enum\UserRole;
+use EscolaLms\Core\Enums\UserRole;
 use App\Models\Course;
 use App\Models\CourseFiles;
 use App\Models\CourseVideos;

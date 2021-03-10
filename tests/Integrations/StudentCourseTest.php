@@ -2,7 +2,7 @@
 
 namespace Tests\Integrations;
 
-use App\Enum\UserRole;
+use EscolaLms\Core\Enums\UserRole;
 use App\Models\Course;
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
