@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\API\Swagger\H5PSwagger;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Resources\H5PContentResource;
-use App\Models\Category;
+use EscolaLms\Categories\Models\Category;
 use App\Repositories\Contracts\CategoriesRepositoryContract;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

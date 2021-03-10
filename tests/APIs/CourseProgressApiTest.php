@@ -2,12 +2,10 @@
 
 namespace Tests\APIs;
 
-use App\Models\Category;
+use EscolaLms\Categories\Models\Category;
 use App\Models\Course;
-use App\Models\CurriculumSection;
-
 use App\Models\User;
-use App\Repositories\Contracts\ConfigRepositoryContract;
+use EscolaLms\Core\Repositories\Contracts\ConfigRepositoryContract;
 use App\ValueObjects\CourseProgressCollection;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\WithFaker;

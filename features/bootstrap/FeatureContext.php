@@ -2,7 +2,7 @@
 
 use App\Enum\InstructionLevel;
 use App\Models\Course;
-use App\Models\Category;
+use EscolaLms\Categories\Models\Category;
 use App\Models\CurriculumLecturesQuiz;
 use App\Models\CurriculumSection;
 use App\Models\Instructor;

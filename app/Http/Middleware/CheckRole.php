@@ -11,8 +11,8 @@ class CheckRole
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next, ...$roles)
@@ -25,7 +25,7 @@ class CheckRole
                 return $next($request);
             }
         }
-        
+
         if (Request::isMethod('get')) {
             abort(401);
         } elseif (Request::isMethod('post')) {

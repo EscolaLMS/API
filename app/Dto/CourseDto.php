@@ -3,7 +3,7 @@
 namespace App\Dto;
 
 use EscolaLms\Core\Enums\UserRole;
-use App\Models\Category;
+use EscolaLms\Categories\Models\Category;
 use App\Models\Course;
 use App\Models\Instructor;
 use EscolaLms\Core\Dtos\Contracts\DtoContract;

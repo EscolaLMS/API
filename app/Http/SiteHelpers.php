@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Category;
+use EscolaLms\Categories\Models\Category;
 use App\Models\Course;
 use App\Services\EscolaLMS\Contracts\ConfigServiceContract;
 use Illuminate\Support\Facades\Storage;

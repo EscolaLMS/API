@@ -3,7 +3,7 @@
 namespace Tests\APIs;
 
 use EscolaLms\Auth\Enums\GenderType;
-use App\Models\Category;
+use EscolaLms\Categories\Models\Category;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Support\Facades\DB;
@@ -81,35 +81,10 @@ class ProfileApiTest extends TestCase
     {
         $user = $this->makeStudent();
         $this->assertEquals(false, $user->onboarding_completed);
-        $category = factory(Category::class)->create();
-        $category2 = factory(Category::class)->create();
+        $category = Category::factory()->create();
+        $category2 = Category::factory()->create();
 
         $this->response = $this->actingAs($user)->json('PUT', '/api/profile/interests', [
-            'interests' => [
-                $category->getKey(),
-                $category2->getKey(),
-            ],
-        ]);
-
-        $this->response
-            ->assertOk()
-            ->assertJsonFragment(['id' => $category->getKey()])
-            ->assertJsonFragment(['id' => $category2->getKey()]);
-
-        $user->refresh();
-        $this->assertEquals(true, $user->onboarding_completed);
-        $this->assertEquals($category->getKey(), $user->interests[0]->getKey());
-        $this->assertEquals($category2->getKey(), $user->interests[1]->getKey());
-    }
-
-    public function testUpdateInterestsOld(): void
-    {
-        $user = $this->makeStudent();
-        $this->assertEquals(false, $user->onboarding_completed);
-        $category = factory(Category::class)->create();
-        $category2 = factory(Category::class)->create();
-
-        $this->response = $this->actingAs($user)->json('PUT', '/api/profile/' . $user->id . '/interests', [
             'interests' => [
                 $category->getKey(),
                 $category2->getKey(),

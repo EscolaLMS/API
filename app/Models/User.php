@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use EscolaLms\Auth\Models\UserSetting;
 use EscolaLms\Categories\Models\Category;
 use EscolaLms\Categories\Models\Traits\HasInterests;
 use EscolaSoft\Shopping\Models\Order;
@@ -47,7 +48,7 @@ use Treestoneit\ShoppingCart\Models\Cart;
  * @property-read string $name
  * @property-read mixed $onboarding_completed
  * @property-read \App\Models\Instructor|null $instructor
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Category[] $interests
+ * @property-read \Illuminate\Database\Eloquent\Collection|\EscolaLms\Categories\Models\Category[] $interests
  * @property-read int|null $interests_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
@@ -85,6 +86,7 @@ use Treestoneit\ShoppingCart\Models\Cart;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
+// TODO: make user extendable from core + add all traits
 class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable, HasRoles, HasApiTokens, HasInterests;

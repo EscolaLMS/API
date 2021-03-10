@@ -2,7 +2,7 @@
 
 namespace Tests\APIs;
 
-use App\Repositories\Contracts\ConfigRepositoryContract;
+use EscolaLms\Core\Repositories\Contracts\ConfigRepositoryContract;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\ApiTestTrait;

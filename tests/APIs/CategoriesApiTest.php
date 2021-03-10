@@ -2,7 +2,7 @@
 
 namespace Tests\APIs;
 
-use App\Models\Category;
+use EscolaLms\Categories\Models\Category;
 use Tests\TestCase;
 
 class CategoriesApiTest extends TestCase
@@ -21,7 +21,7 @@ class CategoriesApiTest extends TestCase
 
     public function testCategoryShow(): void
     {
-        $category = factory(Category::class)->create();
+        $category = Category::factory()->create();
 
         $this->response = $this->json('GET', '/api/categories/' . $category->getKey());
         $this->response->assertOk();

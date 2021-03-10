@@ -12,7 +12,7 @@ use App\Dto\CurriculumLectureQuizDto;
 use App\Dto\CurriculumSectionDto;
 use App\Dto\ExternalResourceDto;
 use App\Dto\FilterCourseListDto;
-use App\Models\Category;
+use EscolaLms\Categories\Models\Category;
 use App\Models\Contracts\MediaModelContract;
 use App\Models\Course;
 use App\Models\CourseFiles;

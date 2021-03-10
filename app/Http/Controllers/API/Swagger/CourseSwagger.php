@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API\Swagger;
 
 use App\Http\Requests\OwnedCourseRequest;
 use App\Http\Requests\RelatedManyCoursesRequest;
-use App\Models\Category;
+use EscolaLms\Categories\Models\Category;
 use App\Models\Course;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

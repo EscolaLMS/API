@@ -6,7 +6,7 @@ use App\Http\Controllers\API\Swagger\ShareSwagger;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\ShareRequest;
 use App\Models\User;
-use App\Repositories\Contracts\ConfigRepositoryContract;
+use EscolaLms\Core\Repositories\Contracts\ConfigRepositoryContract;
 use Illuminate\Http\JsonResponse;
 
 class ShareApiController extends AppBaseController implements ShareSwagger

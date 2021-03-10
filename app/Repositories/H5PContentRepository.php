@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Enum\MediaType;
 use App\Models\H5PContent;
 use App\Repositories\Contracts\H5PContentRepositoryContract;
-use App\Repositories\Traits\Activationable;
+use EscolaLms\Core\Repositories\Traits\Activationable;
 use EscolaLms\Core\Repositories\BaseRepository;
 use EscolaSoft\LaravelH5p\Eloquents\H5pContent as EscolaH5pContent;
 use Illuminate\Database\Query\Builder;

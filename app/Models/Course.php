@@ -7,6 +7,7 @@ use App\Enum\LectureType;
 use App\Services\Contracts\ImageServiceContract;
 use App\Services\EscolaLMS\Contracts\CourseServiceContract;
 use App\Services\EscolaLMS\Media\Media;
+use EscolaLms\Categories\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -42,7 +43,7 @@ use Treestoneit\ShoppingCart\BuyableTrait;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $summary
  * @property int $instructor_income
- * @property-read \App\Models\Category $category
+ * @property-read \EscolaLms\Categories\Models\Category $category
  * @property-read string $instructor_name
  * @property-read \App\Models\Instructor $instructor
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\CurriculumLecturesQuiz[] $lectures
@@ -121,8 +122,6 @@ class Course extends Model implements Buyable
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
-
-
 
     public function video()
     {
@@ -497,8 +496,6 @@ class Course extends Model implements Buyable
     {
         return $this->belongsToMany(User::class)->withTimestamps();
     }
-
-
 
 
     public function getCourseImageAttribute($path): ?string

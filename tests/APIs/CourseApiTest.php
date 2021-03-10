@@ -4,7 +4,7 @@ namespace Tests\APIs;
 
 use App\Enum\ProgressStatus;
 use App\Http\Resources\Course\CourseCurriculumResource;
-use App\Models\Category;
+use EscolaLms\Categories\Models\Category;
 use App\Models\Course;
 use App\Models\User;
 use App\ValueObjects\CourseProgressCollection;
@@ -75,7 +75,7 @@ class CourseApiTest extends TestCase
      */
     public function test_read_recommended_courses(): void
     {
-        $category = factory(Category::class)->create();
+        $category = Category::factory()->create();
         factory(Course::class, 5)->create([
             'category_id' => $category->getKey()
         ]);
@@ -102,8 +102,8 @@ class CourseApiTest extends TestCase
      */
     public function testRelatedCourses(): void
     {
-        $parentCategory = factory(Category::class)->create();
-        $category = factory(Category::class)->create([
+        $parentCategory = Category::factory()->create();
+        $category = Category::factory()->create([
             'parent_id' => $parentCategory->getKey()
         ]);
 
@@ -179,8 +179,8 @@ class CourseApiTest extends TestCase
 
     public function testSearchCoursesByCategory(): void
     {
-        $category = factory(Category::class)->create(['parent_id' => null]);
-        $category2 = factory(Category::class)->create(['parent_id' => null]);
+        $category = Category::factory()->create(['parent_id' => null]);
+        $category2 = Category::factory()->create(['parent_id' => null]);
 
         $course = factory(Course::class)->create([
             'category_id' => $category->getKey(),

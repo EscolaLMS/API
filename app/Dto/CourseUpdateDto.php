@@ -2,7 +2,7 @@
 
 namespace App\Dto;
 
-use App\Models\Category;
+use EscolaLms\Categories\Models\Category;
 use EscolaLms\Core\Dtos\Contracts\DtoContract;
 use EscolaLms\Core\Dtos\Contracts\InstantiateFromRequest;
 use Illuminate\Http\Request;

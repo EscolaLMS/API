@@ -4,7 +4,7 @@
 
 use App\Enum\InstructionLevel;
 use App\Enum\MediaType;
-use App\Models\Category;
+use EscolaLms\Categories\Models\Category;
 use App\Models\Course;
 use App\Models\Instructor;
 use Faker\Generator as Faker;

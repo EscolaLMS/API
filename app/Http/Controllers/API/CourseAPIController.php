@@ -11,7 +11,7 @@ use App\Http\Requests\RelatedManyCoursesRequest;
 use App\Http\Resources\Course\CourseCurriculumResource;
 use App\Http\Resources\Course\CourseResource;
 use App\Http\Resources\Course\CoursesResource;
-use App\Models\Category;
+use EscolaLms\Categories\Models\Category;
 use App\Models\Course;
 use App\Repositories\Contracts\CourseRepositoryContract;
 use App\Services\EscolaLMS\Contracts\CourseServiceContract;
