@@ -21,7 +21,7 @@ class CreateH5pEventLogsTable extends Migration
             $table->string('content_title');
             $table->string('library_name');
             $table->string('library_version');
-            $table->string('user_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('course_taken', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id')->unsigned();
+            $table->unsignedBigInteger('user_id')->unsigned();
             $table->unsignedInteger('course_id')->unsigned();
 
             $table->timestamps();
@@ -26,7 +26,7 @@ class CreatePaymentsTable extends Migration
 
         Schema::create('transactions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->unsignedBigInteger('user_id');
             $table->integer('course_id')->unsigned();
             $table->decimal('amount', 10, 2)->nullable();
             $table->string('status', 20);
@@ -39,7 +39,7 @@ class CreatePaymentsTable extends Migration
             $table->increments('id');
             $table->integer('transaction_id')->unsigned();
             $table->integer('instructor_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->unsignedBigInteger('user_id');
             $table->integer('course_id')->unsigned();
 
             $table->decimal('credit', 10, 2)->nullable();

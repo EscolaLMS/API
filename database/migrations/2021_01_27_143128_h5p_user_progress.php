@@ -17,7 +17,7 @@ class H5pUserProgress extends Migration
         Schema::create('h5p_user_progress', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('quiz_id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('event');
             $table->json('data');
             $table->timestamps();
