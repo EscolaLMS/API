@@ -47,6 +47,7 @@ class CourseResource extends JsonResource
                 'thumb' => $course->thumb_image,
             ],
             'author' => new AuthorResource($course->instructor),
+            'lessons' => new CourseLectureLessonsResource($this->resource->getLectures()),
             'related' => new CoursesResource($this->resource->getRelated()),
             'category_id' => $course->category_id,
             'instructor_id' => $course->instructor_id,
