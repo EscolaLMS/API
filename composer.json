@@ -27,7 +27,6 @@
     "escolalms/core": "^0.1",
     "escolalms/auth": "^0.1",
     "escolalms/categories": "^0.1",
-    "escolalms/courses": "*",
     "escolasoft/laravel-h5p": "dev-dev-qunabu-patch-3",
     "fideloper/proxy": "^4.0",
     "fruitcake/laravel-cors": "^2.0",
