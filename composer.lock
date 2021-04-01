@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b92c2e4b0b0704350bd19537c7563a5",
+    "content-hash": "3936a36fdcb45c8b0b1a6ec85d7c7f28",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1754,58 +1754,6 @@
                 "source": "https://github.com/EscolaLMS/Core/tree/0.1.6"
             },
             "time": "2021-03-11T15:29:06+00:00"
-        },
-        {
-            "name": "escolalms/courses",
-            "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "packages/Courses",
-                "reference": "cccaa65eb996b25f181e3d8bff47a5745bd582f1"
-            },
-            "require": {
-                "escolalms/auth": ">=0.1.4",
-                "escolalms/categories": ">=0.1",
-                "escolalms/core": ">=0.1.6",
-                "laravel/framework": ">=8.0",
-                "php": ">=7.4"
-            },
-            "require-dev": {
-                "orchestra/testbench": ">=5.0",
-                "phpunit/phpunit": "^9.0"
-            },
-            "type": "package",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "EscolaLms\\Courses\\EscolaLmsCourseServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "EscolaLms\\Courses\\": "src",
-                    "EscolaLms\\Courses\\Tests\\": "tests",
-                    "Database\\Factories\\EscolaLms\\Courses\\Models\\": "database/factories"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marcin Lenkowski",
-                    "email": "marcin.lenkowski@escola.pl"
-                },
-                {
-                    "name": "Mateusz Wojczal",
-                    "email": "mateusz.wojczal@escola.pl"
-                }
-            ],
-            "description": "Escola Headless LMS Courses",
-            "transport-options": {
-                "relative": true
-            }
         },
         {
             "name": "escolasoft/h5p-core",
