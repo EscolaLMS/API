@@ -137,10 +137,6 @@
     {
       "type": "vcs",
       "url": "https://github.com/EscolaSoft/h5p-php-library"
-    },
-    {
-      "type": "path",
-      "url": "packages/Courses"
     }
   ]
 }
