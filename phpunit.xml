@@ -9,6 +9,7 @@
     </include>
   </coverage>
   <testsuites>
+  <!--
     <testsuite name="Unit">
       <directory suffix="Test.php">./tests/Unit</directory>
     </testsuite>
@@ -20,6 +21,11 @@
     </testsuite>
     <testsuite name="Integrations">
       <directory suffix="Test.php">./tests/Integrations</directory>
+    </testsuite>
+  -->
+  <!-- fml this isn't working -->
+    <testsuite name="H5P">
+      <directory suffix="Test.php">./vendor/escolalms/headless-h5p/tests/Api</directory>
     </testsuite>
   </testsuites>
   <php>

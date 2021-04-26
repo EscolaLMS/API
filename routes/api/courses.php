@@ -20,11 +20,9 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/{course}', [CourseProgressAPIController::class, 'show']);
         Route::patch('/{course}', [CourseProgressAPIController::class, 'store']);
         Route::put('/{curriculum_lectures_quiz}/ping', [CourseProgressAPIController::class, 'ping']);
-        Route::post('/{curriculum_lectures_quiz}/h5p', [CourseProgressAPIController::class, 'h5p']);
     });
 
     Route::get('{course}/curriculum', [CourseAPIController::class, 'curriculum']);
-
 });
 
 Route::get('{course}/forum', [CourseAPIController::class, 'showForum']);

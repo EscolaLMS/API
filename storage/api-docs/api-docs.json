@@ -568,29 +568,6 @@
                 }
             }
         },
-        "/api/h5p": {
-            "get": {
-                "tags": [
-                    "h5p"
-                ],
-                "description": "Get h5p content elements",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\H5PSwagger::index",
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                }
-            }
-        },
         "/api/share/linkedin": {
             "get": {
                 "tags": [
