@@ -35,7 +35,7 @@ jobs:
           php artisan passport:client --personal --no-interaction
 
       - name: Run Testsuite
-        run: vendor/bin/phpunit tests/
+        run: vendor/bin/phpunit
 
   phpunit-postgres:
     runs-on: ubuntu-latest
@@ -71,7 +71,7 @@ jobs:
           php artisan passport:client --personal --no-interaction
 
       - name: Run Testsuite
-        run: vendor/bin/phpunit tests/
+        run: vendor/bin/phpunit
 
   behat-mysql:
     runs-on: ubuntu-latest
@@ -106,7 +106,7 @@ jobs:
           php artisan passport:client --personal --no-interaction
 
       - name: Run Testsuite
-        run: vendor/bin/phpunit tests/
+        run: vendor/bin/phpunit
 
   behat-postgres:
     runs-on: ubuntu-latest
@@ -142,4 +142,4 @@ jobs:
           php artisan passport:client --personal --no-interaction
 
       - name: Run Testsuite
-        run: vendor/bin/phpunit tests/
+        run: vendor/bin/phpunit
