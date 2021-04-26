@@ -29,6 +29,7 @@ jobs:
         run: |
           cp docker/envs/.env.ci.mysql .env
           cp docker/envs/.env.ci.mysql .env.testing
+          cp docker/envs/phpunit.xml.mysql phpunit.xml
           php artisan key:generate
           php artisan migrate:fresh --seed
           php artisan passport:keys --force
@@ -65,6 +66,7 @@ jobs:
       - name: Prepare Laravel Application
         run: |
           cp docker/envs/.env.ci.postgres .env
+          cp docker/envs/phpunit.xml.postgres phpunit.xml
           php artisan key:generate
           php artisan migrate:fresh --seed
           php artisan passport:keys --force
@@ -100,6 +102,7 @@ jobs:
       - name: Prepare Laravel Application
         run: |
           cp docker/envs/.env.ci.mysql .env
+          cp docker/envs/phpunit.xml.mysql phpunit.xml
           php artisan key:generate
           php artisan migrate:fresh --seed
           php artisan passport:keys --force
@@ -136,6 +139,7 @@ jobs:
       - name: Prepare Laravel Application
         run: |
           cp docker/envs/.env.ci.postgres .env
+          cp docker/envs/phpunit.xml.postgres phpunit.xml
           php artisan key:generate
           php artisan migrate:fresh --seed
           php artisan passport:keys --force

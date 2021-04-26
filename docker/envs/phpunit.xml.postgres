@@ -33,8 +33,8 @@
         <env name="DB_CONNECTION" value="pgsql"/>
         <env name="DB_HOST" value="postgres"/>
         <env name="DB_PORT" value="5432"/>
-        <env name="DB_DATABASE" value="default"/>
-        <env name="DB_USERNAME" value="default"/>
-        <env name="DB_PASSWORD" value="secret"/>
+        <env name="DB_DATABASE" value="test"/>
+        <env name="DB_USERNAME" value="postgres"/>
+        <env name="DB_PASSWORD" value="postgres"/>
     </php>
 </phpunit>
