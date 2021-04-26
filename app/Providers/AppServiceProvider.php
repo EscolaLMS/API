@@ -59,7 +59,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (config('app.env') != 'local' || strpos(config('app.url'), 'https') !== false) {
+        if (strpos(config('app.url'), 'https') !== false) {
             \URL::forceScheme('https');
         }
         if (DB::Connection() instanceof SQLiteConnection) {

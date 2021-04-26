@@ -1,7 +1,5 @@
 <?php
 
-use EscolaSoft\LaravelH5p\Http\Controllers\EmbedController;
-use App\Http\Requests\H5pEmbedRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +11,3 @@ use App\Http\Requests\H5pEmbedRequest;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('embed/{id}', function (H5pEmbedRequest $request, int $id) {
-    $embedCtrl = app(EmbedController::class);
-    return $embedCtrl($request, $id);
-})->name('h5p.user.embed');

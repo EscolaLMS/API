@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\API\Admin\CourseApiController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\H5PAPIController;
 
 Route::group(['prefix' => 'section'], function () {
     Route::get('{curriculumSection}', [CourseApiController::class, 'getSection']);
@@ -14,7 +13,6 @@ Route::group(['prefix' => 'section'], function () {
 
 Route::get('curriculum/{course}', [CourseApiController::class, 'curriculum']);
 
-Route::get('h5p', [H5PAPIController::class, 'index']);
 
 
 
@@ -27,7 +25,6 @@ Route::group(['prefix' => 'lecture'], function () {
     Route::post('audio/save/{curriculumLecturesQuiz}', [CourseApiController::class, 'postLectureAudioSave']);
     Route::post('document/save/{curriculumLecturesQuiz}', [CourseApiController::class, 'postLectureDocumentSave']);
     Route::post('text/save/{curriculumLecturesQuiz}', [CourseApiController::class, 'postLectureTextSave']);
-    Route::post('h5p/save/{curriculumLecturesQuiz}', [CourseApiController::class, 'postLectureH5PSave']);
     Route::post('resource/save/{curriculumLecturesQuiz}', [CourseApiController::class, 'postLectureResourceSave']);
     Route::delete('resource/delete/{courseFiles}', [CourseApiController::class, 'deleteResource']);
 

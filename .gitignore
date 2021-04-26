@@ -30,3 +30,8 @@ escolasoft/**/vendor
 
 bootstrap/cache/**/*
 /packages
+
+
+/public/h5p
+/public/h5p-editor
+/public/h5p-core

@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\API\ShareApiController;
-use EscolaSoft\LaravelH5p\Http\Controllers\H5pController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,7 +34,6 @@ Route::group(['prefix' => 'courses'], function () {
     require 'api/courses.php';
 });
 
-Route::get('h5p/{id}', [H5pController::class, 'showApi']);
 
 
 Route::get('/debug-sentry', function () {

@@ -5,7 +5,7 @@ return [
     'documentations' => [
         'default' => [
             'api' => [
-                'title' => 'Get Kibble API',
+                'title' => 'Escola LMS',
             ],
 
             'routes' => [
@@ -35,6 +35,7 @@ return [
                 */
                 'annotations' => [
                     app_path(),
+                    base_path('vendor/escolalms/headless-h5p/src')
 //                    base_path('escolasoft/EscolaLms/src') // TODO: add path to escola vendor
                 ],
 
