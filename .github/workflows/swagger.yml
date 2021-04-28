@@ -32,7 +32,7 @@ jobs:
         run: vendor/bin/testbench package:discover --ansi
 
       - name: Generate YAML openapi
-        run: vendor/bin/openapi --format json -b env/openapi/config.php -o openapi.json src
+        run: vendor/bin/openapi --format json -o openapi.json src
 
       - name: Swagger ui action
         id: swagger-ui-action
