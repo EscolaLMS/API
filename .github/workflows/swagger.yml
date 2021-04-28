@@ -25,21 +25,15 @@ jobs:
       - name: Update composer
         run: composer update
 
-      - name: Require composer swagger package
-        run: composer require darkaonline/l5-swagger
-
-      - name: Discover packages
-        run: vendor/bin/testbench package:discover --ansi
-
-      - name: Generate YAML openapi
-        run: vendor/bin/openapi --format json -o openapi.json src
+      - name: Generage openapi
+        run: php artisan l5-swagger:generate
 
       - name: Swagger ui action
         id: swagger-ui-action
         uses: pjoc-team/swagger-ui-action@v0.0.2
         with:
-          dir: "./"
-          pattern: "openapi.json"
+          dir: "./storage/api-docs/"
+          pattern: "api-docs.json"
           debug: "true"
 
       - name: Install git
