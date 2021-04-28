@@ -2,10 +2,6 @@
 
 namespace App\Models;
 
-use EscolaLms\Auth\Models\UserSetting;
-use EscolaLms\Categories\Models\Category;
-use EscolaLms\Categories\Models\Traits\HasInterests;
-use EscolaSoft\Shopping\Models\Order;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -15,7 +11,6 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
-use Treestoneit\ShoppingCart\Models\Cart;
 
 /**
  * App\Models\User
@@ -89,7 +84,7 @@ use Treestoneit\ShoppingCart\Models\Cart;
 // TODO: make user extendable from core + add all traits
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, HasRoles, HasApiTokens, HasInterests;
+    use Notifiable, HasRoles, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -147,10 +142,6 @@ class User extends Authenticatable implements MustVerifyEmail
         });
     }
 
-    public function instructor()
-    {
-        return $this->hasOne(Instructor::class, 'user_id', 'id');
-    }
 
     /**
      * @param string|array $roles
@@ -187,27 +178,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 
-    public function courses(): BelongsToMany
-    {
-        return $this->belongsToMany(Course::class)->withTimestamps();
-    }
 
-
-    public function settings(): HasMany
-    {
-        return $this->hasMany(UserSetting::class);
-    }
-
-
-    public function cart(): HasOne
-    {
-        return $this->hasOne(Cart::class, 'user_id');
-    }
-
-    public function orders(): HasMany
-    {
-        return $this->hasMany(Order::class, 'user_id');
-    }
 
 
     public function getAvatarUrlAttribute(): ?string

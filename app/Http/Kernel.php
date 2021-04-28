@@ -3,7 +3,6 @@
 namespace App\Http;
 
 use App\Http\Middleware\ManualRoutesAuthorization;
-use EscolaLms\Auth\Http\Middleware\OnboardingCompleted;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -82,7 +81,6 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\Authenticate::class,
         \Illuminate\Session\Middleware\AuthenticateSession::class,
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        \Illuminate\Auth\Middleware\Authorize::class,
-        OnboardingCompleted::class,
+        \Illuminate\Auth\Middleware\Authorize::class
     ];
 }
