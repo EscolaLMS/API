@@ -22,6 +22,7 @@ services:
     volumes:
       - ./:/var/www/html:cached
       - ./docker/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
+      - ./docker/xxx-devilbox-default-php.ini:/usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini
     networks:
       - escola_lms
 

@@ -35,3 +35,6 @@ bootstrap/cache/**/*
 /public/h5p
 /public/h5p-editor
 /public/h5p-core
+
+storage/api-docs/api-docs.json
+composer.lock
