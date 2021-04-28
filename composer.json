@@ -88,19 +88,11 @@
     }
   },
   "autoload": {
-    "files": [
-      "app/Http/SiteHelpers.php",
-      "app/Http/Controllers/Overwrite/EmbedController.php"
-    ],
     "psr-4": {
       "App\\": "app/",
       "Database\\Factories\\": "database/factories",
       "Database\\Seeders\\": "database/seeds"
-    },
-    "classmap": [
-      "database/seeds",
-      "database/factories"
-    ]
+    }
   },
   "autoload-dev": {
     "psr-4": {
