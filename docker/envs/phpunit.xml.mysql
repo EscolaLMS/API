@@ -8,33 +8,33 @@
       <directory suffix=".php">./app</directory>
     </include>
   </coverage>
-  <testsuites>
-  <!--
-    <testsuite name="Unit">
-      <directory suffix="Test.php">./tests/Unit</directory>
+   <testsuites>
+    <testsuite name="auth">
+      <directory suffix="Test.php">./vendor/escolalms/auth/tests</directory>
     </testsuite>
-    <testsuite name="API">
-      <directory suffix="Test.php">./tests/APIs</directory>
+    <testsuite name="categories">
+      <directory suffix="Test.php">./vendor/escolalms/categories/tests</directory>
     </testsuite>
-    <testsuite name="Repository">
-      <directory suffix="Test.php">./tests/Repositories</directory>
+    <testsuite name="core">
+      <directory suffix="Test.php">./vendor/escolalms/core/tests</directory>
     </testsuite>
-    <testsuite name="Integrations">
-      <directory suffix="Test.php">./tests/Integrations</directory>
+    <testsuite name="courses">
+      <directory suffix="Test.php">./vendor/escolalms/courses/tests</directory>
     </testsuite>
-  -->
-  <!-- fml this isn't working -->
-    <testsuite name="H5P">
-      <directory suffix="Test.php">./vendor/escolalms/headless-h5p/tests/Api</directory>
+    <testsuite name="files">
+      <directory suffix="Test.php">./vendor/escolalms/files/tests</directory>
+    </testsuite>
+    <testsuite name="headless-h5p">
+      <directory suffix="Test.php">./vendor/escolalms/headless-h5p/tests</directory>
     </testsuite>
   </testsuites>
-      <php>
-        <env name="APP_KEY" value="AckfSECXIvnK5r28GVIWUAxmbBSjTsmF"/>
-        <env name="DB_CONNECTION" value="mysql"/>
-        <env name="DB_HOST" value="mysql"/>
-        <env name="DB_PORT" value="3306"/>
-        <env name="DB_DATABASE" value="test"/>
-        <env name="DB_USERNAME" value="root"/>
-        <env name="DB_PASSWORD" value="password"/>
-    </php>
+  <php>
+    <env name="APP_KEY" value="AckfSECXIvnK5r28GVIWUAxmbBSjTsmF"/>
+    <env name="DB_CONNECTION" value="mysql"/>
+    <env name="DB_HOST" value="mysql"/>
+    <env name="DB_PORT" value="3306"/>
+    <env name="DB_DATABASE" value="test"/>
+    <env name="DB_USERNAME" value="root"/>
+    <env name="DB_PASSWORD" value="password"/>
+  </php>
 </phpunit>
