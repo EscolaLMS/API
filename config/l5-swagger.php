@@ -35,8 +35,12 @@ return [
                 */
                 'annotations' => [
                     app_path(),
-                    base_path('vendor/escolalms/headless-h5p/src')
-//                    base_path('escolasoft/EscolaLms/src') // TODO: add path to escola vendor
+                    base_path('vendor/escolalms/auth/src'),
+                    base_path('vendor/escolalms/categories/src'),
+                    base_path('vendor/escolalms/core/src'),
+                    base_path('vendor/escolalms/courses/src'),
+                    base_path('vendor/escolalms/files/src'),
+                    base_path('vendor/escolalms/headless-h5p/src'),
                 ],
 
             ],
