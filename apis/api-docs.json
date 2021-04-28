@@ -1,0 +1,1753 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Get Kibble",
+        "version": "0.0.1"
+    },
+    "paths": {
+        "/api/cart/course/{course_id}": {
+            "post": {
+                "tags": [
+                    "Cart"
+                ],
+                "description": "Add course to cart",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CartSwagger::addCourse",
+                "parameters": [
+                    {
+                        "name": "course_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Cart"
+                ],
+                "description": "Add course to cart",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CartSwagger::deleteCourse",
+                "parameters": [
+                    {
+                        "name": "course_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/courses/progress": {
+            "get": {
+                "tags": [
+                    "progress"
+                ],
+                "description": "Get Progresses",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseProgressSwagger::index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/courses/progress/{id}": {
+            "get": {
+                "tags": [
+                    "progress"
+                ],
+                "description": "Show user course progress",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseProgressSwagger::show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "progress"
+                ],
+                "description": "Show user course progress",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseProgressSwagger::store",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "progress[]",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "lecture_id": {
+                                        "type": "integer"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/courses/progress/{id}/ping": {
+            "put": {
+                "tags": [
+                    "progress"
+                ],
+                "description": "Update time in course by ping.",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseProgressSwagger::ping",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/courses/progress/{id}/h5p": {
+            "post": {
+                "tags": [
+                    "progress"
+                ],
+                "description": "Update h5p progress in course quiz.",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseProgressSwagger::h5p",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "event": {
+                                        "type": "string",
+                                        "example": "http://adlnet.gov/expapi/verbs/attempted"
+                                    },
+                                    "data": {
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/courses": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "description": "Get Courses",
+                "operationId": "getCoursesList",
+                "parameters": [
+                    {
+                        "name": "course_title",
+                        "in": "query",
+                        "description": "Course name %LIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Photography"
+                    },
+                    {
+                        "name": "category_id",
+                        "in": "query",
+                        "description": "Category ID. When applied all courses with given cat_id and children categories are searched",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "tag",
+                        "in": "query",
+                        "description": "Tag name exactly",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/courses/recommended": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "description": "Get recommended Courses",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseSwagger::recommended",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/courses/popular": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "description": "Get frequently bought Courses",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseSwagger::popular",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/courses/related/{id}": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "description": "Get related Courses",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseSwagger::related",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Course ID passing for fetch related courses or if there is no related, similar courses based on categories (including parent)",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/courses/related-many": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "description": "Get related Courses for many others",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseSwagger::relatedMany",
+                "parameters": [
+                    {
+                        "name": "courses[]",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/courses/{id}": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "description": "Fetch the specified Course",
+                "operationId": "getCourse",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Not found request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/courses/{id}/curriculum": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "description": "Fetch the specified Course curriculum",
+                "operationId": "getCourseCurriculum",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Not found request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/courses/category/{category_id}": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "description": "Searche Course By Criteria",
+                "operationId": "searchCourseByCategory",
+                "parameters": [
+                    {
+                        "name": "category_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/share/linkedin": {
+            "get": {
+                "tags": [
+                    "Share"
+                ],
+                "description": "Share to my linkedin account",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\ShareSwagger::linkedin",
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/share/facebook": {
+            "get": {
+                "tags": [
+                    "Share"
+                ],
+                "description": "Share to my facebook timeline",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\ShareSwagger::facebook",
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/share/twitter": {
+            "get": {
+                "tags": [
+                    "Share"
+                ],
+                "description": "Share to my twitter timeline",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\ShareSwagger::twitter",
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/tags": {
+            "get": {
+                "tags": [
+                    "tags"
+                ],
+                "description": "Get Tags",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\TagSwagger::index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tags/unique": {
+            "get": {
+                "tags": [
+                    "tags"
+                ],
+                "description": "Get Unique Tags names",
+                "operationId": "App\\Http\\Controllers\\API\\Swagger\\TagSwagger::unique",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/hh5p/content": {
+            "get": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "list of h5ps content in database",
+                "description": "list of h5ps content in database",
+                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\ContentApiSwagger::index",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page of pagination",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "items per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/H5PContentList"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "validation error",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "unauthorised",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Store h5p content in database",
+                "description": "Store h5p content in database",
+                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\ContentApiSwagger::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/H5PContentStore"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "validation error",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "unauthorised",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/hh5p/content/{id}": {
+            "get": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Content settings for player",
+                "description": "Content settings for player",
+                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\ContentApiSwagger::show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of Content",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/H5PEditorSettings"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Updates h5p content in database",
+                "description": "Updates h5p content in database",
+                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\ContentApiSwagger::update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of Content from DB",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/H5PContentStore"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "validation error",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "unauthorised",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Deletes h5p content from database",
+                "description": "Deletes h5p content from database",
+                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\ContentApiSwagger::destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of content that will be deleted",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "validation error",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "unauthorised",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/hh5p/content/upload": {
+            "post": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Store h5p content from file in database",
+                "description": "Store h5p content from file in database",
+                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\ContentApiSwagger::upload",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "h5p_file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/hh5p/editor": {
+            "get": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Editor settings ",
+                "description": "Editor settings",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/H5PEditorSettings"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/hh5p/editor/{id}": {
+            "get": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Editor settings ",
+                "description": "Editor settings",
+                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\EditorApiSwagger::__invoke",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of Content from DB. For initial editor (new content) id should be null",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/H5PEditorSettings"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/hh5p/files": {
+            "post": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Store h5p files for h5p editor",
+                "description": "Store h5p files for h5p editor",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/H5PContentFile"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/hh5p/files/{nonce}": {
+            "post": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Store h5p files for h5p editor",
+                "description": "Store h5p files for h5p editor",
+                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\FilesApiSwagger::__invoke",
+                "parameters": [
+                    {
+                        "name": "nonce",
+                        "in": "path",
+                        "description": "nonce of current editing file",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/H5PContentFile"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/hh5p/library": {
+            "get": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Gets all h5p libraries in the database",
+                "description": "Gets all h5p libraries in the database",
+                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\LibraryApiSwagger::index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/H5PLibrary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Store h5p library in database",
+                "description": "Store h5p library in database",
+                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\LibraryApiSwagger::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "h5p_file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/hh5p/library/{id}": {
+            "delete": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Deletes h5p library from database",
+                "description": "Deletes h5p library from database",
+                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\LibraryApiSwagger::destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of library that will be deleted",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/hh5p/libraries": {
+            "get": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "H5P Editor Endpoint. Gets all h5p runnable libraries in the database. Called by  ",
+                "description": "Gets all h5p runnable libraries in the database. Called by H5P Editor",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/H5PLibrary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/hh5p/libraries?": {
+            "get": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "H5P Editor Endpoint. Get specific library object  ",
+                "description": "Get specific library object",
+                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\LibraryApiSwagger::libraries",
+                "parameters": [
+                    {
+                        "name": "machineName",
+                        "in": "query",
+                        "description": "machine Name of Library",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "H5P.ArithmeticQuiz"
+                    },
+                    {
+                        "name": "majorVersion",
+                        "in": "query",
+                        "description": "major Version",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "minorVersion",
+                        "in": "query",
+                        "description": "minor Version",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/H5PLibraryForEditor"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "H5PContentStore": {
+                "properties": {
+                    "title": {
+                        "description": "Title of new content",
+                        "type": "string"
+                    },
+                    "library": {
+                        "description": "ubername of library",
+                        "type": "string"
+                    },
+                    "params": {
+                        "description": "params taken from editor",
+                        "type": "string"
+                    },
+                    "nonce": {
+                        "description": "nonce taken from editor settings (random for new, hash for exisiting)",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "H5PContentList": {
+                "properties": {
+                    "current_page": {
+                        "type": "integer"
+                    },
+                    "first_page_url": {
+                        "type": "string"
+                    },
+                    "last_page": {
+                        "type": "integer"
+                    },
+                    "last_page_url": {
+                        "type": "string"
+                    },
+                    "next_page_url": {
+                        "type": "string"
+                    },
+                    "path": {
+                        "type": "string"
+                    },
+                    "per_page": {
+                        "type": "integer"
+                    },
+                    "prev_page_url": {
+                        "type": "string"
+                    },
+                    "to": {
+                        "type": "integer"
+                    },
+                    "total": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/H5PContent"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "H5PLibraryForEditor": {
+                "properties": {
+                    "css": {
+                        "description": "array of css dependencies",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "defaultLanguage": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "javascript": {
+                        "description": "array of js dependencies",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "language": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "languages": {
+                        "description": "array of possible languages",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "name": {
+                        "description": "machine name of the library",
+                        "type": "string",
+                        "example": "H5P.ArithmeticQuiz"
+                    },
+                    "semantics": {
+                        "description": "array of objects with keys: name, type, label, importance, widget, etc",
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        }
+                    },
+                    "title": {
+                        "description": "Title",
+                        "type": "string",
+                        "example": "Arithmetic Quiz"
+                    },
+                    "translations": {
+                        "description": "array of possible languages",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "upgradesScript": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "version": {
+                        "description": "has `major` and `minor` keys",
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "H5PEditorSettings": {
+                "properties": {
+                    "ajax": {
+                        "description": "array of css dependencies",
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "properties": {
+                                    "setFinished": {},
+                                    "ajaxSetFinished": {}
+                                },
+                                "type": "object"
+                            }
+                        ]
+                    },
+                    "baseUrl": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "l10n": {
+                        "description": "transaltions",
+                        "type": "object"
+                    },
+                    "contents": {
+                        "description": "contents if editing extisting content. key is in form of `cid-{id}`",
+                        "type": "object"
+                    },
+                    "editor": {
+                        "description": "",
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "properties": {
+                                    "ajaxPath": {
+                                        "description": "",
+                                        "type": "string"
+                                    },
+                                    "assets": {
+                                        "description": "array of dependencies",
+                                        "type": "object",
+                                        "allOf": [
+                                            {
+                                                "properties": {
+                                                    "css": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "js": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        ]
+                                    },
+                                    "apiVersion": {
+                                        "description": "versio of h5p API",
+                                        "type": "object",
+                                        "allOf": [
+                                            {
+                                                "properties": {
+                                                    "majorVersion": {
+                                                        "type": "integer"
+                                                    },
+                                                    "minorVersion": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        ]
+                                    },
+                                    "copyrightSemantics": {
+                                        "description": "copyright Semantics",
+                                        "type": "object"
+                                    },
+                                    "deleteMessage": {
+                                        "description": "delete Message",
+                                        "type": "string"
+                                    },
+                                    "fileIcon": {
+                                        "description": "",
+                                        "type": "object"
+                                    },
+                                    "filesPath": {
+                                        "description": "array of css dependencies",
+                                        "type": "string"
+                                    },
+                                    "libraryUrl": {
+                                        "description": "array of css dependencies",
+                                        "type": "string"
+                                    },
+                                    "metadataSemantics": {
+                                        "description": "",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        ]
+                    },
+                    "core": {
+                        "description": "",
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "properties": {
+                                    "scripts": {
+                                        "description": "array of css dependencies",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "styles": {
+                                        "description": "array of css dependencies",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        ]
+                    },
+                    "languages": {
+                        "description": "array of possible languages",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "name": {
+                        "description": "machine name of the library",
+                        "type": "string",
+                        "example": "H5P.ArithmeticQuiz"
+                    },
+                    "semantics": {
+                        "description": "array of objects with keys: name, type, label, importance, widget, etc",
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        }
+                    },
+                    "title": {
+                        "description": "Title",
+                        "type": "string",
+                        "example": "Arithmetic Quiz"
+                    },
+                    "translations": {
+                        "description": "array of possible languages",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "upgradesScript": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "version": {
+                        "description": "has `major` and `minor` keys",
+                        "type": "object"
+                    },
+                    "nodeVersionId": {
+                        "description": "ID of content if editing existsing content",
+                        "type": "integer"
+                    },
+                    "nonce": {
+                        "description": "ID Hash to move and clearup files uploaded by editor",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "H5PContentFile": {
+                "properties": {
+                    "file": {
+                        "description": "file uploaded by h5peditor",
+                        "type": "file",
+                        "format": "binary"
+                    },
+                    "field": {
+                        "description": "json description of file",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "contentId": {
+                        "description": "id of content",
+                        "type": "string",
+                        "format": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "H5PContent": {
+                "properties": {
+                    "id": {
+                        "description": "Id",
+                        "type": "integer"
+                    },
+                    "created_at": {
+                        "description": "Date created at",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Date updated at",
+                        "type": "string"
+                    },
+                    "user_id": {
+                        "description": "id of user that created/updated ",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Title of new content",
+                        "type": "string"
+                    },
+                    "library_id": {
+                        "description": "library_id",
+                        "type": "string"
+                    },
+                    "parameters": {
+                        "description": "JSON parameters",
+                        "type": "string"
+                    },
+                    "filtered": {
+                        "description": "filtered",
+                        "type": "string"
+                    },
+                    "slug": {
+                        "description": "slug",
+                        "type": "string"
+                    },
+                    "embed_type": {
+                        "description": "embed type",
+                        "type": "string"
+                    },
+                    "params": {
+                        "description": "parsed parameters",
+                        "type": "object"
+                    },
+                    "metadata": {
+                        "description": "parsed metadata",
+                        "type": "object"
+                    },
+                    "library": {
+                        "$ref": "#/components/schemas/H5PLibrary"
+                    },
+                    "nonce": {
+                        "description": "nonce taken from editor settings (random for new, hash for exisiting)",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "H5PLibrary": {
+                "properties": {
+                    "id": {
+                        "description": "ID of Content in DB",
+                        "type": "integer"
+                    },
+                    "created_at": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Machine name. Alias",
+                        "type": "string"
+                    },
+                    "runnable": {
+                        "description": "Can be selected from editor dropdown list",
+                        "type": "integer"
+                    },
+                    "restricted": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "fullscreen": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "embed_types": {
+                        "description": "Either div or iframe",
+                        "type": "string"
+                    },
+                    "semantics": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "machineName": {
+                        "description": "Machine Name",
+                        "type": "string"
+                    },
+                    "uberName": {
+                        "description": "params taken from editor",
+                        "type": "string"
+                    },
+                    "majorVersion": {
+                        "description": "major version",
+                        "type": "string"
+                    },
+                    "minorVersion": {
+                        "description": "minor version",
+                        "type": "string"
+                    },
+                    "patchVersion": {
+                        "description": "Patch Version",
+                        "type": "string"
+                    },
+                    "preloadedJs": {
+                        "description": "Comma separated list of JavaScript dependencies",
+                        "type": "string"
+                    },
+                    "preloadedCss": {
+                        "description": "Comma separated list of CSS dependencies",
+                        "type": "string"
+                    },
+                    "dropLibraryCss": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "tutorialUrl": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "hasIcon": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "libraryId": {
+                        "description": "ID of library. Alias",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "passport": {
+                "type": "http",
+                "name": "bearerAuth",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
