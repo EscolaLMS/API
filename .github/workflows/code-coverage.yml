@@ -1,19 +1,10 @@
-name: Tests Code Coverage
-
-on:
-  # Trigger the workflow on push or pull request,
-  # but only for the main branch
-  push:
-    branches:
-      - main
-      - master
-  pull_request:
-
+on: push
+name: Code Coverage
 jobs:
-  phpunit-code-coverage:
+  phpunit-cc-mysql:
     runs-on: ubuntu-latest
     container:
-      image: escolalms/php:7.4
+      image: escolasoft1/laravel-prod-docker:fpm
 
     services:
       mysql:
@@ -37,6 +28,7 @@ jobs:
       - name: Prepare Laravel Application
         run: |
           cp docker/envs/.env.ci.mysql .env
+          cp docker/envs/.env.ci.mysql .env.testing
           cp docker/envs/phpunit.xml.mysql phpunit.xml
           php artisan key:generate
           php artisan migrate:fresh --seed

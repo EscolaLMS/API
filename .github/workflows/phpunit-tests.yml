@@ -1,5 +1,5 @@
 on: push
-name: CI
+name: Integration Tests
 jobs:
   phpunit-mysql:
     runs-on: ubuntu-latest
