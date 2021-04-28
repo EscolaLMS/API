@@ -25,7 +25,7 @@
     "escolalms/auth": "^0.1",
     "escolalms/categories": "^0.1",
     "escolalms/core": "^0.1",
-    "escolalms/headless-h5p": "^0.0.2",
+    "escolalms/headless-h5p": "^0.0.3",
     "fideloper/proxy": "^4.0",
     "fruitcake/laravel-cors": "^2.0",
     "ignited/laravel-omnipay": "^3.0.2",
