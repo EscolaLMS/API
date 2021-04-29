@@ -5,23 +5,515 @@
         "version": "0.0.1"
     },
     "paths": {
-        "/api/cart/course/{course_id}": {
-            "post": {
+        "/api/admin/users/{id}/interests": {
+            "get": {
                 "tags": [
-                    "Cart"
+                    "User Interests"
                 ],
-                "description": "Add course to cart",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CartSwagger::addCourse",
+                "summary": "Get user interests",
+                "description": "",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserInterestsSwagger::listUserInterests",
                 "parameters": [
                     {
-                        "name": "course_id",
+                        "name": "id",
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "integer",
+                            "format": "int64"
                         }
                     }
                 ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns list of user interests",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "User Interests"
+                ],
+                "summary": "Set user interests",
+                "description": "",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserInterestsSwagger::updateUserInterests",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns list of user interests",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "User Interests"
+                ],
+                "summary": "Add single user interest",
+                "description": "",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserInterestsSwagger::addUserInterest",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns list of user interests",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/users/{id}/interests/{interest_id}": {
+            "delete": {
+                "tags": [
+                    "User Interests"
+                ],
+                "summary": "Add single user interest",
+                "description": "",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserInterestsSwagger::deleteUserInterest",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "interest_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns list of user interests",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/users/{id}/settings": {
+            "get": {
+                "tags": [
+                    "User Settings"
+                ],
+                "summary": "Get user settings",
+                "description": "",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSettingsSwagger::listUserSettings",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns list of user settings",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/profile/settings": {
+            "put": {
+                "tags": [
+                    "User Settings"
+                ],
+                "summary": "Set user setting (removes settings not sent)",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSettingsSwagger::putUserSettings",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "User Settings"
+                ],
+                "summary": "Update user setting(s) without changing other settings",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSettingsSwagger::patchUserSettings",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get users",
+                "description": "",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::listUsers",
+                "parameters": [
+                    {
+                        "name": "",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns list of Users",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Create user",
+                "description": "",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::createUser",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation,  returns created User data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/users/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get user",
+                "description": "",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::getUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns User data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Delete user",
+                "description": "",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::deleteUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid id"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/user/{id}": {
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update/Replace user data (will overwrite unset fields with nulls)",
+                "description": "",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::updateUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid id"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Partial Update User (will only change sent fields)",
+                "description": "",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::partialUpdateUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid id"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/users/{id}/avatar": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "Upload avatar",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::uploadAvatar",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "avatar": {
+                                        "type": "file",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -44,14 +536,248 @@
             },
             "delete": {
                 "tags": [
-                    "Cart"
+                    "Users"
                 ],
-                "description": "Add course to cart",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CartSwagger::deleteCourse",
+                "description": "Delete avatar",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::deleteAvatar",
                 "parameters": [
                     {
-                        "name": "course_id",
+                        "name": "id",
                         "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/auth/password/forgot": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Password forget",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\AuthSwagger::forgotPassword",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "user@escola-lms.com"
+                                    },
+                                    "return_url": {
+                                        "type": "string",
+                                        "example": "https://escolalms.com/password-reset"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/password/reset": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Password reset",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\AuthSwagger::resetPassword",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "user@escola-lms.com"
+                                    },
+                                    "token": {
+                                        "type": "string",
+                                        "example": "hFD4UpgzTMNBeCGyfUrbvHtDb2yzSnuE"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "zaq1@WSX"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/refresh": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Refresh access token",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\AuthSwagger::refresh",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/social/{provider}": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Redirect to social login",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\AuthSwagger::socialRedirect",
+                "parameters": [
+                    {
+                        "name": "provider",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "facebook",
+                                "google"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "302": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/social/{provider}/callback": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Redirect after sucessfull login",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\AuthSwagger::socialCallback",
+                "parameters": [
+                    {
+                        "name": "provider",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "facebook",
+                                "google"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "302": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/email/resend": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Resend email verification",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\AuthSwagger::resendEmailVerification",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "user@escola-lms.com"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "description": "User login",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\LoginSwagger::login",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
                         "required": true,
                         "schema": {
                             "type": "string"
@@ -71,33 +797,22 @@
                             "application/json": {}
                         }
                     }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
+                }
             }
         },
-        "/api/courses/progress": {
-            "get": {
+        "/api/auth/logout": {
+            "post": {
                 "tags": [
-                    "progress"
+                    "Auth"
                 ],
-                "description": "Get Progresses",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseProgressSwagger::index",
+                "description": "User logout",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\LogoutSwagger::logout",
                 "responses": {
                     "200": {
                         "description": "successful operation",
                         "content": {
                             "application/json": {}
                         }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
                     }
                 },
                 "security": [
@@ -107,23 +822,13 @@
                 ]
             }
         },
-        "/api/courses/progress/{id}": {
+        "/api/profile/me": {
             "get": {
                 "tags": [
-                    "progress"
+                    "Profile"
                 ],
-                "description": "Show user course progress",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseProgressSwagger::show",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "number"
-                        }
-                    }
-                ],
+                "description": "Get logged user info",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::me",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -144,38 +849,76 @@
                     }
                 ]
             },
-            "patch": {
+            "put": {
                 "tags": [
-                    "progress"
+                    "Profile"
                 ],
-                "description": "Show user course progress",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseProgressSwagger::store",
+                "description": "Update the profile",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::update",
                 "parameters": [
                     {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "number"
-                        }
-                    },
-                    {
-                        "name": "progress[]",
+                        "name": "first_name",
                         "in": "query",
                         "required": true,
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "properties": {
-                                    "lecture_id": {
-                                        "type": "integer"
-                                    },
-                                    "status": {
-                                        "type": "integer"
-                                    }
-                                },
-                                "type": "object"
-                            }
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "age",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "gender",
+                        "in": "query",
+                        "description": "1 - male, 2 - female",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "street",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "postcode",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
                         }
                     }
                 ],
@@ -200,20 +943,20 @@
                 ]
             }
         },
-        "/api/courses/progress/{id}/ping": {
+        "/api/profile/me-auth": {
             "put": {
                 "tags": [
-                    "progress"
+                    "Profile"
                 ],
-                "description": "Update time in course by ping.",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseProgressSwagger::ping",
+                "description": "Update the profile authorization data",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::updateAuthData",
                 "parameters": [
                     {
-                        "name": "id",
-                        "in": "path",
+                        "name": "email",
+                        "in": "query",
                         "required": true,
                         "schema": {
-                            "type": "number"
+                            "type": "string"
                         }
                     }
                 ],
@@ -238,34 +981,118 @@
                 ]
             }
         },
-        "/api/courses/progress/{id}/h5p": {
-            "post": {
+        "/api/profile/password": {
+            "put": {
                 "tags": [
-                    "progress"
+                    "Profile"
                 ],
-                "description": "Update h5p progress in course quiz.",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseProgressSwagger::h5p",
+                "description": "Update password",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::updatePassword",
                 "parameters": [
                     {
-                        "name": "id",
-                        "in": "path",
+                        "name": "current_password",
+                        "in": "query",
                         "required": true,
                         "schema": {
-                            "type": "number"
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "new_password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "new_confirm_password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
                         }
                     }
                 ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/profile/interests": {
+            "put": {
+                "tags": [
+                    "Profile"
+                ],
+                "summary": "Update user interests",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::interests",
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
                                 "properties": {
-                                    "event": {
-                                        "type": "string",
-                                        "example": "http://adlnet.gov/expapi/verbs/attempted"
-                                    },
-                                    "data": {
-                                        "type": "object"
+                                    "interests": {
+                                        "description": "Array categories ids",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/profile/upload-avatar": {
+            "post": {
+                "tags": [
+                    "Profile"
+                ],
+                "description": "Upload avatar",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::uploadAvatar",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "avatar": {
+                                        "type": "file",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
                                     }
                                 },
                                 "type": "object"
@@ -282,6 +1109,280 @@
                     },
                     "422": {
                         "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/profile/delete-avatar": {
+            "delete": {
+                "tags": [
+                    "Profile"
+                ],
+                "description": "Delete avatar",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::deleteAvatar",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/profile/settings": {
+            "get": {
+                "tags": [
+                    "Profile"
+                ],
+                "description": "Get user settings",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::settings",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Profile"
+                ],
+                "summary": "Update user settings",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::settingsUpdate",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "setting-key": {
+                                        "description": "Example setting",
+                                        "type": "object",
+                                        "example": "example-value"
+                                    },
+                                    "setting-key2": {
+                                        "description": "Example setting",
+                                        "type": "object",
+                                        "example": "example-value2"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/auth/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "description": "Register new user",
+                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\RegisterSwagger::register",
+                "parameters": [
+                    {
+                        "name": "first_name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/categories": {
+            "get": {
+                "tags": [
+                    "categories"
+                ],
+                "description": "Get Categories",
+                "operationId": "EscolaLms\\Categories\\Http\\Controllers\\Swagger\\CategorySwagger::index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/categories/tree": {
+            "get": {
+                "tags": [
+                    "categories"
+                ],
+                "description": "Get Categories Tree",
+                "operationId": "EscolaLms\\Categories\\Http\\Controllers\\Swagger\\CategorySwagger::tree",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/categories/{id}": {
+            "get": {
+                "tags": [
+                    "categories"
+                ],
+                "description": "Get single Categories",
+                "operationId": "EscolaLms\\Categories\\Http\\Controllers\\Swagger\\CategorySwagger::show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/attachments": {
+            "post": {
+                "tags": [
+                    "Attachments"
+                ],
+                "summary": "Store a attachment as file in storage",
+                "description": "Store Image",
+                "operationId": "EscolaLms\\Core\\Http\\Controllers\\Swagger\\AttachmentAPISwaggerInterface::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
                         "content": {
                             "application/json": {}
                         }
@@ -297,166 +1398,40 @@
         "/api/courses": {
             "get": {
                 "tags": [
-                    "Courses"
+                    "Course"
                 ],
-                "description": "Get Courses",
-                "operationId": "getCoursesList",
-                "parameters": [
-                    {
-                        "name": "course_title",
-                        "in": "query",
-                        "description": "Course name %LIKE%",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "Photography"
-                    },
-                    {
-                        "name": "category_id",
-                        "in": "query",
-                        "description": "Category ID. When applied all courses with given cat_id and children categories are searched",
-                        "required": false,
-                        "schema": {
-                            "type": "number"
-                        },
-                        "example": "1"
-                    },
-                    {
-                        "name": "tag",
-                        "in": "query",
-                        "description": "Tag name exactly",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": ""
-                    }
-                ],
+                "summary": "Get a listing of the Courses.",
+                "description": "Get all Courses",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\CourseAPIController::index",
                 "responses": {
                     "200": {
                         "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
                         "content": {
                             "application/json": {}
                         }
                     }
                 }
-            }
-        },
-        "/api/courses/recommended": {
-            "get": {
+            },
+            "post": {
                 "tags": [
-                    "Courses"
+                    "Course"
                 ],
-                "description": "Get recommended Courses",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseSwagger::recommended",
+                "summary": "Store a newly created Course in storage",
+                "description": "Store Course",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\CourseAPIController::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Course"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                }
-            }
-        },
-        "/api/courses/popular": {
-            "get": {
-                "tags": [
-                    "Courses"
-                ],
-                "description": "Get frequently bought Courses",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseSwagger::popular",
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                }
-            }
-        },
-        "/api/courses/related/{id}": {
-            "get": {
-                "tags": [
-                    "Courses"
-                ],
-                "description": "Get related Courses",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseSwagger::related",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Course ID passing for fetch related courses or if there is no related, similar courses based on categories (including parent)",
-                        "required": false,
-                        "schema": {
-                            "type": "number"
-                        },
-                        "example": "1"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                }
-            }
-        },
-        "/api/courses/related-many": {
-            "get": {
-                "tags": [
-                    "Courses"
-                ],
-                "description": "Get related Courses for many others",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\CourseSwagger::relatedMany",
-                "parameters": [
-                    {
-                        "name": "courses[]",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {}
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
                         "content": {
                             "application/json": {}
                         }
@@ -467,17 +1442,19 @@
         "/api/courses/{id}": {
             "get": {
                 "tags": [
-                    "Courses"
+                    "Course"
                 ],
-                "description": "Fetch the specified Course",
-                "operationId": "getCourse",
+                "summary": "Display the specified Course",
+                "description": "Get Course",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\CourseAPIController::show",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
+                        "description": "id of Course",
                         "required": true,
                         "schema": {
-                            "type": "number"
+                            "type": "integer"
                         }
                     }
                 ],
@@ -487,80 +1464,67 @@
                         "content": {
                             "application/json": {}
                         }
-                    },
-                    "404": {
-                        "description": "Not found request",
-                        "content": {
-                            "application/json": {}
-                        }
                     }
                 }
-            }
-        },
-        "/api/courses/{id}/curriculum": {
-            "get": {
+            },
+            "put": {
                 "tags": [
-                    "Courses"
+                    "Course"
                 ],
-                "description": "Fetch the specified Course curriculum",
-                "operationId": "getCourseCurriculum",
+                "summary": "Update the specified Course in storage",
+                "description": "Update Course",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\CourseAPIController::update",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
+                        "description": "id of Course",
                         "required": true,
                         "schema": {
-                            "type": "number"
+                            "type": "integer"
                         }
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Course"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "successful operation",
                         "content": {
                             "application/json": {}
                         }
-                    },
-                    "404": {
-                        "description": "Not found request",
-                        "content": {
-                            "application/json": {}
-                        }
                     }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/courses/category/{category_id}": {
-            "get": {
+                }
+            },
+            "delete": {
                 "tags": [
-                    "Courses"
+                    "Course"
                 ],
-                "description": "Searche Course By Criteria",
-                "operationId": "searchCourseByCategory",
+                "summary": "Remove the specified Course from storage",
+                "description": "Delete Course",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\CourseAPIController::destroy",
                 "parameters": [
                     {
-                        "name": "category_id",
+                        "name": "id",
                         "in": "path",
+                        "description": "id of Course",
                         "required": true,
                         "schema": {
-                            "type": "number"
+                            "type": "integer"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
                         "content": {
                             "application/json": {}
                         }
@@ -568,136 +1532,43 @@
                 }
             }
         },
-        "/api/share/linkedin": {
+        "/api/lessons": {
             "get": {
                 "tags": [
-                    "Share"
+                    "Lesson"
                 ],
-                "description": "Share to my linkedin account",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\ShareSwagger::linkedin",
-                "parameters": [
-                    {
-                        "name": "url",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "summary": "Get a listing of the Lessons.",
+                "description": "Get all Lessons",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\LessonAPIController::index",
                 "responses": {
                     "200": {
                         "description": "successful operation",
                         "content": {
                             "application/json": {}
                         }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Lesson"
+                ],
+                "summary": "Store a newly created Lesson in storage",
+                "description": "Store Lesson",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\LessonAPIController::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Lesson"
+                            }
                         }
                     }
                 },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/share/facebook": {
-            "get": {
-                "tags": [
-                    "Share"
-                ],
-                "description": "Share to my facebook timeline",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\ShareSwagger::facebook",
-                "parameters": [
-                    {
-                        "name": "url",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/share/twitter": {
-            "get": {
-                "tags": [
-                    "Share"
-                ],
-                "description": "Share to my twitter timeline",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\ShareSwagger::twitter",
-                "parameters": [
-                    {
-                        "name": "url",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/tags": {
-            "get": {
-                "tags": [
-                    "tags"
-                ],
-                "description": "Get Tags",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\TagSwagger::index",
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
                         "content": {
                             "application/json": {}
                         }
@@ -705,25 +1576,575 @@
                 }
             }
         },
-        "/api/tags/unique": {
+        "/api/lessons/{id}": {
             "get": {
                 "tags": [
-                    "tags"
+                    "Lesson"
                 ],
-                "description": "Get Unique Tags names",
-                "operationId": "App\\Http\\Controllers\\API\\Swagger\\TagSwagger::unique",
+                "summary": "Display the specified Lesson",
+                "description": "Get Lesson",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\LessonAPIController::show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Lesson",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
                         "content": {
                             "application/json": {}
                         }
-                    },
-                    "422": {
-                        "description": "Bad request",
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Lesson"
+                ],
+                "summary": "Update the specified Lesson in storage",
+                "description": "Update Lesson",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\LessonAPIController::update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Lesson",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Lesson"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
                         "content": {
                             "application/json": {}
                         }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Lesson"
+                ],
+                "summary": "Remove the specified Lesson from storage",
+                "description": "Delete Lesson",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\LessonAPIController::destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Lesson",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/topics": {
+            "get": {
+                "tags": [
+                    "Topic"
+                ],
+                "summary": "Get a listing of the Topics.",
+                "description": "Get all Topics",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\TopicAPIController::index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Topic"
+                ],
+                "summary": "Store a newly created Topic in storage",
+                "description": "Store Topic",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\TopicAPIController::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Topic"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/topics/{id}": {
+            "get": {
+                "tags": [
+                    "Topic"
+                ],
+                "summary": "Display the specified Topic",
+                "description": "Get Topic",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\TopicAPIController::show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Topic",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Topic"
+                ],
+                "summary": "Update the specified Topic in storage",
+                "description": "Update Topic",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\TopicAPIController::update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Topic",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Topic"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Topic"
+                ],
+                "summary": "Remove the specified Topic from storage",
+                "description": "Delete Topic",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\TopicAPIController::destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Topic",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/topicRichTexts": {
+            "get": {
+                "tags": [
+                    "TopicRichText"
+                ],
+                "summary": "Get a listing of the TopicRichTexts.",
+                "description": "Get all TopicRichTexts",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\TopicRichTextAPIController::index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "TopicRichText"
+                ],
+                "summary": "Store a newly created TopicRichText in storage",
+                "description": "Store TopicRichText",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\TopicRichTextAPIController::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TopicRichText"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/topicRichTexts/{id}": {
+            "get": {
+                "tags": [
+                    "TopicRichText"
+                ],
+                "summary": "Display the specified TopicRichText",
+                "description": "Get TopicRichText",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\TopicRichTextAPIController::show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of TopicRichText",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "TopicRichText"
+                ],
+                "summary": "Update the specified TopicRichText in storage",
+                "description": "Update TopicRichText",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\TopicRichTextAPIController::update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of TopicRichText",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TopicRichText"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "TopicRichText"
+                ],
+                "summary": "Remove the specified TopicRichText from storage",
+                "description": "Delete TopicRichText",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\TopicRichTextAPIController::destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of TopicRichText",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/file/list": {
+            "get": {
+                "summary": "Lists files prefixed by given directory name",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "directory"
+                                ],
+                                "properties": {
+                                    "directory": {
+                                        "type": "string",
+                                        "default": "/"
+                                    },
+                                    "from": {
+                                        "type": "string",
+                                        "default": "."
+                                    },
+                                    "count": {
+                                        "type": "uint",
+                                        "default": "50"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "format": "datetime"
+                                            },
+                                            "mime": {
+                                                "type": "string",
+                                                "format": "mime"
+                                            },
+                                            "url": {
+                                                "type": "string",
+                                                "format": "url"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                }
+            }
+        },
+        "/api/file/upload": {
+            "post": {
+                "summary": "Upload files using multipart form-data",
+                "operationId": "EscolaLms\\Files\\Http\\Controllers\\Swagger\\FileApiSwagger::upload",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "file[]",
+                                    "target"
+                                ],
+                                "properties": {
+                                    "file[]": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    },
+                                    "target": {
+                                        "type": "string",
+                                        "default": "/"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "409": {
+                        "description": "one of the uploaded files already exists"
+                    },
+                    "422": {
+                        "description": "server-side error"
+                    }
+                }
+            }
+        },
+        "/api/file/move": {
+            "post": {
+                "summary": "Move the file from one path to another",
+                "operationId": "EscolaLms\\Files\\Http\\Controllers\\Swagger\\FileApiSwagger::move",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "source",
+                                    "destination"
+                                ],
+                                "properties": {
+                                    "source": {
+                                        "type": "string"
+                                    },
+                                    "destination": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "302": {
+                        "description": "invalid request"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                }
+            }
+        },
+        "/api/file/delete": {
+            "delete": {
+                "summary": "Delete given file",
+                "operationId": "EscolaLms\\Files\\Http\\Controllers\\Swagger\\FileApiSwagger::delete",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "file"
+                                ],
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
                     }
                 }
             }
@@ -1259,6 +2680,146 @@
     },
     "components": {
         "schemas": {
+            "User": {
+                "title": "User",
+                "description": "User model",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "email": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            },
+            "Course": {
+                "required": [
+                    "title"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "title",
+                        "type": "string"
+                    },
+                    "summary": {
+                        "description": "summary",
+                        "type": "string"
+                    },
+                    "image_path": {
+                        "description": "image_path",
+                        "type": "string"
+                    },
+                    "video_path": {
+                        "description": "video_path",
+                        "type": "string"
+                    },
+                    "base_price": {
+                        "description": "base_price",
+                        "type": "string"
+                    },
+                    "duration": {
+                        "description": "duration",
+                        "type": "string"
+                    },
+                    "author_id": {
+                        "description": "author_id",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "Lesson": {
+                "required": [
+                    "title",
+                    "order",
+                    "course_id"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "title",
+                        "type": "string"
+                    },
+                    "duration": {
+                        "description": "duration",
+                        "type": "string"
+                    },
+                    "order": {
+                        "description": "order",
+                        "type": "integer"
+                    },
+                    "course_id": {
+                        "description": "course_id",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "Topic": {
+                "required": [
+                    "lesson_id",
+                    "order"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "title",
+                        "type": "string"
+                    },
+                    "lesson_id": {
+                        "description": "lesson_id",
+                        "type": "integer"
+                    },
+                    "topicable_id": {
+                        "description": "topicable_id",
+                        "type": "integer"
+                    },
+                    "topicable_class": {
+                        "description": "topicable_class",
+                        "type": "string"
+                    },
+                    "order": {
+                        "description": "order",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "TopicRichText": {
+                "required": [
+                    "topic_id",
+                    "value"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id"
+                    },
+                    "topic_id": {
+                        "description": "topic_id"
+                    },
+                    "value": {
+                        "description": "value",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
             "H5PContentStore": {
                 "properties": {
                     "title": {
