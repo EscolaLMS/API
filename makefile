@@ -17,6 +17,7 @@ migrate-fresh-quick:
 	- docker-compose exec escola_lms_app bash -c "php artisan migrate:fresh --seed"
 	- docker-compose exec escola_lms_app bash -c "php artisan passport:keys --force"
 	- docker-compose exec escola_lms_app bash -c "php artisan passport:client --personal --no-interaction"
+	- docker-compose exec escola_lms_app bash -c "cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key"
 
 composer-update:
 	- docker-compose exec escola_lms_app bash -c "composer update"
