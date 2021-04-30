@@ -27,6 +27,7 @@
     "escolalms/core": "^0",
     "escolalms/courses": "^0",
     "escolalms/files": "^0",
+    "escolalms/tags": ">=0.1",
     "escolalms/headless-h5p": "^0",
     "fideloper/proxy": "^4.0",
     "fruitcake/laravel-cors": "^2.0",
