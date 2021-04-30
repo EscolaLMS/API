@@ -43,7 +43,6 @@ return [
                     base_path('vendor/escolalms/headless-h5p/src'),
                     base_path('vendor/escolalms/tags/src'),
                 ],
-
             ],
         ],
     ],
