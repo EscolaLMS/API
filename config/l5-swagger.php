@@ -15,6 +15,7 @@ return [
                 'api' => 'api/documentation',
             ],
             'paths' => [
+
                 /*
                  * File name of the generated json documentation file
                 */
