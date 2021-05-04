@@ -9,6 +9,7 @@ return [
             ],
 
             'routes' => [
+
                 /*
                  * Route for accessing api documentation interface
                 */
