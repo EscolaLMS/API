@@ -7,7 +7,6 @@ return [
             'api' => [
                 'title' => 'Escola LMS',
             ],
-
             'routes' => [
 
                 /*
