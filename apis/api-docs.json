@@ -1561,6 +1561,11 @@
                             "schema": {
                                 "$ref": "#/components/schemas/Course"
                             }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Course"
+                            }
                         }
                     }
                 },
@@ -1608,7 +1613,6 @@
                 ],
                 "summary": "Update the specified Course in storage",
                 "description": "Update Course",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\CourseAPISwagger::update",
                 "parameters": [
                     {
                         "name": "id",
@@ -1639,6 +1643,43 @@
                     }
                 }
             },
+            "post": {
+                "tags": [
+                    "Course"
+                ],
+                "summary": "Update the specified Course in storage",
+                "description": "Update Course",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\CourseAPISwagger::update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Course",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Course"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
             "delete": {
                 "tags": [
                     "Course"
@@ -1646,6 +1687,35 @@
                 "summary": "Remove the specified Course from storage",
                 "description": "Delete Course",
                 "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\CourseAPISwagger::destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Course",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/courses/{id}/program": {
+            "get": {
+                "tags": [
+                    "Course"
+                ],
+                "summary": "Display the specified Course program/curriculum/syllabus",
+                "description": "Get Course",
+                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\CourseAPISwagger::program",
                 "parameters": [
                     {
                         "name": "id",
@@ -3084,6 +3154,14 @@
                         "description": "video_path",
                         "type": "string"
                     },
+                    "image_url": {
+                        "description": "image_url",
+                        "type": "string"
+                    },
+                    "video_url": {
+                        "description": "video_url",
+                        "type": "string"
+                    },
                     "base_price": {
                         "description": "base_price",
                         "type": "string"
@@ -3095,6 +3173,14 @@
                     "author_id": {
                         "description": "author_id",
                         "type": "integer"
+                    },
+                    "image": {
+                        "description": "image",
+                        "type": "file"
+                    },
+                    "video": {
+                        "description": "video",
+                        "type": "file"
                     }
                 },
                 "type": "object"
@@ -3193,6 +3279,21 @@
                 "type": "object"
             },
             "TopicImage": {
+                "required": [
+                    "value"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id"
+                    },
+                    "value": {
+                        "description": "value",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "TopicOEmbed": {
                 "required": [
                     "value"
                 ],
