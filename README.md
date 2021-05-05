@@ -56,18 +56,13 @@ This is fully working demo. **Note** that content is regeneraed every day - it's
 
 See [makefile](makefile) for all availabe devops tasks
 
-- `make fix-style`
+
 - `make test-phpunit`
 - `make test-behat`
 - `make bash`
-- `make ide-helper`
-- `make migrate-fresh-quick`
 - `make composer-update`
 - `make swagger-generate`
-- `make h5p-seed`
 - `make migrate-fresh`
-- `make refresh`
-- `make docker-up`
 - `make switch-to-postgres`
 - `make switch-to-mysql`
 - `make migrate-mysql`
