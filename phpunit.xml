@@ -41,6 +41,9 @@
     <testsuite name="files">
       <directory suffix="Test.php">./vendor/escolalms/files/tests</directory>
     </testsuite>
+    <testsuite name="tags">
+      <directory suffix="Test.php">./vendor/escolalms/files/tests</directory>
+    </testsuite>
     <testsuite name="headless-h5p">
       <directory suffix="Test.php">./vendor/escolalms/headless-h5p/tests</directory>
     </testsuite>
