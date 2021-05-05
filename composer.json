@@ -32,10 +32,7 @@
     "escolalms/headless-h5p": "^0",
     "fideloper/proxy": "^4.0",
     "fruitcake/laravel-cors": "^2.0",
-    "ignited/laravel-omnipay": "^3.0.2",
     "infyomlabs/laravel-generator": "8.0.x-dev",
-    "intervention/image": "^2.5",
-    "intervention/imagecache": "^2.5",
     "laravel/framework": "^8.0",
     "laravel/helpers": "^1.4",
     "laravel/passport": "^10.0",
@@ -43,7 +40,6 @@
     "laravel/tinker": "^2.5",
     "laravel/ui": "^3.0",
     "laravelcollective/html": "^6.2",
-    "maatwebsite/excel": "^3.1",
     "predis/predis": "^1.1",
     "sentry/sentry-laravel": "^2.3",
     "spatie/laravel-permission": "^3.18"
