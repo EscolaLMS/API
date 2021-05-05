@@ -2188,34 +2188,36 @@
         },
         "/api/file/list": {
             "get": {
+                "tags": [
+                    "Files"
+                ],
                 "summary": "Lists files prefixed by given directory name",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "required": [
-                                    "directory"
-                                ],
-                                "properties": {
-                                    "directory": {
-                                        "type": "string",
-                                        "default": "/"
-                                    },
-                                    "from": {
-                                        "type": "string",
-                                        "default": "."
-                                    },
-                                    "count": {
-                                        "type": "uint",
-                                        "default": "50"
-                                    }
-                                },
-                                "type": "object"
-                            }
+                "parameters": [
+                    {
+                        "name": "directory",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "default": "/"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": "int",
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "schema": {
+                            "type": "int",
+                            "default": "50"
                         }
                     }
-                },
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -2250,8 +2252,14 @@
                     "401": {
                         "description": "endpoint requires authentication"
                     },
+                    "302": {
+                        "description": "request contains invalid parameters"
+                    },
                     "403": {
                         "description": "user doesn't have required access rights"
+                    },
+                    "405": {
+                        "description": "Target directory access is not allowed"
                     },
                     "500": {
                         "description": "server-side error"
@@ -2261,6 +2269,9 @@
         },
         "/api/file/upload": {
             "post": {
+                "tags": [
+                    "Files"
+                ],
                 "summary": "Upload files using multipart form-data",
                 "operationId": "EscolaLms\\Files\\Http\\Controllers\\Swagger\\FileApiSwagger::upload",
                 "requestBody": {
@@ -2311,6 +2322,9 @@
         },
         "/api/file/move": {
             "post": {
+                "tags": [
+                    "Files"
+                ],
                 "summary": "Move the file from one path to another",
                 "operationId": "EscolaLms\\Files\\Http\\Controllers\\Swagger\\FileApiSwagger::move",
                 "requestBody": {
@@ -2356,35 +2370,36 @@
         },
         "/api/file/delete": {
             "delete": {
+                "tags": [
+                    "Files"
+                ],
                 "summary": "Delete given file",
                 "operationId": "EscolaLms\\Files\\Http\\Controllers\\Swagger\\FileApiSwagger::delete",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "required": [
-                                    "file"
-                                ],
-                                "properties": {
-                                    "file": {
-                                        "type": "string"
-                                    }
-                                },
-                                "type": "object"
-                            }
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
                         }
                     }
-                },
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "file doesn't exists"
                     },
                     "401": {
                         "description": "endpoint requires authentication"
                     },
                     "403": {
                         "description": "user doesn't have required access rights"
+                    },
+                    "405": {
+                        "description": "specified file is out of bounds of the allowed paths"
                     },
                     "500": {
                         "description": "server-side error"
