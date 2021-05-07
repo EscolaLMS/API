@@ -1576,7 +1576,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/courses/{id}": {
@@ -1605,7 +1610,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -1641,7 +1651,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -1678,7 +1693,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -1705,7 +1725,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/courses/{id}/program": {
@@ -1734,13 +1759,18 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/courses/category/{category_id}": {
             "get": {
                 "tags": [
-                    "Courses"
+                    "Course"
                 ],
                 "description": "Searche Course By Criteria",
                 "operationId": "searchCourseByCategory",
@@ -1809,7 +1839,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/courses/attach/{id}/tags": {
@@ -1859,13 +1894,18 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/courses/search/tags": {
             "get": {
                 "tags": [
-                    "Courses"
+                    "Course"
                 ],
                 "description": "Searche Course By Criteria",
                 "operationId": "searchCourseByCategory",
@@ -1897,7 +1937,7 @@
         "/api/lessons": {
             "get": {
                 "tags": [
-                    "Lesson"
+                    "Course"
                 ],
                 "summary": "Get a listing of the Lessons.",
                 "description": "Get all Lessons",
@@ -1909,11 +1949,16 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
-                    "Lesson"
+                    "Course"
                 ],
                 "summary": "Store a newly created Lesson in storage",
                 "description": "Store Lesson",
@@ -1935,13 +1980,18 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/lessons/{id}": {
             "get": {
                 "tags": [
-                    "Lesson"
+                    "Course"
                 ],
                 "summary": "Display the specified Lesson",
                 "description": "Get Lesson",
@@ -1964,11 +2014,16 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
-                    "Lesson"
+                    "Course"
                 ],
                 "summary": "Update the specified Lesson in storage",
                 "description": "Update Lesson",
@@ -2001,11 +2056,16 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
-                    "Lesson"
+                    "Course"
                 ],
                 "summary": "Remove the specified Lesson from storage",
                 "description": "Delete Lesson",
@@ -2028,13 +2088,18 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/topics": {
             "get": {
                 "tags": [
-                    "Topic"
+                    "Course"
                 ],
                 "summary": "Get a listing of the Topics.",
                 "description": "Get all Topics",
@@ -2046,11 +2111,16 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
-                    "Topic"
+                    "Course"
                 ],
                 "summary": "Store a newly created Topic in storage",
                 "description": "Store Topic. Depending on `topicable_type` values are different. Endpoint does create both `Topic` and 1:1 related `Content` based on creating class ",
@@ -2072,13 +2142,18 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/topics/{id}": {
             "get": {
                 "tags": [
-                    "Topic"
+                    "Course"
                 ],
                 "summary": "Display the specified Topic",
                 "description": "Get Topic",
@@ -2101,11 +2176,16 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
-                    "Topic"
+                    "Course"
                 ],
                 "summary": "Update the specified Topic in storage",
                 "description": "Update Topic",
@@ -2138,11 +2218,16 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
-                    "Topic"
+                    "Course"
                 ],
                 "summary": "Remove the specified Topic from storage",
                 "description": "Delete Topic",
@@ -2165,13 +2250,18 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/topics/types": {
             "get": {
                 "tags": [
-                    "Topic"
+                    "Course"
                 ],
                 "summary": "Get a listing of the Availabe Topic Content Types Classes.",
                 "description": "Get all Topic Contents",
@@ -2183,7 +2273,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/file/list": {
@@ -2264,7 +2359,12 @@
                     "500": {
                         "description": "server-side error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/file/upload": {
@@ -2317,7 +2417,12 @@
                     "422": {
                         "description": "server-side error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/file/move": {
@@ -2333,14 +2438,14 @@
                         "multipart/form-data": {
                             "schema": {
                                 "required": [
-                                    "source",
-                                    "destination"
+                                    "source_url",
+                                    "destination_url"
                                 ],
                                 "properties": {
-                                    "source": {
+                                    "source_url": {
                                         "type": "string"
                                     },
-                                    "destination": {
+                                    "destination_url": {
                                         "type": "string"
                                     }
                                 },
@@ -2362,10 +2467,18 @@
                     "403": {
                         "description": "user doesn't have required access rights"
                     },
+                    "422": {
+                        "description": "Couldn't perform the action"
+                    },
                     "500": {
                         "description": "server-side error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/file/delete": {
@@ -2404,7 +2517,12 @@
                     "500": {
                         "description": "server-side error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/hh5p/content": {
