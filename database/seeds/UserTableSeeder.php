@@ -26,6 +26,7 @@ class UserTableSeeder extends Seeder
                 'is_active' => 1,
                 'email_verified_at' => Carbon::now(),
             ]);
+        $student->guard_name = 'api';
         $student->assignRole('student');
 
         $admin = User::firstOrCreate([
@@ -37,6 +38,7 @@ class UserTableSeeder extends Seeder
                 'email_verified_at' => Carbon::now(),
             ]);
 
+        $admin->guard_name = 'api';
         $admin->assignRole('admin');
 
         $tutor = User::firstOrCreate([
@@ -48,6 +50,7 @@ class UserTableSeeder extends Seeder
                 'email_verified_at' => Carbon::now(),
             ]);
 
+        $tutor->guard_name = 'api';
         $tutor->assignRole('tutor');
     }
 }
