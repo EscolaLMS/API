@@ -8,19 +8,19 @@ Laravel Headless LMS REST API.
 [![downloads](https://img.shields.io/packagist/v/escolalms/api)](https://packagist.org/packages/escolalms/api)
 [![downloads](https://img.shields.io/packagist/l/escolalms/api)](https://packagist.org/packages/escolalms/api)
 
-## Packages 
+## Packages
 
-* [Auth](https://github.com/EscolaLMS/Auth)
-* [Categories](https://github.com/EscolaLMS/Categories)
-* [Core](https://github.com/EscolaLMS/Core)
-* [Courses](https://github.com/EscolaLMS/Courses) 
-* [Files](https://github.com/EscolaLMS/Files)
-* [Tags](https://github.com/EscolaLMS/Tags)
-* [H5P](https://github.com/EscolaLMS/H5P)
+- [Auth](https://github.com/EscolaLMS/Auth)
+- [Categories](https://github.com/EscolaLMS/Categories)
+- [Core](https://github.com/EscolaLMS/Core)
+- [Courses](https://github.com/EscolaLMS/Courses)
+- [Files](https://github.com/EscolaLMS/Files)
+- [Tags](https://github.com/EscolaLMS/Tags)
+- [H5P](https://github.com/EscolaLMS/H5P)
 
 ## Installation
 
-To install defult docker enviroment either clone this repo or use 
+To install defult docker enviroment either clone this repo or use
 
 ```bash
 composer create-project escolallms/api escola-lms
@@ -40,22 +40,21 @@ make init-mysql
 
 ## Demo & Credentials
 
-| Role       | Email ID                  | Password |
-| ---------- | ------------------------- | -------- |
-| Admin      | admin@escola-lms.com      | secret   |
-| Instructor | instructor@escola-lms.com | secret   |
-| Student    | student@escola-lms.com    | secret   |
+| Role    | Email ID               | Password |
+| ------- | ---------------------- | -------- |
+| Admin   | admin@escola-lms.com   | secret   |
+| Tutor   | tutor@escola-lms.com   | secret   |
+| Student | student@escola-lms.com | secret   |
 
-## Demo 
+## Demo
 
-[https://escola-lms-api.stage.etd24.pl/api/documentation](https://escola-lms-api.stage.etd24.pl/api/documentation) 
+[https://escola-lms-api.stage.etd24.pl/api/documentation](https://escola-lms-api.stage.etd24.pl/api/documentation)
 
-This is fully working demo. **Note** that content is regeneraed every day - it's a seeder that is not persistent, every day database and files are cleared and rebuilt from skratch. 
+This is fully working demo. **Note** that content is regeneraed every day - it's a seeder that is not persistent, every day database and files are cleared and rebuilt from skratch.
 
 ## Tasks
 
 See [makefile](makefile) for all availabe devops tasks
-
 
 - `make test-phpunit`
 - `make test-behat`
