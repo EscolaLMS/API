@@ -15,15 +15,6 @@
     </include>
   </coverage>
   <testsuites>
-    <testsuite name="Unit">
-      <directory suffix="Test.php">./tests/Unit</directory>
-    </testsuite>
-    <testsuite name="API">
-      <directory suffix="Test.php">./tests/APIs</directory>
-    </testsuite>
-    <testsuite name="Repository">
-      <directory suffix="Test.php">./tests/Repositories</directory>
-    </testsuite>
     <testsuite name="Integrations">
       <directory suffix="Test.php">./tests/Integrations</directory>
     </testsuite>

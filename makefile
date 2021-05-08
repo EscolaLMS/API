@@ -63,6 +63,8 @@ test-phpunit-mysql: switch-to-mysql test-phpunit
 
 test-behat-mysql: switch-to-mysql test-behat
 
+test-fresh: migrate-fresh-quick test-phpunit
+
 init: docker-up switch-to-postgres composer-update migrate-fresh-quick
 
 init-mysql: docker-up switch-to-mysql composer-update migrate-fresh-quick

@@ -24,7 +24,7 @@
     "doctrine/dbal": "^2",
     "escolalms/auth": "^0",
     "escolalms/categories": "^0",
-    "escolalms/core": "^0",
+    "escolalms/core": "^1",
     "escolalms/courses": "^0",
     "escolalms/files": "^0",
     "escolalms/tags": ">=0.1",
