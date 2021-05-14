@@ -77,8 +77,6 @@ describe("student API end-to-end test", () => {
 
   // @test email should have been sent
   it(`email to ${registerData.email} has been sent`, () => {
-    console.log(registerData);
-
     const email = cy.mhGetMailsByRecipient(registerData.email);
     email.should("have.length.at.least", 1);
 
@@ -95,19 +93,14 @@ describe("student API end-to-end test", () => {
 
   // @test clicking on verification
   it(`clicks on verification link from ${registerData.email} that verifies address and redirects`, () => {
-    console.log(registerData);
     cy.request({
       url: `/${verificationLink}`,
       followRedirect: true, // turn off following redirects
-    }).should((resp) => {
-      expect(resp.status).to.eq(200);
     });
   });
 
   // @test login should work now account is verified
   it("should be able to login right now", () => {
-    console.log(registerData);
-
     submitLogin(registerData.email, registerData.password)
       .should((response) => {
         expect(response.status).to.eq(200);
