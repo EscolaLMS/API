@@ -95,6 +95,7 @@ describe("student API end-to-end test", () => {
   it(`clicks on verification link from ${registerData.email} that verifies address and redirects`, () => {
     cy.request({
       url: `/${verificationLink}`,
+      failOnStatusCode: false,
       followRedirect: true, // turn off following redirects
     });
   });
