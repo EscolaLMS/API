@@ -1,6 +1,6 @@
 {
   "baseUrl": "http://localhost/api",
   "env": {
-    "mailHogUrl": "http://0.0.0.0:8025"
+    "mailHogUrl": "http://127.0.0.1:8025"
   }
 }
