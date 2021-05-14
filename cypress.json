@@ -1,0 +1,6 @@
+{
+  "baseUrl": "http://localhost:1000/api",
+  "env": {
+    "mailHogUrl": "http://localhost:8025"
+  }
+}

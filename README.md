@@ -4,6 +4,7 @@ Laravel Headless LMS REST API.
 
 [![swagger](https://img.shields.io/badge/documentation-swagger-green)](https://escola-lms-api.stage.etd24.pl/api/documentation)
 [![phpunit](https://github.com/EscolaLMS/API/actions/workflows/phpunit-tests.yml/badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-tests.yml)
+[![phpunit](https://github.com/EscolaLMS/API/actions/workflows/cypress.yml/badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/cypress.yml)
 [![downloads](https://img.shields.io/packagist/dt/escolalms/api)](https://packagist.org/packages/escolalms/api)
 [![downloads](https://img.shields.io/packagist/v/escolalms/api)](https://packagist.org/packages/escolalms/api)
 [![downloads](https://img.shields.io/packagist/l/escolalms/api)](https://packagist.org/packages/escolalms/api)
@@ -51,6 +52,22 @@ make init-mysql
 [https://escola-lms-api.stage.etd24.pl/api/documentation](https://escola-lms-api.stage.etd24.pl/api/documentation)
 
 This is fully working demo. **Note** that content is regeneraed every day - it's a seeder that is not persistent, every day database and files are cleared and rebuilt from skratch.
+
+## Test
+
+There are hundreds of tests in the packages and they are divided into:
+
+### Integration packages test
+
+Each packge contains their own php integration test this repo runs all of the
+
+To run use `./vendor/bin/phpunit`
+
+### End-to-end tests
+
+[Cypress.io](https://docs.cypress.io/) is running end-to-end tests
+
+To launch those use `yarn && yarn run cypress open`
 
 ## Tasks
 
