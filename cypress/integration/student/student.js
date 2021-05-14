@@ -48,12 +48,16 @@ describe("student API end-to-end test", () => {
     });
   });
 
+  /*
+
   // @test settings data
   it("fetches its settings data", () => {
     getSettings().then((response) => {
       expect(response.body).to.have.property("setting");
     });
   });
+
+  */
 
   // @test change profile data
 
