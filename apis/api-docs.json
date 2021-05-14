@@ -577,7 +577,7 @@
                 "tags": [
                     "Auth"
                 ],
-                "summary": "Password forget",
+                "summary": "Password forget call",
                 "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\AuthSwagger::forgotPassword",
                 "requestBody": {
                     "content": {
