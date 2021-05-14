@@ -10,7 +10,7 @@ on:
   pull_request:
 
 jobs:
-  phpunit-mysql:
+  cypress-e2e:
     runs-on: ubuntu-latest
     container:
       image: escolasoft1/laravel-prod-docker:fpm
