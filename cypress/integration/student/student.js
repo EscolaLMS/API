@@ -42,25 +42,17 @@ describe("student API end-to-end test", () => {
 
   // @test profile data
   it("fetches its profile data", () => {
-    getProfile()
-      .then((response) => {
-        expect(response.body).to.have.property("data");
-        token = response.body.token;
-      })
-      .its("headers")
-      .its("content-type")
-      .should("include", "application/json");
+    getProfile().then((response) => {
+      expect(response.body).to.have.property("data");
+      token = response.body.token;
+    });
   });
 
   // @test settings data
   it("fetches its settings data", () => {
-    getSettings()
-      .then((response) => {
-        expect(response.body).to.have.property("setting");
-      })
-      .its("headers")
-      .its("content-type")
-      .should("include", "application/json");
+    getSettings().then((response) => {
+      expect(response.body).to.have.property("setting");
+    });
   });
 
   // @test change profile data
