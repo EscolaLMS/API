@@ -8,8 +8,6 @@ describe("student API end-to-end test", () => {
   let token;
   let verificationLink;
 
-  const apiUrl = Cypress.env("API_URL") || "http://localhost:1000/api";
-
   const getRegisterData = () => ({
     first_name: faker.name.firstName(),
     last_name: faker.name.lastName(),
@@ -23,22 +21,21 @@ describe("student API end-to-end test", () => {
 
   const registerData = getRegisterData();
 
-  const submitRegister = (input) =>
-    cy.request("POST", `${apiUrl}/auth/register`, input);
+  const submitRegister = (input) => cy.request("POST", `/auth/register`, input);
 
   // test step helpers, mostly shorts for `cy.request`
   const submitLogin = (email, password) =>
     cy.request({
       failOnStatusCode: false,
       method: "POST",
-      url: `${apiUrl}/auth/login`,
+      url: `/auth/login`,
       body: { email, password },
     });
 
   const getProfile = () =>
     cy.request({
       method: "GET",
-      url: `${apiUrl}/profile/me`,
+      url: `/profile/me`,
       auth: {
         bearer: token,
       },
@@ -47,7 +44,7 @@ describe("student API end-to-end test", () => {
   const getSettings = () =>
     cy.request({
       method: "GET",
-      url: `${apiUrl}/profile/settings`,
+      url: `/profile/settings`,
       auth: {
         bearer: token,
       },
@@ -100,7 +97,7 @@ describe("student API end-to-end test", () => {
   it(`clicks on verification link from ${registerData.email} that verifies address and redirects`, () => {
     console.log(registerData);
     cy.request({
-      url: `${apiUrl}/${verificationLink}`,
+      url: `/${verificationLink}`,
       followRedirect: true, // turn off following redirects
     }).should((resp) => {
       expect(resp.status).to.eq(200);

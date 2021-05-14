@@ -2,17 +2,16 @@
 describe("student API end-to-end test", () => {
   // variables store between test steps
   let token;
-  const apiUrl = Cypress.env("API_URL") || "http://localhost:1000/api";
   const email = "student@escola-lms.com";
 
   // test step helpers, mostly shorts for `cy.request`
   const submitLogin = (email, password) =>
-    cy.request("POST", `${apiUrl}/auth/login`, { email, password });
+    cy.request("POST", `/auth/login`, { email, password });
 
   const getProfile = () =>
     cy.request({
       method: "GET",
-      url: `${apiUrl}/profile/me`,
+      url: `/profile/me`,
       auth: {
         bearer: token,
       },
@@ -21,7 +20,7 @@ describe("student API end-to-end test", () => {
   const getSettings = () =>
     cy.request({
       method: "GET",
-      url: `${apiUrl}/profile/settings`,
+      url: `/profile/settings`,
       auth: {
         bearer: token,
       },

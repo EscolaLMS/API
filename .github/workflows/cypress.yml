@@ -54,5 +54,8 @@ jobs:
       - name: Cypress dependencies
         run: apt-get update && apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb -y --fix-missing
 
+      - name: Cypress Prepare
+        uses: cp docker/envs/cypress.js cypress.js
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
