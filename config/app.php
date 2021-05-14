@@ -52,11 +52,11 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost:1000'),
 
     'asset_url' => env('ASSET_URL', null),
 
-    'frontend_url' => env('FRONTEND_URL', 'http://localhost'),
+    'frontend_url' => env('FRONTEND_URL', 'http://localhost:1000/email'),
 
     'linkedin_organization_id' => env('LINKEDIN_ORGANIZATION_ID', 75401175),
     /*

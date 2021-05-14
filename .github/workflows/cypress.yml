@@ -1,0 +1,55 @@
+name: Cypress end-to-end Tests
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+
+jobs:
+  phpunit-mysql:
+    runs-on: ubuntu-latest
+    container:
+      image: escolasoft1/laravel-prod-docker:fpm
+
+    services:
+      mailhog:
+        image: mailhog/mailhog
+        ports:
+          - 1025:1025 # smtp server
+          - 8025:8025 # web ui
+
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: test
+        ports:
+          - 33306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: Install composer dependencies
+        run: |
+          composer install --no-scripts
+
+      - name: Prepare Laravel Application
+        run: |
+          cp docker/envs/.env.ci.mysql .env
+          cp docker/envs/.env.ci.mysql .env.testing
+          cp docker/envs/phpunit.xml.mysql phpunit.xml
+          php artisan key:generate
+          php artisan migrate:fresh --seed
+          php artisan passport:keys --force
+          php artisan passport:client --personal --no-interaction
+          cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2

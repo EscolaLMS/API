@@ -1,0 +1,5 @@
+{
+  "env": {
+    "mailHogUrl": "http://localhost:8025"
+  }
+}
