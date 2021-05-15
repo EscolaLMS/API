@@ -3,7 +3,7 @@
 Laravel Headless LMS REST API.
 
 [![swagger](https://img.shields.io/badge/documentation-swagger-green)](https://escola-lms-api.stage.etd24.pl/api/documentation)
-[![API](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/detailed/kmx5cw/develop&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/kmx5cw/runs)
+[![API](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/kmx5cw&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/kmx5cw/runs)
 [![phpunit](https://github.com/EscolaLMS/API/actions/workflows/phpunit-tests.yml/badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-tests.yml)
 [![phpunit](https://github.com/EscolaLMS/API/actions/workflows/cypress.yml/badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/cypress.yml)
 [![downloads](https://img.shields.io/packagist/dt/escolalms/api)](https://packagist.org/packages/escolalms/api)
@@ -69,6 +69,8 @@ To run use `./vendor/bin/phpunit`
 [Cypress.io](https://docs.cypress.io/) is running end-to-end tests
 
 To launch those use `yarn && yarn run cypress open`
+
+You can see the results in the [cypress dashboard](https://dashboard.cypress.io/projects/kmx5cw/runs) including video artifacts
 
 ## Tasks
 
