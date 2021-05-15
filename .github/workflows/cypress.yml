@@ -7,7 +7,7 @@ on:
     branches:
       - main
       - master
-      - develop 
+      - develop
   pull_request:
 
 jobs:
@@ -63,6 +63,11 @@ jobs:
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
+        with:
+          record: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # after the test run completes
       # store videos and any screenshots
