@@ -497,19 +497,11 @@
                     }
                 ],
                 "requestBody": {
+                    "required": true,
                     "content": {
                         "multipart/form-data": {
                             "schema": {
-                                "properties": {
-                                    "avatar": {
-                                        "type": "file",
-                                        "items": {
-                                            "type": "string",
-                                            "format": "binary"
-                                        }
-                                    }
-                                },
-                                "type": "object"
+                                "$ref": "#/components/schemas/UserAvatar"
                             }
                         }
                     }
@@ -1083,19 +1075,11 @@
                 "description": "Upload avatar",
                 "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::uploadAvatar",
                 "requestBody": {
+                    "required": true,
                     "content": {
                         "multipart/form-data": {
                             "schema": {
-                                "properties": {
-                                    "avatar": {
-                                        "type": "file",
-                                        "items": {
-                                            "type": "string",
-                                            "format": "binary"
-                                        }
-                                    }
-                                },
-                                "type": "object"
+                                "$ref": "#/components/schemas/UserAvatar"
                             }
                         }
                     }
@@ -1538,6 +1522,90 @@
                 "summary": "Get a listing of the Courses.",
                 "description": "Get all Courses",
                 "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\CourseAPISwagger::index",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "created_at",
+                                "title",
+                                "base_price",
+                                "duration"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "description": "Course title %LIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "category_id",
+                        "in": "query",
+                        "description": "Category ID. When applied all courses with given cat_id and children categories are searched",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "author_id",
+                        "in": "query",
+                        "description": "Author ID",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "tag",
+                        "in": "query",
+                        "description": "Tag name exactly",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -1767,39 +1835,6 @@
                 ]
             }
         },
-        "/api/courses/category/{category_id}": {
-            "get": {
-                "tags": [
-                    "Course"
-                ],
-                "description": "Searche Course By Criteria",
-                "operationId": "searchCourseByCategory",
-                "parameters": [
-                    {
-                        "name": "category_id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "number"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                }
-            }
-        },
         "/api/courses/attach/{id}/categories": {
             "post": {
                 "tags": [
@@ -1855,6 +1890,17 @@
                 "summary": "Attach tags for couse",
                 "description": "Attach tags for couse",
                 "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\CourseAPISwagger::attachTags",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Course",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1900,38 +1946,6 @@
                         "passport": []
                     }
                 ]
-            }
-        },
-        "/api/courses/search/tags": {
-            "get": {
-                "tags": [
-                    "Course"
-                ],
-                "description": "Searche Course By Criteria",
-                "operationId": "searchCourseByCategory",
-                "parameters": [
-                    {
-                        "name": "tag",
-                        "in": "path",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                }
             }
         },
         "/api/lessons": {
@@ -3244,6 +3258,16 @@
     },
     "components": {
         "schemas": {
+            "UserAvatar": {
+                "properties": {
+                    "avatar": {
+                        "description": "avatar",
+                        "type": "file",
+                        "format": "binary"
+                    }
+                },
+                "type": "object"
+            },
             "User": {
                 "title": "User",
                 "description": "User model",
