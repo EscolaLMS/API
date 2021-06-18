@@ -10,10 +10,12 @@
   ],
   "homepage": "https://lms.escolasoft.com",
   "license": "MIT",
-  "authors": [{
-    "name": "Mateusz Wojczal",
-    "email": "mateusz@wojczal.com"
-  }],
+  "authors": [
+    {
+      "name": "Mateusz Wojczal",
+      "email": "mateusz@wojczal.com"
+    }
+  ],
   "require": {
     "php": ">=7.4",
     "behat/mink-browserkit-driver": "^1.3",
@@ -31,27 +33,17 @@
     "escolalms/headless-h5p": "^0",
     "fideloper/proxy": "^4.0",
     "fruitcake/laravel-cors": "^2.0",
-    "ignited/laravel-omnipay": "^3.0.2",
-    "infyomlabs/adminlte-templates": "8.0.x-dev",
     "infyomlabs/laravel-generator": "8.0.x-dev",
-    "intervention/image": "^2.5",
-    "intervention/imagecache": "^2.5",
     "laravel/framework": "^8.0",
     "laravel/helpers": "^1.4",
-    "laravel/legacy-factories": "^1.1",
     "laravel/passport": "^10.0",
     "laravel/socialite": "v5.1.3",
     "laravel/tinker": "^2.5",
     "laravel/ui": "^3.0",
     "laravelcollective/html": "^6.2",
-    "maatwebsite/excel": "^3.1",
-    "mpdf/mpdf": "^8.0",
-    "omnipay/paypal": "^3.0.2",
     "predis/predis": "^1.1",
     "sentry/sentry-laravel": "^2.3",
-    "spatie/laravel-permission": "^3.18",
-    "staudenmeir/eloquent-json-relations": "^1.5",
-    "treestoneit/shopping-cart": "^1.4"
+    "spatie/laravel-permission": "^3.18"
   },
   "require-dev": {
     "barryvdh/laravel-ide-helper": "^2.9",
@@ -121,8 +113,10 @@
       "./vendor/bin/behat"
     ]
   },
-  "repositories": [{
-    "type": "vcs",
-    "url": "https://github.com/MWL91/Behat-Laravel-Extension"
-  }]
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/MWL91/Behat-Laravel-Extension"
+    }
+  ]
 }
