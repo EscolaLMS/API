@@ -7,18 +7,6 @@ use Illuminate\Http\RedirectResponse;
 use Redirect;
 use Session;
 
-/**
- * @OA\Info(title="Get Kibble", version="0.0.1")
- *
- * @OA\SecurityScheme(
- *      securityScheme="passport",
- *      in="header",
- *      name="bearerAuth",
- *      type="http",
- *      scheme="bearer",
- *      bearerFormat="JWT",
- * )
- */
 class Controller extends EscolaLmsBaseController
 {
     public static function getColumnTable($table)

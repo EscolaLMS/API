@@ -10,19 +10,11 @@
       <directory suffix=".php">./vendor/escolalms/core/</directory>
       <directory suffix=".php">./vendor/escolalms/courses/</directory>
       <directory suffix=".php">./vendor/escolalms/files/</directory>
-      <directory suffix=".php">./vendor/escolalms/headless/</directory>
+      <directory suffix=".php">./vendor/escolalms/headless-h5p/</directory>
+      <directory suffix=".php">./vendor/escolalms/tags/</directory>
     </include>
   </coverage>
   <testsuites>
-    <testsuite name="Unit">
-      <directory suffix="Test.php">./tests/Unit</directory>
-    </testsuite>
-    <testsuite name="API">
-      <directory suffix="Test.php">./tests/APIs</directory>
-    </testsuite>
-    <testsuite name="Repository">
-      <directory suffix="Test.php">./tests/Repositories</directory>
-    </testsuite>
     <testsuite name="Integrations">
       <directory suffix="Test.php">./tests/Integrations</directory>
     </testsuite>
@@ -40,6 +32,9 @@
     </testsuite>
     <testsuite name="files">
       <directory suffix="Test.php">./vendor/escolalms/files/tests</directory>
+    </testsuite>
+    <testsuite name="tags">
+      <directory suffix="Test.php">./vendor/escolalms/tags/tests</directory>
     </testsuite>
     <testsuite name="headless-h5p">
       <directory suffix="Test.php">./vendor/escolalms/headless-h5p/tests</directory>

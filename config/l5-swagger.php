@@ -7,14 +7,15 @@ return [
             'api' => [
                 'title' => 'Escola LMS',
             ],
-
             'routes' => [
+
                 /*
                  * Route for accessing api documentation interface
                 */
                 'api' => 'api/documentation',
             ],
             'paths' => [
+
                 /*
                  * File name of the generated json documentation file
                 */
@@ -41,8 +42,8 @@ return [
                     base_path('vendor/escolalms/courses/src'),
                     base_path('vendor/escolalms/files/src'),
                     base_path('vendor/escolalms/headless-h5p/src'),
+                    base_path('vendor/escolalms/tags/src'),
                 ],
-
             ],
         ],
     ],
