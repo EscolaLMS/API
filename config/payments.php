@@ -27,7 +27,8 @@ return [
     'drivers' => [
         'free' => [],
         'stripe' => [
-            'key' => env('PAYMENTS_STRIPE_KEY', 'sk_test_51I6fE0FHAZ5Pnnlr2l21VJwGXrsnsUzUZ4om4l6fJmjriJ1ScZEBRzwFFw6stsn1h30ldDnpMfs1Gw7uE9N2uVGH00PcJYHZJ0'),
+            'key' => env('PAYMENTS_STRIPE_SECRET_KEY', 'sk_test_51Ig8icJ9tg9t712TG1Odn17fisxXM9y01YrDBxC4vd6FJMUsbB3bQvXYs8Oiz9U2GLH1mxwQ2BCjXcjc3gxEPKTT00tx6wtVco'),
+            'publishable_key' => env('PAYMENTS_STRIPE_PUBLISHABLE_KEY', 'pk_test_51Ig8icJ9tg9t712TnCR6sKY9OXwWoFGWH4ERZXoxUVIemnZR0B6Ei0MzjjeuWgOzLYKjPNbT8NbG1ku1T2pGCP4B00GnY0uusI'),
         ]
     ]
 ];
