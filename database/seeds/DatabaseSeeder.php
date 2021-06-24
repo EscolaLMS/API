@@ -8,9 +8,8 @@ use EscolaLms\Categories\Database\Seeders\CategoriesSeeder;
 use EscolaLms\Courses\Database\Seeders\CoursesSeeder;
 use EscolaLms\Courses\Database\Seeders\CoursesPermissionSeeder;
 use EscolaLms\Tags\Database\Seeders\TagsSeeder;
+use EscolaLms\Files\Database\Seeders\PermissionTableSeeder as FilePermissionTableSeeder;
 use Illuminate\Database\Seeder;
-
-use EscolaLms\Files\Seeders\PermissionTableSeeder as FilePermissionTableSeeder;
 
 class DatabaseSeeder extends Seeder
 {
