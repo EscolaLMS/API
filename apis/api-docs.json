@@ -12,7 +12,7 @@
                 ],
                 "summary": "Get user interests",
                 "description": "",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserInterestsSwagger::listUserInterests",
+                "operationId": "161998e8167834b30976ddc5e8024ac7",
                 "parameters": [
                     {
                         "name": "id",
@@ -46,7 +46,7 @@
                 ],
                 "summary": "Set user interests",
                 "description": "",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserInterestsSwagger::updateUserInterests",
+                "operationId": "6cde70ea763ad38995d40bb8796179fa",
                 "parameters": [
                     {
                         "name": "id",
@@ -76,7 +76,7 @@
                 ],
                 "summary": "Add single user interest",
                 "description": "",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserInterestsSwagger::addUserInterest",
+                "operationId": "de4a9d433ded2aa83764e3ef77fe9c83",
                 "parameters": [
                     {
                         "name": "id",
@@ -113,7 +113,7 @@
                 ],
                 "summary": "Add single user interest",
                 "description": "",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserInterestsSwagger::deleteUserInterest",
+                "operationId": "3ce0bb1b20fc0ec2e1df55164db160e0",
                 "parameters": [
                     {
                         "name": "id",
@@ -158,7 +158,7 @@
                 ],
                 "summary": "Get user settings",
                 "description": "",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSettingsSwagger::listUserSettings",
+                "operationId": "8cd73f5c43aac35487ccc3ae96a326cd",
                 "parameters": [
                     {
                         "name": "id",
@@ -193,7 +193,7 @@
                     "User Settings"
                 ],
                 "summary": "Set user setting (removes settings not sent)",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSettingsSwagger::putUserSettings",
+                "operationId": "c708b42f7a3384f7dac4948cd32067ae",
                 "requestBody": {},
                 "responses": {
                     "200": {
@@ -214,7 +214,7 @@
                     "User Settings"
                 ],
                 "summary": "Update user setting(s) without changing other settings",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSettingsSwagger::patchUserSettings",
+                "operationId": "05262dc638d68856b1576634c71637ff",
                 "requestBody": {},
                 "responses": {
                     "200": {
@@ -238,7 +238,7 @@
                 ],
                 "summary": "Get users",
                 "description": "",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::listUsers",
+                "operationId": "599183ff92f15962448cd009aec3c581",
                 "parameters": [
                     {
                         "name": "",
@@ -272,7 +272,7 @@
                 ],
                 "summary": "Create user",
                 "description": "",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::createUser",
+                "operationId": "e7f83a323c31751aa19a695e189cdfc7",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -308,7 +308,7 @@
                 ],
                 "summary": "Get user",
                 "description": "",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::getUser",
+                "operationId": "2ece7c6c5c236c8370ee6d5eb59fbfaa",
                 "parameters": [
                     {
                         "name": "id",
@@ -344,7 +344,7 @@
                 ],
                 "summary": "Delete user",
                 "description": "",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::deleteUser",
+                "operationId": "0e7d6e862c5aa5fd0c39d825be87d4c9",
                 "parameters": [
                     {
                         "name": "id",
@@ -381,7 +381,7 @@
                 ],
                 "summary": "Update/Replace user data (will overwrite unset fields with nulls)",
                 "description": "",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::updateUser",
+                "operationId": "ed15144feff97fe05f6067f179ce4f7d",
                 "parameters": [
                     {
                         "name": "id",
@@ -432,7 +432,7 @@
                 ],
                 "summary": "Partial Update User (will only change sent fields)",
                 "description": "",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::partialUpdateUser",
+                "operationId": "22e56708437df94231942c5e659fb1af",
                 "parameters": [
                     {
                         "name": "id",
@@ -484,7 +484,7 @@
                     "Users"
                 ],
                 "description": "Upload avatar",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::uploadAvatar",
+                "operationId": "2de6cd14e4c60b991ab75296bff312af",
                 "parameters": [
                     {
                         "name": "id",
@@ -531,7 +531,7 @@
                     "Users"
                 ],
                 "description": "Delete avatar",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Admin\\Swagger\\UserSwagger::deleteAvatar",
+                "operationId": "fc79782cd69e58bcf60ff83ca025bbc3",
                 "parameters": [
                     {
                         "name": "id",
@@ -570,7 +570,7 @@
                     "Auth"
                 ],
                 "summary": "Password forget call",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\AuthSwagger::forgotPassword",
+                "operationId": "03ee141104498f34c86355712f88e4fb",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -606,7 +606,7 @@
                     "Auth"
                 ],
                 "summary": "Password reset",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\AuthSwagger::resetPassword",
+                "operationId": "ce6dd3874bbda7a869d645fb92a94f3c",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -646,7 +646,7 @@
                     "Auth"
                 ],
                 "summary": "Refresh access token",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\AuthSwagger::refresh",
+                "operationId": "3cdb39a8126fbf6357edc7b1c10b72cc",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -663,7 +663,7 @@
                     "Auth"
                 ],
                 "summary": "Redirect to social login",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\AuthSwagger::socialRedirect",
+                "operationId": "f1658d0b99ad89b546445268b526e126",
                 "parameters": [
                     {
                         "name": "provider",
@@ -694,7 +694,7 @@
                     "Auth"
                 ],
                 "summary": "Redirect after sucessfull login",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\AuthSwagger::socialCallback",
+                "operationId": "55846b54c1cf0924b53f46b4ed855fa6",
                 "parameters": [
                     {
                         "name": "provider",
@@ -725,7 +725,7 @@
                     "Auth"
                 ],
                 "summary": "Resend email verification",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\AuthSwagger::resendEmailVerification",
+                "operationId": "d1574b5c1b889d9c0dca8b48a56c3615",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -757,7 +757,7 @@
                     "Auth"
                 ],
                 "description": "User login",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\LoginSwagger::login",
+                "operationId": "a2a8e43b1a0a22a294ade9a4094e9ee4",
                 "parameters": [
                     {
                         "name": "email",
@@ -798,7 +798,7 @@
                     "Auth"
                 ],
                 "description": "User logout",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\LogoutSwagger::logout",
+                "operationId": "ed5c7099d18ffa01da361e7e8535f80c",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -820,7 +820,7 @@
                     "Profile"
                 ],
                 "description": "Get logged user info",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::me",
+                "operationId": "f77f4d866a5b68a935ae0d47b303316e",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -846,7 +846,7 @@
                     "Profile"
                 ],
                 "description": "Update the profile",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::update",
+                "operationId": "bc4b0a7cb29da7847017a15ec26181da",
                 "parameters": [
                     {
                         "name": "first_name",
@@ -941,7 +941,7 @@
                     "Profile"
                 ],
                 "description": "Update the profile authorization data",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::updateAuthData",
+                "operationId": "24bdbb87b2fff756023e9c6767b9829b",
                 "parameters": [
                     {
                         "name": "email",
@@ -979,7 +979,7 @@
                     "Profile"
                 ],
                 "description": "Update password",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::updatePassword",
+                "operationId": "1a99c343e885b7966acd6a2ba86e0c1a",
                 "parameters": [
                     {
                         "name": "current_password",
@@ -1033,7 +1033,7 @@
                     "Profile"
                 ],
                 "summary": "Update user interests",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::interests",
+                "operationId": "03c58ed8e8547dad6c083ab3d822692f",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -1073,7 +1073,7 @@
                     "Profile"
                 ],
                 "description": "Upload avatar",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::uploadAvatar",
+                "operationId": "19db5eae87560ddaae6e4c1243c4867a",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1111,7 +1111,7 @@
                     "Profile"
                 ],
                 "description": "Delete avatar",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::deleteAvatar",
+                "operationId": "6c785ec66c8ca0e59b1fdaa28b92ef15",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -1139,7 +1139,7 @@
                     "Profile"
                 ],
                 "description": "Get user settings",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::settings",
+                "operationId": "12ed1a5df5d70506fd9576b92b6e82bf",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -1165,7 +1165,7 @@
                     "Profile"
                 ],
                 "summary": "Update user settings",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\ProfileSwagger::settingsUpdate",
+                "operationId": "f1ca230bad78c77d7b9dd6269ba918f9",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -1208,7 +1208,7 @@
                     "Auth"
                 ],
                 "description": "Register new user",
-                "operationId": "EscolaLms\\Auth\\Http\\Controllers\\Swagger\\RegisterSwagger::register",
+                "operationId": "34fc21c478fa9f911cf3bed6ef92cbfd",
                 "parameters": [
                     {
                         "name": "first_name",
@@ -1267,7 +1267,7 @@
                     "Categories"
                 ],
                 "description": "Get Categories",
-                "operationId": "EscolaLms\\Categories\\Http\\Controllers\\Swagger\\CategorySwagger::index",
+                "operationId": "48a08353cd0b219365035661f7d532ce",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -1289,7 +1289,7 @@
                 ],
                 "summary": "Category create",
                 "description": "Create single Categories",
-                "operationId": "EscolaLms\\Categories\\Http\\Controllers\\Swagger\\CategorySwagger::create",
+                "operationId": "126bfa640341a4d1a45f8377efb4fb78",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -1344,7 +1344,7 @@
                     "Categories"
                 ],
                 "description": "Get Categories Tree",
-                "operationId": "EscolaLms\\Categories\\Http\\Controllers\\Swagger\\CategorySwagger::tree",
+                "operationId": "27694b673ff6d5c78af820806e45bfd7",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -1367,7 +1367,7 @@
                     "Categories"
                 ],
                 "description": "Get single Categories",
-                "operationId": "EscolaLms\\Categories\\Http\\Controllers\\Swagger\\CategorySwagger::show",
+                "operationId": "707a68073fb715968f89b631d9e3502a",
                 "parameters": [
                     {
                         "name": "id",
@@ -1399,7 +1399,7 @@
                 ],
                 "summary": "Update category",
                 "description": "Update single Categories",
-                "operationId": "EscolaLms\\Categories\\Http\\Controllers\\Swagger\\CategorySwagger::update",
+                "operationId": "15486aa520a77ec86e4a719cc28aca93",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -1453,7 +1453,7 @@
                 ],
                 "summary": "Destroy category",
                 "description": "Destroy the specified category",
-                "operationId": "EscolaLms\\Categories\\Http\\Controllers\\Swagger\\CategorySwagger::delete",
+                "operationId": "8419a959f8ee2f61ff137604d2760b76",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -1482,7 +1482,7 @@
                 ],
                 "summary": "Store a attachment as file in storage",
                 "description": "Store Image",
-                "operationId": "EscolaLms\\Core\\Http\\Controllers\\Swagger\\AttachmentAPISwaggerInterface::store",
+                "operationId": "d7df2b108c4a6fb0c08483a4b45c6445",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1521,7 +1521,7 @@
                 ],
                 "summary": "Get a listing of the Courses.",
                 "description": "Get all Courses",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\CourseAPISwagger::index",
+                "operationId": "9663f6d2e6826935f1abd0fa2734f590",
                 "parameters": [
                     {
                         "name": "order_by",
@@ -1621,7 +1621,7 @@
                 ],
                 "summary": "Store a newly created Course in storage",
                 "description": "Store Course",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\CourseAPISwagger::store",
+                "operationId": "577080d0c808480068a8028d70a69d7c",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1659,7 +1659,7 @@
                 ],
                 "summary": "Display the specified Course",
                 "description": "Get Course",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\CourseAPISwagger::show",
+                "operationId": "ac094110c32a7652583ef86ee8037d60",
                 "parameters": [
                     {
                         "name": "id",
@@ -1732,7 +1732,7 @@
                 ],
                 "summary": "Update the specified Course in storage",
                 "description": "Update Course",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\CourseAPISwagger::update",
+                "operationId": "652304ab1e9c1e396b861a5ae25e763d",
                 "parameters": [
                     {
                         "name": "id",
@@ -1774,7 +1774,7 @@
                 ],
                 "summary": "Remove the specified Course from storage",
                 "description": "Delete Course",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\CourseAPISwagger::destroy",
+                "operationId": "fcb98aa20358a4c5b94653c9ca55bc12",
                 "parameters": [
                     {
                         "name": "id",
@@ -1808,7 +1808,7 @@
                 ],
                 "summary": "Display the specified Course program/curriculum/syllabus",
                 "description": "Get Course",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\CourseAPISwagger::program",
+                "operationId": "7f047bd2f00baeb8ae6f5b7a48a2c817",
                 "parameters": [
                     {
                         "name": "id",
@@ -1842,7 +1842,7 @@
                 ],
                 "summary": "Attach categories for couse",
                 "description": "Attach categories for couse",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\CourseAPISwagger::attachCategory",
+                "operationId": "6f783d27c5ce46d4d60962d9ed7fe26c",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1889,7 +1889,7 @@
                 ],
                 "summary": "Attach tags for couse",
                 "description": "Attach tags for couse",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\CourseAPISwagger::attachTags",
+                "operationId": "e741f763513db9d3e5e772c3d231542a",
                 "parameters": [
                     {
                         "name": "id",
@@ -1948,6 +1948,56 @@
                 ]
             }
         },
+        "/api/courses/sort": {
+            "post": {
+                "tags": [
+                    "Course"
+                ],
+                "summary": "Sorts Lessons or Topics",
+                "description": "Sorts Lessons or Topics by sending course_id, class (Topic or Lesson) and array of tuple [class_id, order]. Example\n     * `{\"class\":\"Lesson\",\"orders\":[[3,0],[2,1],[4,2],[5,3],[6,4],[7,5],[1,6],[71,7]], \"course_id\":1}`\n     * ",
+                "operationId": "19a8caf9cf35aae0cb8f3e05070a9b23",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "course_id": {
+                                        "type": "integer"
+                                    },
+                                    "class": {
+                                        "type": "string"
+                                    },
+                                    "orders": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/lessons": {
             "get": {
                 "tags": [
@@ -1955,7 +2005,7 @@
                 ],
                 "summary": "Get a listing of the Lessons.",
                 "description": "Get all Lessons",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\LessonAPISwagger::index",
+                "operationId": "d4fabef92b9b5f29adc9d7c96a022cbb",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -1976,7 +2026,7 @@
                 ],
                 "summary": "Store a newly created Lesson in storage",
                 "description": "Store Lesson",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\LessonAPISwagger::store",
+                "operationId": "8a23ae25ad205a167812be528108cdfa",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2009,7 +2059,7 @@
                 ],
                 "summary": "Display the specified Lesson",
                 "description": "Get Lesson",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\LessonAPISwagger::show",
+                "operationId": "1abcb5066eb2e0512abcf56fc4c3bacd",
                 "parameters": [
                     {
                         "name": "id",
@@ -2041,7 +2091,7 @@
                 ],
                 "summary": "Update the specified Lesson in storage",
                 "description": "Update Lesson",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\LessonAPISwagger::update",
+                "operationId": "c82913bb3b75a0c5e664272183f0f4de",
                 "parameters": [
                     {
                         "name": "id",
@@ -2083,7 +2133,7 @@
                 ],
                 "summary": "Remove the specified Lesson from storage",
                 "description": "Delete Lesson",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\LessonAPISwagger::destroy",
+                "operationId": "bd298ca0de086b6386e79be9e337cfe4",
                 "parameters": [
                     {
                         "name": "id",
@@ -2117,7 +2167,7 @@
                 ],
                 "summary": "Get a listing of the Topics.",
                 "description": "Get all Topics",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\TopicAPISwagger::index",
+                "operationId": "cfe6dc69f1155b27f02c9aa91a51dd77",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -2138,7 +2188,7 @@
                 ],
                 "summary": "Store a newly created Topic in storage",
                 "description": "Store Topic. Depending on `topicable_type` values are different. Endpoint does create both `Topic` and 1:1 related `Content` based on creating class ",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\TopicAPISwagger::store",
+                "operationId": "325c7579901747349cd6927391829fbe",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2171,7 +2221,7 @@
                 ],
                 "summary": "Display the specified Topic",
                 "description": "Get Topic",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\TopicAPISwagger::show",
+                "operationId": "8cb3335b5f72e51015ad05066135da80",
                 "parameters": [
                     {
                         "name": "id",
@@ -2203,7 +2253,7 @@
                 ],
                 "summary": "Update the specified Topic in storage",
                 "description": "Update Topic",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\TopicAPISwagger::update",
+                "operationId": "7a79b7967600602ecc98fb2a296d988b",
                 "parameters": [
                     {
                         "name": "id",
@@ -2245,7 +2295,7 @@
                 ],
                 "summary": "Remove the specified Topic from storage",
                 "description": "Delete Topic",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\TopicAPISwagger::destroy",
+                "operationId": "39c9f38232c83af3680a910468ce0e9e",
                 "parameters": [
                     {
                         "name": "id",
@@ -2279,7 +2329,7 @@
                 ],
                 "summary": "Get a listing of the Availabe Topic Content Types Classes.",
                 "description": "Get all Topic Contents",
-                "operationId": "EscolaLms\\Courses\\Http\\Controllers\\Swagger\\TopicAPISwagger::classes",
+                "operationId": "91e200fa9afd3b218dea36968ca9d5fd",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -2387,7 +2437,7 @@
                     "Files"
                 ],
                 "summary": "Upload files using multipart form-data",
-                "operationId": "EscolaLms\\Files\\Http\\Controllers\\Swagger\\FileApiSwagger::upload",
+                "operationId": "e0dc9ce31c79e8a3587d2dcc55393cfb",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2445,7 +2495,7 @@
                     "Files"
                 ],
                 "summary": "Move the file from one path to another",
-                "operationId": "EscolaLms\\Files\\Http\\Controllers\\Swagger\\FileApiSwagger::move",
+                "operationId": "20b2d2c3a594aa873f78ac8c10f66b05",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2501,7 +2551,7 @@
                     "Files"
                 ],
                 "summary": "Delete given file",
-                "operationId": "EscolaLms\\Files\\Http\\Controllers\\Swagger\\FileApiSwagger::delete",
+                "operationId": "b8e73d6b586c4b5a0d8416404e92710c",
                 "parameters": [
                     {
                         "name": "url",
@@ -2546,7 +2596,7 @@
                 ],
                 "summary": "list of h5ps content in database",
                 "description": "list of h5ps content in database",
-                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\ContentApiSwagger::index",
+                "operationId": "719f246c822185fa2c350733c2939184",
                 "parameters": [
                     {
                         "name": "page",
@@ -2560,7 +2610,7 @@
                     {
                         "name": "per_page",
                         "in": "query",
-                        "description": "items per page",
+                        "description": "items per page. If set to 0, returns ALL contents ",
                         "required": false,
                         "schema": {
                             "type": "integer"
@@ -2598,7 +2648,7 @@
                 ],
                 "summary": "Store h5p content in database",
                 "description": "Store h5p content in database",
-                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\ContentApiSwagger::store",
+                "operationId": "a840b07625134cffa37abe1cdd0cac25",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2638,7 +2688,7 @@
                 ],
                 "summary": "Content settings for player",
                 "description": "Content settings for player",
-                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\ContentApiSwagger::show",
+                "operationId": "c4d9cfec6bc0a14c4488b6fb1d9787e7",
                 "parameters": [
                     {
                         "name": "id",
@@ -2669,7 +2719,7 @@
                 ],
                 "summary": "Updates h5p content in database",
                 "description": "Updates h5p content in database",
-                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\ContentApiSwagger::update",
+                "operationId": "6e9a9228ed9cdf4a2a974c1d3cb2aee6",
                 "parameters": [
                     {
                         "name": "id",
@@ -2718,7 +2768,7 @@
                 ],
                 "summary": "Deletes h5p content from database",
                 "description": "Deletes h5p content from database",
-                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\ContentApiSwagger::destroy",
+                "operationId": "9a5a28403c33e310e4e01d52a8fe3340",
                 "parameters": [
                     {
                         "name": "id",
@@ -2759,7 +2809,7 @@
                 ],
                 "summary": "Store h5p content from file in database",
                 "description": "Store h5p content from file in database",
-                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\ContentApiSwagger::upload",
+                "operationId": "953f11e50e63df512b1c11802b266b5f",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2814,7 +2864,7 @@
                 ],
                 "summary": "Editor settings ",
                 "description": "Editor settings",
-                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\EditorApiSwagger::__invoke",
+                "operationId": "1c27ee51f9335ae3502191d03edf63a3",
                 "parameters": [
                     {
                         "name": "id",
@@ -2874,7 +2924,7 @@
                 ],
                 "summary": "Store h5p files for h5p editor",
                 "description": "Store h5p files for h5p editor",
-                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\FilesApiSwagger::__invoke",
+                "operationId": "3c846d6b407b8633faa0f834799f1d99",
                 "parameters": [
                     {
                         "name": "nonce",
@@ -2913,7 +2963,7 @@
                 ],
                 "summary": "Gets all h5p libraries in the database",
                 "description": "Gets all h5p libraries in the database",
-                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\LibraryApiSwagger::index",
+                "operationId": "3682a0e1eb87ab549ae806a8013e000c",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -2936,7 +2986,7 @@
                 ],
                 "summary": "Store h5p library in database",
                 "description": "Store h5p library in database",
-                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\LibraryApiSwagger::store",
+                "operationId": "7a9d900af5e5ad9cd3cc95b9175c62b9",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2970,7 +3020,7 @@
                 ],
                 "summary": "Deletes h5p library from database",
                 "description": "Deletes h5p library from database",
-                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\LibraryApiSwagger::destroy",
+                "operationId": "42ae6ced35eaca98b5e2a55d4b16b245",
                 "parameters": [
                     {
                         "name": "id",
@@ -3023,7 +3073,7 @@
                 ],
                 "summary": "H5P Editor Endpoint. Get specific library object  ",
                 "description": "Get specific library object",
-                "operationId": "EscolaLms\\HeadlessH5P\\Http\\Controllers\\Swagger\\LibraryApiSwagger::libraries",
+                "operationId": "39b4dbd13b76b07e8170bb826e44c052",
                 "parameters": [
                     {
                         "name": "machineName",
@@ -3073,7 +3123,7 @@
                     "Tags"
                 ],
                 "description": "Display a listing of the Tag",
-                "operationId": "EscolaLms\\Tags\\Http\\Controllers\\Swagger\\TagsApiSwagger::index",
+                "operationId": "d235db266477badd488a71b57495bf3a",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -3095,7 +3145,7 @@
                 ],
                 "summary": "Destroy Tags",
                 "description": "Destroy Tags",
-                "operationId": "EscolaLms\\Tags\\Http\\Controllers\\Swagger\\TagsApiSwagger::destroy",
+                "operationId": "677f2e1b048f2aaf6ac859c633b33af7",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -3147,7 +3197,7 @@
                     "Tags"
                 ],
                 "description": "Display the unique Tags",
-                "operationId": "EscolaLms\\Tags\\Http\\Controllers\\Swagger\\TagsApiSwagger::unique",
+                "operationId": "15af86154a4bd49f49fb7fe9d8cd256a",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -3170,7 +3220,7 @@
                     "Tags"
                 ],
                 "description": "Create multiple Tags",
-                "operationId": "EscolaLms\\Tags\\Http\\Controllers\\Swagger\\TagsApiSwagger::create",
+                "operationId": "8dd1d58e5e85340c2825557114e7d90c",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -3233,7 +3283,7 @@
                     "Tags"
                 ],
                 "description": "Display the specified Tag",
-                "operationId": "EscolaLms\\Tags\\Http\\Controllers\\Swagger\\TagsApiSwagger::show",
+                "operationId": "43dac8f9aef855ced9abe167f8ac077d",
                 "parameters": [
                     {
                         "name": "tag",
@@ -3406,6 +3456,10 @@
                     },
                     "topicable_type": {
                         "description": "topicable_type",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "value",
                         "type": "string"
                     },
                     "order": {
