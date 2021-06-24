@@ -14,6 +14,11 @@
     {
       "name": "Mateusz Wojczal",
       "email": "mateusz@wojczal.com"
+    },
+    {
+      "name": "Paweł Chołaj",
+      "email": "pawel.cholaj@escola.pl",
+      "homepage": "https://cholaj.pl"
     }
   ],
   "require": {
@@ -25,6 +30,7 @@
     "dmore/chrome-mink-driver": "^2.7",
     "doctrine/dbal": "^2",
     "escolalms/auth": "^0",
+    "escolalms/cart": "^0",
     "escolalms/categories": "^0",
     "escolalms/core": "^1",
     "escolalms/courses": "^0",
@@ -53,10 +59,10 @@
     "beyondcode/laravel-dump-server": "^1.0",
     "brainmaestro/composer-git-hooks": "^2.8",
     "facade/ignition": "^2.0",
+    "fakerphp/faker": "^1.9.1",
     "filp/whoops": "^2.0",
     "friends-of-behat/mink-extension": "^2.4",
     "friendsofphp/php-cs-fixer": "^2.16",
-    "fzaninotto/faker": "^1.4",
     "infyomlabs/swagger-generator": "dev-master",
     "laracasts/behat-laravel-extension": "dev-master as 1.1",
     "mockery/mockery": "^1.0",
