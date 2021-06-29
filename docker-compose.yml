@@ -60,7 +60,7 @@ services:
       - escola_lms
     image: adminer
     ports:
-      - 8079:8080
+      - 8078:8080
 
   mailhog:
     networks:
