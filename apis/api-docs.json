@@ -3381,7 +3381,7 @@
                     },
                     "base_price": {
                         "description": "base_price",
-                        "type": "string"
+                        "type": "integer"
                     },
                     "duration": {
                         "description": "duration",
@@ -3398,6 +3398,26 @@
                     "video": {
                         "description": "video",
                         "type": "file"
+                    },
+                    "active": {
+                        "description": "active",
+                        "type": "boolean"
+                    },
+                    "subtitle": {
+                        "description": "subtitle",
+                        "type": "string"
+                    },
+                    "language": {
+                        "description": "language",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "description",
+                        "type": "string"
+                    },
+                    "level": {
+                        "description": "level",
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -3419,6 +3439,10 @@
                     },
                     "duration": {
                         "description": "duration",
+                        "type": "string"
+                    },
+                    "summary": {
+                        "description": "summary",
                         "type": "string"
                     },
                     "order": {
@@ -3445,6 +3469,14 @@
                     "title": {
                         "description": "title",
                         "type": "string"
+                    },
+                    "active": {
+                        "description": "active",
+                        "type": "boolean"
+                    },
+                    "preview": {
+                        "description": "preview",
+                        "type": "boolean"
                     },
                     "lesson_id": {
                         "description": "lesson_id",
