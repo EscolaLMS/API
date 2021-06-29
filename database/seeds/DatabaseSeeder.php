@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
-use EscolaLms\Core\Seeders\RoleTableSeeder;
-
 use EscolaLms\Categories\Database\Seeders\CategoriesSeeder;
-use EscolaLms\Courses\Database\Seeders\CoursesSeeder;
+use EscolaLms\Core\Seeders\RoleTableSeeder;
 use EscolaLms\Courses\Database\Seeders\CoursesPermissionSeeder;
+use EscolaLms\Courses\Database\Seeders\CoursesSeeder;
+use EscolaLms\Files\Seeders\PermissionTableSeeder as FilePermissionTableSeeder;
+use EscolaLms\Payments\Database\Seeders\PaymentsPermissionsSeeder;
+use EscolaLms\Payments\Database\Seeders\PaymentsSeeder;
 use EscolaLms\Tags\Database\Seeders\TagsSeeder;
 use EscolaLms\Files\Database\Seeders\PermissionTableSeeder as FilePermissionTableSeeder;
 use Illuminate\Database\Seeder;
@@ -24,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleTableSeeder::class);
         $this->call(FilePermissionTableSeeder::class);
         $this->call(CoursesPermissionSeeder::class);
+        $this->call(PaymentsPermissionsSeeder::class);
 
         // create users
         $this->call(UserTableSeeder::class);
@@ -32,5 +35,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriesSeeder::class);
         $this->call(TagsSeeder::class);
         $this->call(CoursesSeeder::class);
+        $this->call(PaymentsSeeder::class);
     }
 }
