@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\API\ShareApiController;
+// use App\Http\Controllers\SettingsController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,8 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
-
 Route::get('/debug-sentry', function () {
     throw new Exception('Test Sentry error!');
 });
+
+
+Route::get('/settings', SettingsController::class);
