@@ -6,7 +6,6 @@ use EscolaLms\Categories\Database\Seeders\CategoriesSeeder;
 use EscolaLms\Core\Seeders\RoleTableSeeder;
 use EscolaLms\Courses\Database\Seeders\CoursesPermissionSeeder;
 use EscolaLms\Courses\Database\Seeders\CoursesSeeder;
-use EscolaLms\Files\Seeders\PermissionTableSeeder as FilePermissionTableSeeder;
 use EscolaLms\Payments\Database\Seeders\PaymentsPermissionsSeeder;
 use EscolaLms\Payments\Database\Seeders\PaymentsSeeder;
 use EscolaLms\Tags\Database\Seeders\TagsSeeder;
