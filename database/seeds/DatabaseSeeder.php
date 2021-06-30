@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use EscolaLms\Categories\Database\Seeders\CategoriesSeeder;
+use EscolaLms\Categories\Database\Seeders\CategoriesPermissionSeeder;
+
 use EscolaLms\Core\Seeders\RoleTableSeeder;
 use EscolaLms\Courses\Database\Seeders\CoursesPermissionSeeder;
 use EscolaLms\Courses\Database\Seeders\CoursesSeeder;
@@ -26,6 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FilePermissionTableSeeder::class);
         $this->call(CoursesPermissionSeeder::class);
         $this->call(PaymentsPermissionsSeeder::class);
+        $this->call(CategoriesPermissionSeeder::class);
 
         // create users
         $this->call(UserTableSeeder::class);
