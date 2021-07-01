@@ -34,6 +34,9 @@
       <directory suffix="Test.php">./vendor/escolalms/headless-h5p/tests</directory>
     </testsuite>
     <testsuite name="payments">
+      <directory suffix="Test.php">./vendor/escolalms/pages/tests</directory>
+    </testsuite>
+    <testsuite name="payments">
       <directory suffix="Test.php">./vendor/escolalms/payments/tests</directory>
     </testsuite>
     <testsuite name="tags">
