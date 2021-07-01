@@ -6,11 +6,13 @@
   <coverage processUncoveredFiles="true">
     <include>
       <directory suffix=".php">./vendor/escolalms/auth/</directory>
+      <directory suffix=".php">./vendor/escolalms/cart/</directory>
       <directory suffix=".php">./vendor/escolalms/categories/</directory>
       <directory suffix=".php">./vendor/escolalms/core/</directory>
       <directory suffix=".php">./vendor/escolalms/courses/</directory>
       <directory suffix=".php">./vendor/escolalms/files/</directory>
       <directory suffix=".php">./vendor/escolalms/headless-h5p/</directory>
+      <directory suffix=".php">./vendor/escolalms/payments/</directory>
       <directory suffix=".php">./vendor/escolalms/tags/</directory>
     </include>
   </coverage>
@@ -20,6 +22,9 @@
     </testsuite>
     <testsuite name="auth">
       <directory suffix="Test.php">./vendor/escolalms/auth/tests</directory>
+    </testsuite>
+    <testsuite name="categories">
+      <directory suffix="Test.php">./vendor/escolalms/cart/tests</directory>
     </testsuite>
     <testsuite name="categories">
       <directory suffix="Test.php">./vendor/escolalms/categories/tests</directory>
@@ -33,11 +38,14 @@
     <testsuite name="files">
       <directory suffix="Test.php">./vendor/escolalms/files/tests</directory>
     </testsuite>
-    <testsuite name="tags">
-      <directory suffix="Test.php">./vendor/escolalms/tags/tests</directory>
-    </testsuite>
     <testsuite name="headless-h5p">
       <directory suffix="Test.php">./vendor/escolalms/headless-h5p/tests</directory>
+    </testsuite>
+    <testsuite name="payments">
+      <directory suffix="Test.php">./vendor/escolalms/payments/tests</directory>
+    </testsuite>
+    <testsuite name="tags">
+      <directory suffix="Test.php">./vendor/escolalms/tags/tests</directory>
     </testsuite>
   </testsuites>
   <php>

@@ -8,9 +8,15 @@
       <directory suffix=".php">./app</directory>
     </include>
   </coverage>
-    <testsuites>
+  <testsuites>
+    <testsuite name="Integrations">
+      <directory suffix="Test.php">./tests/Integrations</directory>
+    </testsuite>
     <testsuite name="auth">
       <directory suffix="Test.php">./vendor/escolalms/auth/tests</directory>
+    </testsuite>
+    <testsuite name="categories">
+      <directory suffix="Test.php">./vendor/escolalms/cart/tests</directory>
     </testsuite>
     <testsuite name="categories">
       <directory suffix="Test.php">./vendor/escolalms/categories/tests</directory>
@@ -26,6 +32,12 @@
     </testsuite>
     <testsuite name="headless-h5p">
       <directory suffix="Test.php">./vendor/escolalms/headless-h5p/tests</directory>
+    </testsuite>
+    <testsuite name="payments">
+      <directory suffix="Test.php">./vendor/escolalms/payments/tests</directory>
+    </testsuite>
+    <testsuite name="tags">
+      <directory suffix="Test.php">./vendor/escolalms/tags/tests</directory>
     </testsuite>
   </testsuites>
   <php>
