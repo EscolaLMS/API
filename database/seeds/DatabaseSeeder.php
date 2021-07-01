@@ -12,6 +12,10 @@ use EscolaLms\Payments\Database\Seeders\PaymentsPermissionsSeeder;
 use EscolaLms\Payments\Database\Seeders\PaymentsSeeder;
 use EscolaLms\Tags\Database\Seeders\TagsSeeder;
 use EscolaLms\Files\Database\Seeders\PermissionTableSeeder as FilePermissionTableSeeder;
+
+use EscolaLms\Pages\Database\Seeders\DatabaseSeeder as PagesDatabaseSeeder;
+use EscolaLms\Pages\Database\Seeders\PermissionTableSeeder as PagesPermissionTableSeeder;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -29,6 +33,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CoursesPermissionSeeder::class);
         $this->call(PaymentsPermissionsSeeder::class);
         $this->call(CategoriesPermissionSeeder::class);
+        $this->call(PagesPermissionTableSeeder::class);
 
         // create users
         $this->call(UserTableSeeder::class);
@@ -38,5 +43,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TagsSeeder::class);
         $this->call(CoursesSeeder::class);
         $this->call(PaymentsSeeder::class);
+        $this->call(PagesDatabaseSeeder::class);
     }
 }
