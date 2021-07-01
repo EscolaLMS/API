@@ -241,12 +241,70 @@
                 "operationId": "599183ff92f15962448cd009aec3c581",
                 "parameters": [
                     {
-                        "name": "",
+                        "name": "page",
                         "in": "query",
                         "required": false,
                         "schema": {
-                            "type": "integer",
-                            "format": "int64"
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "will search through first_name, last_name and email",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "role",
+                        "in": "query",
+                        "description": "user role",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "admin",
+                                "tutor",
+                                "student"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "will check if user is_active",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "onboarding",
+                        "in": "query",
+                        "description": "will check if user completed onboarding",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "description": "users created after this date",
+                        "required": false,
+                        "schema": {
+                            "type": "datetime"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "description": "users created before this date",
+                        "required": false,
+                        "schema": {
+                            "type": "datetime"
                         }
                     }
                 ],
@@ -1261,6 +1319,174 @@
                 }
             }
         },
+        "/api/cart": {
+            "get": {
+                "tags": [
+                    "Cart"
+                ],
+                "description": "Get cart details",
+                "operationId": "764bd0113215a87ea5b597699b82d6f9",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/cart/course/{course}": {
+            "post": {
+                "tags": [
+                    "Cart"
+                ],
+                "description": "Add course to cart",
+                "operationId": "a44f1a604e25d9a686e61cb51687b5f8",
+                "parameters": [
+                    {
+                        "name": "course",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Cart"
+                ],
+                "description": "Remove course from cart",
+                "operationId": "d68437563ed5f93a2252f6b7c395891f",
+                "parameters": [
+                    {
+                        "name": "course",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/cart/pay": {
+            "post": {
+                "tags": [
+                    "Cart"
+                ],
+                "description": "Pay for cart",
+                "operationId": "a9183308a576feb0f769f81a32d6cb21",
+                "parameters": [
+                    {
+                        "name": "paymentMethodId",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/orders": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "description": "Get user orders",
+                "operationId": "8997737565f012fc6483d7874fed7375",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/categories": {
             "get": {
                 "tags": [
@@ -1986,6 +2212,221 @@
                 "responses": {
                     "200": {
                         "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/courses/progress": {
+            "get": {
+                "tags": [
+                    "progress"
+                ],
+                "description": "Get Progresses",
+                "operationId": "f38c13e50f028895b45b14c94d288b74",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/courses/progress/{course_id}": {
+            "get": {
+                "tags": [
+                    "progress"
+                ],
+                "description": "Show user course progress",
+                "operationId": "476ec8979cad6055de6abc3e2297c053",
+                "parameters": [
+                    {
+                        "name": "course_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "progress"
+                ],
+                "description": "Show user course progress",
+                "operationId": "cdec63c492b1354b876a927a77e90cf3",
+                "parameters": [
+                    {
+                        "name": "course_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "progress[]",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "topic_id": {
+                                        "type": "integer"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/courses/progress/{topic_id}/ping": {
+            "put": {
+                "tags": [
+                    "progress"
+                ],
+                "description": "Update time in course by ping.",
+                "operationId": "a55ffc9d253d527b5f63a8618f8e6061",
+                "parameters": [
+                    {
+                        "name": "topic_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/courses/progress/{topic_id}/h5p": {
+            "post": {
+                "tags": [
+                    "progress"
+                ],
+                "description": "Update h5p progress in course quiz.",
+                "operationId": "361936640d7dc3b7cec611ee5f42d49a",
+                "parameters": [
+                    {
+                        "name": "topic_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "event": {
+                                        "type": "string",
+                                        "example": "http://adlnet.gov/expapi/verbs/attempted"
+                                    },
+                                    "data": {
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
                         "content": {
                             "application/json": {}
                         }
@@ -3117,6 +3558,237 @@
                 }
             }
         },
+        "/api/admin/payments": {
+            "get": {
+                "tags": [
+                    "Payments"
+                ],
+                "summary": "Search payments",
+                "description": "Get filtered and paginated Payments",
+                "operationId": "3def6e493e77fb7b93a9856973553e01",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "created_at",
+                                "updated_at",
+                                "status",
+                                "payable_id",
+                                "billable_id",
+                                "amount"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Payment status",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "NEW",
+                                "PAID",
+                                "CANCELLED"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/admin/payments/{id}": {
+            "get": {
+                "tags": [
+                    "Payments"
+                ],
+                "summary": "Display the specified Payment",
+                "description": "Get Payment",
+                "operationId": "bb7bf9dbeefb2c260e33dd44452f4891",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Payment",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/payments": {
+            "get": {
+                "tags": [
+                    "Payments"
+                ],
+                "summary": "Search payments",
+                "description": "Get filtered and paginated Payments",
+                "operationId": "607acc650e002580391a36165a6a0ad0",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "created_at",
+                                "updated_at",
+                                "status",
+                                "payable_id",
+                                "amount"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Payment status",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "NEW",
+                                "PAID",
+                                "CANCELLED"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/payments/{id}": {
+            "get": {
+                "tags": [
+                    "Payments"
+                ],
+                "summary": "Display the specified Payment",
+                "description": "Get Payment",
+                "operationId": "9a9358debbf57d654d40de34289144fc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Payment",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/tags": {
             "get": {
                 "tags": [
@@ -4064,6 +4736,52 @@
                     "libraryId": {
                         "description": "ID of library. Alias",
                         "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "Payment": {
+                "required": [
+                    "amount",
+                    "currency",
+                    "description"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "amount": {
+                        "description": "amount",
+                        "type": "integer"
+                    },
+                    "currency": {
+                        "description": "currency",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "description",
+                        "type": "string"
+                    },
+                    "order_id": {
+                        "description": "order_id",
+                        "type": "string"
+                    },
+                    "payable_id": {
+                        "description": "payable_id",
+                        "type": "integer"
+                    },
+                    "payable_type": {
+                        "description": "payable_type",
+                        "type": "string"
+                    },
+                    "billable_id": {
+                        "description": "billable_id",
+                        "type": "integer"
+                    },
+                    "billable_type": {
+                        "description": "billable_type",
+                        "type": "string"
                     }
                 },
                 "type": "object"
