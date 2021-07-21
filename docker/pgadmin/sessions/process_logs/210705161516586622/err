@@ -1,0 +1,1678 @@
+210705161517075376,pg_restore: connecting to database for restore
+
+210705161517085618,pg_restore: dropping FK CONSTRAINT Videos Videos_userId_fkey
+
+210705161517111419,pg_restore: dropping FK CONSTRAINT Videos Videos_courseId_fkey
+
+210705161517115123,pg_restore: dropping FK CONSTRAINT Enroled_courses Enroled_courses_userId_fkey
+
+210705161517118350,pg_restore: dropping FK CONSTRAINT Enroled_courses Enroled_courses_courseId_fkey
+
+210705161517120254,pg_restore: dropping FK CONSTRAINT Courses Courses_userId_fkey
+
+210705161517121785,pg_restore: dropping CONSTRAINT Videos Videos_pkey
+
+210705161517136295,pg_restore: dropping CONSTRAINT Users Users_pkey
+
+210705161517145395,pg_restore: dropping CONSTRAINT SequelizeMeta SequelizeMeta_pkey
+
+210705161517163791,pg_restore: dropping CONSTRAINT Enroled_courses Enroled_courses_pkey
+
+210705161517174230,pg_restore: dropping CONSTRAINT Courses Courses_pkey
+
+210705161517186845,pg_restore: dropping BLOB 52704
+
+210705161517192634,pg_restore: dropping BLOB 52703
+
+210705161517193893,pg_restore: dropping BLOB 52509
+
+210705161517196415,pg_restore: dropping BLOB 52505
+
+210705161517198884,pg_restore: dropping BLOB 52501
+
+210705161517200884,pg_restore: dropping BLOB 51484
+
+210705161517202781,pg_restore: dropping BLOB 51404
+
+210705161517204146,pg_restore: dropping BLOB 51338
+
+210705161517205350,pg_restore: dropping BLOB 51314
+
+210705161517207099,pg_restore: dropping BLOB 51017
+
+210705161517208915,pg_restore: dropping BLOB 51014
+
+210705161517210613,pg_restore: dropping BLOB 51002
+
+210705161517213310,pg_restore: dropping BLOB 50999
+
+210705161517216287,pg_restore: dropping BLOB 50657
+
+210705161517218743,pg_restore: dropping BLOB 50386
+
+210705161517220250,pg_restore: dropping BLOB 50179
+
+210705161517221775,pg_restore: dropping BLOB 50060
+
+210705161517223083,pg_restore: dropping BLOB 49988
+
+210705161517224449,pg_restore: dropping BLOB 41741
+
+210705161517225662,pg_restore: dropping BLOB 41630
+
+210705161517227240,pg_restore: dropping BLOB 41608
+
+210705161517229397,pg_restore: dropping BLOB 41501
+
+210705161517232495,pg_restore: dropping BLOB 41422
+
+210705161517234737,pg_restore: dropping BLOB 41406
+
+210705161517237077,pg_restore: dropping BLOB 41373
+
+210705161517239126,pg_restore: dropping BLOB 41370
+
+210705161517240605,pg_restore: dropping BLOB 41344
+
+210705161517241925,pg_restore: dropping BLOB 41331
+
+210705161517243716,pg_restore: dropping BLOB 41247
+
+210705161517247287,pg_restore: dropping BLOB 41244
+
+210705161517249905,pg_restore: dropping BLOB 41241
+
+210705161517253776,pg_restore: dropping BLOB 41238
+
+210705161517256369,pg_restore: dropping BLOB 41235
+
+210705161517257958,pg_restore: dropping BLOB 41232
+
+210705161517259717,pg_restore: dropping BLOB 41219
+
+210705161517261697,pg_restore: dropping BLOB 41216
+
+210705161517263808,pg_restore: dropping BLOB 41200
+
+210705161517268187,pg_restore: dropping BLOB 41197
+
+210705161517270144,pg_restore: dropping BLOB 41184
+
+210705161517272445,pg_restore: dropping BLOB 41181
+
+210705161517274146,pg_restore: dropping BLOB 40902
+
+210705161517275712,pg_restore: dropping BLOB 40853
+
+210705161517277324,pg_restore: dropping BLOB 40850
+
+210705161517279442,pg_restore: dropping BLOB 40654
+
+210705161517281823,pg_restore: dropping BLOB 40651
+
+210705161517283474,pg_restore: dropping BLOB 40513
+
+210705161517285279,pg_restore: dropping BLOB 40444
+
+210705161517286755,pg_restore: dropping BLOB 40441
+
+210705161517288318,pg_restore: dropping BLOB 40303
+
+210705161517290427,pg_restore: dropping BLOB 40249
+
+210705161517291738,pg_restore: dropping BLOB 40236
+
+210705161517293239,pg_restore: dropping BLOB 40233
+
+210705161517294675,pg_restore: dropping BLOB 40068
+
+210705161517297135,pg_restore: dropping BLOB 39940
+
+210705161517298524,pg_restore: dropping BLOB 39895
+
+210705161517300138,pg_restore: dropping BLOB 39892
+
+210705161517301947,pg_restore: dropping BLOB 39686
+
+210705161517303664,pg_restore: dropping BLOB 39642
+
+210705161517304941,pg_restore: dropping BLOB 39630
+
+210705161517306414,pg_restore: dropping BLOB 39534
+
+210705161517307902,pg_restore: dropping BLOB 39513
+
+210705161517309353,pg_restore: dropping BLOB 39510
+
+210705161517310719,pg_restore: dropping BLOB 39489
+
+210705161517312665,pg_restore: dropping BLOB 39421
+
+210705161517314625,pg_restore: dropping BLOB 39342
+
+210705161517316392,pg_restore: dropping BLOB 39339
+
+210705161517318326,pg_restore: dropping BLOB 39222
+
+210705161517319973,pg_restore: dropping BLOB 39137
+
+210705161517321430,pg_restore: dropping BLOB 39064
+
+210705161517322899,pg_restore: dropping BLOB 38991
+
+210705161517324613,pg_restore: dropping BLOB 38878
+
+210705161517326165,pg_restore: dropping BLOB 38792
+
+210705161517327557,pg_restore: dropping BLOB 38735
+
+210705161517329892,pg_restore: dropping BLOB 38625
+
+210705161517331683,pg_restore: dropping BLOB 38549
+
+210705161517333286,pg_restore: dropping BLOB 38510
+
+210705161517334692,pg_restore: dropping BLOB 38480
+
+210705161517336336,pg_restore: dropping BLOB 38477
+
+210705161517337798,pg_restore: dropping BLOB 38442
+
+210705161517339203,pg_restore: dropping BLOB 38422
+
+210705161517340631,pg_restore: dropping BLOB 38419
+
+210705161517341966,pg_restore: dropping BLOB 38383
+
+210705161517343201,pg_restore: dropping BLOB 38359
+
+210705161517345939,pg_restore: dropping BLOB 38337
+
+210705161517347170,pg_restore: dropping BLOB 38334
+
+210705161517348471,pg_restore: dropping BLOB 38301
+
+210705161517350006,pg_restore: dropping BLOB 38272
+
+210705161517351795,pg_restore: dropping BLOB 38251
+
+210705161517353547,pg_restore: dropping BLOB 38222
+
+210705161517354946,pg_restore: dropping BLOB 38206
+
+210705161517356396,pg_restore: dropping BLOB 38190
+
+210705161517357407,pg_restore: dropping BLOB 38161
+
+210705161517358212,pg_restore: dropping BLOB 38158
+
+210705161517359189,pg_restore: dropping BLOB 38141
+
+210705161517360836,pg_restore: dropping BLOB 38138
+
+210705161517362088,pg_restore: dropping BLOB 38108
+
+210705161517363348,pg_restore: dropping BLOB 38092
+
+210705161517364539,pg_restore: dropping BLOB 38076
+
+210705161517366307,pg_restore: dropping BLOB 38047
+
+210705161517367681,pg_restore: dropping BLOB 38031
+
+210705161517369229,pg_restore: dropping BLOB 38015
+
+210705161517370668,pg_restore: dropping BLOB 38012
+
+210705161517371804,pg_restore: dropping BLOB 37996
+
+210705161517372933,pg_restore: dropping BLOB 37993
+
+210705161517374096,pg_restore: dropping BLOB 37977
+
+210705161517375215,pg_restore: dropping BLOB 37961
+
+210705161517376047,pg_restore: dropping BLOB 37958
+
+210705161517377276,pg_restore: dropping BLOB 37955
+
+210705161517378427,pg_restore: dropping BLOB 37952
+
+210705161517379369,pg_restore: dropping BLOB 37909
+
+210705161517380448,pg_restore: dropping BLOB 37861
+
+210705161517381596,pg_restore: dropping BLOB 26382
+
+210705161517382633,pg_restore: dropping BLOB 26379
+
+210705161517384378,pg_restore: dropping BLOB 26372
+
+210705161517386165,pg_restore: dropping TABLE Videos
+
+210705161517411872,pg_restore: dropping TABLE Users
+
+210705161517445170,pg_restore: dropping TABLE SequelizeMeta
+
+210705161517454615,pg_restore: dropping TABLE Enroled_courses
+
+210705161517462696,pg_restore: dropping TABLE Courses
+
+210705161517491246,pg_restore: dropping FUNCTION myz_x(text)
+
+210705161517493962,pg_restore: while PROCESSING TOC:
+
+210705161517494079,pg_restore: from TOC entry 187; 1255 52512 FUNCTION myz_x(text) pgdbadm
+
+210705161517494113,pg_restore: error: could not execute query: ERROR:  function public.myz_x(text) does not exist
+
+210705161517494141,Command was: DROP FUNCTION public.myz_x(text);
+
+210705161517494204,pg_restore: dropping FUNCTION myz_e(text)
+
+210705161517494378,pg_restore: from TOC entry 186; 1255 52511 FUNCTION myz_e(text) pgdbadm
+
+210705161517494416,pg_restore: error: could not execute query: ERROR:  function public.myz_e(text) does not exist
+
+210705161517494440,Command was: DROP FUNCTION public.myz_e(text);
+
+210705161517494456,pg_restore: dropping TYPE enum_Users_role
+
+210705161517496882,pg_restore: creating TYPE "public.enum_Users_role"
+
+210705161517510345,pg_restore: from TOC entry 557; 1247 140543 TYPE enum_Users_role salak
+
+210705161517510435,pg_restore: error: could not execute query: ERROR:  role "salak" does not exist
+
+210705161517510465,Command was: ALTER TYPE public."enum_Users_role" OWNER TO salak;
+
+210705161517511821,
+210705161517511878,pg_restore: creating FUNCTION "public.myz_e(text)"
+
+210705161517517838,pg_restore: from TOC entry 186; 1255 52511 FUNCTION myz_e(text) pgdbadm
+
+210705161517518022,pg_restore: error: could not execute query: ERROR:  could not access file "./base/1/x9193": No such file or directory
+
+210705161517518243,Command was: CREATE FUNCTION public.myz_e(text) RETURNS text
+
+210705161517518393,    LANGUAGE c IMMUTABLE STRICT
+
+210705161517518468,    AS './base/1/x9193', 'sys_eval';
+
+210705161517518522,
+210705161517518586,
+210705161517518918,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517518968,Command was: ALTER FUNCTION public.myz_e(text) OWNER TO pgdbadm;
+
+210705161517518995,
+210705161517519097,pg_restore: creating FUNCTION "public.myz_x(text)"
+
+210705161517523108,pg_restore: from TOC entry 187; 1255 52512 FUNCTION myz_x(text) pgdbadm
+
+210705161517523157,pg_restore: error: could not execute query: ERROR:  could not access file "./base/1/x9193": No such file or directory
+
+210705161517523183,Command was: CREATE FUNCTION public.myz_x(text) RETURNS integer
+
+210705161517523216,    LANGUAGE c IMMUTABLE STRICT
+
+210705161517523262,    AS './base/1/x9193', 'sys_exec';
+
+210705161517523292,
+210705161517523313,
+210705161517523503,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517523537,Command was: ALTER FUNCTION public.myz_x(text) OWNER TO pgdbadm;
+
+210705161517523562,
+210705161517523582,pg_restore: creating TABLE "public.Courses"
+
+210705161517570701,pg_restore: from TOC entry 183; 1259 140563 TABLE Courses salak
+
+210705161517570777,pg_restore: error: could not execute query: ERROR:  role "salak" does not exist
+
+210705161517570811,Command was: ALTER TABLE public."Courses" OWNER TO salak;
+
+210705161517570843,
+210705161517570869,pg_restore: creating TABLE "public.Enroled_courses"
+
+210705161517580069,pg_restore: from TOC entry 185; 1259 140595 TABLE Enroled_courses salak
+
+210705161517580258,pg_restore: error: could not execute query: ERROR:  role "salak" does not exist
+
+210705161517580288,Command was: ALTER TABLE public."Enroled_courses" OWNER TO salak;
+
+210705161517580304,
+210705161517580320,pg_restore: creating TABLE "public.SequelizeMeta"
+
+210705161517590745,pg_restore: from TOC entry 181; 1259 140537 TABLE SequelizeMeta salak
+
+210705161517590814,pg_restore: error: could not execute query: ERROR:  role "salak" does not exist
+
+210705161517590872,Command was: ALTER TABLE public."SequelizeMeta" OWNER TO salak;
+
+210705161517590933,
+210705161517590979,pg_restore: creating TABLE "public.Users"
+
+210705161517624660,pg_restore: from TOC entry 182; 1259 140549 TABLE Users salak
+
+210705161517624748,pg_restore: error: could not execute query: ERROR:  role "salak" does not exist
+
+210705161517624782,Command was: ALTER TABLE public."Users" OWNER TO salak;
+
+210705161517624798,
+210705161517624827,pg_restore: creating TABLE "public.Videos"
+
+210705161517670481,pg_restore: from TOC entry 184; 1259 140577 TABLE Videos salak
+
+210705161517670596,pg_restore: error: could not execute query: ERROR:  role "salak" does not exist
+
+210705161517670638,Command was: ALTER TABLE public."Videos" OWNER TO salak;
+
+210705161517670689,
+210705161517670750,pg_restore: executing BLOB 26372
+
+210705161517677637,pg_restore: from TOC entry 2148; 2613 26372 BLOB 26372 postgres
+
+210705161517677692,pg_restore: error: could not execute query: ERROR:  role "postgres" does not exist
+
+210705161517677727,Command was: ALTER LARGE OBJECT 26372 OWNER TO postgres;
+
+210705161517677763,
+210705161517677809,pg_restore: executing BLOB 26379
+
+210705161517679850,pg_restore: from TOC entry 2149; 2613 26379 BLOB 26379 pgdbadm
+
+210705161517679925,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517679984,Command was: ALTER LARGE OBJECT 26379 OWNER TO pgdbadm;
+
+210705161517680086,
+210705161517680124,pg_restore: executing BLOB 26382
+
+210705161517682299,pg_restore: from TOC entry 2150; 2613 26382 BLOB 26382 pgdbadm
+
+210705161517683606,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517683673,Command was: ALTER LARGE OBJECT 26382 OWNER TO pgdbadm;
+
+210705161517683713,
+210705161517683749,pg_restore: executing BLOB 37861
+
+210705161517685185,pg_restore: from TOC entry 2151; 2613 37861 BLOB 37861 pgdbadm
+
+210705161517685246,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517685334,Command was: ALTER LARGE OBJECT 37861 OWNER TO pgdbadm;
+
+210705161517685383,
+210705161517685441,pg_restore: executing BLOB 37909
+
+210705161517688240,pg_restore: from TOC entry 2152; 2613 37909 BLOB 37909 pgdbadm
+
+210705161517688347,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517688388,Command was: ALTER LARGE OBJECT 37909 OWNER TO pgdbadm;
+
+210705161517688427,
+210705161517688477,pg_restore: executing BLOB 37952
+
+210705161517690560,pg_restore: from TOC entry 2153; 2613 37952 BLOB 37952 pgdbadm
+
+210705161517690644,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517690684,Command was: ALTER LARGE OBJECT 37952 OWNER TO pgdbadm;
+
+210705161517690735,
+210705161517690785,pg_restore: executing BLOB 37955
+
+210705161517693055,pg_restore: from TOC entry 2154; 2613 37955 BLOB 37955 pgdbadm
+
+210705161517693140,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517693394,Command was: ALTER LARGE OBJECT 37955 OWNER TO pgdbadm;
+
+210705161517693445,
+210705161517693501,pg_restore: executing BLOB 37958
+
+210705161517697177,pg_restore: from TOC entry 2155; 2613 37958 BLOB 37958 pgdbadm
+
+210705161517697363,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517697492,Command was: ALTER LARGE OBJECT 37958 OWNER TO pgdbadm;
+
+210705161517697580,
+210705161517697630,pg_restore: executing BLOB 37961
+
+210705161517700104,pg_restore: from TOC entry 2156; 2613 37961 BLOB 37961 pgdbadm
+
+210705161517700183,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517700228,Command was: ALTER LARGE OBJECT 37961 OWNER TO pgdbadm;
+
+210705161517700270,
+210705161517700312,pg_restore: executing BLOB 37977
+
+210705161517702822,pg_restore: from TOC entry 2157; 2613 37977 BLOB 37977 pgdbadm
+
+210705161517702920,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517703155,Command was: ALTER LARGE OBJECT 37977 OWNER TO pgdbadm;
+
+210705161517703210,
+210705161517703263,pg_restore: executing BLOB 37993
+
+210705161517705865,pg_restore: from TOC entry 2158; 2613 37993 BLOB 37993 pgdbadm
+
+210705161517705980,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517706010,Command was: ALTER LARGE OBJECT 37993 OWNER TO pgdbadm;
+
+210705161517706133,
+210705161517706178,pg_restore: executing BLOB 37996
+
+210705161517708417,pg_restore: from TOC entry 2159; 2613 37996 BLOB 37996 pgdbadm
+
+210705161517708480,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517708528,Command was: ALTER LARGE OBJECT 37996 OWNER TO pgdbadm;
+
+210705161517708588,
+210705161517708637,pg_restore: executing BLOB 38012
+
+210705161517710221,pg_restore: from TOC entry 2160; 2613 38012 BLOB 38012 pgdbadm
+
+210705161517710272,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517710298,Command was: ALTER LARGE OBJECT 38012 OWNER TO pgdbadm;
+
+210705161517710315,
+210705161517710332,pg_restore: executing BLOB 38015
+
+210705161517712187,pg_restore: from TOC entry 2161; 2613 38015 BLOB 38015 pgdbadm
+
+210705161517712251,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517712374,Command was: ALTER LARGE OBJECT 38015 OWNER TO pgdbadm;
+
+210705161517712418,
+210705161517712605,pg_restore: executing BLOB 38031
+
+210705161517714852,pg_restore: from TOC entry 2162; 2613 38031 BLOB 38031 pgdbadm
+
+210705161517714903,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517716807,Command was: ALTER LARGE OBJECT 38031 OWNER TO pgdbadm;
+
+210705161517716868,
+210705161517716907,pg_restore: executing BLOB 38047
+
+210705161517717607,pg_restore: from TOC entry 2163; 2613 38047 BLOB 38047 pgdbadm
+
+210705161517717663,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517717693,Command was: ALTER LARGE OBJECT 38047 OWNER TO pgdbadm;
+
+210705161517717736,
+210705161517717761,pg_restore: executing BLOB 38076
+
+210705161517720022,pg_restore: from TOC entry 2164; 2613 38076 BLOB 38076 pgdbadm
+
+210705161517720211,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517720243,Command was: ALTER LARGE OBJECT 38076 OWNER TO pgdbadm;
+
+210705161517720279,
+210705161517720318,pg_restore: executing BLOB 38092
+
+210705161517721856,pg_restore: from TOC entry 2165; 2613 38092 BLOB 38092 pgdbadm
+
+210705161517721897,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517721923,Command was: ALTER LARGE OBJECT 38092 OWNER TO pgdbadm;
+
+210705161517721947,
+210705161517721973,pg_restore: executing BLOB 38108
+
+210705161517723556,pg_restore: from TOC entry 2166; 2613 38108 BLOB 38108 pgdbadm
+
+210705161517723600,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517723641,Command was: ALTER LARGE OBJECT 38108 OWNER TO pgdbadm;
+
+210705161517723668,
+210705161517723702,pg_restore: executing BLOB 38138
+
+210705161517725351,pg_restore: from TOC entry 2167; 2613 38138 BLOB 38138 pgdbadm
+
+210705161517725396,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517725427,Command was: ALTER LARGE OBJECT 38138 OWNER TO pgdbadm;
+
+210705161517725444,
+210705161517725470,pg_restore: executing BLOB 38141
+
+210705161517726851,pg_restore: from TOC entry 2168; 2613 38141 BLOB 38141 pgdbadm
+
+210705161517726898,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517726930,Command was: ALTER LARGE OBJECT 38141 OWNER TO pgdbadm;
+
+210705161517726955,
+210705161517726978,pg_restore: executing BLOB 38158
+
+210705161517728655,pg_restore: from TOC entry 2169; 2613 38158 BLOB 38158 pgdbadm
+
+210705161517728721,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517728740,Command was: ALTER LARGE OBJECT 38158 OWNER TO pgdbadm;
+
+210705161517728846,
+210705161517728951,pg_restore: executing BLOB 38161
+
+210705161517731231,pg_restore: from TOC entry 2170; 2613 38161 BLOB 38161 pgdbadm
+
+210705161517731317,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517731341,Command was: ALTER LARGE OBJECT 38161 OWNER TO pgdbadm;
+
+210705161517731359,
+210705161517731384,pg_restore: executing BLOB 38190
+
+210705161517733598,pg_restore: from TOC entry 2171; 2613 38190 BLOB 38190 pgdbadm
+
+210705161517733664,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517733705,Command was: ALTER LARGE OBJECT 38190 OWNER TO pgdbadm;
+
+210705161517733756,
+210705161517733786,pg_restore: executing BLOB 38206
+
+210705161517735231,pg_restore: from TOC entry 2172; 2613 38206 BLOB 38206 pgdbadm
+
+210705161517735324,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517735369,Command was: ALTER LARGE OBJECT 38206 OWNER TO pgdbadm;
+
+210705161517735391,
+210705161517735417,pg_restore: executing BLOB 38222
+
+210705161517736879,pg_restore: from TOC entry 2173; 2613 38222 BLOB 38222 pgdbadm
+
+210705161517736923,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517736943,Command was: ALTER LARGE OBJECT 38222 OWNER TO pgdbadm;
+
+210705161517736962,
+210705161517736984,pg_restore: executing BLOB 38251
+
+210705161517738577,pg_restore: from TOC entry 2174; 2613 38251 BLOB 38251 pgdbadm
+
+210705161517738613,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517738643,Command was: ALTER LARGE OBJECT 38251 OWNER TO pgdbadm;
+
+210705161517739389,
+210705161517739425,pg_restore: executing BLOB 38272
+
+210705161517740045,pg_restore: from TOC entry 2175; 2613 38272 BLOB 38272 pgdbadm
+
+210705161517740081,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517740100,Command was: ALTER LARGE OBJECT 38272 OWNER TO pgdbadm;
+
+210705161517740125,
+210705161517740159,pg_restore: executing BLOB 38301
+
+210705161517742179,pg_restore: from TOC entry 2176; 2613 38301 BLOB 38301 pgdbadm
+
+210705161517742230,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517742276,Command was: ALTER LARGE OBJECT 38301 OWNER TO pgdbadm;
+
+210705161517742313,
+210705161517742358,pg_restore: executing BLOB 38334
+
+210705161517743728,pg_restore: from TOC entry 2177; 2613 38334 BLOB 38334 pgdbadm
+
+210705161517743760,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517743778,Command was: ALTER LARGE OBJECT 38334 OWNER TO pgdbadm;
+
+210705161517743795,
+210705161517743818,pg_restore: executing BLOB 38337
+
+210705161517745553,pg_restore: from TOC entry 2178; 2613 38337 BLOB 38337 pgdbadm
+
+210705161517745590,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517745610,Command was: ALTER LARGE OBJECT 38337 OWNER TO pgdbadm;
+
+210705161517745642,
+210705161517745660,pg_restore: executing BLOB 38359
+
+210705161517747437,pg_restore: from TOC entry 2179; 2613 38359 BLOB 38359 pgdbadm
+
+210705161517747487,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517747522,Command was: ALTER LARGE OBJECT 38359 OWNER TO pgdbadm;
+
+210705161517747547,
+210705161517747593,pg_restore: executing BLOB 38383
+
+210705161517748984,pg_restore: from TOC entry 2180; 2613 38383 BLOB 38383 pgdbadm
+
+210705161517749153,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517749218,Command was: ALTER LARGE OBJECT 38383 OWNER TO pgdbadm;
+
+210705161517749289,
+210705161517749356,pg_restore: executing BLOB 38419
+
+210705161517751410,pg_restore: from TOC entry 2181; 2613 38419 BLOB 38419 pgdbadm
+
+210705161517751534,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517751574,Command was: ALTER LARGE OBJECT 38419 OWNER TO pgdbadm;
+
+210705161517751626,
+210705161517751667,pg_restore: executing BLOB 38422
+
+210705161517753550,pg_restore: from TOC entry 2182; 2613 38422 BLOB 38422 pgdbadm
+
+210705161517753611,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517753634,Command was: ALTER LARGE OBJECT 38422 OWNER TO pgdbadm;
+
+210705161517753654,
+210705161517753680,pg_restore: executing BLOB 38442
+
+210705161517755337,pg_restore: from TOC entry 2183; 2613 38442 BLOB 38442 pgdbadm
+
+210705161517755404,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517755430,Command was: ALTER LARGE OBJECT 38442 OWNER TO pgdbadm;
+
+210705161517755460,
+210705161517755485,pg_restore: executing BLOB 38477
+
+210705161517757541,pg_restore: from TOC entry 2184; 2613 38477 BLOB 38477 pgdbadm
+
+210705161517757607,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517757659,Command was: ALTER LARGE OBJECT 38477 OWNER TO pgdbadm;
+
+210705161517757694,
+210705161517757714,pg_restore: executing BLOB 38480
+
+210705161517759431,pg_restore: from TOC entry 2185; 2613 38480 BLOB 38480 pgdbadm
+
+210705161517759487,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517759514,Command was: ALTER LARGE OBJECT 38480 OWNER TO pgdbadm;
+
+210705161517759542,
+210705161517759557,pg_restore: executing BLOB 38510
+
+210705161517761338,pg_restore: from TOC entry 2186; 2613 38510 BLOB 38510 pgdbadm
+
+210705161517761559,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517761615,Command was: ALTER LARGE OBJECT 38510 OWNER TO pgdbadm;
+
+210705161517761654,
+210705161517763368,pg_restore: executing BLOB 38549
+
+210705161517764258,pg_restore: from TOC entry 2187; 2613 38549 BLOB 38549 pgdbadm
+
+210705161517764324,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517764377,Command was: ALTER LARGE OBJECT 38549 OWNER TO pgdbadm;
+
+210705161517764427,
+210705161517764457,pg_restore: executing BLOB 38625
+
+210705161517766614,pg_restore: from TOC entry 2188; 2613 38625 BLOB 38625 pgdbadm
+
+210705161517766675,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517766703,Command was: ALTER LARGE OBJECT 38625 OWNER TO pgdbadm;
+
+210705161517766720,
+210705161517766747,pg_restore: executing BLOB 38735
+
+210705161517768684,pg_restore: from TOC entry 2189; 2613 38735 BLOB 38735 pgdbadm
+
+210705161517768743,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517768771,Command was: ALTER LARGE OBJECT 38735 OWNER TO pgdbadm;
+
+210705161517768789,
+210705161517768807,pg_restore: executing BLOB 38792
+
+210705161517770942,pg_restore: from TOC entry 2190; 2613 38792 BLOB 38792 pgdbadm
+
+210705161517770992,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517771097,Command was: ALTER LARGE OBJECT 38792 OWNER TO pgdbadm;
+
+210705161517771123,
+210705161517771207,pg_restore: executing BLOB 38878
+
+210705161517772787,pg_restore: from TOC entry 2191; 2613 38878 BLOB 38878 pgdbadm
+
+210705161517772862,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517772914,Command was: ALTER LARGE OBJECT 38878 OWNER TO pgdbadm;
+
+210705161517772972,
+210705161517773137,pg_restore: executing BLOB 38991
+
+210705161517775635,pg_restore: from TOC entry 2192; 2613 38991 BLOB 38991 pgdbadm
+
+210705161517775697,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517775739,Command was: ALTER LARGE OBJECT 38991 OWNER TO pgdbadm;
+
+210705161517775787,
+210705161517775813,pg_restore: executing BLOB 39064
+
+210705161517778363,pg_restore: from TOC entry 2193; 2613 39064 BLOB 39064 pgdbadm
+
+210705161517778450,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517778506,Command was: ALTER LARGE OBJECT 39064 OWNER TO pgdbadm;
+
+210705161517778557,
+210705161517778607,pg_restore: executing BLOB 39137
+
+210705161517780547,pg_restore: from TOC entry 2194; 2613 39137 BLOB 39137 pgdbadm
+
+210705161517780601,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517780635,Command was: ALTER LARGE OBJECT 39137 OWNER TO pgdbadm;
+
+210705161517780656,
+210705161517780672,pg_restore: executing BLOB 39222
+
+210705161517782598,pg_restore: from TOC entry 2195; 2613 39222 BLOB 39222 pgdbadm
+
+210705161517782705,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517782745,Command was: ALTER LARGE OBJECT 39222 OWNER TO pgdbadm;
+
+210705161517782773,
+210705161517782800,pg_restore: executing BLOB 39339
+
+210705161517785250,pg_restore: from TOC entry 2196; 2613 39339 BLOB 39339 pgdbadm
+
+210705161517785311,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517785339,Command was: ALTER LARGE OBJECT 39339 OWNER TO pgdbadm;
+
+210705161517785375,
+210705161517785410,pg_restore: executing BLOB 39342
+
+210705161517787118,pg_restore: from TOC entry 2197; 2613 39342 BLOB 39342 pgdbadm
+
+210705161517787183,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517787220,Command was: ALTER LARGE OBJECT 39342 OWNER TO pgdbadm;
+
+210705161517787248,
+210705161517787295,pg_restore: executing BLOB 39421
+
+210705161517789231,pg_restore: from TOC entry 2198; 2613 39421 BLOB 39421 pgdbadm
+
+210705161517789283,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517789304,Command was: ALTER LARGE OBJECT 39421 OWNER TO pgdbadm;
+
+210705161517789330,
+210705161517789351,pg_restore: executing BLOB 39489
+
+210705161517792375,pg_restore: from TOC entry 2199; 2613 39489 BLOB 39489 pgdbadm
+
+210705161517797331,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517797475,Command was: ALTER LARGE OBJECT 39489 OWNER TO pgdbadm;
+
+210705161517797523,
+210705161517797559,pg_restore: executing BLOB 39510
+
+210705161517798271,pg_restore: from TOC entry 2200; 2613 39510 BLOB 39510 pgdbadm
+
+210705161517798365,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517798401,Command was: ALTER LARGE OBJECT 39510 OWNER TO pgdbadm;
+
+210705161517798454,
+210705161517798545,pg_restore: executing BLOB 39513
+
+210705161517801132,pg_restore: from TOC entry 2201; 2613 39513 BLOB 39513 pgdbadm
+
+210705161517801192,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517801270,Command was: ALTER LARGE OBJECT 39513 OWNER TO pgdbadm;
+
+210705161517801308,
+210705161517801334,pg_restore: executing BLOB 39534
+
+210705161517803608,pg_restore: from TOC entry 2202; 2613 39534 BLOB 39534 pgdbadm
+
+210705161517803656,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517803682,Command was: ALTER LARGE OBJECT 39534 OWNER TO pgdbadm;
+
+210705161517803716,
+210705161517803748,pg_restore: executing BLOB 39630
+
+210705161517805576,pg_restore: from TOC entry 2203; 2613 39630 BLOB 39630 pgdbadm
+
+210705161517805621,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517805641,Command was: ALTER LARGE OBJECT 39630 OWNER TO pgdbadm;
+
+210705161517805676,
+210705161517805718,pg_restore: executing BLOB 39642
+
+210705161517807525,pg_restore: from TOC entry 2204; 2613 39642 BLOB 39642 pgdbadm
+
+210705161517807570,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517807593,Command was: ALTER LARGE OBJECT 39642 OWNER TO pgdbadm;
+
+210705161517807616,
+210705161517807649,pg_restore: executing BLOB 39686
+
+210705161517809319,pg_restore: from TOC entry 2205; 2613 39686 BLOB 39686 pgdbadm
+
+210705161517809365,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517809401,Command was: ALTER LARGE OBJECT 39686 OWNER TO pgdbadm;
+
+210705161517809422,
+210705161517809439,pg_restore: executing BLOB 39892
+
+210705161517810774,pg_restore: from TOC entry 2206; 2613 39892 BLOB 39892 pgdbadm
+
+210705161517810827,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517810865,Command was: ALTER LARGE OBJECT 39892 OWNER TO pgdbadm;
+
+210705161517810901,
+210705161517810944,pg_restore: executing BLOB 39895
+
+210705161517813193,pg_restore: from TOC entry 2207; 2613 39895 BLOB 39895 pgdbadm
+
+210705161517813262,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517813289,Command was: ALTER LARGE OBJECT 39895 OWNER TO pgdbadm;
+
+210705161517813313,
+210705161517813344,pg_restore: executing BLOB 39940
+
+210705161517814906,pg_restore: from TOC entry 2208; 2613 39940 BLOB 39940 pgdbadm
+
+210705161517815011,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517815069,Command was: ALTER LARGE OBJECT 39940 OWNER TO pgdbadm;
+
+210705161517815181,
+210705161517815219,pg_restore: executing BLOB 40068
+
+210705161517817223,pg_restore: from TOC entry 2209; 2613 40068 BLOB 40068 pgdbadm
+
+210705161517817281,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517817316,Command was: ALTER LARGE OBJECT 40068 OWNER TO pgdbadm;
+
+210705161517817343,
+210705161517817379,pg_restore: executing BLOB 40233
+
+210705161517821823,pg_restore: from TOC entry 2210; 2613 40233 BLOB 40233 pgdbadm
+
+210705161517821870,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517821895,Command was: ALTER LARGE OBJECT 40233 OWNER TO pgdbadm;
+
+210705161517821918,
+210705161517821946,pg_restore: executing BLOB 40236
+
+210705161517823481,pg_restore: from TOC entry 2211; 2613 40236 BLOB 40236 pgdbadm
+
+210705161517823536,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517824838,Command was: ALTER LARGE OBJECT 40236 OWNER TO pgdbadm;
+
+210705161517824905,
+210705161517824970,pg_restore: executing BLOB 40249
+
+210705161517825781,pg_restore: from TOC entry 2212; 2613 40249 BLOB 40249 pgdbadm
+
+210705161517825903,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517825979,Command was: ALTER LARGE OBJECT 40249 OWNER TO pgdbadm;
+
+210705161517826018,
+210705161517826165,pg_restore: executing BLOB 40303
+
+210705161517828126,pg_restore: from TOC entry 2213; 2613 40303 BLOB 40303 pgdbadm
+
+210705161517828174,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517828209,Command was: ALTER LARGE OBJECT 40303 OWNER TO pgdbadm;
+
+210705161517828311,
+210705161517828345,pg_restore: executing BLOB 40441
+
+210705161517829791,pg_restore: from TOC entry 2214; 2613 40441 BLOB 40441 pgdbadm
+
+210705161517829848,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517829873,Command was: ALTER LARGE OBJECT 40441 OWNER TO pgdbadm;
+
+210705161517829903,
+210705161517829923,pg_restore: executing BLOB 40444
+
+210705161517831725,pg_restore: from TOC entry 2215; 2613 40444 BLOB 40444 pgdbadm
+
+210705161517831771,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517831795,Command was: ALTER LARGE OBJECT 40444 OWNER TO pgdbadm;
+
+210705161517831819,
+210705161517831851,pg_restore: executing BLOB 40513
+
+210705161517835969,pg_restore: from TOC entry 2216; 2613 40513 BLOB 40513 pgdbadm
+
+210705161517836229,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517836282,Command was: ALTER LARGE OBJECT 40513 OWNER TO pgdbadm;
+
+210705161517836334,
+210705161517836395,pg_restore: executing BLOB 40651
+
+210705161517838397,pg_restore: from TOC entry 2217; 2613 40651 BLOB 40651 pgdbadm
+
+210705161517838440,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517838463,Command was: ALTER LARGE OBJECT 40651 OWNER TO pgdbadm;
+
+210705161517838481,
+210705161517838506,pg_restore: executing BLOB 40654
+
+210705161517840203,pg_restore: from TOC entry 2218; 2613 40654 BLOB 40654 pgdbadm
+
+210705161517840246,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517840272,Command was: ALTER LARGE OBJECT 40654 OWNER TO pgdbadm;
+
+210705161517840297,
+210705161517840317,pg_restore: executing BLOB 40850
+
+210705161517842030,pg_restore: from TOC entry 2219; 2613 40850 BLOB 40850 pgdbadm
+
+210705161517842155,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517842198,Command was: ALTER LARGE OBJECT 40850 OWNER TO pgdbadm;
+
+210705161517842261,
+210705161517842312,pg_restore: executing BLOB 40853
+
+210705161517843941,pg_restore: from TOC entry 2220; 2613 40853 BLOB 40853 pgdbadm
+
+210705161517843990,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517844014,Command was: ALTER LARGE OBJECT 40853 OWNER TO pgdbadm;
+
+210705161517844105,
+210705161517844132,pg_restore: executing BLOB 40902
+
+210705161517846102,pg_restore: from TOC entry 2221; 2613 40902 BLOB 40902 pgdbadm
+
+210705161517846161,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517846190,Command was: ALTER LARGE OBJECT 40902 OWNER TO pgdbadm;
+
+210705161517846214,
+210705161517846249,pg_restore: executing BLOB 41181
+
+210705161517848320,pg_restore: from TOC entry 2222; 2613 41181 BLOB 41181 pgdbadm
+
+210705161517848436,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517848503,Command was: ALTER LARGE OBJECT 41181 OWNER TO pgdbadm;
+
+210705161517848561,
+210705161517848634,pg_restore: executing BLOB 41184
+
+210705161517850957,pg_restore: from TOC entry 2223; 2613 41184 BLOB 41184 pgdbadm
+
+210705161517851130,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517852291,Command was: ALTER LARGE OBJECT 41184 OWNER TO pgdbadm;
+
+210705161517852461,
+210705161517852532,pg_restore: executing BLOB 41197
+
+210705161517853459,pg_restore: from TOC entry 2224; 2613 41197 BLOB 41197 pgdbadm
+
+210705161517853504,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517853531,Command was: ALTER LARGE OBJECT 41197 OWNER TO pgdbadm;
+
+210705161517853567,
+210705161517853595,pg_restore: executing BLOB 41200
+
+210705161517855452,pg_restore: from TOC entry 2225; 2613 41200 BLOB 41200 pgdbadm
+
+210705161517855488,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517855514,Command was: ALTER LARGE OBJECT 41200 OWNER TO pgdbadm;
+
+210705161517855548,
+210705161517855581,pg_restore: executing BLOB 41216
+
+210705161517857462,pg_restore: from TOC entry 2226; 2613 41216 BLOB 41216 pgdbadm
+
+210705161517857513,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517857549,Command was: ALTER LARGE OBJECT 41216 OWNER TO pgdbadm;
+
+210705161517857571,
+210705161517857589,pg_restore: executing BLOB 41219
+
+210705161517859294,pg_restore: from TOC entry 2227; 2613 41219 BLOB 41219 pgdbadm
+
+210705161517859330,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517859356,Command was: ALTER LARGE OBJECT 41219 OWNER TO pgdbadm;
+
+210705161517859387,
+210705161517859411,pg_restore: executing BLOB 41232
+
+210705161517861121,pg_restore: from TOC entry 2228; 2613 41232 BLOB 41232 pgdbadm
+
+210705161517861164,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517861199,Command was: ALTER LARGE OBJECT 41232 OWNER TO pgdbadm;
+
+210705161517861232,
+210705161517861264,pg_restore: executing BLOB 41235
+
+210705161517862844,pg_restore: from TOC entry 2229; 2613 41235 BLOB 41235 pgdbadm
+
+210705161517862888,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517862923,Command was: ALTER LARGE OBJECT 41235 OWNER TO pgdbadm;
+
+210705161517862954,
+210705161517862974,pg_restore: executing BLOB 41238
+
+210705161517864738,pg_restore: from TOC entry 2230; 2613 41238 BLOB 41238 pgdbadm
+
+210705161517864778,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517864801,Command was: ALTER LARGE OBJECT 41238 OWNER TO pgdbadm;
+
+210705161517864819,
+210705161517864840,pg_restore: executing BLOB 41241
+
+210705161517866544,pg_restore: from TOC entry 2231; 2613 41241 BLOB 41241 pgdbadm
+
+210705161517866603,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517866622,Command was: ALTER LARGE OBJECT 41241 OWNER TO pgdbadm;
+
+210705161517866646,
+210705161517866679,pg_restore: executing BLOB 41244
+
+210705161517869275,pg_restore: from TOC entry 2232; 2613 41244 BLOB 41244 pgdbadm
+
+210705161517869387,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517869465,Command was: ALTER LARGE OBJECT 41244 OWNER TO pgdbadm;
+
+210705161517869546,
+210705161517869600,pg_restore: executing BLOB 41247
+
+210705161517871810,pg_restore: from TOC entry 2233; 2613 41247 BLOB 41247 pgdbadm
+
+210705161517871890,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517871919,Command was: ALTER LARGE OBJECT 41247 OWNER TO pgdbadm;
+
+210705161517871946,
+210705161517871970,pg_restore: executing BLOB 41331
+
+210705161517873969,pg_restore: from TOC entry 2234; 2613 41331 BLOB 41331 pgdbadm
+
+210705161517874158,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517874186,Command was: ALTER LARGE OBJECT 41331 OWNER TO pgdbadm;
+
+210705161517874204,
+210705161517874220,pg_restore: executing BLOB 41344
+
+210705161517875756,pg_restore: from TOC entry 2235; 2613 41344 BLOB 41344 pgdbadm
+
+210705161517875800,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517875834,Command was: ALTER LARGE OBJECT 41344 OWNER TO pgdbadm;
+
+210705161517876797,
+210705161517876835,pg_restore: executing BLOB 41370
+
+210705161517877819,pg_restore: from TOC entry 2236; 2613 41370 BLOB 41370 pgdbadm
+
+210705161517877853,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517877878,Command was: ALTER LARGE OBJECT 41370 OWNER TO pgdbadm;
+
+210705161517877911,
+210705161517877941,pg_restore: executing BLOB 41373
+
+210705161517879941,pg_restore: from TOC entry 2237; 2613 41373 BLOB 41373 pgdbadm
+
+210705161517879983,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517880091,Command was: ALTER LARGE OBJECT 41373 OWNER TO pgdbadm;
+
+210705161517880128,
+210705161517880152,pg_restore: executing BLOB 41406
+
+210705161517882607,pg_restore: from TOC entry 2238; 2613 41406 BLOB 41406 pgdbadm
+
+210705161517882695,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517882762,Command was: ALTER LARGE OBJECT 41406 OWNER TO pgdbadm;
+
+210705161517882791,
+210705161517882841,pg_restore: executing BLOB 41422
+
+210705161517884465,pg_restore: from TOC entry 2239; 2613 41422 BLOB 41422 pgdbadm
+
+210705161517884539,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517884582,Command was: ALTER LARGE OBJECT 41422 OWNER TO pgdbadm;
+
+210705161517884601,
+210705161517884740,pg_restore: executing BLOB 41501
+
+210705161517887264,pg_restore: from TOC entry 2240; 2613 41501 BLOB 41501 pgdbadm
+
+210705161517887350,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517887425,Command was: ALTER LARGE OBJECT 41501 OWNER TO pgdbadm;
+
+210705161517887455,
+210705161517887487,pg_restore: executing BLOB 41608
+
+210705161517889306,pg_restore: from TOC entry 2241; 2613 41608 BLOB 41608 pgdbadm
+
+210705161517889365,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517889386,Command was: ALTER LARGE OBJECT 41608 OWNER TO pgdbadm;
+
+210705161517889402,
+210705161517889419,pg_restore: executing BLOB 41630
+
+210705161517892890,pg_restore: from TOC entry 2242; 2613 41630 BLOB 41630 pgdbadm
+
+210705161517893005,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517893102,Command was: ALTER LARGE OBJECT 41630 OWNER TO pgdbadm;
+
+210705161517893131,
+210705161517893182,pg_restore: executing BLOB 41741
+
+210705161517895142,pg_restore: from TOC entry 2243; 2613 41741 BLOB 41741 pgdbadm
+
+210705161517895203,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517895236,Command was: ALTER LARGE OBJECT 41741 OWNER TO pgdbadm;
+
+210705161517895253,
+210705161517895465,pg_restore: executing BLOB 49988
+
+210705161517901625,pg_restore: from TOC entry 2244; 2613 49988 BLOB 49988 pgdbadm
+
+210705161517901690,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517901733,Command was: ALTER LARGE OBJECT 49988 OWNER TO pgdbadm;
+
+210705161517901761,
+210705161517901798,pg_restore: executing BLOB 50060
+
+210705161517905782,pg_restore: from TOC entry 2245; 2613 50060 BLOB 50060 pgdbadm
+
+210705161517905843,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517905875,Command was: ALTER LARGE OBJECT 50060 OWNER TO pgdbadm;
+
+210705161517905906,
+210705161517905941,pg_restore: executing BLOB 50179
+
+210705161517907724,pg_restore: from TOC entry 2246; 2613 50179 BLOB 50179 pgdbadm
+
+210705161517907772,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517907796,Command was: ALTER LARGE OBJECT 50179 OWNER TO pgdbadm;
+
+210705161517907811,
+210705161517907829,pg_restore: executing BLOB 50386
+
+210705161517909721,pg_restore: from TOC entry 2247; 2613 50386 BLOB 50386 pgdbadm
+
+210705161517909755,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517909780,Command was: ALTER LARGE OBJECT 50386 OWNER TO pgdbadm;
+
+210705161517909814,
+210705161517915220,pg_restore: executing BLOB 50657
+
+210705161517916002,pg_restore: from TOC entry 2248; 2613 50657 BLOB 50657 pgdbadm
+
+210705161517916232,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517916279,Command was: ALTER LARGE OBJECT 50657 OWNER TO pgdbadm;
+
+210705161517916317,
+210705161517916355,pg_restore: executing BLOB 50999
+
+210705161517919623,pg_restore: from TOC entry 2249; 2613 50999 BLOB 50999 pgdbadm
+
+210705161517919679,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517919722,Command was: ALTER LARGE OBJECT 50999 OWNER TO pgdbadm;
+
+210705161517919807,
+210705161517919841,pg_restore: executing BLOB 51002
+
+210705161517923250,pg_restore: from TOC entry 2250; 2613 51002 BLOB 51002 pgdbadm
+
+210705161517923303,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517923338,Command was: ALTER LARGE OBJECT 51002 OWNER TO pgdbadm;
+
+210705161517923370,
+210705161517923402,pg_restore: executing BLOB 51014
+
+210705161517924876,pg_restore: from TOC entry 2251; 2613 51014 BLOB 51014 pgdbadm
+
+210705161517924917,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517924941,Command was: ALTER LARGE OBJECT 51014 OWNER TO pgdbadm;
+
+210705161517924957,
+210705161517924973,pg_restore: executing BLOB 51017
+
+210705161517927996,pg_restore: from TOC entry 2252; 2613 51017 BLOB 51017 pgdbadm
+
+210705161517928106,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517928134,Command was: ALTER LARGE OBJECT 51017 OWNER TO pgdbadm;
+
+210705161517928169,
+210705161517928204,pg_restore: executing BLOB 51314
+
+210705161517930065,pg_restore: from TOC entry 2253; 2613 51314 BLOB 51314 pgdbadm
+
+210705161517930147,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517930200,Command was: ALTER LARGE OBJECT 51314 OWNER TO pgdbadm;
+
+210705161517930235,
+210705161517930259,pg_restore: executing BLOB 51338
+
+210705161517931971,pg_restore: from TOC entry 2254; 2613 51338 BLOB 51338 pgdbadm
+
+210705161517932079,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517932136,Command was: ALTER LARGE OBJECT 51338 OWNER TO pgdbadm;
+
+210705161517932170,
+210705161517932204,pg_restore: executing BLOB 51404
+
+210705161517934905,pg_restore: from TOC entry 2255; 2613 51404 BLOB 51404 pgdbadm
+
+210705161517934987,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517935088,Command was: ALTER LARGE OBJECT 51404 OWNER TO pgdbadm;
+
+210705161517935125,
+210705161517935160,pg_restore: executing BLOB 51484
+
+210705161517937225,pg_restore: from TOC entry 2256; 2613 51484 BLOB 51484 pgdbadm
+
+210705161517937303,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517937340,Command was: ALTER LARGE OBJECT 51484 OWNER TO pgdbadm;
+
+210705161517937375,
+210705161517937410,pg_restore: executing BLOB 52501
+
+210705161517939612,pg_restore: from TOC entry 2257; 2613 52501 BLOB 52501 pgdbadm
+
+210705161517939668,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517939701,Command was: ALTER LARGE OBJECT 52501 OWNER TO pgdbadm;
+
+210705161517939724,
+210705161517939756,pg_restore: executing BLOB 52505
+
+210705161517941926,pg_restore: from TOC entry 2258; 2613 52505 BLOB 52505 pgdbadm
+
+210705161517941976,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517941998,Command was: ALTER LARGE OBJECT 52505 OWNER TO pgdbadm;
+
+210705161517942095,
+210705161517942160,pg_restore: executing BLOB 52509
+
+210705161517944448,pg_restore: from TOC entry 2259; 2613 52509 BLOB 52509 pgdbadm
+
+210705161517944488,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517944514,Command was: ALTER LARGE OBJECT 52509 OWNER TO pgdbadm;
+
+210705161517944547,
+210705161517944574,pg_restore: executing BLOB 52703
+
+210705161517948266,pg_restore: from TOC entry 2260; 2613 52703 BLOB 52703 pgdbadm
+
+210705161517949898,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517949978,Command was: ALTER LARGE OBJECT 52703 OWNER TO pgdbadm;
+
+210705161517950052,
+210705161517950122,pg_restore: executing BLOB 52704
+
+210705161517951680,pg_restore: from TOC entry 2261; 2613 52704 BLOB 52704 pgdbadm
+
+210705161517951771,pg_restore: error: could not execute query: ERROR:  role "pgdbadm" does not exist
+
+210705161517952017,Command was: ALTER LARGE OBJECT 52704 OWNER TO pgdbadm;
+
+210705161517952173,
+210705161517952220,pg_restore: processing data for table "public.Courses"
+
+210705161517959557,pg_restore: processing data for table "public.Enroled_courses"
+
+210705161517967629,pg_restore: processing data for table "public.SequelizeMeta"
+
+210705161517973906,pg_restore: processing data for table "public.Users"
+
+210705161517999382,pg_restore: processing data for table "public.Videos"
+
+210705161518005733,pg_restore: processing BLOBS
+
+210705161518007109,pg_restore: restoring large object with OID 26372
+
+210705161518020826,pg_restore: restoring large object with OID 26379
+
+210705161518023165,pg_restore: restoring large object with OID 26382
+
+210705161518025760,pg_restore: restoring large object with OID 37861
+
+210705161518027899,pg_restore: restoring large object with OID 37909
+
+210705161518031660,pg_restore: restoring large object with OID 37952
+
+210705161518035362,pg_restore: restoring large object with OID 37955
+
+210705161518038553,pg_restore: restoring large object with OID 37958
+
+210705161518041635,pg_restore: restoring large object with OID 37961
+
+210705161518044212,pg_restore: restoring large object with OID 37977
+
+210705161518047342,pg_restore: restoring large object with OID 37993
+
+210705161518051398,pg_restore: restoring large object with OID 37996
+
+210705161518054871,pg_restore: restoring large object with OID 38012
+
+210705161518057519,pg_restore: restoring large object with OID 38015
+
+210705161518060090,pg_restore: restoring large object with OID 38031
+
+210705161518062906,pg_restore: restoring large object with OID 38047
+
+210705161518066998,pg_restore: restoring large object with OID 38076
+
+210705161518069928,pg_restore: restoring large object with OID 38092
+
+210705161518073587,pg_restore: restoring large object with OID 38108
+
+210705161518076463,pg_restore: restoring large object with OID 38138
+
+210705161518079183,pg_restore: restoring large object with OID 38141
+
+210705161518082727,pg_restore: restoring large object with OID 38158
+
+210705161518085819,pg_restore: restoring large object with OID 38161
+
+210705161518088633,pg_restore: restoring large object with OID 38190
+
+210705161518091515,pg_restore: restoring large object with OID 38206
+
+210705161518095096,pg_restore: restoring large object with OID 38222
+
+210705161518099961,pg_restore: restoring large object with OID 38251
+
+210705161518104982,pg_restore: restoring large object with OID 38272
+
+210705161518107958,pg_restore: restoring large object with OID 38301
+
+210705161518110942,pg_restore: restoring large object with OID 38334
+
+210705161518114917,pg_restore: restoring large object with OID 38337
+
+210705161518119289,pg_restore: restoring large object with OID 38359
+
+210705161518122259,pg_restore: restoring large object with OID 38383
+
+210705161518125297,pg_restore: restoring large object with OID 38419
+
+210705161518127755,pg_restore: restoring large object with OID 38422
+
+210705161518131094,pg_restore: restoring large object with OID 38442
+
+210705161518135305,pg_restore: restoring large object with OID 38477
+
+210705161518138625,pg_restore: restoring large object with OID 38480
+
+210705161518141342,pg_restore: restoring large object with OID 38510
+
+210705161518143705,pg_restore: restoring large object with OID 38549
+
+210705161518146590,pg_restore: restoring large object with OID 38625
+
+210705161518150480,pg_restore: restoring large object with OID 38735
+
+210705161518153977,pg_restore: restoring large object with OID 38792
+
+210705161518156680,pg_restore: restoring large object with OID 38878
+
+210705161518159296,pg_restore: restoring large object with OID 38991
+
+210705161518161965,pg_restore: restoring large object with OID 39064
+
+210705161518165456,pg_restore: restoring large object with OID 39137
+
+210705161518169112,pg_restore: restoring large object with OID 39222
+
+210705161518171368,pg_restore: restoring large object with OID 39339
+
+210705161518174038,pg_restore: restoring large object with OID 39342
+
+210705161518176371,pg_restore: restoring large object with OID 39421
+
+210705161518178633,pg_restore: restoring large object with OID 39489
+
+210705161518181821,pg_restore: restoring large object with OID 39510
+
+210705161518185048,pg_restore: restoring large object with OID 39513
+
+210705161518187731,pg_restore: restoring large object with OID 39534
+
+210705161518190111,pg_restore: restoring large object with OID 39630
+
+210705161518192488,pg_restore: restoring large object with OID 39642
+
+210705161518194930,pg_restore: restoring large object with OID 39686
+
+210705161518198382,pg_restore: restoring large object with OID 39892
+
+210705161518202022,pg_restore: restoring large object with OID 39895
+
+210705161518204988,pg_restore: restoring large object with OID 39940
+
+210705161518207267,pg_restore: restoring large object with OID 40068
+
+210705161518209934,pg_restore: restoring large object with OID 40233
+
+210705161518212592,pg_restore: restoring large object with OID 40236
+
+210705161518216436,pg_restore: restoring large object with OID 40249
+
+210705161518219711,pg_restore: restoring large object with OID 40303
+
+210705161518222890,pg_restore: restoring large object with OID 40441
+
+210705161518225644,pg_restore: restoring large object with OID 40444
+
+210705161518228498,pg_restore: restoring large object with OID 40513
+
+210705161518230905,pg_restore: restoring large object with OID 40651
+
+210705161518234485,pg_restore: restoring large object with OID 40654
+
+210705161518237536,pg_restore: restoring large object with OID 40850
+
+210705161518239801,pg_restore: restoring large object with OID 40853
+
+210705161518241888,pg_restore: restoring large object with OID 40902
+
+210705161518243943,pg_restore: restoring large object with OID 41181
+
+210705161518246256,pg_restore: restoring large object with OID 41184
+
+210705161518249960,pg_restore: restoring large object with OID 41197
+
+210705161518253420,pg_restore: restoring large object with OID 41200
+
+210705161518256471,pg_restore: restoring large object with OID 41216
+
+210705161518259054,pg_restore: restoring large object with OID 41219
+
+210705161518261559,pg_restore: restoring large object with OID 41232
+
+210705161518265644,pg_restore: restoring large object with OID 41235
+
+210705161518272321,pg_restore: restoring large object with OID 41238
+
+210705161518275939,pg_restore: restoring large object with OID 41241
+
+210705161518278818,pg_restore: restoring large object with OID 41244
+
+210705161518283311,pg_restore: restoring large object with OID 41247
+
+210705161518287293,pg_restore: restoring large object with OID 41331
+
+210705161518290213,pg_restore: restoring large object with OID 41344
+
+210705161518292872,pg_restore: restoring large object with OID 41370
+
+210705161518295771,pg_restore: restoring large object with OID 41373
+
+210705161518299737,pg_restore: restoring large object with OID 41406
+
+210705161518303926,pg_restore: restoring large object with OID 41422
+
+210705161518307211,pg_restore: restoring large object with OID 41501
+
+210705161518309784,pg_restore: restoring large object with OID 41608
+
+210705161518312462,pg_restore: restoring large object with OID 41630
+
+210705161518316307,pg_restore: restoring large object with OID 41741
+
+210705161518320209,pg_restore: restoring large object with OID 49988
+
+210705161518323552,pg_restore: restoring large object with OID 50060
+
+210705161518325936,pg_restore: restoring large object with OID 50179
+
+210705161518329416,pg_restore: restoring large object with OID 50386
+
+210705161518334999,pg_restore: restoring large object with OID 50657
+
+210705161518339821,pg_restore: restoring large object with OID 50999
+
+210705161518343465,pg_restore: restoring large object with OID 51002
+
+210705161518346123,pg_restore: restoring large object with OID 51014
+
+210705161518350166,pg_restore: restoring large object with OID 51017
+
+210705161518354650,pg_restore: restoring large object with OID 51314
+
+210705161518357696,pg_restore: restoring large object with OID 51338
+
+210705161518360424,pg_restore: restoring large object with OID 51404
+
+210705161518364148,pg_restore: restoring large object with OID 51484
+
+210705161518368740,pg_restore: restoring large object with OID 52501
+
+210705161518372054,pg_restore: restoring large object with OID 52505
+
+210705161518373931,pg_restore: restoring large object with OID 52509
+
+210705161518376497,pg_restore: restoring large object with OID 52703
+
+210705161518378486,pg_restore: restoring large object with OID 52704
+
+210705161518382466,pg_restore: restored 114 large objects
+
+210705161518382574,pg_restore: creating CONSTRAINT "public.Courses Courses_pkey"
+
+210705161518405345,pg_restore: creating CONSTRAINT "public.Enroled_courses Enroled_courses_pkey"
+
+210705161518419751,pg_restore: creating CONSTRAINT "public.SequelizeMeta SequelizeMeta_pkey"
+
+210705161518435058,pg_restore: creating CONSTRAINT "public.Users Users_pkey"
+
+210705161518449941,pg_restore: creating CONSTRAINT "public.Videos Videos_pkey"
+
+210705161518466069,pg_restore: creating FK CONSTRAINT "public.Courses Courses_userId_fkey"
+
+210705161518482140,pg_restore: creating FK CONSTRAINT "public.Enroled_courses Enroled_courses_courseId_fkey"
+
+210705161518489921,pg_restore: creating FK CONSTRAINT "public.Enroled_courses Enroled_courses_userId_fkey"
+
+210705161518494372,pg_restore: creating FK CONSTRAINT "public.Videos Videos_courseId_fkey"
+
+210705161518500705,pg_restore: creating FK CONSTRAINT "public.Videos Videos_userId_fkey"
+
+210705161518505366,pg_restore: creating ACL "SCHEMA public"
+
+210705161518505727,pg_restore: from TOC entry 2269; 0 0 ACL SCHEMA public postgres
+
+210705161518505884,pg_restore: error: could not execute query: ERROR:  role "postgres" does not exist
+
+210705161518505921,Command was: REVOKE ALL ON SCHEMA public FROM PUBLIC;
+
+210705161518505948,REVOKE ALL ON SCHEMA public FROM postgres;
+
+210705161518505970,GRANT ALL ON SCHEMA public TO postgres;
+
+210705161518505988,GRANT ALL ON SCHEMA public TO PUBLIC;
+
+210705161518506007,
+210705161518506025,
+210705161518506373,pg_restore: warning: errors ignored on restore: 127
+

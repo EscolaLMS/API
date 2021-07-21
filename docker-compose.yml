@@ -62,6 +62,19 @@ services:
     ports:
       - 8078:8080
 
+  pgadmin:
+    networks:
+      - escola_lms
+    image: dpage/pgadmin4
+    volumes:
+      - ./docker/pgadmin:/var/lib/pgadmin
+
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+
   mailhog:
     networks:
       - escola_lms
