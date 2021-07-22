@@ -1747,7 +1747,6 @@
                 ],
                 "summary": "Get a listing of the Courses.",
                 "description": "Get all Courses",
-                "operationId": "9663f6d2e6826935f1abd0fa2734f590",
                 "parameters": [
                     {
                         "name": "order_by",
@@ -1840,6 +1839,113 @@
                         }
                     }
                 }
+            }
+        },
+        "/api/admin/courses": {
+            "get": {
+                "tags": [
+                    "Course"
+                ],
+                "summary": "Get a listing of the Courses.",
+                "description": "Get all Courses",
+                "operationId": "949afdf973bdc32fb4e3d09c683f4736",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "created_at",
+                                "title",
+                                "base_price",
+                                "duration"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "description": "Course title %LIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "category_id",
+                        "in": "query",
+                        "description": "Category ID. When applied all courses with given cat_id and children categories are searched",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "author_id",
+                        "in": "query",
+                        "description": "Author ID",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "tag",
+                        "in": "query",
+                        "description": "Tag name exactly",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -1847,7 +1953,7 @@
                 ],
                 "summary": "Store a newly created Course in storage",
                 "description": "Store Course",
-                "operationId": "577080d0c808480068a8028d70a69d7c",
+                "operationId": "6aafc0bc51e2e35cc7ce64275bc614f0",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1878,14 +1984,13 @@
                 ]
             }
         },
-        "/api/courses/{id}": {
+        "/api/admin/courses/{id}": {
             "get": {
                 "tags": [
                     "Course"
                 ],
                 "summary": "Display the specified Course",
                 "description": "Get Course",
-                "operationId": "ac094110c32a7652583ef86ee8037d60",
                 "parameters": [
                     {
                         "name": "id",
@@ -1958,7 +2063,7 @@
                 ],
                 "summary": "Update the specified Course in storage",
                 "description": "Update Course",
-                "operationId": "652304ab1e9c1e396b861a5ae25e763d",
+                "operationId": "7fd83c667efca50738408cd8b6eb07d5",
                 "parameters": [
                     {
                         "name": "id",
@@ -2000,7 +2105,69 @@
                 ],
                 "summary": "Remove the specified Course from storage",
                 "description": "Delete Course",
-                "operationId": "fcb98aa20358a4c5b94653c9ca55bc12",
+                "operationId": "af1251472dff3820fcf5635dd4f31aed",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Course",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/courses/{id}": {
+            "get": {
+                "tags": [
+                    "Course"
+                ],
+                "summary": "Display the specified Course",
+                "description": "Get Course",
+                "operationId": "ac094110c32a7652583ef86ee8037d60",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Course",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/admin/courses/{id}/program": {
+            "get": {
+                "tags": [
+                    "Course"
+                ],
+                "summary": "Display the specified Course program/curriculum/syllabus",
+                "description": "Get Course",
                 "parameters": [
                     {
                         "name": "id",
@@ -2032,7 +2199,7 @@
                 "tags": [
                     "Course"
                 ],
-                "summary": "Display the specified Course program/curriculum/syllabus",
+                "summary": "Display the specified Course program/curriculum/syllabus. No token required when course is free",
                 "description": "Get Course",
                 "operationId": "7f047bd2f00baeb8ae6f5b7a48a2c817",
                 "parameters": [
@@ -2061,14 +2228,14 @@
                 ]
             }
         },
-        "/api/courses/attach/{id}/categories": {
+        "/api/admin/courses/attach/{id}/categories": {
             "post": {
                 "tags": [
                     "Course"
                 ],
                 "summary": "Attach categories for couse",
                 "description": "Attach categories for couse",
-                "operationId": "6f783d27c5ce46d4d60962d9ed7fe26c",
+                "operationId": "a9a9c4971c249ad38c96c856a89b7aa0",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2108,14 +2275,14 @@
                 ]
             }
         },
-        "/api/courses/attach/{id}/tags": {
+        "/api/admin/courses/attach/{id}/tags": {
             "post": {
                 "tags": [
                     "Course"
                 ],
                 "summary": "Attach tags for couse",
                 "description": "Attach tags for couse",
-                "operationId": "e741f763513db9d3e5e772c3d231542a",
+                "operationId": "dfcdee7daebe6be820b47eb84bb8c92c",
                 "parameters": [
                     {
                         "name": "id",
@@ -2174,14 +2341,14 @@
                 ]
             }
         },
-        "/api/courses/sort": {
+        "/api/admin/courses/sort": {
             "post": {
                 "tags": [
                     "Course"
                 ],
                 "summary": "Sorts Lessons or Topics",
                 "description": "Sorts Lessons or Topics by sending course_id, class (Topic or Lesson) and array of tuple [class_id, order]. Example\n     * `{\"class\":\"Lesson\",\"orders\":[[3,0],[2,1],[4,2],[5,3],[6,4],[7,5],[1,6],[71,7]], \"course_id\":1}`\n     * ",
-                "operationId": "19a8caf9cf35aae0cb8f3e05070a9b23",
+                "operationId": "15004b07fb07cb8c2c0e7181aa997a23",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2439,14 +2606,14 @@
                 ]
             }
         },
-        "/api/lessons": {
+        "/api/admin/lessons": {
             "get": {
                 "tags": [
                     "Course"
                 ],
                 "summary": "Get a listing of the Lessons.",
                 "description": "Get all Lessons",
-                "operationId": "d4fabef92b9b5f29adc9d7c96a022cbb",
+                "operationId": "0657b34a014defd02100a177052c40d3",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -2467,7 +2634,7 @@
                 ],
                 "summary": "Store a newly created Lesson in storage",
                 "description": "Store Lesson",
-                "operationId": "8a23ae25ad205a167812be528108cdfa",
+                "operationId": "5e9d45087a9fe9df6ff24309ffae12a9",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2493,14 +2660,14 @@
                 ]
             }
         },
-        "/api/lessons/{id}": {
+        "/api/admin/lessons/{id}": {
             "get": {
                 "tags": [
                     "Course"
                 ],
                 "summary": "Display the specified Lesson",
                 "description": "Get Lesson",
-                "operationId": "1abcb5066eb2e0512abcf56fc4c3bacd",
+                "operationId": "d0df60691327740dcb50e9b2817bcde7",
                 "parameters": [
                     {
                         "name": "id",
@@ -2532,7 +2699,7 @@
                 ],
                 "summary": "Update the specified Lesson in storage",
                 "description": "Update Lesson",
-                "operationId": "c82913bb3b75a0c5e664272183f0f4de",
+                "operationId": "00b48a07b57497bdf63449d6c7869a23",
                 "parameters": [
                     {
                         "name": "id",
@@ -2574,7 +2741,7 @@
                 ],
                 "summary": "Remove the specified Lesson from storage",
                 "description": "Delete Lesson",
-                "operationId": "bd298ca0de086b6386e79be9e337cfe4",
+                "operationId": "58e17e8c6af3f9e151b8676e113b342e",
                 "parameters": [
                     {
                         "name": "id",
@@ -2601,14 +2768,14 @@
                 ]
             }
         },
-        "/api/topics": {
+        "/api/admin/topics": {
             "get": {
                 "tags": [
                     "Course"
                 ],
                 "summary": "Get a listing of the Topics.",
                 "description": "Get all Topics",
-                "operationId": "cfe6dc69f1155b27f02c9aa91a51dd77",
+                "operationId": "83086b319d0f9c2e6e89120f75686284",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -2629,7 +2796,7 @@
                 ],
                 "summary": "Store a newly created Topic in storage",
                 "description": "Store Topic. Depending on `topicable_type` values are different. Endpoint does create both `Topic` and 1:1 related `Content` based on creating class ",
-                "operationId": "325c7579901747349cd6927391829fbe",
+                "operationId": "3ae2ccc4a5350cb42acfff6bacbf5985",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2655,14 +2822,14 @@
                 ]
             }
         },
-        "/api/topics/{id}": {
+        "/api/admin/topics/{id}": {
             "get": {
                 "tags": [
                     "Course"
                 ],
                 "summary": "Display the specified Topic",
                 "description": "Get Topic",
-                "operationId": "8cb3335b5f72e51015ad05066135da80",
+                "operationId": "a253ef86dec60b9e4d483d57b2cc14f5",
                 "parameters": [
                     {
                         "name": "id",
@@ -2694,7 +2861,7 @@
                 ],
                 "summary": "Update the specified Topic in storage",
                 "description": "Update Topic",
-                "operationId": "7a79b7967600602ecc98fb2a296d988b",
+                "operationId": "def3b8eed84f7748e6ce671dc6c0a40d",
                 "parameters": [
                     {
                         "name": "id",
@@ -2736,7 +2903,7 @@
                 ],
                 "summary": "Remove the specified Topic from storage",
                 "description": "Delete Topic",
-                "operationId": "39c9f38232c83af3680a910468ce0e9e",
+                "operationId": "c765803250f5678e2cbec27e8133700d",
                 "parameters": [
                     {
                         "name": "id",
@@ -2763,14 +2930,14 @@
                 ]
             }
         },
-        "/api/topics/types": {
+        "/api/admin/topics/types": {
             "get": {
                 "tags": [
                     "Course"
                 ],
                 "summary": "Get a listing of the Availabe Topic Content Types Classes.",
                 "description": "Get all Topic Contents",
-                "operationId": "91e200fa9afd3b218dea36968ca9d5fd",
+                "operationId": "d509de84c8614d889ef7c41751c686f1",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -3558,6 +3725,227 @@
                 }
             }
         },
+        "/api/admin/pages": {
+            "get": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Lists available pages",
+                "responses": {
+                    "200": {
+                        "description": "list of available pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "map of pages identified by a slug value",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "$ref": "#/components/schemas/Page"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Create a new page identified by id",
+                "operationId": "4e70710033f0ceb8ac1b8c6aaf73732a",
+                "requestBody": {
+                    "description": "Page attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Page"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "page created successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "409": {
+                        "description": "there already is a page identified by chosen slug identifier"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/pages/{id}": {
+            "get": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Read a page identified by a given id identifier",
+                "operationId": "a3153fb9f6ebb1344421443708259588",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable page identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Page"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Delete a page identified by a id",
+                "operationId": "9a15c1b3253caad40df8c99562bda1ce",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable page identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "page deleted successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "400": {
+                        "description": "cannot find a page with provided slug identifier"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Update an existing page identified by id",
+                "operationId": "830084b4fc07323e203589a6845b119c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable page identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Page attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Page"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "page updated successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "400": {
+                        "description": "cannot find a page with provided slug identifier"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/pages": {
             "get": {
                 "tags": [
@@ -3570,7 +3958,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "description": "map of pages identified by a slug vaue",
+                                    "description": "map of pages identified by a slug value",
                                     "type": "object",
                                     "additionalProperties": {
                                         "$ref": "#/components/schemas/Page"
@@ -3630,154 +4018,6 @@
                     },
                     "403": {
                         "description": "user doesn't have required access rights"
-                    },
-                    "500": {
-                        "description": "server-side error"
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "Pages"
-                ],
-                "summary": "Create a new page identified by slug",
-                "operationId": "e68146b5a76f4ac8903d245e69129a7c",
-                "parameters": [
-                    {
-                        "name": "slug",
-                        "in": "path",
-                        "description": "Unique human-readable page identifier",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "description": "Page attributes",
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Page"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "page created successfully"
-                    },
-                    "401": {
-                        "description": "endpoint requires authentication"
-                    },
-                    "403": {
-                        "description": "user doesn't have required access rights"
-                    },
-                    "409": {
-                        "description": "there already is a page identified by chosen slug identifier"
-                    },
-                    "422": {
-                        "description": "one of the parameters has invalid format"
-                    },
-                    "500": {
-                        "description": "server-side error"
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "Pages"
-                ],
-                "summary": "Delete a page identified by a slug",
-                "operationId": "eb928b8c6ed08602f8110907e760ff5c",
-                "parameters": [
-                    {
-                        "name": "slug",
-                        "in": "path",
-                        "description": "Unique human-readable page identifier",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "page deleted successfully"
-                    },
-                    "401": {
-                        "description": "endpoint requires authentication"
-                    },
-                    "403": {
-                        "description": "user doesn't have required access rights"
-                    },
-                    "400": {
-                        "description": "cannot find a page with provided slug identifier"
-                    },
-                    "500": {
-                        "description": "server-side error"
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            },
-            "patch": {
-                "tags": [
-                    "Pages"
-                ],
-                "summary": "Update an existing page identified by slug",
-                "operationId": "aea9b1c9456894afc6d0471e68996429",
-                "parameters": [
-                    {
-                        "name": "slug",
-                        "in": "path",
-                        "description": "Unique human-readable page identifier",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "description": "Page attributes",
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Page"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "page updated successfully"
-                    },
-                    "401": {
-                        "description": "endpoint requires authentication"
-                    },
-                    "403": {
-                        "description": "user doesn't have required access rights"
-                    },
-                    "400": {
-                        "description": "cannot find a page with provided slug identifier"
-                    },
-                    "422": {
-                        "description": "one of the parameters has invalid format"
                     },
                     "500": {
                         "description": "server-side error"
@@ -4293,6 +4533,10 @@
                     },
                     "author_id": {
                         "description": "author_id",
+                        "type": "integer"
+                    },
+                    "scorm_id": {
+                        "description": "scorm_id",
                         "type": "integer"
                     },
                     "image": {
@@ -4990,6 +5234,10 @@
                     "content": {
                         "description": "page content",
                         "type": "string"
+                    },
+                    "active": {
+                        "description": "page is active",
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
