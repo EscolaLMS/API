@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\DatabaseSeeder;
 use EscolaLms\HeadlessH5P\Database\Seeders\ContentLibrarySeeder;
 use Database\Seeders\PostCoursesSeeder;
+use Database\Seeders\ScormSeeder;
 
 class FullDatabaseSeeder extends Seeder
 {
@@ -19,5 +20,6 @@ class FullDatabaseSeeder extends Seeder
         $this->call(DatabaseSeeder::class);
         $this->call(ContentLibrarySeeder::class);
         $this->call(PostCoursesSeeder::class);
+        $this->call(ScormSeeder::class);
     }
 }

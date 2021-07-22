@@ -25,6 +25,7 @@
     "behat/mink-browserkit-driver": "^1.3",
     "bensampo/laravel-enum": "3.x",
     "darkaonline/l5-swagger": "^8.0.0",
+    "devianl2/laravel-scorm": "^2.0",
     "dmore/behat-chrome-extension": "^1.3",
     "dmore/chrome-mink-driver": "^2.7",
     "doctrine/dbal": "^2",

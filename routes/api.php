@@ -5,6 +5,7 @@ use App\Http\Controllers\API\ShareApiController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ScormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,7 @@ Route::get('/debug-sentry', function () {
 
 
 Route::get('/settings', SettingsController::class);
+
+Route::post('/scorm/upload', [ScormController::class, "upload"]);
+Route::post('/scorm/parse', [ScormController::class, "parse"]);
+Route::get('/scorm/play/{uuid}', [ScormController::class, "show"]);

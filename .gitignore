@@ -24,6 +24,7 @@ storage/h5p/editor/images/**
 
 storage/h5p/cachedassets/*
 storage/h5p/editor/**
+storage/scorm/**
 
 escolasoft/**/vendor
 .DS_Store
@@ -35,6 +36,8 @@ bootstrap/cache/**/*
 /public/h5p
 /public/h5p-editor
 /public/h5p-core
+/public/scorm/**
+
 
 storage/api-docs/api-docs.json
 composer.lock
