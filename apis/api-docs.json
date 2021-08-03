@@ -2278,10 +2278,76 @@
                 ]
             }
         },
+        "/api/tutors": {
+            "get": {
+                "tags": [
+                    "Course"
+                ],
+                "description": "Get Tutors",
+                "operationId": "c9b57a345ae9fdca6dc5dea4062caa87",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/tutors/{id}": {
+            "get": {
+                "tags": [
+                    "Course"
+                ],
+                "description": "Get tutor course/author ID ",
+                "operationId": "1c7d56df29168cae265f1ce1c3f6438a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/courses/progress": {
             "get": {
                 "tags": [
-                    "progress"
+                    "Course"
                 ],
                 "description": "Get Progresses",
                 "operationId": "f38c13e50f028895b45b14c94d288b74",
@@ -2309,7 +2375,7 @@
         "/api/courses/progress/{course_id}": {
             "get": {
                 "tags": [
-                    "progress"
+                    "Course"
                 ],
                 "description": "Show user course progress",
                 "operationId": "476ec8979cad6055de6abc3e2297c053",
@@ -2345,7 +2411,7 @@
             },
             "patch": {
                 "tags": [
-                    "progress"
+                    "Course"
                 ],
                 "description": "Show user course progress",
                 "operationId": "cdec63c492b1354b876a927a77e90cf3",
@@ -2402,7 +2468,7 @@
         "/api/courses/progress/{topic_id}/ping": {
             "put": {
                 "tags": [
-                    "progress"
+                    "Course"
                 ],
                 "description": "Update time in course by ping.",
                 "operationId": "a55ffc9d253d527b5f63a8618f8e6061",
@@ -2440,7 +2506,7 @@
         "/api/courses/progress/{topic_id}/h5p": {
             "post": {
                 "tags": [
-                    "progress"
+                    "Course"
                 ],
                 "description": "Update h5p progress in course quiz.",
                 "operationId": "361936640d7dc3b7cec611ee5f42d49a",
@@ -2840,7 +2906,7 @@
                 ]
             }
         },
-        "/api/file/list": {
+        "/api/admin/file/list": {
             "get": {
                 "tags": [
                     "Files"
@@ -2926,13 +2992,13 @@
                 ]
             }
         },
-        "/api/file/upload": {
+        "/api/admin/file/upload": {
             "post": {
                 "tags": [
                     "Files"
                 ],
                 "summary": "Upload files using multipart form-data",
-                "operationId": "e0dc9ce31c79e8a3587d2dcc55393cfb",
+                "operationId": "8330f052263ea8b57e1e056c6da07ca5",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2984,13 +3050,13 @@
                 ]
             }
         },
-        "/api/file/move": {
+        "/api/admin/file/move": {
             "post": {
                 "tags": [
                     "Files"
                 ],
                 "summary": "Move the file from one path to another",
-                "operationId": "20b2d2c3a594aa873f78ac8c10f66b05",
+                "operationId": "4c85321835ff635cd0e1637f274c0c31",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -3040,13 +3106,13 @@
                 ]
             }
         },
-        "/api/file/delete": {
+        "/api/admin/file/delete": {
             "delete": {
                 "tags": [
                     "Files"
                 ],
                 "summary": "Delete given file",
-                "operationId": "b8e73d6b586c4b5a0d8416404e92710c",
+                "operationId": "4e5e7d4cd112ef1a8019ea9de3dc0c3b",
                 "parameters": [
                     {
                         "name": "url",
@@ -4169,57 +4235,6 @@
                         }
                     }
                 }
-            },
-            "delete": {
-                "tags": [
-                    "Tags"
-                ],
-                "summary": "Destroy Tags",
-                "description": "Destroy Tags",
-                "operationId": "677f2e1b048f2aaf6ac859c633b33af7",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "tags": {
-                                        "type": "array",
-                                        "items": {
-                                            "properties": {
-                                                "": {
-                                                    "type": "integer",
-                                                    "example": "1"
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
             }
         },
         "/api/tags/unique": {
@@ -4245,13 +4260,13 @@
                 }
             }
         },
-        "/api/tags/create": {
+        "/api/admin/tags/create": {
             "post": {
                 "tags": [
                     "Tags"
                 ],
                 "description": "Create multiple Tags",
-                "operationId": "8dd1d58e5e85340c2825557114e7d90c",
+                "operationId": "f082a7f006adcb8c7982a77879ee9dd1",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -4308,13 +4323,66 @@
                 }
             }
         },
-        "/api/tags/{tag}": {
+        "/api/admin/tags": {
+            "delete": {
+                "tags": [
+                    "Tags"
+                ],
+                "summary": "Destroy Tags",
+                "description": "Destroy Tags",
+                "operationId": "b6eeda4a51a064e937339664464e4868",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "tags": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "": {
+                                                    "type": "integer",
+                                                    "example": "1"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/tags/{tag}": {
             "get": {
                 "tags": [
                     "Tags"
                 ],
                 "description": "Display the specified Tag",
-                "operationId": "43dac8f9aef855ced9abe167f8ac077d",
+                "operationId": "09c1c7584c8f9fa722d64a7a7d6f58a2",
                 "parameters": [
                     {
                         "name": "tag",
