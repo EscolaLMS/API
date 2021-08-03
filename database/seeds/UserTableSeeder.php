@@ -52,5 +52,20 @@ class UserTableSeeder extends Seeder
 
         $tutor->guard_name = 'api';
         $tutor->assignRole('tutor');
+
+
+        $tutors = User::factory()->count(10)->create();
+
+        foreach ($tutors as $tutor) {
+            $tutor->guard_name = 'api';
+            $tutor->assignRole('tutor');
+        }
+
+        $students = User::factory()->count(10)->create();
+
+        foreach ($students as $student) {
+            $student->guard_name = 'api';
+            $student->assignRole('student');
+        }
     }
 }

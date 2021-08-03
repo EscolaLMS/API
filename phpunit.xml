@@ -23,6 +23,7 @@
     <testsuite name="auth">
       <directory suffix="Test.php">./vendor/escolalms/auth/tests</directory>
     </testsuite>
+      <!--
     <testsuite name="categories">
       <directory suffix="Test.php">./vendor/escolalms/cart/tests</directory>
     </testsuite>
@@ -35,6 +36,7 @@
     <testsuite name="courses">
       <directory suffix="Test.php">./vendor/escolalms/courses/tests</directory>
     </testsuite>
+
     <testsuite name="files">
       <directory suffix="Test.php">./vendor/escolalms/files/tests</directory>
     </testsuite>
@@ -47,6 +49,7 @@
     <testsuite name="payments">
       <directory suffix="Test.php">./vendor/escolalms/payments/tests</directory>
     </testsuite>
+    -->
     <testsuite name="tags">
       <directory suffix="Test.php">./vendor/escolalms/tags/tests</directory>
     </testsuite>
@@ -54,7 +57,7 @@
   <php>
     <env name="APP_KEY" value="AckfSECXIvnK5r28GVIWUAxmbBSjTsmF"/>
     <env name="DB_CONNECTION" value="pgsql"/>
-    <env name="DB_HOST" value="postgres"/>
+    <env name="DB_HOST" value="127.0.0.1"/>
     <env name="DB_PORT" value="5432"/>
     <env name="DB_DATABASE" value="default"/>
     <env name="DB_USERNAME" value="default"/>
