@@ -46,6 +46,7 @@ return [
                     base_path('vendor/escolalms/pages/src'),
                     base_path('vendor/escolalms/payments/src'),
                     base_path('vendor/escolalms/tags/src'),
+                    base_path('vendor/escolalms/scorm/src'),
                 ],
             ],
         ],

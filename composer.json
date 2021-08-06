@@ -40,6 +40,7 @@
         "escolalms/images": "^0.0.1",
         "escolalms/pages": "^0",
         "escolalms/payments": "^0",
+        "escolalms/scorm": "^0",
         "escolalms/tags": "^0",
         "fideloper/proxy": "^4.0",
         "fruitcake/laravel-cors": "^2.0",
@@ -123,8 +124,6 @@
             "./vendor/bin/behat"
         ]
     },
-    "repositories": [{
-        "type": "vcs",
-        "url": "https://github.com/MWL91/Behat-Laravel-Extension"
-    }]
+    "repositories": {       
+    }
 }

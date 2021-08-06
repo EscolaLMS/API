@@ -14,6 +14,7 @@
       <directory suffix=".php">./vendor/escolalms/headless-h5p/</directory>
       <directory suffix=".php">./vendor/escolalms/payments/</directory>
       <directory suffix=".php">./vendor/escolalms/tags/</directory>
+      <directory suffix=".php">./vendor/escolalms/scorm/</directory>
     </include>
   </coverage>
   <testsuites>
@@ -49,6 +50,9 @@
     </testsuite>
     <testsuite name="tags">
       <directory suffix="Test.php">./vendor/escolalms/tags/tests</directory>
+    </testsuite>
+    <testsuite name="scorm">
+      <directory suffix="Test.php">./vendor/escolalms/scorm/tests</directory>
     </testsuite>
   </testsuites>
   <php>

@@ -15,6 +15,7 @@ use EscolaLms\Files\Database\Seeders\PermissionTableSeeder as FilePermissionTabl
 
 use EscolaLms\Pages\Database\Seeders\DatabaseSeeder as PagesDatabaseSeeder;
 use EscolaLms\Pages\Database\Seeders\PermissionTableSeeder as PagesPermissionTableSeeder;
+use DEscolaLms\Scorm\Database\Seeders\PermissionTableSeeder as ScormPermissionTableSeeder;
 
 use Illuminate\Database\Seeder;
 
@@ -34,6 +35,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PaymentsPermissionsSeeder::class);
         $this->call(CategoriesPermissionSeeder::class);
         $this->call(PagesPermissionTableSeeder::class);
+        $this->call(ScormPermissionTableSeeder::class);
 
         // create users
         $this->call(UserTableSeeder::class);
