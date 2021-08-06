@@ -15,7 +15,7 @@ use EscolaLms\Files\Database\Seeders\PermissionTableSeeder as FilePermissionTabl
 
 use EscolaLms\Pages\Database\Seeders\DatabaseSeeder as PagesDatabaseSeeder;
 use EscolaLms\Pages\Database\Seeders\PermissionTableSeeder as PagesPermissionTableSeeder;
-use DEscolaLms\Scorm\Database\Seeders\PermissionTableSeeder as ScormPermissionTableSeeder;
+use EscolaLms\Scorm\Database\Seeders\PermissionTableSeeder as ScormPermissionTableSeeder;
 
 use Illuminate\Database\Seeder;
 
