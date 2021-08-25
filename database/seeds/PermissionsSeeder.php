@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use EscolaLms\Core\Seeders\RoleTableSeeder;
 use EscolaLms\Auth\Database\Seeders\AuthPermissionSeeder;
-use EscolaLms\Auth\Database\Seeders\CartPermissionSeeder;
+use EscolaLms\Cart\Database\Seeders\CartPermissionSeeder;
 use EscolaLms\Categories\Database\Seeders\CategoriesPermissionSeeder;
 use EscolaLms\Courses\Database\Seeders\CoursesPermissionSeeder;
 use EscolaLms\Payments\Database\Seeders\PaymentsPermissionsSeeder;
