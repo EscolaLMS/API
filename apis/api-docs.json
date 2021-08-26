@@ -8,7 +8,7 @@
         "/api/admin/users/{id}/interests": {
             "get": {
                 "tags": [
-                    "User Interests"
+                    "Admin User Interests"
                 ],
                 "summary": "Get user interests",
                 "description": "",
@@ -42,7 +42,7 @@
             },
             "put": {
                 "tags": [
-                    "User Interests"
+                    "Admin User Interests"
                 ],
                 "summary": "Set user interests",
                 "description": "",
@@ -72,7 +72,7 @@
             },
             "post": {
                 "tags": [
-                    "User Interests"
+                    "Admin User Interests"
                 ],
                 "summary": "Add single user interest",
                 "description": "",
@@ -109,7 +109,7 @@
         "/api/admin/users/{id}/interests/{interest_id}": {
             "delete": {
                 "tags": [
-                    "User Interests"
+                    "Admin User Interests"
                 ],
                 "summary": "Add single user interest",
                 "description": "",
@@ -154,7 +154,7 @@
         "/api/admin/users/{id}/settings": {
             "get": {
                 "tags": [
-                    "User Settings"
+                    "Admin User Settings"
                 ],
                 "summary": "Get user settings",
                 "description": "",
@@ -190,7 +190,7 @@
         "/api/admin/profile/settings": {
             "put": {
                 "tags": [
-                    "User Settings"
+                    "Admin User Settings"
                 ],
                 "summary": "Set user setting (removes settings not sent)",
                 "operationId": "c708b42f7a3384f7dac4948cd32067ae",
@@ -211,7 +211,7 @@
             },
             "patch": {
                 "tags": [
-                    "User Settings"
+                    "Admin User Settings"
                 ],
                 "summary": "Update user setting(s) without changing other settings",
                 "operationId": "05262dc638d68856b1576634c71637ff",
@@ -234,7 +234,7 @@
         "/api/admin/users": {
             "get": {
                 "tags": [
-                    "Users"
+                    "Admin Users"
                 ],
                 "summary": "Get users",
                 "description": "",
@@ -242,6 +242,14 @@
                 "parameters": [
                     {
                         "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "per_page",
                         "in": "query",
                         "required": false,
                         "schema": {
@@ -326,7 +334,7 @@
             },
             "post": {
                 "tags": [
-                    "Users"
+                    "Admin Users"
                 ],
                 "summary": "Create user",
                 "description": "",
@@ -342,7 +350,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "successful operation,  returns created User data",
+                        "description": "successful operation, returns created User data",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -362,7 +370,7 @@
         "/api/admin/users/{id}": {
             "get": {
                 "tags": [
-                    "Users"
+                    "Admin Users"
                 ],
                 "summary": "Get user",
                 "description": "",
@@ -398,7 +406,7 @@
             },
             "delete": {
                 "tags": [
-                    "Users"
+                    "Admin Users"
                 ],
                 "summary": "Delete user",
                 "description": "",
@@ -435,7 +443,7 @@
         "/api/admin/user/{id}": {
             "put": {
                 "tags": [
-                    "Users"
+                    "Admin Users"
                 ],
                 "summary": "Update/Replace user data (will overwrite unset fields with nulls)",
                 "description": "",
@@ -486,7 +494,7 @@
             },
             "patch": {
                 "tags": [
-                    "Users"
+                    "Admin Users"
                 ],
                 "summary": "Partial Update User (will only change sent fields)",
                 "description": "",
@@ -539,7 +547,7 @@
         "/api/admin/users/{id}/avatar": {
             "post": {
                 "tags": [
-                    "Users"
+                    "Admin Users"
                 ],
                 "description": "Upload avatar",
                 "operationId": "2de6cd14e4c60b991ab75296bff312af",
@@ -586,7 +594,7 @@
             },
             "delete": {
                 "tags": [
-                    "Users"
+                    "Admin Users"
                 ],
                 "description": "Delete avatar",
                 "operationId": "fc79782cd69e58bcf60ff83ca025bbc3",
@@ -1319,6 +1327,108 @@
                 }
             }
         },
+        "/api/admin/orders": {
+            "get": {
+                "tags": [
+                    "Admin Orders"
+                ],
+                "description": "Search orders",
+                "operationId": "3262e26845c9f63908ab9e3a327ae7a3",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "created_at",
+                                "updated_at",
+                                "user_id"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "User (buyer) ID",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "course_id",
+                        "in": "query",
+                        "description": "Course ID",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "author_id",
+                        "in": "query",
+                        "description": "Author ID",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/cart": {
             "get": {
                 "tags": [
@@ -1743,7 +1853,7 @@
         "/api/courses": {
             "get": {
                 "tags": [
-                    "Course"
+                    "Courses"
                 ],
                 "summary": "Get a listing of the Courses.",
                 "description": "Get all Courses",
@@ -1844,7 +1954,7 @@
         "/api/admin/courses": {
             "get": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Get a listing of the Courses.",
                 "description": "Get all Courses",
@@ -1949,7 +2059,7 @@
             },
             "post": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Store a newly created Course in storage",
                 "description": "Store Course",
@@ -1987,7 +2097,7 @@
         "/api/admin/courses/{id}": {
             "get": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Display the specified Course",
                 "description": "Get Course",
@@ -2018,7 +2128,7 @@
             },
             "put": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Update the specified Course in storage",
                 "description": "Update Course",
@@ -2059,7 +2169,7 @@
             },
             "post": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Update the specified Course in storage",
                 "description": "Update Course",
@@ -2101,7 +2211,7 @@
             },
             "delete": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Remove the specified Course from storage",
                 "description": "Delete Course",
@@ -2135,7 +2245,7 @@
         "/api/courses/{id}": {
             "get": {
                 "tags": [
-                    "Course"
+                    "Courses"
                 ],
                 "summary": "Display the specified Course",
                 "description": "Get Course",
@@ -2164,7 +2274,7 @@
         "/api/admin/courses/{id}/program": {
             "get": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Display the specified Course program/curriculum/syllabus",
                 "description": "Get Course",
@@ -2197,11 +2307,11 @@
         "/api/courses/{id}/program": {
             "get": {
                 "tags": [
-                    "Course"
+                    "Courses"
                 ],
                 "summary": "Display the specified Course program/curriculum/syllabus. No token required when course is free",
                 "description": "Get Course",
-                "operationId": "7f047bd2f00baeb8ae6f5b7a48a2c817",
+                "operationId": "266724e5be1f5afa88c63b86c20c28cb",
                 "parameters": [
                     {
                         "name": "id",
@@ -2228,10 +2338,44 @@
                 ]
             }
         },
+        "/api/courses/{id}/scorm": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "summary": "Display the specified Course scorm View to be embeede with iframe",
+                "description": "Get Course",
+                "operationId": "2e8515a1c635b3d7589e5344f49d4891",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Course",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "text/html": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/courses/sort": {
             "post": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Sorts Lessons or Topics",
                 "description": "Sorts Lessons or Topics by sending course_id, class (Topic or Lesson) and array of tuple [class_id, order]. Example\n     * `{\"class\":\"Lesson\",\"orders\":[[3,0],[2,1],[4,2],[5,3],[6,4],[7,5],[1,6],[71,7]], \"course_id\":1}`\n     * ",
@@ -2281,7 +2425,7 @@
         "/api/tutors": {
             "get": {
                 "tags": [
-                    "Course"
+                    "Courses"
                 ],
                 "description": "Get Tutors",
                 "operationId": "c9b57a345ae9fdca6dc5dea4062caa87",
@@ -2309,7 +2453,7 @@
         "/api/tutors/{id}": {
             "get": {
                 "tags": [
-                    "Course"
+                    "Courses"
                 ],
                 "description": "Get tutor course/author ID ",
                 "operationId": "1c7d56df29168cae265f1ce1c3f6438a",
@@ -2347,7 +2491,7 @@
         "/api/courses/progress": {
             "get": {
                 "tags": [
-                    "Course"
+                    "Courses"
                 ],
                 "description": "Get Progresses",
                 "operationId": "f38c13e50f028895b45b14c94d288b74",
@@ -2375,7 +2519,7 @@
         "/api/courses/progress/{course_id}": {
             "get": {
                 "tags": [
-                    "Course"
+                    "Courses"
                 ],
                 "description": "Show user course progress",
                 "operationId": "476ec8979cad6055de6abc3e2297c053",
@@ -2411,7 +2555,7 @@
             },
             "patch": {
                 "tags": [
-                    "Course"
+                    "Courses"
                 ],
                 "description": "Show user course progress",
                 "operationId": "cdec63c492b1354b876a927a77e90cf3",
@@ -2468,7 +2612,7 @@
         "/api/courses/progress/{topic_id}/ping": {
             "put": {
                 "tags": [
-                    "Course"
+                    "Courses"
                 ],
                 "description": "Update time in course by ping.",
                 "operationId": "a55ffc9d253d527b5f63a8618f8e6061",
@@ -2506,7 +2650,7 @@
         "/api/courses/progress/{topic_id}/h5p": {
             "post": {
                 "tags": [
-                    "Course"
+                    "Courses"
                 ],
                 "description": "Update h5p progress in course quiz.",
                 "operationId": "361936640d7dc3b7cec611ee5f42d49a",
@@ -2562,7 +2706,7 @@
         "/api/admin/lessons": {
             "get": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Get a listing of the Lessons.",
                 "description": "Get all Lessons",
@@ -2583,7 +2727,7 @@
             },
             "post": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Store a newly created Lesson in storage",
                 "description": "Store Lesson",
@@ -2616,7 +2760,7 @@
         "/api/admin/lessons/{id}": {
             "get": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Display the specified Lesson",
                 "description": "Get Lesson",
@@ -2648,7 +2792,7 @@
             },
             "put": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Update the specified Lesson in storage",
                 "description": "Update Lesson",
@@ -2690,7 +2834,7 @@
             },
             "delete": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Remove the specified Lesson from storage",
                 "description": "Delete Lesson",
@@ -2724,7 +2868,7 @@
         "/api/admin/topics": {
             "get": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Get a listing of the Topics.",
                 "description": "Get all Topics",
@@ -2745,7 +2889,7 @@
             },
             "post": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Store a newly created Topic in storage",
                 "description": "Store Topic. Depending on `topicable_type` values are different. Endpoint does create both `Topic` and 1:1 related `Content` based on creating class ",
@@ -2778,7 +2922,7 @@
         "/api/admin/topics/{id}": {
             "get": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Display the specified Topic",
                 "description": "Get Topic",
@@ -2810,7 +2954,7 @@
             },
             "put": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Update the specified Topic in storage",
                 "description": "Update Topic",
@@ -2852,7 +2996,7 @@
             },
             "delete": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Remove the specified Topic from storage",
                 "description": "Delete Topic",
@@ -2886,7 +3030,7 @@
         "/api/admin/topics/types": {
             "get": {
                 "tags": [
-                    "Course"
+                    "Admin Courses"
                 ],
                 "summary": "Get a listing of the Availabe Topic Content Types Classes.",
                 "description": "Get all Topic Contents",
@@ -4004,7 +4148,9 @@
                                 "status",
                                 "payable_id",
                                 "billable_id",
-                                "amount"
+                                "amount",
+                                "order_id",
+                                "id"
                             ]
                         }
                     },
@@ -4052,6 +4198,71 @@
                                 "PAID",
                                 "CANCELLED"
                             ]
+                        }
+                    },
+                    {
+                        "name": "order_id",
+                        "in": "query",
+                        "description": "External order id (e.g. from payment provider)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "payable_id",
+                        "in": "query",
+                        "description": "Id of payable (e.g. order model id)",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "payable_type",
+                        "in": "query",
+                        "description": "Full classname of payable model (eg. EscolaLms\\Cart\\Models\\Order)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "billable_id",
+                        "in": "query",
+                        "description": "Id of billable (e.g. user id, if no other billable class is used you can ignore billable_type)",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "billable_type",
+                        "in": "query",
+                        "description": "Full classname of billable model (eg. EscolaLms\\Core\\Models\\User)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date_from",
+                        "in": "query",
+                        "description": "Date from",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "date_to",
+                        "in": "query",
+                        "description": "Date to",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
                         }
                     }
                 ],
@@ -4119,7 +4330,10 @@
                                 "updated_at",
                                 "status",
                                 "payable_id",
-                                "amount"
+                                "billable_id",
+                                "amount",
+                                "order_id",
+                                "id"
                             ]
                         }
                     },
@@ -4167,6 +4381,53 @@
                                 "PAID",
                                 "CANCELLED"
                             ]
+                        }
+                    },
+                    {
+                        "name": "order_id",
+                        "in": "query",
+                        "description": "External order id (e.g. from payment provider)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "payable_id",
+                        "in": "query",
+                        "description": "Id of payable (e.g. order id)",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "payable_type",
+                        "in": "query",
+                        "description": "Full classname of payable model (eg. EscolaLms\\Cart\\Models\\Order)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date_from",
+                        "in": "query",
+                        "description": "Date from",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "date_to",
+                        "in": "query",
+                        "description": "Date to",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
                         }
                     }
                 ],
@@ -4618,6 +4879,20 @@
                     "name": "User"
                 }
             },
+            "Order": {
+                "description": "EscolaLms\\Cart\\Models\\Order",
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "user_id": {
+                        "description": "user_id",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
             "Course": {
                 "required": [
                     "title"
@@ -4768,6 +5043,10 @@
                     },
                     "value": {
                         "description": "value",
+                        "type": "string"
+                    },
+                    "summary": {
+                        "description": "summary",
                         "type": "string"
                     },
                     "order": {
