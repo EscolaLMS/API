@@ -33,9 +33,9 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriesSeeder::class);
         $this->call(TagsSeeder::class);
         $this->call(CoursesSeeder::class);
-
+        $this->call(OrdersSeeder::class);
+        $this->call(ProgressSeeder::class);
         $this->call(PaymentsSeeder::class);
-
         $this->call(PagesDatabaseSeeder::class);
     }
 }
