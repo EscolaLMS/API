@@ -29,13 +29,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // first populate roles & permissions
-        $this->call(RoleTableSeeder::class);
-        $this->call(FilePermissionTableSeeder::class);
-        $this->call(CoursesPermissionSeeder::class);
-        $this->call(PaymentsPermissionsSeeder::class);
-        $this->call(CategoriesPermissionSeeder::class);
-        $this->call(PagesPermissionTableSeeder::class);
-        $this->call(ScormPermissionTableSeeder::class);
+        $this->call(PermissionsSeeder::class);
 
         // create users
         $this->call(UserTableSeeder::class);
