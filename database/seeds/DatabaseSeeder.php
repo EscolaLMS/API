@@ -11,6 +11,8 @@ use EscolaLms\Tags\Database\Seeders\TagsSeeder;
 use EscolaLms\Pages\Database\Seeders\DatabaseSeeder as PagesDatabaseSeeder;
 use EscolaLms\Cart\Database\Seeders\OrdersSeeder;
 use EscolaLms\Cart\Database\Seeders\ProgressSeeder;
+use EscolaLms\Settings\Database\Seeders\DatabaseSeeder as SettingsDatabaseSeeder;
+
 
 use Illuminate\Database\Seeder;
 
@@ -37,5 +39,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProgressSeeder::class);
         $this->call(PaymentsSeeder::class);
         $this->call(PagesDatabaseSeeder::class);
+        $this->call(SettingsDatabaseSeeder::class);
     }
 }

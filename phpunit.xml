@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" backupStaticAttributes="false"
-         bootstrap="vendor/autoload.php" colors="true" convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true" convertWarningsToExceptions="true" processIsolation="false"
-         stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" backupStaticAttributes="false" bootstrap="vendor/autoload.php" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" processIsolation="false" stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
   <coverage processUncoveredFiles="true">
     <include>
       <directory suffix=".php">./vendor/escolalms/auth/</directory>
@@ -15,6 +12,7 @@
       <directory suffix=".php">./vendor/escolalms/payments/</directory>
       <directory suffix=".php">./vendor/escolalms/tags/</directory>
       <directory suffix=".php">./vendor/escolalms/scorm/</directory>
+      <directory suffix=".php">./vendor/escolalms/settings/</directory>
     </include>
   </coverage>
   <testsuites>
@@ -53,6 +51,9 @@
     </testsuite>
     <testsuite name="scorm">
       <directory suffix="Test.php">./vendor/escolalms/scorm/tests</directory>
+    </testsuite>
+    <testsuite name="scorm">
+      <directory suffix="Test.php">./vendor/escolalms/settings/tests</directory>
     </testsuite>
   </testsuites>
   <php>

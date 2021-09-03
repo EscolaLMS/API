@@ -25,6 +25,7 @@ storage/h5p/editor/images/**
 storage/h5p/cachedassets/*
 storage/h5p/editor/**
 storage/scorm/**
+storage/imgcache
 
 escolasoft/**/vendor
 .DS_Store
