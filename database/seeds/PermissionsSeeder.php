@@ -11,6 +11,8 @@ use EscolaLms\Payments\Database\Seeders\PaymentsPermissionsSeeder;
 use EscolaLms\Files\Database\Seeders\PermissionTableSeeder as FilePermissionTableSeeder;
 use EscolaLms\Pages\Database\Seeders\PermissionTableSeeder as PagesPermissionTableSeeder;
 use EscolaLms\Scorm\Database\Seeders\PermissionTableSeeder as ScormPermissionTableSeeder;
+use EscolaLms\Settings\Database\Seeders\PermissionTableSeeder as SettingsPermissionTableSeeder;
+
 use Illuminate\Database\Seeder;
 
 class PermissionsSeeder extends Seeder
@@ -32,5 +34,6 @@ class PermissionsSeeder extends Seeder
         $this->call(CategoriesPermissionSeeder::class);
         $this->call(PagesPermissionTableSeeder::class);
         $this->call(ScormPermissionTableSeeder::class);
+        $this->call(SettingsPermissionTableSeeder::class);
     }
 }

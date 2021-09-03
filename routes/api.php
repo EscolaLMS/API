@@ -24,5 +24,5 @@ Route::get('/debug-sentry', function () {
 });
 
 
-Route::get('/settings', SettingsController::class);
+// Route::get('/settings', SettingsController::class);
 

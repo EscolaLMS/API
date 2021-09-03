@@ -35,6 +35,7 @@
         "escolalms/categories": "^0",
         "escolalms/core": "^1",
         "escolalms/courses": "^0",
+        "escolalms/settings": "^0",
         "escolalms/files": "^0",
         "escolalms/headless-h5p": "^0",
         "escolalms/images": "^0.0.1",
@@ -124,6 +125,6 @@
             "./vendor/bin/behat"
         ]
     },
-    "repositories": {       
+    "repositories": {         
     }
 }
