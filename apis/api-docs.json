@@ -5,6 +5,251 @@
         "version": "0.0.1"
     },
     "paths": {
+        "/api/admin/user-groups/": {
+            "get": {
+                "tags": [
+                    "Admin User Groups"
+                ],
+                "summary": "List groups",
+                "description": "",
+                "operationId": "b4631bcf8030edaa73072b86b87a2f23",
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns list of groups",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin User Groups"
+                ],
+                "summary": "Create group",
+                "description": "",
+                "operationId": "042cca0018523fd6ba315b28f0151d89",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Group"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation, Group created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Group"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/user-groups/{id}": {
+            "get": {
+                "tags": [
+                    "Admin User Groups"
+                ],
+                "summary": "Get group details",
+                "description": "",
+                "operationId": "203b726fc6e72a74de7107a7acb4054e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns Group data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Group"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin User Groups"
+                ],
+                "summary": "Update group",
+                "description": "",
+                "operationId": "711d682ab4fb16dbdfe1bf715e3e5813",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Group"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Group"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Group not found"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin User Groups"
+                ],
+                "summary": "Delete group",
+                "description": "",
+                "operationId": "0c31272718f7e388e8961e3c6efa6bf4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation, Group deleted"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/user-groups/{id}/members": {
+            "post": {
+                "tags": [
+                    "Admin User Groups"
+                ],
+                "summary": "Add user to group",
+                "description": "",
+                "operationId": "aa4b7892f04578152561151128efadb4",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns list of group members",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/user-groups/{id}/members/{user_id}": {
+            "delete": {
+                "tags": [
+                    "Admin User Groups"
+                ],
+                "summary": "Add user to group",
+                "description": "",
+                "operationId": "3134135e9d643d4231a4eb253022c0cc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns list of group members",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/users/{id}/interests": {
             "get": {
                 "tags": [
@@ -1417,6 +1662,40 @@
                     },
                     "422": {
                         "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/orders/{id}": {
+            "get": {
+                "tags": [
+                    "Admin Orders"
+                ],
+                "summary": "Display the specified Order",
+                "description": "Get Order",
+                "operationId": "78256b46b7f98b058162a6d5711f6622",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Order",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
                         "content": {
                             "application/json": {}
                         }
@@ -4648,6 +4927,272 @@
                 ]
             }
         },
+        "/api/admin/settings": {
+            "get": {
+                "tags": [
+                    "Admin Settings"
+                ],
+                "description": "Get Settings paginated",
+                "operationId": "6f0b2a1153a6feccc10053127b272b18",
+                "parameters": [
+                    {
+                        "name": "group",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin Settings"
+                ],
+                "summary": "Settings create",
+                "description": "Create single setting",
+                "operationId": "051f96e67ccbcb2ea4f9e74f945a9988",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/settings/{id}": {
+            "get": {
+                "tags": [
+                    "Admin Settings"
+                ],
+                "description": "Get single settings",
+                "operationId": "c745b6bd9a9e0afb1c40d355d254d60a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin Settings"
+                ],
+                "summary": "Update setting",
+                "description": "Update single setting",
+                "operationId": "69f83d57a47d5122b198ffc4b1148230",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin Settings"
+                ],
+                "summary": "Destroy setting",
+                "description": "Destroy the specified setting",
+                "operationId": "e5c3fa54a4d9d826ea45a5e2295d5714",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/settings/groups": {
+            "get": {
+                "tags": [
+                    "Admin Settings"
+                ],
+                "description": "Get Settings unique groups",
+                "operationId": "979511ea3a7548b329a684a5e304b0bd",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/settings": {
+            "get": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Get a listing of the public and enuerable settings.",
+                "description": "Get settings",
+                "operationId": "304a6c4c57f2a00529fa6a29cd7aa385",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/settings/{group}/{key}": {
+            "get": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Display the specified public setting",
+                "description": "Get Course",
+                "operationId": "13c48e51211e7e16517dee7248fa9d04",
+                "parameters": [
+                    {
+                        "name": "group",
+                        "in": "path",
+                        "description": "group of setting",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "key of setting",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/tags": {
             "get": {
                 "tags": [
@@ -4860,6 +5405,30 @@
                     }
                 },
                 "type": "object"
+            },
+            "Group": {
+                "title": "Group",
+                "description": "Group model",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "users": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/User"
+                        }
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Group"
+                }
             },
             "User": {
                 "title": "User",
@@ -5691,6 +6260,46 @@
                     "billable_type": {
                         "description": "billable_type",
                         "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Setting": {
+                "required": [
+                    "title"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "key": {
+                        "description": "key",
+                        "type": "string"
+                    },
+                    "group": {
+                        "description": "group",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "value",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "type",
+                        "type": "string"
+                    },
+                    "public": {
+                        "description": "public",
+                        "type": "boolean"
+                    },
+                    "enumerable": {
+                        "description": "enumerable",
+                        "type": "boolean"
+                    },
+                    "sort": {
+                        "description": "sort",
+                        "type": "integer"
                     }
                 },
                 "type": "object"
