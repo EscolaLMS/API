@@ -46,6 +46,9 @@
     <testsuite name="payments">
       <directory suffix="Test.php">./vendor/escolalms/payments/tests</directory>
     </testsuite>
+    <testsuite name="reports">
+      <directory suffix="Test.php">./vendor/escolalms/reports/tests</directory>
+    </testsuite>
     <testsuite name="tags">
       <directory suffix="Test.php">./vendor/escolalms/tags/tests</directory>
     </testsuite>
