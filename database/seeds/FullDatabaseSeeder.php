@@ -21,5 +21,8 @@ class FullDatabaseSeeder extends Seeder
         $this->call(ContentLibrarySeeder::class);
         $this->call(ScormSeeder::class);
         $this->call(PostCoursesSeeder::class);
+
+        // real data
+        $this->call(CyfrowyDobrostanSeeder::class);
     }
 }
