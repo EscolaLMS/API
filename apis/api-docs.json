@@ -4754,6 +4754,85 @@
                 ]
             }
         },
+        "/api/admin/reports/metrics": {
+            "get": {
+                "tags": [
+                    "Admin Reports"
+                ],
+                "summary": "Get list of available metrics",
+                "description": "",
+                "operationId": "01654091932139219ab43cdb13aedce3",
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns User data",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/reports/report": {
+            "get": {
+                "tags": [
+                    "Admin Reports"
+                ],
+                "summary": "Get list of available metrics",
+                "description": "",
+                "operationId": "fa6fc53a1eb222a4059599186448c833",
+                "parameters": [
+                    {
+                        "name": "metric",
+                        "in": "query",
+                        "description": "one of available metrics",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "description": "date from which report should be loaded (if there exists historical data), limit will be ignored and only datapoints with which record was created will be loaded, don't send this param to get current report",
+                        "required": false,
+                        "schema": {
+                            "type": "datetime"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "how many datapoints should be returned",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns User data",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/scorm/upload": {
             "post": {
                 "tags": [
