@@ -40,5 +40,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PaymentsSeeder::class);
         $this->call(PagesDatabaseSeeder::class);
         $this->call(SettingsDatabaseSeeder::class);
+
+        // real data
+        $this->call(CyfrowyDobrostanSeeder::class);
     }
 }
