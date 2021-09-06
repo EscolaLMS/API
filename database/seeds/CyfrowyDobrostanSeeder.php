@@ -28,7 +28,13 @@ class CyfrowyDobrostanSeeder extends Seeder
             mkdir(dirname(($dest)), 0777, true);
         }
 
-        copy(__DIR__ . '/cyfrowy_dobrostan/images/wojewodzic.png', storage_path('app/public/' . $dest));
+        $dest_f = storage_path('app/public/' . $dest);
+
+        if (!is_dir(dirname(($dest_f)))) {
+            mkdir(dirname(($dest_f)), 0777, true);
+        }
+
+        copy(__DIR__ . '/cyfrowy_dobrostan/images/wojewodzic.png', $dest_f);
 
         $user = User::firstOrCreate([
             'first_name' => 'Krzysztof',
