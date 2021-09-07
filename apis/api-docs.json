@@ -3329,6 +3329,186 @@
                 ]
             }
         },
+        "/topics/{topic_id}/resources/": {
+            "get": {
+                "tags": [
+                    "Admin Courses"
+                ],
+                "summary": "Get list of resources",
+                "description": "Get list of resources",
+                "parameters": [
+                    {
+                        "name": "topic_id",
+                        "in": "path",
+                        "description": "id of Topic",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin Courses"
+                ],
+                "summary": "Post new resource",
+                "description": "Post new resource",
+                "operationId": "ebc096f3a100694c7d17eef1656b4819",
+                "parameters": [
+                    {
+                        "name": "topic_id",
+                        "in": "path",
+                        "description": "id of Topic",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "resource": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/topics/{topic_id}/resources/{resource_id}": {
+            "delete": {
+                "tags": [
+                    "Admin Courses"
+                ],
+                "summary": "Delete resource",
+                "description": "Delete resource",
+                "operationId": "480ef805ac84afad34c6090fcc1064dc",
+                "parameters": [
+                    {
+                        "name": "topic_id",
+                        "in": "path",
+                        "description": "id of Topic",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "resource_id",
+                        "in": "path",
+                        "description": "id of Resource",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Admin Courses"
+                ],
+                "summary": "Rename resource",
+                "description": "Rename resource",
+                "operationId": "b7f3bad2341670c569644138db9091a1",
+                "parameters": [
+                    {
+                        "name": "topic_id",
+                        "in": "path",
+                        "description": "id of Topic",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "resource_id",
+                        "in": "path",
+                        "description": "id of Resource",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/file/list": {
             "get": {
                 "tags": [
@@ -5764,6 +5944,21 @@
                 },
                 "type": "object"
             },
+            "TopicPDF": {
+                "required": [
+                    "value"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id"
+                    },
+                    "value": {
+                        "description": "value",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
             "TopicRichText": {
                 "required": [
                     "value"
@@ -5789,6 +5984,32 @@
                     },
                     "value": {
                         "description": "value",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "TopicResource": {
+                "required": [
+                    "topic_id",
+                    "path",
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "topic_id": {
+                        "description": "topic_id",
+                        "type": "integer"
+                    },
+                    "path": {
+                        "description": "path",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "name",
                         "type": "string"
                     }
                 },
