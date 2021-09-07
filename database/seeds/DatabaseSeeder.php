@@ -2,17 +2,14 @@
 
 namespace Database\Seeders;
 
-use EscolaLms\Categories\Database\Seeders\CategoriesSeeder;
-use EscolaLms\Categories\Database\Seeders\CategoriesPermissionSeeder;
-
-use EscolaLms\Courses\Database\Seeders\CoursesSeeder;
-use EscolaLms\Payments\Database\Seeders\PaymentsSeeder;
-use EscolaLms\Tags\Database\Seeders\TagsSeeder;
-use EscolaLms\Pages\Database\Seeders\DatabaseSeeder as PagesDatabaseSeeder;
 use EscolaLms\Cart\Database\Seeders\OrdersSeeder;
-use EscolaLms\Cart\Database\Seeders\ProgressSeeder;
+use EscolaLms\Categories\Database\Seeders\CategoriesSeeder;
+use EscolaLms\Courses\Database\Seeders\CoursesSeeder;
+use EscolaLms\Courses\Database\Seeders\ProgressSeeder;
+use EscolaLms\Pages\Database\Seeders\DatabaseSeeder as PagesDatabaseSeeder;
+use EscolaLms\Payments\Database\Seeders\PaymentsSeeder;
 use EscolaLms\Settings\Database\Seeders\DatabaseSeeder as SettingsDatabaseSeeder;
-
+use EscolaLms\Tags\Database\Seeders\TagsSeeder;
 
 use Illuminate\Database\Seeder;
 
@@ -40,7 +37,5 @@ class DatabaseSeeder extends Seeder
         $this->call(PaymentsSeeder::class);
         $this->call(PagesDatabaseSeeder::class);
         $this->call(SettingsDatabaseSeeder::class);
-
-     
     }
 }
