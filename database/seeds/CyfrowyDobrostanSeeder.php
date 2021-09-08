@@ -8,20 +8,31 @@ use EscolaLms\Courses\Models\Lesson;
 use EscolaLms\Courses\Models\Topic;
 use EscolaLms\Courses\Models\TopicContent\RichText;
 use EscolaLms\Courses\Models\TopicContent\Video;
+use EscolaLms\Courses\Models\TopicContent\H5P;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use EscolaLms\HeadlessH5P\Services\Contracts\HeadlessH5PServiceContract;
+
 
 class CyfrowyDobrostanSeeder extends Seeder
 {
+
+    private HeadlessH5PServiceContract $hh5pService;
+
+
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run()
+    public function run(HeadlessH5PServiceContract $hh5pService)
     {
 
-        $this->downloadVideos(); 
+        $this->hh5pService = $hh5pService;
+
+        $h5ps = $this->seedH5P();
+
+        $this->downloadVideos();
 
         $dest = 'course/cyfrowy_dobrostan/wojewodzic.png';
         if (!is_dir(dirname(($dest)))) {
@@ -189,6 +200,36 @@ MD,
 
             $old_keys['topics'][$topic_id] = $topicObj->id;
         }
+
+        $this->assignH5PToLesson($old_keys['lessons'][230], $h5ps['rekomendacje-1291425514414841837']);
+
+        $this->assignH5PToLesson($old_keys['lessons'][232], $h5ps['essay-4-166755']);
+
+        $this->assignH5PToLesson($old_keys['lessons'][229], $h5ps['dopamina-i-skrajne-emocje-1291425504141445257']);
+
+        $this->assignH5PToLesson($old_keys['lessons'][238], $h5ps['dlaczego-korzystasz-z-kilku-aplikacji-jednoczesnie-dopamina-i-skrajne-emocje-1291425501575271257']);
+
+        $this->assignH5PToLesson($old_keys['lessons'][235], $h5ps['czy-potrafisz-rozpoznac-jakie-elementy-twoich-ulubionych-aplikacji-i-gier-probuja-wzbudzic-w-1291425493663515597']);
+    }
+
+    private function assignH5PToLesson($lessonId, $h5pId)
+    {
+
+        $topicObj = Topic::create([
+            "title" => "Ćwiczenie",
+            "lesson_id" => $lessonId,
+            "order" => 10,
+            "active" => true,
+            "preview" => true,
+        ]);
+
+
+
+        $h5p = H5P::create([
+            "value" => $h5pId
+        ]);
+
+        $topicObj->topicable()->associate($h5p)->save();
     }
 
     private function downloadVideos()
@@ -208,5 +249,34 @@ MD,
                 copy($url, $path . $filename);
             }
         }
+    }
+
+    private function seedH5P()
+    {
+        // Content update is skipped because it is new registration
+        $content = null;
+        $skipContent = false;
+        $h5p_upgrade_only = false;
+
+        $files = glob(__DIR__ . '/cyfrowy_dobrostan/h5p/*.h5p');
+
+        $results = [];
+
+        foreach ($files as $filename) {
+            $basename = basename($filename, ".h5p");
+            copy($filename, $this->hh5pService->getRepository()->getUploadedH5pPath());
+
+            if ($this->hh5pService->getValidator()->isValidPackage($skipContent, $h5p_upgrade_only)) {
+                $content['title'] = $basename;
+                $this->hh5pService->getStorage()->savePackage($content, null, $skipContent);
+                $results[$basename] = $this->hh5pService->getStorage()->contentId;
+            } else {
+                echo "Invalid package $filename \n";
+            }
+
+            @unlink($this->hh5pService->getRepository()->getUploadedH5pPath());
+        }
+
+        return $results;
     }
 }
