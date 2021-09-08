@@ -203,7 +203,7 @@ MD,
 
         $this->assignH5PToLesson($old_keys['lessons'][230], $h5ps['rekomendacje-1291425514414841837']);
 
-        $this->assignH5PToLesson($old_keys['lessons'][232], $h5ps['essay-4-166755']);
+        $this->assignH5PToLesson($old_keys['lessons'][232], $h5ps['essay-1291425512151358697']);
 
         $this->assignH5PToLesson($old_keys['lessons'][229], $h5ps['dopamina-i-skrajne-emocje-1291425504141445257']);
 
