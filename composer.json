@@ -46,6 +46,7 @@
         "escolalms/tags": "^0",
         "fideloper/proxy": "^4.0",
         "fruitcake/laravel-cors": "^2.0",
+        "guzzlehttp/guzzle": "^7.3",
         "infyomlabs/laravel-generator": "8.0.x-dev",
         "laravel/framework": "^8.0",
         "laravel/helpers": "^1.4",
