@@ -13,6 +13,25 @@
                 "summary": "List groups",
                 "description": "",
                 "operationId": "b4631bcf8030edaa73072b86b87a2f23",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "parent_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation, returns list of groups",
@@ -53,6 +72,50 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Group"
                                 }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/user-groups/tree/": {
+            "get": {
+                "tags": [
+                    "Admin User Groups"
+                ],
+                "summary": "List groups in a tree",
+                "description": "",
+                "operationId": "6655f9b0a9e4a3b5091bd2ac677e757a",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "parent_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns list of groups",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
                             }
                         }
                     }
@@ -2218,6 +2281,18 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "ids[]",
+                        "in": "query",
+                        "description": "A array of IDs",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -3536,7 +3611,7 @@
                 ]
             }
         },
-        "/topics/{topic_id}/resources/": {
+        "/api/admin/topics/{topic_id}/resources/": {
             "get": {
                 "tags": [
                     "Admin Courses"
@@ -3574,7 +3649,7 @@
                 ],
                 "summary": "Post new resource",
                 "description": "Post new resource",
-                "operationId": "ebc096f3a100694c7d17eef1656b4819",
+                "operationId": "3e754f9f02c8ab1d899ee0690d3f8eb2",
                 "parameters": [
                     {
                         "name": "topic_id",
@@ -3617,14 +3692,14 @@
                 ]
             }
         },
-        "/topics/{topic_id}/resources/{resource_id}": {
+        "/api/admin/topics/{topic_id}/resources/{resource_id}": {
             "delete": {
                 "tags": [
                     "Admin Courses"
                 ],
                 "summary": "Delete resource",
                 "description": "Delete resource",
-                "operationId": "480ef805ac84afad34c6090fcc1064dc",
+                "operationId": "6e0b1990fa272984ce832ecb665fadc0",
                 "parameters": [
                     {
                         "name": "topic_id",
@@ -3665,7 +3740,7 @@
                 ],
                 "summary": "Rename resource",
                 "description": "Rename resource",
-                "operationId": "b7f3bad2341670c569644138db9091a1",
+                "operationId": "a32a407f1a43bfcd473ab4cd323b09aa",
                 "parameters": [
                     {
                         "name": "topic_id",
@@ -3729,6 +3804,101 @@
                         "schema": {
                             "type": "string",
                             "default": "/"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": "int",
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "schema": {
+                            "type": "int",
+                            "default": "50"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "format": "datetime"
+                                            },
+                                            "mime": {
+                                                "type": "string",
+                                                "format": "mime"
+                                            },
+                                            "url": {
+                                                "type": "string",
+                                                "format": "url"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "302": {
+                        "description": "request contains invalid parameters"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "405": {
+                        "description": "Target directory access is not allowed"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/file/find": {
+            "get": {
+                "tags": [
+                    "Files"
+                ],
+                "summary": "Lists files found by name",
+                "operationId": "e44bf310b28fa6bb9db5ffdfde83bd0e",
+                "parameters": [
+                    {
+                        "name": "directory",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "default": "/"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
                         }
                     },
                     {
@@ -4739,12 +4909,7 @@
                     "500": {
                         "description": "server-side error"
                     }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
+                }
             }
         },
         "/api/pages/{slug}": {
@@ -4785,18 +4950,13 @@
                     "500": {
                         "description": "server-side error"
                     }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
+                }
             }
         },
         "/api/admin/payments": {
             "get": {
                 "tags": [
-                    "Payments"
+                    "Admin Payments"
                 ],
                 "summary": "Search payments",
                 "description": "Get filtered and paginated Payments",
@@ -4939,13 +5099,18 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/admin/payments/{id}": {
             "get": {
                 "tags": [
-                    "Payments"
+                    "Admin Payments"
                 ],
                 "summary": "Display the specified Payment",
                 "description": "Get Payment",
@@ -5104,7 +5269,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/payments/{id}": {
@@ -5206,6 +5376,77 @@
                 "responses": {
                     "200": {
                         "description": "successful operation, returns User data",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/stats/available": {
+            "get": {
+                "tags": [
+                    "Admin Reports"
+                ],
+                "summary": "Get list of available stats for models",
+                "description": "",
+                "operationId": "e308b71a486a2b5f0a3095b3da624e62",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/stats/course/{course_id}": {
+            "get": {
+                "tags": [
+                    "Admin Reports"
+                ],
+                "summary": "Calculate stats for Course",
+                "description": "",
+                "operationId": "1e44b77b5db605f25416e55457c6d01c",
+                "parameters": [
+                    {
+                        "name": "course_id",
+                        "in": "path",
+                        "description": "Course ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "stats",
+                        "in": "query",
+                        "description": "array of stats to be calculated, leave empty to calculate all available stats",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -5884,6 +6125,13 @@
                     "name": {
                         "type": "string"
                     },
+                    "parent_id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "registerable": {
+                        "type": "boolean"
+                    },
                     "users": {
                         "type": "array",
                         "items": {
@@ -6004,6 +6252,18 @@
                     "level": {
                         "description": "level",
                         "type": "string"
+                    },
+                    "poster": {
+                        "description": "poster",
+                        "type": "file"
+                    },
+                    "poster_path": {
+                        "description": "poster_path",
+                        "type": "string"
+                    },
+                    "poster_url": {
+                        "description": "poster_url",
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -6060,6 +6320,10 @@
                         "description": "active",
                         "type": "boolean"
                     },
+                    "can_skip": {
+                        "description": "can skip",
+                        "type": "boolean"
+                    },
                     "preview": {
                         "description": "preview",
                         "type": "boolean"
@@ -6087,6 +6351,10 @@
                     "order": {
                         "description": "order",
                         "type": "integer"
+                    },
+                    "json": {
+                        "description": "json",
+                        "type": "object"
                     }
                 },
                 "type": "object"
