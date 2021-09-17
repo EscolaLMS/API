@@ -26,7 +26,7 @@ class Meetinga
                     'name' => $group['name'],
                     'registerable' => true,
                     'parent_id' => $mainGroup->id
-                ])
+                ]),
             $groups
         );
     }
