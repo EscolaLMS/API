@@ -22,13 +22,11 @@ class Meetinga
     {
 
         return array_map(
-            function ($group) use ($mainGroup) {
-                return Group::firstOrCreate([
+            fn ($group) => Group::firstOrCreate([
                     'name' => $group['name'],
                     'registerable' => true,
                     'parent_id' => $mainGroup->id
-                ]);
-            },
+                ])
             $groups
         );
     }
