@@ -23,7 +23,7 @@ jobs:
 
       - name: Install composer dependencies
         run: |
-          apt-get install git
+          apt-get -y install git
           composer install --no-scripts
 
       - name: Prepare Laravel Application
@@ -64,7 +64,7 @@ jobs:
 
       - name: Install composer dependencies
         run: |
-          apt-get install git
+          apt-get -y install git
           composer install --no-scripts
 
       - name: Prepare Laravel Application
@@ -103,7 +103,7 @@ jobs:
 
       - name: Install composer dependencies
         run: |
-          apt-get install git
+          apt-get -y install git
           composer install --no-scripts
 
       - name: Prepare Laravel Application
@@ -143,7 +143,7 @@ jobs:
 
       - name: Install composer dependencies
         run: |
-          apt-get install git
+          apt-get -y install git
           composer install --no-scripts
 
       - name: Prepare Laravel Application
