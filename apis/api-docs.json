@@ -2153,45 +2153,6 @@
                 ]
             }
         },
-        "/api/attachments": {
-            "post": {
-                "tags": [
-                    "Attachments"
-                ],
-                "summary": "Store a attachment as file in storage",
-                "description": "Store Image",
-                "operationId": "d7df2b108c4a6fb0c08483a4b45c6445",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "properties": {
-                                    "file": {
-                                        "type": "string",
-                                        "format": "binary"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
         "/api/courses": {
             "get": {
                 "tags": [
