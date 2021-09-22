@@ -17,10 +17,8 @@ use Closure;
 
 class Meetinga
 {
-
     private function createOrFindGroups(Model $mainGroup, array $groups): array
     {
-
         return array_map(
             fn ($group) => Group::firstOrCreate([
                     'name' => $group['name'],
@@ -33,7 +31,6 @@ class Meetinga
 
     private function getUserCertificate($data): array
     {
-
         $slug = $data['registered_events'][0]['slug'];
 
         $postResponse = Http::withHeaders([
@@ -52,7 +49,6 @@ class Meetinga
 
     private function createUserFromResponse($request, $data): Model
     {
-
         $userService = App::make(UserServiceContract::class);
         $userGroupService = App::make(UserGroupServiceContract::class);
 
