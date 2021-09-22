@@ -32,6 +32,8 @@ class Meetinga
         // TODO find or create groups
         // TODO assign to groups
 
+        // TODO check certificate with another call
+
 
         dd($user);
     }

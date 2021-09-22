@@ -10,18 +10,20 @@ services:
       - "1000:80"
     volumes:
       - ./:/var/www/html
-      - ./docker/conf/:/etc/nginx/conf.d/
+      - ./docker/conf/nginx:/etc/nginx/conf.d/
       - ./docker/www_logs/nginx:/var/log/nginx
     links:
       - escola_lms_app
     networks:
       - escola_lms
   escola_lms_app:
-    image: escolalms/php:8
+    build: .
+    # image: escolalms/php:8
     volumes:
       - ./:/var/www/html:cached
-      - ./docker/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
-      - ./docker/xxx-devilbox-default-php.ini:/usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini
+      - ./docker/conf/php/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
+      - ./docker/conf/php/xxx-devilbox-default-php.ini:/usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini
+      - ./docker/conf/supervisor.conf:/etc/supervisor/custom.d/horizon.conf
     networks:
       - escola_lms
 
@@ -33,7 +35,7 @@ services:
     image: mariadb:10.5
     volumes:
       - ./docker/mysql-data:/var/lib/mysql
-      - ./docker/conf/mysql:/etc/mysql/conf.d
+      - ./docker/conf/mysql/mysql:/etc/mysql/conf.d
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: database
@@ -83,3 +85,11 @@ services:
     ports:
       - 1025:1025 # smtp server
       - 8025:8025 # web ui
+
+  redis:
+    networks:
+      - escola_lms
+    image: "redis"
+    command: redis-server --requirepass escola_lms
+    ports:
+      - "6379:6379"
