@@ -22,7 +22,7 @@ services:
       - ./:/var/www/html:cached
       - ./docker/conf/php/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
       - ./docker/conf/php/xxx-devilbox-default-php.ini:/usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini
-      - ./docker/conf/supervisor.conf:/etc/supervisor/custom.d/horizon.conf
+      - ./docker/conf/supervisor/horizon.conf:/etc/supervisor/custom.d/horizon.conf
     networks:
       - escola_lms
 

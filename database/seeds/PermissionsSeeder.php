@@ -12,7 +12,8 @@ use EscolaLms\Files\Database\Seeders\PermissionTableSeeder as FilePermissionTabl
 use EscolaLms\Pages\Database\Seeders\PermissionTableSeeder as PagesPermissionTableSeeder;
 use EscolaLms\Scorm\Database\Seeders\PermissionTableSeeder as ScormPermissionTableSeeder;
 use EscolaLms\Settings\Database\Seeders\PermissionTableSeeder as SettingsPermissionTableSeeder;
-use  EscolaLms\Reports\Database\Seeders\ReportsPermissionSeeder;
+use EscolaLms\Reports\Database\Seeders\ReportsPermissionSeeder;
+use EscolaLms\Templates\Database\Seeders\PermissionTableSeeder as TemplatesPermissionTableSeeder;
 use Illuminate\Database\Seeder;
 
 class PermissionsSeeder extends Seeder
@@ -36,5 +37,6 @@ class PermissionsSeeder extends Seeder
         $this->call(ScormPermissionTableSeeder::class);
         $this->call(SettingsPermissionTableSeeder::class);
         $this->call(ReportsPermissionSeeder::class);
+        $this->call(TemplatesPermissionTableSeeder::class);
     }
 }
