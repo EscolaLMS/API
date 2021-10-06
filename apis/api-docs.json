@@ -1125,6 +1125,26 @@
                 }
             }
         },
+        "/api/auth/registerable-groups/": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "List registerable groups",
+                "description": "",
+                "operationId": "a627c12cb5a66bbde697875c6efd56e3",
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns list of groups",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/auth/login": {
             "post": {
                 "tags": [
@@ -2254,6 +2274,15 @@
                                 "type": "number"
                             }
                         }
+                    },
+                    {
+                        "name": "free",
+                        "in": "query",
+                        "description": "Will show only free courses",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
                     }
                 ],
                 "responses": {
@@ -2355,6 +2384,15 @@
                         "required": false,
                         "schema": {
                             "type": "string"
+                        }
+                    },
+                    {
+                        "name": "free",
+                        "in": "query",
+                        "description": "Will show only free courses",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
                         }
                     }
                 ],
@@ -6420,6 +6458,10 @@
                     },
                     "value": {
                         "description": "value",
+                        "type": "string"
+                    },
+                    "poster": {
+                        "description": "poster",
                         "type": "string"
                     }
                 },
