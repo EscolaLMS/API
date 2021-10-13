@@ -1,7 +1,5 @@
 <?php
 
-use EscolaSoft\LaravelH5p\Http\Controllers\EmbedController;
-use App\Http\Requests\H5pEmbedRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +12,18 @@ use App\Http\Requests\H5pEmbedRequest;
 |
 */
 
-Route::get('embed/{id}', function (H5pEmbedRequest $request, int $id) {
-    $embedCtrl = app(EmbedController::class);
-    return $embedCtrl($request, $id);
-})->name('h5p.user.embed');
+use EscolaLms\Payments\Facades\Payments;
+use Illuminate\Support\Env;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
+
+Route::get('/email', function () {
+    return 'Your email is now verified';
+});
+
+if (App::environment(['local', 'staging', 'testing'])) {
+    Route::get('/stripe-test', function () {
+        return View::make('stripe-test', ['stripe_publishable_key' => Env::get('PAYMENTS_STRIPE_PUBLISHABLE_KEY', 'pk_test_51Ig8icJ9tg9t712TnCR6sKY9OXwWoFGWH4ERZXoxUVIemnZR0B6Ei0MzjjeuWgOzLYKjPNbT8NbG1ku1T2pGCP4B00GnY0uusI')]);
+    });
+}

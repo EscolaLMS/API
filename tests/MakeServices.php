@@ -3,9 +3,8 @@
 namespace Tests;
 
 use App\Repositories\Contracts\CourseProgressRepositoryContract;
-use App\Services\EscolaLMS\Contracts\CategoryServiceContracts;
+use EscolaLms\Categories\Services\Contracts\CategoryServiceContracts;
 use App\Services\EscolaLMS\Contracts\CourseServiceContract;
-use Treestoneit\ShoppingCart\CartContract;
 
 trait MakeServices
 {
@@ -18,8 +17,6 @@ trait MakeServices
     {
         return $this->courseProgressRepository = app(CourseProgressRepositoryContract::class);
     }
-
-
 
     public function categoryService(): CategoryServiceContracts
     {

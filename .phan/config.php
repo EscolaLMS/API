@@ -362,7 +362,6 @@ return [
         'vendor/ignited/laravel-omnipay/src',
         'vendor/infyomlabs/adminlte-templates/src',
         'vendor/infyomlabs/laravel-generator/src',
-        'vendor/intervention/image/src/Intervention/Image',
         'vendor/laracasts/behat-laravel-extension/src',
         'vendor/laravel/framework/src/Illuminate',
         'vendor/laravel/socialite/src',

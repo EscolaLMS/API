@@ -5,16 +5,17 @@ return [
     'documentations' => [
         'default' => [
             'api' => [
-                'title' => 'Get Kibble API',
+                'title' => 'Escola LMS',
             ],
-
             'routes' => [
+
                 /*
                  * Route for accessing api documentation interface
                 */
                 'api' => 'api/documentation',
             ],
             'paths' => [
+
                 /*
                  * File name of the generated json documentation file
                 */
@@ -35,9 +36,20 @@ return [
                 */
                 'annotations' => [
                     app_path(),
-                    base_path('escolasoft/EscolaLms/src')
+                    base_path('vendor/escolalms/auth/src'),
+                    base_path('vendor/escolalms/cart/src'),
+                    base_path('vendor/escolalms/categories/src'),
+                    base_path('vendor/escolalms/courses/src'),
+                    base_path('vendor/escolalms/core/src'),
+                    base_path('vendor/escolalms/files/src'),
+                    base_path('vendor/escolalms/headless-h5p/src'),
+                    base_path('vendor/escolalms/pages/src'),
+                    base_path('vendor/escolalms/payments/src'),
+                    base_path('vendor/escolalms/tags/src'),
+                    base_path('vendor/escolalms/scorm/src'),
+                    base_path('vendor/escolalms/settings/src'),
+                    base_path('vendor/escolalms/reports/src'),
                 ],
-
             ],
         ],
     ],

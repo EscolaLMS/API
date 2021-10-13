@@ -2,6 +2,16 @@
 
 namespace Database\Seeders;
 
+use EscolaLms\Cart\Database\Seeders\OrdersSeeder;
+use EscolaLms\Categories\Database\Seeders\CategoriesSeeder;
+use EscolaLms\Courses\Database\Seeders\CoursesSeeder;
+use EscolaLms\Courses\Database\Seeders\ProgressSeeder;
+use EscolaLms\Pages\Database\Seeders\DatabaseSeeder as PagesDatabaseSeeder;
+use EscolaLms\Payments\Database\Seeders\PaymentsSeeder;
+use EscolaLms\Settings\Database\Seeders\DatabaseSeeder as SettingsDatabaseSeeder;
+use EscolaLms\Tags\Database\Seeders\TagsSeeder;
+use EscolaLms\Auth\Database\Seeders\UserGroupsSeeder;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,14 +23,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(RoleTableSeeder::class);
+        // first populate roles & permissions
+        $this->call(PermissionsSeeder::class);
+
+        // create users
         $this->call(UserTableSeeder::class);
-        $this->call(CategoryTableSeeder::class);
-        $this->call(ConfigTableSeeder::class);
-        $this->call(BlogTableSeeder::class);
-        $this->call(CourseTableSeeder::class);
-        $this->call(TagTableSeeder::class);
-        $this->call(StudentWithAllCourses::class);
-        // $this->call(H5PLibrarySeeder::class); dont seed this, that to much do it manually
+
+        // then populate content
+        $this->call(CategoriesSeeder::class);
+        $this->call(TagsSeeder::class);
+        $this->call(CoursesSeeder::class);
+        $this->call(OrdersSeeder::class);
+        $this->call(ProgressSeeder::class);
+        $this->call(PaymentsSeeder::class);
+        $this->call(PagesDatabaseSeeder::class);
+        $this->call(SettingsDatabaseSeeder::class);
+        $this->call(UserGroupsSeeder::class);
     }
 }

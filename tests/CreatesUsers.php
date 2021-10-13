@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use App\Enum\UserRole;
+use EscolaLms\Core\Enums\UserRole;
 use App\Models\User;
 
 trait CreatesUsers

@@ -1,0 +1,9 @@
+{
+  "projectId": "kmx5cw",
+  "baseUrl": "http://localhost:1000/api",
+  "env": {
+    "mailHogUrl": "http://localhost:8025",
+    "stripeTestUrl": "http://localhost:1000/stripe-test"
+  },
+  "chromeWebSecurity": false
+}

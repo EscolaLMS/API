@@ -52,11 +52,11 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost:1000'),
 
     'asset_url' => env('ASSET_URL', null),
 
-    'frontend_url' => env('FRONTEND_URL', 'http://localhost'),
+    'frontend_url' => env('FRONTEND_URL', 'http://localhost:1000/email'),
 
     'linkedin_organization_id' => env('LINKEDIN_ORGANIZATION_ID', 75401175),
     /*
@@ -177,16 +177,14 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\HorizonServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
-        Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class,
         // Chumper\Zipper\ZipperServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -239,8 +237,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'Image' => Intervention\Image\Facades\Image::class,
-        'Omnipay' => Ignited\LaravelOmnipay\Facades\OmnipayFacade::class,
         'Zipper' => Chumper\Zipper\Zipper::class,
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
