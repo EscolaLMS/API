@@ -6347,6 +6347,14 @@
                         "description": "summary",
                         "type": "string"
                     },
+                    "introduction": {
+                        "description": "introduction",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "description",
+                        "type": "string"
+                    },
                     "order": {
                         "description": "order",
                         "type": "integer"
