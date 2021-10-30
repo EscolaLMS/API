@@ -12,6 +12,7 @@ use EscolaLms\Auth\Dtos\UserUpdateSettingsDto;
 use EscolaLms\Auth\Models\Group;
 use Ramsey\Collection\Map\TypedMap;
 use Illuminate\Support\Facades\App;
+use EscolaLms\Core\Enums\UserRole;
 
 use Closure;
 
@@ -52,7 +53,8 @@ class Meetinga
         $userService = App::make(UserServiceContract::class);
         $userGroupService = App::make(UserGroupServiceContract::class);
 
-        $userSaveDto = new UserSaveDto($data['firstname'], $data['lastname'], true, [], $request->get('email'), $request->get('password'), true);
+        $roles = [UserRole::STUDENT];
+        $userSaveDto = new UserSaveDto($data['firstname'], $data['lastname'], true, $roles, $request->get('email'), $request->get('password'), true);
 
         $userSettings = collect($data)->only(['city', 'postal_code', 'country', 'gender'])->toArray();
 
