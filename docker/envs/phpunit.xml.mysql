@@ -3,11 +3,25 @@
          bootstrap="vendor/autoload.php" colors="true" convertErrorsToExceptions="true"
          convertNoticesToExceptions="true" convertWarningsToExceptions="true" processIsolation="false"
          stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
-  <coverage processUncoveredFiles="true">
-    <include>
-      <directory suffix=".php">./app</directory>
-    </include>
-  </coverage>
+         <coverage processUncoveredFiles="true">
+          <include>
+            <directory suffix=".php">./vendor/escolalms/auth/</directory>
+            <directory suffix=".php">./vendor/escolalms/cart/</directory>
+            <directory suffix=".php">./vendor/escolalms/categories/</directory>
+            <directory suffix=".php">./vendor/escolalms/core/</directory>
+            <directory suffix=".php">./vendor/escolalms/courses/</directory>
+            <directory suffix=".php">./vendor/escolalms/files/</directory>
+            <directory suffix=".php">./vendor/escolalms/headless-h5p/</directory>
+            <directory suffix=".php">./vendor/escolalms/images/</directory>
+            <directory suffix=".php">./vendor/escolalms/pages/</directory>
+            <directory suffix=".php">./vendor/escolalms/payments/</directory>
+            <directory suffix=".php">./vendor/escolalms/reports/</directory>
+            <directory suffix=".php">./vendor/escolalms/scorm/</directory>
+            <directory suffix=".php">./vendor/escolalms/settings/</directory>
+            <directory suffix=".php">./vendor/escolalms/tags/</directory>
+            <directory suffix=".php">./vendor/escolalms/video/</directory>
+          </include>
+        </coverage>
   <testsuites>
     <testsuite name="Integrations">
       <directory suffix="Test.php">./tests/Integrations</directory>
@@ -15,7 +29,7 @@
     <testsuite name="auth">
       <directory suffix="Test.php">./vendor/escolalms/auth/tests</directory>
     </testsuite>
-    <testsuite name="categories">
+    <testsuite name="cart">
       <directory suffix="Test.php">./vendor/escolalms/cart/tests</directory>
     </testsuite>
     <testsuite name="categories">
@@ -33,14 +47,29 @@
     <testsuite name="headless-h5p">
       <directory suffix="Test.php">./vendor/escolalms/headless-h5p/tests</directory>
     </testsuite>
+    <testsuite name="images">
+      <directory suffix="Test.php">./vendor/escolalms/images/tests</directory>
+    </testsuite>
     <testsuite name="payments">
       <directory suffix="Test.php">./vendor/escolalms/pages/tests</directory>
     </testsuite>
     <testsuite name="payments">
       <directory suffix="Test.php">./vendor/escolalms/payments/tests</directory>
     </testsuite>
+    <testsuite name="reports">
+      <directory suffix="Test.php">./vendor/escolalms/reports/tests</directory>
+    </testsuite>
+    <testsuite name="scorm">
+      <directory suffix="Test.php">./vendor/escolalms/scorm/tests</directory>
+    </testsuite>
+     <testsuite name="settings">
+      <directory suffix="Test.php">./vendor/escolalms/settings/tests</directory>
+    </testsuite>
     <testsuite name="tags">
       <directory suffix="Test.php">./vendor/escolalms/tags/tests</directory>
+    </testsuite>
+    <testsuite name="tags">
+      <directory suffix="Test.php">./vendor/escolalms/video/tests</directory>
     </testsuite>
   </testsuites>
   <php>
