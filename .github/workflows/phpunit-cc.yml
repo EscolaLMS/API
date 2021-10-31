@@ -47,9 +47,6 @@ jobs:
           php artisan passport:client --personal --no-interaction
           cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
 
-      - name: Publish things
-        run: php artisan migrate:fresh
-
       - name: Run tests
         run: XDEBUG_MODE=coverage vendor/bin/phpunit  --coverage-clover coverage.xml
 
