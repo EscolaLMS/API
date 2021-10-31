@@ -1,0 +1,57 @@
+name: Tests Code Coverage
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+
+jobs:
+  phpunit-code-coverage:
+    runs-on: ubuntu-latest
+    container:
+      image: escolalms/php:7.4
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: test
+        ports:
+          - 33306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - name: Instantiate package
+        run: apt-get install git -y
+
+      - name: Instantiate package
+        uses: actions/checkout@v2
+
+      - name: Prepare Laravel Application
+        run: |
+          cp docker/envs/.env.ci.mysql .env
+          cp docker/envs/.env.ci.mysql .env.testing
+          cp docker/envs/phpunit.xml.mysql phpunit.xml
+          php artisan key:generate
+          php artisan migrate:fresh
+          php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
+          php artisan passport:keys --force
+          php artisan passport:client --personal --no-interaction
+          cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
+
+      - name: Update composer
+        run: composer update
+
+      - name: Publish things
+        run: php artisan migrate:fresh
+
+      - name: Run tests
+        run: XDEBUG_MODE=coverage vendor/bin/phpunit  --coverage-clover coverage.xml
+
+      - name: codecov upload
+        uses: codecov/codecov-action@v1
