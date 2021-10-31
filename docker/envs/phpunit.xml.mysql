@@ -19,7 +19,8 @@
             <directory suffix=".php">./vendor/escolalms/scorm/</directory>
             <directory suffix=".php">./vendor/escolalms/settings/</directory>
             <directory suffix=".php">./vendor/escolalms/tags/</directory>
-            <directory suffix=".php">./vendor/escolalms/video/</directory>
+                  <!-- <directory suffix=".php">./vendor/escolalms/video/</directory> -->
+
           </include>
         </coverage>
   <testsuites>
@@ -68,9 +69,11 @@
     <testsuite name="tags">
       <directory suffix="Test.php">./vendor/escolalms/tags/tests</directory>
     </testsuite>
-    <testsuite name="tags">
+    <!--
+    <testsuite name="video">
       <directory suffix="Test.php">./vendor/escolalms/video/tests</directory>
     </testsuite>
+    -->
   </testsuites>
   <php>
     <env name="APP_KEY" value="AckfSECXIvnK5r28GVIWUAxmbBSjTsmF"/>
