@@ -1,0 +1,161 @@
+on: push
+name: Integration Tests
+jobs:
+  phpunit-mysql:
+    runs-on: ubuntu-latest
+    container:
+      image: escolasoft1/laravel-prod-docker:fpm
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: test
+        ports:
+          - 33306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: Install composer dependencies
+        run: |
+          apt-get -y install git
+          composer install --no-scripts
+
+      - name: Prepare Laravel Application
+        run: |
+          cp docker/envs/.env.ci.mysql .env
+          cp docker/envs/.env.ci.mysql .env.testing
+          cp docker/envs/phpunit.xml.mysql phpunit.xml
+          php artisan key:generate
+          php artisan migrate:fresh
+          php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
+          php artisan passport:keys --force
+          php artisan passport:client --personal --no-interaction
+          cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
+
+      - name: Run Testsuite
+        run: vendor/bin/phpunit
+
+  phpunit-postgres:
+    runs-on: ubuntu-latest
+    container:
+      image: escolasoft1/laravel-prod-docker:fpm
+
+    services:
+      postgres:
+        image: postgres:12
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: test
+          TZ: Europe/Warsaw
+        ports:
+          - 5432:5432
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: Install composer dependencies
+        run: |
+          apt-get -y install git
+          composer install --no-scripts
+
+      - name: Prepare Laravel Application
+        run: |
+          cp docker/envs/.env.ci.postgres .env
+          cp docker/envs/phpunit.xml.postgres phpunit.xml
+          php artisan key:generate
+          php artisan migrate:fresh
+          php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
+          php artisan passport:keys --force
+          php artisan passport:client --personal --no-interaction
+          cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
+
+      - name: Run Testsuite
+        run: vendor/bin/phpunit
+
+  behat-mysql:
+    runs-on: ubuntu-latest
+    container:
+      image: escolasoft1/laravel-prod-docker:fpm
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: test
+        ports:
+          - 33306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: Install composer dependencies
+        run: |
+          apt-get -y install git
+          composer install --no-scripts
+
+      - name: Prepare Laravel Application
+        run: |
+          cp docker/envs/.env.ci.mysql .env
+          cp docker/envs/phpunit.xml.mysql phpunit.xml
+          php artisan key:generate
+          php artisan migrate:fresh
+          php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
+          php artisan passport:keys --force
+          php artisan passport:client --personal --no-interaction
+          cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
+
+      - name: Run Testsuite
+        run: vendor/bin/phpunit
+
+  behat-postgres:
+    runs-on: ubuntu-latest
+    container:
+      image: escolasoft1/laravel-prod-docker:fpm
+
+    services:
+      postgres:
+        image: postgres:12
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: test
+          TZ: Europe/Warsaw
+        ports:
+          - 5432:5432
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: Install composer dependencies
+        run: |
+          apt-get -y install git
+          composer install --no-scripts
+
+      - name: Prepare Laravel Application
+        run: |
+          cp docker/envs/.env.ci.postgres .env
+          cp docker/envs/phpunit.xml.postgres phpunit.xml
+          php artisan key:generate
+          php artisan migrate:fresh
+          php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
+          php artisan passport:keys --force
+          php artisan passport:client --personal --no-interaction
+          cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
+
+      - name: Run Testsuite
+        run: vendor/bin/phpunit
