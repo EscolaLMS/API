@@ -32,20 +32,20 @@ jobs:
       - name: Instantiate package
         uses: actions/checkout@v2
 
+      - name: Update composer
+        run: composer update
+
       - name: Prepare Laravel Application
         run: |
           cp docker/envs/.env.ci.mysql .env
           cp docker/envs/.env.ci.mysql .env.testing
-          cp docker/envs/phpunit.xml.mysql phpunit.xml
+          cp docker/envs/phpunit.xml.cc phpunit.xml
           php artisan key:generate
           php artisan migrate:fresh
           php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
           php artisan passport:keys --force
           php artisan passport:client --personal --no-interaction
           cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
-
-      - name: Update composer
-        run: composer update
 
       - name: Publish things
         run: php artisan migrate:fresh
