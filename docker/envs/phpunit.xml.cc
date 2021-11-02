@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" backupStaticAttributes="false"
-         bootstrap="vendor/autoload.php" colors="true" convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true" convertWarningsToExceptions="true" processIsolation="false"
-         stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
-         <coverage processUncoveredFiles="true">
-          <include>
-            <directory suffix=".php">./vendor/escolalms/auth/</directory>
-            <directory suffix=".php">./vendor/escolalms/cart/</directory>
-            <directory suffix=".php">./vendor/escolalms/categories/</directory>
-            <directory suffix=".php">./vendor/escolalms/core/</directory>
-            <directory suffix=".php">./vendor/escolalms/courses/</directory>
-            <directory suffix=".php">./vendor/escolalms/files/</directory>
-            <directory suffix=".php">./vendor/escolalms/headless-h5p/</directory>
-            <directory suffix=".php">./vendor/escolalms/images/</directory>
-            <directory suffix=".php">./vendor/escolalms/pages/</directory>
-            <directory suffix=".php">./vendor/escolalms/payments/</directory>
-            <directory suffix=".php">./vendor/escolalms/reports/</directory>
-            <directory suffix=".php">./vendor/escolalms/scorm/</directory>
-            <directory suffix=".php">./vendor/escolalms/settings/</directory>
-            <directory suffix=".php">./vendor/escolalms/tags/</directory>
-                  <!-- <directory suffix=".php">./vendor/escolalms/video/</directory> -->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" backupStaticAttributes="false" bootstrap="vendor/autoload.php" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" processIsolation="false" stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <coverage processUncoveredFiles="true">
+    <include>
+      <directory suffix=".php">./vendor/escolalms/auth/</directory>
+      <directory suffix=".php">./vendor/escolalms/cart/</directory>
+      <directory suffix=".php">./vendor/escolalms/categories/</directory>
+      <directory suffix=".php">./vendor/escolalms/core/</directory>
+      <directory suffix=".php">./vendor/escolalms/courses/</directory>
+      <directory suffix=".php">./vendor/escolalms/files/</directory>
+      <directory suffix=".php">./vendor/escolalms/headless-h5p/</directory>
+      <directory suffix=".php">./vendor/escolalms/images/</directory>
+      <directory suffix=".php">./vendor/escolalms/pages/</directory>
+      <directory suffix=".php">./vendor/escolalms/payments/</directory>
+      <directory suffix=".php">./vendor/escolalms/reports/</directory>
+      <directory suffix=".php">./vendor/escolalms/scorm/</directory>
+      <directory suffix=".php">./vendor/escolalms/settings/</directory>
+      <directory suffix=".php">./vendor/escolalms/tags/</directory>
+            <!-- <directory suffix=".php">./vendor/escolalms/video/</directory> -->
 
-          </include>
-        </coverage>
+    </include>
+  </coverage>
   <testsuites>
     <testsuite name="Integrations">
       <directory suffix="Test.php">./tests/Integrations</directory>
@@ -75,13 +72,13 @@
     </testsuite>
     -->
   </testsuites>
-  <php>
+    <php>
     <env name="APP_KEY" value="AckfSECXIvnK5r28GVIWUAxmbBSjTsmF"/>
-    <env name="DB_CONNECTION" value="pgsql"/>
-    <env name="DB_HOST" value="postgres"/>
-    <env name="DB_PORT" value="5432"/>
+    <env name="DB_CONNECTION" value="mysql"/>
+    <env name="DB_HOST" value="mysql"/>
+    <env name="DB_PORT" value="3306"/>
     <env name="DB_DATABASE" value="test"/>
-    <env name="DB_USERNAME" value="postgres"/>
-    <env name="DB_PASSWORD" value="postgres"/>
+    <env name="DB_USERNAME" value="root"/>
+    <env name="DB_PASSWORD" value="password"/>
   </php>
 </phpunit>

@@ -32,8 +32,8 @@ describe("student API end-to-end test", () => {
   it("login", () => {
     submitLogin(email, "secret")
       .then((response) => {
-        expect(response.body).to.have.property("token");
-        token = response.body.token;
+        expect(response.body.data).to.have.property("token");
+        token = response.body.data.token;
       })
       .its("headers")
       .its("content-type")
