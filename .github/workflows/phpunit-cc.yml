@@ -51,12 +51,5 @@ jobs:
       - name: Run tests
         run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text
 
-      - name: Commit Code Coverage Image to Repo
-        uses: EndBug/add-and-commit@v5
-        with:
-          author_name: Aaron Saray
-          author_email: me@aaronsaray.com
-          message: "Committing code coverage image"
-          add: "docs/code-coverage.png"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: phpunit-coverage-badge
+        uses: timkrase/phpunit-coverage-badge@v1.2.0
