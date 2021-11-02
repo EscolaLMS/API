@@ -51,5 +51,10 @@ jobs:
       - name: Run tests
         run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text
 
-      - name: phpunit-coverage-badge
-        uses: timkrase/phpunit-coverage-badge@v1.2.0
+      - name: Generate Badge
+        run: php tests/badge.php
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: cc-badge.svg
+          path: tests/cc-badge.svg
