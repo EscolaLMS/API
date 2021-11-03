@@ -58,15 +58,10 @@ jobs:
         with:
           name: cc-badge.svg
           path: tests/cc-badge.svg
-          
+
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
-          add: 'cc-badge.svg'
-
-          # The name of the user that will be displayed as the author of the commit.
-          # Default: depends on the default_author input
-          author_name: Github Action
-
-          # The name of the branch to use, if different from the one that triggered the workflow.
-          # Default: the branch that triggered the run
-          branch: cc-badge       
+          add: "tests/cc-badge.svg"
+          branch: cc-badge
+          pull: NO-PULL
+          push: origin cc-badge --force
