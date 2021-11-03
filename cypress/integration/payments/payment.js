@@ -72,7 +72,7 @@ describe("buying course API end-to-end test", () => {
   const accessCourseProgress = () =>
     cy.request({
       method: "GET",
-      url: "/progress/" + course,
+      url: "/courses/progress",
       auth: {
         bearer: token,
       },
@@ -84,9 +84,8 @@ describe("buying course API end-to-end test", () => {
   it("login", () => {
     submitLogin(email, "secret")
       .then((response) => {
-        expect(response.body).to.have.property("token");
-        token = response.body.token;
-        cy.log(token);
+        expect(response.body.data).to.have.property("token");
+        token = response.body.data.token;
       })
       .its("headers")
       .its("content-type")
@@ -98,8 +97,8 @@ describe("buying course API end-to-end test", () => {
     findCourses()
       .then((response) => {
         expect(response.body).to.have.property("data");
-        course = response.body.data.data[0].id;
-        cy.log(course);
+        cy.log(response.body);
+        course = response.body.data[0].id;
       })
       .its("headers")
       .its("content-type")
@@ -123,7 +122,7 @@ describe("buying course API end-to-end test", () => {
     loadCart()
       .then((response) => {
         expect(response.status).to.eq(200);
-        expect(response.body.items[0].id).to.eq(course);
+        expect(response.body.data.items[0].id).to.eq(course);
       })
       .its("headers")
       .its("content-type")
@@ -160,28 +159,15 @@ describe("buying course API end-to-end test", () => {
       .should("include", "application/json");
   });
 
-  /*
-  * THIS TEST DOES NOT WORK BECAUSE THERE IS NO LOGIC IN COURSE POLICY CHECKING IF USER HAS ACCESS TO COURSE
-  // @test has access to course program
-  it("has access to course program", () => {
-    accessCourseProgram()
-      .then((response) => {
-        cy.log(JSON.stringify(response.body));
-        expect(response.status).to.eq(200);
-      })
-      .its("headers")
-      .its("content-type")
-      .should("include", "application/json");
-  });
-  */
-
   // @test has access to course progress
+
   it("has access to course progress", () => {
     accessCourseProgress()
       .then((response) => {
-        expect(response.status).to.eq(200);
-        expect(response.body[0].status).to.eq(0);
-        expect(response.body[0].topic_id).to.gt(0);
+        const progress = response.body.data.find(
+          (progress) => progress.course.id === course
+        );
+        expect(progress.progress).to.be.an("array");
       })
       .its("headers")
       .its("content-type")

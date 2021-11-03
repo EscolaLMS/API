@@ -9,16 +9,25 @@ Laravel Headless LMS REST API.
 [![downloads](https://img.shields.io/packagist/dt/escolalms/api)](https://packagist.org/packages/escolalms/api)
 [![downloads](https://img.shields.io/packagist/v/escolalms/api)](https://packagist.org/packages/escolalms/api)
 [![downloads](https://img.shields.io/packagist/l/escolalms/api)](https://packagist.org/packages/escolalms/api)
+[![Maintainability](https://api.codeclimate.com/v1/badges/68b4fbde49bcd465e482/maintainability)](https://codeclimate.com/github/EscolaLMS/API/maintainability)
 
 ## Packages
 
-- [Auth](https://github.com/EscolaLMS/Auth)
-- [Categories](https://github.com/EscolaLMS/Categories)
-- [Core](https://github.com/EscolaLMS/Core)
-- [Courses](https://github.com/EscolaLMS/Courses)
-- [Files](https://github.com/EscolaLMS/Files)
-- [Tags](https://github.com/EscolaLMS/Tags)
-- [H5P](https://github.com/EscolaLMS/H5P)
+- [escolalms/auth](https://packagist.org/packages/escolalms/)
+- [escolalms/cart](https://packagist.org/packages/escolalms/)
+- [escolalms/categories](https://packagist.org/packages/escolalms/)
+- [escolalms/core](https://packagist.org/packages/escolalms/)
+- [escolalms/courses](https://packagist.org/packages/escolalms/)
+- [escolalms/files](https://packagist.org/packages/escolalms/)
+- [escolalms/headless-h5p](https://packagist.org/packages/escolalms/)
+- [escolalms/images](https://packagist.org/packages/escolalms/)
+- [escolalms/pages](https://packagist.org/packages/escolalms/)
+- ["escolalms/payments](https://packagist.org/packages/escolalms/)
+- [escolalms/reports](https://packagist.org/packages/escolalms/)
+- [escolalms/scorm](https://packagist.org/packages/escolalms/)
+- [escolalms/settings](https://packagist.org/packages/escolalms/)
+- [escolalms/tags](https://packagist.org/packages/escolalms/)
+- [escolalms/video](https://packagist.org/packages/escolalms/)
 
 ## Installation
 

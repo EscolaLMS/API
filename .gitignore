@@ -46,3 +46,9 @@ yarn.lock
 
 
 packages
+
+*.pem
+
+clover.xml
+badge.svg
+tests/badge.svg

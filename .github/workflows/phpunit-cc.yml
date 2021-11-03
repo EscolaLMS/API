@@ -1,0 +1,72 @@
+name: Tests Code Coverage
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+      - master
+      - develop
+  pull_request:
+
+jobs:
+  phpunit-code-coverage:
+    runs-on: ubuntu-latest
+    container:
+      image: escolalms/php:8-work
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: test
+        ports:
+          - 33306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - name: Instantiate package
+        run: apt-get install git -y
+
+      - name: Instantiate package
+        uses: actions/checkout@v2
+
+      - name: Update composer
+        run: composer update
+
+      - name: Prepare Laravel Application
+        run: |
+          cp docker/envs/.env.ci.mysql .env
+          cp docker/envs/.env.ci.mysql .env.testing
+          cp docker/envs/phpunit.xml.cc phpunit.xml
+          php artisan key:generate
+          php artisan migrate:fresh
+          php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
+          php artisan passport:keys --force
+          php artisan passport:client --personal --no-interaction
+          cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
+
+      - name: Run tests
+        run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text
+
+      - name: Generate Badge
+        run: php tests/badge.php
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: cc-badge.svg
+          path: tests/cc-badge.svg
+          
+      - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
+        with:
+          add: 'cc-badge.svg'
+
+          # The name of the user that will be displayed as the author of the commit.
+          # Default: depends on the default_author input
+          author_name: Github Action
+
+          # The name of the branch to use, if different from the one that triggered the workflow.
+          # Default: the branch that triggered the run
+          branch: cc-badge       

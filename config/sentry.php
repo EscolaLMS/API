@@ -2,7 +2,7 @@
 
 return [
 
-    'dsn' => env('SENTRY_LARAVEL_DSN'),
+    'dsn' => env('SENTRY_LARAVEL_DSN', env('SENTRY_DSN')),
 
     // capture release as git sha
     // 'release' => trim(exec('git --git-dir ' . base_path('.git') . ' log --pretty="%h" -n1 HEAD')),
@@ -25,6 +25,26 @@ return [
 
         // Capture command information in breadcrumbs
         'command_info' => true,
+    ],
+
+    'tracing' => [
+        // Trace queue jobs as their own transactions
+        'queue_job_transactions' => env('SENTRY_TRACE_QUEUE_ENABLED', false),
+
+        // Capture queue jobs as spans when executed on the sync driver
+        'queue_jobs' => true,
+
+        // Capture SQL queries as spans
+        'sql_queries' => true,
+
+        // Try to find out where the SQL query originated from and add it to the query spans
+        'sql_origin' => true,
+
+        // Capture views as spans
+        'views' => true,
+
+        // Indicates if the tracing integrations supplied by Sentry should be loaded
+        'default_integrations' => true,
     ],
 
     // @see: https://docs.sentry.io/platforms/php/configuration/options/#send-default-pii

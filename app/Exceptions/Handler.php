@@ -2,9 +2,8 @@
 
 namespace App\Exceptions;
 
+use EscolaLms\Auth\Exceptions\OnboardingNotCompleted;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -24,6 +23,7 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontFlash = [
+        'current_password',
         'password',
         'password_confirmation',
     ];
@@ -42,32 +42,11 @@ class Handler extends ExceptionHandler
         $this->renderable(function (ForbiddenException $exception, $request) {
             return response()->json(['error' => $exception->getMessage()], 403);
         });
-    }
 
-    /**
-     * Report or log an exception.
-     *
-     * @param Throwable  $exception
-     * @return void
-     */
-    public function report(Throwable $exception)
-    {
-        if (app()->bound('sentry') && $this->shouldReport($exception)) {
-            app('sentry')->captureException($exception);
-        }
-
-        parent::report($exception);
-    }
-
-    /**
-     * Render an exception into an HTTP response.
-     *
-     * @param Request $request
-     * @param Throwable $exception
-     * @return Response
-     */
-    public function render($request, Throwable $exception)
-    {
-        return parent::render($request, $exception);
+        $this->reportable(function (Throwable $e) {
+            if ($this->shouldReport($e) && app()->bound('sentry')) {
+                app('sentry')->captureException($e);
+            }
+        });
     }
 }
