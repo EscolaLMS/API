@@ -64,4 +64,4 @@ jobs:
           add: "tests/cc-badge.svg"
           branch: cc-badge
           pull: NO-PULL
-          push: --set-upstream origin cc-badge
+          push: origin cc-badge --force
