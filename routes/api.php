@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ScormController;
 use EscolaLms\Auth\Http\Controllers\LoginApiController;
-use App\Http\Middleware\Meetinga;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +24,6 @@ Route::get('/debug-sentry', function () {
     throw new Exception('Test Sentry error!');
 });
 
-Route::post('auth/login', [LoginApiController::class, 'login'])->name('login.api')->middleware(Meetinga::class);
 
 
 
