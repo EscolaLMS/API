@@ -71,6 +71,4 @@ jobs:
           # Default: the branch that triggered the run
           branch: cc-badge
 
-          # Arguments for the git pull command. Use NO-PULL to avoid the action pulling at all.
-          # Default: '--no-rebase'
-          pull: "NO-PULL"
+          pull: --autostash
