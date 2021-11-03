@@ -13,6 +13,10 @@ Laravel Headless LMS REST API.
 
 ## Packages
 
+Summary code coverage from all the packages [![cc](https://raw.githubusercontent.com/EscolaLMS/API/cc-badge/tests/cc-badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml) [![Tests Code Coverage](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml/badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
+
+
+
 - [escolalms/auth](https://packagist.org/packages/escolalms/)
 - [escolalms/cart](https://packagist.org/packages/escolalms/)
 - [escolalms/categories](https://packagist.org/packages/escolalms/)
