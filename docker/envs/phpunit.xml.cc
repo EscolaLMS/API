@@ -71,8 +71,8 @@
     <testsuite name="tags">
       <directory suffix="Test.php">./vendor/escolalms/tags/tests</directory>
     </testsuite>
-    <testsuite name="tags">
-      <directory suffix="Test.php">./vendor/escolalms/tags/topic-types</directory>
+    <testsuite name="topic-types">
+      <directory suffix="Test.php">./vendor/escolalms/topic-types</directory>
     </testsuite>
     <!--
     <testsuite name="video">
