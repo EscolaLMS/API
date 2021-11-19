@@ -2173,6 +2173,44 @@
                 ]
             }
         },
+        "/api/admin/courses/{id}/export": {
+            "get": {
+                "tags": [
+                    "Admin Courses"
+                ],
+                "description": "Exports course to ZIP package ",
+                "operationId": "4d345f589c999b1f02e785b1566386fc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/courses": {
             "get": {
                 "tags": [
@@ -4376,6 +4414,47 @@
                 }
             }
         },
+        "/api/hh5p/content/{id}/export": {
+            "get": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Downloads h5p content to packagee",
+                "description": "Downloads h5p content to package",
+                "operationId": "fd8617215b5d9c1831428a7fdcceda86",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of content that will be exported",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "validation error",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "unauthorised",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/hh5p/editor": {
             "get": {
                 "tags": [
@@ -5633,6 +5712,44 @@
                 ]
             }
         },
+        "/api/admin/config": {
+            "get": {
+                "tags": [
+                    "Admin Settings"
+                ],
+                "summary": "Get admin config",
+                "description": "Get a listing of registered config keys",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Admin Settings"
+                ],
+                "summary": "Set config for registered config keys",
+                "operationId": "e4b582c031121b9188d65e35da218c7a",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/settings": {
             "get": {
                 "tags": [
@@ -5836,6 +5953,23 @@
                         "passport": []
                     }
                 ]
+            }
+        },
+        "/api/config": {
+            "get": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Get a listing of public config values.",
+                "description": "Get public config values",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
             }
         },
         "/api/settings": {
@@ -6362,115 +6496,6 @@
                     "json": {
                         "description": "json",
                         "type": "object"
-                    }
-                },
-                "type": "object"
-            },
-            "TopicAudio": {
-                "required": [
-                    "value"
-                ],
-                "properties": {
-                    "id": {
-                        "description": "id"
-                    },
-                    "value": {
-                        "description": "value",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "TopicH5P": {
-                "required": [
-                    "value"
-                ],
-                "properties": {
-                    "id": {
-                        "description": "id"
-                    },
-                    "value": {
-                        "description": "value",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "TopicImage": {
-                "required": [
-                    "value"
-                ],
-                "properties": {
-                    "id": {
-                        "description": "id"
-                    },
-                    "value": {
-                        "description": "value",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "TopicOEmbed": {
-                "required": [
-                    "value"
-                ],
-                "properties": {
-                    "id": {
-                        "description": "id"
-                    },
-                    "value": {
-                        "description": "value",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "TopicPDF": {
-                "required": [
-                    "value"
-                ],
-                "properties": {
-                    "id": {
-                        "description": "id"
-                    },
-                    "value": {
-                        "description": "value",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "TopicRichText": {
-                "required": [
-                    "value"
-                ],
-                "properties": {
-                    "id": {
-                        "description": "id"
-                    },
-                    "value": {
-                        "description": "value",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "TopicVideo": {
-                "required": [
-                    "value"
-                ],
-                "properties": {
-                    "id": {
-                        "description": "id"
-                    },
-                    "value": {
-                        "description": "value",
-                        "type": "string"
-                    },
-                    "poster": {
-                        "description": "poster",
-                        "type": "string"
                     }
                 },
                 "type": "object"
