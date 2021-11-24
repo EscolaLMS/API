@@ -2,17 +2,16 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
+use App\Models\User;
 use EscolaLms\Courses\Models\Course;
 use EscolaLms\Courses\Models\Lesson;
 use EscolaLms\Courses\Models\Topic;
-use EscolaLms\Courses\Models\TopicContent\RichText;
-use EscolaLms\Courses\Models\TopicContent\Video;
-use EscolaLms\Courses\Models\TopicContent\H5P;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 use EscolaLms\HeadlessH5P\Services\Contracts\HeadlessH5PServiceContract;
-
+use EscolaLms\TopicTypes\Models\TopicContent\H5P;
+use EscolaLms\TopicTypes\Models\TopicContent\RichText;
+use EscolaLms\TopicTypes\Models\TopicContent\Video;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class CyfrowyDobrostanSeeder extends Seeder
 {
