@@ -6397,6 +6397,26 @@
                     "poster_url": {
                         "description": "poster_url",
                         "type": "string"
+                    },
+                    "active_from": {
+                        "description": "active_from",
+                        "type": "datetime"
+                    },
+                    "active_to": {
+                        "description": "active_to",
+                        "type": "datetime"
+                    },
+                    "hours_to_complete": {
+                        "description": "hours_to_complete",
+                        "type": "integer"
+                    },
+                    "purchasable": {
+                        "description": "purchasable",
+                        "type": "boolean"
+                    },
+                    "findable": {
+                        "description": "findable",
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
