@@ -7,7 +7,7 @@ use EscolaLms\Courses\Models\Course;
 use EscolaLms\Courses\Models\Lesson;
 use EscolaLms\Courses\Models\Topic;
 use EscolaLms\HeadlessH5P\Models\H5PContent;
-use EscolaLms\Courses\Models\TopicContent\H5P;
+use EscolaLms\TopicTypes\Models\TopicContent\H5P;
 use Peopleaps\Scorm\Model\ScormModel;
 
 class PostCoursesSeeder extends Seeder
