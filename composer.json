@@ -39,6 +39,7 @@
     "escolalms/files": "^0",
     "escolalms/headless-h5p": "^0",
     "escolalms/images": "^0",
+    "escolalms/notifications": "^0",
     "escolalms/pages": "^0",
     "escolalms/payments": "^0",
     "escolalms/reports": "^0",
