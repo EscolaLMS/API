@@ -1,135 +1,135 @@
 {
-    "name": "escolalms/api",
-    "description": "Headless LMS",
-    "type": "project",
-    "keywords": [
-        "lms",
-        "learning-management-system",
-        "laravel",
-        "reactjs"
-    ],
-    "homepage": "https://lms.escolasoft.com",
-    "license": "MIT",
-    "authors": [{
-            "name": "Mateusz Wojczal",
-            "email": "mateusz@wojczal.com"
-        },
-        {
-            "name": "Paweł Chołaj",
-            "email": "pawel.cholaj@escola.pl",
-            "homepage": "https://cholaj.pl"
-        }
-    ],
-    "require": {
-        "php": ">=7.4",
-        "behat/mink-browserkit-driver": "^1.3",
-        "bensampo/laravel-enum": "3.x",
-        "darkaonline/l5-swagger": "^8.0.0",
-        "davidbadura/faker-markdown-generator": "=1.1.0",
-        "devianl2/laravel-scorm": "^2.0",
-        "dmore/behat-chrome-extension": "^1.3",
-        "dmore/chrome-mink-driver": "^2.7",
-        "doctrine/dbal": "^2",
-        "escolalms/auth": "^0",
-        "escolalms/cart": "^0",
-        "escolalms/categories": "^0",
-        "escolalms/core": "^1",
-        "escolalms/courses": "^0",
-        "escolalms/files": "^0",
-        "escolalms/headless-h5p": "^0",
-        "escolalms/images": "^0",
-        "escolalms/pages": "^0",
-        "escolalms/payments": "^0",
-        "escolalms/reports": "^0",
-        "escolalms/scorm": "^0",
-        "escolalms/settings": "^0",
-        "escolalms/tags": "^0",
-        "escolalms/video": "^0",
-        "fideloper/proxy": "^4.0",
-        "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.3",
-        "infyomlabs/laravel-generator": "8.0.x-dev",
-        "laravel/framework": "^8.0",
-        "laravel/helpers": "^1.4",
-        "laravel/horizon": "^5.7",
-        "laravel/passport": "^10.0",
-        "laravel/socialite": "v5.1.3",
-        "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.0",
-        "laravelcollective/html": "^6.2",
-        "predis/predis": "^1.1",
-        "sentry/sentry-laravel": "^2.3",
-        "spatie/laravel-permission": "^3.18"
+  "name": "escolalms/api",
+  "description": "Headless LMS",
+  "type": "project",
+  "keywords": [
+    "lms",
+    "learning-management-system",
+    "laravel",
+    "reactjs"
+  ],
+  "homepage": "https://lms.escolasoft.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mateusz Wojczal",
+      "email": "mateusz@wojczal.com"
     },
-    "require-dev": {
-        "barryvdh/laravel-ide-helper": "^2.9",
-        "behat/behat": "^3.8",
-        "behat/mink": "^1.8",
-        "beyondcode/laravel-dump-server": "^1.0",
-        "brainmaestro/composer-git-hooks": "^2.8",
-        "facade/ignition": "^2.0",
-        "fakerphp/faker": "^1.9.1",
-        "filp/whoops": "^2.0",
-        "friends-of-behat/mink-extension": "^2.4",
-        "friendsofphp/php-cs-fixer": "^2.16",
-        "infyomlabs/swagger-generator": "dev-master",
-        "laracasts/behat-laravel-extension": "dev-master as 1.1",
-        "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^5.0",
-        "orchestra/testbench": "^6.17",
-        "php-mock/php-mock-phpunit": "^2.6",
-        "phpunit/phpunit": "^9.0"
-    },
-    "config": {
-        "optimize-autoloader": true,
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "dont-discover": []
-        },
-        "hooks": {
-            "pre-commit": [
-                "echo committing as $(git config user.name)",
-                "php-cs-fixer fix ."
-            ]
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "App\\": "app/",
-            "Database\\Factories\\": "database/factories",
-            "Database\\Seeders\\": "database/seeds"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/",
-            "Features\\": "features/"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "scripts": {
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
-        ],
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate --ansi"
-        ],
-        "siffer": [
-            "./vendor/bin/php-cs-fixer fix ."
-        ],
-        "behat": [
-            "./vendor/bin/behat"
-        ]
-    },
-    "repositories": {
-
+    {
+      "name": "Paweł Chołaj",
+      "email": "pawel.cholaj@escola.pl",
+      "homepage": "https://cholaj.pl"
     }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "behat/mink-browserkit-driver": "^1.3",
+    "darkaonline/l5-swagger": "^8.0.0",
+    "davidbadura/faker-markdown-generator": "=1.1.0",
+    "devianl2/laravel-scorm": "^2.0",
+    "dmore/behat-chrome-extension": "^1.3",
+    "dmore/chrome-mink-driver": "^2.7",
+    "doctrine/dbal": "^2",
+    "escolalms/auth": "^0",
+    "escolalms/cart": "^0",
+    "escolalms/categories": "^0",
+    "escolalms/core": "^1",
+    "escolalms/courses": "^0",
+    "escolalms/courses-import-export": "^0",
+    "escolalms/files": "^0",
+    "escolalms/headless-h5p": "^0",
+    "escolalms/images": "^0",
+    "escolalms/notifications": "^0",
+    "escolalms/pages": "^0",
+    "escolalms/payments": "^0",
+    "escolalms/reports": "^0",
+    "escolalms/scorm": "^0",
+    "escolalms/settings": "^0",
+    "escolalms/tags": "^0",
+    "escolalms/topic-types": "^0",
+    "escolalms/video": "^0",
+    "fideloper/proxy": "^4.0",
+    "fruitcake/laravel-cors": "^2.0",
+    "guzzlehttp/guzzle": "^7.3",
+    "infyomlabs/laravel-generator": "8.0.x-dev",
+    "laravel/framework": "^8.0",
+    "laravel/helpers": "^1.4",
+    "laravel/horizon": "^5.7",
+    "laravel/passport": "^10.0",
+    "laravel/socialite": "v5.1.3",
+    "laravel/tinker": "^2.5",
+    "laravel/ui": "^3.0",
+    "laravelcollective/html": "^6.2",
+    "predis/predis": "^1.1",
+    "sentry/sentry-laravel": "^2.3",
+    "spatie/laravel-permission": "^3.18"
+  },
+  "require-dev": {
+    "barryvdh/laravel-ide-helper": "^2.9",
+    "behat/behat": "^3.8",
+    "behat/mink": "^1.8",
+    "beyondcode/laravel-dump-server": "^1.0",
+    "brainmaestro/composer-git-hooks": "^2.8",
+    "facade/ignition": "^2.0",
+    "fakerphp/faker": "^1.9.1",
+    "filp/whoops": "^2.0",
+    "friends-of-behat/mink-extension": "^2.4",
+    "friendsofphp/php-cs-fixer": "^2.16",
+    "infyomlabs/swagger-generator": "dev-master",
+    "laracasts/behat-laravel-extension": "dev-master as 1.1",
+    "mockery/mockery": "^1.0",
+    "nunomaduro/collision": "^5.0",
+    "orchestra/testbench": "^6.17",
+    "php-mock/php-mock-phpunit": "^2.6",
+    "phpunit/phpunit": "^9.0"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "dont-discover": []
+    },
+    "hooks": {
+      "pre-commit": [
+        "echo committing as $(git config user.name)",
+        "php-cs-fixer fix ."
+      ]
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Database\\Factories\\": "database/factories",
+      "Database\\Seeders\\": "database/seeds"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/",
+      "Features\\": "features/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "post-autoload-dump": [
+      "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+      "@php artisan package:discover --ansi"
+    ],
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-create-project-cmd": [
+      "@php artisan key:generate --ansi"
+    ],
+    "siffer": [
+      "./vendor/bin/php-cs-fixer fix ."
+    ],
+    "behat": [
+      "./vendor/bin/behat"
+    ]
+  }
 }
