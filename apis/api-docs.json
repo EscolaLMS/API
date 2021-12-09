@@ -5389,6 +5389,240 @@
                 ]
             }
         },
+        "/api/admin/roles": {
+            "get": {
+                "tags": [
+                    "Admin Permissions"
+                ],
+                "summary": "Lists available roles",
+                "operationId": "04785cedb441c10e294501e023d36a09",
+                "responses": {
+                    "200": {
+                        "description": "list of available roles",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "Roles",
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Role"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin Permissions"
+                ],
+                "summary": "Find or Create a Role",
+                "operationId": "b4aec7e5d6b5025dde40d775d0f0fe0c",
+                "requestBody": {
+                    "description": "Role attributes. Just name, rest are omitted",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Role"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Role created of found successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/roles/{id}": {
+            "delete": {
+                "tags": [
+                    "Admin Permissions"
+                ],
+                "summary": "Delete a Role identified by a name",
+                "operationId": "23bbd7781bd45c87250b5577c25b999c",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "Unique human-readable role identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "role deleted successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "400": {
+                        "description": "cannot find a template with provided slug identifier"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Admin Permissions"
+                ],
+                "summary": "Update an existing Role identified by name by list or new permissions",
+                "operationId": "19f8a9376dd2bfbee5f034c4efaa23c4",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "Unique human-readable template identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Array of named permissions",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "permissions": {
+                                        "description": "Permissions",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "template updated successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "400": {
+                        "description": "cannot find a template with provided slug identifier"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/templates/{name}": {
+            "get": {
+                "tags": [
+                    "Admin Permissions"
+                ],
+                "summary": "Read a role and returns list of all permissions ",
+                "operationId": "7b8a80a0ef5bb2f6b8729e58cc6cc8a5",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "Unique human-readable template identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "list of available roles",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "Permissions",
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Permission"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/reports/metrics": {
             "get": {
                 "tags": [
@@ -7091,6 +7325,53 @@
                     "billable_type": {
                         "description": "billable_type",
                         "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Role": {
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id ",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "name ",
+                        "type": "string"
+                    },
+                    "guard_name": {
+                        "description": "Guard Name",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Permission": {
+                "required": [
+                    "id",
+                    "name",
+                    "guard_name",
+                    "assigned"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id ",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "name ",
+                        "type": "string"
+                    },
+                    "guard_name": {
+                        "description": "Guard Name",
+                        "type": "string"
+                    },
+                    "assigned": {
+                        "description": "Is permission assigned to current role",
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
