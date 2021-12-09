@@ -13,6 +13,7 @@
       <directory suffix=".php">./vendor/escolalms/images/</directory>
       <directory suffix=".php">./vendor/escolalms/pages/</directory>
       <directory suffix=".php">./vendor/escolalms/payments/</directory>
+      <directory suffix=".php">./vendor/escolalms/permissions/</directory>
       <directory suffix=".php">./vendor/escolalms/reports/</directory>
       <directory suffix=".php">./vendor/escolalms/scorm/</directory>
       <directory suffix=".php">./vendor/escolalms/settings/</directory>
@@ -58,6 +59,9 @@
     </testsuite>
     <testsuite name="payments">
       <directory suffix="Test.php">./vendor/escolalms/payments/tests</directory>
+    </testsuite>
+    <testsuite name="permissions">
+      <directory suffix="Test.php">./vendor/escolalms/permissions/tests</directory>
     </testsuite>
     <testsuite name="reports">
       <directory suffix="Test.php">./vendor/escolalms/reports/tests</directory>
