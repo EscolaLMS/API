@@ -4736,6 +4736,120 @@
                 }
             }
         },
+        "/api/notifications": {
+            "get": {
+                "tags": [
+                    "Notifications"
+                ],
+                "summary": "Get notifications",
+                "description": "Get paginated list of notifications sent using `database` channel",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/admin/notifications/:user": {
+            "get": {
+                "tags": [
+                    "Notifications Admin"
+                ],
+                "summary": "Get notifications",
+                "description": "Get paginated list of notifications sent using `database` channel",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "event",
+                        "in": "query",
+                        "description": "Event class filter",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "User Id (if empty, will return all notifications)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/admin/notifications/events": {
+            "get": {
+                "tags": [
+                    "Notifications Admin"
+                ],
+                "summary": "Get list of events for which notifications exist",
+                "description": "Get list of events for which notifications exist",
+                "operationId": "098ad8257c50e79bcc105481d832cfd1",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/admin/pages": {
             "get": {
                 "tags": [
@@ -5497,7 +5611,7 @@
                         "description": "user doesn't have required access rights"
                     },
                     "400": {
-                        "description": "cannot find a template with provided slug identifier"
+                        "description": "cannot find a role with provided slug identifier"
                     },
                     "500": {
                         "description": "server-side error"
@@ -5519,7 +5633,7 @@
                     {
                         "name": "name",
                         "in": "path",
-                        "description": "Unique human-readable template identifier",
+                        "description": "Unique human-readable role identifier",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -5548,7 +5662,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "template updated successfully"
+                        "description": "role updated successfully"
                     },
                     "401": {
                         "description": "endpoint requires authentication"
@@ -5557,7 +5671,7 @@
                         "description": "user doesn't have required access rights"
                     },
                     "400": {
-                        "description": "cannot find a template with provided slug identifier"
+                        "description": "cannot find a role with provided slug identifier"
                     },
                     "422": {
                         "description": "one of the parameters has invalid format"
@@ -5573,13 +5687,13 @@
                 ]
             }
         },
-        "/api/admin/templates/{name}": {
+        "/api/admin/roles/{name}": {
             "get": {
                 "tags": [
                     "Admin Permissions"
                 ],
                 "summary": "Read a role and returns list of all permissions ",
-                "operationId": "7b8a80a0ef5bb2f6b8729e58cc6cc8a5",
+                "operationId": "45d7c2575deef68348ecb1ffaed5ca94",
                 "parameters": [
                     {
                         "name": "name",
@@ -7253,6 +7367,39 @@
                     "libraryId": {
                         "description": "ID of library. Alias",
                         "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "Notification": {
+                "properties": {
+                    "id": {
+                        "description": "notification uuid",
+                        "type": "integer"
+                    },
+                    "type": {
+                        "description": "notification full classname",
+                        "type": "string"
+                    },
+                    "event": {
+                        "description": "event full classname",
+                        "type": "string"
+                    },
+                    "notifiable_type": {
+                        "description": "class representing User that got the notification",
+                        "type": "string"
+                    },
+                    "notifiable_id": {
+                        "description": "id of User that got the notification",
+                        "type": "string"
+                    },
+                    "data": {
+                        "description": "all notification data",
+                        "type": "object"
+                    },
+                    "read_at": {
+                        "description": "timestamp when notification was marked as read",
+                        "type": "datetime"
                     }
                 },
                 "type": "object"
