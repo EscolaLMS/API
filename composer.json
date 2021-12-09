@@ -42,6 +42,7 @@
     "escolalms/notifications": "^0",
     "escolalms/pages": "^0",
     "escolalms/payments": "^0",
+    "escolalms/permissions": "^0",
     "escolalms/reports": "^0",
     "escolalms/scorm": "^0",
     "escolalms/settings": "^0",

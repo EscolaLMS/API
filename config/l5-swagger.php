@@ -44,6 +44,7 @@ return [
                     base_path('vendor/escolalms/headless-h5p/src'),
                     base_path('vendor/escolalms/pages/src'),
                     base_path('vendor/escolalms/payments/src'),
+                    base_path('vendor/escolalms/permissions/src'),
                     base_path('vendor/escolalms/tags/src'),
                     base_path('vendor/escolalms/scorm/src'),
                     base_path('vendor/escolalms/settings/src'),

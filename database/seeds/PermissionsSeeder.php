@@ -11,6 +11,7 @@ use EscolaLms\CoursesImportExport\Database\Seeders\CoursesExportImportPermission
 use EscolaLms\Files\Database\Seeders\PermissionTableSeeder as FilePermissionTableSeeder;
 use EscolaLms\Pages\Database\Seeders\PermissionTableSeeder as PagesPermissionTableSeeder;
 use EscolaLms\Payments\Database\Seeders\PaymentsPermissionsSeeder;
+use EscolaLms\Permissions\Database\Seeders\PermissionTableSeeder as PermissionsPermissionTableSeeder;
 use EscolaLms\Reports\Database\Seeders\ReportsPermissionSeeder;
 use EscolaLms\Scorm\Database\Seeders\PermissionTableSeeder as ScormPermissionTableSeeder;
 use EscolaLms\Settings\Database\Seeders\PermissionTableSeeder as SettingsPermissionTableSeeder;
@@ -38,5 +39,6 @@ class PermissionsSeeder extends Seeder
         $this->call(SettingsPermissionTableSeeder::class);
         $this->call(ReportsPermissionSeeder::class);
         $this->call(CoursesExportImportPermissionSeeder::class);
+        $this->call(PermissionsPermissionTableSeeder::class);
     }
 }
