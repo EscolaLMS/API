@@ -5582,13 +5582,61 @@
                 ]
             }
         },
-        "/api/admin/roles/{id}": {
+        "/api/admin/roles/{name}": {
+            "get": {
+                "tags": [
+                    "Admin Permissions"
+                ],
+                "summary": "Read a role and returns list of all permissions ",
+                "operationId": "45d7c2575deef68348ecb1ffaed5ca94",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "Unique human-readable template identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "list of available roles",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "Permissions",
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Permission"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
             "delete": {
                 "tags": [
                     "Admin Permissions"
                 ],
                 "summary": "Delete a Role identified by a name",
-                "operationId": "23bbd7781bd45c87250b5577c25b999c",
+                "operationId": "e6054e16c68404cfa52cdfbde74b20bc",
                 "parameters": [
                     {
                         "name": "name",
@@ -5628,7 +5676,7 @@
                     "Admin Permissions"
                 ],
                 "summary": "Update an existing Role identified by name by list or new permissions",
-                "operationId": "19f8a9376dd2bfbee5f034c4efaa23c4",
+                "operationId": "a7eb4bc58ccc39d51d8a4eb4a4e51a15",
                 "parameters": [
                     {
                         "name": "name",
@@ -5675,56 +5723,6 @@
                     },
                     "422": {
                         "description": "one of the parameters has invalid format"
-                    },
-                    "500": {
-                        "description": "server-side error"
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/roles/{name}": {
-            "get": {
-                "tags": [
-                    "Admin Permissions"
-                ],
-                "summary": "Read a role and returns list of all permissions ",
-                "operationId": "45d7c2575deef68348ecb1ffaed5ca94",
-                "parameters": [
-                    {
-                        "name": "name",
-                        "in": "path",
-                        "description": "Unique human-readable template identifier",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "list of available roles",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "description": "Permissions",
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Permission"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "endpoint requires authentication"
-                    },
-                    "403": {
-                        "description": "user doesn't have required access rights"
                     },
                     "500": {
                         "description": "server-side error"
