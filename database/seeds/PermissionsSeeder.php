@@ -15,6 +15,7 @@ use EscolaLms\Permissions\Database\Seeders\PermissionTableSeeder as PermissionsP
 use EscolaLms\Reports\Database\Seeders\ReportsPermissionSeeder;
 use EscolaLms\Scorm\Database\Seeders\PermissionTableSeeder as ScormPermissionTableSeeder;
 use EscolaLms\Settings\Database\Seeders\PermissionTableSeeder as SettingsPermissionTableSeeder;
+use EscolaLms\Notifications\Database\Seeders\NotificationsPermissionsSeeder;
 use Illuminate\Database\Seeder;
 
 class PermissionsSeeder extends Seeder
@@ -40,5 +41,6 @@ class PermissionsSeeder extends Seeder
         $this->call(ReportsPermissionSeeder::class);
         $this->call(CoursesExportImportPermissionSeeder::class);
         $this->call(PermissionsPermissionTableSeeder::class);
+        $this->call(NotificationsPermissionsSeeder::class);
     }
 }
