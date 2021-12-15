@@ -48,7 +48,7 @@
     "escolalms/settings": "^0",
     "escolalms/tags": "^0",
     "escolalms/templates": "^0.1.2",
-    "escolalms/templates-email": "^0.0.1",
+    "escolalms/templates-email": "^0.0.2",
     "escolalms/topic-types": "^0",
     "escolalms/video": "^0",
     "fideloper/proxy": "^4.0",
