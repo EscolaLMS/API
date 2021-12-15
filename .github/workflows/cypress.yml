@@ -16,6 +16,10 @@ jobs:
     container:
       image: escolalms/php:8-work
 
+    env:
+      MJML_API_ID: ${{ secrets.MJML_API_ID }}
+      MJML_API_SECRET: ${{ secrets.MJML_API_SECRET }}
+
     services:
       mailhog:
         image: mailhog/mailhog
