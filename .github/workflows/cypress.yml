@@ -70,6 +70,8 @@ jobs:
         with:
           record: true
         env:
+          MJML_API_ID: ${{ secrets.MJML_API_ID }}
+          MJML_API_SECRET: ${{ secrets.MJML_API_SECRET }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
