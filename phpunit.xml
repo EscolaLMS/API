@@ -20,6 +20,8 @@
       <directory suffix=".php">./vendor/escolalms/settings/</directory>
       <directory suffix=".php">./vendor/escolalms/tags/</directory>
       <directory suffix=".php">./vendor/escolalms/topic-types/</directory>
+      <directory suffix=".php">./vendor/escolalms/templates/</directory>
+      <directory suffix=".php">./vendor/escolalms/templates-email/</directory>
 
       <!-- <directory suffix=".php">./vendor/escolalms/video/</directory> -->
     </include>
@@ -81,6 +83,12 @@
     </testsuite>
     <testsuite name="topic-types">
       <directory suffix="Test.php">./vendor/escolalms/topic-types</directory>
+    </testsuite>
+    <testsuite name="templates">
+      <directory suffix="Test.php">./vendor/escolalms/templates</directory>
+    </testsuite>
+    <testsuite name="templates-email">
+      <directory suffix="Test.php">./vendor/escolalms/templates-email</directory>
     </testsuite>
     <!--
     <testsuite name="video">
