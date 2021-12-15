@@ -493,15 +493,24 @@
                         "passport": []
                     }
                 ]
-            }
-        },
-        "/api/admin/profile/settings": {
+            },
             "put": {
                 "tags": [
                     "Admin User Settings"
                 ],
                 "summary": "Set user setting (removes settings not sent)",
-                "operationId": "c708b42f7a3384f7dac4948cd32067ae",
+                "operationId": "627fa0b4345ae425ec538acb5a7123da",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
                 "requestBody": {},
                 "responses": {
                     "200": {
@@ -522,7 +531,18 @@
                     "Admin User Settings"
                 ],
                 "summary": "Update user setting(s) without changing other settings",
-                "operationId": "05262dc638d68856b1576634c71637ff",
+                "operationId": "d94fdda15a77a065cfc3be5ec05fdf47",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
                 "requestBody": {},
                 "responses": {
                     "200": {
@@ -4775,13 +4795,14 @@
                 }
             }
         },
-        "/api/admin/notifications/:user": {
+        "/api/admin/notifications/{user}": {
             "get": {
                 "tags": [
                     "Notifications Admin"
                 ],
                 "summary": "Get notifications",
                 "description": "Get paginated list of notifications sent using `database` channel",
+                "operationId": "7bd36059d0d069a036d491796df0275e",
                 "parameters": [
                     {
                         "name": "page",
@@ -4813,6 +4834,15 @@
                         }
                     },
                     {
+                        "name": "include_read",
+                        "in": "query",
+                        "description": "Include read notifications",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
                         "name": "user",
                         "in": "path",
                         "description": "User Id (if empty, will return all notifications)",
@@ -4832,6 +4862,23 @@
                 }
             }
         },
+        "/api/notifications/events": {
+            "get": {
+                "tags": [
+                    "Notifications"
+                ],
+                "summary": "Get list of events for which notifications exist",
+                "description": "Get list of events for which notifications exist",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/admin/notifications/events": {
             "get": {
                 "tags": [
@@ -4840,6 +4887,35 @@
                 "summary": "Get list of events for which notifications exist",
                 "description": "Get list of events for which notifications exist",
                 "operationId": "098ad8257c50e79bcc105481d832cfd1",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/notifications/{notification}/read": {
+            "post": {
+                "tags": [
+                    "Notifications"
+                ],
+                "summary": "Mark notification as read",
+                "description": "Mark notification as read",
+                "operationId": "63140cb7e85ea113e1db11b23d5ab827",
+                "parameters": [
+                    {
+                        "name": "notification",
+                        "in": "path",
+                        "description": "Notification uuid / id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -6578,6 +6654,305 @@
                     }
                 ]
             }
+        },
+        "/api/admin/templates": {
+            "get": {
+                "tags": [
+                    "Templates"
+                ],
+                "summary": "Lists available templates",
+                "responses": {
+                    "200": {
+                        "description": "list of available templates",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "map of templates identified by a slug value",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "$ref": "#/components/schemas/Template"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Templates"
+                ],
+                "summary": "Create a new template identified by id",
+                "operationId": "3fcbce98e166986cebf1387efbcfed60",
+                "requestBody": {
+                    "description": "Template attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Template"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "template created successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "409": {
+                        "description": "there already is a template identified by chosen slug identifier"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/templates/{id}": {
+            "get": {
+                "tags": [
+                    "Templates"
+                ],
+                "summary": "Read a template identified by a given id identifier",
+                "operationId": "7a57d4b510fa4d422aa7d794d1ef1bf7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable template identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Template"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Templates"
+                ],
+                "summary": "Delete a template identified by a id",
+                "operationId": "0f1c4fb43ff4fa474da332c549337c81",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable template identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "template deleted successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "400": {
+                        "description": "cannot find a template with provided slug identifier"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Templates"
+                ],
+                "summary": "Update an existing template identified by id",
+                "operationId": "af7fd0165d35394f74b48a1375cb6803",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable template identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Template attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Template"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "template updated successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "400": {
+                        "description": "cannot find a template with provided slug identifier"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/templates/variables": {
+            "get": {
+                "tags": [
+                    "Templates"
+                ],
+                "summary": "Dictionary list of available template variables",
+                "operationId": "a0b16c5525eef0a63f2f153b42a03732",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable template identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/templates/{id}/preview": {
+            "get": {
+                "tags": [
+                    "Templates"
+                ],
+                "summary": "Read a template identified by a given id identifier",
+                "operationId": "f9f62befd9643bf4ff796d28f7207587",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable template identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Preview details"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
         }
     },
     "components": {
@@ -7557,6 +7932,39 @@
                     "sort": {
                         "description": "sort",
                         "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "Template": {
+                "properties": {
+                    "id": {
+                        "description": "template id",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "template name",
+                        "type": "string"
+                    },
+                    "event": {
+                        "description": "event full classname",
+                        "type": "string"
+                    },
+                    "channel": {
+                        "description": "channel full classname",
+                        "type": "string"
+                    },
+                    "assignable_type": {
+                        "description": "classname of Model to which this template is assigned (for example for creating custom template for each Course)",
+                        "type": "string"
+                    },
+                    "assignable_id": {
+                        "description": "id of Model to which this template is assigned (for example for creating custom template for each Course)",
+                        "type": "string"
+                    },
+                    "default": {
+                        "description": "this template is default template for given channel and event pair",
+                        "type": "bool"
                     }
                 },
                 "type": "object"
