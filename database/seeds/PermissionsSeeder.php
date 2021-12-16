@@ -43,6 +43,6 @@ class PermissionsSeeder extends Seeder
         $this->call(CoursesExportImportPermissionSeeder::class);
         $this->call(PermissionsPermissionTableSeeder::class);
         $this->call(NotificationsPermissionsSeeder::class);
-        $this->call(TemplatesPermissionSeeder::class);
+        $this->call(TemplatesPermissionTableSeeder::class);
     }
 }
