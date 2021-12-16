@@ -8,8 +8,6 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-
-
     /**
      * Register any application services.
      *
@@ -33,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
         if (DB::Connection() instanceof SQLiteConnection) {
             DB::connection()->getPdo()->sqliteCreateFunction('REGEXP', function ($pattern, $value) {
                 mb_regex_encoding('UTF-8');
+
                 return (false !== mb_ereg($pattern, $value)) ? 1 : 0;
             });
         }

@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
@@ -44,6 +43,14 @@ return [
         'api' => [
             'driver' => 'passport',
             'provider' => 'users',
+        ],
+
+        'token' => [
+            // access_token is what we defined inside Auth::extend
+            // you can name this anything BUT should match with
+            // Auth::extend('HERE');
+            'provider' => 'users',
+            'driver' => 'access_token',
         ],
     ],
 
@@ -102,5 +109,4 @@ return [
     'verification' => [
         'expire' => 7200,
     ],
-
 ];

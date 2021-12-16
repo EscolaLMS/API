@@ -1,12 +1,9 @@
 <?php
 
-use App\Http\Controllers\API\ShareApiController;
 // use App\Http\Controllers\SettingsController;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ScormController;
-use EscolaLms\Auth\Http\Controllers\LoginApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +16,17 @@ use EscolaLms\Auth\Http\Controllers\LoginApiController;
 |
 */
 
-
 Route::get('/debug-sentry', function () {
     throw new Exception('Test Sentry error!');
 });
 
+Route::group(['middleware' => ['auth:token']], function () {
+    Route::get('/abc', function () {
+        $u = Auth::user();
 
-
+        return response()->json($u);
+    });
+}
+);
 
 // Route::get('/settings', SettingsController::class);
