@@ -8,6 +8,7 @@ use EscolaLms\Categories\Database\Seeders\CategoriesPermissionSeeder;
 use EscolaLms\Core\Seeders\RoleTableSeeder;
 use EscolaLms\Courses\Database\Seeders\CoursesPermissionSeeder;
 use EscolaLms\CoursesImportExport\Database\Seeders\CoursesExportImportPermissionSeeder;
+use EscolaLms\CsvUsers\Database\Seeders\CsvUsersPermissionSeeder;
 use EscolaLms\Files\Database\Seeders\PermissionTableSeeder as FilePermissionTableSeeder;
 use EscolaLms\Notifications\Database\Seeders\NotificationsPermissionsSeeder;
 use EscolaLms\Pages\Database\Seeders\PermissionTableSeeder as PagesPermissionTableSeeder;
@@ -44,5 +45,6 @@ class PermissionsSeeder extends Seeder
         $this->call(PermissionsPermissionTableSeeder::class);
         $this->call(NotificationsPermissionsSeeder::class);
         $this->call(TemplatesPermissionTableSeeder::class);
+        $this->call(CsvUsersPermissionSeeder::class);
     }
 }

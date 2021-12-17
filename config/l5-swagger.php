@@ -40,6 +40,7 @@ return [
                     base_path('vendor/escolalms/courses/src'),
                     base_path('vendor/escolalms/courses-import-export/src'),
                     base_path('vendor/escolalms/core/src'),
+                    base_path('vendor/escolalms/csv-users/src'),
                     base_path('vendor/escolalms/files/src'),
                     base_path('vendor/escolalms/headless-h5p/src'),
                     base_path('vendor/escolalms/notifications/src'),
