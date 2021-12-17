@@ -3848,6 +3848,95 @@
                 ]
             }
         },
+        "/api/admin/csv/users": {
+            "get": {
+                "tags": [
+                    "Admin CSV"
+                ],
+                "description": "Exports users to csv",
+                "operationId": "5e29d0712a6da223f3d0e92738ef3ccd",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "will search through first_name, last_name and email",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "role",
+                        "in": "query",
+                        "description": "user role",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "admin",
+                                "tutor",
+                                "student"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "will check if user is_active",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "onboarding",
+                        "in": "query",
+                        "description": "will check if user completed onboarding",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "description": "users created after this date",
+                        "required": false,
+                        "schema": {
+                            "type": "datetime"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "description": "users created before this date",
+                        "required": false,
+                        "schema": {
+                            "type": "datetime"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/csv": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/file/list": {
             "get": {
                 "tags": [
