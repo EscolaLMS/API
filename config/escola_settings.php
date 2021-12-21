@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'use_database' => false,
+    'use_database' => true,
 ];
