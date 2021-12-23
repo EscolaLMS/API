@@ -33,7 +33,7 @@ jobs:
       - name: Instantiate package
         uses: actions/checkout@v2
 
-      - name: PrePrepare Laravel Application
+      - name: Copy environment configuration files
         run: |
           cp docker/envs/.env.ci.mysql .env
           cp docker/envs/.env.ci.mysql .env.testing
@@ -44,9 +44,6 @@ jobs:
 
       - name: Prepare Laravel Application
         run: |
-          cp docker/envs/.env.ci.mysql .env
-          cp docker/envs/.env.ci.mysql .env.testing
-          cp docker/envs/phpunit.xml.cc phpunit.xml
           php artisan key:generate
           php artisan migrate:fresh
           php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
@@ -65,10 +62,9 @@ jobs:
         with:
           name: cc-badge.svg
           path: tests/cc-badge.svg
-
-      - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
-        with:
-          add: "tests/cc-badge.svg"
-          branch: cc-badge
-          pull: NO-PULL
-          push: origin cc-badge --force
+#      - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
+#        with:
+#          add: "tests/cc-badge.svg"
+#          branch: cc-badge
+#          pull: NO-PULL
+#          push: origin cc-badge --force

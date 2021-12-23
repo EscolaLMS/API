@@ -21,7 +21,7 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: PrePrepare Laravel Application
+      - name: Copy environment configuration files
         run: |
           cp docker/envs/.env.ci.mysql .env
           cp docker/envs/.env.ci.mysql .env.testing
@@ -34,9 +34,6 @@ jobs:
 
       - name: Prepare Laravel Application
         run: |
-          cp docker/envs/.env.ci.mysql .env
-          cp docker/envs/.env.ci.mysql .env.testing
-          cp docker/envs/phpunit.xml.mysql phpunit.xml
           php artisan key:generate
           php artisan migrate:fresh
           php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
@@ -69,7 +66,7 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: PrePrepare Laravel Application
+      - name: Copy environment configuration files
         run: |
           cp docker/envs/.env.ci.postgres .env
           cp docker/envs/phpunit.xml.postgres phpunit.xml
@@ -81,8 +78,6 @@ jobs:
 
       - name: Prepare Laravel Application
         run: |
-          cp docker/envs/.env.ci.postgres .env
-          cp docker/envs/phpunit.xml.postgres phpunit.xml
           php artisan key:generate
           php artisan migrate:fresh
           php artisan db:seed --class="Database\Seeders\PermissionsSeeder"

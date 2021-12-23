@@ -16,6 +16,10 @@ jobs:
     container:
       image: escolalms/php:8-work
 
+    env:
+      MJML_API_ID: ${{ secrets.MJML_API_ID }}
+      MJML_API_SECRET: ${{ secrets.MJML_API_SECRET }}
+
     services:
       mailhog:
         image: mailhog/mailhog
@@ -37,7 +41,7 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: PrePrepare Laravel Application
+      - name: Copty environment configuration files
         run: |
           cp docker/envs/.env.ci.mysql .env
           cp docker/envs/.env.ci.mysql .env.testing
@@ -48,10 +52,10 @@ jobs:
           composer install --no-scripts
 
       - name: Prepare Laravel Application
+        env:
+          MJML_API_ID: ${{ secrets.MJML_API_ID }}
+          MJML_API_SECRET: ${{ secrets.MJML_API_SECRET }}
         run: |
-          cp docker/envs/.env.ci.mysql .env
-          cp docker/envs/.env.ci.mysql .env.testing
-          cp docker/envs/phpunit.xml.mysql phpunit.xml
           php artisan key:generate
           php artisan migrate:fresh --seed
           php artisan passport:keys --force
@@ -60,7 +64,10 @@ jobs:
           cp storage/*.key vendor/escolalms/lrs/src/../../storage/
 
       - name: Start Laravel server
-        run: nohup php artisan serve --port=80 &
+        env:
+          MJML_API_ID: ${{ secrets.MJML_API_ID }}
+          MJML_API_SECRET: ${{ secrets.MJML_API_SECRET }}
+        run: MJML_API_ID=${{ secrets.MJML_API_ID }} MJML_API_SECRET=${{ secrets.MJML_API_SECRET }} nohup php artisan serve --port=80 &
 
       - name: Cypress dependencies
         run: apt-get update && apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb -y --fix-missing
@@ -73,6 +80,8 @@ jobs:
         with:
           record: true
         env:
+          MJML_API_ID: ${{ secrets.MJML_API_ID }}
+          MJML_API_SECRET: ${{ secrets.MJML_API_SECRET }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
