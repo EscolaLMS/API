@@ -33,14 +33,17 @@ jobs:
       - name: Instantiate package
         uses: actions/checkout@v2
 
+      - name: Copy environment configuration files
+        run: |
+          cp docker/envs/.env.ci.mysql .env
+          cp docker/envs/.env.ci.mysql .env.testing
+          cp docker/envs/phpunit.xml.cc phpunit.xml
+
       - name: Update composer
         run: composer update
 
       - name: Prepare Laravel Application
         run: |
-          cp docker/envs/.env.ci.mysql .env
-          cp docker/envs/.env.ci.mysql .env.testing
-          cp docker/envs/phpunit.xml.cc phpunit.xml
           php artisan key:generate
           php artisan migrate:fresh
           php artisan db:seed --class="Database\Seeders\PermissionsSeeder"

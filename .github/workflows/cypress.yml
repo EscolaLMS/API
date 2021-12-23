@@ -41,6 +41,12 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Copty environment configuration files
+        run: |
+          cp docker/envs/.env.ci.mysql .env
+          cp docker/envs/.env.ci.mysql .env.testing
+          cp docker/envs/phpunit.xml.mysql phpunit.xml
+
       - name: Install composer dependencies
         run: |
           composer install --no-scripts
@@ -50,9 +56,6 @@ jobs:
           MJML_API_ID: ${{ secrets.MJML_API_ID }}
           MJML_API_SECRET: ${{ secrets.MJML_API_SECRET }}
         run: |
-          cp docker/envs/.env.ci.mysql .env
-          cp docker/envs/.env.ci.mysql .env.testing
-          cp docker/envs/phpunit.xml.mysql phpunit.xml
           php artisan key:generate
           php artisan migrate:fresh --seed
           php artisan passport:keys --force
