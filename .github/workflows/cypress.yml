@@ -24,7 +24,7 @@ jobs:
           - 8025:8025 # web ui
 
       mysql:
-        image: mysql:5.7
+        image: mariadb
         env:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: test
