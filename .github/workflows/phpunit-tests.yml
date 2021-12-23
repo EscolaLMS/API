@@ -17,9 +17,15 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 1
+
+      - name: PrePrepare Laravel Application
+        run: |
+          cp docker/envs/.env.ci.mysql .env
+          cp docker/envs/.env.ci.mysql .env.testing
+          cp docker/envs/phpunit.xml.mysql phpunit.xml
 
       - name: Install composer dependencies
         run: |
@@ -58,9 +64,14 @@ jobs:
           - 5432:5432
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 1
+
+      - name: PrePrepare Laravel Application
+        run: |
+          cp docker/envs/.env.ci.postgres .env
+          cp docker/envs/phpunit.xml.postgres phpunit.xml
 
       - name: Install composer dependencies
         run: |

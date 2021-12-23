@@ -33,6 +33,12 @@ jobs:
       - name: Instantiate package
         uses: actions/checkout@v2
 
+      - name: PrePrepare Laravel Application
+        run: |
+          cp docker/envs/.env.ci.mysql .env
+          cp docker/envs/.env.ci.mysql .env.testing
+          cp docker/envs/phpunit.xml.cc phpunit.xml
+
       - name: Update composer
         run: composer update
 

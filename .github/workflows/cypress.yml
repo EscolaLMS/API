@@ -37,6 +37,12 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: PrePrepare Laravel Application
+        run: |
+          cp docker/envs/.env.ci.mysql .env
+          cp docker/envs/.env.ci.mysql .env.testing
+          cp docker/envs/phpunit.xml.mysql phpunit.xml
+
       - name: Install composer dependencies
         run: |
           composer install --no-scripts
