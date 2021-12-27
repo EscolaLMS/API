@@ -12,6 +12,7 @@
       <directory suffix=".php">./vendor/escolalms/files/</directory>
       <directory suffix=".php">./vendor/escolalms/headless-h5p/</directory>
       <directory suffix=".php">./vendor/escolalms/images/</directory>
+      <directory suffix=".php">./vendor/escolalms/lrs/</directory>
       <directory suffix=".php">./vendor/escolalms/notifications/</directory>
       <directory suffix=".php">./vendor/escolalms/pages/</directory>
       <directory suffix=".php">./vendor/escolalms/payments/</directory>
@@ -60,6 +61,9 @@
     </testsuite>
     <testsuite name="images">
       <directory suffix="Test.php">./vendor/escolalms/images/tests</directory>
+    </testsuite>
+    <testsuite name="lrs">
+      <directory suffix="Test.php">./vendor/escolalms/lrs/tests</directory>
     </testsuite>
     <testsuite name="notifications">
       <directory suffix="Test.php">./vendor/escolalms/notifications/tests</directory>
