@@ -52,6 +52,9 @@ jobs:
 
       - name: Special Migrations for Tests
         run: php artisan migrate --path=vendor/escolalms/courses/tests/Database/Migrations
+        
+      - name: Remove special app exception handler 
+        run: rm -f vendor/escolalms/lrs/tests/Exceptions/Handler.php
 
       - name: Run tests
         run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text
