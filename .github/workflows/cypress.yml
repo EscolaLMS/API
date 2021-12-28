@@ -28,7 +28,7 @@ jobs:
           - 8025:8025 # web ui
 
       mysql:
-        image: mysql:5.7
+        image: mariadb
         env:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: test
@@ -41,6 +41,12 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Copty environment configuration files
+        run: |
+          cp docker/envs/.env.ci.mysql .env
+          cp docker/envs/.env.ci.mysql .env.testing
+          cp docker/envs/phpunit.xml.mysql phpunit.xml
+
       - name: Install composer dependencies
         run: |
           composer install --no-scripts
@@ -50,14 +56,16 @@ jobs:
           MJML_API_ID: ${{ secrets.MJML_API_ID }}
           MJML_API_SECRET: ${{ secrets.MJML_API_SECRET }}
         run: |
-          cp docker/envs/.env.ci.mysql .env
-          cp docker/envs/.env.ci.mysql .env.testing
-          cp docker/envs/phpunit.xml.mysql phpunit.xml
           php artisan key:generate
           php artisan migrate:fresh --seed
           php artisan passport:keys --force
           php artisan passport:client --personal --no-interaction
           cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
+          mkdir vendor/escolalms/lrs/src/../../storage/
+          cp storage/*.key vendor/escolalms/lrs/src/../../storage/
+
+      - name: Special Migrations for Tests
+        run: php artisan migrate --path=vendor/escolalms/courses/tests/Database/Migrations
 
       - name: Start Laravel server
         env:

@@ -13,25 +13,31 @@ Laravel Headless LMS REST API.
 
 ## Packages
 
-Summary code coverage from all the packages [![cc](https://raw.githubusercontent.com/EscolaLMS/API/cc-badge/tests/cc-badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml) [![Tests Code Coverage](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml/badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
+Summary code coverage from all the packages [![cc](https://raw.githubusercontent.com/EscolaLMS/API/develop/tests/cc-badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml) [![Tests Code Coverage](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml/badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
 
 
-
-- [escolalms/auth](https://packagist.org/packages/escolalms/)
-- [escolalms/cart](https://packagist.org/packages/escolalms/)
-- [escolalms/categories](https://packagist.org/packages/escolalms/)
-- [escolalms/core](https://packagist.org/packages/escolalms/)
-- [escolalms/courses](https://packagist.org/packages/escolalms/)
-- [escolalms/files](https://packagist.org/packages/escolalms/)
-- [escolalms/headless-h5p](https://packagist.org/packages/escolalms/)
-- [escolalms/images](https://packagist.org/packages/escolalms/)
-- [escolalms/pages](https://packagist.org/packages/escolalms/)
-- ["escolalms/payments](https://packagist.org/packages/escolalms/)
-- [escolalms/reports](https://packagist.org/packages/escolalms/)
-- [escolalms/scorm](https://packagist.org/packages/escolalms/)
-- [escolalms/settings](https://packagist.org/packages/escolalms/)
-- [escolalms/tags](https://packagist.org/packages/escolalms/)
-- [escolalms/video](https://packagist.org/packages/escolalms/)
+- [escolalms/auth](https://packagist.org/packages/escolalms/auth)
+- [escolalms/cart](https://packagist.org/packages/escolalms/cart)
+- [escolalms/categories](https://packagist.org/packages/escolalms/categories)
+- [escolalms/core](https://packagist.org/packages/escolalms/core)
+- [escolalms/courses](https://packagist.org/packages/escolalms/courses)
+- [escolalms/courses-import-export](https://packagist.org/packages/escolalms/courses-import-export)
+- [escolalms/csv-users](https://packagist.org/packages/escolalms/csv-users)
+- [escolalms/files](https://packagist.org/packages/escolalms/files)
+- [escolalms/lrs](https://packagist.org/packages/escolalms/lrs)
+- [escolalms/headless-h5p](https://packagist.org/packages/escolalms/headless-h5p)
+- [escolalms/images](https://packagist.org/packages/escolalms/images)
+- [escolalms/pages](https://packagist.org/packages/escolalms/pages)
+- [escolalms/payments](https://packagist.org/packages/escolalms/payments)
+- [escolalms/permissions](https://packagist.org/packages/escolalms/permissions)
+- [escolalms/reports](https://packagist.org/packages/escolalms/reports)
+- [escolalms/scorm](https://packagist.org/packages/escolalms/scorm)
+- [escolalms/settings](https://packagist.org/packages/escolalms/settings)
+- [escolalms/tags](https://packagist.org/packages/escolalms/tags)
+- [escolalms/templates](https://packagist.org/packages/escolalms/templates)
+- [escolalms/templates-email](https://packagist.org/packages/escolalms/templates-email)
+- [escolalms/topic-types](https://packagist.org/packages/topic-types/topic-types)
+- [escolalms/video](https://packagist.org/packages/escolalms/video)
 
 ## Installation
 

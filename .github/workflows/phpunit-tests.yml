@@ -8,7 +8,7 @@ jobs:
 
     services:
       mysql:
-        image: mysql:5.7
+        image: mariadb
         env:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: test
@@ -17,9 +17,15 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 1
+
+      - name: Copy environment configuration files
+        run: |
+          cp docker/envs/.env.ci.mysql .env
+          cp docker/envs/.env.ci.mysql .env.testing
+          cp docker/envs/phpunit.xml.mysql phpunit.xml
 
       - name: Install composer dependencies
         run: |
@@ -28,15 +34,17 @@ jobs:
 
       - name: Prepare Laravel Application
         run: |
-          cp docker/envs/.env.ci.mysql .env
-          cp docker/envs/.env.ci.mysql .env.testing
-          cp docker/envs/phpunit.xml.mysql phpunit.xml
           php artisan key:generate
           php artisan migrate:fresh
           php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
           php artisan passport:keys --force
           php artisan passport:client --personal --no-interaction
           cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
+          mkdir vendor/escolalms/lrs/src/../../storage/
+          cp storage/*.key vendor/escolalms/lrs/src/../../storage/
+
+      - name: Special Migrations for Tests
+        run: php artisan migrate --path=vendor/escolalms/courses/tests/Database/Migrations
 
       - name: Run Testsuite
         run: vendor/bin/phpunit
@@ -58,9 +66,14 @@ jobs:
           - 5432:5432
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 1
+
+      - name: Copy environment configuration files
+        run: |
+          cp docker/envs/.env.ci.postgres .env
+          cp docker/envs/phpunit.xml.postgres phpunit.xml
 
       - name: Install composer dependencies
         run: |
@@ -69,14 +82,17 @@ jobs:
 
       - name: Prepare Laravel Application
         run: |
-          cp docker/envs/.env.ci.postgres .env
-          cp docker/envs/phpunit.xml.postgres phpunit.xml
           php artisan key:generate
           php artisan migrate:fresh
           php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
           php artisan passport:keys --force
           php artisan passport:client --personal --no-interaction
           cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
+          mkdir vendor/escolalms/lrs/src/../../storage/
+          cp storage/*.key vendor/escolalms/lrs/src/../../storage/
+
+      - name: Special Migrations for Tests
+        run: php artisan migrate --path=vendor/escolalms/courses/tests/Database/Migrations
 
       - name: Run Testsuite
         run: vendor/bin/phpunit
