@@ -71,3 +71,5 @@ jobs:
         with:
           add: "tests/cc-badge.svg"
           branch: cc-badge
+          branch_mode: create
+
