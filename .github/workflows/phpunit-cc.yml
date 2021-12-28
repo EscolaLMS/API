@@ -5,10 +5,7 @@ on:
   # but only for the main branch
   push:
     branches:
-      - main
-      - master
       - develop
-  pull_request:
 
 jobs:
   phpunit-code-coverage:
@@ -53,6 +50,9 @@ jobs:
           mkdir vendor/escolalms/lrs/src/../../storage/
           cp storage/*.key vendor/escolalms/lrs/src/../../storage/
 
+      - name: Special Migrations for Tests
+        run: php artisan migrate --path=vendor/escolalms/courses/tests/Database/Migrations
+
       - name: Run tests
         run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text
 
@@ -63,9 +63,8 @@ jobs:
         with:
           name: cc-badge.svg
           path: tests/cc-badge.svg
-#      - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
-#        with:
-#          add: "tests/cc-badge.svg"
-#          branch: cc-badge
-#          pull: NO-PULL
-#          push: origin cc-badge --force
+
+      - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
+        with:
+          add: "tests/cc-badge.svg"
+          branch: cc-badge

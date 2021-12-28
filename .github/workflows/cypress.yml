@@ -64,6 +64,9 @@ jobs:
           mkdir vendor/escolalms/lrs/src/../../storage/
           cp storage/*.key vendor/escolalms/lrs/src/../../storage/
 
+      - name: Special Migrations for Tests
+        run: php artisan migrate --path=vendor/escolalms/courses/tests/Database/Migrations
+
       - name: Start Laravel server
         env:
           MJML_API_ID: ${{ secrets.MJML_API_ID }}
