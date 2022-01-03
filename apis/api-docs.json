@@ -2254,6 +2254,50 @@
                 ]
             }
         },
+        "/api/admin/courses/zip/import": {
+            "post": {
+                "tags": [
+                    "Admin Courses"
+                ],
+                "description": "Imports course from ZIP package ",
+                "operationId": "6d4f418d042a8de8c15875c41ece860f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "file": {
+                                        "type": "file",
+                                        "format": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Course imported successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/courses": {
             "get": {
                 "tags": [
@@ -3529,6 +3573,39 @@
                 ]
             }
         },
+        "/api/admin/lessons/{id}/clone": {
+            "post": {
+                "tags": [
+                    "Admin Courses"
+                ],
+                "summary": "Clone Lesson",
+                "description": "Clone Lesson with topics",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Lesson",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/topics": {
             "get": {
                 "tags": [
@@ -3702,6 +3779,39 @@
                 "responses": {
                     "200": {
                         "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/topics/{id}/clone": {
+            "post": {
+                "tags": [
+                    "Admin Courses"
+                ],
+                "summary": "Clone topic",
+                "description": "Clone Topic.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Topic",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Topic cloned successfully",
                         "content": {
                             "application/json": {}
                         }
@@ -5541,9 +5651,9 @@
                         "schema": {
                             "type": "string",
                             "enum": [
-                                "NEW",
-                                "PAID",
-                                "CANCELLED"
+                                "new",
+                                "paid",
+                                "cancelled"
                             ]
                         }
                     },
@@ -6387,6 +6497,160 @@
                 ]
             }
         },
+        "/api/admin/scorm/scos": {
+            "get": {
+                "tags": [
+                    "SCORM"
+                ],
+                "summary": "Get all scos",
+                "operationId": "322dc226ea257035a3c1b09a07222c43",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/scorm/{scorm_id}": {
+            "delete": {
+                "tags": [
+                    "SCORM"
+                ],
+                "summary": "Delete scorm package by id",
+                "operationId": "9071dc5be32921c5bf43043a3a1ee415",
+                "parameters": [
+                    {
+                        "name": "scorm_id",
+                        "in": "path",
+                        "description": "Scorm package id",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/scorm/track/{uuid}": {
+            "post": {
+                "tags": [
+                    "SCORM"
+                ],
+                "summary": "Track Scorm user progress",
+                "operationId": "a4529c50341778b746c279953c1bf56c",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "Unique uuid scorm identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "scorm data"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/scorm/track/{scoId}/{key}": {
+            "get": {
+                "tags": [
+                    "SCORM"
+                ],
+                "summary": "Get user progress by scorm sco id and scorm data key",
+                "operationId": "14617a0fe34eda208dc8c0de4ba2a29f",
+                "parameters": [
+                    {
+                        "name": "sco_id",
+                        "in": "path",
+                        "description": "Unique scorm identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "Unique scorm data key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/config": {
             "get": {
                 "tags": [
@@ -6896,6 +7160,85 @@
                     },
                     "404": {
                         "description": "Not found",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/pdfs": {
+            "get": {
+                "tags": [
+                    "Template PDFs"
+                ],
+                "summary": "Get Fabric.js PDFs",
+                "description": "Get paginated list of PDFs generated by templates",
+                "operationId": "06df18a9b95af2c91fdae6c036de0812",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/pdfs/{id}": {
+            "get": {
+                "tags": [
+                    "Template PDFs"
+                ],
+                "summary": "Display the specified Fabric.js PDF",
+                "description": "Get Fabric.js PDF",
+                "operationId": "89ad622d4231aebffbda04d5fcc47b84",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Fabric.js PDF",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
                         "content": {
                             "application/json": {}
                         }
@@ -8185,6 +8528,23 @@
                     "sort": {
                         "description": "sort",
                         "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "FabricPDF": {
+                "properties": {
+                    "id": {
+                        "description": "template id",
+                        "type": "integer"
+                    },
+                    "content": {
+                        "description": "fabric.js serialized content",
+                        "type": "object"
+                    },
+                    "path": {
+                        "description": "path to rendered PDF binary file",
+                        "type": "string"
                     }
                 },
                 "type": "object"
