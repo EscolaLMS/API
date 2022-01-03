@@ -52,8 +52,8 @@ jobs:
 
       - name: Special Migrations for Tests
         run: php artisan migrate --path=vendor/escolalms/courses/tests/Database/Migrations
-        
-      - name: Remove special app exception handler 
+
+      - name: Remove special app exception handler
         run: rm -f vendor/escolalms/lrs/tests/Exceptions/Handler.php
 
       - name: Run tests
@@ -65,10 +65,10 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: cc-badge.svg
-          path: tests/cc-badge.svg
+          path: |
+            tests/cc-badge.svg
+            coverage.xml
 
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
           add: "tests/cc-badge.svg"
-          #branch: origin/cc-badge
-          #branch_mode: create
