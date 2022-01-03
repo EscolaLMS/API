@@ -2,29 +2,30 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" backupStaticAttributes="false" bootstrap="vendor/autoload.php" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" processIsolation="false" stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
   <coverage processUncoveredFiles="true">
     <include>
-      <directory suffix=".php">./vendor/escolalms/auth/</directory>
-      <directory suffix=".php">./vendor/escolalms/cart/</directory>
-      <directory suffix=".php">./vendor/escolalms/categories/</directory>
-      <directory suffix=".php">./vendor/escolalms/core/</directory>
-      <directory suffix=".php">./vendor/escolalms/courses/</directory>
-      <directory suffix=".php">./vendor/escolalms/courses-import-export/</directory>
-      <directory suffix=".php">./vendor/escolalms/csv-users/</directory>
-      <directory suffix=".php">./vendor/escolalms/files/</directory>
-      <directory suffix=".php">./vendor/escolalms/headless-h5p/</directory>
-      <directory suffix=".php">./vendor/escolalms/images/</directory>
-      <directory suffix=".php">./vendor/escolalms/lrs/</directory>
-      <directory suffix=".php">./vendor/escolalms/notifications/</directory>
-      <directory suffix=".php">./vendor/escolalms/pages/</directory>
-      <directory suffix=".php">./vendor/escolalms/payments/</directory>
-      <directory suffix=".php">./vendor/escolalms/permissions/</directory>
-      <directory suffix=".php">./vendor/escolalms/reports/</directory>
-      <directory suffix=".php">./vendor/escolalms/scorm/</directory>
-      <directory suffix=".php">./vendor/escolalms/settings/</directory>
-      <directory suffix=".php">./vendor/escolalms/tags/</directory>
-      <directory suffix=".php">./vendor/escolalms/topic-types/</directory>
-      <directory suffix=".php">./vendor/escolalms/templates/</directory>
-      <directory suffix=".php">./vendor/escolalms/templates-email/</directory>
-      <!-- <directory suffix=".php">./vendor/escolalms/video/</directory> -->
+      <directory suffix=".php">./vendor/escolalms/auth/src</directory>
+      <directory suffix=".php">./vendor/escolalms/cart/src</directory>
+      <directory suffix=".php">./vendor/escolalms/categories/src</directory>
+      <directory suffix=".php">./vendor/escolalms/core/src</directory>
+      <directory suffix=".php">./vendor/escolalms/courses/src</directory>
+      <directory suffix=".php">./vendor/escolalms/courses-import-export/src</directory>
+      <directory suffix=".php">./vendor/escolalms/csv-users/src</directory>
+      <directory suffix=".php">./vendor/escolalms/files/src</directory>
+      <directory suffix=".php">./vendor/escolalms/headless-h5p/src</directory>
+      <directory suffix=".php">./vendor/escolalms/images/src</directory>
+      <directory suffix=".php">./vendor/escolalms/lrs/src</directory>
+      <directory suffix=".php">./vendor/escolalms/notifications/src</directory>
+      <directory suffix=".php">./vendor/escolalms/pages/src</directory>
+      <directory suffix=".php">./vendor/escolalms/payments/src</directory>
+      <directory suffix=".php">./vendor/escolalms/permissions/src</directory>
+      <directory suffix=".php">./vendor/escolalms/reports/src</directory>
+      <directory suffix=".php">./vendor/escolalms/scorm/src</directory>
+      <directory suffix=".php">./vendor/escolalms/settings/src</directory>
+      <directory suffix=".php">./vendor/escolalms/tags/src</directory>
+      <directory suffix=".php">./vendor/escolalms/topic-types/src</directory>
+      <directory suffix=".php">./vendor/escolalms/templates/src</directory>
+      <directory suffix=".php">./vendor/escolalms/templates-email/src</directory>
+      <directory suffix=".php">./vendor/escolalms/templates-pdf/src</directory>
+      <!-- <directory suffix=".php">./vendor/escolalms/video/src</directory> -->
 
     </include>
   </coverage>
@@ -90,13 +91,16 @@
       <directory suffix="Test.php">./vendor/escolalms/tags/tests</directory>
     </testsuite>
     <testsuite name="topic-types">
-      <directory suffix="Test.php">./vendor/escolalms/topic-types</directory>
+      <directory suffix="Test.php">./vendor/escolalms/topic-types/tests</directory>
     </testsuite>
     <testsuite name="templates">
-      <directory suffix="Test.php">./vendor/escolalms/templates</directory>
+      <directory suffix="Test.php">./vendor/escolalms/templates/tests</directory>
     </testsuite>
     <testsuite name="templates-email">
-      <directory suffix="Test.php">./vendor/escolalms/templates-email</directory>
+      <directory suffix="Test.php">./vendor/escolalms/templates-email/tests</directory>
+    </testsuite>
+    <testsuite name="templates-pdf">
+      <directory suffix="Test.php">./vendor/escolalms/templates-pdf/tests</directory>
     </testsuite>
     <!--
     <testsuite name="video">

@@ -52,3 +52,5 @@ packages
 clover.xml
 badge.svg
 tests/badge.svg
+
+tests/coverage.xml
