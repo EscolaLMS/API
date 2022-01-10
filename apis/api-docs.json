@@ -8538,6 +8538,10 @@
                         "description": "template id",
                         "type": "integer"
                     },
+                    "title": {
+                        "description": "title",
+                        "type": "string"
+                    },
                     "content": {
                         "description": "fabric.js serialized content",
                         "type": "object"
