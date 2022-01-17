@@ -41,12 +41,14 @@ Laravel Headless LMS REST API.
 
 ## Tests
 
-Just run `phpunit` to test all the packages
+Just run `phpunit` to test all the packages.
 
-Summary code coverage from all the packages
+Summary code coverage from all the packages:
+
 [![cc](https://raw.githubusercontent.com/EscolaLMS/API/develop/tests/cc-badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
 [![Tests Code Coverage](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml/badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
 [![cc](https://raw.githubusercontent.com/EscolaLMS/API/develop/tests/cc-tests.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
+[![cc](https://raw.githubusercontent.com/EscolaLMS/API/develop/tests/cc-assertions.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
 
 ## Installation
 
