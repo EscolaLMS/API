@@ -13,8 +13,6 @@ Laravel Headless LMS REST API.
 
 ## Packages
 
-Summary code coverage from all the packages [![cc](https://raw.githubusercontent.com/EscolaLMS/API/develop/tests/cc-badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml) [![Tests Code Coverage](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml/badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
-
 - [escolalms/auth](https://packagist.org/packages/escolalms/auth)
 - [escolalms/cart](https://packagist.org/packages/escolalms/cart)
 - [escolalms/categories](https://packagist.org/packages/escolalms/categories)
@@ -29,6 +27,8 @@ Summary code coverage from all the packages [![cc](https://raw.githubusercontent
 - [escolalms/pages](https://packagist.org/packages/escolalms/pages)
 - [escolalms/payments](https://packagist.org/packages/escolalms/payments)
 - [escolalms/permissions](https://packagist.org/packages/escolalms/permissions)
+- [escolalms/notifications](https://packagist.org/packages/escolalms/notifications)
+- [escolalms/mattermost](https://packagist.org/packages/escolalms/mattermost)
 - [escolalms/reports](https://packagist.org/packages/escolalms/reports)
 - [escolalms/scorm](https://packagist.org/packages/escolalms/scorm)
 - [escolalms/settings](https://packagist.org/packages/escolalms/settings)
@@ -39,9 +39,18 @@ Summary code coverage from all the packages [![cc](https://raw.githubusercontent
 - [escolalms/topic-types](https://packagist.org/packages/topic-types/topic-types)
 - [escolalms/video](https://packagist.org/packages/escolalms/video)
 
+## Tests
+
+Just run `phpunit` to test all the packages
+
+Summary code coverage from all the packages
+[![cc](https://raw.githubusercontent.com/EscolaLMS/API/develop/tests/cc-badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
+[![Tests Code Coverage](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml/badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
+[![cc](https://raw.githubusercontent.com/EscolaLMS/API/develop/tests/cc-tests.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
+
 ## Installation
 
-To install defult docker enviroment either clone this repo or use
+To install default docker environment either clone this repo or use
 
 ```bash
 composer create-project escolallms/api escola-lms
@@ -71,7 +80,7 @@ make init-mysql
 
 [https://escola-lms-api.stage.etd24.pl/api/documentation](https://escola-lms-api.stage.etd24.pl/api/documentation)
 
-This is fully working demo. **Note** that content is regeneraed every day - it's a seeder that is not persistent, every day database and files are cleared and rebuilt from skratch.
+This is fully working demo. **Note** that content is regenerated every day - it's a seeder that is not persistent, every day database and files are cleared and rebuilt from skratch.
 
 ## Test
 
@@ -93,7 +102,7 @@ You can see the results in the [cypress dashboard](https://dashboard.cypress.io/
 
 ## Tasks
 
-See [makefile](makefile) for all availabe devops tasks
+See [makefile](makefile) for all available devops tasks
 
 - `make test-phpunit`
 - `make test-behat`
