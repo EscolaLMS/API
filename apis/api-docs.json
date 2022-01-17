@@ -4107,6 +4107,11 @@
                                     "file": {
                                         "type": "file",
                                         "format": "file"
+                                    },
+                                    "return_url": {
+                                        "description": "Address where the new user set the password",
+                                        "type": "string",
+                                        "example": "https://escolalms.com/set-password"
                                     }
                                 },
                                 "type": "object"
@@ -5086,6 +5091,75 @@
                         }
                     }
                 ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/mattermost/me": {
+            "get": {
+                "tags": [
+                    "Mattermost"
+                ],
+                "summary": "List all of the available mattermost teams and channels for a user",
+                "description": "ist all of the available mattermost teams and channels for a user",
+                "operationId": "0920c908a9a258ccc6eb3086a47396af",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/mattermost/generate_credentials": {
+            "get": {
+                "tags": [
+                    "Mattermost"
+                ],
+                "summary": "Generates user (creates one if not exists) credentials and sets a new random password",
+                "description": "Generates user (creates one if not exists) credentials and sets a new random password",
+                "operationId": "daa6c1aab1eeb77a2ba043f194576758",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/mattermost/reset_password": {
+            "get": {
+                "tags": [
+                    "Mattermost"
+                ],
+                "summary": "Sends request for mattermost to send reset password link with email",
+                "description": "Sends request for mattermost to send reset password link with email",
+                "operationId": "4caea2ddd9b16f13320391523a5eb486",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -7257,6 +7331,26 @@
                     "Templates"
                 ],
                 "summary": "Lists available templates",
+                "parameters": [
+                    {
+                        "name": "channel",
+                        "in": "query",
+                        "description": "Channel class for filtering",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "event",
+                        "in": "query",
+                        "description": "Event class for filtering",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "list of available templates",
@@ -7671,8 +7765,8 @@
                         "description": "author_id",
                         "type": "integer"
                     },
-                    "scorm_id": {
-                        "description": "scorm_id",
+                    "scorm_sco_id": {
+                        "description": "scorm_sco_id",
                         "type": "integer"
                     },
                     "image": {
@@ -7734,6 +7828,10 @@
                     "findable": {
                         "description": "findable",
                         "type": "boolean"
+                    },
+                    "target_group": {
+                        "description": "target group",
+                        "type": "string"
                     }
                 },
                 "type": "object"
