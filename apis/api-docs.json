@@ -2389,9 +2389,21 @@
                         }
                     },
                     {
+                        "name": "tag[]",
+                        "in": "query",
+                        "description": "An array of tags",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
                         "name": "ids[]",
                         "in": "query",
-                        "description": "A array of IDs",
+                        "description": "An array of IDs",
                         "required": false,
                         "schema": {
                             "type": "array",
@@ -4501,6 +4513,24 @@
                         "name": "per_page",
                         "in": "query",
                         "description": "items per page. If set to 0, returns ALL contents ",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "description": "search items by title",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "library_id",
+                        "in": "query",
+                        "description": "search items by library_id",
                         "required": false,
                         "schema": {
                             "type": "integer"
@@ -7620,6 +7650,162 @@
                         "required": true,
                         "schema": {
                             "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Preview details"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/templates/{id}/assign": {
+            "post": {
+                "tags": [
+                    "Templates"
+                ],
+                "summary": "Assign template to model (of class assignable to the Variable Set)",
+                "operationId": "a6f1b7ea3b3fabcde697eae06b4900d0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique id of template",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "assignable_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Preview details"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/templates/{id}/unassign": {
+            "post": {
+                "tags": [
+                    "Templates"
+                ],
+                "summary": "Remove template assignment to model",
+                "operationId": "e63e398250c6a0af5924f021455ee496",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique id of template",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "assignable_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Preview details"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/templates/assigned": {
+            "get": {
+                "tags": [
+                    "Templates"
+                ],
+                "summary": "Get Template assigned to the model",
+                "operationId": "9394fa4c5c182a26f831c8567614a6da",
+                "parameters": [
+                    {
+                        "name": "assignable_class",
+                        "in": "query",
+                        "description": "Class of assignable model for which we want to fetch assigned Template",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "assignable_id",
+                        "in": "query",
+                        "description": "Id of assignable model for which we want to fetch assigned Template",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
                         }
                     }
                 ],
