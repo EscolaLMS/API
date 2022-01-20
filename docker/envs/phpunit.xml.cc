@@ -120,5 +120,6 @@
     <env name="DB_DATABASE" value="test"/>
     <env name="DB_USERNAME" value="root"/>
     <env name="DB_PASSWORD" value="password"/>
+    <env name="CONFIG_USE_DATABASE" value="true"/>
   </php>
 </phpunit>
