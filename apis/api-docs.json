@@ -2371,12 +2371,15 @@
                         }
                     },
                     {
-                        "name": "author_id",
+                        "name": "authors",
                         "in": "query",
-                        "description": "Author ID",
+                        "description": "Authors",
                         "required": false,
                         "schema": {
-                            "type": "number"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/User"
+                            }
                         }
                     },
                     {
@@ -2506,12 +2509,15 @@
                         }
                     },
                     {
-                        "name": "author_id",
+                        "name": "authors",
                         "in": "query",
-                        "description": "Author ID",
+                        "description": "Authors",
                         "required": false,
                         "schema": {
-                            "type": "number"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/User"
+                            }
                         }
                     },
                     {
@@ -2530,6 +2536,15 @@
                         "required": false,
                         "schema": {
                             "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Course status: published, draft, archived",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
                         }
                     }
                 ],
@@ -7782,6 +7797,45 @@
                 ]
             }
         },
+        "/api/admin/templates/assignable": {
+            "get": {
+                "tags": [
+                    "Templates"
+                ],
+                "summary": "Get Templates that can be assigned to model",
+                "operationId": "a98364b5f0b7ab375c101171aee1263f",
+                "parameters": [
+                    {
+                        "name": "assignable_class",
+                        "in": "query",
+                        "description": "Class of assignable model for which we want to find assignable Templates",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of Templates that can be assigned"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/templates/assigned": {
             "get": {
                 "tags": [
@@ -7947,10 +8001,6 @@
                         "description": "duration",
                         "type": "string"
                     },
-                    "author_id": {
-                        "description": "author_id",
-                        "type": "integer"
-                    },
                     "scorm_sco_id": {
                         "description": "scorm_sco_id",
                         "type": "integer"
@@ -7963,9 +8013,9 @@
                         "description": "video",
                         "type": "file"
                     },
-                    "active": {
-                        "description": "active",
-                        "type": "boolean"
+                    "status": {
+                        "description": "status",
+                        "type": "string"
                     },
                     "subtitle": {
                         "description": "subtitle",
