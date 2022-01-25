@@ -31,7 +31,6 @@ class DatabaseSeeder extends Seeder
 
         // then populate content
         $this->call(CategoriesSeeder::class);
-        $this->call(TagsSeeder::class);
         $this->call(CoursesSeeder::class);
         $this->call(OrdersSeeder::class);
         $this->call(ProgressSeeder::class);
@@ -40,5 +39,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingsDatabaseSeeder::class);
         $this->call(UserGroupsSeeder::class);
         $this->call(TemplatesEmailSeeder::class);
+        $this->call(TagsSeeder::class);
     }
 }
