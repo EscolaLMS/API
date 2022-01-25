@@ -10,7 +10,6 @@ use EscolaLms\Courses\Database\Seeders\ProgressSeeder;
 use EscolaLms\Pages\Database\Seeders\DatabaseSeeder as PagesDatabaseSeeder;
 use EscolaLms\Payments\Database\Seeders\PaymentsSeeder;
 use EscolaLms\Settings\Database\Seeders\DatabaseSeeder as SettingsDatabaseSeeder;
-use EscolaLms\Tags\Database\Seeders\TagsSeeder;
 use EscolaLms\TemplatesEmail\Database\Seeders\TemplatesEmailSeeder;
 use Illuminate\Database\Seeder;
 
@@ -31,7 +30,6 @@ class DatabaseSeeder extends Seeder
 
         // then populate content
         $this->call(CategoriesSeeder::class);
-        $this->call(TagsSeeder::class);
         $this->call(CoursesSeeder::class);
         $this->call(OrdersSeeder::class);
         $this->call(ProgressSeeder::class);
