@@ -38,7 +38,7 @@
     "escolalms/courses-import-export": "^0",
     "escolalms/csv-users": "^0",
     "escolalms/files": "^0",
-    "escolalms/headless-h5p": "^0",
+    "escolalms/headless-h5p": "^0.2.7",
     "escolalms/images": "^0",
     "escolalms/lrs": "^0",
     "escolalms/mattermost": "^0",
@@ -141,5 +141,17 @@
     "behat": [
       "./vendor/bin/behat"
     ]
-  }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "name": "escolalms/headless-h5p",
+      "url": "packages/headless-h5p",
+      "options": {
+        "versions": {
+          "escolalms/headless-h5p": "0.2.7"
+        }
+      }
+    }
+  ]
 }

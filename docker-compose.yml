@@ -9,7 +9,25 @@ services:
     ports:
       - "1000:80"
     volumes:
-      - ./:/var/www/html
+      #- ./:/var/www/html
+      - ./app:/var/www/html/app
+      - ./bootstrap:/var/www/html/bootstrap
+      - ./config:/var/www/html/config
+      - ./database:/var/www/html/database
+      - ./packages:/var/www/html/packages
+      - ./public:/var/www/html/public
+      - ./resources:/var/www/html/resources
+      - ./routes:/var/www/html/routes
+      - ./storage:/var/www/html/storage
+      - ./tests:/var/www/html/tests
+      - ./.env:/var/www/html/.env
+      - ./.htaccess:/var/www/html/.htaccess
+      - ./artisan:/var/www/html/artisan
+      - ./index.php:/var/www/html/index.php
+      - ./server.php:/var/www/html/server.php
+      - ./phpunit.xml:/var/www/html/phpunit.xml
+      - ./composer.json:/var/www/html/composer.json
+
       - ./docker/conf/nginx:/etc/nginx/conf.d/
       - ./docker/www_logs/nginx:/var/log/nginx
     links:
@@ -19,7 +37,25 @@ services:
   escola_lms_app:
     image: escolalms/php:8-work
     volumes:
-      - ./:/var/www/html:cached
+     #- ./:/var/www/html
+      - ./app:/var/www/html/app
+      - ./bootstrap:/var/www/html/bootstrap
+      - ./config:/var/www/html/config
+      - ./database:/var/www/html/database
+      - ./packages:/var/www/html/packages
+      - ./public:/var/www/html/public
+      - ./resources:/var/www/html/resources
+      - ./routes:/var/www/html/routes
+      - ./storage:/var/www/html/storage
+      - ./tests:/var/www/html/tests
+      - ./.env:/var/www/html/.env
+      - ./.htaccess:/var/www/html/.htaccess
+      - ./artisan:/var/www/html/artisan
+      - ./index.php:/var/www/html/index.php
+      - ./server.php:/var/www/html/server.php
+      - ./phpunit.xml:/var/www/html/phpunit.xml
+      - ./composer.json:/var/www/html/composer.json
+      
       - ./docker/conf/php/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
       - ./docker/conf/php/xxx-devilbox-default-php.ini:/usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini
       - ./docker/conf/supervisor/horizon.conf:/etc/supervisor/custom.d/horizon.conf
