@@ -141,17 +141,5 @@
     "behat": [
       "./vendor/bin/behat"
     ]
-  },
-  "repositories": [
-    {
-      "type": "path",
-      "name": "escolalms/headless-h5p",
-      "url": "packages/headless-h5p",
-      "options": {
-        "versions": {
-          "escolalms/headless-h5p": "0.2.7"
-        }
-      }
-    }
-  ]
+  }
 }
