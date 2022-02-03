@@ -1113,6 +1113,41 @@
                 }
             }
         },
+        "/api/auth/email/verify/{id}/{hash}": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Email verification",
+                "operationId": "8b92b54ba65c18efa951cfa0cbe954a5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "hash",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/auth/email/resend": {
             "post": {
                 "tags": [
@@ -1663,6 +1698,15 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "return_url",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "https://escolalms.com/email/verify"
                     }
                 ],
                 "responses": {
@@ -4812,6 +4856,36 @@
                 }
             }
         },
+        "/api/hh5p/unused": {
+            "delete": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Deletes all unused h5p",
+                "description": "Deletes all unused h5p",
+                "operationId": "9eedd3bc781b39f33bca2ea80968c7e2",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "validation error",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "unauthorised",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/hh5p/editor": {
             "get": {
                 "tags": [
@@ -5256,7 +5330,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/admin/notifications/{user}": {
@@ -5266,7 +5345,7 @@
                 ],
                 "summary": "Get notifications",
                 "description": "Get paginated list of notifications sent using `database` channel",
-                "operationId": "7bd36059d0d069a036d491796df0275e",
+                "operationId": "25b9ccc713a6b63854688cffa925c6c3",
                 "parameters": [
                     {
                         "name": "page",
@@ -5341,7 +5420,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/notifications/events": {
@@ -5351,6 +5435,7 @@
                 ],
                 "summary": "Get list of events for which notifications exist",
                 "description": "Get list of events for which notifications exist",
+                "operationId": "9fb7a4e2774d876aa5a441f51f13b055",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -5358,7 +5443,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/admin/notifications/events": {
@@ -5368,7 +5458,7 @@
                 ],
                 "summary": "Get list of events for which notifications exist",
                 "description": "Get list of events for which notifications exist",
-                "operationId": "098ad8257c50e79bcc105481d832cfd1",
+                "operationId": "1897bdfd2176566f387ddd0acdff8264",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -5376,7 +5466,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/notifications/{notification}/read": {
@@ -5386,7 +5481,7 @@
                 ],
                 "summary": "Mark notification as read",
                 "description": "Mark notification as read",
-                "operationId": "63140cb7e85ea113e1db11b23d5ab827",
+                "operationId": "b6906081ef5348b09e3ab3f92f79a4ae",
                 "parameters": [
                     {
                         "name": "notification",
@@ -5405,7 +5500,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/admin/pages": {
