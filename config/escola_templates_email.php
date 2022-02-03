@@ -2,7 +2,7 @@
 
 return [
     'mjml' => [
-        'use_api'          => true,
+        'use_api'          => false,
         //
         'binary_path'      => env('MJML_BINARY_PATH'),
         //
