@@ -26,6 +26,7 @@
       <directory suffix=".php">./vendor/escolalms/templates/src</directory>
       <directory suffix=".php">./vendor/escolalms/templates-email/src</directory>
       <directory suffix=".php">./vendor/escolalms/templates-pdf/src</directory>
+      <directory suffix=".php">./vendor/escolalms/questionnaire/src</directory>
       <!-- <directory suffix=".php">./vendor/escolalms/video/src</directory> -->
 
     </include>
@@ -105,6 +106,9 @@
     </testsuite>
     <testsuite name="templates-pdf">
       <directory suffix="Test.php">./vendor/escolalms/templates-pdf/tests</directory>
+    </testsuite>
+    <testsuite name="questionnaire">
+      <directory suffix="Test.php">./vendor/escolalms/questionnaire/tests</directory>
     </testsuite>
     <!--
     <testsuite name="video">
