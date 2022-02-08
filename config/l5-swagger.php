@@ -55,6 +55,7 @@ return [
                     base_path('vendor/escolalms/reports/src'),
                     base_path('vendor/escolalms/templates/src'),
                     base_path('vendor/escolalms/templates-pdf/src'),
+                    base_path('vendor/escolalms/questionnaire/src'),
                 ],
             ],
         ],
