@@ -15,6 +15,7 @@ use EscolaLms\Notifications\Database\Seeders\NotificationsPermissionsSeeder;
 use EscolaLms\Pages\Database\Seeders\PermissionTableSeeder as PagesPermissionTableSeeder;
 use EscolaLms\Payments\Database\Seeders\PaymentsPermissionsSeeder;
 use EscolaLms\Permissions\Database\Seeders\PermissionTableSeeder as PermissionsPermissionTableSeeder;
+use EscolaLms\Questionnaire\Database\Seeders\QuestionnairePermissionsSeeder;
 use EscolaLms\Reports\Database\Seeders\ReportsPermissionSeeder;
 use EscolaLms\Scorm\Database\Seeders\PermissionTableSeeder as ScormPermissionTableSeeder;
 use EscolaLms\Settings\Database\Seeders\PermissionTableSeeder as SettingsPermissionTableSeeder;
@@ -50,5 +51,6 @@ class PermissionsSeeder extends Seeder
         $this->call(CsvUsersPermissionSeeder::class);
         $this->call(TagsPermissionSeeder::class);
         $this->call(H5PPermissionTableSeeder::class);
+        $this->call(QuestionnairePermissionsSeeder::class);
     }
 }
