@@ -4619,7 +4619,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -4657,7 +4662,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/hh5p/content/{id}": {
@@ -4690,7 +4700,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -4739,7 +4754,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -4778,7 +4798,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/hh5p/content/upload": {
@@ -4812,7 +4837,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/hh5p/content/{id}/export": {
@@ -4853,7 +4883,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/hh5p/unused": {
@@ -4883,7 +4918,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/hh5p/editor": {
@@ -5060,7 +5100,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/hh5p/library/{id}": {
@@ -5089,7 +5134,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/hh5p/libraries": {
@@ -6381,6 +6431,725 @@
                     },
                     "422": {
                         "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/question": {
+            "get": {
+                "tags": [
+                    "Question"
+                ],
+                "summary": "Lists available questions",
+                "responses": {
+                    "200": {
+                        "description": "list of available questions",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "map of questions",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "$ref": "#/components/schemas/Question"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Question"
+                ],
+                "summary": "Create a new question identified by id",
+                "operationId": "5d6de858ff457c3341f17371272bd100",
+                "requestBody": {
+                    "description": "Question attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Question"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Question created successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/question/{id}": {
+            "get": {
+                "tags": [
+                    "Question"
+                ],
+                "summary": "Read a question identified by a given id identifier",
+                "operationId": "d2abdb911c61b446dfac0f30d3a8adc0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable question identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Question"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Question"
+                ],
+                "summary": "Delete a question identified by a id",
+                "operationId": "333dcd1754de605d8076219ba7c0fbc8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable question identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Question deleted successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "400": {
+                        "description": "cannot find a question"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Question"
+                ],
+                "summary": "Update an existing question identified by id",
+                "operationId": "8b003572eb06bef749152d5d3a1a0d37",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable question identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Question attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Question"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Question updated successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "400": {
+                        "description": "cannot find a question with provided slug identifier"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/questionnaire": {
+            "get": {
+                "tags": [
+                    "Questionnaire"
+                ],
+                "summary": "Lists available questionnaires",
+                "responses": {
+                    "200": {
+                        "description": "list of available questionnaires",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "map of questionnaires",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "$ref": "#/components/schemas/Questionnaire"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Questionnaire"
+                ],
+                "summary": "Create a new questionnaire",
+                "operationId": "f6a1ee410a9addfeee0f10a1467e8fee",
+                "requestBody": {
+                    "description": "Questionnaire attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Questionnaire"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Questionnaire created successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "409": {
+                        "description": "there already is a questionnaire"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/questionnaire/{id}": {
+            "get": {
+                "tags": [
+                    "Questionnaire"
+                ],
+                "summary": "Read a questionnaire identified by a given id identifier",
+                "operationId": "46e033acc673540421a2d59c527c0da1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable questionnaire identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Questionnaire"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Questionnaire"
+                ],
+                "summary": "Delete a questionnaire identified by a id",
+                "operationId": "62d1d40e88ba59337c0eb62ef2360812",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable questionnaire identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Questionnaire deleted successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "400": {
+                        "description": "cannot find a questionnaire"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Questionnaire"
+                ],
+                "summary": "Update an existing questionnaire identified by id",
+                "operationId": "70a144ebe94b203ec721362ca378628a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable questionnaire identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Questionnaire attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Questionnaire"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Questionnaire updated successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "400": {
+                        "description": "cannot find a questionnaire"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/questionnaire/model": {
+            "get": {
+                "tags": [
+                    "QuestionnaireModelType"
+                ],
+                "summary": "Lists available questionnaire model type",
+                "operationId": "be7e4ee0677e12b6ff86cf2ca9097a65",
+                "responses": {
+                    "200": {
+                        "description": "list of available questionnaire model type",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "map of questionnaire model type",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "$ref": "#/components/schemas/QuestionnaireModelType"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/questionnaire/report/{id}": {
+            "get": {
+                "tags": [
+                    "QuestionnaireReport"
+                ],
+                "summary": "Read a questionnaire report identified by a given id identifier",
+                "operationId": "6c828d7961ef637adc7ccf9fea75f9dd",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable questionnaire identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/QuestionnaireReportResource"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/questionnaire/{model_type_title}/{model_id}": {
+            "get": {
+                "tags": [
+                    "Questionnaire"
+                ],
+                "summary": "Lists available questionnaires",
+                "parameters": [
+                    {
+                        "name": "model_type_title",
+                        "in": "path",
+                        "description": "Name of Model (Course, Webinar etd.)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "model_id",
+                        "in": "path",
+                        "description": "id of Model (Course, Webinar etd.)",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "list of available questionnaires",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "map of questionnaires",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "$ref": "#/components/schemas/Questionnaire"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/questionnaire/{model_type_title}/{model_id}/{id}": {
+            "get": {
+                "tags": [
+                    "Questionnaire"
+                ],
+                "summary": "Read a questionnaire identified by a given id identifier and model",
+                "operationId": "34f01b468bf00949bea99a1cc24769c4",
+                "parameters": [
+                    {
+                        "name": "model_type_title",
+                        "in": "path",
+                        "description": "Name of Model (Course, Webinar etd.)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "model_id",
+                        "in": "path",
+                        "description": "id of Model (Course, Webinar etd.)",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Questionnaire",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Questionnaire"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Questionnaire"
+                ],
+                "summary": "Save a questionnaire answers",
+                "operationId": "e213b156195202d75bcea0077d6e88d3",
+                "parameters": [
+                    {
+                        "name": "model_type_title",
+                        "in": "path",
+                        "description": "Name of Model (Course, Webinar etd.)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "model_id",
+                        "in": "path",
+                        "description": "id of Model (Course, Webinar etd.)",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of questionnaire",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Answer attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/QuestionnaireAnswerRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Questionnaire"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
                     },
                     "500": {
                         "description": "server-side error"
@@ -8922,6 +9691,164 @@
                     "assigned": {
                         "description": "Is permission assigned to current role",
                         "type": "boolean"
+                    }
+                },
+                "type": "object"
+            },
+            "QuestionnaireAnswerRequest": {
+                "properties": {
+                    "answers": {
+                        "description": "answers for questionnaire",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "question_id": {
+                                    "description": "question identified by id",
+                                    "type": "integer"
+                                },
+                                "rate": {
+                                    "description": "rate from 1 to 5",
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "QuestionnaireReportResource": {
+                "properties": {
+                    "sum_rate": {
+                        "description": "sum of rates for this question",
+                        "type": "string"
+                    },
+                    "count_answers": {
+                        "description": "count all answers for this question",
+                        "type": "integer"
+                    },
+                    "avg_rate": {
+                        "description": "average rate",
+                        "type": "string"
+                    },
+                    "question_id": {
+                        "description": "question identifier",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "question title",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Question": {
+                "required": [
+                    "title",
+                    "questionnaire_id"
+                ],
+                "properties": {
+                    "title": {
+                        "description": "question title",
+                        "type": "string"
+                    },
+                    "questionnaire_id": {
+                        "description": "identifier of the questionnaire object",
+                        "type": "integer"
+                    },
+                    "description": {
+                        "description": "question description",
+                        "type": "string"
+                    },
+                    "position": {
+                        "description": "question position",
+                        "type": "integer"
+                    },
+                    "active": {
+                        "description": "question is active",
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            },
+            "QuestionAnswer": {
+                "required": [
+                    "rate",
+                    "question_id",
+                    "user_id",
+                    "questionnaire_model_id"
+                ],
+                "properties": {
+                    "rate": {
+                        "description": "question rate",
+                        "type": "integer"
+                    },
+                    "question_id": {
+                        "description": "identifier of the question object",
+                        "type": "integer"
+                    },
+                    "user_id": {
+                        "description": "identifier of the user object",
+                        "type": "integer"
+                    },
+                    "questionnaire_model_id": {
+                        "description": "identifier of the questionnaire model object",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "Questionnaire": {
+                "required": [
+                    "title"
+                ],
+                "properties": {
+                    "title": {
+                        "description": "questionnaire title",
+                        "type": "string"
+                    },
+                    "active": {
+                        "description": "Questionnaire is active",
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            },
+            "QuestionnaireModel": {
+                "required": [
+                    "questionnaire_id",
+                    "model_type_id",
+                    "model_id"
+                ],
+                "properties": {
+                    "questionnaire_id": {
+                        "description": "identifier of the questionnaire object",
+                        "type": "integer"
+                    },
+                    "model_id": {
+                        "description": "identifier of the model object who is asigne to questionnaire",
+                        "type": "integer"
+                    },
+                    "model_type_id": {
+                        "description": "model_type_id",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "QuestionnaireModelType": {
+                "required": [
+                    "title",
+                    "model_class"
+                ],
+                "properties": {
+                    "title": {
+                        "description": "title",
+                        "type": "string"
+                    },
+                    "model_class": {
+                        "description": "model_class",
+                        "type": "string"
                     }
                 },
                 "type": "object"
