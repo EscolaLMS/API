@@ -39,6 +39,7 @@
     "escolalms/headless-h5p": "^0",
     "escolalms/images": "^0",
     "escolalms/lrs": "^0",
+    "escolalms/mailerlite": "^0",
     "escolalms/mattermost": "^0",
     "escolalms/notifications": "^0",
     "escolalms/pages": "^0",

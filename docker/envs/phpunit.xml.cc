@@ -14,6 +14,7 @@
       <directory suffix=".php">./vendor/escolalms/images/src</directory>
       <directory suffix=".php">./vendor/escolalms/lrs/src</directory>
       <directory suffix=".php">./vendor/escolalms/notifications/src</directory>
+      <directory suffix=".php">./vendor/escolalms/mailerlite/src</directory>
       <directory suffix=".php">./vendor/escolalms/mattermost/src</directory>
       <directory suffix=".php">./vendor/escolalms/pages/src</directory>
       <directory suffix=".php">./vendor/escolalms/payments/src</directory>
@@ -70,6 +71,9 @@
     </testsuite>
     <testsuite name="notifications">
       <directory suffix="Test.php">./vendor/escolalms/notifications/tests</directory>
+    </testsuite>
+    <testsuite name="mailerlite">
+      <directory suffix="Test.php">./vendor/escolalms/mailerlite/tests</directory>
     </testsuite>
     <testsuite name="mattermost">
       <directory suffix="Test.php">./vendor/escolalms/mattermost/tests</directory>
