@@ -1758,7 +1758,7 @@
                         "description": "Pagination Page Number",
                         "required": false,
                         "schema": {
-                            "type": "integer",
+                            "type": "number",
                             "default": 1
                         }
                     },
@@ -1768,7 +1768,7 @@
                         "description": "Pagination Per Page",
                         "required": false,
                         "schema": {
-                            "type": "integer",
+                            "type": "number",
                             "default": 15
                         }
                     },
@@ -1778,25 +1778,25 @@
                         "description": "User (buyer) ID",
                         "required": false,
                         "schema": {
-                            "type": "integer"
+                            "type": "number"
                         }
                     },
                     {
-                        "name": "product_id",
+                        "name": "course_id",
                         "in": "query",
-                        "description": "Product ID",
+                        "description": "Course ID",
                         "required": false,
                         "schema": {
-                            "type": "string"
+                            "type": "number"
                         }
                     },
                     {
-                        "name": "product_type",
+                        "name": "author_id",
                         "in": "query",
-                        "description": "Product type (class)",
+                        "description": "Author ID",
                         "required": false,
                         "schema": {
-                            "type": "string"
+                            "type": "number"
                         }
                     }
                 ],
@@ -1855,114 +1855,6 @@
                 ]
             }
         },
-        "/api/admin/products/attach": {
-            "post": {
-                "tags": [
-                    "Admin Product"
-                ],
-                "description": "Attach product to user",
-                "operationId": "e093c48ae78e3b17ac7dbe5958615ec6",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/json": {
-                            "schema": {
-                                "required": [
-                                    "product_id",
-                                    "product_type",
-                                    "user_id"
-                                ],
-                                "properties": {
-                                    "product_id": {
-                                        "type": "string"
-                                    },
-                                    "product_type": {
-                                        "type": "string"
-                                    },
-                                    "user_id": {
-                                        "type": "integer"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/products/detach": {
-            "post": {
-                "tags": [
-                    "Admin Product"
-                ],
-                "description": "Detach product from user",
-                "operationId": "5fa396baae429426a2845abf64094e06",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/json": {
-                            "schema": {
-                                "required": [
-                                    "product_id",
-                                    "product_type",
-                                    "user_id"
-                                ],
-                                "properties": {
-                                    "product_id": {
-                                        "type": "string"
-                                    },
-                                    "product_type": {
-                                        "type": "string"
-                                    },
-                                    "user_id": {
-                                        "type": "integer"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
         "/api/cart": {
             "get": {
                 "tags": [
@@ -1991,31 +1883,23 @@
                 ]
             }
         },
-        "/api/cart/pay": {
+        "/api/cart/course/{course}": {
             "post": {
                 "tags": [
                     "Cart"
                 ],
-                "description": "Pay for cart",
-                "operationId": "a9183308a576feb0f769f81a32d6cb21",
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "multipart/json": {
-                            "schema": {
-                                "required": [
-                                    "paymentMethodId"
-                                ],
-                                "properties": {
-                                    "paymentMethodId": {
-                                        "type": "string"
-                                    }
-                                },
-                                "type": "object"
-                            }
+                "description": "Add course to cart",
+                "operationId": "a44f1a604e25d9a686e61cb51687b5f8",
+                "parameters": [
+                    {
+                        "name": "course",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
                         }
                     }
-                },
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -2035,70 +1919,17 @@
                         "passport": []
                     }
                 ]
-            }
-        },
-        "/api/cart/add": {
-            "post": {
-                "tags": [
-                    "Cart"
-                ],
-                "description": "Add product to cart",
-                "operationId": "d41e5c2a7634809b0586231d6225c73a",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/json": {
-                            "schema": {
-                                "required": [
-                                    "product_id",
-                                    "product_type"
-                                ],
-                                "properties": {
-                                    "product_id": {
-                                        "type": "string"
-                                    },
-                                    "product_type": {
-                                        "type": "string"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/cart/{id}": {
+            },
             "delete": {
                 "tags": [
                     "Cart"
                 ],
-                "description": "Remove cart item from cart",
-                "operationId": "1583678734ca47968cb4d905da172eae",
+                "description": "Remove course from cart",
+                "operationId": "d68437563ed5f93a2252f6b7c395891f",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "course",
                         "in": "path",
-                        "description": "cart item id",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -2126,35 +1957,23 @@
                 ]
             }
         },
-        "/api/cart/remove": {
+        "/api/cart/pay": {
             "post": {
                 "tags": [
                     "Cart"
                 ],
-                "description": "Remove product from cart",
-                "operationId": "6af33fc35ba3feef3b1a8cc93fa47ac7",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/json": {
-                            "schema": {
-                                "required": [
-                                    "product_id",
-                                    "product_type"
-                                ],
-                                "properties": {
-                                    "product_id": {
-                                        "type": "string"
-                                    },
-                                    "product_type": {
-                                        "type": "string"
-                                    }
-                                },
-                                "type": "object"
-                            }
+                "description": "Pay for cart",
+                "operationId": "a9183308a576feb0f769f81a32d6cb21",
+                "parameters": [
+                    {
+                        "name": "paymentMethodId",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
                         }
                     }
-                },
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -2183,63 +2002,6 @@
                 ],
                 "description": "Get user orders",
                 "operationId": "8997737565f012fc6483d7874fed7375",
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/products": {
-            "get": {
-                "tags": [
-                    "Products"
-                ],
-                "description": "Get products",
-                "operationId": "697a6765742348342c80652460b71213",
-                "parameters": [
-                    {
-                        "name": "product_type",
-                        "in": "query",
-                        "description": "Product type (class)",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "description": "Page",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "per_page",
-                        "in": "query",
-                        "description": "Limit per page",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
