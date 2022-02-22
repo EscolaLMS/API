@@ -28,6 +28,7 @@ Laravel Headless LMS REST API.
 - [escolalms/payments](https://packagist.org/packages/escolalms/payments)
 - [escolalms/permissions](https://packagist.org/packages/escolalms/permissions)
 - [escolalms/notifications](https://packagist.org/packages/escolalms/notifications)
+- [escolalms/mailerlite](https://packagist.org/packages/escolalms/mailerlite)
 - [escolalms/mattermost](https://packagist.org/packages/escolalms/mattermost)
 - [escolalms/reports](https://packagist.org/packages/escolalms/reports)
 - [escolalms/scorm](https://packagist.org/packages/escolalms/scorm)
@@ -37,7 +38,9 @@ Laravel Headless LMS REST API.
 - [escolalms/templates-email](https://packagist.org/packages/escolalms/templates-email)
 - [escolalms/templates-pdf](https://packagist.org/packages/escolalms/templates-pdf)
 - [escolalms/topic-types](https://packagist.org/packages/topic-types/topic-types)
+- [escolalms/questionnaire](https://packagist.org/packages/escolalms/questionnaire)
 - [escolalms/video](https://packagist.org/packages/escolalms/video)
+- [escolalms/consultations](https://packagist.org/packages/escolalms/consultations)
 
 ## Tests
 
