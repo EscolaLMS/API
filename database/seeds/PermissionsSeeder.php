@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use EscolaLms\AssignWithoutAccount\Database\Seeders\AssignWithoutAccountPermissionSeeder;
 use EscolaLms\Auth\Database\Seeders\AuthPermissionSeeder;
 use EscolaLms\Cart\Database\Seeders\CartPermissionSeeder;
 use EscolaLms\Categories\Database\Seeders\CategoriesPermissionSeeder;
@@ -52,5 +53,6 @@ class PermissionsSeeder extends Seeder
         $this->call(TagsPermissionSeeder::class);
         $this->call(H5PPermissionTableSeeder::class);
         $this->call(QuestionnairePermissionsSeeder::class);
+        $this->call(AssignWithoutAccountPermissionSeeder::class);
     }
 }
