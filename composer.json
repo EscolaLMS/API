@@ -29,7 +29,7 @@
     "dmore/chrome-mink-driver": "^2.7",
     "doctrine/dbal": "^2|^3",
     "escolalms/auth": "^0",
-    "escolalms/cart": "^0",
+    "escolalms/cart": "0.1.19",
     "escolalms/categories": "^0",
     "escolalms/core": "^1",
     "escolalms/courses": "^0",
