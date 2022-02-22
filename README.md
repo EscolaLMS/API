@@ -40,6 +40,7 @@ Laravel Headless LMS REST API.
 - [escolalms/topic-types](https://packagist.org/packages/topic-types/topic-types)
 - [escolalms/questionnaire](https://packagist.org/packages/escolalms/questionnaire)
 - [escolalms/video](https://packagist.org/packages/escolalms/video)
+- [escolalms/consultations](https://packagist.org/packages/escolalms/consultations)
 
 ## Tests
 
