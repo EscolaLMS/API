@@ -8080,6 +8080,329 @@
                 ]
             }
         },
+        "/api/admin/stationary-events": {
+            "get": {
+                "tags": [
+                    "Admin Stationary Events"
+                ],
+                "summary": "Get a listing of the Stationary events",
+                "description": "Get all Stationary Events",
+                "operationId": "d6f51e48f360e27bb74d6da2a8da3943",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "finished_at",
+                                "started_at",
+                                "created_at",
+                                "name"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Stationary event name %LIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin Stationary Events"
+                ],
+                "summary": "Store a newly created Stationary event in storage",
+                "description": "Store Stationary Event",
+                "operationId": "dae18b20fcabf0d3d80d32a95463b0fb",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/stationary-event-create-request"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/stationary-events/{id}": {
+            "get": {
+                "tags": [
+                    "Admin Stationary Events"
+                ],
+                "summary": "Display the specified Stationary Event",
+                "description": "Get Stationary Event",
+                "operationId": "3f819ea5b4a2a48a1ac9f925c6cfd3b3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Stationary event",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin Stationary Events"
+                ],
+                "summary": "Update the specified Stationary Event in storage",
+                "description": "Update Stationary Events",
+                "operationId": "c0e6b017e6963fa6aae34aedfbc74e2b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Stationary Events",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/stationary-event-create-request"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin Stationary Events"
+                ],
+                "summary": "Remove the specified Stationary Event from storage",
+                "description": "Delete Stationary Event",
+                "operationId": "051247585adc9f3f9717f410e37bd46c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Stationary Event",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/stationary-events": {
+            "get": {
+                "tags": [
+                    "Stationary Events"
+                ],
+                "summary": "Get a listing of the active Stationary events",
+                "description": "Get all active Stationary Events",
+                "operationId": "8e48dcafb3bc43749212c24ae7e5b842",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "finished_at",
+                                "started_at",
+                                "created_at",
+                                "name"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Stationary event name %LIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/stationary-events/{id}": {
+            "get": {
+                "tags": [
+                    "Stationary Events"
+                ],
+                "summary": "Display the specified Stationary Event",
+                "description": "Get Stationary Event",
+                "operationId": "0691e9d4f2cbb162f7b42ec14891633a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Stationary event",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/tags": {
             "get": {
                 "tags": [
@@ -10042,6 +10365,110 @@
                     "sort": {
                         "description": "sort",
                         "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "stationary-event-create-request": {
+                "required": [
+                    "name",
+                    "description",
+                    "started_at",
+                    "finished_at"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "name",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "description",
+                        "type": "string"
+                    },
+                    "started_at": {
+                        "description": "started_at",
+                        "type": "datetime"
+                    },
+                    "finished_at": {
+                        "description": "finished_at",
+                        "type": "datetime"
+                    },
+                    "max_participants": {
+                        "description": "max_participants",
+                        "type": "integer"
+                    },
+                    "place": {
+                        "description": "place",
+                        "type": "string"
+                    },
+                    "program": {
+                        "description": "program",
+                        "type": "string"
+                    },
+                    "authors": {
+                        "description": "authors",
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "tags": {
+                        "description": "tags",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "stationary-event": {
+                "required": [
+                    "name",
+                    "description",
+                    "started_at",
+                    "finished_at"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "name",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "description",
+                        "type": "string"
+                    },
+                    "started_at": {
+                        "description": "started_at",
+                        "type": "datetime"
+                    },
+                    "finished_at": {
+                        "description": "finished_at",
+                        "type": "datetime"
+                    },
+                    "max_participants": {
+                        "description": "max_participants",
+                        "type": "integer"
+                    },
+                    "place": {
+                        "description": "place",
+                        "type": "string"
+                    },
+                    "program": {
+                        "description": "program",
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "description": "created_at",
+                        "type": "datetime"
+                    },
+                    "updated_at": {
+                        "description": "updated_at",
+                        "type": "datetime"
                     }
                 },
                 "type": "object"
