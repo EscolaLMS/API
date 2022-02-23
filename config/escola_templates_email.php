@@ -2,7 +2,7 @@
 
 return [
     'mjml' => [
-        'use_api'          => false,
+        'use_api'          => !empty(env('MJML_API_ID')),
         //
         'binary_path'      => env('MJML_BINARY_PATH'),
         //
