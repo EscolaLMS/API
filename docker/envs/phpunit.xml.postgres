@@ -22,6 +22,7 @@
       <directory suffix=".php">./vendor/escolalms/reports/</directory>
       <directory suffix=".php">./vendor/escolalms/scorm/</directory>
       <directory suffix=".php">./vendor/escolalms/settings/</directory>
+      <directory suffix=".php">./vendor/escolalms/stationary-events/</directory>
       <directory suffix=".php">./vendor/escolalms/tags/</directory>
       <directory suffix=".php">./vendor/escolalms/topic-types/</directory>
       <directory suffix=".php">./vendor/escolalms/templates/</directory>
@@ -96,6 +97,9 @@
     </testsuite>
     <testsuite name="settings">
       <directory suffix="Test.php">./vendor/escolalms/settings/tests</directory>
+    </testsuite>
+    <testsuite name="stationary-events">
+      <directory suffix="Test.php">./vendor/escolalms/stationary-events/tests</directory>
     </testsuite>
     <testsuite name="tags">
       <directory suffix="Test.php">./vendor/escolalms/tags/tests</directory>

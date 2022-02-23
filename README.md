@@ -33,6 +33,7 @@ Laravel Headless LMS REST API.
 - [escolalms/reports](https://packagist.org/packages/escolalms/reports)
 - [escolalms/scorm](https://packagist.org/packages/escolalms/scorm)
 - [escolalms/settings](https://packagist.org/packages/escolalms/settings)
+- [escolalms/stationary-events](https://packagist.org/packages/escolalms/stationary-events)
 - [escolalms/tags](https://packagist.org/packages/escolalms/tags)
 - [escolalms/templates](https://packagist.org/packages/escolalms/templates)
 - [escolalms/templates-email](https://packagist.org/packages/escolalms/templates-email)
