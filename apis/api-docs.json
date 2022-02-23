@@ -7162,6 +7162,47 @@
                 ]
             }
         },
+        "/api/questionnaire/stars/{id}/{model_type_id}/{model_id}": {
+            "get": {
+                "tags": [
+                    "QuestionnaireStars"
+                ],
+                "summary": "Read a questionnaire stars identified by a given id identifier",
+                "operationId": "9ec3da7ca3266a9a711126eca4f2fcd7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable questionnaire identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/QuestionnaireStarsResource"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                }
+            }
+        },
         "/api/admin/reports/metrics": {
             "get": {
                 "tags": [
@@ -9745,6 +9786,23 @@
                     },
                     "title": {
                         "description": "question title",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "QuestionnaireStarsResource": {
+                "properties": {
+                    "sum_rate": {
+                        "description": "sum of rates for this question",
+                        "type": "string"
+                    },
+                    "count_answers": {
+                        "description": "count all answers for this question",
+                        "type": "integer"
+                    },
+                    "avg_rate": {
+                        "description": "average rate",
                         "type": "string"
                     }
                 },
