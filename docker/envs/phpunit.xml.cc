@@ -14,6 +14,7 @@
       <directory suffix=".php">./vendor/escolalms/images/src</directory>
       <directory suffix=".php">./vendor/escolalms/lrs/src</directory>
       <directory suffix=".php">./vendor/escolalms/notifications/src</directory>
+      <directory suffix=".php">./vendor/escolalms/mailerlite/src</directory>
       <directory suffix=".php">./vendor/escolalms/mattermost/src</directory>
       <directory suffix=".php">./vendor/escolalms/pages/src</directory>
       <directory suffix=".php">./vendor/escolalms/payments/src</directory>
@@ -26,6 +27,8 @@
       <directory suffix=".php">./vendor/escolalms/templates/src</directory>
       <directory suffix=".php">./vendor/escolalms/templates-email/src</directory>
       <directory suffix=".php">./vendor/escolalms/templates-pdf/src</directory>
+      <directory suffix=".php">./vendor/escolalms/questionnaire/src</directory>
+      <directory suffix=".php">./vendor/escolalms/assign-without-account/src</directory>
       <!-- <directory suffix=".php">./vendor/escolalms/video/src</directory> -->
 
     </include>
@@ -70,6 +73,9 @@
     <testsuite name="notifications">
       <directory suffix="Test.php">./vendor/escolalms/notifications/tests</directory>
     </testsuite>
+    <testsuite name="mailerlite">
+      <directory suffix="Test.php">./vendor/escolalms/mailerlite/tests</directory>
+    </testsuite>
     <testsuite name="mattermost">
       <directory suffix="Test.php">./vendor/escolalms/mattermost/tests</directory>
     </testsuite>
@@ -105,6 +111,12 @@
     </testsuite>
     <testsuite name="templates-pdf">
       <directory suffix="Test.php">./vendor/escolalms/templates-pdf/tests</directory>
+    </testsuite>
+    <testsuite name="questionnaire">
+      <directory suffix="Test.php">./vendor/escolalms/questionnaire/tests</directory>
+    </testsuite>
+    <testsuite name="assign-without-account">
+      <directory suffix="Test.php">./vendor/escolalms/assign-without-account/tests</directory>
     </testsuite>
     <!--
     <testsuite name="video">
