@@ -48,6 +48,7 @@
     "escolalms/reports": "^0",
     "escolalms/scorm": "^0",
     "escolalms/settings": "^0",
+    "escolalms/stationary-events": "^0",
     "escolalms/tags": "^0",
     "escolalms/templates": "^0",
     "escolalms/templates-email": "^0",
