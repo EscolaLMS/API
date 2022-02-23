@@ -353,7 +353,7 @@
                     "Admin User Interests"
                 ],
                 "summary": "Set user interests",
-                "description": "",
+                "description": "Set user interests",
                 "operationId": "6cde70ea763ad38995d40bb8796179fa",
                 "parameters": [
                     {
@@ -366,7 +366,25 @@
                         }
                     }
                 ],
-                "requestBody": {},
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "interests": {
+                                        "description": "Ids of categories to be set",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer",
+                                            "format": "int64"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "successful operation, returns list of user interests",
@@ -376,14 +394,19 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
                     "Admin User Interests"
                 ],
                 "summary": "Add single user interest",
-                "description": "",
+                "description": "Add single user interest",
                 "operationId": "de4a9d433ded2aa83764e3ef77fe9c83",
                 "parameters": [
                     {
@@ -396,7 +419,26 @@
                         }
                     }
                 ],
-                "requestBody": {},
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "interest_id"
+                                ],
+                                "properties": {
+                                    "interest_id": {
+                                        "description": "Id of category to be added",
+                                        "type": "integer",
+                                        "format": "int64"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "successful operation, returns list of user interests",
@@ -2333,6 +2375,43 @@
                     },
                     "500": {
                         "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/courses/{id}/clone": {
+            "get": {
+                "tags": [
+                    "Admin Courses"
+                ],
+                "description": "Course cloning",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
                     }
                 },
                 "security": [
