@@ -1205,6 +1205,10 @@
                                     "email": {
                                         "type": "string",
                                         "example": "user@escola-lms.com"
+                                    },
+                                    "return_url": {
+                                        "type": "string",
+                                        "example": "https://escolalms.com/email/verify"
                                     }
                                 },
                                 "type": "object"
@@ -8662,6 +8666,47 @@
                         "in": "path",
                         "description": "id of Fabric.js PDF",
                         "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/pdfs": {
+            "get": {
+                "tags": [
+                    "Admin Template PDFs"
+                ],
+                "summary": "Display the specified Fabric.js PDF",
+                "description": "Get Fabric.js PDF, IF user_id or template_id is provided all records are returned, otherwise list is paginated ",
+                "operationId": "d946803526c066605aab47bed62ea091",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "either user_id",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "template_id",
+                        "in": "query",
+                        "description": "or user_id",
                         "schema": {
                             "type": "integer"
                         }
