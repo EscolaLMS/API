@@ -38,6 +38,7 @@ Laravel Headless LMS REST API.
 - [escolalms/templates](https://packagist.org/packages/escolalms/templates)
 - [escolalms/templates-email](https://packagist.org/packages/escolalms/templates-email)
 - [escolalms/templates-pdf](https://packagist.org/packages/escolalms/templates-pdf)
+- [escolalms/templates-sms](https://packagist.org/packages/escolalms/templates-sms)
 - [escolalms/topic-types](https://packagist.org/packages/topic-types/topic-types)
 - [escolalms/questionnaire](https://packagist.org/packages/escolalms/questionnaire)
 - [escolalms/assign-without-account](https://packagist.org/packages/escolalms/assign-without-account)
