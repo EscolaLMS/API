@@ -27,6 +27,7 @@
       <directory suffix=".php">./vendor/escolalms/topic-types/src</directory>
       <directory suffix=".php">./vendor/escolalms/templates/src</directory>
       <directory suffix=".php">./vendor/escolalms/templates-email/src</directory>
+      <directory suffix=".php">./vendor/escolalms/templates-sms/src</directory>
       <directory suffix=".php">./vendor/escolalms/templates-pdf/src</directory>
       <directory suffix=".php">./vendor/escolalms/questionnaire/src</directory>
       <directory suffix=".php">./vendor/escolalms/assign-without-account/src</directory>
@@ -112,6 +113,9 @@
     </testsuite>
     <testsuite name="templates-email">
       <directory suffix="Test.php">./vendor/escolalms/templates-email/tests</directory>
+    </testsuite>
+    <testsuite name="templates-sms">
+      <directory suffix="Test.php">./vendor/escolalms/templates-sms</directory>
     </testsuite>
     <testsuite name="templates-pdf">
       <directory suffix="Test.php">./vendor/escolalms/templates-pdf/tests</directory>

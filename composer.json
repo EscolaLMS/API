@@ -53,6 +53,7 @@
     "escolalms/templates": "^0",
     "escolalms/templates-email": "^0",
     "escolalms/templates-pdf": "^0",
+    "escolalms/templates-sms": "^0",
     "escolalms/topic-types": "^0",
     "escolalms/questionnaire": "^0",
     "escolalms/consultations": "^0",
