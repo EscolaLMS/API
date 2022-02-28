@@ -2283,6 +2283,692 @@
                 ]
             }
         },
+        "/api/consultations/report-term/{orderItemId}": {
+            "post": {
+                "tags": [
+                    "Consultations"
+                ],
+                "summary": "Report term with bought consultation",
+                "description": "Report term consultation",
+                "operationId": "b81194c4d5843f87b49d1857ff38f192",
+                "parameters": [
+                    {
+                        "name": "orderItemId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "term": {
+                                        "type": "string",
+                                        "example": "2022-10-12 10:45"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/consultations/approve-term/{consultationTermId}": {
+            "get": {
+                "tags": [
+                    "Consultations"
+                ],
+                "description": "Approve reported term with consultation author",
+                "operationId": "14336bd23f3284508ad8de5afb521786",
+                "parameters": [
+                    {
+                        "name": "consultationTermId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/consultations/reject-term/{consultationTermId}": {
+            "get": {
+                "tags": [
+                    "Consultations"
+                ],
+                "description": "Reject reported term with consultation author",
+                "operationId": "5c4f86d5ae0a0ab424785c444e0cc03b",
+                "parameters": [
+                    {
+                        "name": "consultationTermId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/consultations/generate-jitsi/{consultationTermId}": {
+            "get": {
+                "tags": [
+                    "Consultations"
+                ],
+                "description": "Generate jitsi object for approved consultation term",
+                "operationId": "ab326829fb10fb18a2be4de7f8e85baa",
+                "parameters": [
+                    {
+                        "name": "consultationTermId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/consultations": {
+            "get": {
+                "tags": [
+                    "Consultations"
+                ],
+                "summary": "Get a listing of the Consultations.",
+                "description": "Get all Consultations",
+                "operationId": "43f1b2cf7dcbfa54fdf21eafc0277b29",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "finished_at",
+                                "started_at",
+                                "created_at",
+                                "name",
+                                "base_price"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Consultation name %LIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "base_price",
+                        "in": "query",
+                        "description": "Consultation base_price >= ",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Consultation status == ",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/consultations/me": {
+            "get": {
+                "tags": [
+                    "Consultations"
+                ],
+                "summary": "Get a listing of the Consultations bought by user.",
+                "description": "Get a listing of the Consultations bought by user",
+                "operationId": "b165f785629d5add7073fa3efe4f0351",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "finished_at",
+                                "started_at",
+                                "created_at",
+                                "name",
+                                "base_price"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Consultation name %LIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "base_price",
+                        "in": "query",
+                        "description": "Consultation base_price >= ",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Consultation status == ",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/consultations/proposed-terms/{orderItemId}": {
+            "get": {
+                "tags": [
+                    "Consultations"
+                ],
+                "description": "Get proposedTerm For OrderItem",
+                "operationId": "e1eb4ed7728b0faee0e4af5fe2a63c19",
+                "parameters": [
+                    {
+                        "name": "orderItemId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/admin/consultations": {
+            "get": {
+                "operationId": "f33d2438b33d72e192a26367190f1ca8",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "finished_at",
+                                "started_at",
+                                "created_at",
+                                "name",
+                                "base_price"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Consultation name %LIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "base_price",
+                        "in": "query",
+                        "description": "Consultation base_price >= ",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Consultation status == ",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Admin Consultations"
+                ],
+                "summary": "Store a newly created Consultation in storage",
+                "description": "Store Consultation",
+                "operationId": "529eb94ab5042d477bb4de6634e810f3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Consultation"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/consultations/{id}": {
+            "get": {
+                "tags": [
+                    "Admin Consultations"
+                ],
+                "summary": "Display the specified Consultation",
+                "description": "Get Consultation",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Consultation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin Consultations"
+                ],
+                "summary": "Update the specified Consultation in storage",
+                "description": "Update Consultation",
+                "operationId": "7a1b879877cf3289d37bffd787a45ae5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Consultation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Consultation"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin Consultations"
+                ],
+                "summary": "Remove the specified Consultation from storage",
+                "description": "Delete Consultation",
+                "operationId": "46ada489685b1f9cbdc6ec11d1bc9f9f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Consultation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/consultations/{id}": {
+            "get": {
+                "tags": [
+                    "Consultations"
+                ],
+                "summary": "Display the specified Consultation",
+                "description": "Get Consultation",
+                "operationId": "c129e336d32d4fca4dd3fe014f6a2ac1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Consultation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/admin/consultations/{id}/schedule": {
+            "get": {
+                "tags": [
+                    "Consultations"
+                ],
+                "description": "Get Consultation schedule",
+                "operationId": "eed2da713303ced7539d6c0ad5d79077",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Consultation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "date_from",
+                        "in": "query",
+                        "description": "Course term date from",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date_to",
+                        "in": "query",
+                        "description": "Course term date to",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Course term status: not_reported, reported, reject, approved",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/core/packages": {
             "get": {
                 "tags": [
@@ -6965,13 +7651,13 @@
                 ]
             }
         },
-        "/api/admin/questionnaire/model": {
+        "/api/admin/questionnaire-model": {
             "get": {
                 "tags": [
                     "QuestionnaireModelType"
                 ],
                 "summary": "Lists available questionnaire model type",
-                "operationId": "be7e4ee0677e12b6ff86cf2ca9097a65",
+                "operationId": "0e104005f43b47981e5445763a148f12",
                 "responses": {
                     "200": {
                         "description": "list of available questionnaire model type",
@@ -9313,6 +9999,112 @@
                     "user_id": {
                         "description": "user_id",
                         "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "ConsultationTerm": {
+                "properties": {
+                    "status": {
+                        "description": "status",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "date",
+                        "type": "datetime"
+                    }
+                },
+                "type": "object"
+            },
+            "Consultation": {
+                "required": [
+                    "name",
+                    "status",
+                    "description",
+                    "author_id"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "name",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "status",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "description",
+                        "type": "string"
+                    },
+                    "duration": {
+                        "description": "duration",
+                        "type": "string"
+                    },
+                    "author_id": {
+                        "description": "author_id",
+                        "type": "integer"
+                    },
+                    "base_price": {
+                        "description": "base_price",
+                        "type": "integer"
+                    },
+                    "active_to": {
+                        "description": "active_to",
+                        "type": "datetime"
+                    },
+                    "active_from": {
+                        "description": "active_from",
+                        "type": "datetime"
+                    },
+                    "created_at": {
+                        "description": "created_at",
+                        "type": "datetime"
+                    },
+                    "updated_at": {
+                        "description": "updated_at",
+                        "type": "datetime"
+                    },
+                    "categories": {
+                        "description": "categories",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "Dokumentacja"
+                                },
+                                "icon_class": {
+                                    "type": "string",
+                                    "example": "fa-business-time"
+                                },
+                                "is_active": {
+                                    "type": "bool",
+                                    "example": "true"
+                                },
+                                "parent_id": {
+                                    "type": "?integer",
+                                    "example": "null"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "proposed_terms": {
+                        "description": "proposed_terms",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "": {
+                                    "type": "string",
+                                    "example": "12-12-2022 11:30"
+                                }
+                            },
+                            "type": "object"
+                        }
                     }
                 },
                 "type": "object"
