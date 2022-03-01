@@ -9926,6 +9926,262 @@
                     }
                 ]
             }
+        },
+        "/api/admin/webinars": {
+            "get": {
+                "operationId": "a4cc4150753c66e5796d977b9c247bcb",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "finished_at",
+                                "started_at",
+                                "created_at",
+                                "name",
+                                "base_price"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Webinar name %LIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "base_price",
+                        "in": "query",
+                        "description": "Webinar base_price >= ",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Webinar status == ",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Admin Webinars"
+                ],
+                "summary": "Store a newly created Webinar in storage",
+                "description": "Store Webinar",
+                "operationId": "f55c76d976ee46b2f98f9e6825ea79e1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Webinar"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/webinars/{id}": {
+            "get": {
+                "tags": [
+                    "Admin Webinars"
+                ],
+                "summary": "Display the specified Webinar",
+                "description": "Get Webinars",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Webinar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin Webinars"
+                ],
+                "summary": "Update the specified Webinar in storage",
+                "description": "Update Webinar",
+                "operationId": "b5d9d10f162ca3e879e75c15fd575b1b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Webinar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Webinar"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin Webinars"
+                ],
+                "summary": "Remove the specified Webinar from storage",
+                "description": "Delete Webinar",
+                "operationId": "4b5c901bcbc8c4b287afb20fbd600c4e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Webinar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/webinars/{id}": {
+            "get": {
+                "tags": [
+                    "Consultations"
+                ],
+                "summary": "Display the specified Webinar",
+                "description": "Get Webinar",
+                "operationId": "22909ecad11b38d76a706b8877675388",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Webinar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -11249,11 +11505,11 @@
                             "type": "integer"
                         }
                     },
-                    "tags": {
-                        "description": "tags",
+                    "categories": {
+                        "description": "categories",
                         "type": "array",
                         "items": {
-                            "type": "string"
+                            "type": "integer"
                         }
                     }
                 },
@@ -11352,6 +11608,56 @@
                     "default": {
                         "description": "this template is default template for given channel and event pair",
                         "type": "bool"
+                    }
+                },
+                "type": "object"
+            },
+            "Webinar": {
+                "required": [
+                    "name",
+                    "status",
+                    "description"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "name",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "status",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "description",
+                        "type": "string"
+                    },
+                    "duration": {
+                        "description": "duration",
+                        "type": "string"
+                    },
+                    "base_price": {
+                        "description": "base_price",
+                        "type": "integer"
+                    },
+                    "active_to": {
+                        "description": "active_to",
+                        "type": "datetime"
+                    },
+                    "active_from": {
+                        "description": "active_from",
+                        "type": "datetime"
+                    },
+                    "created_at": {
+                        "description": "created_at",
+                        "type": "datetime"
+                    },
+                    "updated_at": {
+                        "description": "updated_at",
+                        "type": "datetime"
                     }
                 },
                 "type": "object"
