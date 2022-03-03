@@ -2660,6 +2660,9 @@
         },
         "/api/admin/consultations": {
             "get": {
+                "tags": [
+                    "Admin Consultations"
+                ],
                 "operationId": "f33d2438b33d72e192a26367190f1ca8",
                 "parameters": [
                     {
@@ -9927,8 +9930,138 @@
                 ]
             }
         },
+        "/api/webinars/generate-jitsi/{webinarId}": {
+            "get": {
+                "tags": [
+                    "Webinars"
+                ],
+                "description": "Generate jitsi object for approved webinar",
+                "operationId": "f7537b80c9ce6cec3f34c138aea386ac",
+                "parameters": [
+                    {
+                        "name": "webinarId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/webinars": {
+            "get": {
+                "tags": [
+                    "Webinars"
+                ],
+                "summary": "Get a listing of the Webinars.",
+                "description": "Get all Webinars",
+                "operationId": "6f079fc715b7ddc751392a031c8d262d",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "finished_at",
+                                "started_at",
+                                "created_at",
+                                "name",
+                                "base_price"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Webinar name %LIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "base_price",
+                        "in": "query",
+                        "description": "Webinar base_price >= ",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Webinar status == ",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/admin/webinars": {
             "get": {
+                "tags": [
+                    "Admin Webinars"
+                ],
                 "operationId": "a4cc4150753c66e5796d977b9c247bcb",
                 "parameters": [
                     {
@@ -10157,7 +10290,7 @@
         "/api/webinars/{id}": {
             "get": {
                 "tags": [
-                    "Consultations"
+                    "Webinars"
                 ],
                 "summary": "Display the specified Webinar",
                 "description": "Get Webinar",
