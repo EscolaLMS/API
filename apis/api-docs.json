@@ -11399,6 +11399,24 @@
                 },
                 "type": "object"
             },
+            "Product": {
+                "description": "EscolaLms\\Cart\\Models\\Product",
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "name",
+                        "type": "string"
+                    },
+                    "price": {
+                        "description": "price",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
             "ConsultationTerm": {
                 "properties": {
                     "status": {
