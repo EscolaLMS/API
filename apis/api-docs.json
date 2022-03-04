@@ -1090,7 +1090,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/auth/social/{provider}": {
@@ -1268,6 +1273,13 @@
                         "required": true,
                         "schema": {
                             "type": "string"
+                        }
+                    },
+                    {
+                        "name": "remember_me",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean"
                         }
                     }
                 ],
@@ -11644,6 +11656,10 @@
                         "items": {
                             "type": "integer"
                         }
+                    },
+                    "image": {
+                        "description": "image",
+                        "type": "file"
                     }
                 },
                 "type": "object"
@@ -11686,6 +11702,10 @@
                     },
                     "program": {
                         "description": "program",
+                        "type": "string"
+                    },
+                    "image_path": {
+                        "description": "image_path",
                         "type": "string"
                     },
                     "created_at": {
