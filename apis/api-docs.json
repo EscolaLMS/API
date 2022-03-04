@@ -1816,7 +1816,7 @@
                         "description": "Pagination Page Number",
                         "required": false,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "default": 1
                         }
                     },
@@ -1826,7 +1826,7 @@
                         "description": "Pagination Per Page",
                         "required": false,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "default": 15
                         }
                     },
@@ -1836,25 +1836,34 @@
                         "description": "User (buyer) ID",
                         "required": false,
                         "schema": {
-                            "type": "number"
+                            "type": "integer"
                         }
                     },
                     {
-                        "name": "course_id",
+                        "name": "product_id",
                         "in": "query",
-                        "description": "Course ID",
+                        "description": "Product ID",
                         "required": false,
                         "schema": {
-                            "type": "number"
+                            "type": "integer"
                         }
                     },
                     {
-                        "name": "author_id",
+                        "name": "productable_id",
                         "in": "query",
-                        "description": "Author ID",
+                        "description": "Productable ID (for example Course Id)",
                         "required": false,
                         "schema": {
-                            "type": "number"
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "productable_type",
+                        "in": "query",
+                        "description": "Productable type (class) - required if productable_id is sent",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
                         }
                     }
                 ],
@@ -1886,7 +1895,7 @@
                 ],
                 "summary": "Display the specified Order",
                 "description": "Get Order",
-                "operationId": "78256b46b7f98b058162a6d5711f6622",
+                "operationId": "4adc791fab51e5210d86900044c98c39",
                 "parameters": [
                     {
                         "name": "id",
@@ -1901,6 +1910,618 @@
                 "responses": {
                     "200": {
                         "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/products": {
+            "get": {
+                "tags": [
+                    "Admin Products"
+                ],
+                "description": "Search products",
+                "operationId": "3ae395120207e00ffce7d6a87c8af16a",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "created_at",
+                                "updated_at",
+                                "name"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "productable_id",
+                        "in": "query",
+                        "description": "Productable ID (for example Course Id)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "productable_type",
+                        "in": "query",
+                        "description": "Productable type (class) - required if productable_id is sent",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "free",
+                        "in": "query",
+                        "description": "Find free (price = 0)",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Partial name filter",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Type (`single` or `bundle`)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "purchasable",
+                        "in": "query",
+                        "description": "Purchasable filter",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/products/": {
+            "post": {
+                "tags": [
+                    "Admin Product"
+                ],
+                "description": "Create product",
+                "operationId": "e4609018067c9c84927d21895c3223b1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "price"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "integer"
+                                    },
+                                    "price_old": {
+                                        "type": "integer"
+                                    },
+                                    "tax_rate": {
+                                        "type": "integer"
+                                    },
+                                    "extra_fees": {
+                                        "type": "integer"
+                                    },
+                                    "purchasable": {
+                                        "type": "boolean"
+                                    },
+                                    "teaser_url": {
+                                        "type": "string"
+                                    },
+                                    "poster": {
+                                        "description": "image upload",
+                                        "type": "string"
+                                    },
+                                    "duration": {
+                                        "type": "string"
+                                    },
+                                    "limit_per_user": {
+                                        "type": "integer"
+                                    },
+                                    "limit_total": {
+                                        "type": "integer"
+                                    },
+                                    "productables": {
+                                        "type": "array",
+                                        "items": {}
+                                    },
+                                    "categories": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/products/{id}": {
+            "get": {
+                "tags": [
+                    "Admin Products"
+                ],
+                "description": "Read product",
+                "operationId": "43c19a1c9ac248e509d420423ac6dc8b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin Product"
+                ],
+                "description": "Create product",
+                "operationId": "d6d16ee0ef6b55782204e390b65ff2fd",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/json": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "integer"
+                                    },
+                                    "price_old": {
+                                        "type": "integer"
+                                    },
+                                    "tax_rate": {
+                                        "type": "integer"
+                                    },
+                                    "extra_fees": {
+                                        "type": "integer"
+                                    },
+                                    "purchasable": {
+                                        "type": "boolean"
+                                    },
+                                    "teaser_url": {
+                                        "type": "string"
+                                    },
+                                    "poster": {
+                                        "description": "image upload",
+                                        "type": "string"
+                                    },
+                                    "duration": {
+                                        "type": "string"
+                                    },
+                                    "limit_per_user": {
+                                        "type": "integer"
+                                    },
+                                    "limit_total": {
+                                        "type": "integer"
+                                    },
+                                    "productables": {
+                                        "type": "array",
+                                        "items": {}
+                                    },
+                                    "categories": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin Products"
+                ],
+                "description": "Delete product",
+                "operationId": "1149b916a12660eecaa24b0cdee69638",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/products/{id}/attach": {
+            "post": {
+                "tags": [
+                    "Admin Product"
+                ],
+                "description": "Attach product to user",
+                "operationId": "9c60ee94d636884077756457473f8c76",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Product",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/json": {
+                            "schema": {
+                                "required": [
+                                    "user_id"
+                                ],
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/products/{id}/detach": {
+            "post": {
+                "tags": [
+                    "Admin Product"
+                ],
+                "description": "Detach product from user",
+                "operationId": "c504f431d29c7754347942e311b251a7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Product",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/json": {
+                            "schema": {
+                                "required": [
+                                    "user_id"
+                                ],
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/productables/attach": {
+            "post": {
+                "tags": [
+                    "Admin Products"
+                ],
+                "description": "Attach productable to user",
+                "operationId": "14253683f4e9c43c218c1bd380ad3224",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/json": {
+                            "schema": {
+                                "required": [
+                                    "productable_id",
+                                    "productable_type",
+                                    "user_id"
+                                ],
+                                "properties": {
+                                    "productable_id": {
+                                        "type": "integer"
+                                    },
+                                    "productable_type": {
+                                        "type": "string"
+                                    },
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/productabless/detach": {
+            "post": {
+                "tags": [
+                    "Admin Product"
+                ],
+                "description": "Detach product from user",
+                "operationId": "54924eb086f282529d6731fbf0d07c87",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/json": {
+                            "schema": {
+                                "required": [
+                                    "productable_id",
+                                    "productable_type",
+                                    "user_id"
+                                ],
+                                "properties": {
+                                    "productable_id": {
+                                        "type": "integer"
+                                    },
+                                    "productable_type": {
+                                        "type": "string"
+                                    },
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
                         "content": {
                             "application/json": {}
                         }
@@ -1941,23 +2562,31 @@
                 ]
             }
         },
-        "/api/cart/course/{course}": {
+        "/api/cart/pay": {
             "post": {
                 "tags": [
                     "Cart"
                 ],
-                "description": "Add course to cart",
-                "operationId": "a44f1a604e25d9a686e61cb51687b5f8",
-                "parameters": [
-                    {
-                        "name": "course",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
+                "description": "Pay for cart",
+                "operationId": "a9183308a576feb0f769f81a32d6cb21",
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "multipart/json": {
+                            "schema": {
+                                "required": [
+                                    "paymentMethodId"
+                                ],
+                                "properties": {
+                                    "paymentMethodId": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -1977,17 +2606,116 @@
                         "passport": []
                     }
                 ]
-            },
+            }
+        },
+        "/api/cart/products": {
+            "post": {
+                "tags": [
+                    "Cart"
+                ],
+                "description": "Add product to cart",
+                "operationId": "730416e92de395647fbef1f63c2e1df9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/json": {
+                            "schema": {
+                                "required": [
+                                    "id"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/cart/add": {
+            "post": {
+                "tags": [
+                    "Cart"
+                ],
+                "description": "Add productable to cart",
+                "operationId": "ab576ab7ba6aa2869d8fc42755c4deb8",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/json": {
+                            "schema": {
+                                "required": [
+                                    "productable_id",
+                                    "productable_type"
+                                ],
+                                "properties": {
+                                    "productable_id": {
+                                        "type": "integer"
+                                    },
+                                    "productable_type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/cart/items/{id}": {
             "delete": {
                 "tags": [
                     "Cart"
                 ],
-                "description": "Remove course from cart",
-                "operationId": "d68437563ed5f93a2252f6b7c395891f",
+                "description": "Remove cart item from cart",
+                "operationId": "1b9e2809c17674383eae251384ad4ef2",
                 "parameters": [
                     {
-                        "name": "course",
+                        "name": "id",
                         "in": "path",
+                        "description": "cart item id",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -2015,20 +2743,21 @@
                 ]
             }
         },
-        "/api/cart/pay": {
-            "post": {
+        "/api/cart/products/{id}": {
+            "delete": {
                 "tags": [
                     "Cart"
                 ],
-                "description": "Pay for cart",
-                "operationId": "a9183308a576feb0f769f81a32d6cb21",
+                "description": "Remove product from cart",
+                "operationId": "b84150a918fa0fdbbc842e8bbe1629c5",
                 "parameters": [
                     {
-                        "name": "paymentMethodId",
-                        "in": "query",
-                        "required": false,
+                        "name": "id",
+                        "in": "path",
+                        "description": "product id",
+                        "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "integer"
                         }
                     }
                 ],
@@ -2058,8 +2787,274 @@
                 "tags": [
                     "Orders"
                 ],
-                "description": "Get user orders",
+                "description": "Search orders",
                 "operationId": "8997737565f012fc6483d7874fed7375",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "created_at",
+                                "updated_at",
+                                "user_id"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "product_id",
+                        "in": "query",
+                        "description": "Product ID",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "productable_id",
+                        "in": "query",
+                        "description": "Productable ID (for example Course Id)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "productable_type",
+                        "in": "query",
+                        "description": "Productable type (class) - required if productable_id is sent",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/orders/{id}": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Display the specified Order",
+                "description": "Get Order",
+                "operationId": "969ea70f5e18061c59fd92acf7e9a661",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Order",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "description": "Search products",
+                "operationId": "697a6765742348342c80652460b71213",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "created_at",
+                                "updated_at",
+                                "name"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "productable_id",
+                        "in": "query",
+                        "description": "Productable ID (for example Course Id)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "productable_type",
+                        "in": "query",
+                        "description": "Productable type (class) - required if productable_id is sent",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "free",
+                        "in": "query",
+                        "description": "Find free (price = 0)",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Partial name filter",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Type (`single` or `bundle`)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/products/{id}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "description": "Read product",
+                "operationId": "fb9c92b0b6dc4cdad6b2fd1e65da04da",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
