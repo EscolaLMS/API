@@ -5,6 +5,352 @@
         "version": "0.0.1"
     },
     "paths": {
+        "/api/admin/access-url": {
+            "get": {
+                "tags": [
+                    "Assign Without Account"
+                ],
+                "summary": "Lists available access urls",
+                "operationId": "741b559c1a772a20de86f1c26c3fe7be",
+                "parameters": [
+                    {
+                        "name": "modelable_id",
+                        "in": "query",
+                        "description": "Id of Model (Course, Webinar etd.)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "modelable_type",
+                        "in": "query",
+                        "description": "Name of Model (Course, Webinar etd.)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "list of available access urls"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Assign Without Account"
+                ],
+                "summary": "Create a new access url identified by id",
+                "operationId": "52cced06f888a351eb0ec0dbb088f0a8",
+                "requestBody": {
+                    "description": "Access url attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AccessUrl"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "access url created successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/access-url/{id}": {
+            "delete": {
+                "tags": [
+                    "Assign Without Account"
+                ],
+                "summary": "Delete access url identified by a id",
+                "operationId": "780a6dfaf17154445c4bb94431e94843",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable access url identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "access url deleted successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Assign Without Account"
+                ],
+                "summary": "Update an existing access url identified by id",
+                "operationId": "a3efc45f51befd985980529dbfb01308",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable access url identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Access url attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AccessUrl"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "access url created successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/user-submissions/accpet/{id}": {
+            "get": {
+                "tags": [
+                    "Assign Without Account"
+                ],
+                "summary": "Accept user submission identified by a id",
+                "operationId": "9778a93a62436b308ce3eb29c2fd0e1e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable user submission identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User submission accepted successfully"
+                    },
+                    "401": {
+                        "description": "Endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "User doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "Server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/user-submissions/reject/{id}": {
+            "get": {
+                "tags": [
+                    "Assign Without Account"
+                ],
+                "summary": "Reject user submission identified by a id",
+                "operationId": "d4fd0521b7453789982dcbf6196c366d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable user submission identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User submission rejected successfully"
+                    },
+                    "401": {
+                        "description": "Endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "User doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "Server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/user-submissions": {
+            "get": {
+                "tags": [
+                    "Assign Without Account"
+                ],
+                "summary": "Lists available user submissions",
+                "operationId": "0bb20b9fcce3a66a1273f75cc8c02aff",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "User email",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "User submission status",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of available user submissions"
+                    },
+                    "401": {
+                        "description": "Endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "User doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "Server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/user-submissions/{access-url}": {
+            "post": {
+                "tags": [
+                    "Assign Without Account"
+                ],
+                "summary": "Create a new user submission",
+                "operationId": "a6f269eb8b1d190d4911269013ad3843",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "description": "User email",
+                                        "type": "string"
+                                    },
+                                    "frontend_url": {
+                                        "description": "Frontend url to course, webinar etc.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User submission created successfully"
+                    },
+                    "401": {
+                        "description": "Endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "User doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "Server-side error"
+                    }
+                }
+            }
+        },
         "/api/admin/user-groups/": {
             "get": {
                 "tags": [
@@ -641,12 +987,7 @@
                         "description": "user role",
                         "required": false,
                         "schema": {
-                            "type": "string",
-                            "enum": [
-                                "admin",
-                                "tutor",
-                                "student"
-                            ]
+                            "type": "string"
                         }
                     },
                     {
@@ -1279,7 +1620,10 @@
                         "name": "remember_me",
                         "in": "query",
                         "schema": {
-                            "type": "boolean"
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     }
                 ],
@@ -8941,18 +9285,27 @@
                 ]
             }
         },
-        "/api/questionnaire/stars/{id}/{model_type_id}/{model_id}": {
+        "/api/questionnaire/stars/{model_type_title}/{model_id}": {
             "get": {
                 "tags": [
                     "QuestionnaireStars"
                 ],
-                "summary": "Read a questionnaire stars identified by a given id identifier",
-                "operationId": "9ec3da7ca3266a9a711126eca4f2fcd7",
+                "summary": "Read a questionnaire stars identified by a given model title and model id identifier",
+                "operationId": "000d633e3d443742474a090e856c981a",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "model_type_title",
                         "in": "path",
-                        "description": "Unique human-readable questionnaire identifier",
+                        "description": "Name of Model (Course, Webinar etd.)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "model_id",
+                        "in": "path",
+                        "description": "id of Model (Course, Webinar etd.)",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -10937,6 +11290,81 @@
                 ]
             }
         },
+        "/api/admin/tracks/routes": {
+            "get": {
+                "tags": [
+                    "Tracker"
+                ],
+                "summary": "Lists available tracked routes",
+                "operationId": "994c6b5bc1950a2ba1d86f29d8f35d13",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "Id of User",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "path",
+                        "in": "query",
+                        "description": "Route path",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "Http method",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date_from",
+                        "in": "query",
+                        "description": "Date from",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date_to",
+                        "in": "query",
+                        "description": "Date to",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of available"
+                    },
+                    "401": {
+                        "description": "Endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "User doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "Server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/webinars/generate-jitsi/{webinarId}": {
             "get": {
                 "tags": [
@@ -11326,6 +11754,27 @@
     },
     "components": {
         "schemas": {
+            "AccessUrl": {
+                "properties": {
+                    "id": {
+                        "description": "access url id",
+                        "type": "integer"
+                    },
+                    "url": {
+                        "description": "access url",
+                        "type": "string"
+                    },
+                    "modelable_id": {
+                        "description": "model id",
+                        "type": "integer"
+                    },
+                    "modelable_type": {
+                        "description": "model type",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
             "UserAvatar": {
                 "properties": {
                     "avatar": {
