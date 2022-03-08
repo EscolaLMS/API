@@ -11,9 +11,8 @@ use EscolaLms\Payments\Concerns\Billable;
 use EscolaLms\Payments\Contracts\Billable as ContractsBillable;
 
 // TODO: make user extendable from core + add all traits
-class User extends CoreUser implements ContractsBillable, ContractsCanOrder
+class User extends CoreUser implements ContractsBillable
 {
     use Billable;
-    use CanOrder;
     use HasCourses;
 }
