@@ -9,7 +9,7 @@ on:
 
 jobs:
   phpunit-code-coverage:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     container:
       image: escolalms/php:8-work
 
@@ -57,7 +57,7 @@ jobs:
         run: rm -f vendor/escolalms/lrs/tests/Exceptions/Handler.php
 
       - name: Run tests
-        run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text --debug | tee coverage.txt
+        run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text | tee coverage.txt
 
       - name: Generate Badge
         run: php tests/badge.php
