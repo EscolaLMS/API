@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Consultation;
 use App\Models\Course;
+use App\Models\StationaryEvent;
 use App\Models\Webinar;
 use EscolaLms\Cart\Facades\Shop;
 use Illuminate\Database\SQLiteConnection;
@@ -23,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
         Shop::registerProductableClass(Consultation::class);
         Shop::registerProductableClass(Webinar::class);
         Shop::registerProductableClass(Course::class);
+        Shop::registerProductableClass(StationaryEvent::class);
     }
 
     /**
