@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Consultation;
+use App\Models\Course;
 use App\Models\StationaryEvent;
 use App\Models\Webinar;
 use EscolaLms\Cart\Facades\Shop;
@@ -12,8 +13,6 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-
-
     /**
      * Register any application services.
      *
@@ -24,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->register(\L5Swagger\L5SwaggerServiceProvider::class);
         Shop::registerProductableClass(Consultation::class);
         Shop::registerProductableClass(Webinar::class);
+        Shop::registerProductableClass(Course::class);
         Shop::registerProductableClass(StationaryEvent::class);
     }
 
