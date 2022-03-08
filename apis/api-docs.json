@@ -12939,6 +12939,12 @@
                     "type": {
                         "description": "type: rate, text",
                         "type": "string"
+                    },
+                    "questions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/QuestionAnswer"
+                        }
                     }
                 },
                 "type": "object"
@@ -12986,6 +12992,12 @@
                     "active": {
                         "description": "Questionnaire is active",
                         "type": "boolean"
+                    },
+                    "questions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Question"
+                        }
                     }
                 },
                 "type": "object"
