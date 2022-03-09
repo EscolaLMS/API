@@ -4009,6 +4009,35 @@
                 }
             }
         },
+        "/api/consultations/{id}": {
+            "get": {
+                "tags": [
+                    "Consultations"
+                ],
+                "summary": "Display the specified Consultation",
+                "description": "Get Consultation",
+                "operationId": "e5b533c978d25b13cc949c6dbe46158e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Consultation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/admin/consultations": {
             "get": {
                 "tags": [
@@ -4139,6 +4168,7 @@
                 ],
                 "summary": "Display the specified Consultation",
                 "description": "Get Consultation",
+                "operationId": "d40dc2ba9e7be00c9333b026f7656a35",
                 "parameters": [
                     {
                         "name": "id",
@@ -4237,35 +4267,6 @@
                         "passport": []
                     }
                 ]
-            }
-        },
-        "/api/consultations/{id}": {
-            "get": {
-                "tags": [
-                    "Consultations"
-                ],
-                "summary": "Display the specified Consultation",
-                "description": "Get Consultation",
-                "operationId": "c129e336d32d4fca4dd3fe014f6a2ac1",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id of Consultation",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                }
             }
         },
         "/api/admin/consultations/{id}/schedule": {
@@ -9090,6 +9091,126 @@
                 ]
             }
         },
+        "/api/admin/questionnaire/assign/{model_type_title}/{model_id}/{id}": {
+            "patch": {
+                "tags": [
+                    "Questionnaire"
+                ],
+                "summary": "assign a questionnaire model",
+                "operationId": "073fab3ba15a1049488dfcc8cb28bd24",
+                "parameters": [
+                    {
+                        "name": "model_type_title",
+                        "in": "path",
+                        "description": "Name of Model (Course, Webinar etd.)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "model_id",
+                        "in": "path",
+                        "description": "id of Model (Course, Webinar etd.)",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of questionnaire",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Questionnaire model assign successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "400": {
+                        "description": "cannot find a questionnaire"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/questionnaire/unassign/{model_type_title}/{model_id}/{id}": {
+            "delete": {
+                "tags": [
+                    "Questionnaire"
+                ],
+                "summary": "unassign a questionnaire model",
+                "operationId": "c8edc4a3e2950aa9c718bdbf4ac15506",
+                "parameters": [
+                    {
+                        "name": "model_type_title",
+                        "in": "path",
+                        "description": "Name of Model (Course, Webinar etd.)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "model_id",
+                        "in": "path",
+                        "description": "id of Model (Course, Webinar etd.)",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of questionnaire",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Questionnaire model unassign successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "400": {
+                        "description": "cannot find a questionnaire"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/questionnaire/{model_type_title}/{model_id}": {
             "get": {
                 "tags": [
@@ -10300,7 +10421,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/stationary-event-create-request"
+                                "$ref": "#/components/schemas/stationary-event-update-request"
                             }
                         }
                     }
@@ -13134,6 +13255,61 @@
                     "image": {
                         "description": "image",
                         "type": "file"
+                    }
+                },
+                "type": "object"
+            },
+            "stationary-event-update-request": {
+                "properties": {
+                    "name": {
+                        "description": "name",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "description",
+                        "type": "string"
+                    },
+                    "started_at": {
+                        "description": "started_at",
+                        "type": "datetime"
+                    },
+                    "finished_at": {
+                        "description": "finished_at",
+                        "type": "datetime"
+                    },
+                    "max_participants": {
+                        "description": "max_participants",
+                        "type": "integer"
+                    },
+                    "place": {
+                        "description": "place",
+                        "type": "string"
+                    },
+                    "program": {
+                        "description": "program",
+                        "type": "string"
+                    },
+                    "authors": {
+                        "description": "authors",
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "categories": {
+                        "description": "categories",
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "image": {
+                        "description": "image",
+                        "type": "file"
+                    },
+                    "image_path": {
+                        "description": "image_path",
+                        "type": "string"
                     }
                 },
                 "type": "object"
