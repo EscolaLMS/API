@@ -29,6 +29,7 @@
       <directory suffix=".php">./vendor/escolalms/templates-sms/</directory>
       <directory suffix=".php">./vendor/escolalms/templates-pdf/</directory>
       <directory suffix=".php">./vendor/escolalms/assign-without-account/</directory>
+      <directory suffix=".php">./vendor/escolalms/tracker/</directory>
       <!-- <directory suffix=".php">./vendor/escolalms/video/</directory> -->
     </include>
   </coverage>
@@ -116,6 +117,9 @@
     </testsuite>
     <testsuite name="assign-without-account">
       <directory suffix="Test.php">./vendor/escolalms/assign-without-account</directory>
+    </testsuite>
+    <testsuite name="tracker">
+      <directory suffix="Test.php">./vendor/escolalms/tracker</directory>
     </testsuite>
     <!--
     <testsuite name="video">

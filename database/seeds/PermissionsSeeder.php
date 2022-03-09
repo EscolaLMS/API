@@ -24,6 +24,7 @@ use EscolaLms\Settings\Database\Seeders\PermissionTableSeeder as SettingsPermiss
 use EscolaLms\StationaryEvents\Database\Seeders\StationaryEventPermissionSeeder;
 use EscolaLms\Templates\Database\Seeders\PermissionTableSeeder as TemplatesPermissionTableSeeder;
 use EscolaLms\Tags\Database\Seeders\TagsPermissionSeeder;
+use EscolaLms\Tracker\Database\Seeders\TrackerPermissionSeeder;
 use EscolaLms\Webinar\Database\Seeders\WebinarsPermissionSeeder;
 use Illuminate\Database\Seeder;
 
@@ -60,5 +61,6 @@ class PermissionsSeeder extends Seeder
         $this->call(AssignWithoutAccountPermissionSeeder::class);
         $this->call(StationaryEventPermissionSeeder::class);
         $this->call(WebinarsPermissionSeeder::class);
+        $this->call(TrackerPermissionSeeder::class);
     }
 }
