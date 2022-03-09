@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingsDatabaseSeeder::class);
         $this->call(UserGroupsSeeder::class);
         $this->call(ConsultationsSeeder::class);
-//        $this->call(TemplatesEmailSeeder::class);
+        $this->call(TemplatesEmailSeeder::class);
         $this->call(TagsSeeder::class);
         $this->call(WebinarsSeeder::class);
     }
