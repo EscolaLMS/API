@@ -2824,13 +2824,13 @@
                 ]
             }
         },
-        "/api/admin/productabless/detach": {
+        "/api/admin/productables/detach": {
             "post": {
                 "tags": [
                     "Admin Product"
                 ],
                 "description": "Detach product from user",
-                "operationId": "54924eb086f282529d6731fbf0d07c87",
+                "operationId": "58eba3dc2979d98ad0286e52e8adab5c",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2857,6 +2857,34 @@
                         }
                     }
                 },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/productables/registered": {
+            "post": {
+                "tags": [
+                    "Admin Product"
+                ],
+                "description": "List of registered Productable types",
+                "operationId": "62f03124fa2b2e33403acea18a96bd01",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -6222,12 +6250,7 @@
                         "description": "user role",
                         "required": false,
                         "schema": {
-                            "type": "string",
-                            "enum": [
-                                "admin",
-                                "tutor",
-                                "student"
-                            ]
+                            "type": "string"
                         }
                     },
                     {
@@ -7459,6 +7482,132 @@
                         "content": {
                             "application/json": {}
                         }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/model-fields": {
+            "get": {
+                "tags": [
+                    "Model Fields"
+                ],
+                "summary": "Lists available Model extended fields",
+                "parameters": [
+                    {
+                        "name": "class_type",
+                        "in": "query",
+                        "description": "class type of which field is extended",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "list of available fields",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "map of templates identified by a slug value",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "$ref": "#/components/schemas/ModelField"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                }
+            }
+        },
+        "/api/admin/model-fields": {
+            "post": {
+                "tags": [
+                    "Admin Model Fields"
+                ],
+                "summary": "Create or update metafile",
+                "operationId": "6211e456cb452c2381b0c50c0584b514",
+                "requestBody": {
+                    "description": "Metadata attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Metadata"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Metadata created successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin Model Fields"
+                ],
+                "summary": "delete metafile and related values from model",
+                "operationId": "6c2d09dbdf590976fedd7055284f2517",
+                "requestBody": {
+                    "description": "Metadata attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Metadata"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Metadata created successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
                     }
                 },
                 "security": [
@@ -9045,19 +9194,46 @@
                 ]
             }
         },
-        "/api/admin/questionnaire/report/{id}": {
+        "/api/admin/questionnaire/report/{id}/{model_type_id}/{model_id}/{user_id}": {
             "get": {
                 "tags": [
                     "QuestionnaireReport"
                 ],
                 "summary": "Read a questionnaire report identified by a given id identifier",
-                "operationId": "6c828d7961ef637adc7ccf9fea75f9dd",
+                "operationId": "eb7a18a433cfc16b598a7e23cea3cd5b",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Unique human-readable questionnaire identifier",
+                        "description": "questionnaire identifier",
                         "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "model_type_id",
+                        "in": "path",
+                        "description": "questionnaire model type identifier",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "model_id",
+                        "in": "path",
+                        "description": "model identifier",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "user identifier",
+                        "required": false,
                         "schema": {
                             "type": "integer"
                         }
@@ -12807,6 +12983,72 @@
                     "libraryId": {
                         "description": "ID of library. Alias",
                         "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "ModelField": {
+                "properties": {
+                    "id": {
+                        "description": "template id",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "template name",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "class_type": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "class_id": {
+                        "description": "",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Metadata": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "name",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "value",
+                        "type": "string"
+                    },
+                    "default": {
+                        "description": "default",
+                        "type": "string"
+                    },
+                    "rules": {
+                        "description": "rules",
+                        "type": "object"
+                    },
+                    "extra": {
+                        "description": "extra",
+                        "type": "object"
+                    },
+                    "visibility": {
+                        "description": "visibility",
+                        "type": "object"
+                    },
+                    "class_type": {
+                        "description": "class_type",
+                        "type": "string"
+                    },
+                    "class_id": {
+                        "description": "class_id",
+                        "type": "string"
                     }
                 },
                 "type": "object"
