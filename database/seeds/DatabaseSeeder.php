@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use EscolaLms\Auth\Database\Seeders\UserGroupsSeeder;
 use EscolaLms\Cart\Database\Seeders\OrdersSeeder;
 use EscolaLms\Categories\Database\Seeders\CategoriesSeeder;
-use EscolaLms\Consultations\Database\Seeders\ConsultationsSeeder;
 use EscolaLms\Courses\Database\Seeders\CoursesSeeder;
 use EscolaLms\Courses\Database\Seeders\ProgressSeeder;
 use EscolaLms\Pages\Database\Seeders\DatabaseSeeder as PagesDatabaseSeeder;
@@ -40,9 +39,9 @@ class DatabaseSeeder extends Seeder
         $this->call(PagesDatabaseSeeder::class);
         $this->call(SettingsDatabaseSeeder::class);
         $this->call(UserGroupsSeeder::class);
+        $this->call(ConsultationsSeeder::class);
         $this->call(TemplatesEmailSeeder::class);
         $this->call(TagsSeeder::class);
-        $this->call(ConsultationsSeeder::class);
         $this->call(WebinarsSeeder::class);
     }
 }
