@@ -30,6 +30,7 @@ Laravel Headless LMS REST API.
 - [escolalms/notifications](https://packagist.org/packages/escolalms/notifications)
 - [escolalms/mailerlite](https://packagist.org/packages/escolalms/mailerlite)
 - [escolalms/mattermost](https://packagist.org/packages/escolalms/mattermost)
+- [escolalms/model-fields](https://packagist.org/packages/escolalms/model-fields)
 - [escolalms/reports](https://packagist.org/packages/escolalms/reports)
 - [escolalms/scorm](https://packagist.org/packages/escolalms/scorm)
 - [escolalms/settings](https://packagist.org/packages/escolalms/settings)
