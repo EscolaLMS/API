@@ -179,6 +179,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\HorizonServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\TelescopeServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
