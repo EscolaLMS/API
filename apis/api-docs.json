@@ -5,262 +5,6 @@
         "version": "0.0.1"
     },
     "paths": {
-        "/api/admin/access-url": {
-            "get": {
-                "tags": [
-                    "Assign Without Account"
-                ],
-                "summary": "Lists available access urls",
-                "operationId": "741b559c1a772a20de86f1c26c3fe7be",
-                "parameters": [
-                    {
-                        "name": "modelable_id",
-                        "in": "query",
-                        "description": "Id of Model (Course, Webinar etd.)",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "modelable_type",
-                        "in": "query",
-                        "description": "Name of Model (Course, Webinar etd.)",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "list of available access urls"
-                    },
-                    "401": {
-                        "description": "endpoint requires authentication"
-                    },
-                    "403": {
-                        "description": "user doesn't have required access rights"
-                    },
-                    "500": {
-                        "description": "server-side error"
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "Assign Without Account"
-                ],
-                "summary": "Create a new access url identified by id",
-                "operationId": "52cced06f888a351eb0ec0dbb088f0a8",
-                "requestBody": {
-                    "description": "Access url attributes",
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/AccessUrl"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "access url created successfully"
-                    },
-                    "401": {
-                        "description": "endpoint requires authentication"
-                    },
-                    "403": {
-                        "description": "user doesn't have required access rights"
-                    },
-                    "422": {
-                        "description": "one of the parameters has invalid format"
-                    },
-                    "500": {
-                        "description": "server-side error"
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/access-url/{id}": {
-            "delete": {
-                "tags": [
-                    "Assign Without Account"
-                ],
-                "summary": "Delete access url identified by a id",
-                "operationId": "780a6dfaf17154445c4bb94431e94843",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Unique human-readable access url identifier",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "access url deleted successfully"
-                    },
-                    "401": {
-                        "description": "endpoint requires authentication"
-                    },
-                    "403": {
-                        "description": "user doesn't have required access rights"
-                    },
-                    "500": {
-                        "description": "server-side error"
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            },
-            "patch": {
-                "tags": [
-                    "Assign Without Account"
-                ],
-                "summary": "Update an existing access url identified by id",
-                "operationId": "a3efc45f51befd985980529dbfb01308",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Unique human-readable access url identifier",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "description": "Access url attributes",
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/AccessUrl"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "access url created successfully"
-                    },
-                    "401": {
-                        "description": "endpoint requires authentication"
-                    },
-                    "403": {
-                        "description": "user doesn't have required access rights"
-                    },
-                    "422": {
-                        "description": "one of the parameters has invalid format"
-                    },
-                    "500": {
-                        "description": "server-side error"
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/user-submissions/accpet/{id}": {
-            "get": {
-                "tags": [
-                    "Assign Without Account"
-                ],
-                "summary": "Accept user submission identified by a id",
-                "operationId": "9778a93a62436b308ce3eb29c2fd0e1e",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Unique human-readable user submission identifier",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "User submission accepted successfully"
-                    },
-                    "401": {
-                        "description": "Endpoint requires authentication"
-                    },
-                    "403": {
-                        "description": "User doesn't have required access rights"
-                    },
-                    "500": {
-                        "description": "Server-side error"
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/user-submissions/reject/{id}": {
-            "get": {
-                "tags": [
-                    "Assign Without Account"
-                ],
-                "summary": "Reject user submission identified by a id",
-                "operationId": "d4fd0521b7453789982dcbf6196c366d",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Unique human-readable user submission identifier",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "User submission rejected successfully"
-                    },
-                    "401": {
-                        "description": "Endpoint requires authentication"
-                    },
-                    "403": {
-                        "description": "User doesn't have required access rights"
-                    },
-                    "500": {
-                        "description": "Server-side error"
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
         "/api/admin/user-submissions": {
             "get": {
                 "tags": [
@@ -307,30 +51,20 @@
                         "passport": []
                     }
                 ]
-            }
-        },
-        "/api/user-submissions/{access-url}": {
+            },
             "post": {
                 "tags": [
                     "Assign Without Account"
                 ],
-                "summary": "Create a new user submission",
-                "operationId": "a6f269eb8b1d190d4911269013ad3843",
+                "summary": "Create a new user submission identified by id",
+                "operationId": "52c0c9f48f6098df0b0c4a569429560a",
                 "requestBody": {
+                    "description": "User submission attributes",
+                    "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "properties": {
-                                    "email": {
-                                        "description": "User email",
-                                        "type": "string"
-                                    },
-                                    "frontend_url": {
-                                        "description": "Frontend url to course, webinar etc.",
-                                        "type": "string"
-                                    }
-                                },
-                                "type": "object"
+                                "$ref": "#/components/schemas/UserSubmission"
                             }
                         }
                     }
@@ -345,10 +79,108 @@
                     "403": {
                         "description": "User doesn't have required access rights"
                     },
+                    "422": {
+                        "description": "One of the parameters has invalid format"
+                    },
                     "500": {
                         "description": "Server-side error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/user-submissions/{id}": {
+            "put": {
+                "tags": [
+                    "Assign Without Account"
+                ],
+                "summary": "Update an existing user submission identified by id",
+                "operationId": "a87f3e11e8ef0c676b2b92d09a28ea96",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable user submission identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "User submission attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserSubmission"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User submission created successfully"
+                    },
+                    "401": {
+                        "description": "Endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "User doesn't have required access rights"
+                    },
+                    "422": {
+                        "description": "One of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "Server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Assign Without Account"
+                ],
+                "summary": "Delete user submission identified by a id",
+                "operationId": "f9969ee33d77c41bd3b115097070bc2a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Unique human-readable access url identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User submission eleted successfully"
+                    },
+                    "401": {
+                        "description": "Endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "User doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "Server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/admin/user-groups/": {
@@ -2770,6 +2602,34 @@
                 ]
             }
         },
+        "/api/admin/productables/": {
+            "get": {
+                "tags": [
+                    "Admin Product"
+                ],
+                "description": "Get list of all productables",
+                "operationId": "6e6040ec84456d4351131516d2e4bb8c",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/productables/attach": {
             "post": {
                 "tags": [
@@ -2879,12 +2739,60 @@
             }
         },
         "/api/admin/productables/registered": {
-            "post": {
+            "get": {
                 "tags": [
                     "Admin Product"
                 ],
                 "description": "List of registered Productable types",
-                "operationId": "62f03124fa2b2e33403acea18a96bd01",
+                "operationId": "4b38a4eead2ce6e93ce2d702c780975a",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/productables/product": {
+            "get": {
+                "tags": [
+                    "Admin Product"
+                ],
+                "description": "Get single product for this productable (if it exists)",
+                "operationId": "cf3cbdfd41036d193ae842946e780bbe",
+                "parameters": [
+                    {
+                        "name": "productable_type",
+                        "in": "query",
+                        "description": "Productable class",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "productable_id",
+                        "in": "query",
+                        "description": "Productable id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -8934,6 +8842,73 @@
                 ]
             }
         },
+        "/api/admin/question-answers/{id}": {
+            "get": {
+                "tags": [
+                    "QuestionAnswersForQuestionaire"
+                ],
+                "summary": "Lists questions answers for questionaire",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of questionnaire",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "questionnaire_model_id",
+                        "in": "query",
+                        "description": "id of questionnaire model",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "question_id",
+                        "in": "query",
+                        "description": "id of question",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lists questions answers for questionaire",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "map of questions",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "$ref": "#/components/schemas/QuestionAnswer"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/questionnaire": {
             "get": {
                 "tags": [
@@ -9194,13 +9169,57 @@
                 ]
             }
         },
-        "/api/admin/questionnaire/report/{id}/{model_type_id}/{model_id}/{user_id}": {
+        "/api/admin/questionnaire/report/{id}": {
             "get": {
                 "tags": [
                     "QuestionnaireReport"
                 ],
                 "summary": "Read a questionnaire report identified by a given id identifier",
-                "operationId": "eb7a18a433cfc16b598a7e23cea3cd5b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "questionnaire identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/QuestionnaireReportResource"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/questionnaire/report/{id}/{model_type_id}": {
+            "get": {
+                "tags": [
+                    "QuestionnaireReportForModelType"
+                ],
+                "summary": "Read a questionnaire report identified by a given id identifier and model type",
                 "parameters": [
                     {
                         "name": "id",
@@ -9214,8 +9233,63 @@
                     {
                         "name": "model_type_id",
                         "in": "path",
-                        "description": "questionnaire model type identifier",
-                        "required": false,
+                        "description": "questionnaire model type identified",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/QuestionnaireReportResource"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/questionnaire/report/{id}/{model_type_id}/{model_id}": {
+            "get": {
+                "tags": [
+                    "QuestionnaireReportForModel"
+                ],
+                "summary": "Read a questionnaire report identified by a given id identifier and model type and model identified",
+                "operationId": "f50bad71421f33cc37add13d1f08f3ef",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "questionnaire identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "model_type_id",
+                        "in": "path",
+                        "description": "questionnaire model type identified",
+                        "required": true,
                         "schema": {
                             "type": "integer"
                         }
@@ -9224,16 +9298,7 @@
                         "name": "model_id",
                         "in": "path",
                         "description": "model identifier",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "user_id",
-                        "in": "path",
-                        "description": "user identifier",
-                        "required": false,
+                        "required": true,
                         "schema": {
                             "type": "integer"
                         }
@@ -12051,22 +12116,26 @@
     },
     "components": {
         "schemas": {
-            "AccessUrl": {
+            "UserSubmission": {
                 "properties": {
                     "id": {
-                        "description": "access url id",
+                        "description": "user submission id",
                         "type": "integer"
                     },
-                    "url": {
-                        "description": "access url",
+                    "email": {
+                        "description": "user email",
                         "type": "string"
                     },
-                    "modelable_id": {
-                        "description": "model id",
+                    "status": {
+                        "description": "status",
+                        "type": "string"
+                    },
+                    "morphable_id": {
+                        "description": "morph id",
                         "type": "integer"
                     },
-                    "modelable_type": {
-                        "description": "model type",
+                    "morphable_type": {
+                        "description": "morph type",
                         "type": "string"
                     }
                 },
@@ -13302,12 +13371,6 @@
                     "type": {
                         "description": "type: rate, text",
                         "type": "string"
-                    },
-                    "questions": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/QuestionAnswer"
-                        }
                     }
                 },
                 "type": "object"
@@ -13361,6 +13424,12 @@
                         "items": {
                             "$ref": "#/components/schemas/Question"
                         }
+                    },
+                    "models": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/QuestionnaireModel"
+                        }
                     }
                 },
                 "type": "object"
@@ -13382,6 +13451,10 @@
                     },
                     "model_type_id": {
                         "description": "model_type_id",
+                        "type": "integer"
+                    },
+                    "model_title": {
+                        "description": "model_title",
                         "type": "integer"
                     }
                 },
