@@ -13,6 +13,7 @@ use EscolaLms\CoursesImportExport\Database\Seeders\CoursesExportImportPermission
 use EscolaLms\CsvUsers\Database\Seeders\CsvUsersPermissionSeeder;
 use EscolaLms\Files\Database\Seeders\PermissionTableSeeder as FilePermissionTableSeeder;
 use EscolaLms\HeadlessH5P\Database\Seeders\PermissionTableSeeder as H5PPermissionTableSeeder;
+use EscolaLms\ModelFields\Database\Seeders\PermissionTableSeeder as ModelFieldsPermissionTableSeeder;
 use EscolaLms\Notifications\Database\Seeders\NotificationsPermissionsSeeder;
 use EscolaLms\Pages\Database\Seeders\PermissionTableSeeder as PagesPermissionTableSeeder;
 use EscolaLms\Payments\Database\Seeders\PaymentsPermissionsSeeder;
@@ -62,5 +63,6 @@ class PermissionsSeeder extends Seeder
         $this->call(StationaryEventPermissionSeeder::class);
         $this->call(WebinarsPermissionSeeder::class);
         $this->call(TrackerPermissionSeeder::class);
+        $this->call(ModelFieldsPermissionTableSeeder::class);
     }
 }

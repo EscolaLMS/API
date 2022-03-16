@@ -16,6 +16,7 @@
       <directory suffix=".php">./vendor/escolalms/notifications/src</directory>
       <directory suffix=".php">./vendor/escolalms/mailerlite/src</directory>
       <directory suffix=".php">./vendor/escolalms/mattermost/src</directory>
+      <directory suffix=".php">./vendor/escolalms/model-fields/src</directory>
       <directory suffix=".php">./vendor/escolalms/pages/src</directory>
       <directory suffix=".php">./vendor/escolalms/payments/src</directory>
       <directory suffix=".php">./vendor/escolalms/permissions/src</directory>
@@ -81,6 +82,9 @@
     </testsuite>
     <testsuite name="mattermost">
       <directory suffix="Test.php">./vendor/escolalms/mattermost/tests</directory>
+    </testsuite>
+    <testsuite name="model-fields">
+      <directory suffix="Test.php">./vendor/escolalms/model-fields/tests</directory>
     </testsuite>
     <testsuite name="payments">
       <directory suffix="Test.php">./vendor/escolalms/pages/tests</directory>
