@@ -3655,7 +3655,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/consultations/reject-term/{consultationTermId}": {
@@ -3688,7 +3693,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/consultations/generate-jitsi/{consultationTermId}": {
@@ -3721,7 +3731,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/consultations": {
@@ -3909,7 +3924,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/consultations/proposed-terms/{orderItemId}": {
@@ -3942,7 +3962,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/consultations/{id}": {
@@ -4063,7 +4088,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -4257,7 +4287,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/core/packages": {
