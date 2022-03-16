@@ -2850,7 +2850,7 @@
                 "description": "Pay for cart",
                 "operationId": "a9183308a576feb0f769f81a32d6cb21",
                 "requestBody": {
-                    "required": false,
+                    "required": true,
                     "content": {
                         "multipart/json": {
                             "schema": {
@@ -2859,6 +2859,33 @@
                                 ],
                                 "properties": {
                                     "paymentMethodId": {
+                                        "type": "string"
+                                    },
+                                    "client_name": {
+                                        "type": "string"
+                                    },
+                                    "client_email": {
+                                        "type": "string"
+                                    },
+                                    "client_street": {
+                                        "type": "string"
+                                    },
+                                    "client_street_number": {
+                                        "type": "string"
+                                    },
+                                    "client_postal": {
+                                        "type": "string"
+                                    },
+                                    "client_city": {
+                                        "type": "string"
+                                    },
+                                    "client_country": {
+                                        "type": "string"
+                                    },
+                                    "client_company": {
+                                        "type": "string"
+                                    },
+                                    "client_taxid": {
                                         "type": "string"
                                     }
                                 },
