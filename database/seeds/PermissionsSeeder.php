@@ -23,9 +23,10 @@ use EscolaLms\Reports\Database\Seeders\ReportsPermissionSeeder;
 use EscolaLms\Scorm\Database\Seeders\PermissionTableSeeder as ScormPermissionTableSeeder;
 use EscolaLms\Settings\Database\Seeders\PermissionTableSeeder as SettingsPermissionTableSeeder;
 use EscolaLms\StationaryEvents\Database\Seeders\StationaryEventPermissionSeeder;
-use EscolaLms\Templates\Database\Seeders\PermissionTableSeeder as TemplatesPermissionTableSeeder;
 use EscolaLms\Tags\Database\Seeders\TagsPermissionSeeder;
+use EscolaLms\Templates\Database\Seeders\PermissionTableSeeder as TemplatesPermissionTableSeeder;
 use EscolaLms\Tracker\Database\Seeders\TrackerPermissionSeeder;
+use EscolaLms\Vouchers\Database\Seeders\VoucherPermissionsSeeder;
 use EscolaLms\Webinar\Database\Seeders\WebinarsPermissionSeeder;
 use Illuminate\Database\Seeder;
 
@@ -64,5 +65,6 @@ class PermissionsSeeder extends Seeder
         $this->call(WebinarsPermissionSeeder::class);
         $this->call(TrackerPermissionSeeder::class);
         $this->call(ModelFieldsPermissionTableSeeder::class);
+        $this->call(VoucherPermissionsSeeder::class);
     }
 }

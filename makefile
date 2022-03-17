@@ -20,6 +20,7 @@ migrate-fresh-quick:
 	- docker-compose exec escola_lms_app bash -c "cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key"
 
 composer-update:
+	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off composer self-update"
 	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off composer update"
 
 swagger-generate:
