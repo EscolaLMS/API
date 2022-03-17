@@ -8,6 +8,7 @@ use App\Models\StationaryEvent;
 use App\Models\Webinar;
 use EscolaLms\Cart\Facades\Shop;
 use EscolaLms\Cart\Services\Contracts\ProductServiceContract;
+use EscolaLms\Cart\Services\ProductService;
 use EscolaLms\Consultations\Http\Resources\ConsultationSimpleResource;
 use EscolaLms\Courses\Http\Resources\CourseSimpleResource;
 use EscolaLms\StationaryEvents\Http\Resources\StationaryEventResource;
@@ -26,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register(\EscolaLms\Cart\EscolaLmsCartServiceProvider::class);
+        $this->app->bind(ProductServiceContract::class, ProductService::class);
         $this->app->register(\L5Swagger\L5SwaggerServiceProvider::class);
         Shop::registerProductableClass(Consultation::class);
         ConsultationSimpleResource::extend(fn ($element) =>
