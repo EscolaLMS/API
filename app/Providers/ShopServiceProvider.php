@@ -14,6 +14,7 @@ use EscolaLms\Consultations\Http\Resources\ConsultationSimpleResource;
 use EscolaLms\Courses\Http\Resources\CourseSimpleResource;
 use EscolaLms\StationaryEvents\Http\Resources\StationaryEventResource;
 use EscolaLms\Webinar\Http\Resources\WebinarSimpleResource;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\SQLiteConnection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
@@ -30,45 +31,24 @@ class ShopServiceProvider extends ServiceProvider
     public function boot()
     {
         Shop::registerProductableClass(Consultation::class);
-        ConsultationSimpleResource::extend(
-            fn ($element) =>
-            $this->registerProductToResource(
-                Consultation::class,
-                $element->getKey()
-            )
-        );
-        Shop::registerProductableClass(Webinar::class);
-        WebinarSimpleResource::extend(
-            fn ($element) =>
-            $this->registerProductToResource(
-                Webinar::class,
-                $element->getKey()
-            )
-        );
-        Shop::registerProductableClass(Course::class);
-        CourseSimpleResource::extend(
-            fn ($element) =>
-            $this->registerProductToResource(
-                Course::class,
-                $element->getKey()
-            )
-        );
-        Shop::registerProductableClass(StationaryEvent::class);
-        StationaryEventResource::extend(
-            fn ($element) =>
-            $this->registerProductToResource(
-                StationaryEvent::class,
-                $element->getKey()
-            )
-        );
-    }
 
-    public function registerProductToResource(string $class, int $id): array
-    {
-        $product = Shop::findProductable(
-            $class,
-            $id
-        );
-        return ['product' => Shop::findSingleProductForProductable($product)];
+        ConsultationSimpleResource::extend(function (Model $element) {
+            return ['product' => Shop::findSingleProductForProductable(Shop::findProductable(Consultation::class, $element->getKey()))];
+        });
+
+        Shop::registerProductableClass(Webinar::class);
+        WebinarSimpleResource::extend(function (Model $element) {
+            return ['product' => Shop::findSingleProductForProductable(Shop::findProductable(Webinar::class, $element->getKey()))];
+        });
+
+        Shop::registerProductableClass(Course::class);
+        CourseSimpleResource::extend(function (Model $element) {
+            return ['product' => Shop::findSingleProductForProductable(Shop::findProductable(Course::class, $element->getKey()))];
+        });
+
+        Shop::registerProductableClass(StationaryEvent::class);
+        StationaryEventResource::extend(function (Model $element) {
+            return ['product' => Shop::findSingleProductForProductable(Shop::findProductable(StationaryEvent::class, $element->getKey()))];
+        });
     }
 }
