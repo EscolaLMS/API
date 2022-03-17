@@ -28,15 +28,15 @@ class ShopServiceProvider extends ServiceProvider
     {
         Shop::registerProductableClass(Consultation::class);
         $productService = app(ProductServiceContract::class);
-        ConsultationSimpleResource::extend(fn (ConsultationSimpleResource $element) => ['product' => $productService::findSingleProductForProductable($productService::findProductable(Consultation::class, $element->id))]);
+        ConsultationSimpleResource::extend(fn (ConsultationSimpleResource $element) => ['product' => $productService->findSingleProductForProductable($productService->findProductable(Consultation::class, $element->id))]);
 
         Shop::registerProductableClass(Webinar::class);
-        WebinarSimpleResource::extend(fn (WebinarSimpleResource $element) => ['product' => $productService::findSingleProductForProductable($productService::findProductable(Webinar::class, $element->id))]);
+        WebinarSimpleResource::extend(fn (WebinarSimpleResource $element) => ['product' => $productService->findSingleProductForProductable($productService->findProductable(Webinar::class, $element->id))]);
 
         Shop::registerProductableClass(Course::class);
-        CourseSimpleResource::extend(fn (CourseSimpleResource $element) => ['product' => $productService::findSingleProductForProductable($productService::findProductable(Course::class, $element->id))]);
+        CourseSimpleResource::extend(fn (CourseSimpleResource $element) => ['product' => $productService->findSingleProductForProductable($productService->findProductable(Course::class, $element->id))]);
 
         Shop::registerProductableClass(StationaryEvent::class);
-        StationaryEventResource::extend(fn (StationaryEventResource $element) => ['product' => $productService::findSingleProductForProductable($productService::findProductable(StationaryEvent::class, $element->id))]);
+        StationaryEventResource::extend(fn (StationaryEventResource $element) => ['product' => $productService->findSingleProductForProductable($productService->findProductable(StationaryEvent::class, $element->id))]);
     }
 }
