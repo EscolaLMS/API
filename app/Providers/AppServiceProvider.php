@@ -39,32 +39,32 @@ class AppServiceProvider extends ServiceProvider
         $this->app->register(\L5Swagger\L5SwaggerServiceProvider::class);
         Shop::registerProductableClass(Consultation::class);
         ConsultationSimpleResource::extend(fn ($element) =>
-            app(RegisterProductServiceContract::class)->registerProductToResource(
+            $this->registerProductToResource(
                 Consultation::class,
                 $element->getKey()
             )
         );
         Shop::registerProductableClass(Webinar::class);
         WebinarSimpleResource::extend(fn ($element) =>
-            app(RegisterProductServiceContract::class)->registerProductToResource(
+            $this->registerProductToResource(
                 Webinar::class,
                 $element->getKey()
             )
         );
         Shop::registerProductableClass(Course::class);
         CourseSimpleResource::extend(fn ($element) =>
-            app(RegisterProductServiceContract::class)->registerProductToResource(
+            $this->registerProductToResource(
                 Course::class,
                 $element->getKey()
             )
         );
         Shop::registerProductableClass(StationaryEvent::class);
-//        StationaryEventResource::extend(fn ($element) =>
-//            app(RegisterProductServiceContract::class)->registerProductToResource(
-//                StationaryEvent::class,
-//                $element->getKey()
-//            )
-//        );
+        StationaryEventResource::extend(fn ($element) =>
+            $this->registerProductToResource(
+                StationaryEvent::class,
+                $element->getKey()
+            )
+        );
     }
 
     /**
@@ -83,5 +83,15 @@ class AppServiceProvider extends ServiceProvider
                 return (false !== mb_ereg($pattern, $value)) ? 1 : 0;
             });
         }
+    }
+
+    public function registerProductToResource(string $class, int $id): array
+    {
+        $productServiceContract = app(ProductServiceContract::class);
+        $product = $productServiceContract->findProductable(
+            $class,
+            $id
+        );
+        return ['product' => $productServiceContract->findSingleProductForProductable($product)];
     }
 }
