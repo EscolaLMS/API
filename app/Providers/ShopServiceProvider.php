@@ -8,6 +8,7 @@ use App\Models\StationaryEvent;
 use App\Models\Webinar;
 use EscolaLms\Cart\EscolaLmsCartServiceProvider;
 use EscolaLms\Cart\Facades\Shop;
+use EscolaLms\Cart\Services\Contracts\ProductServiceContract;
 use EscolaLms\Consultations\Http\Resources\ConsultationSimpleResource;
 use EscolaLms\Courses\Http\Resources\CourseSimpleResource;
 use EscolaLms\StationaryEvents\Http\Resources\StationaryEventResource;
