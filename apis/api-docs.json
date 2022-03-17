@@ -30,6 +30,24 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "morphable_type",
+                        "in": "query",
+                        "description": "Morphable type",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "morphable_id",
+                        "in": "query",
+                        "description": "Morphable id",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
