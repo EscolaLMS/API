@@ -11807,6 +11807,244 @@
                 ]
             }
         },
+        "/api/admin/vouchers": {
+            "get": {
+                "tags": [
+                    "Admin Vouchers"
+                ],
+                "summary": "Get a listing of the Vouchers.",
+                "description": "Get all Vouchers",
+                "operationId": "511590dc333f9fda82f26bea4d5dbca9",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Admin Vouchers"
+                ],
+                "summary": "Create Voucher",
+                "description": "Create Voucher",
+                "operationId": "8a3208dd5811fd4ba0de7cf9abe55cb6",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Coupon"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Coupon"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/vouchers/{id}": {
+            "get": {
+                "tags": [
+                    "Admin Vouchers"
+                ],
+                "summary": "Read Voucher",
+                "description": "Read Voucher",
+                "operationId": "9d9172b5aa060f0bbcd416abf6b8db6d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Voucher",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin Vouchers"
+                ],
+                "summary": "Delete Voucher",
+                "description": "Delete Voucher",
+                "operationId": "766b6c9b8f8b4033ce9de1cd700f275d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Voucher",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Admin Vouchers"
+                ],
+                "summary": "Update Voucher",
+                "description": "Update Voucher",
+                "operationId": "6173fa179c9685a4edfb31e34076758f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Voucher",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Coupon"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Coupon"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/cart/voucher": {
+            "post": {
+                "tags": [
+                    "Cart",
+                    "Vouchers"
+                ],
+                "summary": "Add Voucher Code to your Cart",
+                "description": "Add Voucher Code to your Cart",
+                "operationId": "d860e758c960df46dd284a3d20cc8234",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "code": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "multipart/json": {
+                            "schema": {
+                                "properties": {
+                                    "code": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/webinars/generate-jitsi/{webinarId}": {
             "get": {
                 "tags": [
@@ -13806,6 +14044,85 @@
                     "default": {
                         "description": "this template is default template for given channel and event pair",
                         "type": "bool"
+                    }
+                },
+                "type": "object"
+            },
+            "Coupon": {
+                "description": "EscolaLms\\Vouchers\\Models\\Coupon",
+                "required": [
+                    "code",
+                    "type",
+                    "amount"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "name",
+                        "type": "string"
+                    },
+                    "code": {
+                        "description": "code",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "type",
+                        "type": "string"
+                    },
+                    "active_from": {
+                        "description": "active_from",
+                        "type": "data"
+                    },
+                    "active_to": {
+                        "description": "active_to",
+                        "type": "data"
+                    },
+                    "limit_usage": {
+                        "description": "limit_usage",
+                        "type": "integer"
+                    },
+                    "limit_per_user": {
+                        "description": "limit_per_user",
+                        "type": "integer"
+                    },
+                    "min_cart_price": {
+                        "description": "min_cart_price",
+                        "type": "integer"
+                    },
+                    "max_cart_price": {
+                        "description": "max_cart_price",
+                        "type": "integer"
+                    },
+                    "amount": {
+                        "description": "amount",
+                        "type": "integer"
+                    },
+                    "emails": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "included_products": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "excluded_products": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "categories": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
                     }
                 },
                 "type": "object"
