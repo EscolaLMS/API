@@ -37,10 +37,12 @@ services:
   escola_lms_app:
     image: escolalms/php:8-work
     volumes:
+      #- ./:/var/www/html
       - ./app:/var/www/html/app
       - ./bootstrap:/var/www/html/bootstrap
       - ./config:/var/www/html/config
       - ./database:/var/www/html/database
+      - ./packages:/var/www/html/packages
       - ./public:/var/www/html/public
       - ./resources:/var/www/html/resources
       - ./routes:/var/www/html/routes
