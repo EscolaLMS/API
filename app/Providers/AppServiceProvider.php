@@ -6,8 +6,6 @@ use App\Models\Consultation;
 use App\Models\Course;
 use App\Models\StationaryEvent;
 use App\Models\Webinar;
-use App\Services\Contracts\RegisterProductServiceContract;
-use App\Services\RegisterProductService;
 use EscolaLms\Cart\Facades\Shop;
 use EscolaLms\Cart\Services\Contracts\ProductServiceContract;
 use EscolaLms\Consultations\Http\Resources\ConsultationSimpleResource;
@@ -20,10 +18,6 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public const SERVICES = [
-        RegisterProductServiceContract::class => RegisterProductService::class
-    ];
-    public const REPOSITORIES = [];
 
     /**
      * Register any application services.
@@ -32,10 +26,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        foreach (array_merge(self::SERVICES, self::REPOSITORIES) as $contract => $singleton) {
-            $this->app->bind($contract, $singleton);
-        }
-
         $this->app->register(\L5Swagger\L5SwaggerServiceProvider::class);
         Shop::registerProductableClass(Consultation::class);
         ConsultationSimpleResource::extend(fn ($element) =>
