@@ -65,11 +65,10 @@ class ShopServiceProvider extends ServiceProvider
 
     public function registerProductToResource(string $class, int $id): array
     {
-        $productServiceContract = app(ProductServiceContract::class);
-        $product = $productServiceContract->findProductable(
+        $product = Shop::findProductable(
             $class,
             $id
         );
-        return ['product' => $productServiceContract->findSingleProductForProductable($product)];
+        return ['product' => Shop::findSingleProductForProductable($product)];
     }
 }
