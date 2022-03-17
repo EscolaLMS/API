@@ -8,7 +8,6 @@ use App\Models\StationaryEvent;
 use App\Models\Webinar;
 use EscolaLms\Cart\Facades\Shop;
 use EscolaLms\Cart\Services\Contracts\ProductServiceContract;
-use EscolaLms\Cart\Services\ProductService;
 use EscolaLms\Consultations\Http\Resources\ConsultationSimpleResource;
 use EscolaLms\Courses\Http\Resources\CourseSimpleResource;
 use EscolaLms\StationaryEvents\Http\Resources\StationaryEventResource;
@@ -27,34 +26,38 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(ProductServiceContract::class, ProductService::class);
         $this->app->register(\L5Swagger\L5SwaggerServiceProvider::class);
+        $productServiceContract = app(ProductServiceContract::class);
         Shop::registerProductableClass(Consultation::class);
         ConsultationSimpleResource::extend(fn ($element) =>
             $this->registerProductToResource(
                 Consultation::class,
-                $element->getKey()
+                $element->getKey(),
+                $productServiceContract
             )
         );
         Shop::registerProductableClass(Webinar::class);
         WebinarSimpleResource::extend(fn ($element) =>
             $this->registerProductToResource(
                 Webinar::class,
-                $element->getKey()
+                $element->getKey(),
+                $productServiceContract
             )
         );
         Shop::registerProductableClass(Course::class);
         CourseSimpleResource::extend(fn ($element) =>
             $this->registerProductToResource(
                 Course::class,
-                $element->getKey()
+                $element->getKey(),
+                $productServiceContract
             )
         );
         Shop::registerProductableClass(StationaryEvent::class);
         StationaryEventResource::extend(fn ($element) =>
             $this->registerProductToResource(
                 StationaryEvent::class,
-                $element->getKey()
+                $element->getKey(),
+                $productServiceContract
             )
         );
     }
@@ -77,9 +80,8 @@ class AppServiceProvider extends ServiceProvider
         }
     }
 
-    public function registerProductToResource(string $class, int $id): array
+    public function registerProductToResource(string $class, int $id, ProductServiceContract $productServiceContract): array
     {
-        $productServiceContract = app(ProductServiceContract::class);
         $product = $productServiceContract->findProductable(
             $class,
             $id
