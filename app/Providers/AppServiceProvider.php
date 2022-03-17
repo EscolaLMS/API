@@ -26,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        if (!$this->app->getProviders(\EscolaLms\Cart\EscolaLmsCartServiceProvider::class)) {
+            $this->app->register(\EscolaLms\Cart\EscolaLmsCartServiceProvider::class);
+        }
+
         $this->app->register(\L5Swagger\L5SwaggerServiceProvider::class);
         Shop::registerProductableClass(Consultation::class);
         ConsultationSimpleResource::extend(fn ($element) =>
