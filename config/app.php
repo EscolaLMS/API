@@ -181,12 +181,13 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
+        App\Providers\ShopServiceProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
         // Chumper\Zipper\ZipperServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-
+        EscolaLms\Cart\EscolaLmsCartServiceProvider::class,
     ],
 
     /*

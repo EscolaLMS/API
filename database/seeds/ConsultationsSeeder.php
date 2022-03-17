@@ -19,16 +19,16 @@ class ConsultationsSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::factory()->create();
+        $users = User::factory(5)->create();
         Consultation::factory(10)
             ->has(ConsultationProposedTerm::factory(3), 'proposedTerms')
             ->create()
-            ->each(function (Consultation $consultation) use($user) {
+            ->each(function (Consultation $consultation) use($users) {
                 $consultationsForOrder = collect();
                 $consultationsForOrder->push($consultation);
                 $price = $consultationsForOrder->reduce(fn ($acc, Consultation $consultation) => $acc + $consultation->getBuyablePrice(), 0);
                 $this->order = Order::factory()->afterCreating(
-                    function (Order $order) use($consultationsForOrder, $user) {
+                    function (Order $order) use($consultationsForOrder, $users) {
                         $items = $order->items()->saveMany(
                             $consultationsForOrder->map(
                                 function (Consultation $consultation) {
@@ -42,13 +42,14 @@ class ConsultationsSeeder extends Seeder
                         );
                         $items->each(fn (OrderItem $orderItem) =>
                         ConsultationTerm::factory([
+                            'executed_at' => date('Y-m-d H:i:s', random_int(1640995200, 1648598400)),
                             'order_item_id' => $orderItem->getKey(),
-                            'user_id' => $user->getKey()
+                            'user_id' => $users->random()->getKey()
                         ])->create()
                         );
                     }
                 )->create([
-                    'user_id' => $user->getKey(),
+                    'user_id' => $users->random()->getKey(),
                     'total' => $price,
                     'subtotal' => $price,
                 ]);
