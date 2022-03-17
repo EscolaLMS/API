@@ -26,23 +26,16 @@ class ShopServiceProvider extends ServiceProvider
     public function boot()
     {
         Shop::registerProductableClass(Consultation::class);
-        ConsultationSimpleResource::extend(function (ConsultationSimpleResource $element) {
-            return ['product' => Shop::findSingleProductForProductable(Shop::findProductable(Consultation::class, $element->id))];
-        });
+        $productService = app(ProductServiceContract::class);
+        ConsultationSimpleResource::extend(fn (ConsultationSimpleResource $element) => ['product' => $productService::findSingleProductForProductable($productService::findProductable(Consultation::class, $element->id))]);
 
         Shop::registerProductableClass(Webinar::class);
-        WebinarSimpleResource::extend(function (WebinarSimpleResource $element) {
-            return ['product' => Shop::findSingleProductForProductable(Shop::findProductable(Webinar::class, $element->id))];
-        });
+        WebinarSimpleResource::extend(fn (WebinarSimpleResource $element) => ['product' => $productService::findSingleProductForProductable($productService::findProductable(Webinar::class, $element->id))]);
 
         Shop::registerProductableClass(Course::class);
-        CourseSimpleResource::extend(function (CourseSimpleResource $element) {
-            return ['product' => Shop::findSingleProductForProductable(Shop::findProductable(Course::class, $element->id))];
-        });
+        CourseSimpleResource::extend(fn (CourseSimpleResource $element) => ['product' => $productService::findSingleProductForProductable($productService::findProductable(Course::class, $element->id))]);
 
         Shop::registerProductableClass(StationaryEvent::class);
-        StationaryEventResource::extend(function (StationaryEventResource $element) {
-            return ['product' => Shop::findSingleProductForProductable(Shop::findProductable(StationaryEvent::class, $element->id))];
-        });
+        StationaryEventResource::extend(fn (StationaryEventResource $element) => ['product' => $productService::findSingleProductForProductable($productService::findProductable(StationaryEvent::class, $element->id))]);
     }
 }
