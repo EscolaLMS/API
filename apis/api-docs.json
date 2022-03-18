@@ -11844,7 +11844,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -12172,6 +12177,35 @@
                 }
             }
         },
+        "/api/webinars/{id}": {
+            "get": {
+                "tags": [
+                    "Webinars"
+                ],
+                "summary": "Display the specified Webinar",
+                "description": "Get Webinar",
+                "operationId": "dcd618c6fb9e5118817610403961df59",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Webinar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/admin/webinars": {
             "get": {
                 "tags": [
@@ -12302,6 +12336,7 @@
                 ],
                 "summary": "Display the specified Webinar",
                 "description": "Get Webinars",
+                "operationId": "bc00db689b509bf2da3d42089e1f3e39",
                 "parameters": [
                     {
                         "name": "id",
@@ -12400,35 +12435,6 @@
                         "passport": []
                     }
                 ]
-            }
-        },
-        "/api/webinars/{id}": {
-            "get": {
-                "tags": [
-                    "Webinars"
-                ],
-                "summary": "Display the specified Webinar",
-                "description": "Get Webinar",
-                "operationId": "22909ecad11b38d76a706b8877675388",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id of Webinar",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                }
             }
         }
     },
@@ -14118,7 +14124,13 @@
                             "type": "integer"
                         }
                     },
-                    "categories": {
+                    "included_categories": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "excluded_categories": {
                         "type": "array",
                         "items": {
                             "type": "integer"
