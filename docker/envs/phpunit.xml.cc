@@ -33,6 +33,7 @@
       <directory suffix=".php">./vendor/escolalms/questionnaire/src</directory>
       <directory suffix=".php">./vendor/escolalms/assign-without-account/src</directory>
       <directory suffix=".php">./vendor/escolalms/tracker/src</directory>
+      <directory suffix=".php">./vendor/escolalms/vouchers/src</directory>
       <!-- <directory suffix=".php">./vendor/escolalms/video/src</directory> -->
 
     </include>
@@ -133,6 +134,9 @@
     </testsuite>
     <testsuite name="tracker">
       <directory suffix="Test.php">./vendor/escolalms/tracker/tests</directory>
+    </testsuite>
+    <testsuite name="vouchers">
+      <directory suffix="Test.php">./vendor/escolalms/vouchers/tests</directory>
     </testsuite>
     <!--
     <testsuite name="video">
