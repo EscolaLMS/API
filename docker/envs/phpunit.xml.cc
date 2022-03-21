@@ -9,6 +9,7 @@
       <directory suffix=".php">./vendor/escolalms/courses/src</directory>
       <directory suffix=".php">./vendor/escolalms/courses-import-export/src</directory>
       <directory suffix=".php">./vendor/escolalms/csv-users/src</directory>
+      <directory suffix=".php">./vendor/escolalms/fakturownia-integration/src</directory>
       <directory suffix=".php">./vendor/escolalms/files/src</directory>
       <directory suffix=".php">./vendor/escolalms/headless-h5p/src</directory>
       <directory suffix=".php">./vendor/escolalms/images/src</directory>
@@ -62,6 +63,9 @@
     </testsuite>
     <testsuite name="csv-users">
       <directory suffix="Test.php">./vendor/escolalms/csv-users/tests</directory>
+    </testsuite>
+    <testsuite name="files">
+      <directory suffix="Test.php">./vendor/escolalms/fakturownia-integration/tests</directory>
     </testsuite>
     <testsuite name="files">
       <directory suffix="Test.php">./vendor/escolalms/files/tests</directory>
