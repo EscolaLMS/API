@@ -875,6 +875,24 @@
                         "schema": {
                             "type": "datetime"
                         }
+                    },
+                    {
+                        "name": "gt_last_login_day",
+                        "in": "query",
+                        "description": "users last login greater equal then X days",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "lt_last_login_day",
+                        "in": "query",
+                        "description": "users last login less or equal then X days",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
                     }
                 ],
                 "responses": {
@@ -2308,6 +2326,12 @@
                                         "items": {
                                             "type": "integer"
                                         }
+                                    },
+                                    "tags": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
                                     }
                                 },
                                 "type": "object"
@@ -2441,6 +2465,12 @@
                                         "type": "array",
                                         "items": {
                                             "type": "integer"
+                                        }
+                                    },
+                                    "tags": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
                                         }
                                     }
                                 },
@@ -2611,6 +2641,48 @@
                         "content": {
                             "application/json": {}
                         }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/products/{id}/trigger-event-manually": {
+            "get": {
+                "tags": [
+                    "Admin Product"
+                ],
+                "summary": "Manually triggered event for users of the product",
+                "operationId": "29ccc2a9ac1e4846442afe175e62db95",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Product",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Event dispatched successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
                     }
                 },
                 "security": [
@@ -3885,7 +3957,7 @@
                 ],
                 "summary": "Get a listing of the Consultations bought by user.",
                 "description": "Get a listing of the Consultations bought by user",
-                "operationId": "b165f785629d5add7073fa3efe4f0351",
+                "operationId": "295c70c377b363dae5cbc81cc3c61e90",
                 "parameters": [
                     {
                         "name": "order_by",
@@ -4499,7 +4571,6 @@
                             "enum": [
                                 "created_at",
                                 "title",
-                                "base_price",
                                 "duration"
                             ]
                         }
@@ -4637,7 +4708,6 @@
                             "enum": [
                                 "created_at",
                                 "title",
-                                "base_price",
                                 "duration"
                             ]
                         }
@@ -6328,6 +6398,45 @@
                 "responses": {
                     "200": {
                         "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/invoices/{id}": {
+            "get": {
+                "tags": [
+                    "FakturowniaIntegration"
+                ],
+                "summary": "Get invoice PDF identified by a given id identifier of order",
+                "operationId": "6b5262e4a3b5f142bbf88862b7b9cf4d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Order",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
                     },
                     "401": {
                         "description": "endpoint requires authentication"
@@ -11218,6 +11327,55 @@
                 ]
             }
         },
+        "/api/admin/events/trigger-manually": {
+            "post": {
+                "tags": [
+                    "Templates"
+                ],
+                "summary": "Manually triggered event for users",
+                "operationId": "5961633c4b68b84902f136d042e22d02",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "users": {
+                                        "description": "Ids of users",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Event dispatched successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/templates": {
             "get": {
                 "tags": [
@@ -12050,16 +12208,16 @@
                 ]
             }
         },
-        "/api/webinars/generate-jitsi/{webinarId}": {
+        "/api/webinars/generate-jitsi/{id}": {
             "get": {
                 "tags": [
                     "Webinars"
                 ],
                 "description": "Generate jitsi object for approved webinar",
-                "operationId": "f7537b80c9ce6cec3f34c138aea386ac",
+                "operationId": "56afefe70e0e4baea58a7780d4b050dc",
                 "parameters": [
                     {
-                        "name": "webinarId",
+                        "name": "id",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -12080,7 +12238,12 @@
                             "application/json": {}
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/webinars": {
@@ -12204,6 +12367,105 @@
                         }
                     }
                 }
+            }
+        },
+        "/api/webinars/me": {
+            "get": {
+                "tags": [
+                    "Webinars"
+                ],
+                "summary": "Get a listing of the Webinars bought by user.",
+                "description": "Get a listing of the Webinars bought by user",
+                "operationId": "95c43d3479883709f820247bff70e688",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "finished_at",
+                                "started_at",
+                                "created_at",
+                                "name",
+                                "base_price"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Webinar name %LIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "base_price",
+                        "in": "query",
+                        "description": "Webinar base_price >= ",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Webinar status == ",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/admin/webinars": {
@@ -12695,10 +12957,6 @@
                         "description": "video_url",
                         "type": "string"
                     },
-                    "base_price": {
-                        "description": "base_price",
-                        "type": "integer"
-                    },
                     "duration": {
                         "description": "duration",
                         "type": "string"
@@ -12758,10 +13016,6 @@
                     "hours_to_complete": {
                         "description": "hours_to_complete",
                         "type": "integer"
-                    },
-                    "purchasable": {
-                        "description": "purchasable",
-                        "type": "boolean"
                     },
                     "findable": {
                         "description": "findable",
@@ -14106,10 +14360,10 @@
                         "description": "amount",
                         "type": "integer"
                     },
-                    "emails": {
+                    "users": {
                         "type": "array",
                         "items": {
-                            "type": "string"
+                            "type": "integer"
                         }
                     },
                     "included_products": {
@@ -14162,6 +14416,14 @@
                         "description": "description",
                         "type": "string"
                     },
+                    "short_desc": {
+                        "description": "short_desc",
+                        "type": "string"
+                    },
+                    "agenda": {
+                        "description": "agenda",
+                        "type": "string"
+                    },
                     "duration": {
                         "description": "duration",
                         "type": "string"
@@ -14185,6 +14447,46 @@
                     "updated_at": {
                         "description": "updated_at",
                         "type": "datetime"
+                    },
+                    "yt_url": {
+                        "description": "yt_url",
+                        "type": "string"
+                    },
+                    "yt_stream_url": {
+                        "description": "yt_stream_url",
+                        "type": "string"
+                    },
+                    "yt_stream_key": {
+                        "description": "yt_stream_key",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Jitsi": {
+                "properties": {
+                    "data": {
+                        "type": "object"
+                    },
+                    "domain": {
+                        "type": "string",
+                        "example": "meet-stage.escolalms.com"
+                    },
+                    "url": {
+                        "type": "string",
+                        "example": "https://meet-stage.escolalms.com/asdhuasd.?jwt=token"
+                    },
+                    "yt_url": {
+                        "type": "string",
+                        "example": "https://youtube.pl/"
+                    },
+                    "yt_stream_url": {
+                        "type": "string",
+                        "example": "rtmp://a.rtmp.youtube.com/xyz"
+                    },
+                    "yt_stream_key": {
+                        "type": "string",
+                        "example": "asdqdfas123asdqwe"
                     }
                 },
                 "type": "object"
