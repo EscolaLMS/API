@@ -20,6 +20,7 @@ Laravel Headless LMS REST API.
 - [escolalms/courses](https://packagist.org/packages/escolalms/courses)
 - [escolalms/courses-import-export](https://packagist.org/packages/escolalms/courses-import-export)
 - [escolalms/csv-users](https://packagist.org/packages/escolalms/csv-users)
+- [escolalms/files](https://packagist.org/packages/escolalms/fakturownia-integration)
 - [escolalms/files](https://packagist.org/packages/escolalms/files)
 - [escolalms/lrs](https://packagist.org/packages/escolalms/lrs)
 - [escolalms/headless-h5p](https://packagist.org/packages/escolalms/headless-h5p)
