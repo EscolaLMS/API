@@ -1,4 +1,4 @@
-core-js-pure: 296.32 KB (8.12%)
+core-js-pure: 296.32 KB (8.11%)
 autolinker: 208.88 KB (5.72%)
   tslib: 10.03 KB (4.80%)
   <self>: 198.85 KB (95.2%)

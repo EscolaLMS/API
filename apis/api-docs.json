@@ -6416,6 +6416,45 @@
                 ]
             }
         },
+        "/api/invoices/{id}": {
+            "get": {
+                "tags": [
+                    "FakturowniaIntegration"
+                ],
+                "summary": "Get invoice PDF identified by a given id identifier of order",
+                "operationId": "6b5262e4a3b5f142bbf88862b7b9cf4d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Order",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/file/list": {
             "get": {
                 "tags": [
@@ -12788,6 +12827,10 @@
                     "date": {
                         "description": "date",
                         "type": "datetime"
+                    },
+                    "is_ended": {
+                        "description": "is_ended",
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
@@ -12844,8 +12887,8 @@
                         "description": "updated_at",
                         "type": "datetime"
                     },
-                    "order_item_id": {
-                        "description": "order_item_id",
+                    "consultation_user_id": {
+                        "description": "consultation_user_id",
                         "type": "integer"
                     },
                     "executed_status": {
@@ -14084,6 +14127,10 @@
                         "description": "description",
                         "type": "string"
                     },
+                    "short_desc": {
+                        "description": "short description",
+                        "type": "string"
+                    },
                     "started_at": {
                         "description": "started_at",
                         "type": "datetime"
@@ -14133,6 +14180,10 @@
                     },
                     "description": {
                         "description": "description",
+                        "type": "string"
+                    },
+                    "short_desc": {
+                        "description": "short description",
                         "type": "string"
                     },
                     "started_at": {
@@ -14198,6 +14249,10 @@
                     },
                     "description": {
                         "description": "description",
+                        "type": "string"
+                    },
+                    "short_desc": {
+                        "description": "short description",
                         "type": "string"
                     },
                     "started_at": {
