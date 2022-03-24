@@ -14,14 +14,14 @@ class Course extends \EscolaLms\Courses\Models\Course implements Productable
 {
     use ProductableTrait;
 
-    public function attachToUser(User $user): void
+    public function attachToUser(User $user, int $quantity = 1): void
     {
         $this->users()->syncWithoutDetaching($user->getKey());
         event(new CourseAssigned($user, $this));
         event(new CourseAccessStarted($user, $this));
     }
 
-    public function detachFromUser(User $user): void
+    public function detachFromUser(User $user, int $quantity = 1): void
     {
         $this->users()->detach($user->getKey());
         event(new CourseUnassigned($user, $this));
