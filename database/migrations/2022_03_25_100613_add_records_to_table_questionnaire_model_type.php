@@ -9,17 +9,17 @@ class AddRecordsToTableQuestionnaireModelType extends Migration
 {
     public function up(): void
     {
-        if (!QuestionnaireModelType::query()->where('title', '=', 'Webinar')->first()) {
+        if (!QuestionnaireModelType::query()->where('title', '=', 'webinar')->first()) {
             $questionnaireModelType = new QuestionnaireModelType([
-                'title' => 'Webinar',
+                'title' => 'webinar',
                 'model_class' => 'EscolaLms\Webinar\Models\Webinar',
             ]);
             $questionnaireModelType->save();
         }
 
-        if (!QuestionnaireModelType::query()->where('title', '=', 'Consultations')->first()) {
+        if (!QuestionnaireModelType::query()->where('title', '=', 'consultations')->first()) {
             $questionnaireModelType = new QuestionnaireModelType([
-                'title' => 'Consultations',
+                'title' => 'consultations',
                 'model_class' => 'EscolaLms\Consultations\Models\Consultation',
             ]);
             $questionnaireModelType->save();
@@ -28,12 +28,12 @@ class AddRecordsToTableQuestionnaireModelType extends Migration
 
     public function down(): void
     {
-        $questionnaireModelType = QuestionnaireModelType::query()->where('title', '=', 'Webinar')->first();
+        $questionnaireModelType = QuestionnaireModelType::query()->where('title', '=', 'webinar')->first();
         if ($questionnaireModelType) {
             $questionnaireModelType->delete();
         }
 
-        $questionnaireModelType = QuestionnaireModelType::query()->where('title', '=', 'Consultations')->first();
+        $questionnaireModelType = QuestionnaireModelType::query()->where('title', '=', 'consultations')->first();
         if ($questionnaireModelType) {
             $questionnaireModelType->delete();
         }

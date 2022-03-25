@@ -9,9 +9,9 @@ class AddRecordsToTableQuestionnaireModelType extends Migration
 {
     public function up(): void
     {
-        if (!QuestionnaireModelType::query()->where('title', '=', 'Course')->first()) {
+        if (!QuestionnaireModelType::query()->where('title', '=', 'course')->first()) {
             $questionnaireModelType = new QuestionnaireModelType([
-                'title' => 'Course',
+                'title' => 'course',
                 'model_class' => 'EscolaLms\Courses\Models\Course',
             ]);
             $questionnaireModelType->save();
@@ -20,7 +20,7 @@ class AddRecordsToTableQuestionnaireModelType extends Migration
 
     public function down(): void
     {
-        $questionnaireModelType = QuestionnaireModelType::query()->where('title', '=', 'Course')->first();
+        $questionnaireModelType = QuestionnaireModelType::query()->where('title', '=', 'course')->first();
         if ($questionnaireModelType) {
             $questionnaireModelType->delete();
         }
