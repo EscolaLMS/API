@@ -5,7 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddRecordsToTableQuestionnaireModelType extends Migration
+class AddRecordsWebinarToTableQuestionnaireModelType extends Migration
 {
     public function up(): void
     {
