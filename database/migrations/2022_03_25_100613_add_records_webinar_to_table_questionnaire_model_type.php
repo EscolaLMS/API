@@ -28,14 +28,7 @@ class AddRecordsWebinarToTableQuestionnaireModelType extends Migration
 
     public function down(): void
     {
-        $questionnaireModelType = QuestionnaireModelType::query()->where('title', '=', 'webinar')->first();
-        if ($questionnaireModelType) {
-            $questionnaireModelType->delete();
-        }
-
-        $questionnaireModelType = QuestionnaireModelType::query()->where('title', '=', 'consultations')->first();
-        if ($questionnaireModelType) {
-            $questionnaireModelType->delete();
-        }
+        QuestionnaireModelType::query()->where('title', '=', 'webinar')->delete();
+        QuestionnaireModelType::query()->where('title', '=', 'consultations')->delete();
     }
 }
