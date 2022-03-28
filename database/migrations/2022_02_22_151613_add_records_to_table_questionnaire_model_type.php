@@ -11,7 +11,7 @@ class AddRecordsToTableQuestionnaireModelType extends Migration
     {
         if (!QuestionnaireModelType::query()->where('title', '=', 'course')->first()) {
             $questionnaireModelType = new QuestionnaireModelType([
-                'title' => 'Course',
+                'title' => 'course',
                 'model_class' => 'EscolaLms\Courses\Models\Course',
             ]);
             $questionnaireModelType->save();
