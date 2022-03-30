@@ -2,17 +2,25 @@
 
 namespace App\Providers;
 
-use App\Services\Contracts\EventServiceContract;
-use App\Services\EventService;
+use App\Repositories\Contracts\SearchableEventRepositoryContract;
+use App\Repositories\SearchableEventRepository;
+use App\Services\Contracts\SearchableEventServiceContract;
+use App\Services\SearchableEventService;
 use Illuminate\Database\SQLiteConnection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public array $singletons = [
-        EventServiceContract::class => EventService::class,
+    public const SERVICES = [
+        SearchableEventServiceContract::class => SearchableEventService::class,
     ];
+
+    public const REPOSITORIES = [
+        SearchableEventRepositoryContract::class => SearchableEventRepository::class,
+    ];
+
+    public $singletons = self::SERVICES + self::REPOSITORIES;
 
     /**
      * Register any application services.
