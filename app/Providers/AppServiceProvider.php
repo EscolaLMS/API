@@ -2,12 +2,18 @@
 
 namespace App\Providers;
 
+use App\Services\Contracts\EventServiceContract;
+use App\Services\EventService;
 use Illuminate\Database\SQLiteConnection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+    public array $singletons = [
+        EventServiceContract::class => EventService::class,
+    ];
+
     /**
      * Register any application services.
      *
