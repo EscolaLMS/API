@@ -1,10 +1,12 @@
 <?php
 
-namespace Tests\Api;
+namespace Tests\Integrations;
 
 use App\Enum\EventOrderByEnum;
 use App\Models\StationaryEvent;
+use EscolaLms\StationaryEvents\Http\Resources\StationaryEventResource;
 use EscolaLms\Webinar\Enum\WebinarStatusEnum;
+use EscolaLms\Webinar\Http\Resources\WebinarSimpleResource;
 use EscolaLms\Webinar\Models\Webinar;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
@@ -54,34 +56,26 @@ class EventApiTest extends TestCase
         $this->assertTrue(true);
         $this->getJson('/api/events?order_by=' . EventOrderByEnum::NEXT)
             ->assertOk()
-            ->assertJsonFragment([
-                'id' => $this->webinar->getKey(),
-                'name' => $this->webinar->name,
-            ])->assertJsonFragment([
-                'id' => $this->stationaryEvent->getKey(),
-                'name' => $this->stationaryEvent->name,
+            ->assertJsonFragment(
+                WebinarSimpleResource::make($this->webinar->refresh())->toArray(null)
+            )->assertJsonFragment([
+                StationaryEventResource::make($this->stationaryEvent->refresh())->toArray(null)
             ])->assertJsonMissing([
-                'id' => $this->pastWebinar->getKey(),
-                'name' => $this->pastWebinar->name,
+                WebinarSimpleResource::make($this->pastWebinar->refresh())->toArray(null)
             ])->assertJsonMissing([
-                'id' => $this->pastStationaryEvent->getKey(),
-                'name' => $this->pastStationaryEvent->name,
+                StationaryEventResource::make($this->pastStationaryEvent->refresh())->toArray(null)
             ]);
 
         $this->getJson('/api/events?order_by=' . EventOrderByEnum::PAST)
             ->assertOk()
             ->assertJsonFragment([
-                'id' => $this->pastWebinar->getKey(),
-                'name' => $this->pastWebinar->name,
+                WebinarSimpleResource::make($this->pastWebinar)->toArray(null)
             ])->assertJsonFragment([
-                'id' => $this->pastStationaryEvent->getKey(),
-                'name' => $this->pastStationaryEvent->name,
+                StationaryEventResource::make($this->pastStationaryEvent)->toArray(null)
             ])->assertJsonMissing([
-                'id' => $this->webinar->getKey(),
-                'name' => $this->webinar->name,
+                WebinarSimpleResource::make($this->webinar)->toArray(null)
             ])->assertJsonMissing([
-                'id' => $this->stationaryEvent->getKey(),
-                'name' => $this->stationaryEvent->name,
+                StationaryEventResource::make($this->stationaryEvent)->toArray(null)
             ]);
     }
 }
