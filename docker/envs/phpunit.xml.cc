@@ -9,6 +9,7 @@
       <directory suffix=".php">./vendor/escolalms/courses/src</directory>
       <directory suffix=".php">./vendor/escolalms/courses-import-export/src</directory>
       <directory suffix=".php">./vendor/escolalms/csv-users/src</directory>
+      <directory suffix=".php">./vendor/escolalms/fakturownia-integration/src</directory>
       <directory suffix=".php">./vendor/escolalms/files/src</directory>
       <directory suffix=".php">./vendor/escolalms/headless-h5p/src</directory>
       <directory suffix=".php">./vendor/escolalms/images/src</directory>
@@ -33,6 +34,7 @@
       <directory suffix=".php">./vendor/escolalms/questionnaire/src</directory>
       <directory suffix=".php">./vendor/escolalms/assign-without-account/src</directory>
       <directory suffix=".php">./vendor/escolalms/tracker/src</directory>
+      <directory suffix=".php">./vendor/escolalms/vouchers/src</directory>
       <!-- <directory suffix=".php">./vendor/escolalms/video/src</directory> -->
 
     </include>
@@ -61,6 +63,9 @@
     </testsuite>
     <testsuite name="csv-users">
       <directory suffix="Test.php">./vendor/escolalms/csv-users/tests</directory>
+    </testsuite>
+    <testsuite name="files">
+      <directory suffix="Test.php">./vendor/escolalms/fakturownia-integration/tests</directory>
     </testsuite>
     <testsuite name="files">
       <directory suffix="Test.php">./vendor/escolalms/files/tests</directory>
@@ -133,6 +138,9 @@
     </testsuite>
     <testsuite name="tracker">
       <directory suffix="Test.php">./vendor/escolalms/tracker/tests</directory>
+    </testsuite>
+    <testsuite name="vouchers">
+      <directory suffix="Test.php">./vendor/escolalms/vouchers/tests</directory>
     </testsuite>
     <!--
     <testsuite name="video">

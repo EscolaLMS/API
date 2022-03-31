@@ -3,6 +3,9 @@ name: Integration Tests
 jobs:
   phpunit-mysql:
     runs-on: ubuntu-latest
+    env:
+      FAKTUROWNIA_HOST: ${{ secrets.FAKTUROWNIA_HOST }}
+      FAKTUROWNIA_TOKEN: ${{ secrets.FAKTUROWNIA_TOKEN }}
     container:
       image: escolalms/php:8-work
 
@@ -51,8 +54,62 @@ jobs:
 
   phpunit-postgres:
     runs-on: ubuntu-latest
+    env:
+      FAKTUROWNIA_HOST: ${{ secrets.FAKTUROWNIA_HOST }}
+      FAKTUROWNIA_TOKEN: ${{ secrets.FAKTUROWNIA_TOKEN }}
     container:
       image: escolasoft1/laravel-prod-docker:fpm
+
+    services:
+      postgres:
+        image: postgres:12
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: test
+          TZ: Europe/Warsaw
+        ports:
+          - 5432:5432
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Copy environment configuration files
+        run: |
+          cp docker/envs/.env.ci.postgres .env
+          cp docker/envs/phpunit.xml.postgres phpunit.xml
+
+      - name: Install composer dependencies
+        run: |
+          apt-get -y install git
+          composer install --no-scripts
+
+      - name: Prepare Laravel Application
+        run: |
+          php artisan key:generate
+          php artisan migrate:fresh
+          php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
+          php artisan passport:keys --force
+          php artisan passport:client --personal --no-interaction
+          cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
+          mkdir vendor/escolalms/lrs/src/../../storage/
+          cp storage/*.key vendor/escolalms/lrs/src/../../storage/
+
+      - name: Special Migrations for Tests
+        run: php artisan migrate --path=vendor/escolalms/courses/tests/Database/Migrations
+
+      - name: Run Testsuite
+        run: vendor/bin/phpunit
+
+  phpunit-postgres-php81:
+    runs-on: ubuntu-latest
+    env:
+      FAKTUROWNIA_HOST: ${{ secrets.FAKTUROWNIA_HOST }}
+      FAKTUROWNIA_TOKEN: ${{ secrets.FAKTUROWNIA_TOKEN }}
+    container:
+      image: escolalms/php:8.1-work
 
     services:
       postgres:

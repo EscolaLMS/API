@@ -22,36 +22,40 @@ class ShopServiceProvider extends ServiceProvider
     public function register()
     {
         $this->productServiceContract = app(ProductServiceContract::class);
+
         Shop::registerProductableClass(Consultation::class);
-        ConsultationSimpleResource::extend(fn ($element) =>
-        $this->registerProductToResource(
-            Consultation::class,
-            $element->getKey()
-        )
+        ConsultationSimpleResource::extend(
+            fn ($element) =>
+            $this->registerProductToResource(
+                Consultation::class,
+                $element->getKey()
+            )
         );
         Shop::registerProductableClass(Webinar::class);
-        WebinarSimpleResource::extend(fn ($element) =>
-        $this->registerProductToResource(
-            Webinar::class,
-            $element->getKey()
-        )
+        WebinarSimpleResource::extend(
+            fn ($element) =>
+            $this->registerProductToResource(
+                Webinar::class,
+                $element->getKey()
+            )
         );
         Shop::registerProductableClass(Course::class);
-        CourseSimpleResource::extend(fn ($element) =>
-        $this->registerProductToResource(
-            Course::class,
-            $element->getKey()
-        )
+        CourseSimpleResource::extend(
+            fn ($element) =>
+            $this->registerProductToResource(
+                Course::class,
+                $element->getKey()
+            )
         );
         Shop::registerProductableClass(StationaryEvent::class);
-        StationaryEventResource::extend(fn ($element) =>
-        $this->registerProductToResource(
-            StationaryEvent::class,
-            $element->getKey()
-        )
+        StationaryEventResource::extend(
+            fn ($element) =>
+            $this->registerProductToResource(
+                StationaryEvent::class,
+                $element->getKey()
+            )
         );
     }
-
 
     private function registerProductToResource(string $class, int $id): array
     {
