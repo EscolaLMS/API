@@ -1,12 +1,8 @@
 <?php
 
-use App\Http\Controllers\API\ShareApiController;
-// use App\Http\Controllers\SettingsController;
-
-use Illuminate\Http\Request;
+use EscolaLms\Consultations\Enum\ConsultationTermStatusEnum;
+use EscolaLms\Consultations\Models\ConsultationUserPivot;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ScormController;
-use EscolaLms\Auth\Http\Controllers\LoginApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +17,14 @@ use EscolaLms\Auth\Http\Controllers\LoginApiController;
 
 
 Route::get('/debug-sentry', function () {
-    throw new Exception('Test Sentry error!');
+    throw new \Exception('Test Sentry error!');
 });
 
-
-
-
-// Route::get('/settings', SettingsController::class);
+//TODO Removed after testing jitsi components
+Route::group(['middleware' => ['auth:api'], 'prefix' => 'api'], function () {
+    Route::get('seeds/consultations/{author?}/{user?}', function ($author = null, $user = null) {
+        $seed = new \EscolaLms\Consultations\Database\Seeders\ConsultationTermsSeeder($author, $user);
+        $seed->run();
+        return response()->json(['msg' => 'success']);
+    });
+});
