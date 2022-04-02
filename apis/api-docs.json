@@ -4080,6 +4080,28 @@
                 }
             }
         },
+        "/api/consultations/my-schedule": {
+            "get": {
+                "tags": [
+                    "Consultations"
+                ],
+                "description": "Get Consultation schedule for tutor",
+                "operationId": "848beb73a29b5e048e9de91c30aeaddf",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/consultations": {
             "get": {
                 "tags": [
