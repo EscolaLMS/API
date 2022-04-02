@@ -20,14 +20,11 @@ Route::get('/debug-sentry', function () {
     throw new \Exception('Test Sentry error!');
 });
 
-Route::get('seeds/consultations/{author?}/{user?}', function ($author = null, $user = null) {
-    $seed = new \EscolaLms\Consultations\Database\Seeders\ConsultationTermsSeeder($author, $user);
-    $seed->run();
-    return response()->json(['msg' => 'success']);
-});
-
+//TODO Removed after testing jitsi components
 Route::group(['middleware' => ['auth:api'], 'prefix' => 'api'], function () {
-
+    Route::get('seeds/consultations/{author?}/{user?}', function ($author = null, $user = null) {
+        $seed = new \EscolaLms\Consultations\Database\Seeders\ConsultationTermsSeeder($author, $user);
+        $seed->run();
+        return response()->json(['msg' => 'success']);
+    });
 });
-
-// Route::get('/settings', SettingsController::class);
