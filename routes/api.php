@@ -21,10 +21,10 @@ Route::get('/debug-sentry', function () {
 });
 
 //TODO Removed after testing jitsi components
-Route::group(['middleware' => ['auth:api'], 'prefix' => 'api'], function () {
-    Route::get('seeds/consultations/{author?}/{user?}', function ($author = null, $user = null) {
+Route::group(['middleware' => ['auth:api']], function () {
+    Route::get('/seeds/consultations/{author?}/{user?}', function ($author = null, $user = null) {
         $seed = new \EscolaLms\Consultations\Database\Seeders\ConsultationTermsSeeder($author, $user);
-        $seed->run();
+        $consultationTerms = $seed->run();
         return response()->json(['msg' => 'success']);
     });
 });
