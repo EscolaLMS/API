@@ -148,5 +148,6 @@
     <env name="DB_USERNAME" value="default" />
     <env name="DB_PASSWORD" value="secret" />
     <env name="CONFIG_USE_DATABASE" value="true"/>
+    <env name="TELESCOPE_ENABLED" value="false"/>
   </php>
 </phpunit>

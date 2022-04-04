@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventAPIController;
 use EscolaLms\Consultations\Enum\ConsultationTermStatusEnum;
 use EscolaLms\Consultations\Models\ConsultationUserPivot;
 use Illuminate\Support\Facades\Route;
@@ -28,3 +29,5 @@ Route::group(['middleware' => ['auth:api']], function () {
         return response()->json(['msg' => 'success']);
     });
 });
+
+Route::get('events', [EventAPIController::class, 'index']);
