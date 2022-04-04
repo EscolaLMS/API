@@ -14,7 +14,7 @@ class EventResource extends JsonResource
         $event = $this->event;
 
         return $event instanceof StationaryEvent
-            ? StationaryEventResource::make($event)
-            : WebinarSimpleResource::make($event);
+            ? StationaryEventResource::make($event)->toArray($request)
+            : WebinarSimpleResource::make($event)->toArray($request);
     }
 }
