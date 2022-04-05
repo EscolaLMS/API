@@ -2702,18 +2702,27 @@
                 ]
             }
         },
-        "/api/admin/products/{id}/trigger-event-manually": {
-            "get": {
+        "/api/admin/products/{id}/trigger-event-manually/{idTemplate}": {
+            "post": {
                 "tags": [
                     "Admin Product"
                 ],
                 "summary": "Manually triggered event for users of the product",
-                "operationId": "29ccc2a9ac1e4846442afe175e62db95",
+                "operationId": "15b3ef502c932f3671be59abd543e5e2",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "description": "id of Product",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "idTemplate",
+                        "in": "path",
+                        "description": "id of Template",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -11395,13 +11404,24 @@
                 ]
             }
         },
-        "/api/admin/events/trigger-manually": {
+        "/api/admin/events/trigger-manually/{id}": {
             "post": {
                 "tags": [
                     "Templates"
                 ],
                 "summary": "Manually triggered event for users",
-                "operationId": "5961633c4b68b84902f136d042e22d02",
+                "operationId": "a8b7d98d8237d78f5921a00b97814701",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Template id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
