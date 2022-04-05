@@ -12,9 +12,12 @@ class EventResource extends JsonResource
     public function toArray($request)
     {
         $event = $this->event;
-
-        return $event instanceof StationaryEvent
+        $fields = $event instanceof StationaryEvent
             ? StationaryEventResource::make($event)->toArray($request)
             : WebinarSimpleResource::make($event)->toArray($request);
+
+        return array_merge($fields, [
+            'model' => $this->event_type,
+        ]);
     }
 }
