@@ -3,8 +3,8 @@
 namespace Tests\Integrations;
 
 use App\Enum\EventOrderByEnum;
-use App\Models\StationaryEvent;
 use EscolaLms\StationaryEvents\Http\Resources\StationaryEventResource;
+use EscolaLms\StationaryEvents\Models\StationaryEvent;
 use EscolaLms\Webinar\Enum\WebinarStatusEnum;
 use EscolaLms\Webinar\Http\Resources\WebinarSimpleResource;
 use EscolaLms\Webinar\Models\Webinar;
@@ -57,25 +57,39 @@ class EventApiTest extends TestCase
         $this->getJson('/api/events?order_by=' . EventOrderByEnum::NEXT)
             ->assertOk()
             ->assertJsonFragment(
-                WebinarSimpleResource::make($this->webinar->refresh())->toArray(null)
+                $this->webinarToArray($this->webinar->refresh())
             )->assertJsonFragment([
-                StationaryEventResource::make($this->stationaryEvent->refresh())->toArray(null)
+                $this->stationaryEventToArray($this->stationaryEvent->refresh())
             ])->assertJsonMissing([
-                WebinarSimpleResource::make($this->pastWebinar->refresh())->toArray(null)
+                $this->webinarToArray($this->pastWebinar->refresh())
             ])->assertJsonMissing([
-                StationaryEventResource::make($this->pastStationaryEvent->refresh())->toArray(null)
+                $this->stationaryEventToArray($this->pastStationaryEvent->refresh())
             ]);
 
         $this->getJson('/api/events?order_by=' . EventOrderByEnum::PAST)
             ->assertOk()
             ->assertJsonFragment([
-                WebinarSimpleResource::make($this->pastWebinar)->toArray(null)
+                $this->webinarToArray($this->pastWebinar)
             ])->assertJsonFragment([
-                StationaryEventResource::make($this->pastStationaryEvent)->toArray(null)
+                $this->stationaryEventToArray($this->pastStationaryEvent)
             ])->assertJsonMissing([
-                WebinarSimpleResource::make($this->webinar)->toArray(null)
+                $this->webinarToArray($this->webinar)
             ])->assertJsonMissing([
-                StationaryEventResource::make($this->stationaryEvent)->toArray(null)
+                $this->stationaryEventToArray($this->stationaryEvent)
             ]);
+    }
+
+    private function webinarToArray($webinar): array
+    {
+        return array_merge(WebinarSimpleResource::make($webinar)->toArray(null), [
+            'model' => Webinar::class,
+        ]);
+    }
+
+    private function stationaryEventToArray($stationaryEvent): array
+    {
+        return array_merge(StationaryEventResource::make($stationaryEvent)->toArray(null), [
+            'model' => StationaryEvent::class,
+        ]);
     }
 }
