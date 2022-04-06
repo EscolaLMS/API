@@ -117,7 +117,6 @@ You can see the results in the [cypress dashboard](https://dashboard.cypress.io/
 See [makefile](makefile) for all available devops tasks
 
 - `make test-phpunit`
-- `make test-behat`
 - `make bash`
 - `make composer-update`
 - `make swagger-generate`
@@ -127,9 +126,7 @@ See [makefile](makefile) for all available devops tasks
 - `make migrate-mysql`
 - `make migrate-postgres`
 - `make test-phpunit-postgres`
-- `make test-behat-postgres`
 - `make test-phpunit-mysql`
-- `make test-behat-mysql`
 - `make init`
 - `make init-mysql`
 - `make init-postgres`
