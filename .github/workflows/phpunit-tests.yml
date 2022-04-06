@@ -84,6 +84,7 @@ jobs:
       - name: Install composer dependencies
         run: |
           apt-get -y install git
+          composer self-update
           composer install --no-scripts
 
       - name: Prepare Laravel Application
