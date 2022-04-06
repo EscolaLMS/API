@@ -4,9 +4,6 @@ fix-style:
 test-phpunit:
 	- docker-compose exec escola_lms_app bash -c "./vendor/bin/phpunit"
 
-test-behat:
-	- docker-compose exec escola_lms_app bash -c "./vendor/bin/behat --colors"
-
 bash:
 	- docker-compose exec escola_lms_app bash
 
@@ -33,11 +30,11 @@ h5p-seed:
 
 node-packages:
 # install globally at /usr/bin/mjml
-	- docker-compose exec escola_lms_app bash -c "npm install -g mjml" 
+	- docker-compose exec escola_lms_app bash -c "npm install -g mjml"
 
-tinker: 
+tinker:
 # use CTRL+C to quit and CTRL+D to refresh tinker
-	- docker-compose exec escola_lms_app bash -c "while true; do php artisan tinker; done" 
+	- docker-compose exec escola_lms_app bash -c "while true; do php artisan tinker; done"
 
 
 migrate-fresh: migrate-fresh-quick h5p-seed
@@ -67,11 +64,7 @@ migrate-postgres: switch-to-postgres migrate-fresh-quick
 
 test-phpunit-postgres: switch-to-postgres test-phpunit
 
-test-behat-postgres: switch-to-postgres test-behat
-
 test-phpunit-mysql: switch-to-mysql test-phpunit
-
-test-behat-mysql: switch-to-mysql test-behat
 
 test-fresh: migrate-fresh-quick test-phpunit
 
