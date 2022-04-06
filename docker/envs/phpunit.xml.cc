@@ -35,6 +35,8 @@
       <directory suffix=".php">./vendor/escolalms/assign-without-account/src</directory>
       <directory suffix=".php">./vendor/escolalms/tracker/src</directory>
       <directory suffix=".php">./vendor/escolalms/vouchers/src</directory>
+      <directory suffix=".php">./vendor/escolalms/consultations/src</directory>
+      <directory suffix=".php">./vendor/escolalms/webinar/src</directory>
       <!-- <directory suffix=".php">./vendor/escolalms/video/src</directory> -->
 
     </include>
@@ -141,6 +143,12 @@
     </testsuite>
     <testsuite name="vouchers">
       <directory suffix="Test.php">./vendor/escolalms/vouchers/tests</directory>
+    </testsuite>
+    <testsuite name="consultations">
+      <directory suffix="Test.php">./vendor/escolalms/consultations/tests</directory>
+    </testsuite>
+    <testsuite name="webinar">
+      <directory suffix="Test.php">./vendor/escolalms/webinar/tests</directory>
     </testsuite>
     <!--
     <testsuite name="video">
