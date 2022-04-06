@@ -84,6 +84,7 @@ jobs:
       - name: Install composer dependencies
         run: |
           apt-get -y install git
+          apt-get install unzip
           composer self-update
           composer install --no-scripts
 
