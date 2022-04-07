@@ -33,7 +33,10 @@ jobs:
           cp docker/envs/phpunit.xml.mysql phpunit.xml
 
       - name: Update composer
-        run: composer update
+        run: |
+          apt-get install unzip - y
+          composer self-update
+          composer update
 
       - name: Generage openapi
         run: php artisan l5-swagger:generate
