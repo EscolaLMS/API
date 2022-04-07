@@ -34,7 +34,7 @@ jobs:
 
       - name: Update composer
         run: |
-          apt-get install unzip - y
+          apt-get install unzip -y
           composer self-update
           composer update
 
