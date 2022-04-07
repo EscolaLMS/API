@@ -40,7 +40,10 @@ jobs:
           cp docker/envs/phpunit.xml.cc phpunit.xml
 
       - name: Update composer
-        run: composer update
+        run: |
+          apt-get install unzip -y
+          composer self-update
+          composer update
 
       - name: Prepare Laravel Application
         run: |
