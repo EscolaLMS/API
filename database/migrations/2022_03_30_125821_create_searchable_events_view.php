@@ -41,6 +41,6 @@ class CreateSearchableEventsView extends Migration
 
     public function down()
     {
-        Schema::dropView('searchable_events');
+        Schema::dropViewIfExists('searchable_events');
     }
 }
