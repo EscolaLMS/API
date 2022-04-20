@@ -7,9 +7,14 @@ use Illuminate\Database\MySqlConnection;
 use Illuminate\Support\Facades\DB;
 use Staudenmeir\LaravelMigrationViews\Facades\Schema;
 
-class UpdateSearchableEventsView extends Migration
+class RemoveSearchableEventsView extends Migration
 {
     public function up()
+    {
+        Schema::dropViewIfExists('searchable_events');
+    }
+
+    public function down()
     {
         $stationaryEventClass = StationaryEvent::class;
         $webinarClass = Webinar::class;
@@ -25,7 +30,7 @@ class UpdateSearchableEventsView extends Migration
                 webinars.active_to as end_date,
                 created_at
                 FROM webinars
-                WHERE status='published' or status='published_unactivated'
+                WHERE status='published'
                 UNION
                 SELECT
                 stationary_events.id as event_id,
@@ -34,14 +39,8 @@ class UpdateSearchableEventsView extends Migration
                 stationary_events.finished_at as end_date,
                 created_at
                 FROM stationary_events
-                WHERE status='published' or status='published_unactivated'
                 ORDER BY created_at desc";
 
         Schema::createOrReplaceView('searchable_events', $query);
-    }
-
-    public function down()
-    {
-        Schema::dropViewIfExists('searchable_events');
     }
 }
