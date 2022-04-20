@@ -19,6 +19,8 @@ migrate-fresh-quick:
 composer-update:
 	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off composer self-update"
 	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off composer update"
+## supervisd horizon must be restarted 
+	- docker-compose restart escola_lms_app
 
 swagger-generate:
 	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off php artisan l5-swagger:generate"
@@ -68,8 +70,11 @@ test-phpunit-mysql: switch-to-mysql test-phpunit
 
 test-fresh: migrate-fresh-quick test-phpunit
 
-init: docker-up node-packages switch-to-postgres composer-update migrate-fresh-quick
+init: docker-up node-packages switch-to-postgres composer-update migrate-fresh-quick init-cronjob
 
 init-mysql: docker-up switch-to-mysql composer-update migrate-fresh-quick
 
 init-postgres: docker-up switch-to-postgres composer-update migrate-fresh-quick
+
+init-cronjob: 
+	- docker-compose exec escola_lms_app bash -c "{ crontab -l; echo \"*/2 * * * * /usr/local/bin/php /var/www/html/artisan schedule:run >> /var/www/html/logfile.log\" } | crontab -"
