@@ -70,7 +70,7 @@ test-phpunit-mysql: switch-to-mysql test-phpunit
 
 test-fresh: migrate-fresh-quick test-phpunit
 
-init: docker-up node-packages switch-to-postgres composer-update migrate-fresh-quick init-cronjob
+init: docker-up node-packages switch-to-postgres composer-update migrate-fresh-quick
 
 init-mysql: docker-up switch-to-mysql composer-update migrate-fresh-quick
 
