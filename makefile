@@ -1,14 +1,8 @@
-fix-style:
-	- docker-compose exec escola_lms_app bash -c "./vendor/bin/php-cs-fixer fix ."
-
 test-phpunit:
 	- docker-compose exec escola_lms_app bash -c "./vendor/bin/phpunit"
 
 bash:
 	- docker-compose exec escola_lms_app bash
-
-ide-helper:
-	- docker-compose exec escola_lms_app bash -c "php artisan ide-helper:generate && mv _ide_helper.php .phan/stubs/_ide_helper.php"
 
 migrate-fresh-quick:
 	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off php artisan migrate:fresh --seed"
@@ -19,7 +13,7 @@ migrate-fresh-quick:
 composer-update:
 	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off composer self-update"
 	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off composer update"
-## supervisd horizon must be restarted 
+## supervisd must be restarted, horizon & scheduler must fetch new code
 	- docker-compose restart escola_lms_app
 
 swagger-generate:
@@ -37,7 +31,6 @@ node-packages:
 tinker:
 # use CTRL+C to quit and CTRL+D to refresh tinker
 	- docker-compose exec escola_lms_app bash -c "while true; do php artisan tinker; done"
-
 
 migrate-fresh: migrate-fresh-quick h5p-seed
 
@@ -70,7 +63,7 @@ test-phpunit-mysql: switch-to-mysql test-phpunit
 
 test-fresh: migrate-fresh-quick test-phpunit
 
-init: docker-up node-packages switch-to-postgres composer-update migrate-fresh-quick
+init: docker-up switch-to-postgres composer-update migrate-fresh-quick
 
 init-mysql: docker-up switch-to-mysql composer-update migrate-fresh-quick
 
