@@ -75,6 +75,3 @@ init: docker-up node-packages switch-to-postgres composer-update migrate-fresh-q
 init-mysql: docker-up switch-to-mysql composer-update migrate-fresh-quick
 
 init-postgres: docker-up switch-to-postgres composer-update migrate-fresh-quick
-
-init-cronjob: 
-	- docker-compose exec escola_lms_app bash -c "{ crontab -l; echo \"*/2 * * * * /usr/local/bin/php /var/www/html/artisan schedule:run >> /var/www/html/logfile.log\" } | crontab -"

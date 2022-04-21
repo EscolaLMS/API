@@ -23,6 +23,7 @@ services:
       - ./docker/conf/php/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
       - ./docker/conf/php/xxx-devilbox-default-php.ini:/usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini
       - ./docker/conf/supervisor/horizon.conf:/etc/supervisor/custom.d/horizon.conf
+      - ./docker/conf/supervisor/scheduler.conf:/etc/supervisor/custom.d/scheduler.conf
     networks:
       - escola_lms
 
