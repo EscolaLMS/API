@@ -70,7 +70,6 @@
     "laravel/horizon": "^5.7",
     "laravel/passport": "^10.0",
     "laravel/socialite": "^5.1",
-    "laravel/telescope": "^4.7",
     "laravel/tinker": "^2.5",
     "laravel/ui": "^3.0",
     "predis/predis": "^1.1",
