@@ -3,7 +3,7 @@
 namespace App\Services\Contracts;
 
 use EscolaLms\Core\Dtos\OrderDto;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Query\Builder;
 
 interface SearchableEventServiceContract
 {
