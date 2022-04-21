@@ -1622,7 +1622,7 @@
                     {
                         "name": "first_name",
                         "in": "query",
-                        "required": true,
+                        "required": false,
                         "schema": {
                             "type": "string"
                         }
@@ -1630,7 +1630,7 @@
                     {
                         "name": "last_name",
                         "in": "query",
-                        "required": true,
+                        "required": false,
                         "schema": {
                             "type": "string"
                         }
@@ -1638,7 +1638,7 @@
                     {
                         "name": "age",
                         "in": "query",
-                        "required": true,
+                        "required": false,
                         "schema": {
                             "type": "number"
                         }
@@ -1647,7 +1647,7 @@
                         "name": "gender",
                         "in": "query",
                         "description": "1 - male, 2 - female",
-                        "required": true,
+                        "required": false,
                         "schema": {
                             "type": "number"
                         }
@@ -1679,6 +1679,15 @@
                     {
                         "name": "postcode",
                         "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "description": "phone",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -2291,6 +2300,18 @@
                         "required": false,
                         "schema": {
                             "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "tags",
+                        "in": "query",
+                        "description": "Tags",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
                         }
                     }
                 ],
@@ -3437,6 +3458,18 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "tags",
+                        "in": "query",
+                        "description": "Tags",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -3901,7 +3934,8 @@
                                 "started_at",
                                 "created_at",
                                 "name",
-                                "base_price"
+                                "base_price",
+                                "only_with_categories"
                             ]
                         }
                     },
@@ -3915,6 +3949,15 @@
                                 "ASC",
                                 "DESC"
                             ]
+                        }
+                    },
+                    {
+                        "name": "only_with_categories",
+                        "in": "query",
+                        "description": "Consultation has categories",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
                         }
                     },
                     {
@@ -4181,7 +4224,8 @@
                                 "started_at",
                                 "created_at",
                                 "name",
-                                "base_price"
+                                "base_price",
+                                "only_with_categories"
                             ]
                         }
                     },
@@ -4242,6 +4286,15 @@
                         "required": false,
                         "schema": {
                             "type": "string"
+                        }
+                    },
+                    {
+                        "name": "only_with_categories",
+                        "in": "query",
+                        "description": "Consultation has categories",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
                         }
                     }
                 ],
@@ -4459,14 +4512,25 @@
                 ]
             }
         },
-        "/api/admin/change-term": {
+        "/api/admin/consultations/change-term/{termId}": {
             "post": {
                 "tags": [
                     "Admin Consultations"
                 ],
                 "summary": "Change term in consultation ",
                 "description": "Change term consultation",
-                "operationId": "bf054a1bcc3131aeb976e10e7e08a96e",
+                "operationId": "2d9ce804b2e5d49900336c1fe5449a17",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Consultation Term",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -4657,7 +4721,8 @@
                             "enum": [
                                 "created_at",
                                 "title",
-                                "duration"
+                                "duration",
+                                "only_with_categories"
                             ]
                         }
                     },
@@ -4671,6 +4736,15 @@
                                 "ASC",
                                 "DESC"
                             ]
+                        }
+                    },
+                    {
+                        "name": "only_with_categories",
+                        "in": "query",
+                        "description": "Consultation has categories",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
                         }
                     },
                     {
@@ -7578,7 +7652,7 @@
                 ],
                 "summary": "Get Course cmi5 launch params",
                 "description": "Course cmi5 launch params",
-                "operationId": "07ddcceda17c62af34c2c72b15c334ef",
+                "operationId": "0eca40effcf56c61b69670cd210ccf52",
                 "parameters": [
                     {
                         "name": "id",
@@ -7596,6 +7670,143 @@
                         "content": {
                             "application/json": {}
                         }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/cmi5/statements": {
+            "get": {
+                "tags": [
+                    "cmi5"
+                ],
+                "summary": "Lists available statements",
+                "operationId": "17a8daabd3049ae3ec8cc1cb3d540cc8",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "created_at",
+                                "id"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "verb",
+                        "in": "query",
+                        "description": "Verb display name or id",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "account",
+                        "in": "query",
+                        "description": "Account name or homePage",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "registration",
+                        "in": "query",
+                        "description": "Registration uuid",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "object",
+                        "in": "query",
+                        "description": "Object type",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "version",
+                        "in": "query",
+                        "description": "Version",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date_from",
+                        "in": "query",
+                        "description": "Date from",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date_to",
+                        "in": "query",
+                        "description": "Date to",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of available statements"
+                    },
+                    "401": {
+                        "description": "Endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "User doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "Server-side error"
                     }
                 },
                 "security": [
@@ -10824,6 +11035,20 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "draft",
+                                "archived",
+                                "published",
+                                "published_unactivated"
+                            ]
+                        }
                     }
                 ],
                 "responses": {
@@ -10985,8 +11210,8 @@
                 "tags": [
                     "Stationary Events"
                 ],
-                "summary": "Get a listing of the active Stationary events",
-                "description": "Get all active Stationary Events",
+                "summary": "Get a listing of published stationary events",
+                "description": "Get all stationary events with published or published_unactivated status",
                 "operationId": "8e48dcafb3bc43749212c24ae7e5b842",
                 "parameters": [
                     {
@@ -11060,8 +11285,8 @@
                 "tags": [
                     "Stationary Events"
                 ],
-                "summary": "Display the specified Stationary Event",
-                "description": "Get Stationary Event",
+                "summary": "Display the specified Stationary Event.",
+                "description": "Get stationary event by id with published or published_unactivated status",
                 "operationId": "0691e9d4f2cbb162f7b42ec14891633a",
                 "parameters": [
                     {
@@ -12415,8 +12640,7 @@
                                 "finished_at",
                                 "started_at",
                                 "created_at",
-                                "name",
-                                "base_price"
+                                "name"
                             ]
                         }
                     },
@@ -12459,15 +12683,6 @@
                         "required": false,
                         "schema": {
                             "type": "string"
-                        }
-                    },
-                    {
-                        "name": "base_price",
-                        "in": "query",
-                        "description": "Webinar base_price >= ",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
                         }
                     },
                     {
@@ -12538,8 +12753,7 @@
                                 "finished_at",
                                 "started_at",
                                 "created_at",
-                                "name",
-                                "base_price"
+                                "name"
                             ]
                         }
                     },
@@ -12585,21 +12799,45 @@
                         }
                     },
                     {
-                        "name": "base_price",
-                        "in": "query",
-                        "description": "Webinar base_price >= ",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
                         "name": "status",
                         "in": "query",
                         "description": "Webinar status == ",
                         "required": false,
                         "schema": {
                             "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/webinars/start-live-stream/{id}": {
+            "get": {
+                "tags": [
+                    "Webinars"
+                ],
+                "summary": "Start live stream in yt.",
+                "description": "Start live stream in yt. Endpoint void",
+                "operationId": "3a3b1f1208c0187e5ba2229f937de4ef",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
                         }
                     }
                 ],
@@ -12635,8 +12873,7 @@
                                 "finished_at",
                                 "started_at",
                                 "created_at",
-                                "name",
-                                "base_price"
+                                "name"
                             ]
                         }
                     },
@@ -12679,15 +12916,6 @@
                         "required": false,
                         "schema": {
                             "type": "string"
-                        }
-                    },
-                    {
-                        "name": "base_price",
-                        "in": "query",
-                        "description": "Webinar base_price >= ",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
                         }
                     },
                     {
@@ -12976,10 +13204,27 @@
                     },
                     "date": {
                         "description": "date",
-                        "type": "datetime"
+                        "type": "datetime",
+                        "example": "2022-04-15T04:00:00.000Z"
+                    },
+                    "duration": {
+                        "description": "duration",
+                        "type": "string",
+                        "example": "2 hours"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/User"
                     },
                     "is_ended": {
                         "description": "is_ended",
+                        "type": "boolean"
+                    },
+                    "is_started": {
+                        "description": "is_started",
+                        "type": "boolean"
+                    },
+                    "in_coming": {
+                        "description": "in_coming",
                         "type": "boolean"
                     },
                     "consultation_term_id": {
@@ -13049,6 +13294,22 @@
                         "description": "executed_status",
                         "type": "string"
                     },
+                    "image_path": {
+                        "description": "image_path",
+                        "type": "string"
+                    },
+                    "image_url": {
+                        "description": "image_url",
+                        "type": "string"
+                    },
+                    "logotype_path": {
+                        "description": "logotype_path",
+                        "type": "string"
+                    },
+                    "logotype_url": {
+                        "description": "logotype_url",
+                        "type": "string"
+                    },
                     "executed_at": {
                         "description": "executed_at",
                         "type": "datetime"
@@ -13090,6 +13351,48 @@
                             },
                             "type": "object"
                         }
+                    }
+                },
+                "type": "object"
+            },
+            "ConsultationTermForUserCurrent": {
+                "properties": {
+                    "name": {
+                        "description": "name",
+                        "type": "string"
+                    },
+                    "image_path": {
+                        "description": "image_path",
+                        "type": "string"
+                    },
+                    "image_url": {
+                        "description": "image_url",
+                        "type": "string"
+                    },
+                    "executed_status": {
+                        "description": "executed_status",
+                        "type": "string"
+                    },
+                    "executed_at": {
+                        "description": "executed_at",
+                        "type": "datetime",
+                        "example": "2022-04-15T04:00:00.000Z"
+                    },
+                    "is_ended": {
+                        "description": "is_ended",
+                        "type": "boolean"
+                    },
+                    "is_started": {
+                        "description": "is_started",
+                        "type": "boolean"
+                    },
+                    "in_coming": {
+                        "description": "in_coming",
+                        "type": "boolean"
+                    },
+                    "consultation_term_id": {
+                        "description": "consultation_term_id",
+                        "type": "integer"
                     }
                 },
                 "type": "object"
@@ -14264,6 +14567,7 @@
             "stationary-event-create-request": {
                 "required": [
                     "name",
+                    "status",
                     "description",
                     "started_at",
                     "finished_at"
@@ -14271,6 +14575,10 @@
                 "properties": {
                     "name": {
                         "description": "name",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "status",
                         "type": "string"
                     },
                     "description": {
@@ -14326,6 +14634,10 @@
                 "properties": {
                     "name": {
                         "description": "name",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "status",
                         "type": "string"
                     },
                     "description": {
@@ -14436,6 +14748,10 @@
                     "updated_at": {
                         "description": "updated_at",
                         "type": "datetime"
+                    },
+                    "status": {
+                        "description": "status",
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -14618,10 +14934,6 @@
                         "description": "duration",
                         "type": "string"
                     },
-                    "base_price": {
-                        "description": "base_price",
-                        "type": "integer"
-                    },
                     "active_to": {
                         "description": "active_to",
                         "type": "datetime"
@@ -14629,6 +14941,22 @@
                     "active_from": {
                         "description": "active_from",
                         "type": "datetime"
+                    },
+                    "image_path": {
+                        "description": "image_path",
+                        "type": "string"
+                    },
+                    "image_url": {
+                        "description": "image_url",
+                        "type": "string"
+                    },
+                    "logotype_path": {
+                        "description": "logotype_path",
+                        "type": "string"
+                    },
+                    "logotype_url": {
+                        "description": "logotype_url",
+                        "type": "string"
                     },
                     "created_at": {
                         "description": "created_at",
