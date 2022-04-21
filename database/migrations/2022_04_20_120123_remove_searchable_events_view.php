@@ -7,9 +7,14 @@ use Illuminate\Database\MySqlConnection;
 use Illuminate\Support\Facades\DB;
 use Staudenmeir\LaravelMigrationViews\Facades\Schema;
 
-class CreateSearchableEventsView extends Migration
+class RemoveSearchableEventsView extends Migration
 {
     public function up()
+    {
+        Schema::dropViewIfExists('searchable_events');
+    }
+
+    public function down()
     {
         $stationaryEventClass = StationaryEvent::class;
         $webinarClass = Webinar::class;
@@ -36,11 +41,6 @@ class CreateSearchableEventsView extends Migration
                 FROM stationary_events
                 ORDER BY created_at desc";
 
-        Schema::createView('searchable_events', $query);
-    }
-
-    public function down()
-    {
-        Schema::dropViewIfExists('searchable_events');
+        Schema::createOrReplaceView('searchable_events', $query);
     }
 }

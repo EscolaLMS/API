@@ -3,6 +3,7 @@
 namespace Tests\Integrations;
 
 use App\Enum\EventOrderByEnum;
+use EscolaLms\StationaryEvents\Enum\StationaryEventStatusEnum;
 use EscolaLms\StationaryEvents\Http\Resources\StationaryEventResource;
 use EscolaLms\StationaryEvents\Models\StationaryEvent;
 use EscolaLms\Webinar\Enum\WebinarStatusEnum;
@@ -25,6 +26,7 @@ class EventApiTest extends TestCase
         ])->create();
 
         $this->stationaryEvent = StationaryEvent::factory([
+            'status' => StationaryEventStatusEnum::PUBLISHED,
             'started_at' => now()->addDays(3)
         ])->create();
 
@@ -34,6 +36,7 @@ class EventApiTest extends TestCase
         ])->create();
 
         $this->pastStationaryEvent = StationaryEvent::factory([
+            'status' => StationaryEventStatusEnum::PUBLISHED,
             'started_at' => now()->subDays(3)
         ])->create();
     }
