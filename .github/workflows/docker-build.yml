@@ -19,4 +19,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: escolalms/api:${{github.ref_name}}
+          tags: escolalms/api:${{github.ref_name}}, escolalms/api:latest
