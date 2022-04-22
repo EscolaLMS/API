@@ -6,6 +6,7 @@ use EscolaLms\AssignWithoutAccount\Database\Seeders\AssignWithoutAccountPermissi
 use EscolaLms\Auth\Database\Seeders\AuthPermissionSeeder;
 use EscolaLms\Cart\Database\Seeders\CartPermissionSeeder;
 use EscolaLms\Categories\Database\Seeders\CategoriesPermissionSeeder;
+use EscolaLms\Cmi5\Database\Seeders\Cmi5PermissionSeeder;
 use EscolaLms\Consultations\Database\Seeders\ConsultationsPermissionSeeder;
 use EscolaLms\Core\Seeders\RoleTableSeeder;
 use EscolaLms\Courses\Database\Seeders\CoursesPermissionSeeder;
@@ -70,5 +71,6 @@ class PermissionsSeeder extends Seeder
         $this->call(ModelFieldsPermissionTableSeeder::class);
         $this->call(VoucherPermissionsSeeder::class);
         $this->call(LrsPermissionSeeder::class);
+        $this->call(Cmi5PermissionSeeder::class);
     }
 }

@@ -37,6 +37,7 @@
       <directory suffix=".php">./vendor/escolalms/vouchers/src</directory>
       <directory suffix=".php">./vendor/escolalms/consultations/src</directory>
       <directory suffix=".php">./vendor/escolalms/webinar/src</directory>
+      <directory suffix=".php">./vendor/escolalms/cmi5/src</directory>
       <!-- <directory suffix=".php">./vendor/escolalms/video/src</directory> -->
 
     </include>
@@ -149,6 +150,9 @@
     </testsuite>
     <testsuite name="webinar">
       <directory suffix="Test.php">./vendor/escolalms/webinar/tests</directory>
+    </testsuite>
+    <testsuite name="cmi5">
+      <directory suffix="Test.php">./vendor/escolalms/cmi5/tests</directory>
     </testsuite>
     <!--
     <testsuite name="video">
