@@ -3745,6 +3745,191 @@
                 ]
             }
         },
+        "/api/admin/cmi5": {
+            "post": {
+                "tags": [
+                    "cmi5"
+                ],
+                "summary": "Convert ZIP Cmi5 Package into Escola LMS Cmi5 storage",
+                "operationId": "b611d4f2c7b7f25c450dc2cd8e924100",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Cmi5 data"
+                    },
+                    "401": {
+                        "description": "Endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "User doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "Server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/play/{cmi5AuId}": {
+            "get": {
+                "tags": [
+                    "cmi5"
+                ],
+                "summary": "",
+                "operationId": "ee5b0197679a1f7315e6fe608aa35953",
+                "parameters": [
+                    {
+                        "name": "cmi5AuId",
+                        "in": "path",
+                        "description": "Unique id cmi5 au identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "course_id",
+                        "in": "query",
+                        "description": "Course id",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "topic_id",
+                        "in": "query",
+                        "description": "Topic id",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "401": {
+                        "description": "Endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "User doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "Server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/cmi5/": {
+            "get": {
+                "tags": [
+                    "cmi5"
+                ],
+                "summary": "Get a listing of the cmi5",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "per_page",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of available cmi5s"
+                    },
+                    "401": {
+                        "description": "Endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "User doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "Server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/cmi5/{id}": {
+            "delete": {
+                "tags": [
+                    "cmi5"
+                ],
+                "summary": "Delete cmi5 package by id",
+                "operationId": "cc898f8e89ccc2465fcea72f4d028764",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Cmi5 id",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Cmi5 deleted successfully"
+                    },
+                    "401": {
+                        "description": "Endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "User doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "Server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/consultations/report-term/{orderItemId}": {
             "post": {
                 "tags": [
@@ -3934,7 +4119,6 @@
                                 "started_at",
                                 "created_at",
                                 "name",
-                                "base_price",
                                 "only_with_categories"
                             ]
                         }
@@ -3990,15 +4174,6 @@
                         }
                     },
                     {
-                        "name": "base_price",
-                        "in": "query",
-                        "description": "Consultation base_price >= ",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
                         "name": "status",
                         "in": "query",
                         "description": "Consultation status == ",
@@ -4037,8 +4212,7 @@
                                 "finished_at",
                                 "started_at",
                                 "created_at",
-                                "name",
-                                "base_price"
+                                "name"
                             ]
                         }
                     },
@@ -4081,15 +4255,6 @@
                         "required": false,
                         "schema": {
                             "type": "string"
-                        }
-                    },
-                    {
-                        "name": "base_price",
-                        "in": "query",
-                        "description": "Consultation base_price >= ",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
                         }
                     },
                     {
@@ -4224,7 +4389,6 @@
                                 "started_at",
                                 "created_at",
                                 "name",
-                                "base_price",
                                 "only_with_categories"
                             ]
                         }
@@ -4268,15 +4432,6 @@
                         "required": false,
                         "schema": {
                             "type": "string"
-                        }
-                    },
-                    {
-                        "name": "base_price",
-                        "in": "query",
-                        "description": "Consultation base_price >= ",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
                         }
                     },
                     {
@@ -13264,10 +13419,6 @@
                     },
                     "author_id": {
                         "description": "author_id",
-                        "type": "integer"
-                    },
-                    "base_price": {
-                        "description": "base_price",
                         "type": "integer"
                     },
                     "active_to": {
