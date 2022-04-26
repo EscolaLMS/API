@@ -31,6 +31,7 @@
     "escolalms/cart": "^0",
     "escolalms/categories": "^0",
     "escolalms/consultations": "^0",
+    "escolalms/cmi5": "^0",
     "escolalms/core": "^1",
     "escolalms/courses": "^0",
     "escolalms/courses-import-export": "^0",
