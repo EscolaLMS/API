@@ -22,6 +22,15 @@ services:
       - ./:/var/www/html
       - ./docker/conf/php/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
       - ./docker/conf/php/xxx-devilbox-default-php.ini:/usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini
+    networks:
+      - escola_lms
+
+  escola_lms_queue_cron:
+    image: escolalms/php:8-prod ## or escolalms/php:8-work for debugginh
+    volumes:
+      - ./:/var/www/html
+      - ./docker/conf/php/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
+      - ./docker/conf/php/xxx-devilbox-default-php.ini:/usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini
       - ./docker/conf/supervisor/horizon.conf:/etc/supervisor/custom.d/horizon.conf
       - ./docker/conf/supervisor/scheduler.conf:/etc/supervisor/custom.d/scheduler.conf
     networks:
