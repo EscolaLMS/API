@@ -11435,6 +11435,81 @@
                 }
             }
         },
+        "/api/stationary-events/me": {
+            "get": {
+                "tags": [
+                    "Stationary Events"
+                ],
+                "summary": "Get a listing of stationary events bought by user",
+                "description": "Get a listing of stationary events bought by user",
+                "operationId": "1c4c9c6808a804dd510ebdbbe309e1a9",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "finished_at",
+                                "started_at",
+                                "created_at",
+                                "name"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Stationary event name %LIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/stationary-events/{id}": {
             "get": {
                 "tags": [
