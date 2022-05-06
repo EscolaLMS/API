@@ -15,7 +15,6 @@ class EventResource extends JsonResource
         $fields = $event instanceof StationaryEvent
             ? StationaryEventResource::make($event)->toArray($request)
             : WebinarSimpleResource::make($event)->toArray($request);
-
         return array_merge($fields, [
             'model' => $this->event_type,
         ]);
