@@ -3136,6 +3136,55 @@
                 ]
             }
         },
+        "/api/cart/missing": {
+            "post": {
+                "tags": [
+                    "Cart"
+                ],
+                "description": "Add missing products to Cart",
+                "operationId": "b51de264303691d59d8f660d8d0936d3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/json": {
+                            "schema": {
+                                "required": [
+                                    "id"
+                                ],
+                                "properties": {
+                                    "products": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/cart/add": {
             "post": {
                 "tags": [
@@ -14549,26 +14598,17 @@
             },
             "QuestionnaireAnswerRequest": {
                 "properties": {
-                    "answers": {
-                        "description": "answers for questionnaire",
-                        "type": "array",
-                        "items": {
-                            "properties": {
-                                "question_id": {
-                                    "description": "question identified by id",
-                                    "type": "integer"
-                                },
-                                "rate": {
-                                    "description": "rate from 1 to 5",
-                                    "type": "integer"
-                                },
-                                "note": {
-                                    "description": "anser of text type",
-                                    "type": "string"
-                                }
-                            },
-                            "type": "object"
-                        }
+                    "question_id": {
+                        "description": "question identified by id",
+                        "type": "integer"
+                    },
+                    "rate": {
+                        "description": "rate from 1 to 5",
+                        "type": "integer"
+                    },
+                    "note": {
+                        "description": "anser of text type",
+                        "type": "string"
                     }
                 },
                 "type": "object"
