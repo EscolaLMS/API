@@ -58,7 +58,6 @@ return [
 
     'frontend_url' => env('FRONTEND_URL', 'http://localhost:1000/email'),
 
-    'linkedin_organization_id' => env('LINKEDIN_ORGANIZATION_ID', 75401175),
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -179,14 +178,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\HorizonServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\TelescopeServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
         App\Providers\ShopServiceProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
         // Chumper\Zipper\ZipperServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
     ],
 
     /*

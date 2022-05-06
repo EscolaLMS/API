@@ -35,6 +35,7 @@
       <directory suffix=".php">./vendor/escolalms/vouchers/</directory>
       <directory suffix=".php">./vendor/escolalms/consultations/</directory>
       <directory suffix=".php">./vendor/escolalms/webinar/</directory>
+      <directory suffix=".php">./vendor/escolalms/cmi5/</directory>
       <!-- <directory suffix=".php">./vendor/escolalms/video/</directory> -->
     </include>
   </coverage>
@@ -140,6 +141,9 @@
     </testsuite>
     <testsuite name="webinar">
       <directory suffix="Test.php">./vendor/escolalms/webinar</directory>
+    </testsuite>
+    <testsuite name="cmi5">
+      <directory suffix="Test.php">./vendor/escolalms/cmi5</directory>
     </testsuite>
     <!--
     <testsuite name="video">

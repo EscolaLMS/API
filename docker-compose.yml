@@ -7,27 +7,9 @@ services:
   nginx:
     image: nginx:latest
     ports:
-      - "1000:80"
+      - "1001:80"
     volumes:
-      #- ./:/var/www/html
-      - ./app:/var/www/html/app
-      - ./bootstrap:/var/www/html/bootstrap
-      - ./config:/var/www/html/config
-      - ./database:/var/www/html/database
-      - ./packages:/var/www/html/packages
-      - ./public:/var/www/html/public
-      - ./resources:/var/www/html/resources
-      - ./routes:/var/www/html/routes
-      - ./storage:/var/www/html/storage
-      - ./tests:/var/www/html/tests
-      - ./.env:/var/www/html/.env
-      - ./.htaccess:/var/www/html/.htaccess
-      - ./artisan:/var/www/html/artisan
-      - ./index.php:/var/www/html/index.php
-      - ./server.php:/var/www/html/server.php
-      - ./phpunit.xml:/var/www/html/phpunit.xml
-      - ./composer.json:/var/www/html/composer.json
-
+      - ./:/var/www/html
       - ./docker/conf/nginx:/etc/nginx/conf.d/
       - ./docker/www_logs/nginx:/var/log/nginx
     links:
@@ -35,30 +17,22 @@ services:
     networks:
       - escola_lms
   escola_lms_app:
-    image: escolalms/php:8-work
+    image: escolalms/php:8-prod ## or escolalms/php:8-work for debugginh
     volumes:
-      #- ./:/var/www/html
-      - ./app:/var/www/html/app
-      - ./bootstrap:/var/www/html/bootstrap
-      - ./config:/var/www/html/config
-      - ./database:/var/www/html/database
-      - ./packages:/var/www/html/packages
-      - ./public:/var/www/html/public
-      - ./resources:/var/www/html/resources
-      - ./routes:/var/www/html/routes
-      - ./storage:/var/www/html/storage
-      - ./tests:/var/www/html/tests
-      - ./.env:/var/www/html/.env
-      - ./.htaccess:/var/www/html/.htaccess
-      - ./artisan:/var/www/html/artisan
-      - ./index.php:/var/www/html/index.php
-      - ./server.php:/var/www/html/server.php
-      - ./phpunit.xml:/var/www/html/phpunit.xml
-      - ./composer.json:/var/www/html/composer.json
+      - ./:/var/www/html
+      - ./docker/conf/php/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
+      - ./docker/conf/php/xxx-devilbox-default-php.ini:/usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini
+    networks:
+      - escola_lms
 
+  escola_lms_queue_cron:
+    image: escolalms/php:8-prod ## or escolalms/php:8-work for debugginh
+    volumes:
+      - ./:/var/www/html
       - ./docker/conf/php/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
       - ./docker/conf/php/xxx-devilbox-default-php.ini:/usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini
       - ./docker/conf/supervisor/horizon.conf:/etc/supervisor/custom.d/horizon.conf
+      - ./docker/conf/supervisor/scheduler.conf:/etc/supervisor/custom.d/scheduler.conf
     networks:
       - escola_lms
 

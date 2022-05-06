@@ -6,6 +6,7 @@ use EscolaLms\AssignWithoutAccount\Database\Seeders\AssignWithoutAccountPermissi
 use EscolaLms\Auth\Database\Seeders\AuthPermissionSeeder;
 use EscolaLms\Cart\Database\Seeders\CartPermissionSeeder;
 use EscolaLms\Categories\Database\Seeders\CategoriesPermissionSeeder;
+use EscolaLms\Cmi5\Database\Seeders\Cmi5PermissionSeeder;
 use EscolaLms\Consultations\Database\Seeders\ConsultationsPermissionSeeder;
 use EscolaLms\Core\Seeders\RoleTableSeeder;
 use EscolaLms\Courses\Database\Seeders\CoursesPermissionSeeder;
@@ -13,6 +14,7 @@ use EscolaLms\CoursesImportExport\Database\Seeders\CoursesExportImportPermission
 use EscolaLms\CsvUsers\Database\Seeders\CsvUsersPermissionSeeder;
 use EscolaLms\Files\Database\Seeders\PermissionTableSeeder as FilePermissionTableSeeder;
 use EscolaLms\HeadlessH5P\Database\Seeders\PermissionTableSeeder as H5PPermissionTableSeeder;
+use EscolaLms\Lrs\Database\Seeders\LrsPermissionSeeder;
 use EscolaLms\ModelFields\Database\Seeders\PermissionTableSeeder as ModelFieldsPermissionTableSeeder;
 use EscolaLms\Notifications\Database\Seeders\NotificationsPermissionsSeeder;
 use EscolaLms\Pages\Database\Seeders\PermissionTableSeeder as PagesPermissionTableSeeder;
@@ -68,5 +70,7 @@ class PermissionsSeeder extends Seeder
         $this->call(TrackerPermissionSeeder::class);
         $this->call(ModelFieldsPermissionTableSeeder::class);
         $this->call(VoucherPermissionsSeeder::class);
+        $this->call(LrsPermissionSeeder::class);
+        $this->call(Cmi5PermissionSeeder::class);
     }
 }

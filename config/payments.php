@@ -5,10 +5,10 @@ return [
      * Defaults settings
      */
     'default_gateway' => env('PAYMENTS_DEFAULT_GATEWAY', 'Stripe'),
-    'default_currency' => env('PAYMENTS_DEFAULT_CURRENCY', EscolaLms\Payments\Enums\Currency::USD),
+    'default_currency' => env('PAYMENTS_DEFAULT_CURRENCY', 'USD'),
 
-    /** 
-     * Driver specific settings 
+    /**
+     * Driver specific settings
      */
     'drivers' => [
         'free' => [],

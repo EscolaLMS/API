@@ -47,9 +47,11 @@ jobs:
           cp docker/envs/.env.ci.mysql .env.testing
           cp docker/envs/phpunit.xml.mysql phpunit.xml
 
-      - name: Install composer dependencies
+      - name: Update composer
         run: |
-          composer install --no-scripts
+          apt-get install unzip -y
+          composer self-update
+          composer update
 
       - name: Prepare Laravel Application
         env:

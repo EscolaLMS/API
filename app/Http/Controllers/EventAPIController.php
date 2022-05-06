@@ -9,6 +9,9 @@ use App\Services\Contracts\SearchableEventServiceContract;
 use EscolaLms\Core\Dtos\OrderDto;
 use EscolaLms\Core\Http\Controllers\EscolaLmsBaseController;
 use EscolaLms\StationaryEvents\Enum\ConstantEnum;
+use EscolaLms\StationaryEvents\Http\Resources\StationaryEventResource;
+use EscolaLms\StationaryEvents\Models\StationaryEvent;
+use EscolaLms\Webinar\Http\Resources\WebinarSimpleResource;
 use Illuminate\Http\JsonResponse;
 
 class EventAPIController extends EscolaLmsBaseController implements EventAPISwagger
@@ -26,7 +29,6 @@ class EventAPIController extends EscolaLmsBaseController implements EventAPISwag
         $events = $this->eventService
             ->getEventsList($orderDto)
             ->paginate($request->get('per_page') ?? ConstantEnum::PER_PAGE);
-
         return $this->sendResponseForResource(
             EventResource::collection($events),
             __('Events retrieved successfully')

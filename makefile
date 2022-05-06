@@ -1,41 +1,40 @@
-fix-style:
-	- docker-compose exec escola_lms_app bash -c "./vendor/bin/php-cs-fixer fix ."
-
 test-phpunit:
-	- docker-compose exec escola_lms_app bash -c "./vendor/bin/phpunit"
+	- docker-compose exec --user=1000 escola_lms_app bash -c "./vendor/bin/phpunit"
 
 bash:
-	- docker-compose exec escola_lms_app bash
-
-ide-helper:
-	- docker-compose exec escola_lms_app bash -c "php artisan ide-helper:generate && mv _ide_helper.php .phan/stubs/_ide_helper.php"
+	- docker-compose exec --user=1000 escola_lms_app bash
 
 migrate-fresh-quick:
-	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off php artisan migrate:fresh --seed"
-	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off php artisan passport:keys --force"
-	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off php artisan passport:client --personal --no-interaction"
-	- docker-compose exec escola_lms_app bash -c "cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key"
+	- docker-compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan migrate:fresh --seed"
+	- docker-compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan passport:keys --force"
+	- docker-compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan passport:client --personal --no-interaction"
+	- docker-compose exec --user=1000 escola_lms_app bash -c "cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key"
 
 composer-update:
 	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off composer self-update"
-	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off composer update"
+	- docker-compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off composer update"
+## supervisd must be restarted, horizon & scheduler must fetch new code
+	- docker-compose restart escola_lms_queue_cron
+
+restart_queue_cron:
+	- docker-compose restart escola_lms_queue_cron
+
 
 swagger-generate:
-	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off php artisan l5-swagger:generate"
+	- docker-compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan l5-swagger:generate"
 
 h5p-seed:
-	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off php artisan db:seed --class=H5PLibrarySeeder"
-	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off php artisan db:seed --class=H5PContentSeeder"
-	- docker-compose exec escola_lms_app bash -c "XDEBUG_MODE=off php artisan db:seed --class=H5PContentCoursesSeeder"
+	- docker-compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan db:seed --class=H5PLibrarySeeder"
+	- docker-compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan db:seed --class=H5PContentSeeder"
+	- docker-compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan db:seed --class=H5PContentCoursesSeeder"
 
 node-packages:
 # install globally at /usr/bin/mjml
-	- docker-compose exec escola_lms_app bash -c "npm install -g mjml"
+	- docker-compose exec --user=1000 escola_lms_app bash -c "npm install -g mjml"
 
 tinker:
 # use CTRL+C to quit and CTRL+D to refresh tinker
-	- docker-compose exec escola_lms_app bash -c "while true; do php artisan tinker; done"
-
+	- docker-compose exec --user=1000 escola_lms_app bash -c "while true; do php artisan tinker; done"
 
 migrate-fresh: migrate-fresh-quick h5p-seed
 
@@ -52,11 +51,11 @@ docker-up:
 
 switch-to-postgres:
 	- cp docker/envs/.env.postgres.example .env
-	- docker-compose exec escola_lms_app bash -c "php artisan config:cache"
+	- docker-compose exec --user=1000 escola_lms_app bash -c "php artisan config:cache"
 
 switch-to-mysql:
 	- cp docker/envs/.env.mysql.example .env
-	- docker-compose exec escola_lms_app bash -c "php artisan config:cache"
+	- docker-compose exec --user=1000 escola_lms_app bash -c "php artisan config:cache"
 
 migrate-mysql: switch-to-mysql migrate-fresh-quick
 
@@ -68,7 +67,7 @@ test-phpunit-mysql: switch-to-mysql test-phpunit
 
 test-fresh: migrate-fresh-quick test-phpunit
 
-init: docker-up node-packages switch-to-postgres composer-update migrate-fresh-quick
+init: docker-up switch-to-postgres composer-update migrate-fresh-quick
 
 init-mysql: docker-up switch-to-mysql composer-update migrate-fresh-quick
 
