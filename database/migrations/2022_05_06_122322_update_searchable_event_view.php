@@ -15,7 +15,7 @@ class UpdateSearchableEventView extends Migration
      */
     public function up()
     {
-        Schema::dropView('searchable_events');
+        Schema::dropViewIfExists('searchable_events');
 
         $stationaryEventClass = StationaryEvent::class;
         $webinarClass = Webinar::class;
@@ -52,7 +52,7 @@ class UpdateSearchableEventView extends Migration
      */
     public function down()
     {
-        Schema::dropView('searchable_events');
+        Schema::dropViewIfExists('searchable_events');
 
         $stationaryEventClass = StationaryEvent::class;
         $webinarClass = Webinar::class;
