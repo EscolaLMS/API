@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use EscolaLms\Webinar\Enum\WebinarTermReminderStatusEnum;
+use EscolaLms\Webinar\Jobs\ReminderAboutWebinarJob;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -24,6 +26,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->job(
+            new ReminderAboutWebinarJob(WebinarTermReminderStatusEnum::REMINDED_HOUR_BEFORE)
+        )->everyFiveMinutes();
+
+        $schedule->job(
+            new ReminderAboutWebinarJob(WebinarTermReminderStatusEnum::REMINDED_DAY_BEFORE)
+        )->everySixHours();
     }
 
     /**

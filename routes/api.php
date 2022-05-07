@@ -30,4 +30,10 @@ Route::group(['middleware' => ['auth:api']], function () {
     });
 });
 
+Route::get('/seeds/consultations/{author?}/{user?}', function ($author = null, $user = null) {
+    $seed = new \EscolaLms\Consultations\Database\Seeders\ConsultationTermsSeeder($author, $user);
+    $consultationTerms = $seed->run();
+    return response()->json(['msg' => 'success']);
+});
+
 Route::get('events', [EventAPIController::class, 'index']);

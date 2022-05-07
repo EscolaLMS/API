@@ -32,14 +32,21 @@ class ShopServiceProvider extends ServiceProvider
                 $element->getKey()
             )
         );
-        Shop::registerProductableClass(Webinar::class);
-        WebinarSimpleResource::extend(
-            fn ($element) =>
-            $this->registerProductToResource(
-                Webinar::class,
-                $element->getKey()
-            )
-        );
+        try {
+            if ($element->hasYT()) {
+                Shop::registerProductableClass(Webinar::class);
+                WebinarSimpleResource::extend(
+                    fn ($element) =>
+                    $this->registerProductToResource(
+                        Webinar::class,
+                        $element->getKey()
+                    )
+                );
+            }
+        } catch (\Exception $exception) {
+            //
+        }
+
         Shop::registerProductableClass(Course::class);
         CourseSimpleResource::extend(
             fn ($element) =>
