@@ -37,14 +37,17 @@ class ShopServiceProvider extends ServiceProvider
             function($element) {
                 try {
                     if ($element->hasYT()) {
-                        $this->registerProductToResource(
+                        return $this->registerProductToResource(
                             Webinar::class,
                             $element->getKey()
                         );
                     }
                 } catch (\Exception $exception) {
-                    return [];
+                    //
                 }
+                return [
+                    'product' => null
+                ];
             }
         );
 
