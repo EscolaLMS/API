@@ -32,20 +32,24 @@ class ShopServiceProvider extends ServiceProvider
                 $element->getKey()
             )
         );
-        try {
-            if ($element->hasYT()) {
-                Shop::registerProductableClass(Webinar::class);
-                WebinarSimpleResource::extend(
-                    fn ($element) =>
-                    $this->registerProductToResource(
-                        Webinar::class,
-                        $element->getKey()
-                    )
-                );
+        Shop::registerProductableClass(Webinar::class);
+        WebinarSimpleResource::extend(
+            function($element) {
+                try {
+                    if ($element->hasYT()) {
+                        return $this->registerProductToResource(
+                            Webinar::class,
+                            $element->getKey()
+                        );
+                    }
+                } catch (\Exception $exception) {
+                    //
+                }
+                return [
+                    'product' => null
+                ];
             }
-        } catch (\Exception $exception) {
-            //
-        }
+        );
 
         Shop::registerProductableClass(Course::class);
         CourseSimpleResource::extend(
