@@ -7,6 +7,7 @@ use App\Models\Course;
 use App\Models\StationaryEvent;
 use App\Models\Webinar;
 use EscolaLms\Cart\Facades\Shop;
+use EscolaLms\Cart\Http\Resources\ProductResource;
 use EscolaLms\Cart\Services\Contracts\ProductServiceContract;
 use EscolaLms\Consultations\Http\Resources\ConsultationSimpleResource;
 use EscolaLms\Courses\Http\Resources\CourseListResource;
@@ -85,6 +86,6 @@ class ShopServiceProvider extends ServiceProvider
             $class,
             $id
         );
-        return ['product' => $this->productServiceContract->findSingleProductForProductable($product)];
+        return ['product' => ProductResource::make($this->productServiceContract->findSingleProductForProductable($product))];
     }
 }
