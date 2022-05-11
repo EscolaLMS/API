@@ -86,6 +86,11 @@ class ShopServiceProvider extends ServiceProvider
             $class,
             $id
         );
-        return ['product' => ProductResource::make($this->productServiceContract->findSingleProductForProductable($product))];
+        $prod = $this->productServiceContract->findSingleProductForProductable($product);
+        return [
+            'product' => $prod ?
+            ProductResource::make($this->productServiceContract->findSingleProductForProductable($product)) :
+            null
+        ];
     }
 }
