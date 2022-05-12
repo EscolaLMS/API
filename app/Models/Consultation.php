@@ -4,7 +4,9 @@ namespace App\Models;
 
 use EscolaLms\Cart\Contracts\Productable;
 use EscolaLms\Cart\Contracts\ProductableTrait;
+use EscolaLms\Cart\Support\ModelHelper;
 use EscolaLms\Core\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 
 class Consultation extends \EscolaLms\Consultations\Models\Consultation implements Productable
 {
@@ -15,5 +17,10 @@ class Consultation extends \EscolaLms\Consultations\Models\Consultation implemen
         for ($i = 1; $i <= $quantity; $i++) {
             parent::attachToUser($user);
         }
+    }
+
+    public function getProductableAuthors(): Collection
+    {
+        return new Collection([$this->author]);
     }
 }
