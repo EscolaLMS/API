@@ -2405,6 +2405,12 @@
                                         "items": {
                                             "type": "string"
                                         }
+                                    },
+                                    "related_products": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
                                     }
                                 },
                                 "type": "object"
@@ -2544,6 +2550,12 @@
                                         "type": "array",
                                         "items": {
                                             "type": "string"
+                                        }
+                                    },
+                                    "related_products": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
                                         }
                                     }
                                 },
@@ -13621,7 +13633,20 @@
                             "properties": {
                                 "": {
                                     "type": "string",
-                                    "example": "12-12-2022 11:30"
+                                    "example": "2022-05-20T10:15:20.000000Z"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "busy_terms": {
+                        "description": "busy_terms",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "": {
+                                    "type": "string",
+                                    "example": "2022-05-20T10:15:20.000000Z"
                                 }
                             },
                             "type": "object"
