@@ -48,15 +48,21 @@ class EventApiTest extends TestCase
         $this->assertTrue(true);
         $this->getJson('/api/events')
             ->assertOk()
-            ->assertJsonMissing([
-                'id' => $archivedWebinar->getKey(),
-                'name' => $archivedWebinar->name,
+            ->assertJsonFragment([
+                $this->webinarToArray($this->webinar->refresh())
+            ])->assertJsonFragment([
+                $this->stationaryEventToArray($this->stationaryEvent->refresh())
+            ])->assertJsonMissing([
+                $this->webinarToArray($archivedWebinar->refresh())
+            ])->assertJsonMissing([
+                $this->webinarToArray($this->pastWebinar->refresh())
+            ])->assertJsonMissing([
+                $this->stationaryEventToArray($this->pastStationaryEvent->refresh())
             ]);
     }
 
     public function testEventsListOrderBy(): void
     {
-        $this->assertTrue(true);
         $this->getJson('/api/events?order_by=' . EventOrderByEnum::NEXT)
             ->assertOk()
             ->assertJsonFragment(
