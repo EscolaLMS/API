@@ -8,6 +8,7 @@ use App\Models\StationaryEvent;
 use App\Models\Webinar;
 use EscolaLms\Cart\Facades\Shop;
 use EscolaLms\Cart\Http\Resources\ProductResource;
+use EscolaLms\Cart\Models\Product;
 use EscolaLms\Cart\Services\Contracts\ProductServiceContract;
 use EscolaLms\Consultations\Http\Resources\ConsultationSimpleResource;
 use EscolaLms\Courses\Http\Resources\CourseListResource;
@@ -30,7 +31,7 @@ class ShopServiceProvider extends ServiceProvider
             fn ($element) =>
             $this->registerProductToResource(
                 Consultation::class,
-                $element->getKey()
+                $element
             )
         );
         Shop::registerProductableClass(Webinar::class);
@@ -40,7 +41,7 @@ class ShopServiceProvider extends ServiceProvider
                     if ($element->hasYT()) {
                         return $this->registerProductToResource(
                             Webinar::class,
-                            $element->getKey()
+                            $element
                         );
                     }
                 } catch (\Exception $exception) {
@@ -57,14 +58,14 @@ class ShopServiceProvider extends ServiceProvider
             fn ($element) =>
             $this->registerProductToResource(
                 Course::class,
-                $element->getKey()
+                $element
             )
         );
         CourseListResource::extend(
             fn ($element) =>
             $this->registerProductToResource(
                 Course::class,
-                $element->getKey()
+                $element
             )
         );
         Shop::registerProductableClass(StationaryEvent::class);
@@ -72,25 +73,33 @@ class ShopServiceProvider extends ServiceProvider
             fn ($element) =>
             $this->registerProductToResource(
                 StationaryEvent::class,
-                $element->getKey()
+                $element
             )
         );
     }
 
-    private function registerProductToResource(string $class, int $id): array
+    private function registerProductToResource(string $class, $element): array
     {
         if (!isset($this->productServiceContract)) {
             throw new BindingResolutionException();
         }
         $product = $this->productServiceContract->findProductable(
             $class,
-            $id
+            $element->getKey()
         );
+        $productId = $element->product_id ?? null;
+        $relatedProduct = null;
+        if ($productId) {
+            $relatedProduct = Product::whereId($productId)->first();
+        }
         $prod = $this->productServiceContract->findSingleProductForProductable($product);
         return [
             'product' => $prod ?
-            ProductResource::make($this->productServiceContract->findSingleProductForProductable($product)) :
-            null
+                ProductResource::make($this->productServiceContract->findSingleProductForProductable($product)) :
+                null,
+            'related_product' => $relatedProduct ?
+                ProductResource::make($relatedProduct) :
+                null
         ];
     }
 }
