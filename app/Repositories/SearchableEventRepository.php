@@ -46,12 +46,10 @@ class SearchableEventRepository implements SearchableEventRepositoryContract
                 created_at"
             )->whereIn('status', ['published', 'published_unactivated']);
 
-        if ($orderDto->getOrderBy() === EventOrderByEnum::NEXT) {
-            $query = $query->whereDate('started_at', '>=', now());
-        }
-
         if ($orderDto->getOrderBy() === EventOrderByEnum::PAST) {
             $query = $query->whereDate('started_at', '<', now());
+        } else {
+            $query = $query->whereDate('started_at', '>=', now());
         }
 
         return $query;
@@ -70,12 +68,10 @@ class SearchableEventRepository implements SearchableEventRepositoryContract
                 created_at"
             )->whereIn('status', ['published', 'published_unactivated']);
 
-        if ($orderDto->getOrderBy() === EventOrderByEnum::NEXT) {
-            $query = $query->whereDate('active_from', '>=', now());
-        }
-
         if ($orderDto->getOrderBy() === EventOrderByEnum::PAST) {
             $query = $query->whereDate('active_from', '<', now());
+        } else {
+            $query = $query->whereDate('active_from', '>=', now());
         }
 
         return $query;
