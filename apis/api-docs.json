@@ -4728,14 +4728,63 @@
                 ]
             }
         },
-        "/api/admin/consultations/change-term/{termId}": {
+        "/api/admin/consultations/change-term/{consultationTermId}": {
             "post": {
                 "tags": [
                     "Admin Consultations"
                 ],
                 "summary": "Change term in consultation ",
                 "description": "Change term consultation",
-                "operationId": "2d9ce804b2e5d49900336c1fe5449a17",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Consultation Term",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "executed_at": {
+                                        "type": "string",
+                                        "example": "New term consultation"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/consultations/change-term/{consultationTermId}": {
+            "post": {
+                "tags": [
+                    "Consultations"
+                ],
+                "summary": "Change term in consultation with tutor",
+                "description": "Change term consultation with tutor",
+                "operationId": "d011cb5c9e8b042ad124e24af33d0a42",
                 "parameters": [
                     {
                         "name": "id",
@@ -13521,6 +13570,19 @@
                     "consultation_term_id": {
                         "description": "consultation_term_id",
                         "type": "integer"
+                    },
+                    "busy_terms": {
+                        "description": "busy_terms",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "": {
+                                    "type": "string",
+                                    "example": "2022-05-20T10:15:20.000000Z"
+                                }
+                            },
+                            "type": "object"
+                        }
                     }
                 },
                 "type": "object"
