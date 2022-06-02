@@ -20,7 +20,7 @@ class Webinar extends \EscolaLms\Webinar\Models\Webinar implements Productable
         event(new WebinarUserAssigned($user, $this));
     }
 
-    public function detachFromUser(User $user, int $quantity = 1): void
+    public function detachFromUser(User $user, int $quantity = 1, ?Product $product = null): void
     {
         $this->users()->detach($user->getKey());
         event(new WebinarUserUnassigned($user, $this));

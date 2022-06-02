@@ -22,7 +22,7 @@ class Course extends \EscolaLms\Courses\Models\Course implements Productable
         event(new CourseAccessStarted($user, $this));
     }
 
-    public function detachFromUser(User $user, int $quantity = 1): void
+    public function detachFromUser(User $user, int $quantity = 1, ?Product $product = null): void
     {
         $this->users()->detach($user->getKey());
         event(new CourseUnassigned($user, $this));
