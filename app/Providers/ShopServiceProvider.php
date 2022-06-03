@@ -11,6 +11,7 @@ use EscolaLms\Cart\Http\Resources\ProductResource;
 use EscolaLms\Cart\Models\Product;
 use EscolaLms\Cart\Services\Contracts\ProductServiceContract;
 use EscolaLms\Consultations\Http\Resources\ConsultationSimpleResource;
+use EscolaLms\Consultations\Http\Resources\ConsultationTermsResource;
 use EscolaLms\Courses\Http\Resources\CourseListResource;
 use EscolaLms\Courses\Http\Resources\CourseSimpleResource;
 use EscolaLms\StationaryEvents\Http\Resources\StationaryEventResource;
@@ -28,6 +29,13 @@ class ShopServiceProvider extends ServiceProvider
 
         Shop::registerProductableClass(Consultation::class);
         ConsultationSimpleResource::extend(
+            fn ($element) =>
+            $this->registerProductToResource(
+                Consultation::class,
+                $element
+            )
+        );
+        ConsultationTermsResource::extend(
             fn ($element) =>
             $this->registerProductToResource(
                 Consultation::class,
