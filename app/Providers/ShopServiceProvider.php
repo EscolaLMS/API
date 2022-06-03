@@ -106,7 +106,7 @@ class ShopServiceProvider extends ServiceProvider
         }
         return [
             'product' => $prod ?
-                ProductResource::make($this->productServiceContract->findSingleProductForProductable($prod)) :
+                ProductResource::make($prod) :
                 null,
             'related_product' => $relatedProduct ?
                 ProductResource::make($relatedProduct) :
