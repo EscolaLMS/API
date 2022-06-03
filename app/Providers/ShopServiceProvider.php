@@ -97,13 +97,16 @@ class ShopServiceProvider extends ServiceProvider
         );
         $productId = $element->product_id ?? null;
         $relatedProduct = null;
+        $prod = null;
         if ($productId) {
             $relatedProduct = Product::whereId($productId)->first();
         }
-        $prod = $this->productServiceContract->findSingleProductForProductable($product);
+        if ($product) {
+            $prod = $this->productServiceContract->findSingleProductForProductable($product);
+        }
         return [
             'product' => $prod ?
-                ProductResource::make($this->productServiceContract->findSingleProductForProductable($product)) :
+                ProductResource::make($this->productServiceContract->findSingleProductForProductable($prod)) :
                 null,
             'related_product' => $relatedProduct ?
                 ProductResource::make($relatedProduct) :
