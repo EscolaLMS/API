@@ -45,7 +45,7 @@ jobs:
         uses: Legion2/swagger-ui-action@v1
         with:
           output: swagger-ui
-          spec-file: openapi.json
+          spec-file: "./storage/api-docs/api-docs.json"
 
       - name: Install git
         run: apt-get install git -y
