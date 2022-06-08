@@ -41,13 +41,11 @@ jobs:
       - name: Generage openapi
         run: php artisan l5-swagger:generate
 
-      - name: Swagger ui action
-        id: swagger-ui-action
-        uses: pjoc-team/swagger-ui-action@v0.0.2
+      - name: Generate Swagger UI
+        uses: Legion2/swagger-ui-action@v1
         with:
-          dir: "./storage/api-docs/"
-          pattern: "api-docs.json"
-          debug: "true"
+          output: swagger-ui
+          spec-file: "./storage/api-docs/api-docs.json"
 
       - name: Install git
         run: apt-get install git -y
