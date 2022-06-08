@@ -3724,13 +3724,13 @@
                     }
                 }
             },
-            "put": {
+            "post": {
                 "tags": [
                     "Categories"
                 ],
                 "summary": "Update category",
                 "description": "Update single Categories",
-                "operationId": "15486aa520a77ec86e4a719cc28aca93",
+                "operationId": "e45496b5c4599cd66361688aa03c47b5",
                 "requestBody": {
                     "content": {
                         "application/json": {
