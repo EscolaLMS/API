@@ -4,11 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use EscolaLms\Courses\Models\Course;
-use EscolaLms\Courses\Models\Lesson;
 use EscolaLms\Courses\Models\Topic;
 use EscolaLms\HeadlessH5P\Models\H5PContent;
 use EscolaLms\TopicTypes\Models\TopicContent\H5P;
-use Peopleaps\Scorm\Model\ScormModel;
+use Peopleaps\Scorm\Model\ScormScoModel;
 
 class PostCoursesSeeder extends Seeder
 {
@@ -21,16 +20,16 @@ class PostCoursesSeeder extends Seeder
     {
         $courses = Course::with('lessons')->get();
         $contents = H5PContent::with('library')->get();
-        $scorms = ScormModel::all();
+        $scormScos = ScormScoModel::all();
 
         foreach ($courses as $course) {
             $rnd = rand(1,2);
             switch($rnd) {
                 case 1: // scorm
-                    $course->scorm_id = $scorms->random()->id;
+                    $course->scorm_sco_id = $scormScos->random()->id;
                     $course->save();
                     break;
-                case 2: // sylabus 
+                case 2: // sylabus
                 default:
                     foreach ($course->lessons as $lesson) {
                         $content = $contents->random();
@@ -45,8 +44,6 @@ class PostCoursesSeeder extends Seeder
                         $topic->topicable()->associate($topicable)->save();
                     }
             }
-     
-            
         }
     }
 }
