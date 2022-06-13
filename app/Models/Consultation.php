@@ -20,7 +20,9 @@ class Consultation extends \EscolaLms\Consultations\Models\Consultation implemen
             $data = [
                 'consultation_id' => $this->getKey(),
                 'user_id' => $user->getKey(),
-                'executed_status' => ConsultationTermStatusEnum::NOT_REPORTED,
+                'executed_status' => isset($product) && $product->type === 'bundle' ?
+                    ConsultationTermStatusEnum::APPROVED :
+                    ConsultationTermStatusEnum::NOT_REPORTED,
                 'product_id' => $product ? $product->getKey() : null
             ];
             parent::attachToConsultationPivot($data);
