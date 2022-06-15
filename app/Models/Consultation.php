@@ -5,7 +5,6 @@ namespace App\Models;
 use EscolaLms\Cart\Contracts\Productable;
 use EscolaLms\Cart\Contracts\ProductableTrait;
 use EscolaLms\Cart\Models\Product;
-use EscolaLms\Cart\Support\ModelHelper;
 use EscolaLms\Consultations\Enum\ConsultationTermStatusEnum;
 use EscolaLms\Core\Models\User;
 use Illuminate\Database\Eloquent\Collection;
