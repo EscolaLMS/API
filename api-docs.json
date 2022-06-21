@@ -5051,14 +5051,14 @@
                         }
                     },
                     {
-                        "name": "authors",
+                        "name": "authors[]",
                         "in": "query",
-                        "description": "Authors",
+                        "description": "An array of author IDs",
                         "required": false,
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/components/schemas/User"
+                                "type": "number"
                             }
                         }
                     },
