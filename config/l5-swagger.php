@@ -60,6 +60,7 @@ return [
                     base_path('vendor/escolalms/templates-pdf/src'),
                     base_path('vendor/escolalms/assign-without-account/src'),
                     base_path('vendor/escolalms/tracker/src'),
+                    base_path('vendor/escolalms/translations/src'),
                     base_path('vendor/escolalms/questionnaire/src'),
                     base_path('vendor/escolalms/consultations/src'),
                     base_path('vendor/escolalms/webinar/src'),

@@ -59,7 +59,7 @@ jobs:
       FAKTUROWNIA_HOST: ${{ secrets.FAKTUROWNIA_HOST }}
       FAKTUROWNIA_TOKEN: ${{ secrets.FAKTUROWNIA_TOKEN }}
     container:
-      image: escolasoft1/laravel-prod-docker:fpm
+      image: escolalms/php:8-work
 
     services:
       postgres:
