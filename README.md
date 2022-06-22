@@ -47,6 +47,7 @@ Laravel Headless LMS REST API.
 - [escolalms/video](https://packagist.org/packages/escolalms/video)
 - [escolalms/consultations](https://packagist.org/packages/escolalms/consultations)
 - [escolalms/tracker](https://packagist.org/packages/escolalms/tracker)
+- [escolalms/translations](https://packagist.org/packages/escolalms/translations)
 - [escolalms/vouchers](https://packagist.org/packages/escolalms/vouchers)
 - [escolalms/cmi5](https://packagist.org/packages/escolalms/cmi5)
 
