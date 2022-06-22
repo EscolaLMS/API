@@ -12680,6 +12680,227 @@
                 ]
             }
         },
+        "/api/admin/translations": {
+            "get": {
+                "tags": [
+                    "Admin Translations"
+                ],
+                "summary": "Get a list of translations stored in the database",
+                "description": "Get translations",
+                "operationId": "14e1d47085a717f3fb252b7a19abd540",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "group",
+                        "in": "query",
+                        "description": "Group",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin Translations"
+                ],
+                "summary": "Store a newly created translation",
+                "description": "Store translation",
+                "operationId": "0c3b29d371948fa792615b8e7a9564fa",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/language-line-save-request"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/translations/{id}": {
+            "get": {
+                "tags": [
+                    "Admin Translations"
+                ],
+                "summary": "Display the specified translation",
+                "description": "Get translation",
+                "operationId": "4018ba6ac55e0218a6bb657f7ca37c59",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of translation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin Translations"
+                ],
+                "summary": "Update the specified translation",
+                "description": "Update translation",
+                "operationId": "769db5146e32f270bb0280cb374d0538",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of translation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/language-line-save-request"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin Translations"
+                ],
+                "summary": "Remove the specified translation",
+                "description": "Delete transalation",
+                "operationId": "e959047421514a1b38040ae198968e84",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of translation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/vouchers": {
             "get": {
                 "tags": [
@@ -15151,6 +15372,26 @@
                     "default": {
                         "description": "this template is default template for given channel and event pair",
                         "type": "bool"
+                    }
+                },
+                "type": "object"
+            },
+            "language-line-save-request": {
+                "required": [
+                    "text"
+                ],
+                "properties": {
+                    "group": {
+                        "description": "group",
+                        "type": "string"
+                    },
+                    "key": {
+                        "description": "key",
+                        "type": "string"
+                    },
+                    "text": {
+                        "description": "text",
+                        "type": "object"
                     }
                 },
                 "type": "object"
