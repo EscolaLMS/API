@@ -4,6 +4,9 @@ namespace App\Exceptions;
 
 use EscolaLms\Auth\Exceptions\OnboardingNotCompleted;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -43,10 +46,31 @@ class Handler extends ExceptionHandler
             return response()->json(['error' => $exception->getMessage()], 403);
         });
 
+        $this->renderable(function (AccessDeniedHttpException $exception, $request) {
+            return response()->json(['error' => $exception->getMessage()], 403);
+        });
+
         $this->reportable(function (Throwable $e) {
             if ($this->shouldReport($e) && app()->bound('sentry')) {
                 app('sentry')->captureException($e);
             }
         });
+    }
+
+    protected function invalidJson($request, ValidationException $exception): JsonResponse
+    {
+        $errors = [];
+
+        foreach ($exception->errors() as $key => $error)
+        {
+            $transKey = 'validation.attributes.' . $key;
+            $key = trans()->has($transKey) ? trans($transKey) : $key;
+            $errors[$key] = $error;
+        }
+
+        return response()->json([
+            'message' => __($exception->getMessage()),
+            'errors' => $errors,
+        ], $exception->status);
     }
 }
