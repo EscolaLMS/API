@@ -2138,6 +2138,15 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Status (0 = PROCESSING, 1 = PAID, 2 = CANCELLED)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
                     }
                 ],
                 "responses": {
@@ -3364,6 +3373,15 @@
                         "required": false,
                         "schema": {
                             "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Status (0 = PROCESSING, 1 = PAID, 2 = CANCELLED)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
                         }
                     }
                 ],
@@ -13129,6 +13147,28 @@
                         }
                     }
                 },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Cart",
+                    "Vouchers"
+                ],
+                "summary": "Remove Voucher from your Cart",
+                "description": "Remove Voucher from your Cart",
+                "operationId": "e5b9ba186c39936c3ed64dbd47f78eeb",
                 "responses": {
                     "200": {
                         "description": "successful operation",
