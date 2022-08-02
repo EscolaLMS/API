@@ -7651,6 +7651,14 @@
                         "schema": {
                             "type": "integer"
                         }
+                    },
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "description": "language id, eg 'en'",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -7900,6 +7908,137 @@
                                 }
                             }
                         }
+                    }
+                }
+            }
+        },
+        "/api/hh5p/content-type-cache": {
+            "get": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "H5P Editor Endpoint. Gets content type cache for globally available libraries",
+                "description": "Gets content type cache for globally available libraries",
+                "operationId": "36f4ec92fbfc55f9e118dccc8adf61c0",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/hh5p/content-hub-metadata-cache": {
+            "get": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Gets contents hub metadata cache",
+                "description": "Gets contents hub metadata cache",
+                "operationId": "69daa3bc02b9ccf0dd1f10575da91cb2",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/hh5p/library-install": {
+            "post": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Install H5P library by Machine name",
+                "description": "Install H5P library by Machine name",
+                "operationId": "9ba66dcc6bc967a0ce0cb3819b6ff793",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Machine name of Library",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "H5P.ArithmeticQuiz"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/hh5p/library-upload": {
+            "post": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Upload H5P library",
+                "description": "Upload H5P library",
+                "operationId": "1e7085d1cf90afe7df5c7743a68d3a26",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Machine name of Library",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "H5P.ArithmeticQuiz"
+                    },
+                    {
+                        "name": "content_id",
+                        "in": "query",
+                        "description": "Content id",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "h5p": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/hh5p/filter": {
+            "post": {
+                "tags": [
+                    "H5P"
+                ],
+                "summary": "Filter H5P libraries",
+                "description": "Filter H5P libraries",
+                "operationId": "1322e10f5df0c5b6781bd8a3f1f0750e",
+                "parameters": [
+                    {
+                        "name": "libraryParameters",
+                        "in": "query",
+                        "description": "Library parameters",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
                     }
                 }
             }
@@ -12763,6 +12902,14 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "public",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "bool"
+                        }
                     }
                 ],
                 "responses": {
@@ -12917,6 +13064,90 @@
                         "passport": []
                     }
                 ]
+            }
+        },
+        "/api/translations": {
+            "get": {
+                "tags": [
+                    "Translations"
+                ],
+                "summary": "Get a list of public translations",
+                "description": "Get public translations",
+                "operationId": "a849a2da9045a945afca5556225d2701",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "group[]",
+                        "in": "query",
+                        "description": "An array of translation groups",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "name": "key[]",
+                        "in": "query",
+                        "description": "An array of translation keys",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
             }
         },
         "/api/admin/vouchers": {
