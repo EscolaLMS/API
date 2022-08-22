@@ -60,6 +60,7 @@
     "escolalms/templates-sms": "^0",
     "escolalms/topic-types": "^0",
     "escolalms/tracker": "^0",
+    "escolalms/translations": "^0",
     "escolalms/video": "^0",
     "escolalms/vouchers": "^0",
     "escolalms/webinar": "^0",
