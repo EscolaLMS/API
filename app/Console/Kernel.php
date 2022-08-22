@@ -37,10 +37,10 @@ class Kernel extends ConsoleKernel
 
         $schedule->job(
             new ReminderAboutConsultationJob(ConsultationTermReminderStatusEnum::REMINDED_HOUR_BEFORE)
-        )->everyFiveMinutes();
+        )->everyMinute();
         $schedule->job(
             new ReminderAboutConsultationJob(ConsultationTermReminderStatusEnum::REMINDED_DAY_BEFORE)
-        )->everySixHours();
+        )->hourly();
     }
 
     /**
