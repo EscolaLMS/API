@@ -1,3 +1,8 @@
+include .env
+#export $(shell sed 's/=.*//' envfile)
+export POSTGRES_DB=postgresql://$(DB_USERNAME):$(DB_PASSWORD)@127.0.0.1:$(DB_PORT)/$(DB_DATABASE)
+export NOW_DB_PREFIX=$(date +\%Y-\%m-\%d-\%H:\%M:\%S)
+
 test-phpunit:
 	- docker-compose exec --user=1000 escola_lms_app bash -c "./vendor/bin/phpunit"
 
@@ -66,6 +71,20 @@ test-phpunit-postgres: switch-to-postgres test-phpunit
 test-phpunit-mysql: switch-to-mysql test-phpunit
 
 test-fresh: migrate-fresh-quick test-phpunit
+
+# creates a backup file into `data` folder
+backup-postgres:
+	- docker-compose exec postgres bash -c "pg_dump --clean --dbname=$(POSTGRES_DB) -f /var/lib/postgresql/backups/backup-$(NOW_DB_PREFIX).sql"
+	- docker-compose exec postgres bash -c "cp /var/lib/postgresql/backups/backup-$(NOW_DB_PREFIX).sql  /var/lib/postgresql/backups/backup-latest.sql"
+
+# imports database backup from data folder 
+# make import BACKUP_FILE=backup-2020-09-15-14:49:22.sql 
+# or 
+# make import BACKUP_FILE=backup-latest.sql
+#import-postgres: backup-postgres
+
+import-postgres: 
+	- docker-compose exec postgres bash -c "psql --dbname=$(POSTGRES_DB) < /var/lib/postgresql/backups/$(BACKUP_FILE)"
 
 init: docker-up switch-to-postgres composer-update migrate-fresh-quick
 
