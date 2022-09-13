@@ -1,4 +1,5 @@
 /www_logs
 /mysql-data
 /postgres-data
+/postgres-backups
 /pgadmin
