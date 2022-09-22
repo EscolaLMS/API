@@ -21,6 +21,11 @@ class PostCoursesSeeder extends Seeder
         $courses = Course::with('lessons')->get();
         $contents = H5PContent::with('library')->get();
         $scormScos = ScormScoModel::all();
+        
+        if ( $contents->count() == 0) {
+            return; 
+        }
+        
 
         foreach ($courses as $course) {
             $rnd = rand(1,2);
@@ -32,7 +37,7 @@ class PostCoursesSeeder extends Seeder
                 case 2: // sylabus
                 default:
                     foreach ($course->lessons as $lesson) {
-                        $content = $contents->random();
+                        $content = $contents->random();                        
                         $topic = Topic::create([
                             'lesson_id'=>$lesson->id,
                             'title'=> $content->library->title,
