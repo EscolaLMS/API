@@ -10811,6 +10811,98 @@
                 ]
             }
         },
+        "/api/admin/stats/cart": {
+            "get": {
+                "tags": [
+                    "Admin Reports"
+                ],
+                "summary": "Calculate stats for Cart",
+                "description": "",
+                "operationId": "90927536cf6a67bd9d91987ba84aaf47",
+                "parameters": [
+                    {
+                        "name": "stats",
+                        "in": "query",
+                        "description": "array of stats to be calculated, leave empty to calculate all available stats",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/stats/date-range": {
+            "get": {
+                "tags": [
+                    "Admin Reports"
+                ],
+                "summary": "Calculate stats for Course",
+                "description": "",
+                "operationId": "ce153d623acce260db70ff49e9e23414",
+                "parameters": [
+                    {
+                        "name": "date_from",
+                        "in": "path",
+                        "description": "Date from",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "date_to",
+                        "in": "path",
+                        "description": "Date to",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "stats",
+                        "in": "query",
+                        "description": "array of stats to be calculated, leave empty to calculate all available stats",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/scorm/upload": {
             "post": {
                 "tags": [
@@ -15532,6 +15624,10 @@
                     "image": {
                         "description": "image",
                         "type": "file"
+                    },
+                    "agenda": {
+                        "description": "agenda",
+                        "type": "object"
                     }
                 },
                 "type": "object"
@@ -15595,6 +15691,10 @@
                     "image_path": {
                         "description": "image_path",
                         "type": "string"
+                    },
+                    "agenda": {
+                        "description": "agenda",
+                        "type": "object"
                     }
                 },
                 "type": "object"
@@ -15658,6 +15758,10 @@
                     "status": {
                         "description": "status",
                         "type": "string"
+                    },
+                    "agenda": {
+                        "description": "agenda",
+                        "type": "object"
                     }
                 },
                 "type": "object"
