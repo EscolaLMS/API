@@ -26,6 +26,12 @@ class DatabaseSeeder extends Seeder
     {
         // first populate roles & permissions
         $this->call(PermissionsSeeder::class);
+        
+        // check is this hasn't been called already 
+        if (\App\Models\User::all()->count() > 0) {
+            echo "Already seeded! \n\n\n";
+            return;         
+        }
 
         // create users
         $this->call(UserTableSeeder::class);
