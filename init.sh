@@ -25,6 +25,7 @@ then
 fi
 
 php docker/envs/envs.php
+mkdir storage/framework/{sessions,views,cache}
 php artisan config:cache 
 php artisan key:generate --force --no-interaction
 php artisan passport:keys --force --no-interaction 
