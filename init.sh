@@ -25,6 +25,7 @@ then
 fi
 
 php docker/envs/envs.php
+php artisan config:cache 
 php artisan key:generate --force --no-interaction
 php artisan passport:keys --force --no-interaction 
 php artisan migrate --force
