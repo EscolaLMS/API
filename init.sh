@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# disable paritcular supervisor job by deleting jobs files 
+
 if [ "$DISBALE_PHP_FPM" == 'true' ]
 then
     rm -f /etc/supervisor/conf.d/php-fpm.conf
@@ -24,8 +26,20 @@ then
     echo scheduler.conf disabled
 fi
 
+# set env from `LARAVEL_` prefixed env vars
 php docker/envs/envs.php
-mkdir storage/framework/{sessions,views,cache}
+
+# if binded by k8s or docker those folders might need to be recreated
+mkdir storage
+mkdir storage/framework
+mkdir storage/framework/sessions
+mkdir storage/framework/views
+mkdir storage/framework/cache
+mkdir storage/app
+mkdir storage/logs
+
+# run all laravel related tasks 
+
 php artisan config:cache 
 php artisan key:generate --force --no-interaction
 php artisan passport:keys --force --no-interaction 
