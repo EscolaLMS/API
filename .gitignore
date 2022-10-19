@@ -33,6 +33,7 @@ escolasoft/**/vendor
 bootstrap/cache/**/*
 /packages
 
+result.md
 
 /public/h5p
 /public/h5p-editor
