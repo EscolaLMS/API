@@ -28,6 +28,8 @@ jobs:
         run: ./docker/release_note.sh 
       - name: Update GitHub Release
         uses: tubone24/update_release@v1.3.1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         with:
           is_append_body: true
           body_path: ./result.md
