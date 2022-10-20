@@ -28,6 +28,6 @@ class Consultation extends \EscolaLms\Consultations\Models\Consultation implemen
 
     public function getProductableAuthors(): Collection
     {
-        return new Collection([$this->author]);
+        return (new Collection([$this->author]))->filter();
     }
 }
