@@ -34,4 +34,3 @@ jobs:
           is_append_body: true
           body_path: ./result.md
 
-
