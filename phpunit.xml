@@ -77,6 +77,9 @@
     <testsuite name="images">
       <directory suffix="Test.php">./vendor/escolalms/images/tests</directory>
     </testsuite>
+    <testsuite name="invoices">
+      <directory suffix="Test.php">./vendor/escolalms/invoices/tests</directory>
+    </testsuite>
     <testsuite name="lrs">
       <directory suffix="Test.php">./vendor/escolalms/lrs/tests</directory>
     </testsuite>

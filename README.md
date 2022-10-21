@@ -26,6 +26,7 @@ Laravel Headless LMS REST API.
 - [escolalms/lrs](https://packagist.org/packages/escolalms/lrs)
 - [escolalms/headless-h5p](https://packagist.org/packages/escolalms/headless-h5p)
 - [escolalms/images](https://packagist.org/packages/escolalms/images)
+- [escolalms/invoices](https://packagist.org/packages/escolalms/invoices)
 - [escolalms/pages](https://packagist.org/packages/escolalms/pages)
 - [escolalms/payments](https://packagist.org/packages/escolalms/payments)
 - [escolalms/permissions](https://packagist.org/packages/escolalms/permissions)

@@ -40,6 +40,7 @@
     "escolalms/files": "^0",
     "escolalms/headless-h5p": "^0",
     "escolalms/images": "^0",
+    "escolalms/invoices": "^0",
     "escolalms/lrs": "^0",
     "escolalms/mailerlite": "^0",
     "escolalms/mattermost": "^0",
