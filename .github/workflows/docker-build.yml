@@ -24,6 +24,7 @@ jobs:
         with:
           push: true
           tags: escolalms/api:${{github.ref_name}}, escolalms/api:latest
+          platforms: linux/amd64,linux/arm64
       - name: create release note
         run: ./docker/release_note.sh 
       - name: Update GitHub Release
