@@ -66,6 +66,7 @@ return [
                     base_path('vendor/escolalms/webinar/src'),
                     base_path('vendor/escolalms/cmi5/src'),
                     base_path('vendor/escolalms/vouchers/src'),
+                    base_path('vendor/escolalms/invoices/src'),
                 ],
             ],
         ],
