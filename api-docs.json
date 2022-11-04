@@ -8108,6 +8108,45 @@
                 }
             }
         },
+        "/api/order-invoices/{id}": {
+            "get": {
+                "tags": [
+                    "Invoices"
+                ],
+                "summary": "Get invoice identified by a given id identifier of order",
+                "operationId": "63eddfc072a57be34df6a1f19cabece8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Order",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/cmi5/fetch": {
             "post": {
                 "tags": [
@@ -14512,6 +14551,10 @@
                     "teaser_url": {
                         "description": "teaser url",
                         "type": "string"
+                    },
+                    "public": {
+                        "description": "free access, public audience ",
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
