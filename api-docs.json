@@ -13262,6 +13262,39 @@
                 ]
             }
         },
+        "/api/admin/translations/retrieve": {
+            "post": {
+                "tags": [
+                    "Admin Translations"
+                ],
+                "summary": "Retrieve translation",
+                "description": "Retrieve translation",
+                "operationId": "17e9a6201f9322fae492d9ee4fd72ba5",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/retrieve-translation-request"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/translations": {
             "get": {
                 "tags": [
@@ -15870,6 +15903,22 @@
                     },
                     "text": {
                         "description": "text",
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "retrieve-translation-request": {
+                "required": [
+                    "key"
+                ],
+                "properties": {
+                    "key": {
+                        "description": "key",
+                        "type": "string"
+                    },
+                    "replace": {
+                        "description": "replace",
                         "type": "object"
                     }
                 },
