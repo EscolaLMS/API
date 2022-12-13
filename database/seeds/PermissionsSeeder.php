@@ -30,6 +30,7 @@ use EscolaLms\Templates\Database\Seeders\PermissionTableSeeder as TemplatesPermi
 use EscolaLms\TemplatesPdf\Database\Seeders\PermissionTableSeeder as TemplatesPdfPermissionTableSeeder;
 use EscolaLms\Tracker\Database\Seeders\TrackerPermissionSeeder;
 use EscolaLms\Translations\Database\Seeders\TranslationsPermissionSeeder;
+use EscolaLms\Video\Database\Seeders\VideoPermissionSeeder;
 use EscolaLms\Vouchers\Database\Seeders\VoucherPermissionsSeeder;
 use EscolaLms\Webinar\Database\Seeders\WebinarsPermissionSeeder;
 use Illuminate\Database\Seeder;
@@ -74,5 +75,6 @@ class PermissionsSeeder extends Seeder
         $this->call(LrsPermissionSeeder::class);
         $this->call(Cmi5PermissionSeeder::class);
         $this->call(TranslationsPermissionSeeder::class);
+        $this->call(VideoPermissionSeeder::class);
     }
 }
