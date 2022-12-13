@@ -13379,6 +13379,45 @@
                 }
             }
         },
+        "/api/admin/video/states": {
+            "get": {
+                "tags": [
+                    "Video"
+                ],
+                "summary": "List of processed videos",
+                "operationId": "ae9e333462926bb376bb3765e3a4fa6a",
+                "parameters": [
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "description": "Video process state (error, finished, coding)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of available"
+                    },
+                    "401": {
+                        "description": "Endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "User doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "Server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/vouchers": {
             "get": {
                 "tags": [
@@ -15920,6 +15959,29 @@
                     "replace": {
                         "description": "replace",
                         "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "TopicVideo": {
+                "required": [
+                    "value"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id"
+                    },
+                    "value": {
+                        "description": "value",
+                        "type": "string"
+                    },
+                    "poster": {
+                        "description": "poster",
+                        "type": "string"
+                    },
+                    "hls": {
+                        "description": "hls",
+                        "type": "string"
                     }
                 },
                 "type": "object"
