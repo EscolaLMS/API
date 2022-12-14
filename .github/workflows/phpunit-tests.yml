@@ -3,9 +3,6 @@ name: Integration Tests
 jobs:
   phpunit-mysql:
     runs-on: ubuntu-latest
-    env:
-      FAKTUROWNIA_HOST: ${{ secrets.FAKTUROWNIA_HOST }}
-      FAKTUROWNIA_TOKEN: ${{ secrets.FAKTUROWNIA_TOKEN }}
     container:
       image: escolalms/php:8-work
 
@@ -56,9 +53,6 @@ jobs:
 
   phpunit-postgres:
     runs-on: ubuntu-latest
-    env:
-      FAKTUROWNIA_HOST: ${{ secrets.FAKTUROWNIA_HOST }}
-      FAKTUROWNIA_TOKEN: ${{ secrets.FAKTUROWNIA_TOKEN }}
     container:
       image: escolalms/php:8-work
 
@@ -110,9 +104,6 @@ jobs:
 
   phpunit-postgres-php81:
     runs-on: ubuntu-latest
-    env:
-      FAKTUROWNIA_HOST: ${{ secrets.FAKTUROWNIA_HOST }}
-      FAKTUROWNIA_TOKEN: ${{ secrets.FAKTUROWNIA_TOKEN }}
     container:
       image: escolalms/php:8.1-work
 
