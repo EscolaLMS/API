@@ -87,9 +87,9 @@ make init-mysql
 
 | Role    | Email ID               | Password |
 | ------- | ---------------------- | -------- |
-| Admin   | admin@escola-lms.com   | secret   |
-| Tutor   | tutor@escola-lms.com   | secret   |
-| Student | student@escola-lms.com | secret   |
+| Admin   | admin@escolalms.com   | secret   |
+| Tutor   | tutor@escolalms.com   | secret   |
+| Student | student@escolalms.com | secret   |
 
 ## Demo
 
