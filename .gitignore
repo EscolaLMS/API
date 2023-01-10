@@ -58,3 +58,6 @@ tests/coverage.xml
 tests/coverage.txt
 
 .vscode
+
+Caddyfile
+caddy/
