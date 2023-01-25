@@ -9,7 +9,7 @@ class ForceJsonResponse
 {
     public function handle(Request $request, Closure $next)
     {
-        if ($request->is('api/*')) {
+        if ($request->is('api/*') && !$request->is(config('escola_view_routing'))) {
             $request->headers->set('Accept', 'application/json');
         }
 
