@@ -12293,6 +12293,69 @@
                 ]
             }
         },
+        "/api/pdfs/generate/{id}": {
+            "get": {
+                "tags": [
+                    "Template PDFs"
+                ],
+                "summary": "Generate Specific ReportBro PDF",
+                "description": "Generate Specific ReportBro PDF",
+                "operationId": "8ea2fb76e5c331ed7f6e8b0ed28f8cf9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Fabric.js/ReportBro PDF",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/pdf ": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/reportbro/report/run": {
+            "get": {
+                "tags": [
+                    "Template PDFs"
+                ],
+                "summary": "Proxy for ReportBro server",
+                "description": "Generate Specific ReportBro PDF",
+                "operationId": "e0fa22d76ef4cf8419d54c0083e14222",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Fabric.js/ReportBro PDF",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/pdf ": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/admin/events/trigger-manually/{id}": {
             "post": {
                 "tags": [
