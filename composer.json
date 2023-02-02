@@ -141,17 +141,5 @@
     "siffer": [
       "./vendor/bin/php-cs-fixer fix ."
     ]
-  },
-  "repositories": [
-    {
-      "type": "path",
-      "name": "escolalms/templates-pdf",
-      "url": "packages/templates-pdf",
-      "options": {
-        "versions": {
-          "escolalms/courses": "0.1.9"
-        }
-      }
-    }
-  ]
+  }
 }
