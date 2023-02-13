@@ -59,5 +59,6 @@ tests/coverage.txt
 
 .vscode
 
-Caddyfile
+!Caddyfile
 caddy/
+!docker/conf/caddy

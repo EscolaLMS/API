@@ -4,18 +4,20 @@ networks:
     name: escola_lms
     driver: bridge
 services:
-  nginx:
-    image: nginx:latest
-    ports:
-      - "1001:80"
+
+  caddy:
+    image: caddy
     volumes:
+      - ./docker/conf/Caddyfile:/etc/caddy/Caddyfile
       - ./:/var/www/html
-      - ./docker/conf/nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - ./docker/www_logs/nginx:/var/log/nginx
-    links:
-      - escola_lms_app
+      - ./caddy/certs:/etc/caddy/certs
+      - ./caddy/data:/data
+      - ./caddy/config:/config
     networks:
       - escola_lms
+    ports:
+      - "1001:1001"
+#      - "443:443"
   escola_lms_app:
     image: escolalms/php:8-prod ## or escolalms/php:8-work for debugginh
     volumes:
@@ -73,19 +75,6 @@ services:
     ports:
       - 8078:8080
 
-  pgadmin:
-    networks:
-      - escola_lms
-    image: dpage/pgadmin4
-    volumes:
-      - ./docker/pgadmin:/var/lib/pgadmin
-
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: root
-    ports:
-      - "5050:80"
-
   mailhog:
     networks:
       - escola_lms
@@ -103,3 +92,9 @@ services:
     command: redis-server --requirepass escola_lms
     ports:
       - "6379:6379"
+
+  reportbro:
+    networks:
+      - escola_lms
+    image: escolalms/reportbro-server:latest
+
