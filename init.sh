@@ -14,10 +14,10 @@ then
     echo horizon.conf disabled
 fi
 
-if [ "$DISBALE_NGINX" == 'true' ]
+if [ "$DISBALE_CADDY" == 'true' ]
 then
-    rm -f /etc/supervisor/custom.d/nginx.conf
-    echo nginx.conf disabled
+    rm -f /etc/supervisor/custom.d/caddy.conf
+    echo caddy.conf disabled
 fi
 
 if [ "$DISBALE_SCHEDULER" == 'true' ]
