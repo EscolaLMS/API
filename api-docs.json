@@ -4924,10 +4924,12 @@
                 "description": "Imports course from ZIP package ",
                 "operationId": "6d4f418d042a8de8c15875c41ece860f",
                 "requestBody": {
-                    "required": true,
                     "content": {
                         "multipart/form-data": {
                             "schema": {
+                                "required": [
+                                    "file"
+                                ],
                                 "properties": {
                                     "file": {
                                         "type": "file",
@@ -14704,6 +14706,10 @@
                     },
                     "course_id": {
                         "description": "course_id",
+                        "type": "integer"
+                    },
+                    "parent_lesson_id": {
+                        "description": "parent_lesson_id",
                         "type": "integer"
                     }
                 },
