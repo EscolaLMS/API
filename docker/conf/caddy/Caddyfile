@@ -1,5 +1,5 @@
 # This file is used for building docker image 
-http://localhost:80, * {
+http://:80 {
     # Resolve the root directory for the app
     root * /var/www/html/public
 
