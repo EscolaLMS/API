@@ -22,7 +22,7 @@ jobs:
         run: |
           apt-get install unzip -y
           composer self-update
-          composer update
+          composer update --no-scripts
 
       - name: Install git & graphviz
         run: apt-get install git graphviz -y
