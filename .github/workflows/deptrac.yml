@@ -1,0 +1,44 @@
+name: Generate Deptract Modules Diagram
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+
+jobs:
+  swagger-gh-pages:
+    runs-on: ubuntu-latest
+    container:
+      image: escolalms/php:8
+      
+
+    steps:
+      - name: Instantiate package
+        uses: actions/checkout@v2        
+
+      - name: Update composer
+        run: |
+          apt-get install unzip -y
+          composer self-update
+          composer update
+
+      - name: Install git & graphviz
+        run: apt-get install git graphviz -y
+
+      - name: Generage deptrac-modules.yaml
+        run: php deptrac.php
+
+      - name: Generage deptrac-diagram.yaml
+        run:  ./vendor/bin/deptrac analyse --config-file=deptrac-diagram.yaml --formatter=graphviz-image --output=deptrac-diagram.png
+
+      - name: Archive  deptrac-diagram
+        uses: actions/upload-artifact@v3
+        with:
+          name: deptrac-diagram.png
+          path: deptrac-diagram.png
+        
+        
+
+
