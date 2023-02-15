@@ -33,13 +33,13 @@ jobs:
         run: php deptrac.php
 
       - name: Generage deptrac-diagram.yaml
-        run:  ./vendor/bin/deptrac analyse --config-file=deptrac-diagram.yaml --formatter=graphviz-image --output=deptrac-diagram.png
+        run:  ./vendor/bin/deptrac analyse --config-file=deptrac-modules.yaml --formatter=graphviz-image --output=deptrac-modules.png
 
       - name: Archive  deptrac-diagram
         uses: actions/upload-artifact@v3
         with:
-          name: deptrac-diagram.png
-          path: deptrac-diagram.png
+          name: deptrac-modules.png
+          path: deptrac-modules.png
         
         
 
