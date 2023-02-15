@@ -24,7 +24,7 @@ jobs:
           apt-get install unzip -y
           composer self-update
           composer update --no-scripts
-          require qossmic/deptrac-shim
+          composer require qossmic/deptrac-shim
 
       - name: Install git & graphviz
         run: apt-get install git graphviz -y
