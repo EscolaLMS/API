@@ -34,6 +34,7 @@ jobs:
 
       - name: Generage deptrac-diagram.yaml
         run:  ./vendor/bin/deptrac analyse --config-file=deptrac-modules.yaml --formatter=graphviz-image --output=deptrac-modules.png
+        continue-on-error: true
 
       - name: Archive  deptrac-diagram
         uses: actions/upload-artifact@v3
