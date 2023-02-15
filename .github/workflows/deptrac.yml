@@ -8,7 +8,8 @@ on:
       - develop
 
 jobs:
-  swagger-gh-pages:
+  deptrac-modules-diagram:
+    name: Generate Deptract Modules Diagram
     runs-on: ubuntu-latest
     container:
       image: escolalms/php:8
@@ -23,6 +24,7 @@ jobs:
           apt-get install unzip -y
           composer self-update
           composer update --no-scripts
+          require qossmic/deptrac-shim
 
       - name: Install git & graphviz
         run: apt-get install git graphviz -y
