@@ -26,6 +26,7 @@ use EscolaLms\Scorm\Database\Seeders\PermissionTableSeeder as ScormPermissionTab
 use EscolaLms\Settings\Database\Seeders\PermissionTableSeeder as SettingsPermissionTableSeeder;
 use EscolaLms\StationaryEvents\Database\Seeders\StationaryEventPermissionSeeder;
 use EscolaLms\Tags\Database\Seeders\TagsPermissionSeeder;
+use EscolaLms\Tasks\Database\Seeders\TaskPermissionSeeder;
 use EscolaLms\Templates\Database\Seeders\PermissionTableSeeder as TemplatesPermissionTableSeeder;
 use EscolaLms\TemplatesPdf\Database\Seeders\PermissionTableSeeder as TemplatesPdfPermissionTableSeeder;
 use EscolaLms\Tracker\Database\Seeders\TrackerPermissionSeeder;
@@ -76,5 +77,6 @@ class PermissionsSeeder extends Seeder
         $this->call(Cmi5PermissionSeeder::class);
         $this->call(TranslationsPermissionSeeder::class);
         $this->call(VideoPermissionSeeder::class);
+        $this->call(TaskPermissionSeeder::class);
     }
 }
