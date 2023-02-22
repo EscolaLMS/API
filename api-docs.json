@@ -4933,6 +4933,159 @@
                 ]
             }
         },
+        "/api/admin/course-access-enquiries": {
+            "get": {
+                "tags": [
+                    "Admin Course Access"
+                ],
+                "summary": "Get all course access enquiries",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "course_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "pending",
+                                "approved"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/CourseAccessEnquiryResource"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/course-access-enquiries/{id}": {
+            "delete": {
+                "tags": [
+                    "Admin Course Access"
+                ],
+                "summary": "Remove the specified Course Access Enquiry",
+                "description": "Delete Course Access Enquiry",
+                "operationId": "0aebb785c02e4f12ef95f77d49169ee4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/course-access-enquiries/approve/{id}": {
+            "post": {
+                "tags": [
+                    "Admin Course Access"
+                ],
+                "summary": "Approve the specified Course Access Enquiry",
+                "description": "Approve Course Access Enquiry",
+                "operationId": "6fb2c8d734cb22d862626ef799c44b00",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/courses/{id}/access": {
             "get": {
                 "tags": [
@@ -4973,7 +5126,7 @@
                 ],
                 "summary": "Add users and groups with access to the course",
                 "description": "Add users and groups with access to the course",
-                "operationId": "a3cd19b7467fd77772de88921085085e",
+                "operationId": "1f7953bbd09801ae08e9aa8bc8523c66",
                 "parameters": [
                     {
                         "name": "id",
@@ -5031,7 +5184,7 @@
                 ],
                 "summary": "Remove users and groups with access to the course",
                 "description": "Remove users and groups with access to the course",
-                "operationId": "5fb4c4d3f8b60926ccda54d50ff3020a",
+                "operationId": "553d4834b6ac01da1ee8956af69d818a",
                 "parameters": [
                     {
                         "name": "id",
@@ -5089,7 +5242,7 @@
                 ],
                 "summary": "Set users and groups with access to the course",
                 "description": "Set users and groups with access to the course",
-                "operationId": "4b7f8a9532d08ae3d8bd529ba7296a63",
+                "operationId": "e51b1d75dacfc712afd9e10fc8cd5099",
                 "parameters": [
                     {
                         "name": "id",
@@ -5125,6 +5278,164 @@
                         }
                     }
                 },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/course-access-enquiries": {
+            "get": {
+                "tags": [
+                    "Course Access"
+                ],
+                "summary": "Get my course access enquiries",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "course_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "pending",
+                                "approved"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/CourseAccessEnquiryResource"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Course Access"
+                ],
+                "summary": "Store a newly Course Access Enqiury",
+                "description": "Store Course Access Enqiury",
+                "operationId": "da2642322f963ed81bff2cbfe18c569e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateCourseAccessEnquiryApiRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/CourseAccessEnquiryResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/course-access-enquiries/{id}": {
+            "delete": {
+                "tags": [
+                    "Course Access"
+                ],
+                "summary": "Remove the specified Course Access Enquiry",
+                "description": "Delete Course Access Enquiry",
+                "operationId": "8131977a775f9fd097e4c6f38596f7dd",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -6190,213 +6501,6 @@
                     },
                     "422": {
                         "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/courses/{course_id}/access": {
-            "get": {
-                "tags": [
-                    "Admin Courses"
-                ],
-                "summary": "Get list of users and groups with access to the course",
-                "description": "Get list of users and groups with access to the course",
-                "parameters": [
-                    {
-                        "name": "course_id",
-                        "in": "path",
-                        "description": "id of course",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/courses/{course_id}/access/add": {
-            "post": {
-                "tags": [
-                    "Admin Courses"
-                ],
-                "summary": "Add users and groups with access to the course",
-                "description": "Add users and groups with access to the course",
-                "operationId": "eb650e084d8433fac318a1d81cd43f90",
-                "parameters": [
-                    {
-                        "name": "course_id",
-                        "in": "path",
-                        "description": "id of course",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "users": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "integer"
-                                        }
-                                    },
-                                    "groups": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "integer"
-                                        }
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/courses/{course_id}/access/remove": {
-            "post": {
-                "tags": [
-                    "Admin Courses"
-                ],
-                "summary": "Remove users and groups with access to the course",
-                "description": "Remove users and groups with access to the course",
-                "operationId": "2ae1cd987923eb15ce6f619d6b3c11a6",
-                "parameters": [
-                    {
-                        "name": "course_id",
-                        "in": "path",
-                        "description": "id of course",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "users": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "integer"
-                                        }
-                                    },
-                                    "groups": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "integer"
-                                        }
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/courses/{course_id}/access/set": {
-            "post": {
-                "tags": [
-                    "Admin Courses"
-                ],
-                "summary": "Set users and groups with access to the course",
-                "description": "Set users and groups with access to the course",
-                "operationId": "25e3d6418403254639f0106bb77bff9b",
-                "parameters": [
-                    {
-                        "name": "course_id",
-                        "in": "path",
-                        "description": "id of course",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "users": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "integer"
-                                        }
-                                    },
-                                    "groups": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "integer"
-                                        }
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
                         "content": {
                             "application/json": {}
                         }
@@ -12437,6 +12541,878 @@
                 ]
             }
         },
+        "/api/admin/tasks": {
+            "get": {
+                "tags": [
+                    "Admin Tasks"
+                ],
+                "summary": "Get a listing of the tasks",
+                "description": "Get all Tasks",
+                "operationId": "3c5eb5a6ae48e739a920311dc27bf308",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "description": "Task title %LIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "Task user_id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "created_by_id",
+                        "in": "query",
+                        "description": "Task created_by_id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "related_type",
+                        "in": "query",
+                        "description": "Task related_type",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "related_id",
+                        "in": "query",
+                        "description": "Task related_id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin Tasks"
+                ],
+                "summary": "Store a newly created task",
+                "description": "Store Task",
+                "operationId": "ad19604c09cdf0b08cd2375404ed7f3b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AdminTaskCreateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/TaskResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/tasks/{id}": {
+            "get": {
+                "tags": [
+                    "Admin Tasks"
+                ],
+                "summary": "Task details",
+                "description": "Get task details by ID",
+                "operationId": "9804966c814765a4623f0074e39dc93a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of task",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/TaskDetailsResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin Tasks"
+                ],
+                "summary": "Remove the specified task",
+                "description": "Delete Task",
+                "operationId": "73272204678fe60c757f0f8d08c0f324",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of task",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Admin Tasks"
+                ],
+                "summary": "Update the specified task",
+                "description": "Update Task",
+                "operationId": "39163144dc1e1fc5b780b7e16d30cd00",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of task",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TaskCreateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/TaskResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/tasks/complete/{id}": {
+            "post": {
+                "tags": [
+                    "Admin Tasks"
+                ],
+                "summary": "Complete task",
+                "description": "Complete Task",
+                "operationId": "fa1e30bbe4a4eabbf7ed41bcb16e78d8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of task",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/TaskResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/tasks/incomplete/{id}": {
+            "post": {
+                "tags": [
+                    "Admin Tasks"
+                ],
+                "summary": "Incomplete task",
+                "description": "Incomplete Task",
+                "operationId": "ba79f50b7487235078b17d36a0b08947",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of task",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/TaskResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/tasks": {
+            "get": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Get a listing of the tasks",
+                "description": "Get all Tasks",
+                "operationId": "cf5194b459a4551c2f7b32310a7637bb",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "description": "Task title %LIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "Task user_id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "created_by_id",
+                        "in": "query",
+                        "description": "Task created_by_id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "related_type",
+                        "in": "query",
+                        "description": "Task related_type",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "related_id",
+                        "in": "query",
+                        "description": "Task related_id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Store a newly created task",
+                "description": "Store Task",
+                "operationId": "7b3dfaf61347f323a15d60e8d15dd90d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TaskCreateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/TaskResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/tasks/{id}": {
+            "get": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Task details",
+                "description": "Get task details by ID",
+                "operationId": "531f595fbc8514a12adf5ba708d488cb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of task",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/TaskDetailsResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Remove the specified task",
+                "description": "Delete Task",
+                "operationId": "01cde4aaa06608434f3d2d121f4a4061",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of task",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Update task",
+                "description": "Store Task",
+                "operationId": "72cb8a85e90407c99eac290d7418e8c9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TaskCreateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/TaskResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/tasks/complete/{id}": {
+            "post": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Complete task",
+                "description": "Complete Task",
+                "operationId": "af3d3a5c39452e56ed8196160c28d695",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of task",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/TaskResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/tasks/incomplete/{id}": {
+            "post": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Incomplete task",
+                "description": "Incomplete Task",
+                "operationId": "98b8338d5252b138e154aef0168150d7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of task",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/TaskResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/tasks/notes": {
+            "post": {
+                "tags": [
+                    "Tasks Notes"
+                ],
+                "summary": "Store a newly created task note",
+                "description": "Store Task Note",
+                "operationId": "cf73f741e5a7e66ae1401bc9fac1d3b4",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TaskNoteCreateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/TaskNoteResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/tasks/notes/{id}": {
+            "delete": {
+                "tags": [
+                    "Tasks Notes"
+                ],
+                "summary": "Remove the specified task notes",
+                "description": "Delete Task Note",
+                "operationId": "959dce8c670742ce75a9a3fc74176896",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of task note",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Tasks Notes"
+                ],
+                "summary": "Update task note",
+                "description": "Update Task Note",
+                "operationId": "b5c8655ecc6685f1b7644bd4573c3a77",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of task note",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TaskNoteCreateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/TaskNoteResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/pdfs": {
             "get": {
                 "tags": [
@@ -14853,6 +15829,80 @@
                 },
                 "type": "object"
             },
+            "CreateCourseAccessEnquiryApiRequest": {
+                "required": [
+                    "course_id"
+                ],
+                "properties": {
+                    "course_id": {
+                        "description": "course_id",
+                        "type": "number"
+                    },
+                    "data": {
+                        "description": "data",
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "CourseAccessEnquiryResource": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "number"
+                    },
+                    "created_at": {
+                        "description": "created_at",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "course": {
+                        "$ref": "#/components/schemas/CourseShortResource"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/UserShortResource"
+                    },
+                    "status": {
+                        "description": "status",
+                        "type": "string"
+                    },
+                    "data": {
+                        "description": "status",
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "CourseShortResource": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "number"
+                    },
+                    "name": {
+                        "description": "name",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UserShortResource": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "number"
+                    },
+                    "name": {
+                        "description": "name",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "email",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
             "Course": {
                 "required": [
                     "title"
@@ -16215,6 +17265,212 @@
                     "agenda": {
                         "description": "agenda",
                         "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "AdminTaskCreateRequest": {
+                "required": [
+                    "title",
+                    "user_id"
+                ],
+                "properties": {
+                    "title": {
+                        "description": "title",
+                        "type": "string"
+                    },
+                    "related_type": {
+                        "description": "related_type",
+                        "type": "string"
+                    },
+                    "related_id": {
+                        "description": "related_id",
+                        "type": "integer"
+                    },
+                    "user_id": {
+                        "description": "user_id",
+                        "type": "integer"
+                    },
+                    "due_date": {
+                        "description": "due_date",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
+            "TaskNoteCreateRequest": {
+                "required": [
+                    "note",
+                    "task_id"
+                ],
+                "properties": {
+                    "note": {
+                        "description": "note",
+                        "type": "string"
+                    },
+                    "task_id": {
+                        "description": "task_id",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "TaskCreateRequest": {
+                "required": [
+                    "title"
+                ],
+                "properties": {
+                    "title": {
+                        "description": "title",
+                        "type": "string"
+                    },
+                    "related_type": {
+                        "description": "related_type",
+                        "type": "string"
+                    },
+                    "related_id": {
+                        "description": "related_id",
+                        "type": "integer"
+                    },
+                    "due_date": {
+                        "description": "due_date",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
+            "TaskDetailsResource": {
+                "required": [
+                    "title",
+                    "user",
+                    "created_by"
+                ],
+                "properties": {
+                    "title": {
+                        "description": "title",
+                        "type": "string"
+                    },
+                    "related_type": {
+                        "description": "related_type",
+                        "type": "string"
+                    },
+                    "related_id": {
+                        "description": "related_id",
+                        "type": "integer"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/UserResource"
+                    },
+                    "created_by": {
+                        "$ref": "#/components/schemas/UserResource"
+                    },
+                    "due_date": {
+                        "description": "due_date",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "completed_at": {
+                        "description": "completed_at",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "notes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TaskNoteResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "TaskNoteResource": {
+                "required": [
+                    "id",
+                    "note",
+                    "user",
+                    "task_id"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "note": {
+                        "description": "note",
+                        "type": "string"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/UserResource"
+                    },
+                    "task_id": {
+                        "description": "task_id",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "TaskResource": {
+                "required": [
+                    "title",
+                    "user",
+                    "created_by"
+                ],
+                "properties": {
+                    "title": {
+                        "description": "title",
+                        "type": "string"
+                    },
+                    "related_type": {
+                        "description": "related_type",
+                        "type": "string"
+                    },
+                    "related_id": {
+                        "description": "related_id",
+                        "type": "integer"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/UserResource"
+                    },
+                    "created_by": {
+                        "$ref": "#/components/schemas/UserResource"
+                    },
+                    "due_date": {
+                        "description": "due_date",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "completed_at": {
+                        "description": "completed_at",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "has_notes": {
+                        "description": "has_notes",
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            },
+            "UserResource": {
+                "required": [
+                    "id",
+                    "first_name",
+                    "last_name"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "first_name": {
+                        "description": "first_name",
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "description": "last_name",
+                        "type": "string"
                     }
                 },
                 "type": "object"
