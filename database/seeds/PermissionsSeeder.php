@@ -9,6 +9,7 @@ use EscolaLms\Categories\Database\Seeders\CategoriesPermissionSeeder;
 use EscolaLms\Cmi5\Database\Seeders\Cmi5PermissionSeeder;
 use EscolaLms\Consultations\Database\Seeders\ConsultationsPermissionSeeder;
 use EscolaLms\Core\Seeders\RoleTableSeeder;
+use EscolaLms\CourseAccess\Database\Seeders\CourseAccessPermissionSeeder;
 use EscolaLms\Courses\Database\Seeders\CoursesPermissionSeeder;
 use EscolaLms\CoursesImportExport\Database\Seeders\CoursesExportImportPermissionSeeder;
 use EscolaLms\CsvUsers\Database\Seeders\CsvUsersPermissionSeeder;
@@ -78,5 +79,6 @@ class PermissionsSeeder extends Seeder
         $this->call(TranslationsPermissionSeeder::class);
         $this->call(VideoPermissionSeeder::class);
         $this->call(TaskPermissionSeeder::class);
+        $this->call(CourseAccessPermissionSeeder::class);
     }
 }
