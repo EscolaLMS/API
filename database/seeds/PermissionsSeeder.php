@@ -79,6 +79,6 @@ class PermissionsSeeder extends Seeder
         $this->call(TranslationsPermissionSeeder::class);
         $this->call(VideoPermissionSeeder::class);
         $this->call(TaskPermissionSeeder::class);
-        $this->call(CourseAccessPermissionSeeder::class);
+//        $this->call(CourseAccessPermissionSeeder::class);
     }
 }
