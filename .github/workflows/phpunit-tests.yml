@@ -151,4 +151,4 @@ jobs:
         run: php artisan migrate --path=vendor/escolalms/courses/tests/Database/Migrations
 
       - name: Run Testsuite
-        run: php artisan test
+        run: vendor/bin/phpunit
