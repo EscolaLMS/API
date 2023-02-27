@@ -15,6 +15,7 @@ Laravel Headless LMS REST API.
 ## Packages
 
 - [escolalms/auth](https://packagist.org/packages/escolalms/auth)
+- [escolalms/bookmarks_notes](https://packagist.org/packages/escolalms/bookmarks_notes)
 - [escolalms/cart](https://packagist.org/packages/escolalms/cart)
 - [escolalms/categories](https://packagist.org/packages/escolalms/categories)
 - [escolalms/core](https://packagist.org/packages/escolalms/core)
