@@ -3,10 +3,12 @@
   <coverage processUncoveredFiles="true">
     <include>
       <directory suffix=".php">./vendor/escolalms/auth/src</directory>
+      <directory suffix=".php">./vendor/escolalms/bookmarks_notes/src</directory>
       <directory suffix=".php">./vendor/escolalms/cart/src</directory>
       <directory suffix=".php">./vendor/escolalms/categories/src</directory>
       <directory suffix=".php">./vendor/escolalms/core/src</directory>
       <directory suffix=".php">./vendor/escolalms/courses/src</directory>
+      <directory suffix=".php">./vendor/escolalms/course-access/src</directory>
       <directory suffix=".php">./vendor/escolalms/courses-import-export/src</directory>
       <directory suffix=".php">./vendor/escolalms/csv-users/src</directory>
       <directory suffix=".php">./vendor/escolalms/files/src</directory>
@@ -26,6 +28,7 @@
       <directory suffix=".php">./vendor/escolalms/settings/src</directory>
       <directory suffix=".php">./vendor/escolalms/stationary-events/src</directory>
       <directory suffix=".php">./vendor/escolalms/tags/src</directory>
+      <directory suffix=".php">./vendor/escolalms/tasks/src</directory>
       <directory suffix=".php">./vendor/escolalms/topic-types/src</directory>
       <directory suffix=".php">./vendor/escolalms/templates/src</directory>
       <directory suffix=".php">./vendor/escolalms/templates-email/src</directory>
@@ -50,6 +53,9 @@
     <testsuite name="auth">
       <directory suffix="Test.php">./vendor/escolalms/auth/tests</directory>
     </testsuite>
+    <testsuite name="bookmarks_notes">
+      <directory suffix="Test.php">./vendor/escolalms/bookmarks_notes/tests</directory>
+    </testsuite>
     <testsuite name="cart">
       <directory suffix="Test.php">./vendor/escolalms/cart/tests</directory>
     </testsuite>
@@ -61,6 +67,9 @@
     </testsuite>
     <testsuite name="courses">
       <directory suffix="Test.php">./vendor/escolalms/courses/tests</directory>
+    </testsuite>
+    <testsuite name="course-access">
+      <directory suffix="Test.php">./vendor/escolalms/course-access/tests</directory>
     </testsuite>
     <testsuite name="courses-import-export">
       <directory suffix="Test.php">./vendor/escolalms/courses-import-export/tests</directory>
@@ -118,6 +127,9 @@
     </testsuite>
     <testsuite name="tags">
       <directory suffix="Test.php">./vendor/escolalms/tags/tests</directory>
+    </testsuite>
+    <testsuite name="tasks">
+      <directory suffix="Test.php">./vendor/escolalms/tasks/tests</directory>
     </testsuite>
     <testsuite name="topic-types">
       <directory suffix="Test.php">./vendor/escolalms/topic-types/tests</directory>

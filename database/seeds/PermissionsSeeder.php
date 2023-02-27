@@ -4,11 +4,13 @@ namespace Database\Seeders;
 
 use EscolaLms\AssignWithoutAccount\Database\Seeders\AssignWithoutAccountPermissionSeeder;
 use EscolaLms\Auth\Database\Seeders\AuthPermissionSeeder;
+use EscolaLms\Bookmarks\Database\Seeders\BookmarkPermissionSeeder;
 use EscolaLms\Cart\Database\Seeders\CartPermissionSeeder;
 use EscolaLms\Categories\Database\Seeders\CategoriesPermissionSeeder;
 use EscolaLms\Cmi5\Database\Seeders\Cmi5PermissionSeeder;
 use EscolaLms\Consultations\Database\Seeders\ConsultationsPermissionSeeder;
 use EscolaLms\Core\Seeders\RoleTableSeeder;
+use EscolaLms\CourseAccess\Database\Seeders\CourseAccessPermissionSeeder;
 use EscolaLms\Courses\Database\Seeders\CoursesPermissionSeeder;
 use EscolaLms\CoursesImportExport\Database\Seeders\CoursesExportImportPermissionSeeder;
 use EscolaLms\CsvUsers\Database\Seeders\CsvUsersPermissionSeeder;
@@ -26,6 +28,7 @@ use EscolaLms\Scorm\Database\Seeders\PermissionTableSeeder as ScormPermissionTab
 use EscolaLms\Settings\Database\Seeders\PermissionTableSeeder as SettingsPermissionTableSeeder;
 use EscolaLms\StationaryEvents\Database\Seeders\StationaryEventPermissionSeeder;
 use EscolaLms\Tags\Database\Seeders\TagsPermissionSeeder;
+use EscolaLms\Tasks\Database\Seeders\TaskPermissionSeeder;
 use EscolaLms\Templates\Database\Seeders\PermissionTableSeeder as TemplatesPermissionTableSeeder;
 use EscolaLms\TemplatesPdf\Database\Seeders\PermissionTableSeeder as TemplatesPdfPermissionTableSeeder;
 use EscolaLms\Tracker\Database\Seeders\TrackerPermissionSeeder;
@@ -76,5 +79,8 @@ class PermissionsSeeder extends Seeder
         $this->call(Cmi5PermissionSeeder::class);
         $this->call(TranslationsPermissionSeeder::class);
         $this->call(VideoPermissionSeeder::class);
+        $this->call(TaskPermissionSeeder::class);
+        $this->call(CourseAccessPermissionSeeder::class);
+        $this->call(BookmarkPermissionSeeder::class);
     }
 }

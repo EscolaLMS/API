@@ -15,10 +15,12 @@ Laravel Headless LMS REST API.
 ## Packages
 
 - [escolalms/auth](https://packagist.org/packages/escolalms/auth)
+- [escolalms/bookmarks_notes](https://packagist.org/packages/escolalms/bookmarks_notes)
 - [escolalms/cart](https://packagist.org/packages/escolalms/cart)
 - [escolalms/categories](https://packagist.org/packages/escolalms/categories)
 - [escolalms/core](https://packagist.org/packages/escolalms/core)
 - [escolalms/courses](https://packagist.org/packages/escolalms/courses)
+- [escolalms/course-access](https://packagist.org/packages/escolalms/course-access)
 - [escolalms/courses-import-export](https://packagist.org/packages/escolalms/courses-import-export)
 - [escolalms/csv-users](https://packagist.org/packages/escolalms/csv-users)
 - [escolalms/files](https://packagist.org/packages/escolalms/files)
@@ -38,6 +40,7 @@ Laravel Headless LMS REST API.
 - [escolalms/settings](https://packagist.org/packages/escolalms/settings)
 - [escolalms/stationary-events](https://packagist.org/packages/escolalms/stationary-events)
 - [escolalms/tags](https://packagist.org/packages/escolalms/tags)
+- [escolalms/tasks](https://packagist.org/packages/escolalms/tasks)
 - [escolalms/templates](https://packagist.org/packages/escolalms/templates)
 - [escolalms/templates-email](https://packagist.org/packages/escolalms/templates-email)
 - [escolalms/templates-pdf](https://packagist.org/packages/escolalms/templates-pdf)

@@ -1,0 +1,31 @@
+deptrac:
+  paths:
+    - ./vendor/escolalms
+  exclude_files:
+    - '#.*test.*#'
+  layers:
+    - 
+      name: Auth
+      collectors:
+        - type: classLike
+          value: .*Auth.*
+
+    - 
+      name: Core
+      collectors:
+        - type: classLike
+          value: .*Core.*  
+    - 
+      name: Courses
+      collectors:
+        - type: classLike
+          value: .*Courses.*    
+
+  ruleset:
+    Controller:
+      - Service
+    Service:
+      - Repository
+    Repository: ~
+  formatters:
+    graphviz:
