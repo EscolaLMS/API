@@ -28,6 +28,7 @@
     "doctrine/dbal": "^2|^3",
     "escolalms/assign-without-account": "^0",
     "escolalms/auth": "^0",
+    "escolalms/bookmarks_notes": "^0",
     "escolalms/cart": "^0",
     "escolalms/categories": "^0",
     "escolalms/cmi5": "^0",

@@ -69,6 +69,7 @@ return [
                     base_path('vendor/escolalms/video/src'),
                     base_path('vendor/escolalms/course-access/src'),
                     base_path('vendor/escolalms/tasks/src'),
+                    base_path('vendor/escolalms/bookmarks_notes/src'),
                 ],
             ],
         ],

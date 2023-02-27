@@ -3,6 +3,7 @@
   <coverage processUncoveredFiles="true">
     <include>
       <directory suffix=".php">./vendor/escolalms/auth/src</directory>
+      <directory suffix=".php">./vendor/escolalms/bookmarks_notes/src</directory>
       <directory suffix=".php">./vendor/escolalms/cart/src</directory>
       <directory suffix=".php">./vendor/escolalms/categories/src</directory>
       <directory suffix=".php">./vendor/escolalms/core/src</directory>
@@ -51,6 +52,9 @@
     </testsuite>
     <testsuite name="auth">
       <directory suffix="Test.php">./vendor/escolalms/auth/tests</directory>
+    </testsuite>
+    <testsuite name="bookmarks_notes">
+      <directory suffix="Test.php">./vendor/escolalms/bookmarks_notes/tests</directory>
     </testsuite>
     <testsuite name="cart">
       <directory suffix="Test.php">./vendor/escolalms/cart/tests</directory>
