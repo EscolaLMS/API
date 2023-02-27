@@ -2105,6 +2105,231 @@
                 }
             }
         },
+        "/api/bookmarks": {
+            "get": {
+                "tags": [
+                    "Bookmarks"
+                ],
+                "summary": "Get a listing of the bookmarks",
+                "description": "Get all bookmarks",
+                "operationId": "4afe5232c338f4156a1226833497c998",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "created_at",
+                                "id",
+                                "value"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "bookmarkable_id",
+                        "in": "query",
+                        "description": "Bookmarkalbe ID",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "bookmarkable_type",
+                        "in": "query",
+                        "description": "Bookmarkalbe type",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Bookmarks"
+                ],
+                "summary": "Store a newly created bookmark",
+                "description": "Store Bookmark",
+                "operationId": "2d3a8e85ed55464e14890216352c9e3d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BookmarkCreateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/BookmarkResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/bookmarks/{id}": {
+            "delete": {
+                "tags": [
+                    "Bookmarks"
+                ],
+                "summary": "Remove the specified bookmark",
+                "description": "Delete Bookmarks",
+                "operationId": "603ea6accb890a8ee46139a837e1b6e2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of bookmark",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Bookmarks"
+                ],
+                "summary": "Update bookmark",
+                "description": "Store Bookmark",
+                "operationId": "abbb76b1292be00d5f65405ce0a73bb7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of bookmark",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BookmarkCreateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/BookmarkResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/orders": {
             "get": {
                 "tags": [
@@ -12780,7 +13005,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/TaskCreateRequest"
+                                "$ref": "#/components/schemas/AdminTaskCreateRequest"
                             }
                         }
                     }
@@ -15574,6 +15799,76 @@
                     "name": "User"
                 }
             },
+            "BookmarkCreateRequest": {
+                "required": [
+                    "value",
+                    "bookmarkable_id",
+                    "bookmarkable_type"
+                ],
+                "properties": {
+                    "value": {
+                        "description": "value",
+                        "type": "string"
+                    },
+                    "bookmarkable_id": {
+                        "description": "bookmarkable_id",
+                        "type": "integer"
+                    },
+                    "bookmarkable_type": {
+                        "description": "bookmarkable_type",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "BookmarkResource": {
+                "required": [
+                    "value",
+                    "bookmarkable_id",
+                    "bookmarkable_type",
+                    "user"
+                ],
+                "properties": {
+                    "value": {
+                        "description": "value",
+                        "type": "string"
+                    },
+                    "bookmarkable_id": {
+                        "description": "bookmarkable_id",
+                        "type": "integer"
+                    },
+                    "bookmarkable_type": {
+                        "description": "bookmarkable_type",
+                        "type": "string"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/UserBookmarkResource"
+                    }
+                },
+                "type": "object"
+            },
+            "UserBookmarkResource": {
+                "required": [
+                    "id",
+                    "first_name",
+                    "last_name"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "first_name": {
+                        "description": "first_name",
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "description": "last_name",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
             "Order": {
                 "description": "EscolaLms\\Cart\\Models\\Order",
                 "properties": {
@@ -17279,6 +17574,10 @@
                         "description": "title",
                         "type": "string"
                     },
+                    "description": {
+                        "description": "description",
+                        "type": "string"
+                    },
                     "related_type": {
                         "description": "related_type",
                         "type": "string"
@@ -17325,6 +17624,10 @@
                         "description": "title",
                         "type": "string"
                     },
+                    "description": {
+                        "description": "description",
+                        "type": "string"
+                    },
                     "related_type": {
                         "description": "related_type",
                         "type": "string"
@@ -17350,6 +17653,10 @@
                 "properties": {
                     "title": {
                         "description": "title",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "description",
                         "type": "string"
                     },
                     "related_type": {
@@ -17420,6 +17727,10 @@
                 "properties": {
                     "title": {
                         "description": "title",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "description",
                         "type": "string"
                     },
                     "related_type": {
