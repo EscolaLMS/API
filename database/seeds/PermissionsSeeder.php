@@ -8,6 +8,7 @@ use EscolaLms\Bookmarks\Database\Seeders\BookmarkPermissionSeeder;
 use EscolaLms\Cart\Database\Seeders\CartPermissionSeeder;
 use EscolaLms\Categories\Database\Seeders\CategoriesPermissionSeeder;
 use EscolaLms\Cmi5\Database\Seeders\Cmi5PermissionSeeder;
+use EscolaLms\ConsultationAccess\Database\Seeders\ConsultationAccessPermissionSeeder;
 use EscolaLms\Consultations\Database\Seeders\ConsultationsPermissionSeeder;
 use EscolaLms\Core\Seeders\RoleTableSeeder;
 use EscolaLms\CourseAccess\Database\Seeders\CourseAccessPermissionSeeder;
@@ -82,5 +83,6 @@ class PermissionsSeeder extends Seeder
         $this->call(TaskPermissionSeeder::class);
         $this->call(CourseAccessPermissionSeeder::class);
         $this->call(BookmarkPermissionSeeder::class);
+        $this->call(ConsultationAccessPermissionSeeder::class);
     }
 }

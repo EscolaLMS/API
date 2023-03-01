@@ -62,6 +62,7 @@ return [
                     base_path('vendor/escolalms/translations/src'),
                     base_path('vendor/escolalms/questionnaire/src'),
                     base_path('vendor/escolalms/consultations/src'),
+                    base_path('vendor/escolalms/consultation-access/src'),
                     base_path('vendor/escolalms/webinar/src'),
                     base_path('vendor/escolalms/cmi5/src'),
                     base_path('vendor/escolalms/vouchers/src'),

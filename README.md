@@ -50,6 +50,7 @@ Laravel Headless LMS REST API.
 - [escolalms/assign-without-account](https://packagist.org/packages/escolalms/assign-without-account)
 - [escolalms/video](https://packagist.org/packages/escolalms/video)
 - [escolalms/consultations](https://packagist.org/packages/escolalms/consultations)
+- [escolalms/consultation-access](https://packagist.org/packages/escolalms/consultation-access)
 - [escolalms/tracker](https://packagist.org/packages/escolalms/tracker)
 - [escolalms/translations](https://packagist.org/packages/escolalms/translations)
 - [escolalms/vouchers](https://packagist.org/packages/escolalms/vouchers)
