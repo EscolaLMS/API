@@ -4289,6 +4289,292 @@
                 ]
             }
         },
+        "/api/admin/consultation-access-enquiries": {
+            "get": {
+                "tags": [
+                    "Admin Consultation Access"
+                ],
+                "summary": "Get all consultation access enquiries",
+                "operationId": "4174df75a8ecb9c2db16627a0102e9e8",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "consultation_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "pending",
+                                "approved"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/ConsultationAccessEnquiryResource"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/consultation-access-enquiries/approve/{proposedTermId}": {
+            "post": {
+                "tags": [
+                    "Admin Consultation Access"
+                ],
+                "summary": "Approve the specified consultation access enquiry by proposed term id",
+                "operationId": "c91ab41157068d1cbe1ed8c25f26483b",
+                "parameters": [
+                    {
+                        "name": "proposedTermId",
+                        "in": "path",
+                        "description": "proposedTermId",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/consultation-access-enquiries/disapprove/{id}": {
+            "post": {
+                "tags": [
+                    "Admin Consultation Access"
+                ],
+                "summary": "Disapprove the specified consultation access enquiry by id",
+                "operationId": "f3b4e249f2394d948f016f9d54c27478",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AdminDisapproveConsultationAccessEnquiryRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/consultation-access-enquiries": {
+            "get": {
+                "tags": [
+                    "Consultation Access"
+                ],
+                "summary": "Get my consultation access enquiries",
+                "operationId": "533e744013f7c52abb584d8a9d990b17",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "consultation_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "pending",
+                                "approved"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/ConsultationAccessEnquiryResource"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Consultation Access"
+                ],
+                "summary": "Store a newly Consultation Access Enqiury",
+                "description": "Store Consultation Access Enqiury",
+                "operationId": "fee60484050d2eda0e100553228abea1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateConsultationAccessEnquiryRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/ConsultationAccessEnquiryResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/consultations/report-term/{orderItemId}": {
             "post": {
                 "tags": [
@@ -15901,6 +16187,105 @@
                 },
                 "type": "object"
             },
+            "AdminDisapproveConsultationAccessEnquiryRequest": {
+                "properties": {
+                    "message": {
+                        "description": "message",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "CreateConsultationAccessEnquiryRequest": {
+                "required": [
+                    "consultation_id"
+                ],
+                "properties": {
+                    "consultation_id": {
+                        "description": "consultation_id",
+                        "type": "number"
+                    },
+                    "proposed_terms": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ConsultationAccessEnquiryProposedTermsResource": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "number"
+                    },
+                    "proposed_at": {
+                        "description": "proposed_at",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
+            "ConsultationAccessEnquiryResource": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "number"
+                    },
+                    "created_at": {
+                        "description": "created_at",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "consultation": {
+                        "$ref": "#/components/schemas/ConsultationShortResource"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/ConsultationUserShortResource"
+                    },
+                    "status": {
+                        "description": "status",
+                        "type": "string"
+                    },
+                    "proposed_terms": {
+                        "$ref": "#/components/schemas/ConsultationAccessEnquiryProposedTermsResource"
+                    }
+                },
+                "type": "object"
+            },
+            "ConsultationShortResource": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "number"
+                    },
+                    "name": {
+                        "description": "name",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "ConsultationUserShortResource": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "number"
+                    },
+                    "name": {
+                        "description": "name",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "email",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
             "ConsultationTerm": {
                 "properties": {
                     "status": {
@@ -17707,6 +18092,11 @@
                     "note": {
                         "description": "note",
                         "type": "string"
+                    },
+                    "created_at": {
+                        "description": "created_at",
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "user": {
                         "$ref": "#/components/schemas/UserResource"
