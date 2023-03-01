@@ -37,6 +37,7 @@
       <directory suffix=".php">./vendor/escolalms/translations/</directory>
       <directory suffix=".php">./vendor/escolalms/vouchers/</directory>
       <directory suffix=".php">./vendor/escolalms/consultations/</directory>
+      <directory suffix=".php">./vendor/escolalms/consultation-access/</directory>
       <directory suffix=".php">./vendor/escolalms/webinar/</directory>
       <directory suffix=".php">./vendor/escolalms/cmi5/</directory>
       <!-- <directory suffix=".php">./vendor/escolalms/video/</directory> -->
@@ -153,6 +154,9 @@
     </testsuite>
     <testsuite name="consultations">
       <directory suffix="Test.php">./vendor/escolalms/consultations</directory>
+    </testsuite>
+    <testsuite name="consultation-access">
+      <directory suffix="Test.php">./vendor/escolalms/consultation-access</directory>
     </testsuite>
     <testsuite name="webinar">
       <directory suffix="Test.php">./vendor/escolalms/webinar</directory>
