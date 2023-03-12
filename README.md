@@ -98,7 +98,7 @@ make init-mysql
 
 ## Demo
 
-[https://escola-lms-api.stage.etd24.pl/api/documentation](https://escola-lms-api.stage.etd24.pl/api/documentation)
+[https://api-stage.escolalms.com/api/documentation](https://api-stage.escolalms.com/api/documentation)
 
 This is fully working demo. **Note** that content is regenerated every day - it's a seeder that is not persistent, every day database and files are cleared and rebuilt from skratch.
 
