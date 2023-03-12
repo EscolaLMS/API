@@ -4306,7 +4306,7 @@
                         }
                     },
                     {
-                        "name": "limit",
+                        "name": "per_page",
                         "in": "query",
                         "required": false,
                         "schema": {
@@ -4339,6 +4339,26 @@
                                 "pending",
                                 "approved"
                             ]
+                        }
+                    },
+                    {
+                        "name": "proposed_at_from",
+                        "in": "query",
+                        "description": "Proposed at from",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "proposed_at_to",
+                        "in": "query",
+                        "description": "Proposed at to",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
                         }
                     }
                 ],
@@ -4468,7 +4488,7 @@
                         }
                     },
                     {
-                        "name": "limit",
+                        "name": "per_page",
                         "in": "query",
                         "required": false,
                         "schema": {
@@ -4493,6 +4513,26 @@
                                 "pending",
                                 "approved"
                             ]
+                        }
+                    },
+                    {
+                        "name": "proposed_at_from",
+                        "in": "query",
+                        "description": "Proposed at from",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "proposed_at_to",
+                        "in": "query",
+                        "description": "Proposed at to",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
                         }
                     }
                 ],
@@ -4541,6 +4581,97 @@
                         "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/CreateConsultationAccessEnquiryRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/ConsultationAccessEnquiryResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/consultation-access-enquiries/{id}": {
+            "delete": {
+                "tags": [
+                    "Consultation Access"
+                ],
+                "summary": "Remove the specified Consultation Access Enquiry",
+                "description": "Delete Consultation Access Enquiry",
+                "operationId": "e1b002830434318b66c232ef61d3dbad",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Consultation Access"
+                ],
+                "summary": "Update Consultation Access Enqiury",
+                "description": "Update Consultation Access Enqiury",
+                "operationId": "e3ac21faaeaa9311e36e742cc7524840",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateConsultationAccessEnquiryRequest"
                             }
                         }
                     }
@@ -13091,6 +13222,15 @@
                         }
                     },
                     {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Task type",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
                         "name": "user_id",
                         "in": "query",
                         "description": "Task user_id",
@@ -13616,6 +13756,15 @@
                         "name": "title",
                         "in": "query",
                         "description": "Task title %LIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Task type",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -16665,6 +16814,29 @@
                         "description": "consultation_id",
                         "type": "number"
                     },
+                    "description": {
+                        "description": "description",
+                        "type": "string"
+                    },
+                    "proposed_terms": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateConsultationAccessEnquiryRequest": {
+                "required": [
+                    "proposed_terms"
+                ],
+                "properties": {
+                    "description": {
+                        "description": "description",
+                        "type": "string"
+                    },
                     "proposed_terms": {
                         "type": "array",
                         "items": {
@@ -16708,6 +16880,10 @@
                     },
                     "status": {
                         "description": "status",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "description",
                         "type": "string"
                     },
                     "proposed_terms": {
@@ -18423,6 +18599,10 @@
                         "description": "description",
                         "type": "string"
                     },
+                    "type": {
+                        "description": "type",
+                        "type": "string"
+                    },
                     "related_type": {
                         "description": "related_type",
                         "type": "string"
@@ -18473,6 +18653,10 @@
                         "description": "description",
                         "type": "string"
                     },
+                    "type": {
+                        "description": "type",
+                        "type": "string"
+                    },
                     "related_type": {
                         "description": "related_type",
                         "type": "string"
@@ -18502,6 +18686,10 @@
                     },
                     "description": {
                         "description": "description",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "type",
                         "type": "string"
                     },
                     "related_type": {
@@ -18581,6 +18769,10 @@
                     },
                     "description": {
                         "description": "description",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "type",
                         "type": "string"
                     },
                     "related_type": {
