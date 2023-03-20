@@ -15131,6 +15131,349 @@
                 ]
             }
         },
+        "/api/quiz-answers": {
+            "post": {
+                "tags": [
+                    "Gift Quiz Attempt"
+                ],
+                "summary": "Save your answer",
+                "description": "Save your answer",
+                "operationId": "fd7f60e107eb3a346b2d662a0a4341d9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SaveAttemptAnswerRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/gift-questions": {
+            "post": {
+                "tags": [
+                    "Admin Gift Question"
+                ],
+                "summary": "Store a newly Qift Question",
+                "description": "Store Qift Question",
+                "operationId": "a79967746b027cc49b3b6f9f2ab3902c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AdminGiftQuestionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/AdminGiftQuestionResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/gift-questions/{id}": {
+            "put": {
+                "tags": [
+                    "Admin Gift Question"
+                ],
+                "summary": "Update Qift Question",
+                "description": "Update Qift Question",
+                "operationId": "0bbd14615f7ef123d8917e2398098ab7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AdminGiftQuestionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/AdminGiftQuestionResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin Gift Question"
+                ],
+                "summary": "Remove the specified Gift Question",
+                "description": "Delete Gift Question",
+                "operationId": "abd65b42687fd5412afbb730e6d4aade",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/quiz-attempts": {
+            "get": {
+                "tags": [
+                    "Gift Quiz Attempt"
+                ],
+                "summary": "Get my quiz attempts",
+                "operationId": "174a32641f2d1ec724cafb57242eb0c2",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "topic_gift_quiz_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/QuizAttemptSimpleResource"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Gift Quiz Attempt"
+                ],
+                "summary": "Store a newly Quiz Attempt",
+                "description": "Store Gift Quiz Attempt",
+                "operationId": "e82f99cdd219fd3b8f2bf24ff05d2a42",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateQuizAttemptRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/QuizAttemptSimpleResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/quiz-attempts/{id}": {
+            "get": {
+                "tags": [
+                    "Gift Quiz Attempt"
+                ],
+                "summary": "Get my quiz attempt by id",
+                "operationId": "c2d6397449c4b5e366726c3db1f0e3be",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/QuizAttemptSimpleResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/topic-project-solutions": {
             "get": {
                 "tags": [
@@ -19050,6 +19393,125 @@
                     "default": {
                         "description": "this template is default template for given channel and event pair",
                         "type": "bool"
+                    }
+                },
+                "type": "object"
+            },
+            "AdminGiftQuestionRequest": {
+                "required": [
+                    "topic_gift_quiz_id",
+                    "value",
+                    "score"
+                ],
+                "properties": {
+                    "topic_gift_quiz_id": {
+                        "description": "topic_gift_quiz_id",
+                        "type": "number"
+                    },
+                    "value": {
+                        "description": "value",
+                        "type": "string"
+                    },
+                    "score": {
+                        "description": "max score",
+                        "type": "number",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            },
+            "CreateQuizAttemptRequest": {
+                "required": [
+                    "topic_gift_quiz_id"
+                ],
+                "properties": {
+                    "topic_gift_quiz_id": {
+                        "description": "topic_gift_quiz_id",
+                        "type": "number"
+                    }
+                },
+                "type": "object"
+            },
+            "SaveAttemptAnswerRequest": {
+                "required": [
+                    "topic_gift_question_id",
+                    "answer"
+                ],
+                "properties": {
+                    "topic_gift_question_id": {
+                        "description": "question id",
+                        "type": "number"
+                    },
+                    "topic_gift_quiz_attempt_id": {
+                        "description": "attempt id",
+                        "type": "number"
+                    },
+                    "answer": {
+                        "description": "answer",
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "AdminGiftQuestionResource": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "number"
+                    },
+                    "value": {
+                        "description": "value",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "type",
+                        "type": "string"
+                    },
+                    "score": {
+                        "description": "score",
+                        "type": "number"
+                    }
+                },
+                "type": "object"
+            },
+            "QuizAttemptSimpleResource": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "number"
+                    },
+                    "user_id": {
+                        "description": "user_id",
+                        "type": "number"
+                    },
+                    "topic_gift_quiz_id": {
+                        "description": "topic_gift_quiz_id",
+                        "type": "number"
+                    },
+                    "started_at": {
+                        "description": "started_at",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "end_at": {
+                        "description": "end_at",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
+            "TopicGiftQuiz": {
+                "required": [
+                    "value"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id"
+                    },
+                    "value": {
+                        "description": "value",
+                        "type": "string"
                     }
                 },
                 "type": "object"
