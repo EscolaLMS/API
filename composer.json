@@ -63,6 +63,7 @@
     "escolalms/templates-pdf": "^0",
     "escolalms/templates-sms": "^0",
     "escolalms/topic-types": "^0",
+    "escolalms/topic-type-gift": "^0",
     "escolalms/topic-type-project": "^0",
     "escolalms/tracker": "^0",
     "escolalms/translations": "^0",
