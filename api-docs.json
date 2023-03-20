@@ -4360,6 +4360,19 @@
                             "type": "string",
                             "format": "date-time"
                         }
+                    },
+                    {
+                        "name": "is_coming",
+                        "in": "query",
+                        "description": "approved future or past consultations",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "true",
+                                "false"
+                            ]
+                        }
                     }
                 ],
                 "responses": {
@@ -4413,6 +4426,16 @@
                         }
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AdminApproveConsultationAccessEnquiryRequest"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -4534,6 +4557,19 @@
                             "type": "string",
                             "format": "date-time"
                         }
+                    },
+                    {
+                        "name": "is_coming",
+                        "in": "query",
+                        "description": "approved future or past consultations",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "true",
+                                "false"
+                            ]
+                        }
                     }
                 ],
                 "responses": {
@@ -4616,6 +4652,51 @@
             }
         },
         "/api/consultation-access-enquiries/{id}": {
+            "get": {
+                "tags": [
+                    "Consultation Access"
+                ],
+                "summary": "Get my consultation access enquiry by id",
+                "operationId": "43a3f511914059c77112795dc4bca88a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/ConsultationAccessEnquiryResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
             "delete": {
                 "tags": [
                     "Consultation Access"
@@ -4677,7 +4758,7 @@
                     }
                 },
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "Successfull operation",
                         "content": {
                             "application/json": {
@@ -5920,6 +6001,29 @@
                         }
                     }
                 },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/courses/my": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "summary": "Get my course list IDs",
+                "description": "Get my course list IDs",
+                "operationId": "d40d46827fbc09a5da7d1825a0bfb4f8",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -15092,6 +15196,15 @@
                         }
                     },
                     {
+                        "name": "course_id",
+                        "in": "query",
+                        "description": "course id",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
                         "name": "user_id",
                         "in": "query",
                         "description": "user id",
@@ -15201,6 +15314,15 @@
                         "schema": {
                             "type": "number",
                             "default": 15
+                        }
+                    },
+                    {
+                        "name": "course_id",
+                        "in": "query",
+                        "description": "course id",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
                         }
                     },
                     {
@@ -16796,6 +16918,18 @@
                 },
                 "type": "object"
             },
+            "AdminApproveConsultationAccessEnquiryRequest": {
+                "required": [
+                    "meeting_link"
+                ],
+                "properties": {
+                    "meeting_link": {
+                        "description": "meeting_link",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
             "AdminDisapproveConsultationAccessEnquiryRequest": {
                 "properties": {
                     "message": {
@@ -16818,6 +16952,18 @@
                         "description": "description",
                         "type": "string"
                     },
+                    "title": {
+                        "description": "title",
+                        "type": "string"
+                    },
+                    "related_type": {
+                        "description": "related_type",
+                        "type": "string"
+                    },
+                    "related_id": {
+                        "description": "related_id",
+                        "type": "integer"
+                    },
                     "proposed_terms": {
                         "type": "array",
                         "items": {
@@ -16836,6 +16982,18 @@
                     "description": {
                         "description": "description",
                         "type": "string"
+                    },
+                    "title": {
+                        "description": "title",
+                        "type": "string"
+                    },
+                    "related_type": {
+                        "description": "related_type",
+                        "type": "string"
+                    },
+                    "related_id": {
+                        "description": "related_id",
+                        "type": "integer"
                     },
                     "proposed_terms": {
                         "type": "array",
@@ -16886,8 +17044,27 @@
                         "description": "description",
                         "type": "string"
                     },
+                    "meeting_link": {
+                        "description": "meeting_link",
+                        "type": "string"
+                    },
                     "proposed_terms": {
                         "$ref": "#/components/schemas/ConsultationAccessEnquiryProposedTermsResource"
+                    },
+                    "consultation_term": {
+                        "$ref": "#/components/schemas/ConsultationTerm"
+                    },
+                    "related_type": {
+                        "description": "related_type",
+                        "type": "string"
+                    },
+                    "related_id": {
+                        "description": "related_id",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "title",
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -16901,6 +17078,9 @@
                     "name": {
                         "description": "name",
                         "type": "string"
+                    },
+                    "author": {
+                        "$ref": "#/components/schemas/ConsultationUserShortResource"
                     }
                 },
                 "type": "object"
@@ -18928,6 +19108,13 @@
                     "value": {
                         "description": "value",
                         "type": "string"
+                    },
+                    "notify_users": {
+                        "description": "notify_users",
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
                     }
                 },
                 "type": "object"
