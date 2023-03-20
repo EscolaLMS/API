@@ -32,6 +32,8 @@ use EscolaLms\Tags\Database\Seeders\TagsPermissionSeeder;
 use EscolaLms\Tasks\Database\Seeders\TaskPermissionSeeder;
 use EscolaLms\Templates\Database\Seeders\PermissionTableSeeder as TemplatesPermissionTableSeeder;
 use EscolaLms\TemplatesPdf\Database\Seeders\PermissionTableSeeder as TemplatesPdfPermissionTableSeeder;
+use EscolaLms\TopicTypeGift\Database\Seeders\TopicTypeGiftPermissionSeeder;
+use EscolaLms\TopicTypeProject\Database\Seeders\TopicTypeProjectPermissionSeeder;
 use EscolaLms\Tracker\Database\Seeders\TrackerPermissionSeeder;
 use EscolaLms\Translations\Database\Seeders\TranslationsPermissionSeeder;
 use EscolaLms\Video\Database\Seeders\VideoPermissionSeeder;
@@ -84,5 +86,7 @@ class PermissionsSeeder extends Seeder
         $this->call(CourseAccessPermissionSeeder::class);
         $this->call(BookmarkPermissionSeeder::class);
         $this->call(ConsultationAccessPermissionSeeder::class);
+        $this->call(TopicTypeProjectPermissionSeeder::class);
+        $this->call(TopicTypeGiftPermissionSeeder::class);
     }
 }

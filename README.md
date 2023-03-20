@@ -45,7 +45,9 @@ Laravel Headless LMS REST API.
 - [escolalms/templates-email](https://packagist.org/packages/escolalms/templates-email)
 - [escolalms/templates-pdf](https://packagist.org/packages/escolalms/templates-pdf)
 - [escolalms/templates-sms](https://packagist.org/packages/escolalms/templates-sms)
-- [escolalms/topic-types](https://packagist.org/packages/topic-types/topic-types)
+- [escolalms/topic-types](https://packagist.org/packages/escolalms/topic-types)
+- [escolalms/topic-type-gift](https://packagist.org/packages/escolalms/topic-type-gift)
+- [escolalms/topic-type-project](https://packagist.org/packages/escolalms/topic-type-project)
 - [escolalms/questionnaire](https://packagist.org/packages/escolalms/questionnaire)
 - [escolalms/assign-without-account](https://packagist.org/packages/escolalms/assign-without-account)
 - [escolalms/video](https://packagist.org/packages/escolalms/video)
@@ -97,7 +99,7 @@ make init-mysql
 
 ## Demo
 
-[https://escola-lms-api.stage.etd24.pl/api/documentation](https://escola-lms-api.stage.etd24.pl/api/documentation)
+[https://api-stage.escolalms.com/api/documentation](https://api-stage.escolalms.com/api/documentation)
 
 This is fully working demo. **Note** that content is regenerated every day - it's a seeder that is not persistent, every day database and files are cleared and rebuilt from skratch.
 

@@ -30,6 +30,8 @@
       <directory suffix=".php">./vendor/escolalms/tags/</directory>
       <directory suffix=".php">./vendor/escolalms/tasks/</directory>
       <directory suffix=".php">./vendor/escolalms/topic-types/</directory>
+      <directory suffix=".php">./vendor/escolalms/topic-type-project/</directory>
+      <directory suffix=".php">./vendor/escolalms/topic-type-gift/</directory>
       <directory suffix=".php">./vendor/escolalms/templates/</directory>
       <directory suffix=".php">./vendor/escolalms/templates-email/</directory>
       <directory suffix=".php">./vendor/escolalms/templates-sms/</directory>
@@ -134,6 +136,12 @@
     </testsuite>
     <testsuite name="topic-types">
       <directory suffix="Test.php">./vendor/escolalms/topic-types</directory>
+    </testsuite>
+    <testsuite name="topic-type-gift">
+      <directory suffix="Test.php">./vendor/escolalms/topic-type-gift</directory>
+    </testsuite>
+    <testsuite name="topic-type-project">
+      <directory suffix="Test.php">./vendor/escolalms/topic-type-project</directory>
     </testsuite>
     <testsuite name="templates">
       <directory suffix="Test.php">./vendor/escolalms/templates</directory>
