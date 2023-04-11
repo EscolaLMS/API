@@ -263,6 +263,22 @@
                 "operationId": "b4631bcf8030edaa73072b86b87a2f23",
                 "parameters": [
                     {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
                         "name": "search",
                         "in": "query",
                         "required": false,
@@ -277,6 +293,14 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
                         }
                     }
                 ],
@@ -340,6 +364,22 @@
                 "description": "",
                 "operationId": "6655f9b0a9e4a3b5091bd2ac677e757a",
                 "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
                     {
                         "name": "search",
                         "in": "query",
@@ -2105,6 +2145,103 @@
                 }
             }
         },
+        "/api/admin/bookmarks": {
+            "get": {
+                "tags": [
+                    "Admin Bookmarks"
+                ],
+                "summary": "Get a listing of the bookmarks",
+                "description": "Get all bookmarks",
+                "operationId": "e61289c418adf61afa80cd1eafadab8f",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "created_at",
+                                "id",
+                                "value"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "has_value",
+                        "in": "query",
+                        "description": "Has value",
+                        "required": false,
+                        "schema": {
+                            "type": "bool"
+                        }
+                    },
+                    {
+                        "name": "bookmarkable_id",
+                        "in": "query",
+                        "description": "Bookmarkalbe ID",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "bookmarkable_type",
+                        "in": "query",
+                        "description": "Bookmarkalbe type",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/bookmarks": {
             "get": {
                 "tags": [
@@ -2157,6 +2294,15 @@
                         "schema": {
                             "type": "number",
                             "default": 15
+                        }
+                    },
+                    {
+                        "name": "has_value",
+                        "in": "query",
+                        "description": "Has value",
+                        "required": false,
+                        "schema": {
+                            "type": "bool"
                         }
                     },
                     {
@@ -6393,10 +6539,22 @@
                     {
                         "name": "category_id",
                         "in": "query",
-                        "description": "Category ID. When applied all courses with given cat_id and children categories are searched",
+                        "description": "Category ID. When applied all courses with given cat_id and children categories are searched. Prohibited with categories",
                         "required": false,
                         "schema": {
                             "type": "number"
+                        }
+                    },
+                    {
+                        "name": "categories[]",
+                        "in": "query",
+                        "description": "An array of categories IDs. When applied all courses with given categories ids and children categories are searched. Prohibited with category_id",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
                         }
                     },
                     {
@@ -7023,6 +7181,34 @@
                         }
                     }
                 ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/courses/users/assignable": {
+            "get": {
+                "tags": [
+                    "Admin Courses"
+                ],
+                "description": "Get users assignable to course",
+                "operationId": "0c7ebb30ad9948c9cc538d963624ea15",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -9821,6 +10007,29 @@
                         }
                     }
                 ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/notifications/read-all": {
+            "post": {
+                "tags": [
+                    "Notifications"
+                ],
+                "summary": "Mark all notifications as read",
+                "description": "Mark all notifications as read",
+                "operationId": "fa5fa2e8579dc71a8d5a09c0564e3e03",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -12966,10 +13175,22 @@
                     {
                         "name": "name",
                         "in": "query",
-                        "description": "Stationary event name %LIKE%",
+                        "description": "Stationary event name %ILIKE%",
                         "required": false,
                         "schema": {
                             "type": "string"
+                        }
+                    },
+                    {
+                        "name": "categories",
+                        "in": "query",
+                        "description": "An array of categories IDs",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
                         }
                     }
                 ],
@@ -15131,6 +15352,62 @@
                 ]
             }
         },
+        "/api/admin/quiz-answers/{id}": {
+            "patch": {
+                "tags": [
+                    "Admin Gift Quiz Attempt"
+                ],
+                "summary": "Update answer",
+                "description": "Update answer",
+                "operationId": "3bea2bdd4718dc589283ceb32cf79dcc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AdminUpdateAttemptAnswerRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {},
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/quiz-answers": {
             "post": {
                 "tags": [
@@ -15176,13 +15453,61 @@
                 ]
             }
         },
+        "/api/quiz-answers/all": {
+            "post": {
+                "tags": [
+                    "Gift Quiz Attempt"
+                ],
+                "summary": "Save your all answers",
+                "description": "Save your all answers",
+                "operationId": "9c9842a41c90811ea5d9906ad83b8829",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SaveAllAttemptAnswerRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/QuizAttemptSimpleResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/gift-questions": {
             "post": {
                 "tags": [
                     "Admin Gift Question"
                 ],
-                "summary": "Store a newly Qift Question",
-                "description": "Store Qift Question",
+                "summary": "Store a newly Gift Question",
+                "description": "Store Gift Question",
                 "operationId": "a79967746b027cc49b3b6f9f2ab3902c",
                 "requestBody": {
                     "required": true,
@@ -15229,8 +15554,8 @@
                 "tags": [
                     "Admin Gift Question"
                 ],
-                "summary": "Update Qift Question",
-                "description": "Update Qift Question",
+                "summary": "Update Gift Question",
+                "description": "Update Gift Question",
                 "operationId": "0bbd14615f7ef123d8917e2398098ab7",
                 "parameters": [
                     {
@@ -15315,6 +15640,172 @@
                 ]
             }
         },
+        "/api/admin/gift-questions/sort": {
+            "post": {
+                "tags": [
+                    "Admin Gift Question"
+                ],
+                "summary": "Sort Gift Questions",
+                "description": "Sort Gift Questions",
+                "operationId": "0e5a7ced5b57c644e8d503305c66524f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AdminSortGiftQuestionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/quiz-attempts": {
+            "get": {
+                "tags": [
+                    "Admin Gift Quiz Attempt"
+                ],
+                "summary": "Get all quiz attempts",
+                "operationId": "689f8a19a36811a1df663ed431e2259a",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "topic_gift_quiz_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/QuizAttemptSimpleResource"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/quiz-attempts/{id}": {
+            "get": {
+                "tags": [
+                    "Admin Gift Quiz Attempt"
+                ],
+                "summary": "Get quiz attempt by id",
+                "operationId": "60516afcaa2ac7e9665e9a4b6c76deca",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/QuizAttemptSimpleResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/quiz-attempts": {
             "get": {
                 "tags": [
@@ -15384,15 +15875,15 @@
                 "tags": [
                     "Gift Quiz Attempt"
                 ],
-                "summary": "Store a newly Quiz Attempt",
+                "summary": "Create a new attempt or return an active attempt",
                 "description": "Store Gift Quiz Attempt",
-                "operationId": "e82f99cdd219fd3b8f2bf24ff05d2a42",
+                "operationId": "bf1d8f3865e5ba758513c06cb0c44151",
                 "requestBody": {
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/CreateQuizAttemptRequest"
+                                "$ref": "#/components/schemas/GetActiveAttemptRequest"
                             }
                         }
                     }
@@ -15408,7 +15899,7 @@
                                             "type": "boolean"
                                         },
                                         "data": {
-                                            "$ref": "#/components/schemas/QuizAttemptSimpleResource"
+                                            "$ref": "#/components/schemas/QuizAttemptResource"
                                         },
                                         "message": {
                                             "type": "string"
@@ -15456,6 +15947,53 @@
                                         },
                                         "data": {
                                             "$ref": "#/components/schemas/QuizAttemptSimpleResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/quiz-attempts/{id}/end": {
+            "post": {
+                "tags": [
+                    "Gift Quiz Attempt"
+                ],
+                "summary": "Finish quiz attempt",
+                "operationId": "a7566469f785b6ccc54fc28f4abad015",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/QuizAttemptResource"
                                         },
                                         "message": {
                                             "type": "string"
@@ -17045,6 +17583,34 @@
                     }
                 ]
             }
+        },
+        "/api/admin/webinars/users/assignable": {
+            "get": {
+                "tags": [
+                    "Admin Webinars"
+                ],
+                "description": "Get users assignable to webinars",
+                "operationId": "6a40edecffd7912e1f2ca78cde4c9cd2",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
         }
     },
     "components": {
@@ -17161,7 +17727,6 @@
             },
             "BookmarkCreateRequest": {
                 "required": [
-                    "value",
                     "bookmarkable_id",
                     "bookmarkable_type"
                 ],
@@ -17953,6 +18518,10 @@
                     "json": {
                         "description": "json",
                         "type": "object"
+                    },
+                    "duration": {
+                        "description": "duration",
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -19416,11 +19985,57 @@
                         "description": "max score",
                         "type": "number",
                         "example": "1"
+                    },
+                    "order": {
+                        "description": "order",
+                        "type": "integer",
+                        "example": "1"
                     }
                 },
                 "type": "object"
             },
-            "CreateQuizAttemptRequest": {
+            "AdminSortGiftQuestionRequest": {
+                "properties": {
+                    "orders": {
+                        "description": "orders",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AdminSortGiftQuestion"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "AdminSortGiftQuestion": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "order": {
+                        "description": "order",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "AdminUpdateAttemptAnswerRequest": {
+                "required": [
+                    "score"
+                ],
+                "properties": {
+                    "score": {
+                        "description": "score",
+                        "type": "number"
+                    },
+                    "feedback": {
+                        "description": "feedback",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "GetActiveAttemptRequest": {
                 "required": [
                     "topic_gift_quiz_id"
                 ],
@@ -19428,6 +20043,36 @@
                     "topic_gift_quiz_id": {
                         "description": "topic_gift_quiz_id",
                         "type": "number"
+                    }
+                },
+                "type": "object"
+            },
+            "SaveAllAttemptAnswerRequest": {
+                "required": [
+                    "topic_gift_quiz_attempt_id",
+                    "answers"
+                ],
+                "properties": {
+                    "topic_gift_quiz_attempt_id": {
+                        "description": "attempt id",
+                        "type": "number"
+                    },
+                    "answers": {
+                        "description": "answers",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "topic_gift_question_id": {
+                                    "description": "topic_gift_question_id",
+                                    "type": "number"
+                                },
+                                "answer": {
+                                    "description": "answer",
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
                     }
                 },
                 "type": "object"
@@ -19470,6 +20115,113 @@
                     "score": {
                         "description": "score",
                         "type": "number"
+                    },
+                    "order": {
+                        "description": "order",
+                        "type": "number"
+                    }
+                },
+                "type": "object"
+            },
+            "AttemptAnswerResource": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "number"
+                    },
+                    "topic_gift_question_id": {
+                        "description": "topic_gift_question_id",
+                        "type": "number"
+                    },
+                    "answer": {
+                        "description": "answer",
+                        "type": "object"
+                    },
+                    "score": {
+                        "description": "score",
+                        "type": "number"
+                    },
+                    "feedback": {
+                        "description": "feedback",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "GiftQuestionResource": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "number"
+                    },
+                    "type": {
+                        "description": "type",
+                        "type": "string"
+                    },
+                    "score": {
+                        "description": "score",
+                        "type": "number"
+                    },
+                    "order": {
+                        "description": "order",
+                        "type": "number"
+                    },
+                    "title": {
+                        "description": "title",
+                        "type": "string"
+                    },
+                    "question": {
+                        "description": "question",
+                        "type": "string"
+                    },
+                    "options": {
+                        "description": "options",
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "QuizAttemptResource": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "number"
+                    },
+                    "user_id": {
+                        "description": "user_id",
+                        "type": "number"
+                    },
+                    "topic_gift_quiz_id": {
+                        "description": "topic_gift_quiz_id",
+                        "type": "number"
+                    },
+                    "started_at": {
+                        "description": "started_at",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "end_at": {
+                        "description": "end_at",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "is_ended": {
+                        "description": "is_ended",
+                        "type": "boolean"
+                    },
+                    "questions": {
+                        "description": "questions",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GiftQuestionResource"
+                        }
+                    },
+                    "answers": {
+                        "description": "answers",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AttemptAnswerResource"
+                        }
                     }
                 },
                 "type": "object"
@@ -19497,6 +20249,10 @@
                         "description": "end_at",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "is_ended": {
+                        "description": "is_ended",
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
@@ -19512,6 +20268,14 @@
                     "value": {
                         "description": "value",
                         "type": "string"
+                    },
+                    "max_attempts": {
+                        "description": "max_attempts",
+                        "type": "number"
+                    },
+                    "max_execution_time": {
+                        "description": "max execution time in minutes",
+                        "type": "number"
                     }
                 },
                 "type": "object"
