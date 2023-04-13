@@ -27,7 +27,10 @@ jobs:
           composer require qossmic/deptrac-shim --no-scripts
 
       - name: Install git & graphviz
-        run: apt-get install git graphviz -y
+        run: | 
+          add-apt-repository universe
+          apt update
+          apt-get install git graphviz -y
 
       - name: Generage deptrac-modules.yaml
         run: php deptrac.php
