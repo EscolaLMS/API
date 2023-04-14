@@ -1,4 +1,4 @@
-FROM escolalms/php:8-prod
+FROM escolalms/php:8.1-prod
 WORKDIR /var/www/html
 EXPOSE 80
 COPY / /var/www/html
