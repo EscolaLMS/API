@@ -11994,6 +11994,62 @@
                 }
             }
         },
+        "/api/questionnaire/{model_type_title}/{model_id}/questions/{question_id}/answers": {
+            "get": {
+                "tags": [
+                    "Questionnaire"
+                ],
+                "summary": "Read a question answers by a given model title and model id identifier",
+                "operationId": "fa2c79999088858b262b6f07df91c542",
+                "parameters": [
+                    {
+                        "name": "model_type_title",
+                        "in": "path",
+                        "description": "Name of Model (Course, Webinar etd.)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "model_id",
+                        "in": "path",
+                        "description": "id of Model (Course, Webinar etd.)",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "question_id",
+                        "in": "path",
+                        "description": "id of Question",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/QuestionAnswer"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                }
+            }
+        },
         "/api/admin/reports/metrics": {
             "get": {
                 "tags": [
@@ -19327,6 +19383,10 @@
                     "type": {
                         "description": "type: rate, text",
                         "type": "string"
+                    },
+                    "public_answers": {
+                        "description": "whether answers to questions are public",
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
@@ -19358,6 +19418,10 @@
                     "note": {
                         "description": "text answer",
                         "type": "string"
+                    },
+                    "visible_on_front": {
+                        "description": "whether answers is visible on front",
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
