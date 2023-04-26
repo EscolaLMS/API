@@ -2,7 +2,7 @@ FROM escolalms/php:8.1-work
 WORKDIR /var/www/html
 EXPOSE 80
 COPY / /var/www/html
-RUN apt install -y debian-keyring debian-archive-keyring apt-transport-https \
+RUN apt install -y debian-archive-keyring apt-transport-https \
   && curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg \
   && curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list
 RUN apt-get update && apt-get install caddy -y
