@@ -8065,6 +8065,15 @@
                         }
                     },
                     {
+                        "name": "format",
+                        "in": "query",
+                        "description": "exported file format",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
                         "name": "status",
                         "in": "query",
                         "description": "will check if user is_active",
@@ -12001,6 +12010,89 @@
                 ],
                 "summary": "Read a question answers by a given model title and model id identifier",
                 "operationId": "fa2c79999088858b262b6f07df91c542",
+                "parameters": [
+                    {
+                        "name": "model_type_title",
+                        "in": "path",
+                        "description": "Name of Model (Course, Webinar etd.)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "model_id",
+                        "in": "path",
+                        "description": "id of Model (Course, Webinar etd.)",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "question_id",
+                        "in": "path",
+                        "description": "id of Question",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "question type (rate, review, text)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "description": "order by (created_at, updated_at, rate)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "order direction (ASC, DESC)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/QuestionAnswer"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                }
+            }
+        },
+        "/api/questionnaire/{model_type_title}/{model_id}/questions/{question_id}/stars": {
+            "get": {
+                "tags": [
+                    "Questionnaire"
+                ],
+                "summary": "Read a model stars by a given model title, model id identifier and question id.",
+                "operationId": "f6b9fd055d149d866c44c894d6fec73e",
                 "parameters": [
                     {
                         "name": "model_type_title",
