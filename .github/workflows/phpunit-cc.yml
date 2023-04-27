@@ -10,6 +10,7 @@ on:
 jobs:
   phpunit-code-coverage:
     runs-on: self-hosted
+#    runs-on: ubuntu-latest
     container:
       image: escolalms/php:8-work
 
