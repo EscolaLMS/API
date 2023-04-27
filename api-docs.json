@@ -11215,6 +11215,56 @@
                 ]
             }
         },
+        "/api/admin/question-answers/{id}/change-visiblity": {
+            "post": {
+                "tags": [
+                    "QuestionAnswersForQuestionaire"
+                ],
+                "summary": "Change answer visibility on front",
+                "operationId": "812cbb0978b06fcfe65f370d404cbaef",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of question answer",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Question answer change visibility",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/QuestionnaireAnswerChangeVisibility"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Question answers visibility changed successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/questionnaire": {
             "get": {
                 "tags": [
@@ -19382,6 +19432,15 @@
                     },
                     "assigned": {
                         "description": "Is permission assigned to current role",
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            },
+            "QuestionnaireAnswerChangeVisibility": {
+                "properties": {
+                    "visible_on_front": {
+                        "description": "visible on front",
                         "type": "boolean"
                     }
                 },
