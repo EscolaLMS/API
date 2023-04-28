@@ -67,7 +67,7 @@ jobs:
         run: pecl install pcov && docker-php-ext-enable pcov   
 
       - name: Run tests
-        run: XDEBUG_MODE=off php -dpcov.enabled=1 -dpcov.directory=. -dpcov.exclude="~vendor~" ./vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text | tee coverage.txt
+        run: XDEBUG_MODE=off php -dpcov.enabled=1 -dpcov.directory=. ./vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text | tee coverage.txt
 
       - name: Generate Badge
         run: php tests/badge.php
@@ -80,6 +80,25 @@ jobs:
             tests/cc-tests.svg
             coverage.xml
 
-      - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
+      # - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
+      #   with:
+      #     add: "tests/*.svg"
+
+      - name: Deploy to external repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.STATS_KEY }}
+
         with:
-          add: "tests/*.svg"
+          # GitHub Action output files
+          source-directory: tests/
+          target-directory: api-tests
+          destination-github-username: EscolaLMS
+          destination-repository-name: .github
+          user-email: mateusz@qunabu.com
+          # It defaults to `main`
+          target-branch: "main"
+
+      - name: Test get variable exported by push-to-another-repository
+        run: echo $DESTINATION_CLONED_DIRECTORY     
+        
