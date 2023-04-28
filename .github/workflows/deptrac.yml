@@ -29,7 +29,7 @@ jobs:
       - name: Install git & graphviz
         run: | 
           apt-get update
-          apt-get install git graphviz-dev -y
+          apt-get install git graphviz graphviz-dev -y
 
       - name: Generage deptrac-modules.yaml
         run: php deptrac.php
