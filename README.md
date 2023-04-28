@@ -31,6 +31,8 @@ Summary code coverage from all the packages:
 
 ## Installation
 
+You should consider install with our [installation package](https://docs.wellms.io/getting-started/guide.html).
+
 To install default docker environment either clone this repo or use
 
 ```bash
