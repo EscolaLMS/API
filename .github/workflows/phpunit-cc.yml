@@ -66,12 +66,6 @@ jobs:
       - name: Add pcov
         run: pecl install pcov && docker-php-ext-enable pcov   
 
-      - name: Require pcov clobber
-        run: composer require pcov/clobber --dev
-
-      - name: Run pcov clobber 
-        run: vendor/bin/pcov clobber  
-
       - name: Run tests
         run: XDEBUG_MODE=off php -dpcov.enabled=1 -dpcov.directory=. -dpcov.exclude="~vendor~" ./vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text | tee coverage.txt
 

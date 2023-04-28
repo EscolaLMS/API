@@ -53,9 +53,10 @@ jobs:
         with:
           # GitHub Action output files
           source-directory: deptrac/
+          target-directory: deptrac
           destination-github-username: EscolaLMS
           destination-repository-name: .github
-          user-email: <your email>
+          user-email: mateusz@qunabu.com
           # It defaults to `main`
           target-branch: "main"
 
