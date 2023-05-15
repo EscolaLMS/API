@@ -100,6 +100,24 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "description": "Order column",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "Order direction",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -395,6 +413,85 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns list of groups",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/user-groups/users": {
+            "get": {
+                "tags": [
+                    "Admin User Groups"
+                ],
+                "summary": "List of groups with users",
+                "description": "",
+                "operationId": "8994ca966ea88324873224e7a627c196",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "parent_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "id[]",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
                         }
                     }
                 ],
@@ -5852,6 +5949,22 @@
                                 "approved"
                             ]
                         }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -10973,6 +11086,44 @@
                 ],
                 "summary": "Create a new question identified by id",
                 "operationId": "5d6de858ff457c3341f17371272bd100",
+                "parameters": [
+                    {
+                        "name": "title",
+                        "in": "path",
+                        "description": "Question title",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "questionnaire_id",
+                        "in": "path",
+                        "description": "Questionnaire's id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "order_by",
+                        "in": "path",
+                        "description": "Order by field",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "description": "Order direction",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "description": "Question attributes",
                     "required": true,
@@ -11181,6 +11332,33 @@
                         "schema": {
                             "type": "integer"
                         }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "Order direction",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "description": "Order by field",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "filter by answer user_id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
                     }
                 ],
                 "responses": {
@@ -11215,13 +11393,13 @@
                 ]
             }
         },
-        "/api/admin/question-answers/{id}/change-visiblity": {
+        "/api/admin/question-answers/{id}/change-visibility": {
             "post": {
                 "tags": [
                     "QuestionAnswersForQuestionaire"
                 ],
                 "summary": "Change answer visibility on front",
-                "operationId": "812cbb0978b06fcfe65f370d404cbaef",
+                "operationId": "1d45856f50c64063ab570ff38a47ca20",
                 "parameters": [
                     {
                         "name": "id",
@@ -12089,15 +12267,6 @@
                         }
                     },
                     {
-                        "name": "type",
-                        "in": "query",
-                        "description": "question type (rate, review, text)",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "order_by",
                         "in": "query",
                         "description": "order by (created_at, updated_at, rate)",
@@ -12113,6 +12282,24 @@
                         "required": false,
                         "schema": {
                             "type": "string"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "answers on page",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page number",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
                         }
                     }
                 ],
@@ -12178,7 +12365,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/QuestionAnswer"
+                                    "$ref": "#/components/schemas/ModelStarsResponse"
                                 }
                             }
                         }
@@ -12254,6 +12441,31 @@
                         }
                     }
                 ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation, returns User data",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/reports/available-for-user": {
+            "get": {
+                "tags": [
+                    "Admin Reports"
+                ],
+                "summary": "Get list of available metrics for logged user",
+                "description": "",
+                "operationId": "eba74ffea4cadf3b872e9b2da5869409",
                 "responses": {
                     "200": {
                         "description": "successful operation, returns User data",
@@ -17388,6 +17600,15 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "only_incoming",
+                        "in": "query",
+                        "description": "Get only incoming webinars",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
                     }
                 ],
                 "responses": {
@@ -19459,6 +19680,27 @@
                     "note": {
                         "description": "anser of text type",
                         "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "ModelStarsResponse": {
+                "properties": {
+                    "avg_rate": {
+                        "description": "average rate",
+                        "type": "string"
+                    },
+                    "count_answers": {
+                        "description": "count all answers for this question",
+                        "type": "integer"
+                    },
+                    "count_public_answers": {
+                        "description": "count all public answers for this question",
+                        "type": "integer"
+                    },
+                    "question_id": {
+                        "description": "question identifier",
+                        "type": "integer"
                     }
                 },
                 "type": "object"
