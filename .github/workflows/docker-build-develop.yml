@@ -1,5 +1,7 @@
 name: Publish development Package to dockerhub
 on:
+  repository_dispatch:
+  workflow_dispatch:
   push:
     branches:
       - 'develop'
