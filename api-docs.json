@@ -6845,6 +6845,15 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "group_id",
+                        "in": "query",
+                        "description": "Group",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
                     }
                 ],
                 "responses": {
@@ -6883,6 +6892,51 @@
                         }
                     }
                 },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/courses/authored": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "summary": "Get a listing of the authored Courses.",
+                "description": "Get all Courses",
+                "operationId": "edd821bd23bb730c4a5852cfafe235c8",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -9930,58 +9984,14 @@
                 ]
             }
         },
-        "/api/notifications": {
-            "get": {
-                "tags": [
-                    "Notifications"
-                ],
-                "summary": "Get notifications",
-                "description": "Get paginated list of notifications sent using `database` channel",
-                "parameters": [
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "description": "Pagination Page Number",
-                        "required": false,
-                        "schema": {
-                            "type": "number",
-                            "default": 1
-                        }
-                    },
-                    {
-                        "name": "per_page",
-                        "in": "query",
-                        "description": "Pagination Per Page",
-                        "required": false,
-                        "schema": {
-                            "type": "number",
-                            "default": 15
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/notifications/{user}": {
+        "/api/admin/notifications/all": {
             "get": {
                 "tags": [
                     "Notifications Admin"
                 ],
                 "summary": "Get notifications",
                 "description": "Get paginated list of notifications sent using `database` channel",
-                "operationId": "25b9ccc713a6b63854688cffa925c6c3",
+                "operationId": "3e13d0bdc0dd2fc2d8514cf8d3df0de0",
                 "parameters": [
                     {
                         "name": "page",
@@ -10064,14 +10074,36 @@
                 ]
             }
         },
-        "/api/notifications/events": {
+        "/api/notifications": {
             "get": {
                 "tags": [
                     "Notifications"
                 ],
                 "summary": "Get list of events for which notifications exist",
                 "description": "Get list of events for which notifications exist",
-                "operationId": "9fb7a4e2774d876aa5a441f51f13b055",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/notifications": {
+            "get": {
+                "tags": [
+                    "Notifications"
+                ],
+                "summary": "Get list of events for which notifications exist",
+                "description": "Get list of events for which notifications exist",
+                "operationId": "b43d6463b264ec4243819b002ed8b85a",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -16095,6 +16127,53 @@
                 ]
             }
         },
+        "/api/admin/gift-quizes/{id}": {
+            "get": {
+                "tags": [
+                    "Gift Quiz"
+                ],
+                "summary": "Get gift quiz by id",
+                "operationId": "7661a85ea8314c3d780951b8554e89cb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/AdminGiftQuizResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/quiz-attempts": {
             "get": {
                 "tags": [
@@ -20575,6 +20654,31 @@
                     },
                     "order": {
                         "description": "order",
+                        "type": "number"
+                    }
+                },
+                "type": "object"
+            },
+            "AdminGiftQuizResource": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "number"
+                    },
+                    "value": {
+                        "description": "value",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "type",
+                        "type": "string"
+                    },
+                    "max_attempts": {
+                        "description": "max attempts",
+                        "type": "number"
+                    },
+                    "max_execution_time": {
+                        "description": "max execution time",
                         "type": "number"
                     }
                 },
