@@ -29,13 +29,13 @@ jobs:
           platforms: linux/amd64
           
       - name: Send webook to mattermost
-        uses: TNT-Likely/webhook-action@V0.1.0
+        uses: distributhor/workflow-webhook@v3
         env:
           verbose: true
-          webhookUrl: ${{ secrets.MATTERMOST_WEBHOOK_URL }}
+          webhook_url: ${{ secrets.MATTERMOST_WEBHOOK_URL }}
           data: '{ "text": "There is a new [escolalms/api:develop](https://hub.docker.com/r/escolalms/api/tags?page=1&name=develop) image built. k8s rollout will happen soon" }'
 
       - name: Send webook to hooks to rollout all devs on k8s 
-        uses: TNT-Likely/webhook-action@V0.1.0 
+        uses: distributhor/workflow-webhook@v3
         env:
-          webhookUrl: ${{ secrets.K8S_WEBHOOK_URL_API_DEVELOP }}
+          webhook_url: ${{ secrets.K8S_WEBHOOK_URL_API_DEVELOP }}
