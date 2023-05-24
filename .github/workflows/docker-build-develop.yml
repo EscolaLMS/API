@@ -32,7 +32,7 @@ jobs:
         uses: distributhor/workflow-webhook@v2
         env:
           webhook_url: ${{ secrets.MATTERMOST_WEBHOOK_URL }}
-          data: '{ "text": "There is a new [escolalms/api:develop] image built. k8s rollout will happen soon" }'
+          data: '{ "text": "There is a new [escolalms/api:develop](https://hub.docker.com/r/escolalms/api/tags?page=1&name=develop) image built. k8s rollout will happen soon" }'
 
       - name: Send webook to hooks to rollout all devs on k8s 
         uses: distributhor/workflow-webhook@v2
