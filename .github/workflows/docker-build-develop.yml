@@ -30,7 +30,7 @@ jobs:
           
       - name: Create the Mattermost Message
         run: |
-          echo "{\"text\":\""There is a new [escolalms/api:develop](https://hub.docker.com/r/escolalms/api/tags?page=1&name=develop) image built. k8s rollout will happen soon\"}" > mattermost.json
+          echo "{\"text\":\"There is a new [escolalms/api:develop](https://hub.docker.com/r/escolalms/api/tags?page=1&name=develop) image built. k8s rollout will happen soon\"}" > mattermost.json
       - uses: mattermost/action-mattermost-notify@master
         env:
           MATTERMOST_WEBHOOK_URL: ${{ secrets.MATTERMOST_WEBHOOK_URL }}
