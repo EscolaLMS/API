@@ -1755,6 +1755,39 @@
                 }
             }
         },
+        "/api/auth/impersonate": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "description": "User impersonate",
+                "operationId": "72147baba922afdb63fab79b0aa8f50c",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/auth/logout": {
             "post": {
                 "tags": [
@@ -2162,6 +2195,34 @@
                 "responses": {
                     "200": {
                         "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/profile": {
+            "delete": {
+                "tags": [
+                    "Profile"
+                ],
+                "description": "Delete user profile",
+                "operationId": "35a7831cdacd9b609539597fbb6c44d1",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
                         "content": {
                             "application/json": {}
                         }
@@ -4171,6 +4232,9 @@
                                         "type": "string",
                                         "example": "Dokumentacja"
                                     },
+                                    "description": {
+                                        "type": "string"
+                                    },
                                     "icon_class": {
                                         "type": "string",
                                         "example": "fa-business-time"
@@ -4280,6 +4344,9 @@
                                     "name": {
                                         "type": "string",
                                         "example": "Dokumentacja"
+                                    },
+                                    "description": {
+                                        "type": "string"
                                     },
                                     "icon_class": {
                                         "type": "string",
@@ -5876,6 +5943,44 @@
                 ]
             }
         },
+        "/api/admin/consultations/users/assignable": {
+            "get": {
+                "tags": [
+                    "Admin Consultations"
+                ],
+                "description": "Get users assignable to consultations",
+                "operationId": "e84c3e0df1aac185262a87717a08310e",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/core/packages": {
             "get": {
                 "tags": [
@@ -7376,6 +7481,16 @@
                 ],
                 "description": "Get users assignable to course",
                 "operationId": "0c7ebb30ad9948c9cc538d963624ea15",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -9858,6 +9973,166 @@
                 ]
             }
         },
+        "/api/admin/model-fields": {
+            "get": {
+                "tags": [
+                    "Model Fields"
+                ],
+                "summary": "Lists available Model extended fields",
+                "parameters": [
+                    {
+                        "name": "class_type",
+                        "in": "query",
+                        "description": "class type of which field is extended",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "pagination page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "number of items per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "order direction",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "description": "order by field",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "list of available fields",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "map of templates identified by a slug value",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "$ref": "#/components/schemas/ModelField"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Admin Model Fields"
+                ],
+                "summary": "Create or update metafile",
+                "operationId": "b3cc641d0aa6e170c915efddc077b020",
+                "requestBody": {
+                    "description": "Metadata attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Metadata"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Metadata created successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin Model Fields"
+                ],
+                "summary": "delete metafile and related values from model",
+                "operationId": "eb847cd08202a6bd19e8b9ad6c526377",
+                "requestBody": {
+                    "description": "Metadata attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Metadata"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Metadata created successfully"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "422": {
+                        "description": "one of the parameters has invalid format"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/model-fields": {
             "get": {
                 "tags": [
@@ -9900,88 +10175,6 @@
                         "description": "server-side error"
                     }
                 }
-            }
-        },
-        "/api/admin/model-fields": {
-            "post": {
-                "tags": [
-                    "Admin Model Fields"
-                ],
-                "summary": "Create or update metafile",
-                "operationId": "6211e456cb452c2381b0c50c0584b514",
-                "requestBody": {
-                    "description": "Metadata attributes",
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Metadata"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Metadata created successfully"
-                    },
-                    "401": {
-                        "description": "endpoint requires authentication"
-                    },
-                    "403": {
-                        "description": "user doesn't have required access rights"
-                    },
-                    "422": {
-                        "description": "one of the parameters has invalid format"
-                    },
-                    "500": {
-                        "description": "server-side error"
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "Admin Model Fields"
-                ],
-                "summary": "delete metafile and related values from model",
-                "operationId": "6c2d09dbdf590976fedd7055284f2517",
-                "requestBody": {
-                    "description": "Metadata attributes",
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Metadata"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Metadata created successfully"
-                    },
-                    "401": {
-                        "description": "endpoint requires authentication"
-                    },
-                    "403": {
-                        "description": "user doesn't have required access rights"
-                    },
-                    "422": {
-                        "description": "one of the parameters has invalid format"
-                    },
-                    "500": {
-                        "description": "server-side error"
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
             }
         },
         "/api/admin/notifications/all": {
@@ -10081,6 +10274,89 @@
                 ],
                 "summary": "Get list of events for which notifications exist",
                 "description": "Get list of events for which notifications exist",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "event",
+                        "in": "query",
+                        "description": "Event class filter",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "include_read",
+                        "in": "query",
+                        "description": "Include read notifications",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "date_from",
+                        "in": "query",
+                        "description": "From date filter",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "date_to",
+                        "in": "query",
+                        "description": "To date filter",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "description": "Order by",
+                        "required": false,
+                        "schema": {
+                            "enum": [
+                                "created_at",
+                                "notifiable_id",
+                                "event"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "Order",
+                        "required": false,
+                        "schema": {
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -10099,7 +10375,7 @@
         "/api/admin/notifications": {
             "get": {
                 "tags": [
-                    "Notifications"
+                    "Notifications Admin"
                 ],
                 "summary": "Get list of events for which notifications exist",
                 "description": "Get list of events for which notifications exist",
@@ -10127,6 +10403,39 @@
                 "summary": "Get list of events for which notifications exist",
                 "description": "Get list of events for which notifications exist",
                 "operationId": "1897bdfd2176566f387ddd0acdff8264",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/notifications/{notification}/read": {
+            "post": {
+                "tags": [
+                    "Notifications Admin"
+                ],
+                "summary": "Mark notification as read",
+                "description": "Mark notification as read",
+                "parameters": [
+                    {
+                        "name": "notification",
+                        "in": "path",
+                        "description": "Notification uuid / id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -10183,7 +10492,29 @@
                 ],
                 "summary": "Mark all notifications as read",
                 "description": "Mark all notifications as read",
-                "operationId": "fa5fa2e8579dc71a8d5a09c0564e3e03",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/notifications/read-all": {
+            "post": {
+                "tags": [
+                    "Notifications Admin"
+                ],
+                "summary": "Mark all notifications as read",
+                "description": "Mark all notifications as read",
+                "operationId": "c9748677ec5346b9ecbb5479c8af44f8",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -12668,6 +12999,54 @@
                             "application/json": {
                                 "schema": {}
                             }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/stats/course/{course_id}/export": {
+            "get": {
+                "tags": [
+                    "Admin Reports"
+                ],
+                "summary": "Export stat for Course",
+                "description": "",
+                "operationId": "4188cc878a626303ab1652a1c57ffa50",
+                "parameters": [
+                    {
+                        "name": "course_id",
+                        "in": "path",
+                        "description": "Course ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "stat",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
                         }
                     }
                 },
@@ -18089,6 +18468,16 @@
                 ],
                 "description": "Get users assignable to webinars",
                 "operationId": "6a40edecffd7912e1f2ca78cde4c9cd2",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -18951,6 +19340,16 @@
                     "parent_lesson_id": {
                         "description": "parent_lesson_id",
                         "type": "integer"
+                    },
+                    "active_from": {
+                        "description": "active_from",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "active_to": {
+                        "description": "active_to",
+                        "type": "string",
+                        "format": "date-time"
                     }
                 },
                 "type": "object"
@@ -20526,6 +20925,11 @@
                         "description": "order",
                         "type": "integer",
                         "example": "1"
+                    },
+                    "category_id": {
+                        "description": "category_id",
+                        "type": "integer",
+                        "example": "1"
                     }
                 },
                 "type": "object"
@@ -20655,6 +21059,10 @@
                     "order": {
                         "description": "order",
                         "type": "number"
+                    },
+                    "category_id": {
+                        "description": "category_id",
+                        "type": "integer"
                     }
                 },
                 "type": "object"
@@ -20726,6 +21134,10 @@
                     "order": {
                         "description": "order",
                         "type": "number"
+                    },
+                    "category_id": {
+                        "description": "category_id",
+                        "type": "integer"
                     },
                     "title": {
                         "description": "title",
