@@ -11,9 +11,17 @@ $dotenv->load();
 function set_env(string $key, string $prev_value, string $new_value, string $env_path)
 {
     $new_value = preg_replace('/\s+/', '', $new_value); //replace special ch
-    $key = strtoupper($key); //force upper for security
     $env = file_get_contents($env_path); //fet .env file
-    $env = str_replace("$key=" . $prev_value, "$key=" . $new_value, $env); //replace value
+    $key = strtoupper($key); //force upper for security    
+    $lines = explode("\n", $env);
+    for ($i = 0; $i < count($lines); $i++) {
+
+        if (strpos(strtoupper($lines[$i]), $key) !== false) {
+            $lines[$i] = $key . "=" . $new_value;
+        }
+    }
+
+    $env = implode("\n", $lines);
     $env = file_put_contents($env_path, $env);
 }
 
