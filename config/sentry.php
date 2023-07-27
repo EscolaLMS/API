@@ -51,6 +51,7 @@ return [
     'send_default_pii' => false,
 
     'traces_sample_rate' => (float)(env('SENTRY_TRACES_SAMPLE_RATE', 0.0)),
+    'profiles_sample_rate' => (float)(env('SENTRY_PROFILES_SAMPLE_RATE', 0.0)),
 
     'controllers_base_namespace' => env('SENTRY_CONTROLLERS_BASE_NAMESPACE', 'App\\Http\\Controllers'),
 
