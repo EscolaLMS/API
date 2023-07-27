@@ -2235,6 +2235,91 @@
                 ]
             }
         },
+        "/api/profile/delete/init": {
+            "post": {
+                "tags": [
+                    "Profile"
+                ],
+                "description": "Create user deletion request",
+                "operationId": "6efc959b0a531572e76edb7c24993226",
+                "parameters": [
+                    {
+                        "name": "return_url",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "https://escolalms.com/delete-account"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/profile/delete/{userId}/{token}": {
+            "get": {
+                "tags": [
+                    "Profile"
+                ],
+                "description": "Create user deletion request",
+                "operationId": "5b249d99aa2af98fe349cd1d4d6552c2",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/auth/register": {
             "post": {
                 "tags": [
@@ -2778,6 +2863,114 @@
                         "description": "successful operation",
                         "content": {
                             "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/orders/export": {
+            "get": {
+                "tags": [
+                    "Admin Orders"
+                ],
+                "description": "Export orders to file",
+                "operationId": "d7ff740f6b9986e8cb8908c49a099690",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "created_at",
+                                "updated_at",
+                                "user_id"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "User (buyer) ID",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "product_id",
+                        "in": "query",
+                        "description": "Product ID",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "productable_id",
+                        "in": "query",
+                        "description": "Productable ID (for example Course Id)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "productable_type",
+                        "in": "query",
+                        "description": "Productable type (class) - required if productable_id is sent",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Status (0 = PROCESSING, 1 = PAID, 2 = CANCELLED)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "description": "File format",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "csv",
+                                "xlsx",
+                                "xls"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {}
                         }
                     }
                 },
@@ -7540,6 +7733,56 @@
                 ]
             }
         },
+        "/api/courses/progress/paginated": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "description": "Get Paginated Progresses",
+                "operationId": "9c0a1e7e6f885e4ba95b00f384942333",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "title",
+                                "obtained"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/courses/progress/{course_id}": {
             "get": {
                 "tags": [
@@ -8311,6 +8554,94 @@
                         "content": {
                             "application/json": {}
                         }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/csv/groups/group_id": {
+            "get": {
+                "tags": [
+                    "Admin CSV"
+                ],
+                "description": "Exports users to csv",
+                "operationId": "a54633b0e0ef2e550825f8e61cdb1470",
+                "parameters": [
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "description": "exported file format",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/csv": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/csv/groups": {
+            "post": {
+                "tags": [
+                    "Admin CSV"
+                ],
+                "description": "Imports group from csv",
+                "operationId": "28e0a01aca9cc932349e9c1ce370e712",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "file": {
+                                        "type": "file",
+                                        "format": "file"
+                                    },
+                                    "return_url": {
+                                        "description": "Address where the new user set the password",
+                                        "type": "string",
+                                        "example": "https://escolalms.com/set-password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
                     }
                 },
                 "security": [
@@ -11004,6 +11335,131 @@
                 ]
             }
         },
+        "/api/admin/payments/export": {
+            "get": {
+                "tags": [
+                    "Admin Payments"
+                ],
+                "summary": "Export payments to file",
+                "description": "Export filtered Payments",
+                "operationId": "7bacbd0d982aabbe9f1950b9d5961c83",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "created_at",
+                                "updated_at",
+                                "status",
+                                "payable_id",
+                                "user_id",
+                                "amount",
+                                "order_id",
+                                "id"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Payment status",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "new",
+                                "paid",
+                                "cancelled"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order_id",
+                        "in": "query",
+                        "description": "External order id (e.g. from payment provider)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "payable_id",
+                        "in": "query",
+                        "description": "Id of payable (e.g. order model id)",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "payable_type",
+                        "in": "query",
+                        "description": "Full classname of payable model (eg. EscolaLms\\Cart\\Models\\Order)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "Id of user",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "date_from",
+                        "in": "query",
+                        "description": "Date from",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "date_to",
+                        "in": "query",
+                        "description": "Date to",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/payments": {
             "get": {
                 "tags": [
@@ -12797,7 +13253,7 @@
                     {
                         "name": "limit",
                         "in": "query",
-                        "description": "how many datapoints should be returned",
+                        "description": "how many datapoints should be returned. To get all datapoints set limit as -1",
                         "required": false,
                         "schema": {
                             "type": "integer"
@@ -16523,6 +16979,61 @@
                         }
                     }
                 ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/AdminGiftQuizResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Gift Quiz"
+                ],
+                "summary": "Update gift quiz by id",
+                "operationId": "80cb525db89211e95d97f5f39716df18",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AdminUpdateGiftQuizRequest"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "Successfull operation",
@@ -20975,6 +21486,26 @@
                 },
                 "type": "object"
             },
+            "AdminUpdateGiftQuizRequest": {
+                "required": [
+                    "value"
+                ],
+                "properties": {
+                    "value": {
+                        "type": "string"
+                    },
+                    "max_attempts": {
+                        "type": "integer"
+                    },
+                    "max_execution_time": {
+                        "type": "integer"
+                    },
+                    "min_pass_score": {
+                        "type": "number"
+                    }
+                },
+                "type": "object"
+            },
             "GetActiveAttemptRequest": {
                 "required": [
                     "topic_gift_quiz_id"
@@ -21088,6 +21619,17 @@
                     "max_execution_time": {
                         "description": "max execution time",
                         "type": "number"
+                    },
+                    "min_pass_score": {
+                        "description": "min pass score",
+                        "type": "number"
+                    },
+                    "questions": {
+                        "description": "questions",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GiftQuestionResource"
+                        }
                     }
                 },
                 "type": "object"
@@ -21226,6 +21768,10 @@
                     "is_ended": {
                         "description": "is_ended",
                         "type": "boolean"
+                    },
+                    "min_pass_score": {
+                        "description": "min pass score",
+                        "type": "number"
                     }
                 },
                 "type": "object"
@@ -21248,6 +21794,10 @@
                     },
                     "max_execution_time": {
                         "description": "max execution time in minutes",
+                        "type": "number"
+                    },
+                    "min_pass_score": {
+                        "description": "minimum score to pass the quiz",
                         "type": "number"
                     }
                 },
