@@ -2461,6 +2461,18 @@
                         }
                     },
                     {
+                        "name": "bookmarkable_ids[]",
+                        "in": "query",
+                        "description": "An array of bookmark IDs.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
+                        }
+                    },
+                    {
                         "name": "bookmarkable_type",
                         "in": "query",
                         "description": "Bookmarkalbe type",
@@ -2555,6 +2567,18 @@
                         "required": false,
                         "schema": {
                             "type": "number"
+                        }
+                    },
+                    {
+                        "name": "bookmarkable_ids[]",
+                        "in": "query",
+                        "description": "An array of bookmark IDs.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
                         }
                     },
                     {
@@ -5073,6 +5097,15 @@
                                 "false"
                             ]
                         }
+                    },
+                    {
+                        "name": "consultation_term_ids[]",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
                     }
                 ],
                 "responses": {
@@ -5272,6 +5305,53 @@
                                         },
                                         "data": {
                                             "$ref": "#/components/schemas/ConsultationAccessEnquiryResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/consultation-access-enquiries/{id}/join": {
+            "get": {
+                "tags": [
+                    "Consultation Access"
+                ],
+                "summary": "Get url to consultation by enquiry id",
+                "operationId": "8bfabb64e029984b20b80574d9e669b3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/JoinConsultationAccessResource"
                                         },
                                         "message": {
                                             "type": "string"
@@ -7758,6 +7838,19 @@
                             "enum": [
                                 "title",
                                 "obtained"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "planned",
+                                "started",
+                                "finished"
                             ]
                         }
                     }
@@ -12268,6 +12361,57 @@
                     "Questionnaire"
                 ],
                 "summary": "Lists available questionnaires",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "id",
+                                "created_at",
+                                "title"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "list of available questionnaires",
@@ -13373,6 +13517,52 @@
                 ]
             }
         },
+        "/api/admin/stats/topic/{topic_id}": {
+            "get": {
+                "tags": [
+                    "Admin Reports"
+                ],
+                "summary": "Calculate stats for Topic",
+                "description": "",
+                "operationId": "bddb5008532f41458247f0e24ed8fc20",
+                "parameters": [
+                    {
+                        "name": "topic_id",
+                        "in": "path",
+                        "description": "Topic ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "stats[]",
+                        "in": "query",
+                        "description": "array of stats to be calculated, leave empty to calculate all available stats",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/stats/cart": {
             "get": {
                 "tags": [
@@ -13478,6 +13668,54 @@
                         "name": "course_id",
                         "in": "path",
                         "description": "Course ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "stat",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/stats/topic/{topic_id}/export": {
+            "get": {
+                "tags": [
+                    "Admin Reports"
+                ],
+                "summary": "Export stat for Topic",
+                "description": "",
+                "operationId": "bbf8899ea97fa547d803767e321e262e",
+                "parameters": [
+                    {
+                        "name": "topic_id",
+                        "in": "path",
+                        "description": "Topic ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -14869,6 +15107,18 @@
                         }
                     },
                     {
+                        "name": "related_ids[]",
+                        "in": "query",
+                        "description": "An array of related_id",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
+                        }
+                    },
+                    {
                         "name": "due_date_from",
                         "in": "query",
                         "description": "Due date from",
@@ -15406,6 +15656,18 @@
                         "required": false,
                         "schema": {
                             "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "related_ids[]",
+                        "in": "query",
+                        "description": "An array of related_id",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
                         }
                     },
                     {
@@ -16758,9 +17020,7 @@
                                         "success": {
                                             "type": "boolean"
                                         },
-                                        "data": {
-                                            "$ref": "#/components/schemas/QuizAttemptSimpleResource"
-                                        },
+                                        "data": {},
                                         "message": {
                                             "type": "string"
                                         }
@@ -16806,9 +17066,7 @@
                                         "success": {
                                             "type": "boolean"
                                         },
-                                        "data": {
-                                            "$ref": "#/components/schemas/AdminGiftQuestionResource"
-                                        },
+                                        "data": {},
                                         "message": {
                                             "type": "string"
                                         }
@@ -16865,9 +17123,7 @@
                                         "success": {
                                             "type": "boolean"
                                         },
-                                        "data": {
-                                            "$ref": "#/components/schemas/AdminGiftQuestionResource"
-                                        },
+                                        "data": {},
                                         "message": {
                                             "type": "string"
                                         }
@@ -16962,6 +17218,99 @@
                 ]
             }
         },
+        "/api/admin/gift-questions/export": {
+            "get": {
+                "tags": [
+                    "Admin Gift Question"
+                ],
+                "summary": "Export Gift Questions",
+                "description": "Export Gift Questions",
+                "operationId": "e74c5a3189f139146d599945c9d62d3b",
+                "parameters": [
+                    {
+                        "name": "topic_gift_quiz_id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "category_ids[]",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    },
+                    {
+                        "name": "ids[]",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/gift-questions/import": {
+            "post": {
+                "tags": [
+                    "Admin Gift Question"
+                ],
+                "summary": "Import Gift Questions",
+                "description": "Import Gift Questions",
+                "operationId": "8e8833c511b1a5deb3021d8f4f4e8a80",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AdminImportGiftQuestionsRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/gift-quizes/{id}": {
             "get": {
                 "tags": [
@@ -16989,9 +17338,7 @@
                                         "success": {
                                             "type": "boolean"
                                         },
-                                        "data": {
-                                            "$ref": "#/components/schemas/AdminGiftQuizResource"
-                                        },
+                                        "data": {},
                                         "message": {
                                             "type": "string"
                                         }
@@ -17044,9 +17391,7 @@
                                         "success": {
                                             "type": "boolean"
                                         },
-                                        "data": {
-                                            "$ref": "#/components/schemas/AdminGiftQuizResource"
-                                        },
+                                        "data": {},
                                         "message": {
                                             "type": "string"
                                         }
@@ -17090,6 +17435,14 @@
                     },
                     {
                         "name": "topic_gift_quiz_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "course_id",
                         "in": "query",
                         "required": false,
                         "schema": {
@@ -17165,9 +17518,7 @@
                                         "success": {
                                             "type": "boolean"
                                         },
-                                        "data": {
-                                            "$ref": "#/components/schemas/QuizAttemptSimpleResource"
-                                        },
+                                        "data": {},
                                         "message": {
                                             "type": "string"
                                         }
@@ -17230,9 +17581,7 @@
                                         },
                                         "data": {
                                             "type": "array",
-                                            "items": {
-                                                "$ref": "#/components/schemas/QuizAttemptSimpleResource"
-                                            }
+                                            "items": {}
                                         },
                                         "message": {
                                             "type": "string"
@@ -17277,9 +17626,7 @@
                                         "success": {
                                             "type": "boolean"
                                         },
-                                        "data": {
-                                            "$ref": "#/components/schemas/QuizAttemptResource"
-                                        },
+                                        "data": {},
                                         "message": {
                                             "type": "string"
                                         }
@@ -17324,9 +17671,7 @@
                                         "success": {
                                             "type": "boolean"
                                         },
-                                        "data": {
-                                            "$ref": "#/components/schemas/QuizAttemptSimpleResource"
-                                        },
+                                        "data": {},
                                         "message": {
                                             "type": "string"
                                         }
@@ -17371,9 +17716,7 @@
                                         "success": {
                                             "type": "boolean"
                                         },
-                                        "data": {
-                                            "$ref": "#/components/schemas/QuizAttemptResource"
-                                        },
+                                        "data": {},
                                         "message": {
                                             "type": "string"
                                         }
@@ -19225,9 +19568,6 @@
                 "type": "object"
             },
             "AdminApproveConsultationAccessEnquiryRequest": {
-                "required": [
-                    "meeting_link"
-                ],
                 "properties": {
                     "meeting_link": {
                         "description": "meeting_link",
@@ -19339,6 +19679,10 @@
                     "consultation": {
                         "$ref": "#/components/schemas/ConsultationShortResource"
                     },
+                    "consultation_term_id": {
+                        "description": "consultation_term_id",
+                        "type": "integer"
+                    },
                     "user": {
                         "$ref": "#/components/schemas/ConsultationUserShortResource"
                     },
@@ -19357,9 +19701,7 @@
                     "proposed_terms": {
                         "$ref": "#/components/schemas/ConsultationAccessEnquiryProposedTermsResource"
                     },
-                    "consultation_term": {
-                        "$ref": "#/components/schemas/ConsultationTerm"
-                    },
+                    "consultation_term": {},
                     "related_type": {
                         "description": "related_type",
                         "type": "string"
@@ -19387,6 +19729,21 @@
                     },
                     "author": {
                         "$ref": "#/components/schemas/ConsultationUserShortResource"
+                    }
+                },
+                "type": "object"
+            },
+            "JoinConsultationAccessResource": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "number"
+                    },
+                    "meeting_link": {
+                        "type": "string"
+                    },
+                    "meeting_link_type": {
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -21238,6 +21595,10 @@
                         "description": "related_id",
                         "type": "integer"
                     },
+                    "related": {
+                        "description": "realted",
+                        "type": "object"
+                    },
                     "user": {
                         "$ref": "#/components/schemas/UserResource"
                     },
@@ -21320,6 +21681,10 @@
                     "related_id": {
                         "description": "related_id",
                         "type": "integer"
+                    },
+                    "related": {
+                        "description": "realted",
+                        "type": "object"
                     },
                     "user": {
                         "$ref": "#/components/schemas/UserResource"
@@ -21445,27 +21810,29 @@
                 },
                 "type": "object"
             },
+            "AdminImportGiftQuestionsRequest": {
+                "required": [
+                    "topic_gift_quiz_id",
+                    "file"
+                ],
+                "properties": {
+                    "topic_gift_quiz_id": {
+                        "description": "topic_gift_quiz_id",
+                        "type": "number"
+                    },
+                    "file": {
+                        "description": "file",
+                        "type": "file"
+                    }
+                },
+                "type": "object"
+            },
             "AdminSortGiftQuestionRequest": {
                 "properties": {
                     "orders": {
                         "description": "orders",
                         "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/AdminSortGiftQuestion"
-                        }
-                    }
-                },
-                "type": "object"
-            },
-            "AdminSortGiftQuestion": {
-                "properties": {
-                    "id": {
-                        "description": "id",
-                        "type": "integer"
-                    },
-                    "order": {
-                        "description": "order",
-                        "type": "integer"
+                        "items": {}
                     }
                 },
                 "type": "object"
@@ -21659,6 +22026,17 @@
                 },
                 "type": "object"
             },
+            "GiftCourseSimpleResource": {
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
             "GiftQuestionResource": {
                 "properties": {
                     "id": {
@@ -21772,6 +22150,33 @@
                     "min_pass_score": {
                         "description": "min pass score",
                         "type": "number"
+                    },
+                    "user": {
+                        "description": "user",
+                        "type": "object"
+                    },
+                    "course": {
+                        "description": "course",
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "GiftUserSimpleResource": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "number"
+                    },
+                    "first_name": {
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "email",
+                        "type": "string"
                     }
                 },
                 "type": "object"
