@@ -188,5 +188,6 @@
     <env name="DB_PASSWORD" value="secret" />
     <env name="CONFIG_USE_DATABASE" value="true"/>
     <env name="TELESCOPE_ENABLED" value="false"/>
+    <ini name="memory_limit" value="1024M"/>
   </php>
 </phpunit>
