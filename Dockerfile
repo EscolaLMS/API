@@ -13,7 +13,8 @@ RUN cp docker/envs/.env.postgres.prod /var/www/html/.env \
   && cp docker/conf/supervisor/scheduler.conf /etc/supervisor/custom.d/scheduler.conf \
   && cp docker/conf/supervisor/horizon.conf /etc/supervisor/custom.d/horizon.conf \
   && cp docker/conf/caddy/Caddyfile /etc/caddy/Caddyfile \
-  && cp docker/conf/php/xxx-devilbox-default-php.ini /usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini
+  && cp docker/conf/php/xxx-devilbox-default-php.ini /usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini \
+  && cp docker/conf/php/php-fpm-custom.ini /usr/local/etc/php-fpm.conf/php-fpm-custom.ini
 RUN composer self-update && composer install --no-scripts
 RUN chown -R devilbox:devilbox /var/www/
 
