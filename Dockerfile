@@ -9,13 +9,14 @@ RUN apt-get update && apt-get install caddy -y
 RUN pecl install excimer
 RUN cp docker/envs/.env.postgres.prod /var/www/html/.env \
   && cp docker/conf/supervisor/supervisord.conf /etc/supervisor/supervisord.conf \
-  && cp docker/conf/supervisor/caddy.conf /etc/supervisor/custom.d/caddy.conf \
-  && cp docker/conf/supervisor/scheduler.conf /etc/supervisor/custom.d/scheduler.conf \
-  && cp docker/conf/supervisor/horizon.conf /etc/supervisor/custom.d/horizon.conf \
+  && cp docker/conf/supervisor/services /etc/supervisor/custom.d \
+  # && cp docker/conf/supervisor/caddy.conf /etc/supervisor/custom.d/caddy.conf \
+  # && cp docker/conf/supervisor/scheduler.conf /etc/supervisor/custom.d/scheduler.conf \
+  # && cp docker/conf/supervisor/horizon.conf /etc/supervisor/custom.d/horizon.conf \
   && cp docker/conf/caddy/Caddyfile /etc/caddy/Caddyfile \
   && cp docker/conf/php/xxx-devilbox-default-php.ini /usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini \
-  && mkdir -p /etc/php-fpm-custom.d/ \
-  && cp docker/conf/php/php-fpm-custom.ini /etc/php-fpm-custom.d/php-fpm-custom.ini
+  && mkdir -p /usr/local/etc/php-fpm.d \
+  && cp docker/conf/php/php-fpm-custom.conf /usr/local/etc/php-fpm.d/php-fpm-custom.conf/php-fpm-custom.conf
 RUN composer self-update && composer install --no-scripts
 RUN chown -R devilbox:devilbox /var/www/
 
