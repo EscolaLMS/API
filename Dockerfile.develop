@@ -11,7 +11,7 @@ RUN cp docker/envs/.env.postgres.prod /var/www/html/.env \
   # general supervisord settings
   && cp docker/conf/supervisor/supervisord.conf /etc/supervisor/supervisord.conf \
   #   supervisord services 
-  && cp -r docker/conf/supervisor/services/ /etc/supervisor/custom.d \
+  && cp -r docker/conf/supervisor/services/* /etc/supervisor/custom.d/ \
   # caddy file for routing 
   && cp docker/conf/caddy/Caddyfile /etc/caddy/Caddyfile \
   # devilbox php.ini./ TODO this should be rather send to different custom file 
