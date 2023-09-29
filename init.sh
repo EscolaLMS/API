@@ -40,11 +40,46 @@ mkdir storage/logs
 
 # run all laravel related tasks 
 
-php artisan config:cache 
-php artisan key:generate --force --no-interaction
-php artisan passport:keys --force --no-interaction 
-php artisan migrate --force
-php artisan passport:client --personal --no-interaction
-php artisan db:seed --class=PermissionsSeeder --force --no-interaction
+# create keys from env base64 variables 
+if [ -n "$JWT_PUBLIC_KEY_BASE64" ]; then
+    echo "Storing public RSA key for JWT generation - storage/oauth-public.key"
+    echo ${JWT_PUBLIC_KEY_BASE64} | base64 -d > storage/oauth-public.key
+fi
+
+if [ -n "$JWT_PRIVATE_KEY_BASE64" ]; then
+    echo "Storing private RSA key for JWT generation - storage/oauth-private.key"
+    mkdir -d /var/www/config/jwt/
+    echo ${JWT_PRIVATE_KEY_BASE64} | base64 -d > storage/oauth-private.key
+fi
+
+# generate passport keys only if storage/oauth-private.key is not set
+
+FILE=storage/oauth-private.key
+if [ -f "$FILE" ]; then
+    echo "$FILE exists."     
+else 
+    echo "$FILE does not exist. Generating app keys, passport keys and passport client"
+    php artisan key:generate --force --no-interaction
+    php artisan passport:keys --force --no-interaction 
+    php artisan passport:client --personal --no-interaction
+fi
+
+# FIX me, do we nee to clear cache ? 
+#php artisan config:cache 
+
+if [ "$DISBALE_DB_MIGRATE" == 'true' ]
+then
+    echo "Disable db migrate"
+else 
+    php artisan migrate --force
+fi
+
+if [ "$DISBALE_DB_SEED" == 'true' ]
+then
+    echo "Disable db:seed"
+else 
+    php artisan db:seed --class=PermissionsSeeder --force --no-interaction
+fi
+
 php artisan storage:link --force --no-interaction
 php artisan h5p:storage-link
