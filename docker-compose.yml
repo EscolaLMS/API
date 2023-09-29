@@ -18,7 +18,7 @@ services:
       - "1001:1001"
   #      - "443:443"
   escola_lms_app:
-    image: escolalms/php:8-prod ## or escolalms/php:8-work for debugginh
+    image: escolalms/php:8.1-prod ## or escolalms/php:8-work for debugginh
     volumes:
       - ./:/var/www/html
       - ./docker/conf/php/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
@@ -28,7 +28,7 @@ services:
       - escola_lms
 
   escola_lms_queue_cron:
-    image: escolalms/php:8-prod ## or escolalms/php:8-work for debugginh
+    image: escolalms/php:8.1-prod ## or escolalms/php:8-work for debugginh
     volumes:
       - ./:/var/www/html
       - ./docker/conf/php/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
