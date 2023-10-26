@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventAPIController;
-use EscolaLms\Consultations\Enum\ConsultationTermStatusEnum;
-use EscolaLms\Consultations\Models\ConsultationUserPivot;
+use App\Http\Controllers\HealthCheckController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,3 +36,4 @@ Route::get('/seeds/consultations/{author?}/{user?}', function ($author = null, $
 });
 
 Route::get('events', [EventAPIController::class, 'index']);
+Route::get('health-check', [HealthCheckController::class, 'healthCheck']);

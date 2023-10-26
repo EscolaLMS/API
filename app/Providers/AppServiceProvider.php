@@ -6,7 +6,9 @@ use App\Repositories\Contracts\SearchableEventRepositoryContract;
 use App\Repositories\SearchableEventRepository;
 use App\Services\ConsultationService;
 use App\Services\Contracts\ConsultationServiceContract;
+use App\Services\Contracts\HealthCheckServiceContract;
 use App\Services\Contracts\SearchableEventServiceContract;
+use App\Services\HealthCheckService;
 use App\Services\SearchableEventService;
 use Illuminate\Database\SQLiteConnection;
 use Illuminate\Support\Facades\DB;
@@ -17,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
     public const SERVICES = [
         SearchableEventServiceContract::class => SearchableEventService::class,
         ConsultationServiceContract::class => ConsultationService::class,
+        HealthCheckServiceContract::class => HealthCheckService::class,
     ];
 
     public const REPOSITORIES = [
