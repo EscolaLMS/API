@@ -54,6 +54,7 @@ return [
                     base_path('vendor/escolalms/scorm/src'),
                     base_path('vendor/escolalms/settings/src'),
                     base_path('vendor/escolalms/stationary-events/src'),
+                    base_path('vendor/escolalms/recommender/src'),
                     base_path('vendor/escolalms/reports/src'),
                     base_path('vendor/escolalms/templates/src'),
                     base_path('vendor/escolalms/templates-pdf/src'),
