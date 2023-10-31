@@ -5555,11 +5555,13 @@
                         "schema": {
                             "type": "string",
                             "enum": [
-                                "finished_at",
-                                "started_at",
-                                "created_at",
+                                "id",
                                 "name",
-                                "only_with_categories"
+                                "status",
+                                "duration",
+                                "active_from",
+                                "active_to",
+                                "created_at"
                             ]
                         }
                     },
@@ -5835,11 +5837,13 @@
                         "schema": {
                             "type": "string",
                             "enum": [
-                                "finished_at",
-                                "started_at",
-                                "created_at",
+                                "id",
                                 "name",
-                                "only_with_categories"
+                                "status",
+                                "duration",
+                                "active_from",
+                                "active_to",
+                                "created_at"
                             ]
                         }
                     },
@@ -13340,6 +13344,104 @@
                         "description": "server-side error"
                     }
                 }
+            }
+        },
+        "/api/admin/recommender/course/{courseId}": {
+            "get": {
+                "tags": [
+                    "Admin Recommender"
+                ],
+                "summary": "Recommendation for completion of the course.",
+                "description": "Get recommendation for completion of the course.",
+                "operationId": "523315d1a255465a755fc83dc32e9ecf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of course",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/recommender/lesson/{lessonId}/topic": {
+            "get": {
+                "tags": [
+                    "Admin Recommender"
+                ],
+                "summary": "Recommendation of the next exercise in the lesson.",
+                "description": "Get recommendation of the next exercise in the lesson..",
+                "operationId": "6fc3b0727d74285847213bc8f7aae3cb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of lesson",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/admin/reports/metrics": {
