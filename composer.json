@@ -52,6 +52,7 @@
     "escolalms/payments": "^0",
     "escolalms/permissions": "^0",
     "escolalms/questionnaire": "^0",
+    "escolalms/recommender": "^0",
     "escolalms/reports": "^0",
     "escolalms/scorm": "^0",
     "escolalms/settings": "^0",
