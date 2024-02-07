@@ -73,6 +73,7 @@
     "escolalms/webinar": "^0",
     "fideloper/proxy": "^4.0",
     "fruitcake/laravel-cors": "^2.0",
+    "gecche/laravel-multidomain": "^4.2",
     "guzzlehttp/guzzle": "^7.3",
     "laravel/framework": "^8.0",
     "laravel/helpers": "^1.4",
