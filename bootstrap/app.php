@@ -13,7 +13,7 @@
 
 $domainParams = [
     'domain_detection_function_web' => function() {
-        return \Illuminate\Support\Arr::get($_SERVER,'HTTP_X_FORWARDED_FOR') ?? \Illuminate\Support\Arr::get($_SERVER,'HTTP_HOST');
+        return \Illuminate\Support\Arr::get($_SERVER,'HTTP_X_FORWARDED_HOST') ?? \Illuminate\Support\Arr::get($_SERVER,'HTTP_HOST');
     }
 ];
 
