@@ -92,17 +92,20 @@ if [ -n "$MULTI_DOMAINS" ]; then
     echo "$domain"
 
     # horizon
-    if [ -n "$DISBALE_HORIZON" ] && [ "$DISBALE_HORIZON" != "true" ];
+    if [ -z "$DISBALE_HORIZON" ] || [ "$DISBALE_HORIZON" != "true" ];
     then
-      cp "docker/conf/supervisor/services/horizon.conf.example" "/etc/supervisor/custom.d/horizon.$domain.conf"
-      sed "s/\$HORIZON_DOMAIN/$domain/g" "docker/conf/supervisor/services/horizon.conf.example" > "/etc/supervisor/custom.d/horizon.$domain.conf"
+      cp "docker/conf/supervisor/example/horizon.conf.example" "/etc/supervisor/custom.d/horizon.$domain.conf"
+      sed "s/\$HORIZON_DOMAIN/$domain/g" "docker/conf/supervisor/example/horizon.conf.example" > "/etc/supervisor/custom.d/horizon.$domain.conf"
+    else
+      echo "Horizon disabled"
     fi
-
     # scheduler
-    if [ -n "$DISBALE_SCHEDULER" ] && [ "$DISBALE_SCHEDULER" != "true" ];
+    if [ -z "$DISBALE_SCHEDULER" ] || [ "$DISBALE_SCHEDULER" != "true" ];
     then
-      cp "docker/conf/supervisor/services/scheduler.conf.example" "/etc/supervisor/custom.d/scheduler.$domain.conf"
-      sed "s/\$SCHEDULER_DOMAIN/$domain/g" "docker/conf/supervisor/services/scheduler.conf.example" > "/etc/supervisor/custom.d/scheduler.$domain.conf"
+      cp "docker/conf/supervisor/example/scheduler.conf.example" "/etc/supervisor/custom.d/scheduler.$domain.conf"
+      sed "s/\$SCHEDULER_DOMAIN/$domain/g" "docker/conf/supervisor/example/scheduler.conf.example" > "/etc/supervisor/custom.d/scheduler.$domain.conf"
+    else
+      echo "Schedule disabled"
     fi
 
     DOMAIN_KEY=$(echo "$domain" | tr '[:lower:]' '[:upper:]')
