@@ -146,6 +146,8 @@ if [ -n "$MULTI_DOMAINS" ]; then
       ln -s /var/www/html/storage/${STORAGE_DIRECTORY}/app/public public/storage${STORAGE_PUBLIC_NAME}
     fi
 
+    php artisan optimize:clear --domain=$domain
+
   done
 else
   echo "Environment variable MULTI_DOMAINS is empty."
