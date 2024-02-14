@@ -58,17 +58,9 @@ switch-to-postgres:
 	- cp docker/envs/.env.postgres.example .env
 	- docker compose exec --user=1000 escola_lms_app bash -c "php artisan config:cache"
 
-switch-to-mysql:
-	- cp docker/envs/.env.mysql.example .env
-	- docker compose exec --user=1000 escola_lms_app bash -c "php artisan config:cache"
-
-migrate-mysql: switch-to-mysql migrate-fresh-quick
-
 migrate-postgres: switch-to-postgres migrate-fresh-quick
 
 test-phpunit-postgres: switch-to-postgres test-phpunit
-
-test-phpunit-mysql: switch-to-mysql test-phpunit
 
 test-fresh: migrate-fresh-quick test-phpunit
 
@@ -88,6 +80,3 @@ import-postgres:
 
 init: docker-up switch-to-postgres composer-update migrate-fresh-quick
 
-init-mysql: docker-up switch-to-mysql composer-update migrate-fresh-quick
-
-init-postgres: docker-up switch-to-postgres composer-update migrate-fresh-quick
