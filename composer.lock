@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c732db03cbec7fd00d34d1c1a645199e",
+    "content-hash": "4d93a85e3f81d2e76ac92d8dbb536a02",
     "packages": [
         {
             "name": "aloha/twilio",
@@ -3280,23 +3280,23 @@
         },
         {
             "name": "escolalms/courses-import-export",
-            "version": "0.1.18",
+            "version": "0.1.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Courses-Import-Export.git",
-                "reference": "a524c3a3fc92edddd1919f8cff6498683f77c87e"
+                "reference": "4e6cd3c79b752e9e443769e3f0da10a392bb6e90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Courses-Import-Export/zipball/a524c3a3fc92edddd1919f8cff6498683f77c87e",
-                "reference": "a524c3a3fc92edddd1919f8cff6498683f77c87e",
+                "url": "https://api.github.com/repos/EscolaLMS/Courses-Import-Export/zipball/4e6cd3c79b752e9e443769e3f0da10a392bb6e90",
+                "reference": "4e6cd3c79b752e9e443769e3f0da10a392bb6e90",
                 "shasum": ""
             },
             "require": {
                 "escolalms/core": "^1",
                 "laravel/framework": ">=8.0",
                 "php": ">=7.4",
-                "zanysoft/laravel-zip": "^1.0"
+                "zanysoft/laravel-zip": "^2"
             },
             "require-dev": {
                 "escolalms/auth": "^0",
@@ -3304,7 +3304,7 @@
                 "escolalms/headless-h5p": "^0",
                 "escolalms/settings": "^0",
                 "escolalms/topic-types": "^0",
-                "orchestra/testbench": ">=5.0",
+                "orchestra/testbench": ">=7.0",
                 "phpunit/phpunit": "^9.0"
             },
             "type": "package",
@@ -3335,9 +3335,9 @@
             "description": "Escola Headless LMS Courses Import Export",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Courses-Import-Export/issues",
-                "source": "https://github.com/EscolaLMS/Courses-Import-Export/tree/0.1.18"
+                "source": "https://github.com/EscolaLMS/Courses-Import-Export/tree/0.1.21"
             },
-            "time": "2023-05-18T14:23:35+00:00"
+            "time": "2024-02-15T15:03:35+00:00"
         },
         {
             "name": "escolalms/csv-users",
@@ -16631,24 +16631,27 @@
         },
         {
             "name": "zanysoft/laravel-zip",
-            "version": "1.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zanysoft/laravel-zip.git",
-                "reference": "466663746c92154c48a2d490efc6724f9f6e9652"
+                "reference": "04ed09db8ca799e088b3af183e6de50be8346bf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zanysoft/laravel-zip/zipball/466663746c92154c48a2d490efc6724f9f6e9652",
-                "reference": "466663746c92154c48a2d490efc6724f9f6e9652",
+                "url": "https://api.github.com/repos/zanysoft/laravel-zip/zipball/04ed09db8ca799e088b3af183e6de50be8346bf4",
+                "reference": "04ed09db8ca799e088b3af183e6de50be8346bf4",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6.0"
+                "ext-zip": "*",
+                "illuminate/support": "^7.0|^8.0|^9.0|^10.0",
+                "php": ">=7.4"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.0|^5.0",
-                "scrutinizer/ocular": "^1.0"
+                "orchestra/testbench": "^6.24",
+                "phpunit/phpunit": "^9.5",
+                "scrutinizer/ocular": "^1.9"
             },
             "type": "library",
             "extra": {
@@ -16657,7 +16660,7 @@
                         "ZanySoft\\Zip\\ZipServiceProvider"
                     ],
                     "aliases": {
-                        "Zip": "ZanySoft\\Zip\\ZipFacade"
+                        "Zip": "ZanySoft\\Zip\\Facades\\Zip"
                     }
                 }
             },
@@ -16673,13 +16676,19 @@
             "authors": [
                 {
                     "name": "Zany Soft",
-                    "email": "info@zanysoft.co",
-                    "homepage": "http://www.zanysoft.co"
+                    "email": "info@zanysoft.net",
+                    "homepage": "http://www.zanysoft.net"
                 }
             ],
-            "description": "ZipArchive toolbox",
-            "homepage": "http://www.zanysoft.co",
+            "description": "laravel-zip is the world's leading zip utility for file compression and backup.",
+            "homepage": "http://www.zanysoft.net",
             "keywords": [
+                "backup",
+                "extract",
+                "laravel",
+                "laravel-zip",
+                "laravel8",
+                "laravel9",
                 "merge",
                 "multiple",
                 "unzip",
@@ -16688,9 +16697,9 @@
             ],
             "support": {
                 "issues": "https://github.com/zanysoft/laravel-zip/issues",
-                "source": "https://github.com/zanysoft/laravel-zip/tree/1.0.3"
+                "source": "https://github.com/zanysoft/laravel-zip/tree/2.0.4"
             },
-            "time": "2017-10-10T03:22:41+00:00"
+            "time": "2023-02-16T05:33:35+00:00"
         },
         {
             "name": "zircote/swagger-php",
