@@ -15,7 +15,7 @@ use EscolaLms\ModelFields\Traits\ModelFields;
 
 class Course extends \EscolaLms\Courses\Models\Course implements Productable
 {
-    use ProductableTrait, ModelFields;
+    use ProductableTrait;
 
     public function attachToUser(User $user, int $quantity = 1, ?Product $product = null): void
     {
