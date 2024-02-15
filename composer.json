@@ -19,6 +19,18 @@
       "name": "Paweł Chołaj",
       "email": "pawel.cholaj@escola.pl",
       "homepage": "https://cholaj.pl"
+    },
+    {
+      "name": "Hubert Krzysztofiak"
+    },
+    {
+      "name": "Maciej Rymarz"
+    },
+    {
+      "name": "Tomasz Smolarek"
+    },
+    {
+      "name": "Witold Wiśniewski"
     }
   ],
   "require": {
@@ -31,11 +43,11 @@
     "escolalms/cart": "^0",
     "escolalms/categories": "^0",
     "escolalms/cmi5": "^0",
-    "escolalms/consultations": "^0",
     "escolalms/consultation-access": "^0",
+    "escolalms/consultations": "^0",
     "escolalms/core": "^1",
-    "escolalms/courses": "^0",
     "escolalms/course-access": "^0",
+    "escolalms/courses": "^0",
     "escolalms/courses-import-export": "^0",
     "escolalms/csv-users": "^0",
     "escolalms/files": "^0",
@@ -44,7 +56,6 @@
     "escolalms/invoices": "^0",
     "escolalms/lrs": "^0",
     "escolalms/mailerlite": "^0",
-    "escolalms/mattermost": "^0",
     "escolalms/model-fields": "^0",
     "escolalms/notifications": "^0",
     "escolalms/pages": "^0",
@@ -62,9 +73,9 @@
     "escolalms/templates-email": "^0",
     "escolalms/templates-pdf": "^0",
     "escolalms/templates-sms": "^0",
-    "escolalms/topic-types": "^0",
     "escolalms/topic-type-gift": "^0",
     "escolalms/topic-type-project": "^0",
+    "escolalms/topic-types": "^0",
     "escolalms/tracker": "^0",
     "escolalms/translations": "^0",
     "escolalms/video": "^0",
@@ -84,14 +95,11 @@
     "staudenmeir/laravel-migration-views": "^1.0"
   },
   "require-dev": {
-    "barryvdh/laravel-ide-helper": "^2.9",
-    "beyondcode/laravel-dump-server": "^1.0",
-    "brainmaestro/composer-git-hooks": "^2.8",
     "spatie/laravel-ignition": "^1.0",
     "fakerphp/faker": "^1.9.1",
     "filp/whoops": "^2.0",
     "mockery/mockery": "^1.0",
-    "nunomaduro/collision": "^5.0",
+    "nunomaduro/collision": "^7",
     "orchestra/testbench": "^7",
     "php-mock/php-mock-phpunit": "^2.6",
     "phpunit/phpunit": "^9.0"

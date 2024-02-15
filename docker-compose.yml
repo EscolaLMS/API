@@ -41,9 +41,9 @@ services:
       - ./docker/postgres-data:/var/lib/postgresql/data
       - ./docker/postgres-backups:/var/lib/postgresql/backups
     environment:
-      - POSTGRES_DB=default
-      - POSTGRES_USER=default
-      - POSTGRES_PASSWORD=secret
+      - "POSTGRES_DB=${DB_DATABASE}"
+      - "POSTGRES_USER=${DB_USERNAME}"
+      - "POSTGRES_PASSWORD=${DB_PASSWORD}"
       - TZ=Europe/Warsaw
 
   adminer:
@@ -67,7 +67,7 @@ services:
     networks:
       - escola_lms
     image: "redis"
-    command: redis-server --requirepass escola_lms
+    command: "redis-server --requirepass ${REDIS_PASSWORD}"
 
   reportbro:
     networks:
