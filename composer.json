@@ -81,7 +81,6 @@
     "escolalms/video": "^0",
     "escolalms/vouchers": "^0",
     "escolalms/webinar": "^0",
-    "fideloper/proxy": "^4",
     "guzzlehttp/guzzle": "^7.3",
     "laravel/framework": "^9",
     "laravel/helpers": "^1.7",

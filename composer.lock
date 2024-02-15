@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f2afc918a3b3a97868a1ae67bd08b760",
+    "content-hash": "ed82bf0254fdca1a31b4c3eea1f6551c",
     "packages": [
         {
             "name": "aloha/twilio",
@@ -3692,16 +3692,16 @@
         },
         {
             "name": "escolalms/lrs",
-            "version": "0.0.12",
+            "version": "0.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/LRS.git",
-                "reference": "bcc87c403d87358232be22079f40e53aebef7224"
+                "reference": "1a7c3061ebb7cc3fff7b98b3bae150d70e911bae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/LRS/zipball/bcc87c403d87358232be22079f40e53aebef7224",
-                "reference": "bcc87c403d87358232be22079f40e53aebef7224",
+                "url": "https://api.github.com/repos/EscolaLMS/LRS/zipball/1a7c3061ebb7cc3fff7b98b3bae150d70e911bae",
+                "reference": "1a7c3061ebb7cc3fff7b98b3bae150d70e911bae",
                 "shasum": ""
             },
             "require": {
@@ -3750,9 +3750,9 @@
             "description": "Escola Learning Record Stores API.",
             "support": {
                 "issues": "https://github.com/EscolaLMS/LRS/issues",
-                "source": "https://github.com/EscolaLMS/LRS/tree/0.0.12"
+                "source": "https://github.com/EscolaLMS/LRS/tree/0.0.13"
             },
-            "time": "2022-11-21T11:11:30+00:00"
+            "time": "2024-02-15T12:11:22+00:00"
         },
         {
             "name": "escolalms/mailerlite",
@@ -5665,64 +5665,6 @@
                 "source": "https://github.com/FakerPHP/Faker/tree/v1.23.1"
             },
             "time": "2024-01-02T13:46:09+00:00"
-        },
-        {
-            "name": "fideloper/proxy",
-            "version": "4.4.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fideloper/TrustedProxy.git",
-                "reference": "a751f2bc86dd8e6cfef12dc0cbdada82f5a18750"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fideloper/TrustedProxy/zipball/a751f2bc86dd8e6cfef12dc0cbdada82f5a18750",
-                "reference": "a751f2bc86dd8e6cfef12dc0cbdada82f5a18750",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "^5.0|^6.0|^7.0|^8.0|^9.0",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "illuminate/http": "^5.0|^6.0|^7.0|^8.0|^9.0",
-                "mockery/mockery": "^1.0",
-                "phpunit/phpunit": "^8.5.8|^9.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Fideloper\\Proxy\\TrustedProxyServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Fideloper\\Proxy\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Chris Fidao",
-                    "email": "fideloper@gmail.com"
-                }
-            ],
-            "description": "Set trusted proxies for Laravel",
-            "keywords": [
-                "load balancing",
-                "proxy",
-                "trusted proxy"
-            ],
-            "support": {
-                "issues": "https://github.com/fideloper/TrustedProxy/issues",
-                "source": "https://github.com/fideloper/TrustedProxy/tree/4.4.2"
-            },
-            "time": "2022-02-09T13:33:34+00:00"
         },
         {
             "name": "firebase/php-jwt",
