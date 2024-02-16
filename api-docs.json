@@ -2495,6 +2495,143 @@
                         "passport": []
                     }
                 ]
+            },
+            "post": {
+                "tags": [
+                    "Admin Bookmarks"
+                ],
+                "summary": "Store a newly created bookmark",
+                "description": "Store Bookmark",
+                "operationId": "16ec28d92894aece17bd3cfb4a704199",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AdminBookmarkCreateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/BookmarkResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/bookmarks/{id}": {
+            "delete": {
+                "tags": [
+                    "Admin Bookmarks"
+                ],
+                "summary": "Remove the specified bookmark",
+                "description": "Delete Bookmarks",
+                "operationId": "1638f9c4e93832dc07ace946a00ee6a4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of bookmark",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Admin Bookmarks"
+                ],
+                "summary": "Update bookmark",
+                "description": "Store Bookmark",
+                "operationId": "fffe1b7324a28c7979e0258bede5c99d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of bookmark",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AdminBookmarkCreateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/BookmarkResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/api/bookmarks": {
@@ -3322,7 +3459,8 @@
                                         "type": "integer"
                                     },
                                     "tax_rate": {
-                                        "type": "float"
+                                        "type": "number",
+                                        "format": "float"
                                     },
                                     "extra_fees": {
                                         "type": "integer"
@@ -4432,63 +4570,6 @@
                         }
                     }
                 }
-            },
-            "post": {
-                "tags": [
-                    "Categories"
-                ],
-                "summary": "Category create",
-                "description": "Create single Categories",
-                "operationId": "126bfa640341a4d1a45f8377efb4fb78",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "name": {
-                                        "type": "string",
-                                        "example": "Dokumentacja"
-                                    },
-                                    "description": {
-                                        "type": "string"
-                                    },
-                                    "icon_class": {
-                                        "type": "string",
-                                        "example": "fa-business-time"
-                                    },
-                                    "is_active": {
-                                        "type": "bool",
-                                        "example": "true"
-                                    },
-                                    "parent_id": {
-                                        "type": "?integer",
-                                        "example": "null"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
             }
         },
         "/api/categories/tree": {
@@ -4514,13 +4595,13 @@
                 }
             }
         },
-        "/api/categories/{id}": {
+        "/api/admin/categories/{id}": {
             "get": {
                 "tags": [
                     "Categories"
                 ],
                 "description": "Get single Categories",
-                "operationId": "707a68073fb715968f89b631d9e3502a",
+                "operationId": "f2a5df8012f6ebea14209e3374965593",
                 "parameters": [
                     {
                         "name": "id",
@@ -4552,7 +4633,7 @@
                 ],
                 "summary": "Update category",
                 "description": "Update single Categories",
-                "operationId": "e45496b5c4599cd66361688aa03c47b5",
+                "operationId": "bc92931a63a6a92bccf421c9965031a3",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -4570,12 +4651,16 @@
                                         "example": "fa-business-time"
                                     },
                                     "is_active": {
-                                        "type": "bool",
+                                        "type": "boolean",
                                         "example": "true"
                                     },
                                     "parent_id": {
                                         "type": "?integer",
                                         "example": "null"
+                                    },
+                                    "order": {
+                                        "type": "number",
+                                        "example": "1"
                                     }
                                 },
                                 "type": "object"
@@ -4609,7 +4694,7 @@
                 ],
                 "summary": "Destroy category",
                 "description": "Destroy the specified category",
-                "operationId": "8419a959f8ee2f61ff137604d2760b76",
+                "operationId": "7867cdf249d471f8b845ae16eb6fbd51",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -4621,6 +4706,112 @@
                         "description": "Bad request",
                         "content": {
                             "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/categories": {
+            "post": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Category create",
+                "description": "Create single Categories",
+                "operationId": "64090e103b70016040d00e9b93679027",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Dokumentacja"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "icon_class": {
+                                        "type": "string",
+                                        "example": "fa-business-time"
+                                    },
+                                    "is_active": {
+                                        "type": "boolean",
+                                        "example": "true"
+                                    },
+                                    "parent_id": {
+                                        "type": "?integer",
+                                        "example": "null"
+                                    },
+                                    "order": {
+                                        "type": "number",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/categories/sort": {
+            "post": {
+                "tags": [
+                    "Categories"
+                ],
+                "operationId": "afd0b3f37dd0a964ab514da040a615bd",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AdminCategorySortRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
                         }
                     }
                 },
@@ -4738,6 +4929,7 @@
                     "cmi5"
                 ],
                 "summary": "Get a listing of the cmi5",
+                "operationId": "5a6d6b5f626943f324b76ca7c610ca4f",
                 "parameters": [
                     {
                         "name": "page",
@@ -6121,55 +6313,6 @@
                 ]
             }
         },
-        "/api/admin/consultations/change-term/{consultationTermId}": {
-            "post": {
-                "tags": [
-                    "Admin Consultations"
-                ],
-                "summary": "Change term in consultation ",
-                "description": "Change term consultation",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id of Consultation Term",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "executed_at": {
-                                        "type": "string",
-                                        "example": "New term consultation"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
         "/api/consultations/change-term/{consultationTermId}": {
             "post": {
                 "tags": [
@@ -6281,12 +6424,51 @@
                 ]
             }
         },
+        "/api/health-check": {
+            "get": {
+                "tags": [
+                    "Api"
+                ],
+                "summary": "Check health of the application",
+                "operationId": "cfb975a1bf569c2ecf8fbdfaabad45bd",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "db_status": {
+                                                "type": "string"
+                                            },
+                                            "redis_status": {
+                                                "type": "string"
+                                            },
+                                            "cpu_usage": {
+                                                "type": "string"
+                                            },
+                                            "disk": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/admin/course-access-enquiries": {
             "get": {
                 "tags": [
                     "Admin Course Access"
                 ],
                 "summary": "Get all course access enquiries",
+                "operationId": "0d5f442b3a09bd1b847789b817fe1194",
                 "parameters": [
                     {
                         "name": "page",
@@ -6457,6 +6639,7 @@
                 ],
                 "summary": "Get list of users and groups with access to the course",
                 "description": "Get list of users and groups with access to the course",
+                "operationId": "1171fb90ed3a2886721a7a96b4c1b152",
                 "parameters": [
                     {
                         "name": "id",
@@ -6687,6 +6870,7 @@
                 ],
                 "summary": "Get my course access enquiries",
                 "description": "",
+                "operationId": "20f3da9898102aa492230de41db5fdbd",
                 "parameters": [
                     {
                         "name": "page",
@@ -6928,6 +7112,7 @@
                     "Admin Courses"
                 ],
                 "description": "Course cloning",
+                "operationId": "69e06240c85e916e8c500d303b5738cb",
                 "parameters": [
                     {
                         "name": "id",
@@ -6957,164 +7142,6 @@
                         "passport": []
                     }
                 ]
-            }
-        },
-        "/api/courses": {
-            "get": {
-                "tags": [
-                    "Courses"
-                ],
-                "summary": "Get a listing of the Courses.",
-                "description": "Get all Courses",
-                "parameters": [
-                    {
-                        "name": "order_by",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "created_at",
-                                "title",
-                                "duration",
-                                "only_with_categories"
-                            ]
-                        }
-                    },
-                    {
-                        "name": "order",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "ASC",
-                                "DESC"
-                            ]
-                        }
-                    },
-                    {
-                        "name": "only_with_categories",
-                        "in": "query",
-                        "description": "Consultation has categories",
-                        "required": false,
-                        "schema": {
-                            "type": "boolean"
-                        }
-                    },
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "description": "Pagination Page Number",
-                        "required": false,
-                        "schema": {
-                            "type": "number",
-                            "default": 1
-                        }
-                    },
-                    {
-                        "name": "per_page",
-                        "in": "query",
-                        "description": "Pagination Per Page",
-                        "required": false,
-                        "schema": {
-                            "type": "number",
-                            "default": 15
-                        }
-                    },
-                    {
-                        "name": "title",
-                        "in": "query",
-                        "description": "Course title %LIKE%",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "category_id",
-                        "in": "query",
-                        "description": "Category ID. When applied all courses with given cat_id and children categories are searched. Prohibited with categories",
-                        "required": false,
-                        "schema": {
-                            "type": "number"
-                        }
-                    },
-                    {
-                        "name": "categories[]",
-                        "in": "query",
-                        "description": "An array of categories IDs. When applied all courses with given categories ids and children categories are searched. Prohibited with category_id",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "number"
-                            }
-                        }
-                    },
-                    {
-                        "name": "authors[]",
-                        "in": "query",
-                        "description": "An array of author IDs",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "number"
-                            }
-                        }
-                    },
-                    {
-                        "name": "tag",
-                        "in": "query",
-                        "description": "Tag name exactly",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "tag[]",
-                        "in": "query",
-                        "description": "An array of tags",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    {
-                        "name": "ids[]",
-                        "in": "query",
-                        "description": "An array of IDs",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "number"
-                            }
-                        }
-                    },
-                    {
-                        "name": "free",
-                        "in": "query",
-                        "description": "Will show only free courses",
-                        "required": false,
-                        "schema": {
-                            "type": "boolean"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                }
             }
         },
         "/api/admin/courses": {
@@ -7317,6 +7344,34 @@
                             "type": "number",
                             "default": 15
                         }
+                    },
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "description": "Order by column",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "created_at",
+                                "title",
+                                "id",
+                                "status"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "Order direction",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
                     }
                 ],
                 "responses": {
@@ -7334,13 +7389,14 @@
                 ]
             }
         },
-        "/api/admin/courses/{id}": {
+        "/api/courses/{id}": {
             "get": {
                 "tags": [
-                    "Admin Courses"
+                    "Courses"
                 ],
                 "summary": "Display the specified Course",
                 "description": "Get Course",
+                "operationId": "ac094110c32a7652583ef86ee8037d60",
                 "parameters": [
                     {
                         "name": "id",
@@ -7359,19 +7415,17 @@
                             "application/json": {}
                         }
                     }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            },
-            "put": {
+                }
+            }
+        },
+        "/api/courses/{id}/program": {
+            "get": {
                 "tags": [
-                    "Admin Courses"
+                    "Courses"
                 ],
-                "summary": "Update the specified Course in storage",
-                "description": "Update Course",
+                "summary": "Display the specified Course program/curriculum/syllabus. No token required when course is free",
+                "description": "Get Course",
+                "operationId": "266724e5be1f5afa88c63b86c20c28cb",
                 "parameters": [
                     {
                         "name": "id",
@@ -7383,16 +7437,6 @@
                         }
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Course"
-                            }
-                        }
-                    }
-                },
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -7406,7 +7450,43 @@
                         "passport": []
                     }
                 ]
-            },
+            }
+        },
+        "/api/courses/{id}/scorm": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "summary": "Display the specified Course scorm View to be embeede with iframe",
+                "description": "Get Course",
+                "operationId": "2e8515a1c635b3d7589e5344f49d4891",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Course",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "text/html": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/courses/{id}": {
             "post": {
                 "tags": [
                     "Admin Courses"
@@ -7472,136 +7552,6 @@
                         "description": "successful operation",
                         "content": {
                             "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/courses/{id}": {
-            "get": {
-                "tags": [
-                    "Courses"
-                ],
-                "summary": "Display the specified Course",
-                "description": "Get Course",
-                "operationId": "ac094110c32a7652583ef86ee8037d60",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id of Course",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                }
-            }
-        },
-        "/api/admin/courses/{id}/program": {
-            "get": {
-                "tags": [
-                    "Admin Courses"
-                ],
-                "summary": "Display the specified Course program/curriculum/syllabus",
-                "description": "Get Course",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id of Course",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/courses/{id}/program": {
-            "get": {
-                "tags": [
-                    "Courses"
-                ],
-                "summary": "Display the specified Course program/curriculum/syllabus. No token required when course is free",
-                "description": "Get Course",
-                "operationId": "266724e5be1f5afa88c63b86c20c28cb",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id of Course",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/courses/{id}/scorm": {
-            "get": {
-                "tags": [
-                    "Courses"
-                ],
-                "summary": "Display the specified Course scorm View to be embeede with iframe",
-                "description": "Get Course",
-                "operationId": "2e8515a1c635b3d7589e5344f49d4891",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id of Course",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "text/html": {}
                         }
                     }
                 },
@@ -8236,6 +8186,7 @@
                 ],
                 "summary": "Clone Lesson",
                 "description": "Clone Lesson with topics",
+                "operationId": "1a8aaae144f28e3921f305173373c7d5",
                 "parameters": [
                     {
                         "name": "id",
@@ -8454,6 +8405,7 @@
                 ],
                 "summary": "Clone topic",
                 "description": "Clone Topic.",
+                "operationId": "51a5c7c20061276394d197b748d12e48",
                 "parameters": [
                     {
                         "name": "id",
@@ -8487,6 +8439,7 @@
                 ],
                 "summary": "Get list of resources",
                 "description": "Get list of resources",
+                "operationId": "ac6c615ffe085614d6f57247693af029",
                 "parameters": [
                     {
                         "name": "topic_id",
@@ -8894,6 +8847,7 @@
                     "Files"
                 ],
                 "summary": "Lists files prefixed by given directory name",
+                "operationId": "d388b37a8458e50321b603c35e313407",
                 "parameters": [
                     {
                         "name": "directory",
@@ -9650,6 +9604,7 @@
                 ],
                 "summary": "Editor settings ",
                 "description": "Editor settings",
+                "operationId": "6a9a4810cf5f64ab3d86a35027116ee6",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -9712,6 +9667,7 @@
                 ],
                 "summary": "Store h5p files for h5p editor",
                 "description": "Store h5p files for h5p editor",
+                "operationId": "d4992a1180a5a9f1ad71b7ef70b9acae",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -9865,30 +9821,6 @@
                         "passport": []
                     }
                 ]
-            }
-        },
-        "/api/hh5p/libraries": {
-            "get": {
-                "tags": [
-                    "H5P"
-                ],
-                "summary": "H5P Editor Endpoint. Gets all h5p runnable libraries in the database. Called by  ",
-                "description": "Gets all h5p runnable libraries in the database. Called by H5P Editor",
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/H5PLibrary"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
             }
         },
         "/api/hh5p/libraries?": {
@@ -10407,6 +10339,7 @@
                     "Model Fields"
                 ],
                 "summary": "Lists available Model extended fields",
+                "operationId": "7f964ba0a0e9de4faa144281193178ad",
                 "parameters": [
                     {
                         "name": "class_type",
@@ -10567,6 +10500,7 @@
                     "Model Fields"
                 ],
                 "summary": "Lists available Model extended fields",
+                "operationId": "e9d1e7ecef147b0c5aa8a2f80a285d4b",
                 "parameters": [
                     {
                         "name": "class_type",
@@ -10695,111 +10629,6 @@
                 ]
             }
         },
-        "/api/notifications": {
-            "get": {
-                "tags": [
-                    "Notifications"
-                ],
-                "summary": "Get list of events for which notifications exist",
-                "description": "Get list of events for which notifications exist",
-                "parameters": [
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "description": "Pagination Page Number",
-                        "required": false,
-                        "schema": {
-                            "type": "number",
-                            "default": 1
-                        }
-                    },
-                    {
-                        "name": "per_page",
-                        "in": "query",
-                        "description": "Pagination Per Page",
-                        "required": false,
-                        "schema": {
-                            "type": "number",
-                            "default": 15
-                        }
-                    },
-                    {
-                        "name": "event",
-                        "in": "query",
-                        "description": "Event class filter",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "include_read",
-                        "in": "query",
-                        "description": "Include read notifications",
-                        "required": false,
-                        "schema": {
-                            "type": "boolean"
-                        }
-                    },
-                    {
-                        "name": "date_from",
-                        "in": "query",
-                        "description": "From date filter",
-                        "required": false,
-                        "schema": {
-                            "type": "date"
-                        }
-                    },
-                    {
-                        "name": "date_to",
-                        "in": "query",
-                        "description": "To date filter",
-                        "required": false,
-                        "schema": {
-                            "type": "date"
-                        }
-                    },
-                    {
-                        "name": "order_by",
-                        "in": "query",
-                        "description": "Order by",
-                        "required": false,
-                        "schema": {
-                            "enum": [
-                                "created_at",
-                                "notifiable_id",
-                                "event"
-                            ]
-                        }
-                    },
-                    {
-                        "name": "order",
-                        "in": "query",
-                        "description": "Order",
-                        "required": false,
-                        "schema": {
-                            "enum": [
-                                "ASC",
-                                "DESC"
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
         "/api/admin/notifications": {
             "get": {
                 "tags": [
@@ -10831,39 +10660,6 @@
                 "summary": "Get list of events for which notifications exist",
                 "description": "Get list of events for which notifications exist",
                 "operationId": "1897bdfd2176566f387ddd0acdff8264",
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/notifications/{notification}/read": {
-            "post": {
-                "tags": [
-                    "Notifications Admin"
-                ],
-                "summary": "Mark notification as read",
-                "description": "Mark notification as read",
-                "parameters": [
-                    {
-                        "name": "notification",
-                        "in": "path",
-                        "description": "Notification uuid / id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -10913,28 +10709,6 @@
                 ]
             }
         },
-        "/api/notifications/read-all": {
-            "post": {
-                "tags": [
-                    "Notifications"
-                ],
-                "summary": "Mark all notifications as read",
-                "description": "Mark all notifications as read",
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
         "/api/admin/notifications/read-all": {
             "post": {
                 "tags": [
@@ -10964,6 +10738,7 @@
                     "Pages"
                 ],
                 "summary": "Lists available pages",
+                "operationId": "798a5a94ec9603f1517a21db6223f92d",
                 "responses": {
                     "200": {
                         "description": "list of available pages",
@@ -11185,6 +10960,7 @@
                     "Pages"
                 ],
                 "summary": "Lists available pages",
+                "operationId": "dc0ee43b6f4d3067243d21f30a4a9f75",
                 "responses": {
                     "200": {
                         "description": "list of available pages",
@@ -11965,6 +11741,7 @@
                     "Question"
                 ],
                 "summary": "Lists available questions",
+                "operationId": "252796bcdd58d7f018801cc129c62de1",
                 "responses": {
                     "200": {
                         "description": "list of available questions",
@@ -12221,6 +11998,7 @@
                     "QuestionAnswersForQuestionaire"
                 ],
                 "summary": "Lists questions answers for questionaire",
+                "operationId": "ab6195379af18f4eb20f2f6e277ef997",
                 "parameters": [
                     {
                         "name": "id",
@@ -12365,6 +12143,7 @@
                     "Questionnaire"
                 ],
                 "summary": "Lists available questionnaires",
+                "operationId": "cb4a7db5bf5494209a50d32e945c6b9e",
                 "parameters": [
                     {
                         "name": "page",
@@ -12670,105 +12449,6 @@
                 ]
             }
         },
-        "/api/admin/questionnaire/report/{id}": {
-            "get": {
-                "tags": [
-                    "QuestionnaireReport"
-                ],
-                "summary": "Read a questionnaire report identified by a given id identifier",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "questionnaire identifier",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/QuestionnaireReportResource"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "endpoint requires authentication"
-                    },
-                    "403": {
-                        "description": "user doesn't have required access rights"
-                    },
-                    "500": {
-                        "description": "server-side error"
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/questionnaire/report/{id}/{model_type_id}": {
-            "get": {
-                "tags": [
-                    "QuestionnaireReportForModelType"
-                ],
-                "summary": "Read a questionnaire report identified by a given id identifier and model type",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "questionnaire identifier",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "model_type_id",
-                        "in": "path",
-                        "description": "questionnaire model type identified",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/QuestionnaireReportResource"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "endpoint requires authentication"
-                    },
-                    "403": {
-                        "description": "user doesn't have required access rights"
-                    },
-                    "500": {
-                        "description": "server-side error"
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
         "/api/admin/questionnaire/report/{id}/{model_type_id}/{model_id}": {
             "get": {
                 "tags": [
@@ -12959,6 +12639,7 @@
                     "Questionnaire"
                 ],
                 "summary": "Lists available questionnaires",
+                "operationId": "e24bed1a37f476febaae50ff1c89e260",
                 "parameters": [
                     {
                         "name": "model_type_title",
@@ -13356,7 +13037,7 @@
                 "operationId": "523315d1a255465a755fc83dc32e9ecf",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "courseId",
                         "in": "path",
                         "description": "ID of course",
                         "required": true,
@@ -13405,7 +13086,7 @@
                 "operationId": "6fc3b0727d74285847213bc8f7aae3cb",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "lessonId",
                         "in": "path",
                         "description": "ID of lesson",
                         "required": true,
@@ -14187,6 +13868,7 @@
                 ],
                 "summary": "Get admin config",
                 "description": "Get a listing of registered config keys",
+                "operationId": "54d8dbb6ec66ceac0cec0f0b5117597f",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -14430,6 +14112,7 @@
                 ],
                 "summary": "Get a listing of public config values.",
                 "description": "Get public config values",
+                "operationId": "c99c17c5f211a64b0999bffa73f25c73",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -16467,6 +16150,7 @@
                     "Templates"
                 ],
                 "summary": "Lists available templates",
+                "operationId": "8d208d96412089498e82fc3671c91098",
                 "parameters": [
                     {
                         "name": "channel",
@@ -17572,9 +17256,7 @@
                                         },
                                         "data": {
                                             "type": "array",
-                                            "items": {
-                                                "$ref": "#/components/schemas/QuizAttemptSimpleResource"
-                                            }
+                                            "items": {}
                                         },
                                         "message": {
                                             "type": "string"
@@ -19524,32 +19206,6 @@
                     "name": "Group"
                 }
             },
-            "pre-user": {
-                "required": [
-                    "email",
-                    "first_name",
-                    "last_name"
-                ],
-                "properties": {
-                    "id": {
-                        "description": "id",
-                        "type": "integer"
-                    },
-                    "email": {
-                        "description": "email",
-                        "type": "string"
-                    },
-                    "first_name": {
-                        "description": "first_name",
-                        "type": "string"
-                    },
-                    "last_name": {
-                        "description": "last_name",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
             "User": {
                 "title": "User",
                 "description": "User model",
@@ -19567,6 +19223,31 @@
                 "xml": {
                     "name": "User"
                 }
+            },
+            "AdminBookmarkCreateRequest": {
+                "required": [
+                    "bookmarkable_id",
+                    "bookmarkable_type"
+                ],
+                "properties": {
+                    "value": {
+                        "description": "value",
+                        "type": "string"
+                    },
+                    "bookmarkable_id": {
+                        "description": "bookmarkable_id",
+                        "type": "integer"
+                    },
+                    "bookmarkable_type": {
+                        "description": "bookmarkable_type",
+                        "type": "string"
+                    },
+                    "user_id": {
+                        "description": "user_id",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
             },
             "BookmarkCreateRequest": {
                 "required": [
@@ -19638,7 +19319,6 @@
                 "type": "object"
             },
             "Order": {
-                "description": "EscolaLms\\Cart\\Models\\Order",
                 "properties": {
                     "id": {
                         "description": "id",
@@ -19652,7 +19332,6 @@
                 "type": "object"
             },
             "Product": {
-                "description": "EscolaLms\\Cart\\Models\\Product",
                 "properties": {
                     "id": {
                         "description": "id",
@@ -19664,6 +19343,31 @@
                     },
                     "price": {
                         "description": "price",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "AdminCategorySortRequest": {
+                "properties": {
+                    "orders": {
+                        "description": "orders",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AdminSortCategories"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "AdminSortCategories": {
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "order": {
+                        "description": "order",
                         "type": "integer"
                     }
                 },
@@ -19875,7 +19579,8 @@
                     },
                     "date": {
                         "description": "date",
-                        "type": "datetime",
+                        "type": "string",
+                        "format": "date-time",
                         "example": "2022-04-15T04:00:00.000Z"
                     },
                     "duration": {
@@ -19952,19 +19657,23 @@
                     },
                     "active_to": {
                         "description": "active_to",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "active_from": {
                         "description": "active_from",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "created_at": {
                         "description": "created_at",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "updated_at": {
                         "description": "updated_at",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "consultation_user_id": {
                         "description": "consultation_user_id",
@@ -19992,7 +19701,8 @@
                     },
                     "executed_at": {
                         "description": "executed_at",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "categories": {
                         "description": "categories",
@@ -20008,7 +19718,7 @@
                                     "example": "fa-business-time"
                                 },
                                 "is_active": {
-                                    "type": "bool",
+                                    "type": "boolean",
                                     "example": "true"
                                 },
                                 "parent_id": {
@@ -20068,7 +19778,8 @@
                     },
                     "executed_at": {
                         "description": "executed_at",
-                        "type": "datetime",
+                        "type": "string",
+                        "format": "date-time",
                         "example": "2022-04-15T04:00:00.000Z"
                     },
                     "is_ended": {
@@ -20247,11 +19958,13 @@
                     },
                     "active_from": {
                         "description": "active_from",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "active_to": {
                         "description": "active_to",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "hours_to_complete": {
                         "description": "hours_to_complete",
@@ -20986,7 +20699,8 @@
                     },
                     "read_at": {
                         "description": "timestamp when notification was marked as read",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     }
                 },
                 "type": "object"
@@ -21405,11 +21119,13 @@
                     },
                     "started_at": {
                         "description": "started_at",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "finished_at": {
                         "description": "finished_at",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "max_participants": {
                         "description": "max_participants",
@@ -21468,11 +21184,13 @@
                     },
                     "started_at": {
                         "description": "started_at",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "finished_at": {
                         "description": "finished_at",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "max_participants": {
                         "description": "max_participants",
@@ -21541,11 +21259,13 @@
                     },
                     "started_at": {
                         "description": "started_at",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "finished_at": {
                         "description": "finished_at",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "max_participants": {
                         "description": "max_participants",
@@ -21565,11 +21285,13 @@
                     },
                     "created_at": {
                         "description": "created_at",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "updated_at": {
                         "description": "updated_at",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "status": {
                         "description": "status",
@@ -21874,7 +21596,7 @@
                     },
                     "default": {
                         "description": "this template is default template for given channel and event pair",
-                        "type": "bool"
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
@@ -22038,96 +21760,6 @@
                 },
                 "type": "object"
             },
-            "AdminGiftQuestionResource": {
-                "properties": {
-                    "id": {
-                        "description": "id",
-                        "type": "number"
-                    },
-                    "value": {
-                        "description": "value",
-                        "type": "string"
-                    },
-                    "type": {
-                        "description": "type",
-                        "type": "string"
-                    },
-                    "score": {
-                        "description": "score",
-                        "type": "number"
-                    },
-                    "order": {
-                        "description": "order",
-                        "type": "number"
-                    },
-                    "category_id": {
-                        "description": "category_id",
-                        "type": "integer"
-                    }
-                },
-                "type": "object"
-            },
-            "AdminGiftQuizResource": {
-                "properties": {
-                    "id": {
-                        "description": "id",
-                        "type": "number"
-                    },
-                    "value": {
-                        "description": "value",
-                        "type": "string"
-                    },
-                    "type": {
-                        "description": "type",
-                        "type": "string"
-                    },
-                    "max_attempts": {
-                        "description": "max attempts",
-                        "type": "number"
-                    },
-                    "max_execution_time": {
-                        "description": "max execution time",
-                        "type": "number"
-                    },
-                    "min_pass_score": {
-                        "description": "min pass score",
-                        "type": "number"
-                    },
-                    "questions": {
-                        "description": "questions",
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/GiftQuestionResource"
-                        }
-                    }
-                },
-                "type": "object"
-            },
-            "AttemptAnswerResource": {
-                "properties": {
-                    "id": {
-                        "description": "id",
-                        "type": "number"
-                    },
-                    "topic_gift_question_id": {
-                        "description": "topic_gift_question_id",
-                        "type": "number"
-                    },
-                    "answer": {
-                        "description": "answer",
-                        "type": "object"
-                    },
-                    "score": {
-                        "description": "score",
-                        "type": "number"
-                    },
-                    "feedback": {
-                        "description": "feedback",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
             "GiftCourseSimpleResource": {
                 "properties": {
                     "id": {
@@ -22135,131 +21767,6 @@
                     },
                     "title": {
                         "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "GiftQuestionResource": {
-                "properties": {
-                    "id": {
-                        "description": "id",
-                        "type": "number"
-                    },
-                    "type": {
-                        "description": "type",
-                        "type": "string"
-                    },
-                    "score": {
-                        "description": "score",
-                        "type": "number"
-                    },
-                    "order": {
-                        "description": "order",
-                        "type": "number"
-                    },
-                    "category_id": {
-                        "description": "category_id",
-                        "type": "integer"
-                    },
-                    "title": {
-                        "description": "title",
-                        "type": "string"
-                    },
-                    "question": {
-                        "description": "question",
-                        "type": "string"
-                    },
-                    "options": {
-                        "description": "options",
-                        "type": "object"
-                    }
-                },
-                "type": "object"
-            },
-            "QuizAttemptResource": {
-                "properties": {
-                    "id": {
-                        "description": "id",
-                        "type": "number"
-                    },
-                    "user_id": {
-                        "description": "user_id",
-                        "type": "number"
-                    },
-                    "topic_gift_quiz_id": {
-                        "description": "topic_gift_quiz_id",
-                        "type": "number"
-                    },
-                    "started_at": {
-                        "description": "started_at",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "end_at": {
-                        "description": "end_at",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "is_ended": {
-                        "description": "is_ended",
-                        "type": "boolean"
-                    },
-                    "questions": {
-                        "description": "questions",
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/GiftQuestionResource"
-                        }
-                    },
-                    "answers": {
-                        "description": "answers",
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/AttemptAnswerResource"
-                        }
-                    }
-                },
-                "type": "object"
-            },
-            "QuizAttemptSimpleResource": {
-                "properties": {
-                    "id": {
-                        "description": "id",
-                        "type": "number"
-                    },
-                    "user_id": {
-                        "description": "user_id",
-                        "type": "number"
-                    },
-                    "topic_gift_quiz_id": {
-                        "description": "topic_gift_quiz_id",
-                        "type": "number"
-                    },
-                    "started_at": {
-                        "description": "started_at",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "end_at": {
-                        "description": "end_at",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "is_ended": {
-                        "description": "is_ended",
-                        "type": "boolean"
-                    },
-                    "min_pass_score": {
-                        "description": "min pass score",
-                        "type": "number"
-                    },
-                    "user": {
-                        "description": "user",
-                        "type": "object"
-                    },
-                    "course": {
-                        "description": "course",
-                        "type": "object"
                     }
                 },
                 "type": "object"
@@ -22279,33 +21786,6 @@
                     "email": {
                         "description": "email",
                         "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "TopicGiftQuiz": {
-                "required": [
-                    "value"
-                ],
-                "properties": {
-                    "id": {
-                        "description": "id"
-                    },
-                    "value": {
-                        "description": "value",
-                        "type": "string"
-                    },
-                    "max_attempts": {
-                        "description": "max_attempts",
-                        "type": "number"
-                    },
-                    "max_execution_time": {
-                        "description": "max execution time in minutes",
-                        "type": "number"
-                    },
-                    "min_pass_score": {
-                        "description": "minimum score to pass the quiz",
-                        "type": "number"
                     }
                 },
                 "type": "object"
@@ -22349,28 +21829,6 @@
                     "user_id": {
                         "description": "user_id",
                         "type": "number"
-                    }
-                },
-                "type": "object"
-            },
-            "TopicProject": {
-                "required": [
-                    "value"
-                ],
-                "properties": {
-                    "id": {
-                        "description": "id"
-                    },
-                    "value": {
-                        "description": "value",
-                        "type": "string"
-                    },
-                    "notify_users": {
-                        "description": "notify_users",
-                        "type": "array",
-                        "items": {
-                            "type": "integer"
-                        }
                     }
                 },
                 "type": "object"
@@ -22435,7 +21893,6 @@
                 "type": "object"
             },
             "Coupon": {
-                "description": "EscolaLms\\Vouchers\\Models\\Coupon",
                 "required": [
                     "code",
                     "type",
@@ -22568,11 +22025,13 @@
                     },
                     "active_to": {
                         "description": "active_to",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "active_from": {
                         "description": "active_from",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "image_path": {
                         "description": "image_path",
@@ -22592,11 +22051,13 @@
                     },
                     "created_at": {
                         "description": "created_at",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "updated_at": {
                         "description": "updated_at",
-                        "type": "datetime"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "yt_url": {
                         "description": "yt_url",
@@ -22651,8 +22112,5 @@
                 "scheme": "bearer"
             }
         }
-    },
-    "security": [
-        []
-    ]
+    }
 }
