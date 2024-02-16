@@ -42,7 +42,7 @@ result.md
 
 
 storage/api-docs/api-docs.json
-composer.lock
+#composer.lock
 yarn.lock
 
 

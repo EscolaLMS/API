@@ -18,40 +18,18 @@ services:
       - "1001:1001"
   #      - "443:443"
   escola_lms_app:
-    image: escolalms/php:8.1-prod ## or escolalms/php:8-work for debugginh
+    image: escolalms/php:8.2-prod ## or escolalms/php:8-work for debugginh
     volumes:
       - ./:/var/www/html
-      - ./docker/conf/php/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
-      - ./docker/conf/php/xxx-devilbox-default-php.ini:/usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini
-      - ./docker/conf/php/php-fpm-custom.conf:/usr/local/etc/php-fpm.d/php-fpm-custom.conf
     networks:
       - escola_lms
 
   escola_lms_queue_cron:
-    image: escolalms/php:8.1-prod ## or escolalms/php:8-work for debugginh
+    image: escolalms/php:8.2-prod ## or escolalms/php:8-work for debugginh
     volumes:
       - ./:/var/www/html
-      - ./docker/conf/php/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
-      - ./docker/conf/php/xxx-devilbox-default-php.ini:/usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini
-      - ./docker/conf/supervisor/services/horizon.conf:/etc/supervisor/custom.d/horizon.conf
-      - ./docker/conf/supervisor/services/scheduler.conf:/etc/supervisor/custom.d/scheduler.conf
     networks:
       - escola_lms
-
-  mysql:
-    networks:
-      - escola_lms
-    ports:
-      - "3306:3306"
-    image: mariadb:10.5
-    volumes:
-      - ./docker/mysql-data:/var/lib/mysql
-      - ./docker/conf/mysql/mysql:/etc/mysql/conf.d
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: database
-      MYSQL_PASSWORD: password
-      MYSQL_USER: username
 
   postgres:
     image: postgres:12
@@ -63,9 +41,9 @@ services:
       - ./docker/postgres-data:/var/lib/postgresql/data
       - ./docker/postgres-backups:/var/lib/postgresql/backups
     environment:
-      - POSTGRES_DB=default
-      - POSTGRES_USER=default
-      - POSTGRES_PASSWORD=secret
+      - "POSTGRES_DB=${DB_DATABASE}"
+      - "POSTGRES_USER=${DB_USERNAME}"
+      - "POSTGRES_PASSWORD=${DB_PASSWORD}"
       - TZ=Europe/Warsaw
 
   adminer:
@@ -82,16 +60,14 @@ services:
     logging:
       driver: "none" # disable saving logs
     ports:
-      - 1025:1025 # smtp server
+      #- 1025:1025 # smtp server
       - 8025:8025 # web ui
 
   redis:
     networks:
       - escola_lms
     image: "redis"
-    command: redis-server --requirepass escola_lms
-    ports:
-      - "6379:6379"
+    command: "redis-server --requirepass ${REDIS_PASSWORD}"
 
   reportbro:
     networks:

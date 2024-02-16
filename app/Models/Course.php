@@ -10,6 +10,8 @@ use EscolaLms\Courses\Events\CourseAccessStarted;
 use EscolaLms\Courses\Events\CourseAssigned;
 use EscolaLms\Courses\Events\CourseFinished;
 use EscolaLms\Courses\Events\CourseUnassigned;
+use EscolaLms\ModelFields\Traits\ModelFields;
+
 
 class Course extends \EscolaLms\Courses\Models\Course implements Productable
 {
