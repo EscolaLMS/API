@@ -3,3 +3,4 @@
 /postgres-data
 /postgres-backups
 /pgadmin
+/minio_storage
