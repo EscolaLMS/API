@@ -2840,16 +2840,16 @@
         },
         {
             "name": "escolalms/categories",
-            "version": "0.1.41",
+            "version": "0.1.42",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Categories.git",
-                "reference": "73eeea2e869e907cad3edca5806b76d035931dde"
+                "reference": "8017477d1ed4411b64aa6770771c6ecb817915d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Categories/zipball/73eeea2e869e907cad3edca5806b76d035931dde",
-                "reference": "73eeea2e869e907cad3edca5806b76d035931dde",
+                "url": "https://api.github.com/repos/EscolaLMS/Categories/zipball/8017477d1ed4411b64aa6770771c6ecb817915d8",
+                "reference": "8017477d1ed4411b64aa6770771c6ecb817915d8",
                 "shasum": ""
             },
             "require": {
@@ -2891,9 +2891,9 @@
             "description": "Escola Headless LMS Categories",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Categories/issues",
-                "source": "https://github.com/EscolaLMS/Categories/tree/0.1.41"
+                "source": "https://github.com/EscolaLMS/Categories/tree/0.1.42"
             },
-            "time": "2024-01-30T15:04:04+00:00"
+            "time": "2024-02-16T11:54:23+00:00"
         },
         {
             "name": "escolalms/cmi5",
@@ -2959,16 +2959,16 @@
         },
         {
             "name": "escolalms/consultation-access",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Consultation-Access.git",
-                "reference": "48cdf0c59e1ad92c298b2c2cfd75ab28c0e28c6b"
+                "reference": "b74139b4c3b949d5d96846f3da37a8f8fe252b84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Consultation-Access/zipball/48cdf0c59e1ad92c298b2c2cfd75ab28c0e28c6b",
-                "reference": "48cdf0c59e1ad92c298b2c2cfd75ab28c0e28c6b",
+                "url": "https://api.github.com/repos/EscolaLMS/Consultation-Access/zipball/b74139b4c3b949d5d96846f3da37a8f8fe252b84",
+                "reference": "b74139b4c3b949d5d96846f3da37a8f8fe252b84",
                 "shasum": ""
             },
             "require": {
@@ -3014,9 +3014,9 @@
             "description": "Escola Headles LMS Consultation Access",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Consultation-Access/issues",
-                "source": "https://github.com/EscolaLMS/Consultation-Access/tree/0.1.0"
+                "source": "https://github.com/EscolaLMS/Consultation-Access/tree/0.1.1"
             },
-            "time": "2024-02-14T13:29:02+00:00"
+            "time": "2024-02-16T12:04:30+00:00"
         },
         {
             "name": "escolalms/consultations",
@@ -3149,16 +3149,16 @@
         },
         {
             "name": "escolalms/course-access",
-            "version": "0.0.10",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Course-Access.git",
-                "reference": "5b9e9bb65ef4e7fb6c956d2b69782128f60aef01"
+                "reference": "ada4a4ba6ba51318c26edd073e282233b2f98c0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Course-Access/zipball/5b9e9bb65ef4e7fb6c956d2b69782128f60aef01",
-                "reference": "5b9e9bb65ef4e7fb6c956d2b69782128f60aef01",
+                "url": "https://api.github.com/repos/EscolaLMS/Course-Access/zipball/ada4a4ba6ba51318c26edd073e282233b2f98c0e",
+                "reference": "ada4a4ba6ba51318c26edd073e282233b2f98c0e",
                 "shasum": ""
             },
             "require": {
@@ -3200,9 +3200,9 @@
             "description": "Escola Headless LMS Course Access",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Course-Access/issues",
-                "source": "https://github.com/EscolaLMS/Course-Access/tree/0.0.10"
+                "source": "https://github.com/EscolaLMS/Course-Access/tree/0.1.0"
             },
-            "time": "2023-07-11T10:28:51+00:00"
+            "time": "2024-02-16T11:53:58+00:00"
         },
         {
             "name": "escolalms/courses",
@@ -3453,16 +3453,16 @@
         },
         {
             "name": "escolalms/headless-h5p",
-            "version": "0.4.44",
+            "version": "0.4.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/H5P.git",
-                "reference": "f1552399f1391efa014ee1de645560b4f53ecae0"
+                "reference": "05252a3a03d4844b51cb89ff5aa37c80a1708831"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/H5P/zipball/f1552399f1391efa014ee1de645560b4f53ecae0",
-                "reference": "f1552399f1391efa014ee1de645560b4f53ecae0",
+                "url": "https://api.github.com/repos/EscolaLMS/H5P/zipball/05252a3a03d4844b51cb89ff5aa37c80a1708831",
+                "reference": "05252a3a03d4844b51cb89ff5aa37c80a1708831",
                 "shasum": ""
             },
             "require": {
@@ -3471,7 +3471,7 @@
                 "escolalms/settings": "^0",
                 "h5p/h5p-core": "1.24.*|dev-master",
                 "h5p/h5p-editor": "1.24.*|dev-master",
-                "laravel/framework": "^8|^9|^10",
+                "laravel/framework": ">=8.0",
                 "php": ">=7.4"
             },
             "require-dev": {
@@ -3509,9 +3509,9 @@
             "description": "Headless H5P Laravel REST API",
             "support": {
                 "issues": "https://github.com/EscolaLMS/H5P/issues",
-                "source": "https://github.com/EscolaLMS/H5P/tree/0.4.44"
+                "source": "https://github.com/EscolaLMS/H5P/tree/0.4.45"
             },
-            "time": "2024-01-19T15:34:45+00:00"
+            "time": "2024-02-16T11:53:29+00:00"
         },
         {
             "name": "escolalms/images",
@@ -4204,16 +4204,16 @@
         },
         {
             "name": "escolalms/permissions",
-            "version": "0.1.10",
+            "version": "0.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Permissions.git",
-                "reference": "7aeab585665555b7a73d91a0c7663a749f5b1cc7"
+                "reference": "e64a528c83c111f7508393124566919ea53d942d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Permissions/zipball/7aeab585665555b7a73d91a0c7663a749f5b1cc7",
-                "reference": "7aeab585665555b7a73d91a0c7663a749f5b1cc7",
+                "url": "https://api.github.com/repos/EscolaLMS/Permissions/zipball/e64a528c83c111f7508393124566919ea53d942d",
+                "reference": "e64a528c83c111f7508393124566919ea53d942d",
                 "shasum": ""
             },
             "require": {
@@ -4253,9 +4253,9 @@
             "description": "EscolaLMS Permissions REST API",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Permissions/issues",
-                "source": "https://github.com/EscolaLMS/Permissions/tree/0.1.10"
+                "source": "https://github.com/EscolaLMS/Permissions/tree/0.1.11"
             },
-            "time": "2023-04-26T12:01:50+00:00"
+            "time": "2024-02-16T11:48:37+00:00"
         },
         {
             "name": "escolalms/questionnaire",
@@ -4619,16 +4619,16 @@
         },
         {
             "name": "escolalms/tags",
-            "version": "0.1.21",
+            "version": "0.1.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Tags.git",
-                "reference": "8bcc38289a2925904001ec9c3da26baa96b14482"
+                "reference": "8dde49c276e32bf9136a09f825825e36fec26050"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Tags/zipball/8bcc38289a2925904001ec9c3da26baa96b14482",
-                "reference": "8bcc38289a2925904001ec9c3da26baa96b14482",
+                "url": "https://api.github.com/repos/EscolaLMS/Tags/zipball/8dde49c276e32bf9136a09f825825e36fec26050",
+                "reference": "8dde49c276e32bf9136a09f825825e36fec26050",
                 "shasum": ""
             },
             "require": {
@@ -4670,22 +4670,22 @@
             "description": "Escola Headless LMS Tags",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Tags/issues",
-                "source": "https://github.com/EscolaLMS/Tags/tree/0.1.21"
+                "source": "https://github.com/EscolaLMS/Tags/tree/0.1.22"
             },
-            "time": "2024-02-14T13:35:40+00:00"
+            "time": "2024-02-16T11:50:38+00:00"
         },
         {
             "name": "escolalms/tasks",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Tasks.git",
-                "reference": "77c529add649398be80cbc8827ab445dcfd2ab31"
+                "reference": "6a828065495b03c6c6faa69a1c513c328e52cdc7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Tasks/zipball/77c529add649398be80cbc8827ab445dcfd2ab31",
-                "reference": "77c529add649398be80cbc8827ab445dcfd2ab31",
+                "url": "https://api.github.com/repos/EscolaLMS/Tasks/zipball/6a828065495b03c6c6faa69a1c513c328e52cdc7",
+                "reference": "6a828065495b03c6c6faa69a1c513c328e52cdc7",
                 "shasum": ""
             },
             "require": {
@@ -4730,9 +4730,9 @@
             "description": "Escola Headless LMS Tasks",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Tasks/issues",
-                "source": "https://github.com/EscolaLMS/Tasks/tree/0.1.0"
+                "source": "https://github.com/EscolaLMS/Tasks/tree/0.1.1"
             },
-            "time": "2024-02-14T13:36:04+00:00"
+            "time": "2024-02-16T11:53:05+00:00"
         },
         {
             "name": "escolalms/templates",
@@ -5071,16 +5071,16 @@
         },
         {
             "name": "escolalms/topic-type-project",
-            "version": "0.0.8",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Topic-Type-Project.git",
-                "reference": "c654983e8b5e51d4dd9d517baebdf61ade9790aa"
+                "reference": "4c0f6dbd1038ffff9b93c8d9adc70122cd372aab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Topic-Type-Project/zipball/c654983e8b5e51d4dd9d517baebdf61ade9790aa",
-                "reference": "c654983e8b5e51d4dd9d517baebdf61ade9790aa",
+                "url": "https://api.github.com/repos/EscolaLMS/Topic-Type-Project/zipball/4c0f6dbd1038ffff9b93c8d9adc70122cd372aab",
+                "reference": "4c0f6dbd1038ffff9b93c8d9adc70122cd372aab",
                 "shasum": ""
             },
             "require": {
@@ -5124,9 +5124,9 @@
             "description": "Escola Headless LMS Topic Type Project",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Topic-Type-Project/issues",
-                "source": "https://github.com/EscolaLMS/Topic-Type-Project/tree/0.0.8"
+                "source": "https://github.com/EscolaLMS/Topic-Type-Project/tree/0.1.0"
             },
-            "time": "2024-02-14T13:21:49+00:00"
+            "time": "2024-02-16T11:52:39+00:00"
         },
         {
             "name": "escolalms/topic-types",
@@ -5257,16 +5257,16 @@
         },
         {
             "name": "escolalms/translations",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Translations.git",
-                "reference": "af1a272a63fcdfa92ca6ff2b9ec07a08e265ff50"
+                "reference": "f1fb321bc36de0d12a1afed7d53aadeaaa8cecb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Translations/zipball/af1a272a63fcdfa92ca6ff2b9ec07a08e265ff50",
-                "reference": "af1a272a63fcdfa92ca6ff2b9ec07a08e265ff50",
+                "url": "https://api.github.com/repos/EscolaLMS/Translations/zipball/f1fb321bc36de0d12a1afed7d53aadeaaa8cecb4",
+                "reference": "f1fb321bc36de0d12a1afed7d53aadeaaa8cecb4",
                 "shasum": ""
             },
             "require": {
@@ -5309,9 +5309,9 @@
             "description": "Escola Headless LMS Translations",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Translations/issues",
-                "source": "https://github.com/EscolaLMS/Translations/tree/0.1.0"
+                "source": "https://github.com/EscolaLMS/Translations/tree/0.1.1"
             },
-            "time": "2024-02-15T20:11:33+00:00"
+            "time": "2024-02-16T11:52:05+00:00"
         },
         {
             "name": "escolalms/video",
@@ -7555,16 +7555,16 @@
         },
         {
             "name": "laravel/socialite",
-            "version": "v5.12.0",
+            "version": "v5.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "ffeeb2cdf723b4c88b25479968e2d3a61a83dbe5"
+                "reference": "7dae1b072573809f32ab6dcf4aebb57c8b3e8acf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/ffeeb2cdf723b4c88b25479968e2d3a61a83dbe5",
-                "reference": "ffeeb2cdf723b4c88b25479968e2d3a61a83dbe5",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/7dae1b072573809f32ab6dcf4aebb57c8b3e8acf",
+                "reference": "7dae1b072573809f32ab6dcf4aebb57c8b3e8acf",
                 "shasum": ""
             },
             "require": {
@@ -7621,7 +7621,7 @@
                 "issues": "https://github.com/laravel/socialite/issues",
                 "source": "https://github.com/laravel/socialite"
             },
-            "time": "2024-02-11T18:29:55+00:00"
+            "time": "2024-02-16T08:58:20+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -13370,16 +13370,16 @@
         },
         {
             "name": "swagger-api/swagger-ui",
-            "version": "v5.11.6",
+            "version": "v5.11.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swagger-api/swagger-ui.git",
-                "reference": "5b3a80c19155d09871538eb34b6fe4c28cd09ab6"
+                "reference": "a93ce4ed7d1e3e42d9140625f9996e55a7c82d3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/5b3a80c19155d09871538eb34b6fe4c28cd09ab6",
-                "reference": "5b3a80c19155d09871538eb34b6fe4c28cd09ab6",
+                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/a93ce4ed7d1e3e42d9140625f9996e55a7c82d3c",
+                "reference": "a93ce4ed7d1e3e42d9140625f9996e55a7c82d3c",
                 "shasum": ""
             },
             "type": "library",
@@ -13425,9 +13425,9 @@
             ],
             "support": {
                 "issues": "https://github.com/swagger-api/swagger-ui/issues",
-                "source": "https://github.com/swagger-api/swagger-ui/tree/v5.11.6"
+                "source": "https://github.com/swagger-api/swagger-ui/tree/v5.11.7"
             },
-            "time": "2024-02-15T10:36:53+00:00"
+            "time": "2024-02-16T09:37:18+00:00"
         },
         {
             "name": "symfony/cache",
@@ -18378,21 +18378,21 @@
         },
         {
             "name": "rector/rector",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "362258a1f6369fc88d02d469a5478d220f78b0e6"
+                "reference": "258b775511e62a7188f8ce114d44acaf244d9a7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/362258a1f6369fc88d02d469a5478d220f78b0e6",
-                "reference": "362258a1f6369fc88d02d469a5478d220f78b0e6",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/258b775511e62a7188f8ce114d44acaf244d9a7d",
+                "reference": "258b775511e62a7188f8ce114d44acaf244d9a7d",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2|^8.0",
-                "phpstan/phpstan": "^1.10.56"
+                "phpstan/phpstan": "^1.10.57"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -18422,7 +18422,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/1.0.0"
+                "source": "https://github.com/rectorphp/rector/tree/1.0.1"
             },
             "funding": [
                 {
@@ -18430,7 +18430,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-02-06T13:38:07+00:00"
+            "time": "2024-02-16T07:53:23+00:00"
         },
         {
             "name": "sebastian/cli-parser",
