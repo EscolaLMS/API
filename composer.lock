@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "34e4fa472e8c472a105b89938be4308b",
+    "content-hash": "7f360ec551953d82991c897559cbc3fd",
     "packages": [
         {
             "name": "aloha/twilio",
@@ -5860,71 +5860,6 @@
                 }
             ],
             "time": "2023-10-12T05:21:21+00:00"
-        },
-        {
-            "name": "gecche/laravel-multidomain",
-            "version": "v5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/gecche/laravel-multidomain.git",
-                "reference": "0a1654b85a00ce88120797d8043934ee252ea6c0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/gecche/laravel-multidomain/zipball/0a1654b85a00ce88120797d8043934ee252ea6c0",
-                "reference": "0a1654b85a00ce88120797d8043934ee252ea6c0",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "^9.0"
-            },
-            "require-dev": {
-                "limedeck/phpunit-detailed-printer": "^6.0",
-                "mockery/mockery": "^1.4.4",
-                "orchestra/testbench": "7.x-dev",
-                "orchestra/testbench-browser-kit": "^7.0",
-                "phpunit/phpunit": "^9.5.8"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Gecche\\Multidomain\\Foundation\\Providers\\DomainConsoleServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/Foundation/helpers.php"
-                ],
-                "psr-4": {
-                    "Gecche\\Multidomain\\": "src/"
-                },
-                "classmap": []
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Giacomo Terreni",
-                    "email": "giacomo.terreni@gmail.com"
-                }
-            ],
-            "description": "Laravel App on a subdomains, multi-tenancy setting",
-            "keywords": [
-                "laravel",
-                "multi-tenants",
-                "multidomain",
-                "multitenancy",
-                "subdomains"
-            ],
-            "support": {
-                "issues": "https://github.com/gecche/laravel-multidomain/issues",
-                "source": "https://github.com/gecche/laravel-multidomain/tree/v5.0"
-            },
-            "time": "2022-02-08T18:09:48+00:00"
         },
         {
             "name": "gnello/laravel-mattermost-driver",
