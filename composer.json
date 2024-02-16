@@ -82,6 +82,7 @@
     "escolalms/video": "^0",
     "escolalms/vouchers": "^0",
     "escolalms/webinar": "^0",
+    "gecche/laravel-multidomain": "^5.0",
     "guzzlehttp/guzzle": "^7.4.5",
     "laravel/framework": "^9",
     "laravel/helpers": "^1.7",
