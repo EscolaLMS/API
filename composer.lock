@@ -2959,16 +2959,16 @@
         },
         {
             "name": "escolalms/consultation-access",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Consultation-Access.git",
-                "reference": "48cdf0c59e1ad92c298b2c2cfd75ab28c0e28c6b"
+                "reference": "b74139b4c3b949d5d96846f3da37a8f8fe252b84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Consultation-Access/zipball/48cdf0c59e1ad92c298b2c2cfd75ab28c0e28c6b",
-                "reference": "48cdf0c59e1ad92c298b2c2cfd75ab28c0e28c6b",
+                "url": "https://api.github.com/repos/EscolaLMS/Consultation-Access/zipball/b74139b4c3b949d5d96846f3da37a8f8fe252b84",
+                "reference": "b74139b4c3b949d5d96846f3da37a8f8fe252b84",
                 "shasum": ""
             },
             "require": {
@@ -3014,9 +3014,9 @@
             "description": "Escola Headles LMS Consultation Access",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Consultation-Access/issues",
-                "source": "https://github.com/EscolaLMS/Consultation-Access/tree/0.1.0"
+                "source": "https://github.com/EscolaLMS/Consultation-Access/tree/0.1.1"
             },
-            "time": "2024-02-14T13:29:02+00:00"
+            "time": "2024-02-16T12:04:30+00:00"
         },
         {
             "name": "escolalms/consultations",
