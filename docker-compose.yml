@@ -73,3 +73,22 @@ services:
     networks:
       - escola_lms
     image: escolalms/reportbro-server:latest
+
+  minio:
+    image: bitnami/minio
+    networks:
+      - escola_lms
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - ./docker/minio_storage:/data
+      - ./docker/conf/minio:/docker-entrypoint-initdb.d
+    environment:
+      MINIO_DEFAULT_BUCKETS: "${AWS_BUCKET}:download"
+      MINIO_ROOT_USER: ${AWS_ACCESS_KEY_ID}
+      MINIO_ROOT_PASSWORD: ${AWS_SECRET_ACCESS_KEY}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_BUCKET: ${AWS_BUCKET}
+      AWS_ENDPOINT: ${AWS_ENDPOINT}
