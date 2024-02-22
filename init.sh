@@ -144,6 +144,7 @@ if [ -n "$MULTI_DOMAINS" ]; then
     STORAGE_PUBLIC_NAME=${!STORAGE_PUBLIC_KEY}
     if [ -n "$STORAGE_PUBLIC_NAME" ]; then
       ln -s /var/www/html/storage/${STORAGE_DIRECTORY}/app/public public/storage${STORAGE_PUBLIC_NAME}
+      ln -s /var/www/html/storage/${STORAGE_DIRECTORY}/app/h5p public/h5p${STORAGE_PUBLIC_NAME}
     fi
 
     php artisan optimize:clear --domain=$domain
