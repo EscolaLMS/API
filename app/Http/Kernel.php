@@ -4,7 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\ForceJsonResponse;
 use App\Http\Middleware\ManualRoutesAuthorization;
-use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Gecche\Multidomain\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
