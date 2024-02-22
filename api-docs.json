@@ -4608,7 +4608,7 @@
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "integer"
                         }
                     }
                 ],
@@ -4634,6 +4634,16 @@
                 "summary": "Update category",
                 "description": "Update single Categories",
                 "operationId": "bc92931a63a6a92bccf421c9965031a3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -4695,6 +4705,16 @@
                 "summary": "Destroy category",
                 "description": "Destroy the specified category",
                 "operationId": "7867cdf249d471f8b845ae16eb6fbd51",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
