@@ -74,6 +74,7 @@ return [
                     base_path('vendor/escolalms/bookmarks_notes/src'),
                     base_path('vendor/escolalms/topic-type-project/src'),
                     base_path('vendor/escolalms/topic-type-gift/src'),
+                    base_path('vendor/escolalms/bulk-notifications/src'),
                 ],
             ],
         ],
