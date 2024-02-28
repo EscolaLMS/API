@@ -2880,6 +2880,153 @@
                 ]
             }
         },
+        "/api/admin/bulk-notifications/send": {
+            "post": {
+                "tags": [
+                    "Admin Bulk Notifications"
+                ],
+                "summary": "Store a newly notification",
+                "description": "Store Bulk Notification",
+                "operationId": "b1372a51384331ca5f6e346b8f50c91d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SendBulkNotificationRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/BulkNotificationResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/bulk-notifications": {
+            "get": {
+                "tags": [
+                    "Admin Bulk Notifications"
+                ],
+                "summary": "Get a listing of the bulk notifications",
+                "description": "Get all Bulk Notifications",
+                "operationId": "8eb36ec7e26438fce99ff375431d1a86",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "channel",
+                        "in": "query",
+                        "description": "Bulk notification channel [EscolaLms\\BulkNotifications\\Channels\\PushNotificationChannel]",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/notifications/tokens": {
+            "post": {
+                "tags": [
+                    "Notification Device Tokens"
+                ],
+                "summary": "Store a newly notification device token",
+                "description": "Store Notification Device Token",
+                "operationId": "f853452ff60526c091b4666e2e147925",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateDeviceTokenRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/orders": {
             "get": {
                 "tags": [
@@ -19333,6 +19480,109 @@
                     },
                     "last_name": {
                         "description": "last_name",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "CreateDeviceTokenRequest": {
+                "required": [
+                    "token"
+                ],
+                "properties": {
+                    "token": {
+                        "description": "token",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "SendBulkNotificationRequest": {
+                "required": [
+                    "channel",
+                    "sections",
+                    "user_ids"
+                ],
+                "properties": {
+                    "channel": {
+                        "description": "channel",
+                        "type": "string"
+                    },
+                    "sections": {
+                        "description": "sections",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "title": {
+                                    "type": "string"
+                                },
+                                "body": {
+                                    "type": "string"
+                                },
+                                "image_url": {
+                                    "type": "string"
+                                },
+                                "redirect_url": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "user_ids": {
+                        "description": "user_ids",
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "BulkNotificationResource": {
+                "required": [
+                    "id",
+                    "channel",
+                    "sections"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "channel": {
+                        "description": "channel",
+                        "type": "string"
+                    },
+                    "sections": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BulkNotificationSectionResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "BulkNotificationSectionResource": {
+                "required": [
+                    "id",
+                    "key",
+                    "value"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "key": {
+                        "description": "key",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "value",
                         "type": "string"
                     }
                 },
