@@ -204,5 +204,16 @@ return [
                 'balanceCooldown' => 3,
             ],
         ],
+
+        'stage' => [
+            'supervisor-1' => [
+                'maxProcesses' => 3,
+            ],
+            'supervisor-long-job' => [
+                'connection' => 'redis-long-job',
+                'queue' => ['queue-long-job'],
+                'maxProcesses' => 1,
+            ],
+        ],
     ],
 ];

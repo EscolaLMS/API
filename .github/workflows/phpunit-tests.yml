@@ -1,10 +1,10 @@
 on: push
 name: Integration Tests
 jobs:
-  phpunit-mysql:
+  phpunit-mysql-php81:
     runs-on: ubuntu-latest
     container:
-      image: escolalms/php:8-work
+      image: escolalms/php:8.1-work
 
     services:
       mysql:
@@ -31,57 +31,7 @@ jobs:
         run: |
           apt-get install unzip -y
           composer self-update
-          composer install --no-scripts
-
-      - name: Prepare Laravel Application
-        run: |
-          php artisan key:generate
-          php artisan migrate:fresh
-          php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
-          php artisan passport:keys --force
-          php artisan passport:client --personal --no-interaction
-          cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
-          cp storage/oauth-public.key vendor/orchestra/testbench-core/laravel/storage/oauth-public.key
-          mkdir vendor/escolalms/lrs/src/../../storage/
-          cp storage/*.key vendor/escolalms/lrs/src/../../storage/
-
-      - name: Special Migrations for Tests
-        run: php artisan migrate --path=vendor/escolalms/courses/tests/Database/Migrations
-
-      - name: Run Testsuite
-        run: vendor/bin/phpunit
-
-  phpunit-postgres:
-    runs-on: ubuntu-latest
-    container:
-      image: escolalms/php:8-work
-
-    services:
-      postgres:
-        image: postgres:12
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: test
-          TZ: Europe/Warsaw
-        ports:
-          - 5432:5432
-
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
-
-      - name: Copy environment configuration files
-        run: |
-          cp docker/envs/.env.ci.postgres .env
-          cp docker/envs/phpunit.xml.postgres phpunit.xml
-
-      - name: Install composer dependencies
-        run: |
-          apt-get -y install git
-          apt-get install unzip
-          composer self-update
+          rm composer.lock # lock is for php >=8.2
           composer install --no-scripts
 
       - name: Prepare Laravel Application
@@ -132,8 +82,8 @@ jobs:
         run: |
           apt-get install git unzip -y
           composer self-update
+          rm composer.lock # lock is for php >=8.2
           composer install --no-scripts
-
 
       - name: Prepare Laravel Application
         run: |
@@ -184,7 +134,6 @@ jobs:
           apt-get install git unzip -y
           composer self-update
           composer install --no-scripts
-
 
       - name: Prepare Laravel Application
         run: |

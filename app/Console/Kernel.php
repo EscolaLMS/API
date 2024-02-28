@@ -7,7 +7,7 @@ use EscolaLms\Consultations\Jobs\ReminderAboutConsultationJob;
 use EscolaLms\Webinar\Enum\WebinarTermReminderStatusEnum;
 use EscolaLms\Webinar\Jobs\ReminderAboutWebinarJob;
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Gecche\Multidomain\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {

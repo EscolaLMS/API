@@ -1,6 +1,6 @@
-[program:laravel-horizon]
+[program:laravel-horizon-$HORIZON_DOMAIN]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/www/html/artisan horizon --domain=default
+command=php /var/www/html/artisan horizon --domain=$HORIZON_DOMAIN
 user=devilbox
 autostart=true
 autorestart=true
@@ -8,4 +8,3 @@ numprocs=1
 redirect_stderr=true
 stopwaitsecs=3600
 logfile=/etc/supervisor/conf.d/horizon.log
-
