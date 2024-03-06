@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "52a07f42d86069a34c7e2070de5db82e",
+    "content-hash": "85711a60f95c47bceda26330dfc9c864",
     "packages": [
         {
             "name": "aloha/twilio",
@@ -136,16 +136,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.300.9",
+            "version": "3.300.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "2704b9b10b42d53066eb383f47541124296db77c"
+                "reference": "b1c05a5d3cb429aa5d9ffa69066ce46e3d7aca52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2704b9b10b42d53066eb383f47541124296db77c",
-                "reference": "2704b9b10b42d53066eb383f47541124296db77c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b1c05a5d3cb429aa5d9ffa69066ce46e3d7aca52",
+                "reference": "b1c05a5d3cb429aa5d9ffa69066ce46e3d7aca52",
                 "shasum": ""
             },
             "require": {
@@ -225,9 +225,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.300.9"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.300.11"
             },
-            "time": "2024-03-01T19:04:32+00:00"
+            "time": "2024-03-05T19:08:14+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -3394,16 +3394,16 @@
         },
         {
             "name": "escolalms/courses",
-            "version": "0.4.32",
+            "version": "0.4.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Courses.git",
-                "reference": "0371a781b3977f779214c03226b6dce91af3dc0b"
+                "reference": "bc01c5dbf5cc712a31345748942d69f790051e1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Courses/zipball/0371a781b3977f779214c03226b6dce91af3dc0b",
-                "reference": "0371a781b3977f779214c03226b6dce91af3dc0b",
+                "url": "https://api.github.com/repos/EscolaLMS/Courses/zipball/bc01c5dbf5cc712a31345748942d69f790051e1e",
+                "reference": "bc01c5dbf5cc712a31345748942d69f790051e1e",
                 "shasum": ""
             },
             "require": {
@@ -3462,9 +3462,9 @@
             "description": "Escola Headless LMS Courses",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Courses/issues",
-                "source": "https://github.com/EscolaLMS/Courses/tree/0.4.32"
+                "source": "https://github.com/EscolaLMS/Courses/tree/0.4.33"
             },
-            "time": "2024-01-23T13:30:25+00:00"
+            "time": "2024-03-05T15:02:41+00:00"
         },
         {
             "name": "escolalms/courses-import-export",
@@ -3586,10 +3586,16 @@
         {
             "name": "escolalms/dictionaries",
             "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EscolaLMS/Dictionaries.git",
+                "reference": "6c2414542f3db1f01662e43dc75b0fe5e3d549bd"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/dictionaries",
-                "reference": "d398fcf60fb05420d521cd9c4a406dc63931e112"
+                "type": "zip",
+                "url": "https://api.github.com/repos/EscolaLMS/Dictionaries/zipball/6c2414542f3db1f01662e43dc75b0fe5e3d549bd",
+                "reference": "6c2414542f3db1f01662e43dc75b0fe5e3d549bd",
+                "shasum": ""
             },
             "require": {
                 "escolalms/auth": "^0",
@@ -3615,10 +3621,11 @@
                 "psr-4": {
                     "EscolaLms\\Dictionaries\\": "src",
                     "EscolaLms\\Dictionaries\\Tests\\": "tests",
-                    "EscolaLms\\Dictionaries\\Database\\Factories\\": "database/factories",
-                    "EscolaLms\\Dictionaries\\Database\\Seeders\\": "database/seeders"
+                    "EscolaLms\\Dictionaries\\Database\\Seeders\\": "database/seeders",
+                    "EscolaLms\\Dictionaries\\Database\\Factories\\": "database/factories"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3629,9 +3636,11 @@
                 }
             ],
             "description": "Escola Headless LMS dictionaries package",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/EscolaLMS/Dictionaries/issues",
+                "source": "https://github.com/EscolaLMS/Dictionaries/tree/0.0.1"
+            },
+            "time": "2024-03-06T10:22:33+00:00"
         },
         {
             "name": "escolalms/files",
@@ -8433,16 +8442,16 @@
         },
         {
             "name": "laravel/passport",
-            "version": "v11.10.5",
+            "version": "v11.10.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/passport.git",
-                "reference": "4d81207941d6efc198857847d9e4c17520f28d75"
+                "reference": "2642f360c51dfde3a6ea60f86ae5d9a8c0caf3cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/passport/zipball/4d81207941d6efc198857847d9e4c17520f28d75",
-                "reference": "4d81207941d6efc198857847d9e4c17520f28d75",
+                "url": "https://api.github.com/repos/laravel/passport/zipball/2642f360c51dfde3a6ea60f86ae5d9a8c0caf3cf",
+                "reference": "2642f360c51dfde3a6ea60f86ae5d9a8c0caf3cf",
                 "shasum": ""
             },
             "require": {
@@ -8507,7 +8516,7 @@
                 "issues": "https://github.com/laravel/passport/issues",
                 "source": "https://github.com/laravel/passport"
             },
-            "time": "2024-02-09T16:27:49+00:00"
+            "time": "2024-03-01T11:11:18+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -10769,16 +10778,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.0.1",
+            "version": "v5.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "2218c2252c874a4624ab2f613d86ac32d227bc69"
+                "reference": "139676794dc1e9231bf7bcd123cfc0c99182cb13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/2218c2252c874a4624ab2f613d86ac32d227bc69",
-                "reference": "2218c2252c874a4624ab2f613d86ac32d227bc69",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/139676794dc1e9231bf7bcd123cfc0c99182cb13",
+                "reference": "139676794dc1e9231bf7bcd123cfc0c99182cb13",
                 "shasum": ""
             },
             "require": {
@@ -10821,9 +10830,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.0.1"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.0.2"
             },
-            "time": "2024-02-21T19:24:10+00:00"
+            "time": "2024-03-05T20:51:40+00:00"
         },
         {
             "name": "nunomaduro/termwind",
@@ -13859,16 +13868,16 @@
         },
         {
             "name": "smalot/pdfparser",
-            "version": "v2.8.0",
+            "version": "v2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smalot/pdfparser.git",
-                "reference": "268a620b96523eb4244c42931885024c8db8dae1"
+                "reference": "6b53144fcb24af77093d4150dd7d0dd571f25761"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smalot/pdfparser/zipball/268a620b96523eb4244c42931885024c8db8dae1",
-                "reference": "268a620b96523eb4244c42931885024c8db8dae1",
+                "url": "https://api.github.com/repos/smalot/pdfparser/zipball/6b53144fcb24af77093d4150dd7d0dd571f25761",
+                "reference": "6b53144fcb24af77093d4150dd7d0dd571f25761",
                 "shasum": ""
             },
             "require": {
@@ -13904,9 +13913,9 @@
             ],
             "support": {
                 "issues": "https://github.com/smalot/pdfparser/issues",
-                "source": "https://github.com/smalot/pdfparser/tree/v2.8.0"
+                "source": "https://github.com/smalot/pdfparser/tree/v2.9.0"
             },
-            "time": "2023-12-01T11:13:56+00:00"
+            "time": "2024-03-01T09:51:10+00:00"
         },
         {
             "name": "spatie/image-optimizer",
@@ -15342,16 +15351,16 @@
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v6.4.4",
+            "version": "v6.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "7a186f64a7f02787c04e8476538624d6aa888e42"
+                "reference": "f6947cb939d8efee137797382cb4db1af653ef75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/7a186f64a7f02787c04e8476538624d6aa888e42",
-                "reference": "7a186f64a7f02787c04e8476538624d6aa888e42",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/f6947cb939d8efee137797382cb4db1af653ef75",
+                "reference": "f6947cb939d8efee137797382cb4db1af653ef75",
                 "shasum": ""
             },
             "require": {
@@ -15435,7 +15444,7 @@
             "description": "Provides a structured process for converting a Request into a Response",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-kernel/tree/v6.4.4"
+                "source": "https://github.com/symfony/http-kernel/tree/v6.4.5"
             },
             "funding": [
                 {
@@ -15451,7 +15460,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-27T06:32:13+00:00"
+            "time": "2024-03-04T21:00:47+00:00"
         },
         {
             "name": "symfony/mailer",
@@ -16550,16 +16559,16 @@
         },
         {
             "name": "symfony/routing",
-            "version": "v6.4.3",
+            "version": "v6.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "3b2957ad54902f0f544df83e3d58b38d7e8e5842"
+                "reference": "7fe30068e207d9c31c0138501ab40358eb2d49a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/3b2957ad54902f0f544df83e3d58b38d7e8e5842",
-                "reference": "3b2957ad54902f0f544df83e3d58b38d7e8e5842",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/7fe30068e207d9c31c0138501ab40358eb2d49a4",
+                "reference": "7fe30068e207d9c31c0138501ab40358eb2d49a4",
                 "shasum": ""
             },
             "require": {
@@ -16613,7 +16622,7 @@
                 "url"
             ],
             "support": {
-                "source": "https://github.com/symfony/routing/tree/v6.4.3"
+                "source": "https://github.com/symfony/routing/tree/v6.4.5"
             },
             "funding": [
                 {
@@ -16629,7 +16638,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-30T13:55:02+00:00"
+            "time": "2024-02-27T12:33:30+00:00"
         },
         {
             "name": "symfony/service-contracts",
