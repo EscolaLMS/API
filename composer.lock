@@ -3585,16 +3585,16 @@
         },
         {
             "name": "escolalms/dictionaries",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Dictionaries.git",
-                "reference": "6c2414542f3db1f01662e43dc75b0fe5e3d549bd"
+                "reference": "abff18c45fa12bca44fdfcc110ebdf64e1bd5aba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Dictionaries/zipball/6c2414542f3db1f01662e43dc75b0fe5e3d549bd",
-                "reference": "6c2414542f3db1f01662e43dc75b0fe5e3d549bd",
+                "url": "https://api.github.com/repos/EscolaLMS/Dictionaries/zipball/abff18c45fa12bca44fdfcc110ebdf64e1bd5aba",
+                "reference": "abff18c45fa12bca44fdfcc110ebdf64e1bd5aba",
                 "shasum": ""
             },
             "require": {
@@ -3638,9 +3638,9 @@
             "description": "Escola Headless LMS dictionaries package",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Dictionaries/issues",
-                "source": "https://github.com/EscolaLMS/Dictionaries/tree/0.0.1"
+                "source": "https://github.com/EscolaLMS/Dictionaries/tree/0.0.2"
             },
-            "time": "2024-03-06T10:22:33+00:00"
+            "time": "2024-03-06T10:43:55+00:00"
         },
         {
             "name": "escolalms/files",
