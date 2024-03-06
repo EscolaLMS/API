@@ -75,6 +75,7 @@ return [
                     base_path('vendor/escolalms/topic-type-project/src'),
                     base_path('vendor/escolalms/topic-type-gift/src'),
                     base_path('vendor/escolalms/bulk-notifications/src'),
+                    base_path('vendor/escolalms/dictionaries/src'),
                 ],
             ],
         ],

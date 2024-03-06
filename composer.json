@@ -51,6 +51,7 @@
     "escolalms/courses": "^0",
     "escolalms/courses-import-export": "^0.1.21",
     "escolalms/csv-users": "^0",
+    "escolalms/dictionaries": "^0",
     "escolalms/files": "^0",
     "escolalms/headless-h5p": "^0",
     "escolalms/images": "^0",
