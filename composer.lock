@@ -5133,16 +5133,16 @@
         },
         {
             "name": "escolalms/templates-pdf",
-            "version": "0.1.23",
+            "version": "0.1.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Templates-PDF.git",
-                "reference": "a097a12903766304e26051b86347ffcebba49a8c"
+                "reference": "1e1a8cde95f34274ee9a473652acc54ef06ba5f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Templates-PDF/zipball/a097a12903766304e26051b86347ffcebba49a8c",
-                "reference": "a097a12903766304e26051b86347ffcebba49a8c",
+                "url": "https://api.github.com/repos/EscolaLMS/Templates-PDF/zipball/1e1a8cde95f34274ee9a473652acc54ef06ba5f8",
+                "reference": "1e1a8cde95f34274ee9a473652acc54ef06ba5f8",
                 "shasum": ""
             },
             "require": {
@@ -5194,9 +5194,9 @@
             "description": "Escola Headless LMS Templates for pdf",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Templates-PDF/issues",
-                "source": "https://github.com/EscolaLMS/Templates-PDF/tree/0.1.23"
+                "source": "https://github.com/EscolaLMS/Templates-PDF/tree/0.1.24"
             },
-            "time": "2024-03-01T08:15:07+00:00"
+            "time": "2024-03-06T13:35:41+00:00"
         },
         {
             "name": "escolalms/templates-sms",
