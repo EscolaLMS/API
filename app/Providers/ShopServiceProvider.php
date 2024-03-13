@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Consultation;
 use App\Models\Course;
+use App\Models\Dictionary;
 use App\Models\StationaryEvent;
 use App\Models\Webinar;
 use EscolaLms\Cart\Facades\Shop;
@@ -14,6 +15,7 @@ use EscolaLms\Consultations\Http\Resources\ConsultationSimpleResource;
 use EscolaLms\Consultations\Http\Resources\ConsultationTermsResource;
 use EscolaLms\Courses\Http\Resources\CourseListResource;
 use EscolaLms\Courses\Http\Resources\CourseSimpleResource;
+use EscolaLms\Dictionaries\Http\Resources\DictionaryResource;
 use EscolaLms\StationaryEvents\Http\Resources\StationaryEventResource;
 use EscolaLms\Webinar\Http\Resources\WebinarSimpleResource;
 use Illuminate\Contracts\Container\BindingResolutionException;
@@ -81,6 +83,14 @@ class ShopServiceProvider extends ServiceProvider
             fn ($element) =>
             $this->registerProductToResource(
                 StationaryEvent::class,
+                $element
+            )
+        );
+        Shop::registerProductableClass(Dictionary::class);
+        DictionaryResource::extend(
+            fn ($element) =>
+            $this->registerProductToResource(
+                Dictionary::class,
                 $element
             )
         );
