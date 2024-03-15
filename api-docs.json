@@ -4169,79 +4169,6 @@
                 ]
             }
         },
-        "/api/cart/pay": {
-            "post": {
-                "tags": [
-                    "Cart"
-                ],
-                "description": "Pay for cart",
-                "operationId": "a9183308a576feb0f769f81a32d6cb21",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/json": {
-                            "schema": {
-                                "required": [
-                                    "paymentMethodId"
-                                ],
-                                "properties": {
-                                    "paymentMethodId": {
-                                        "type": "string"
-                                    },
-                                    "client_name": {
-                                        "type": "string"
-                                    },
-                                    "client_email": {
-                                        "type": "string"
-                                    },
-                                    "client_street": {
-                                        "type": "string"
-                                    },
-                                    "client_street_number": {
-                                        "type": "string"
-                                    },
-                                    "client_postal": {
-                                        "type": "string"
-                                    },
-                                    "client_city": {
-                                        "type": "string"
-                                    },
-                                    "client_country": {
-                                        "type": "string"
-                                    },
-                                    "client_company": {
-                                        "type": "string"
-                                    },
-                                    "client_taxid": {
-                                        "type": "string"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "422": {
-                        "description": "Bad request",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
         "/api/cart/products": {
             "post": {
                 "tags": [
@@ -4574,6 +4501,163 @@
                 ]
             }
         },
+        "/api/cart/pay": {
+            "post": {
+                "tags": [
+                    "Cart"
+                ],
+                "description": "Pay for cart",
+                "operationId": "79d7207c50194f55faba9294beeecf28",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/json": {
+                            "schema": {
+                                "required": [
+                                    "paymentMethodId"
+                                ],
+                                "properties": {
+                                    "paymentMethodId": {
+                                        "type": "string"
+                                    },
+                                    "client_name": {
+                                        "type": "string"
+                                    },
+                                    "client_email": {
+                                        "type": "string"
+                                    },
+                                    "client_street": {
+                                        "type": "string"
+                                    },
+                                    "client_street_number": {
+                                        "type": "string"
+                                    },
+                                    "client_postal": {
+                                        "type": "string"
+                                    },
+                                    "client_city": {
+                                        "type": "string"
+                                    },
+                                    "client_country": {
+                                        "type": "string"
+                                    },
+                                    "client_company": {
+                                        "type": "string"
+                                    },
+                                    "client_taxid": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/product/{id}/pay": {
+            "post": {
+                "tags": [
+                    "Cart"
+                ],
+                "description": "Pay for single product",
+                "operationId": "de5660a45c9b0ea5522549db3186c56d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Product id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/json": {
+                            "schema": {
+                                "required": [
+                                    "paymentMethodId"
+                                ],
+                                "properties": {
+                                    "paymentMethodId": {
+                                        "type": "string"
+                                    },
+                                    "client_name": {
+                                        "type": "string"
+                                    },
+                                    "client_email": {
+                                        "type": "string"
+                                    },
+                                    "client_street": {
+                                        "type": "string"
+                                    },
+                                    "client_street_number": {
+                                        "type": "string"
+                                    },
+                                    "client_postal": {
+                                        "type": "string"
+                                    },
+                                    "client_city": {
+                                        "type": "string"
+                                    },
+                                    "client_country": {
+                                        "type": "string"
+                                    },
+                                    "client_company": {
+                                        "type": "string"
+                                    },
+                                    "client_taxid": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/products": {
             "get": {
                 "tags": [
@@ -4706,6 +4790,108 @@
                 ]
             }
         },
+        "/api/products/my": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "description": "Search my products",
+                "operationId": "e3c5162627f88068651d860e10d3e5ca",
+                "parameters": [
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "created_at",
+                                "updated_at",
+                                "id"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination Page Number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Pagination Per Page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Type (`single`, `bundle`, `subscription`, `subscription-all-in`)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/MyProductResource"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/products/{id}": {
             "get": {
                 "tags": [
@@ -4723,6 +4909,56 @@
                         }
                     }
                 ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/productables/attach": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "description": "Attach productable to user",
+                "operationId": "911389dbe4c7018f2e1de9280c7e7dc6",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/json": {
+                            "schema": {
+                                "required": [
+                                    "productable_id",
+                                    "productable_type"
+                                ],
+                                "properties": {
+                                    "productable_id": {
+                                        "type": "integer"
+                                    },
+                                    "productable_type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -20615,6 +20851,44 @@
                     "value": {
                         "description": "value",
                         "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "MyProductResource": {
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "is_active": {
+                        "type": "boolean"
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "productables": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "productable_class": {
+                                    "type": "string"
+                                },
+                                "productable_id": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
                     }
                 },
                 "type": "object"
