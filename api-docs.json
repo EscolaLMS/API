@@ -10028,6 +10028,50 @@
                 ]
             }
         },
+        "/api/admin/dictionary-words/import": {
+            "post": {
+                "tags": [
+                    "Admin Dictionary Words"
+                ],
+                "summary": "Import dictionary words from file",
+                "operationId": "2d54b0ab7495d0bf98051637c32dcf15",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ImportDictionaryWordRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/dictionaries/{slug}/words": {
             "get": {
                 "tags": [
@@ -10047,7 +10091,16 @@
                     {
                         "name": "word",
                         "in": "query",
-                        "description": "word %LIKE%",
+                        "description": "word %ILIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "word_start",
+                        "in": "query",
+                        "description": "word ILIKE%",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -10166,7 +10219,16 @@
                     {
                         "name": "word",
                         "in": "query",
-                        "description": "word %LIKE%",
+                        "description": "word %ILIKE%",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "word_start",
+                        "in": "query",
+                        "description": "word ILIKE%",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -21329,6 +21391,10 @@
                             },
                             "type": "object"
                         }
+                    },
+                    "max_session_students": {
+                        "description": "max_session_students",
+                        "type": "integer"
                     }
                 },
                 "type": "object"
@@ -21782,6 +21848,21 @@
                         "items": {
                             "type": "integer"
                         }
+                    }
+                },
+                "type": "object"
+            },
+            "ImportDictionaryWordRequest": {
+                "required": [
+                    "dictionary_id",
+                    "file"
+                ],
+                "properties": {
+                    "dictionary_id": {
+                        "type": "integer"
+                    },
+                    "file": {
+                        "type": "file"
                     }
                 },
                 "type": "object"
