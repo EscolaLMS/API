@@ -33,4 +33,9 @@ class Course extends \EscolaLms\Courses\Models\Course implements Productable
         event(new CourseUnassigned($user, $this));
         event(new CourseFinished($user, $this));
     }
+
+    public static function getMorphClassStatic(): string
+    {
+        return parent::class;
+    }
 }
