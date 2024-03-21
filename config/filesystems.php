@@ -65,7 +65,7 @@ return [
         ],
 
         's3' => [
-            'root' => '/storage' . env('APP_PUBLIC_STORAGE'),
+            'root' => 'storage' . env('APP_PUBLIC_STORAGE'),
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
