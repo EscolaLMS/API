@@ -133,7 +133,7 @@ jobs:
         run: |
           apt-get install git unzip -y
           composer self-update
-          composer install --no-scripts
+          composer update --no-scripts
 
       - name: Prepare Laravel Application
         run: |
