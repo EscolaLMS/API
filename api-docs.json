@@ -4930,6 +4930,44 @@
                 ]
             }
         },
+        "/api/products/cancel/{id}": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "description": "Cancel recursive product",
+                "operationId": "92c68047371f73f506f2cd7c0b4cd13c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/productables/attach": {
             "post": {
                 "tags": [
@@ -7299,6 +7337,19 @@
                 "summary": "Get my course list IDs",
                 "description": "Get my course list IDs",
                 "operationId": "d40d46827fbc09a5da7d1825a0bfb4f8",
+                "parameters": [
+                    {
+                        "name": "active",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "enum": [
+                                0,
+                                1
+                            ]
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
