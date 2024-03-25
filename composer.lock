@@ -136,16 +136,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.300.16",
+            "version": "3.301.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "d6afaeaa0c0e2c3be5f5223f72c0b5e2b2667b67"
+                "reference": "434f13d3bdb0230bfb247cf77a7ecfaa8b83aa97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d6afaeaa0c0e2c3be5f5223f72c0b5e2b2667b67",
-                "reference": "d6afaeaa0c0e2c3be5f5223f72c0b5e2b2667b67",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/434f13d3bdb0230bfb247cf77a7ecfaa8b83aa97",
+                "reference": "434f13d3bdb0230bfb247cf77a7ecfaa8b83aa97",
                 "shasum": ""
             },
             "require": {
@@ -225,22 +225,22 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.300.16"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.301.5"
             },
-            "time": "2024-03-12T18:04:55+00:00"
+            "time": "2024-03-21T18:06:56+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-dompdf.git",
-                "reference": "c8b8a8490e5f7348cf99054821fb248f103e7d24"
+                "reference": "cb37868365f9b937039d316727a1fced1e87b31c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-dompdf/zipball/c8b8a8490e5f7348cf99054821fb248f103e7d24",
-                "reference": "c8b8a8490e5f7348cf99054821fb248f103e7d24",
+                "url": "https://api.github.com/repos/barryvdh/laravel-dompdf/zipball/cb37868365f9b937039d316727a1fced1e87b31c",
+                "reference": "cb37868365f9b937039d316727a1fced1e87b31c",
                 "shasum": ""
             },
             "require": {
@@ -292,7 +292,7 @@
             ],
             "support": {
                 "issues": "https://github.com/barryvdh/laravel-dompdf/issues",
-                "source": "https://github.com/barryvdh/laravel-dompdf/tree/v2.1.0"
+                "source": "https://github.com/barryvdh/laravel-dompdf/tree/v2.1.1"
             },
             "funding": [
                 {
@@ -304,28 +304,28 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-04T08:18:20+00:00"
+            "time": "2024-03-15T12:48:39+00:00"
         },
         {
             "name": "bensampo/laravel-enum",
-            "version": "v6.10.0",
+            "version": "v6.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BenSampo/laravel-enum.git",
-                "reference": "00217d6ff1d70428193ca8e2fba51aad13b7efe9"
+                "reference": "0f82b99bbbe12fe38071edf4a9f9063419334de4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BenSampo/laravel-enum/zipball/00217d6ff1d70428193ca8e2fba51aad13b7efe9",
-                "reference": "00217d6ff1d70428193ca8e2fba51aad13b7efe9",
+                "url": "https://api.github.com/repos/BenSampo/laravel-enum/zipball/0f82b99bbbe12fe38071edf4a9f9063419334de4",
+                "reference": "0f82b99bbbe12fe38071edf4a9f9063419334de4",
                 "shasum": ""
             },
             "require": {
                 "composer/class-map-generator": "^1",
-                "illuminate/contracts": "^9 || ^10",
-                "illuminate/support": "^9 || ^10",
+                "illuminate/contracts": "^9 || ^10 || ^11",
+                "illuminate/support": "^9 || ^10 || ^11",
                 "laminas/laminas-code": "^3.4 || ^4",
-                "nikic/php-parser": "^4.13 || ^5",
+                "nikic/php-parser": "^4.13.2 || ^5",
                 "php": "^8"
             },
             "require-dev": {
@@ -334,14 +334,14 @@
                 "larastan/larastan": "^2.6.3",
                 "mll-lab/php-cs-fixer-config": "^5.4",
                 "mockery/mockery": "^1.5",
-                "orchestra/testbench": "^7.6.1 || ^8",
+                "orchestra/testbench": "^7.6.1 || ^8 || ^9",
                 "phpstan/extension-installer": "^1",
                 "phpstan/phpstan": "^1.8.2",
                 "phpstan/phpstan-mockery": "^1.1",
                 "phpstan/phpstan-phpunit": "^1.1.1",
                 "phpunit/phpunit": "^9.5.21 || ^10 || ^11",
-                "rector/rector": "^0.19",
-                "symplify/rule-doc-generator": "^11 || ^12"
+                "rector/rector": "^1",
+                "symplify/rule-doc-generator": "^11 || ^12 || ^13"
             },
             "type": "library",
             "extra": {
@@ -388,7 +388,7 @@
             ],
             "support": {
                 "issues": "https://github.com/BenSampo/laravel-enum/issues",
-                "source": "https://github.com/BenSampo/laravel-enum/tree/v6.10.0"
+                "source": "https://github.com/BenSampo/laravel-enum/tree/v6.11.0"
             },
             "funding": [
                 {
@@ -396,7 +396,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-02-14T14:12:51+00:00"
+            "time": "2024-03-19T21:53:15+00:00"
         },
         {
             "name": "beste/clock",
@@ -717,28 +717,28 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.4.1",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "3ce240142f6d59b808dd65c1f52f7a1c252e6cfd"
+                "reference": "0c5ccfcfea312b5c5a190a21ac5cef93f74baf99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/3ce240142f6d59b808dd65c1f52f7a1c252e6cfd",
-                "reference": "3ce240142f6d59b808dd65c1f52f7a1c252e6cfd",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/0c5ccfcfea312b5c5a190a21ac5cef93f74baf99",
+                "reference": "0c5ccfcfea312b5c5a190a21ac5cef93f74baf99",
                 "shasum": ""
             },
             "require": {
                 "ext-openssl": "*",
                 "ext-pcre": "*",
-                "php": "^5.3.2 || ^7.0 || ^8.0"
+                "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.12.55",
+                "phpstan/phpstan": "^1.10",
                 "psr/log": "^1.0",
                 "symfony/phpunit-bridge": "^4.2 || ^5",
-                "symfony/process": "^2.5 || ^3.0 || ^4.0 || ^5.0 || ^6.0 || ^7.0"
+                "symfony/process": "^4.0 || ^5.0 || ^6.0 || ^7.0"
             },
             "type": "library",
             "extra": {
@@ -773,7 +773,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/ca-bundle/issues",
-                "source": "https://github.com/composer/ca-bundle/tree/1.4.1"
+                "source": "https://github.com/composer/ca-bundle/tree/1.5.0"
             },
             "funding": [
                 {
@@ -789,20 +789,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-23T10:16:52+00:00"
+            "time": "2024-03-15T14:00:32+00:00"
         },
         {
             "name": "composer/class-map-generator",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/class-map-generator.git",
-                "reference": "953cc4ea32e0c31f2185549c7d216d7921f03da9"
+                "reference": "8286a62d243312ed99b3eee20d5005c961adb311"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/class-map-generator/zipball/953cc4ea32e0c31f2185549c7d216d7921f03da9",
-                "reference": "953cc4ea32e0c31f2185549c7d216d7921f03da9",
+                "url": "https://api.github.com/repos/composer/class-map-generator/zipball/8286a62d243312ed99b3eee20d5005c961adb311",
+                "reference": "8286a62d243312ed99b3eee20d5005c961adb311",
                 "shasum": ""
             },
             "require": {
@@ -846,7 +846,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/class-map-generator/issues",
-                "source": "https://github.com/composer/class-map-generator/tree/1.1.0"
+                "source": "https://github.com/composer/class-map-generator/tree/1.1.1"
             },
             "funding": [
                 {
@@ -862,7 +862,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-06-30T13:58:57+00:00"
+            "time": "2024-03-15T12:53:41+00:00"
         },
         {
             "name": "composer/composer",
@@ -1049,16 +1049,16 @@
         },
         {
             "name": "composer/pcre",
-            "version": "3.1.2",
+            "version": "3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/pcre.git",
-                "reference": "4775f35b2d70865807c89d32c8e7385b86eb0ace"
+                "reference": "5b16e25a5355f1f3afdfc2f954a0a80aec4826a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/pcre/zipball/4775f35b2d70865807c89d32c8e7385b86eb0ace",
-                "reference": "4775f35b2d70865807c89d32c8e7385b86eb0ace",
+                "url": "https://api.github.com/repos/composer/pcre/zipball/5b16e25a5355f1f3afdfc2f954a0a80aec4826a8",
+                "reference": "5b16e25a5355f1f3afdfc2f954a0a80aec4826a8",
                 "shasum": ""
             },
             "require": {
@@ -1100,7 +1100,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/pcre/issues",
-                "source": "https://github.com/composer/pcre/tree/3.1.2"
+                "source": "https://github.com/composer/pcre/tree/3.1.3"
             },
             "funding": [
                 {
@@ -1116,7 +1116,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-07T15:38:35+00:00"
+            "time": "2024-03-19T10:26:25+00:00"
         },
         {
             "name": "composer/semver",
@@ -1347,22 +1347,22 @@
         },
         {
             "name": "darkaonline/l5-swagger",
-            "version": "8.5.2",
+            "version": "8.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DarkaOnLine/L5-Swagger.git",
-                "reference": "2558ac430be2f825436267e6774bd407eab95372"
+                "reference": "76ce7aa61ac61c0a495c98ba2bc0b886ac4b6eaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DarkaOnLine/L5-Swagger/zipball/2558ac430be2f825436267e6774bd407eab95372",
-                "reference": "2558ac430be2f825436267e6774bd407eab95372",
+                "url": "https://api.github.com/repos/DarkaOnLine/L5-Swagger/zipball/76ce7aa61ac61c0a495c98ba2bc0b886ac4b6eaa",
+                "reference": "76ce7aa61ac61c0a495c98ba2bc0b886ac4b6eaa",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "^1.0 || ^2.0",
                 "ext-json": "*",
-                "laravel/framework": "^10.0 || ^9.0 || >=8.40.0 || ^7.0",
+                "laravel/framework": "^11.0 || ^10.0 || ^9.0 || >=8.40.0 || ^7.0",
                 "php": "^7.2 || ^8.0",
                 "swagger-api/swagger-ui": "^3.0 || >=4.1.3",
                 "symfony/yaml": "^5.0 || ^6.0 || ^7.0",
@@ -1370,9 +1370,9 @@
             },
             "require-dev": {
                 "mockery/mockery": "1.*",
-                "orchestra/testbench": "^8.0 || 7.* || ^6.15 || 5.*",
+                "orchestra/testbench": "^9.0 || ^8.0 || 7.* || ^6.15 || 5.*",
                 "php-coveralls/php-coveralls": "^2.0",
-                "phpunit/phpunit": "^10.0 || ^9.5"
+                "phpunit/phpunit": "^11.0 || ^10.0 || ^9.5"
             },
             "type": "library",
             "extra": {
@@ -1415,7 +1415,7 @@
             ],
             "support": {
                 "issues": "https://github.com/DarkaOnLine/L5-Swagger/issues",
-                "source": "https://github.com/DarkaOnLine/L5-Swagger/tree/8.5.2"
+                "source": "https://github.com/DarkaOnLine/L5-Swagger/tree/8.6.0"
             },
             "funding": [
                 {
@@ -1423,7 +1423,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-12-12T09:53:16+00:00"
+            "time": "2024-03-13T14:06:52+00:00"
         },
         {
             "name": "davidbadura/faker-markdown-generator",
@@ -2752,16 +2752,16 @@
         },
         {
             "name": "escolalms/auth",
-            "version": "0.2.35",
+            "version": "0.2.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Auth.git",
-                "reference": "4ffdfd8f47de39425dc24977a294e544c0c1564f"
+                "reference": "6d2479494694a19fceb88837d119e3b337731969"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Auth/zipball/4ffdfd8f47de39425dc24977a294e544c0c1564f",
-                "reference": "4ffdfd8f47de39425dc24977a294e544c0c1564f",
+                "url": "https://api.github.com/repos/EscolaLMS/Auth/zipball/6d2479494694a19fceb88837d119e3b337731969",
+                "reference": "6d2479494694a19fceb88837d119e3b337731969",
                 "shasum": ""
             },
             "require": {
@@ -2822,9 +2822,9 @@
             "description": "Escola Headless LMS Authorization",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Auth/issues",
-                "source": "https://github.com/EscolaLMS/Auth/tree/0.2.35"
+                "source": "https://github.com/EscolaLMS/Auth/tree/0.2.36"
             },
-            "time": "2023-10-31T12:11:47+00:00"
+            "time": "2024-03-18T14:41:06+00:00"
         },
         {
             "name": "escolalms/bookmarks_notes",
@@ -2888,16 +2888,16 @@
         },
         {
             "name": "escolalms/bulk-notifications",
-            "version": "0.0.5",
+            "version": "0.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Bulk-Notifications.git",
-                "reference": "df8d4c03155346e92eb9dd090c034924f32d351b"
+                "reference": "2ad27cd7d3ae1232e296b2ca041f06dd2bdccd29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Bulk-Notifications/zipball/df8d4c03155346e92eb9dd090c034924f32d351b",
-                "reference": "df8d4c03155346e92eb9dd090c034924f32d351b",
+                "url": "https://api.github.com/repos/EscolaLMS/Bulk-Notifications/zipball/2ad27cd7d3ae1232e296b2ca041f06dd2bdccd29",
+                "reference": "2ad27cd7d3ae1232e296b2ca041f06dd2bdccd29",
                 "shasum": ""
             },
             "require": {
@@ -2943,22 +2943,22 @@
             "description": "Escola Headless LMS Bulk Notifications",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Bulk-Notifications/issues",
-                "source": "https://github.com/EscolaLMS/Bulk-Notifications/tree/0.0.5"
+                "source": "https://github.com/EscolaLMS/Bulk-Notifications/tree/0.0.7"
             },
-            "time": "2024-03-08T11:52:08+00:00"
+            "time": "2024-03-22T09:36:02+00:00"
         },
         {
             "name": "escolalms/cart",
-            "version": "0.4.72",
+            "version": "0.4.77",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Cart.git",
-                "reference": "5881546a46254e6b0b16b34acf534613f4a3e733"
+                "reference": "f5e4ddab18591f5e63e52f87259dca448848192b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Cart/zipball/5881546a46254e6b0b16b34acf534613f4a3e733",
-                "reference": "5881546a46254e6b0b16b34acf534613f4a3e733",
+                "url": "https://api.github.com/repos/EscolaLMS/Cart/zipball/f5e4ddab18591f5e63e52f87259dca448848192b",
+                "reference": "f5e4ddab18591f5e63e52f87259dca448848192b",
                 "shasum": ""
             },
             "require": {
@@ -3023,9 +3023,9 @@
             "description": "Escola Headless LMS Cart",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Cart/issues",
-                "source": "https://github.com/EscolaLMS/Cart/tree/0.4.72"
+                "source": "https://github.com/EscolaLMS/Cart/tree/0.4.77"
             },
-            "time": "2024-02-15T13:54:59+00:00"
+            "time": "2024-03-22T11:41:16+00:00"
         },
         {
             "name": "escolalms/categories",
@@ -3148,16 +3148,16 @@
         },
         {
             "name": "escolalms/consultation-access",
-            "version": "0.1.1",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Consultation-Access.git",
-                "reference": "b74139b4c3b949d5d96846f3da37a8f8fe252b84"
+                "reference": "1001c70f782cfc9a2366e1d642d077c7eba08020"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Consultation-Access/zipball/b74139b4c3b949d5d96846f3da37a8f8fe252b84",
-                "reference": "b74139b4c3b949d5d96846f3da37a8f8fe252b84",
+                "url": "https://api.github.com/repos/EscolaLMS/Consultation-Access/zipball/1001c70f782cfc9a2366e1d642d077c7eba08020",
+                "reference": "1001c70f782cfc9a2366e1d642d077c7eba08020",
                 "shasum": ""
             },
             "require": {
@@ -3203,22 +3203,22 @@
             "description": "Escola Headles LMS Consultation Access",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Consultation-Access/issues",
-                "source": "https://github.com/EscolaLMS/Consultation-Access/tree/0.1.1"
+                "source": "https://github.com/EscolaLMS/Consultation-Access/tree/0.1.2"
             },
-            "time": "2024-02-16T12:04:30+00:00"
+            "time": "2024-03-18T09:14:21+00:00"
         },
         {
             "name": "escolalms/consultations",
-            "version": "0.2.38",
+            "version": "0.2.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Consultations.git",
-                "reference": "c8b6153d3dee8ce525beb301b6341cf2daf2e1c3"
+                "reference": "b3cbccb54581dd4837bca974ef25d7ee9be5e797"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Consultations/zipball/c8b6153d3dee8ce525beb301b6341cf2daf2e1c3",
-                "reference": "c8b6153d3dee8ce525beb301b6341cf2daf2e1c3",
+                "url": "https://api.github.com/repos/EscolaLMS/Consultations/zipball/b3cbccb54581dd4837bca974ef25d7ee9be5e797",
+                "reference": "b3cbccb54581dd4837bca974ef25d7ee9be5e797",
                 "shasum": ""
             },
             "require": {
@@ -3227,6 +3227,7 @@
                 "escolalms/core": "^1",
                 "escolalms/files": "^0",
                 "escolalms/jitsi": "^0",
+                "escolalms/model-fields": "^0",
                 "escolalms/settings": "^0",
                 "laravel/framework": ">=8.0",
                 "php": ">=7.4"
@@ -3264,29 +3265,29 @@
             "description": "Escola Headless LMS Consultations",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Consultations/issues",
-                "source": "https://github.com/EscolaLMS/Consultations/tree/0.2.38"
+                "source": "https://github.com/EscolaLMS/Consultations/tree/0.2.40"
             },
-            "time": "2023-10-17T13:14:01+00:00"
+            "time": "2024-03-20T09:25:01+00:00"
         },
         {
             "name": "escolalms/core",
-            "version": "1.3.13",
+            "version": "1.3.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Core.git",
-                "reference": "63173666fec7831241466cb2d9861049ffd41d0a"
+                "reference": "0ce24e373a99a0ca75bc5ac67809b27154ea5ed9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Core/zipball/63173666fec7831241466cb2d9861049ffd41d0a",
-                "reference": "63173666fec7831241466cb2d9861049ffd41d0a",
+                "url": "https://api.github.com/repos/EscolaLMS/Core/zipball/0ce24e373a99a0ca75bc5ac67809b27154ea5ed9",
+                "reference": "0ce24e373a99a0ca75bc5ac67809b27154ea5ed9",
                 "shasum": ""
             },
             "require": {
                 "bensampo/laravel-enum": ">=2.0",
                 "composer/composer": "^2.0",
                 "laravel/framework": ">=7.0",
-                "laravel/passport": ">=9.0",
+                "laravel/passport": ">=9.0 <12",
                 "php": ">=7.4",
                 "rennokki/laravel-eloquent-query-cache": "^3",
                 "spatie/laravel-permission": ">=3.18"
@@ -3332,22 +3333,22 @@
             "description": "Escola Headless LMS",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Core/issues",
-                "source": "https://github.com/EscolaLMS/Core/tree/1.3.13"
+                "source": "https://github.com/EscolaLMS/Core/tree/1.3.14"
             },
-            "time": "2024-01-23T13:27:38+00:00"
+            "time": "2024-03-13T14:40:36+00:00"
         },
         {
             "name": "escolalms/course-access",
-            "version": "0.1.0",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Course-Access.git",
-                "reference": "ada4a4ba6ba51318c26edd073e282233b2f98c0e"
+                "reference": "78e1235db0a924c06e163f6cdac9f1186abcd38c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Course-Access/zipball/ada4a4ba6ba51318c26edd073e282233b2f98c0e",
-                "reference": "ada4a4ba6ba51318c26edd073e282233b2f98c0e",
+                "url": "https://api.github.com/repos/EscolaLMS/Course-Access/zipball/78e1235db0a924c06e163f6cdac9f1186abcd38c",
+                "reference": "78e1235db0a924c06e163f6cdac9f1186abcd38c",
                 "shasum": ""
             },
             "require": {
@@ -3389,22 +3390,22 @@
             "description": "Escola Headless LMS Course Access",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Course-Access/issues",
-                "source": "https://github.com/EscolaLMS/Course-Access/tree/0.1.0"
+                "source": "https://github.com/EscolaLMS/Course-Access/tree/0.1.2"
             },
-            "time": "2024-02-16T11:53:58+00:00"
+            "time": "2024-03-20T13:34:28+00:00"
         },
         {
             "name": "escolalms/courses",
-            "version": "0.4.36",
+            "version": "0.4.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Courses.git",
-                "reference": "c5b3c88dac2777a6446c140dbc9707ac9e517f79"
+                "reference": "75609cc8fb8bb49f0c8a6f3d14be54001568f309"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Courses/zipball/c5b3c88dac2777a6446c140dbc9707ac9e517f79",
-                "reference": "c5b3c88dac2777a6446c140dbc9707ac9e517f79",
+                "url": "https://api.github.com/repos/EscolaLMS/Courses/zipball/75609cc8fb8bb49f0c8a6f3d14be54001568f309",
+                "reference": "75609cc8fb8bb49f0c8a6f3d14be54001568f309",
                 "shasum": ""
             },
             "require": {
@@ -3464,9 +3465,9 @@
             "description": "Escola Headless LMS Courses",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Courses/issues",
-                "source": "https://github.com/EscolaLMS/Courses/tree/0.4.36"
+                "source": "https://github.com/EscolaLMS/Courses/tree/0.4.37"
             },
-            "time": "2024-03-08T14:28:10+00:00"
+            "time": "2024-03-18T14:25:32+00:00"
         },
         {
             "name": "escolalms/courses-import-export",
@@ -3587,16 +3588,16 @@
         },
         {
             "name": "escolalms/dictionaries",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Dictionaries.git",
-                "reference": "8bc79f62a811ed2ac17e80d6c9acbeb1d6900b61"
+                "reference": "5233be93a485092aa382cecef916f1a754cd705d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Dictionaries/zipball/8bc79f62a811ed2ac17e80d6c9acbeb1d6900b61",
-                "reference": "8bc79f62a811ed2ac17e80d6c9acbeb1d6900b61",
+                "url": "https://api.github.com/repos/EscolaLMS/Dictionaries/zipball/5233be93a485092aa382cecef916f1a754cd705d",
+                "reference": "5233be93a485092aa382cecef916f1a754cd705d",
                 "shasum": ""
             },
             "require": {
@@ -3604,6 +3605,7 @@
                 "escolalms/categories": "^0",
                 "escolalms/core": "^1",
                 "laravel/framework": ">=8.0",
+                "maatwebsite/excel": ">=3.1",
                 "php": ">=8.0"
             },
             "require-dev": {
@@ -3640,9 +3642,9 @@
             "description": "Escola Headless LMS dictionaries package",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Dictionaries/issues",
-                "source": "https://github.com/EscolaLMS/Dictionaries/tree/0.0.3"
+                "source": "https://github.com/EscolaLMS/Dictionaries/tree/0.0.4"
             },
-            "time": "2024-03-12T08:54:34+00:00"
+            "time": "2024-03-18T16:34:02+00:00"
         },
         {
             "name": "escolalms/files",
@@ -4127,16 +4129,16 @@
         },
         {
             "name": "escolalms/model-fields",
-            "version": "0.0.22",
+            "version": "0.0.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/model-fields.git",
-                "reference": "7ff601eb2afc471e0f0f33dc6c55896c4a45bbc5"
+                "reference": "42be41623f82094c7b80e51470d579127ae35348"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/model-fields/zipball/7ff601eb2afc471e0f0f33dc6c55896c4a45bbc5",
-                "reference": "7ff601eb2afc471e0f0f33dc6c55896c4a45bbc5",
+                "url": "https://api.github.com/repos/EscolaLMS/model-fields/zipball/42be41623f82094c7b80e51470d579127ae35348",
+                "reference": "42be41623f82094c7b80e51470d579127ae35348",
                 "shasum": ""
             },
             "require": {
@@ -4178,9 +4180,9 @@
             "description": "Escola LMS model-fields extension.",
             "support": {
                 "issues": "https://github.com/EscolaLMS/model-fields/issues",
-                "source": "https://github.com/EscolaLMS/model-fields/tree/0.0.22"
+                "source": "https://github.com/EscolaLMS/model-fields/tree/0.0.23"
             },
-            "time": "2024-03-07T16:08:31+00:00"
+            "time": "2024-03-18T14:24:14+00:00"
         },
         {
             "name": "escolalms/notifications",
@@ -4302,24 +4304,24 @@
         },
         {
             "name": "escolalms/payments",
-            "version": "0.2.14",
+            "version": "0.2.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/payments.git",
-                "reference": "a13a2b73e57cc0a38e1b3f9ec9b3834651d3f936"
+                "reference": "0b1ac5763753fcfd8956e3282b67938b1bbea048"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/payments/zipball/a13a2b73e57cc0a38e1b3f9ec9b3834651d3f936",
-                "reference": "a13a2b73e57cc0a38e1b3f9ec9b3834651d3f936",
+                "url": "https://api.github.com/repos/EscolaLMS/payments/zipball/0b1ac5763753fcfd8956e3282b67938b1bbea048",
+                "reference": "0b1ac5763753fcfd8956e3282b67938b1bbea048",
                 "shasum": ""
             },
             "require": {
                 "escolalms/core": "^1",
+                "escolalms/przelewy24-php": "^0",
                 "laravel/framework": ">=8.0",
                 "league/omnipay": "^3",
                 "maatwebsite/excel": "^3.1",
-                "mnastalski/przelewy24-php": "^0.0.4",
                 "omnipay/stripe": "^3.1",
                 "php": ">=7.4"
             },
@@ -4385,9 +4387,9 @@
             "description": "Escola LMS Payments Package.",
             "support": {
                 "issues": "https://github.com/EscolaLMS/payments/issues",
-                "source": "https://github.com/EscolaLMS/payments/tree/0.2.14"
+                "source": "https://github.com/EscolaLMS/payments/tree/0.2.18"
             },
-            "time": "2024-02-14T13:22:41+00:00"
+            "time": "2024-03-22T11:22:40+00:00"
         },
         {
             "name": "escolalms/pencil-spaces",
@@ -4506,6 +4508,55 @@
                 "source": "https://github.com/EscolaLMS/Permissions/tree/0.1.11"
             },
             "time": "2024-02-16T11:48:37+00:00"
+        },
+        {
+            "name": "escolalms/przelewy24-php",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EscolaLMS/przelewy24-php.git",
+                "reference": "c7c09b9a5c9aa009f30edc473c3fec7786a54cf1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EscolaLMS/przelewy24-php/zipball/c7c09b9a5c9aa009f30edc473c3fec7786a54cf1",
+                "reference": "c7c09b9a5c9aa009f30edc473c3fec7786a54cf1",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.6",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.34",
+                "phpunit/phpunit": "^10.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Przelewy24\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mateusz Nastalski",
+                    "homepage": "https://nastalski.pl"
+                }
+            ],
+            "description": "Przelewy24 PHP library",
+            "homepage": "https://github.com/mnastalski/przelewy24-php",
+            "keywords": [
+                "Przelewy24",
+                "payments"
+            ],
+            "support": {
+                "source": "https://github.com/EscolaLMS/przelewy24-php/tree/0.1.0"
+            },
+            "time": "2024-03-22T10:15:22+00:00"
         },
         {
             "name": "escolalms/questionnaire",
@@ -4628,16 +4679,16 @@
         },
         {
             "name": "escolalms/reports",
-            "version": "0.1.48",
+            "version": "0.1.49",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Reports.git",
-                "reference": "ed702059c7f7ade379c3766f5127955fe2bf3bea"
+                "reference": "a33e7028289a0497fe991ae3740654f416ca705e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Reports/zipball/ed702059c7f7ade379c3766f5127955fe2bf3bea",
-                "reference": "ed702059c7f7ade379c3766f5127955fe2bf3bea",
+                "url": "https://api.github.com/repos/EscolaLMS/Reports/zipball/a33e7028289a0497fe991ae3740654f416ca705e",
+                "reference": "a33e7028289a0497fe991ae3740654f416ca705e",
                 "shasum": ""
             },
             "require": {
@@ -4690,22 +4741,22 @@
             "description": "Escola Headless LMS Reports",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Reports/issues",
-                "source": "https://github.com/EscolaLMS/Reports/tree/0.1.48"
+                "source": "https://github.com/EscolaLMS/Reports/tree/0.1.49"
             },
-            "time": "2024-02-14T13:34:38+00:00"
+            "time": "2024-03-22T11:42:48+00:00"
         },
         {
             "name": "escolalms/scorm",
-            "version": "0.2.22",
+            "version": "0.2.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Scorm.git",
-                "reference": "72eaa5650fc2a10ce80e287b41fe6dd4a811c683"
+                "reference": "7e8451d0e296487f09a157f34607a961d7fe9a73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Scorm/zipball/72eaa5650fc2a10ce80e287b41fe6dd4a811c683",
-                "reference": "72eaa5650fc2a10ce80e287b41fe6dd4a811c683",
+                "url": "https://api.github.com/repos/EscolaLMS/Scorm/zipball/7e8451d0e296487f09a157f34607a961d7fe9a73",
+                "reference": "7e8451d0e296487f09a157f34607a961d7fe9a73",
                 "shasum": ""
             },
             "require": {
@@ -4747,9 +4798,9 @@
             "description": "Escola LMS SCORM management",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Scorm/issues",
-                "source": "https://github.com/EscolaLMS/Scorm/tree/0.2.22"
+                "source": "https://github.com/EscolaLMS/Scorm/tree/0.2.23"
             },
-            "time": "2024-03-12T18:58:27+00:00"
+            "time": "2024-03-22T08:32:34+00:00"
         },
         {
             "name": "escolalms/settings",
@@ -5381,16 +5432,16 @@
         },
         {
             "name": "escolalms/topic-types",
-            "version": "0.2.48",
+            "version": "0.2.49",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/topic-types.git",
-                "reference": "a92afbdc4a644cb5ac3d45f32275e4775eecaf1a"
+                "reference": "fab1ba351a5511c4f6ecd3ec32040f1403cfa172"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/topic-types/zipball/a92afbdc4a644cb5ac3d45f32275e4775eecaf1a",
-                "reference": "a92afbdc4a644cb5ac3d45f32275e4775eecaf1a",
+                "url": "https://api.github.com/repos/EscolaLMS/topic-types/zipball/fab1ba351a5511c4f6ecd3ec32040f1403cfa172",
+                "reference": "fab1ba351a5511c4f6ecd3ec32040f1403cfa172",
                 "shasum": ""
             },
             "require": {
@@ -5444,9 +5495,9 @@
             "description": "Escola Headless LMS Topic Types",
             "support": {
                 "issues": "https://github.com/EscolaLMS/topic-types/issues",
-                "source": "https://github.com/EscolaLMS/topic-types/tree/0.2.48"
+                "source": "https://github.com/EscolaLMS/topic-types/tree/0.2.49"
             },
-            "time": "2024-02-15T14:22:50+00:00"
+            "time": "2024-03-22T09:06:48+00:00"
         },
         {
             "name": "escolalms/tracker",
@@ -6415,16 +6466,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.339.0",
+            "version": "v0.340.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "5662d2ab3da41ac0e0e99db221a8c22c511c8f9c"
+                "reference": "c89999ea477da2b0803b2b4f14c9e7fc23b6344a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/5662d2ab3da41ac0e0e99db221a8c22c511c8f9c",
-                "reference": "5662d2ab3da41ac0e0e99db221a8c22c511c8f9c",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/c89999ea477da2b0803b2b4f14c9e7fc23b6344a",
+                "reference": "c89999ea477da2b0803b2b4f14c9e7fc23b6344a",
                 "shasum": ""
             },
             "require": {
@@ -6453,9 +6504,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.339.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.340.0"
             },
-            "time": "2024-03-10T01:06:17+00:00"
+            "time": "2024-03-17T00:56:17+00:00"
         },
         {
             "name": "google/auth",
@@ -6517,16 +6568,16 @@
         },
         {
             "name": "google/cloud-core",
-            "version": "v1.56.1",
+            "version": "v1.56.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-cloud-php-core.git",
-                "reference": "c1ac9c2b89734b5e5f826af9919ae59cbaaadadc"
+                "reference": "686ffd0bb1328cd2ee963c4444e2ab4b111ba3ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-core/zipball/c1ac9c2b89734b5e5f826af9919ae59cbaaadadc",
-                "reference": "c1ac9c2b89734b5e5f826af9919ae59cbaaadadc",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-core/zipball/686ffd0bb1328cd2ee963c4444e2ab4b111ba3ba",
+                "reference": "686ffd0bb1328cd2ee963c4444e2ab4b111ba3ba",
                 "shasum": ""
             },
             "require": {
@@ -6577,22 +6628,22 @@
             ],
             "description": "Google Cloud PHP shared dependency, providing functionality useful to all components.",
             "support": {
-                "source": "https://github.com/googleapis/google-cloud-php-core/tree/v1.56.1"
+                "source": "https://github.com/googleapis/google-cloud-php-core/tree/v1.56.2"
             },
-            "time": "2024-03-01T11:25:35+00:00"
+            "time": "2024-03-15T18:39:38+00:00"
         },
         {
             "name": "google/cloud-storage",
-            "version": "v1.39.1",
+            "version": "v1.40.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-cloud-php-storage.git",
-                "reference": "448e0db09e598c796aa7c68eaf20fdf9b10296ef"
+                "reference": "fb2cc48fbdda164d457df3107464b3d205a25529"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-storage/zipball/448e0db09e598c796aa7c68eaf20fdf9b10296ef",
-                "reference": "448e0db09e598c796aa7c68eaf20fdf9b10296ef",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-storage/zipball/fb2cc48fbdda164d457df3107464b3d205a25529",
+                "reference": "fb2cc48fbdda164d457df3107464b3d205a25529",
                 "shasum": ""
             },
             "require": {
@@ -6634,9 +6685,9 @@
             ],
             "description": "Cloud Storage Client for PHP",
             "support": {
-                "source": "https://github.com/googleapis/google-cloud-php-storage/tree/v1.39.1"
+                "source": "https://github.com/googleapis/google-cloud-php-storage/tree/v1.40.0"
             },
-            "time": "2024-03-01T11:25:35+00:00"
+            "time": "2024-03-15T18:39:38+00:00"
         },
         {
             "name": "google/common-protos",
@@ -7974,29 +8025,29 @@
         },
         {
             "name": "kreait/laravel-firebase",
-            "version": "5.7.0",
+            "version": "5.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kreait/laravel-firebase.git",
-                "reference": "3628ce45ab9211146183610a3e8fc50c5ab5476a"
+                "reference": "a028cb6ad58c534f763fca03e7dcc392074631da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kreait/laravel-firebase/zipball/3628ce45ab9211146183610a3e8fc50c5ab5476a",
-                "reference": "3628ce45ab9211146183610a3e8fc50c5ab5476a",
+                "url": "https://api.github.com/repos/kreait/laravel-firebase/zipball/a028cb6ad58c534f763fca03e7dcc392074631da",
+                "reference": "a028cb6ad58c534f763fca03e7dcc392074631da",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "^9.0 || ^10.0",
-                "illuminate/support": "^9.0 || ^10.0",
+                "illuminate/contracts": "^9.0 || ^10.0 || ^11.0",
+                "illuminate/support": "^9.0 || ^10.0 || ^11.0",
                 "kreait/firebase-php": "^7.0",
                 "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
                 "symfony/cache": "^6.1.2 || ^7.0.3"
             },
             "require-dev": {
-                "laravel/pint": "^1.13",
-                "orchestra/testbench": "^7.0 || ^8.0",
-                "phpunit/phpunit": "^9.6"
+                "laravel/pint": "^1.14",
+                "orchestra/testbench": "^7.0 || ^8.0 || ^9.0",
+                "phpunit/phpunit": "^9.6.17 || ^10.5.13"
             },
             "type": "library",
             "extra": {
@@ -8036,7 +8087,7 @@
             ],
             "support": {
                 "issues": "https://github.com/kreait/laravel-firebase/issues",
-                "source": "https://github.com/kreait/laravel-firebase/tree/5.7.0"
+                "source": "https://github.com/kreait/laravel-firebase/tree/5.8.0"
             },
             "funding": [
                 {
@@ -8044,7 +8095,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-02-19T18:44:01+00:00"
+            "time": "2024-03-13T18:33:13+00:00"
         },
         {
             "name": "laminas/laminas-code",
@@ -9163,16 +9214,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.25.0",
+            "version": "3.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "4c44347133618cccd9b3df1729647a1577b4ad99"
+                "reference": "abbd664eb4381102c559d358420989f835208f18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/4c44347133618cccd9b3df1729647a1577b4ad99",
-                "reference": "4c44347133618cccd9b3df1729647a1577b4ad99",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/abbd664eb4381102c559d358420989f835208f18",
+                "reference": "abbd664eb4381102c559d358420989f835208f18",
                 "shasum": ""
             },
             "require": {
@@ -9237,7 +9288,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.25.0"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.25.1"
             },
             "funding": [
                 {
@@ -9249,20 +9300,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-09T17:06:45+00:00"
+            "time": "2024-03-16T12:53:19+00:00"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
-            "version": "3.24.0",
+            "version": "3.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem-aws-s3-v3.git",
-                "reference": "809474e37b7fb1d1f8bcc0f8a98bc1cae99aa513"
+                "reference": "6a5be0e6d6a93574e80805c9cc108a4b63c824d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/809474e37b7fb1d1f8bcc0f8a98bc1cae99aa513",
-                "reference": "809474e37b7fb1d1f8bcc0f8a98bc1cae99aa513",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/6a5be0e6d6a93574e80805c9cc108a4b63c824d8",
+                "reference": "6a5be0e6d6a93574e80805c9cc108a4b63c824d8",
                 "shasum": ""
             },
             "require": {
@@ -9302,7 +9353,7 @@
                 "storage"
             ],
             "support": {
-                "source": "https://github.com/thephpleague/flysystem-aws-s3-v3/tree/3.24.0"
+                "source": "https://github.com/thephpleague/flysystem-aws-s3-v3/tree/3.25.1"
             },
             "funding": [
                 {
@@ -9314,20 +9365,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-01-26T18:43:21+00:00"
+            "time": "2024-03-15T19:58:44+00:00"
         },
         {
             "name": "league/flysystem-local",
-            "version": "3.23.1",
+            "version": "3.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem-local.git",
-                "reference": "b884d2bf9b53bb4804a56d2df4902bb51e253f00"
+                "reference": "61a6a90d6e999e4ddd9ce5adb356de0939060b92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem-local/zipball/b884d2bf9b53bb4804a56d2df4902bb51e253f00",
-                "reference": "b884d2bf9b53bb4804a56d2df4902bb51e253f00",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-local/zipball/61a6a90d6e999e4ddd9ce5adb356de0939060b92",
+                "reference": "61a6a90d6e999e4ddd9ce5adb356de0939060b92",
                 "shasum": ""
             },
             "require": {
@@ -9361,8 +9412,7 @@
                 "local"
             ],
             "support": {
-                "issues": "https://github.com/thephpleague/flysystem-local/issues",
-                "source": "https://github.com/thephpleague/flysystem-local/tree/3.23.1"
+                "source": "https://github.com/thephpleague/flysystem-local/tree/3.25.1"
             },
             "funding": [
                 {
@@ -9374,7 +9424,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-01-26T18:25:23+00:00"
+            "time": "2024-03-15T19:58:44+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -10217,55 +10267,6 @@
                 "source": "https://github.com/Masterminds/html5-php/tree/2.8.1"
             },
             "time": "2023-05-10T11:58:31+00:00"
-        },
-        {
-            "name": "mnastalski/przelewy24-php",
-            "version": "v0.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mnastalski/przelewy24-php.git",
-                "reference": "7563e98460a5db0dfbca6214b709596e64f1d8f1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mnastalski/przelewy24-php/zipball/7563e98460a5db0dfbca6214b709596e64f1d8f1",
-                "reference": "7563e98460a5db0dfbca6214b709596e64f1d8f1",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^6.4|^7.0",
-                "php": ">=7.1.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^8.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Przelewy24\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mateusz Nastalski",
-                    "homepage": "https://nastalski.pl"
-                }
-            ],
-            "description": "Przelewy24 PHP library",
-            "homepage": "https://github.com/mnastalski/przelewy24-php",
-            "keywords": [
-                "Przelewy24",
-                "payment"
-            ],
-            "support": {
-                "issues": "https://github.com/mnastalski/przelewy24-php/issues",
-                "source": "https://github.com/mnastalski/przelewy24-php/tree/v0.0.4"
-            },
-            "time": "2021-09-07T09:24:40+00:00"
         },
         {
             "name": "moneyphp/money",
@@ -11463,16 +11464,16 @@
         },
         {
             "name": "phenx/php-svg-lib",
-            "version": "0.5.2",
+            "version": "0.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dompdf/php-svg-lib.git",
-                "reference": "732faa9fb4309221e2bd9b2fda5de44f947133aa"
+                "reference": "0e46722c154726a5f9ac218197ccc28adba16fcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dompdf/php-svg-lib/zipball/732faa9fb4309221e2bd9b2fda5de44f947133aa",
-                "reference": "732faa9fb4309221e2bd9b2fda5de44f947133aa",
+                "url": "https://api.github.com/repos/dompdf/php-svg-lib/zipball/0e46722c154726a5f9ac218197ccc28adba16fcf",
+                "reference": "0e46722c154726a5f9ac218197ccc28adba16fcf",
                 "shasum": ""
             },
             "require": {
@@ -11491,7 +11492,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL-3.0"
+                "LGPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -11503,9 +11504,9 @@
             "homepage": "https://github.com/PhenX/php-svg-lib",
             "support": {
                 "issues": "https://github.com/dompdf/php-svg-lib/issues",
-                "source": "https://github.com/dompdf/php-svg-lib/tree/0.5.2"
+                "source": "https://github.com/dompdf/php-svg-lib/tree/0.5.3"
             },
-            "time": "2024-02-07T12:49:40+00:00"
+            "time": "2024-02-23T20:39:24+00:00"
         },
         {
             "name": "php-ffmpeg/php-ffmpeg",
@@ -11988,16 +11989,16 @@
         },
         {
             "name": "php-http/promise",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/promise.git",
-                "reference": "2916a606d3b390f4e9e8e2b8dd68581508be0f07"
+                "reference": "fc85b1fba37c169a69a07ef0d5a8075770cc1f83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/promise/zipball/2916a606d3b390f4e9e8e2b8dd68581508be0f07",
-                "reference": "2916a606d3b390f4e9e8e2b8dd68581508be0f07",
+                "url": "https://api.github.com/repos/php-http/promise/zipball/fc85b1fba37c169a69a07ef0d5a8075770cc1f83",
+                "reference": "fc85b1fba37c169a69a07ef0d5a8075770cc1f83",
                 "shasum": ""
             },
             "require": {
@@ -12034,9 +12035,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/promise/issues",
-                "source": "https://github.com/php-http/promise/tree/1.3.0"
+                "source": "https://github.com/php-http/promise/tree/1.3.1"
             },
-            "time": "2024-01-04T18:49:48+00:00"
+            "time": "2024-03-15T13:55:21+00:00"
         },
         {
             "name": "phpoffice/phpspreadsheet",
@@ -12905,16 +12906,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.12.0",
+            "version": "v0.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "750bf031a48fd07c673dbe3f11f72362ea306d0d"
+                "reference": "9185c66c2165bbf4d71de78a69dccf4974f9538d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/750bf031a48fd07c673dbe3f11f72362ea306d0d",
-                "reference": "750bf031a48fd07c673dbe3f11f72362ea306d0d",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/9185c66c2165bbf4d71de78a69dccf4974f9538d",
+                "reference": "9185c66c2165bbf4d71de78a69dccf4974f9538d",
                 "shasum": ""
             },
             "require": {
@@ -12978,9 +12979,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.0"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.12.2"
             },
-            "time": "2023-12-20T15:28:09+00:00"
+            "time": "2024-03-17T01:53:00+00:00"
         },
         {
             "name": "qferr/mjml-php",
@@ -13782,16 +13783,16 @@
         },
         {
             "name": "sentry/sentry-laravel",
-            "version": "4.3.0",
+            "version": "4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-laravel.git",
-                "reference": "7f88c200f1ed352c299b5aee177ac5e5faf4b3f4"
+                "reference": "631a5eb59c9469ce1722233337c11747fc620a8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-laravel/zipball/7f88c200f1ed352c299b5aee177ac5e5faf4b3f4",
-                "reference": "7f88c200f1ed352c299b5aee177ac5e5faf4b3f4",
+                "url": "https://api.github.com/repos/getsentry/sentry-laravel/zipball/631a5eb59c9469ce1722233337c11747fc620a8d",
+                "reference": "631a5eb59c9469ce1722233337c11747fc620a8d",
                 "shasum": ""
             },
             "require": {
@@ -13855,7 +13856,7 @@
             ],
             "support": {
                 "issues": "https://github.com/getsentry/sentry-laravel/issues",
-                "source": "https://github.com/getsentry/sentry-laravel/tree/4.3.0"
+                "source": "https://github.com/getsentry/sentry-laravel/tree/4.3.1"
             },
             "funding": [
                 {
@@ -13867,7 +13868,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2024-03-08T08:12:38+00:00"
+            "time": "2024-03-13T09:37:21+00:00"
         },
         {
             "name": "smalot/pdfparser",
@@ -14045,16 +14046,16 @@
         },
         {
             "name": "spatie/laravel-package-tools",
-            "version": "1.16.3",
+            "version": "1.16.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "59db18c2e20d49a0b6d447bb1c654f6c123beb9e"
+                "reference": "ddf678e78d7f8b17e5cdd99c0c3413a4a6592e53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/59db18c2e20d49a0b6d447bb1c654f6c123beb9e",
-                "reference": "59db18c2e20d49a0b6d447bb1c654f6c123beb9e",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/ddf678e78d7f8b17e5cdd99c0c3413a4a6592e53",
+                "reference": "ddf678e78d7f8b17e5cdd99c0c3413a4a6592e53",
                 "shasum": ""
             },
             "require": {
@@ -14093,7 +14094,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.16.3"
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.16.4"
             },
             "funding": [
                 {
@@ -14101,7 +14102,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-07T07:35:57+00:00"
+            "time": "2024-03-20T07:29:11+00:00"
         },
         {
             "name": "spatie/laravel-permission",
@@ -14460,16 +14461,16 @@
         },
         {
             "name": "swagger-api/swagger-ui",
-            "version": "v5.11.10",
+            "version": "v5.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swagger-api/swagger-ui.git",
-                "reference": "227e94f748e67a9e2a07c1f091ebd85e876cb249"
+                "reference": "632aa246ff6734292854c6994ad15530a228bd58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/227e94f748e67a9e2a07c1f091ebd85e876cb249",
-                "reference": "227e94f748e67a9e2a07c1f091ebd85e876cb249",
+                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/632aa246ff6734292854c6994ad15530a228bd58",
+                "reference": "632aa246ff6734292854c6994ad15530a228bd58",
                 "shasum": ""
             },
             "type": "library",
@@ -14515,9 +14516,9 @@
             ],
             "support": {
                 "issues": "https://github.com/swagger-api/swagger-ui/issues",
-                "source": "https://github.com/swagger-api/swagger-ui/tree/v5.11.10"
+                "source": "https://github.com/swagger-api/swagger-ui/tree/v5.12.0"
             },
-            "time": "2024-03-06T15:08:08+00:00"
+            "time": "2024-03-13T13:02:27+00:00"
         },
         {
             "name": "symfony/cache",
@@ -17804,16 +17805,16 @@
         },
         {
             "name": "zircote/swagger-php",
-            "version": "4.8.5",
+            "version": "4.8.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zircote/swagger-php.git",
-                "reference": "038da8ad219f1e9c3f82c5d84c47da3b6f35039c"
+                "reference": "fe45a0e98a156999ddafc31c9ad333fdcadbcb2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/038da8ad219f1e9c3f82c5d84c47da3b6f35039c",
-                "reference": "038da8ad219f1e9c3f82c5d84c47da3b6f35039c",
+                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/fe45a0e98a156999ddafc31c9ad333fdcadbcb2d",
+                "reference": "fe45a0e98a156999ddafc31c9ad333fdcadbcb2d",
                 "shasum": ""
             },
             "require": {
@@ -17879,9 +17880,9 @@
             ],
             "support": {
                 "issues": "https://github.com/zircote/swagger-php/issues",
-                "source": "https://github.com/zircote/swagger-php/tree/4.8.5"
+                "source": "https://github.com/zircote/swagger-php/tree/4.8.6"
             },
-            "time": "2024-03-07T23:56:26+00:00"
+            "time": "2024-03-15T01:13:55+00:00"
         }
     ],
     "packages-dev": [
@@ -18079,16 +18080,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "1.6.9",
+            "version": "1.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "0cc058854b3195ba21dc6b1f7b1f60f4ef3a9c06"
+                "reference": "81a161d0b135df89951abd52296adf97deb0723d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/0cc058854b3195ba21dc6b1f7b1f60f4ef3a9c06",
-                "reference": "0cc058854b3195ba21dc6b1f7b1f60f4ef3a9c06",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/81a161d0b135df89951abd52296adf97deb0723d",
+                "reference": "81a161d0b135df89951abd52296adf97deb0723d",
                 "shasum": ""
             },
             "require": {
@@ -18100,8 +18101,8 @@
                 "phpunit/phpunit": "<8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.5 || ^9.6.10",
-                "symplify/easy-coding-standard": "^12.0.8"
+                "phpunit/phpunit": "^8.5 || ^9.6.17",
+                "symplify/easy-coding-standard": "^12.1.14"
             },
             "type": "library",
             "autoload": {
@@ -18158,7 +18159,7 @@
                 "security": "https://github.com/mockery/mockery/security/advisories",
                 "source": "https://github.com/mockery/mockery"
             },
-            "time": "2023-12-10T02:24:34+00:00"
+            "time": "2024-03-21T18:34:15+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -18995,16 +18996,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.60",
+            "version": "1.10.64",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "95dcea7d6c628a3f2f56d091d8a0219485a86bbe"
+                "reference": "fb9f270daffedcb5ff46275dcafe92538b1bc4bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/95dcea7d6c628a3f2f56d091d8a0219485a86bbe",
-                "reference": "95dcea7d6c628a3f2f56d091d8a0219485a86bbe",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/fb9f270daffedcb5ff46275dcafe92538b1bc4bb",
+                "reference": "fb9f270daffedcb5ff46275dcafe92538b1bc4bb",
                 "shasum": ""
             },
             "require": {
@@ -19053,7 +19054,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-07T13:30:19+00:00"
+            "time": "2024-03-21T09:57:47+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -19376,16 +19377,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.6.17",
+            "version": "9.6.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "1a156980d78a6666721b7e8e8502fe210b587fcd"
+                "reference": "32c2c2d6580b1d8ab3c10b1e9e4dc263cc69bb04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1a156980d78a6666721b7e8e8502fe210b587fcd",
-                "reference": "1a156980d78a6666721b7e8e8502fe210b587fcd",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/32c2c2d6580b1d8ab3c10b1e9e4dc263cc69bb04",
+                "reference": "32c2c2d6580b1d8ab3c10b1e9e4dc263cc69bb04",
                 "shasum": ""
             },
             "require": {
@@ -19459,7 +19460,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.17"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.18"
             },
             "funding": [
                 {
@@ -19475,20 +19476,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-23T13:14:51+00:00"
+            "time": "2024-03-21T12:07:32+00:00"
         },
         {
             "name": "rector/rector",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "7596fa6da06c6a20c012efe6bb3d9188a9113b11"
+                "reference": "c59507a9090b465d65e1aceed91e5b81986e375b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/7596fa6da06c6a20c012efe6bb3d9188a9113b11",
-                "reference": "7596fa6da06c6a20c012efe6bb3d9188a9113b11",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/c59507a9090b465d65e1aceed91e5b81986e375b",
+                "reference": "c59507a9090b465d65e1aceed91e5b81986e375b",
                 "shasum": ""
             },
             "require": {
@@ -19523,7 +19524,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/1.0.2"
+                "source": "https://github.com/rectorphp/rector/tree/1.0.3"
             },
             "funding": [
                 {
@@ -19531,7 +19532,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-03T12:32:31+00:00"
+            "time": "2024-03-14T15:04:18+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -20335,16 +20336,16 @@
         },
         {
             "name": "sebastian/resource-operations",
-            "version": "3.0.3",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/resource-operations.git",
-                "reference": "0f4443cb3a1d92ce809899753bc0d5d5a8dd19a8"
+                "reference": "05d5692a7993ecccd56a03e40cd7e5b09b1d404e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/resource-operations/zipball/0f4443cb3a1d92ce809899753bc0d5d5a8dd19a8",
-                "reference": "0f4443cb3a1d92ce809899753bc0d5d5a8dd19a8",
+                "url": "https://api.github.com/repos/sebastianbergmann/resource-operations/zipball/05d5692a7993ecccd56a03e40cd7e5b09b1d404e",
+                "reference": "05d5692a7993ecccd56a03e40cd7e5b09b1d404e",
                 "shasum": ""
             },
             "require": {
@@ -20356,7 +20357,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-main": "3.0-dev"
                 }
             },
             "autoload": {
@@ -20377,8 +20378,7 @@
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
             "support": {
-                "issues": "https://github.com/sebastianbergmann/resource-operations/issues",
-                "source": "https://github.com/sebastianbergmann/resource-operations/tree/3.0.3"
+                "source": "https://github.com/sebastianbergmann/resource-operations/tree/3.0.4"
             },
             "funding": [
                 {
@@ -20386,7 +20386,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-28T06:45:17+00:00"
+            "time": "2024-03-14T16:00:52+00:00"
         },
         {
             "name": "sebastian/type",
@@ -21287,16 +21287,16 @@
         },
         {
             "name": "zbateson/mb-wrapper",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zbateson/mb-wrapper.git",
-                "reference": "faf35dddfacfc5d4d5f9210143eafd7a7fe74334"
+                "reference": "09a8b77eb94af3823a9a6623dcc94f8d988da67f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zbateson/mb-wrapper/zipball/faf35dddfacfc5d4d5f9210143eafd7a7fe74334",
-                "reference": "faf35dddfacfc5d4d5f9210143eafd7a7fe74334",
+                "url": "https://api.github.com/repos/zbateson/mb-wrapper/zipball/09a8b77eb94af3823a9a6623dcc94f8d988da67f",
+                "reference": "09a8b77eb94af3823a9a6623dcc94f8d988da67f",
                 "shasum": ""
             },
             "require": {
@@ -21307,7 +21307,7 @@
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "*",
                 "phpstan/phpstan": "*",
-                "phpunit/phpunit": "<=9.0"
+                "phpunit/phpunit": "<10.0"
             },
             "suggest": {
                 "ext-iconv": "For best support/performance",
@@ -21344,7 +21344,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zbateson/mb-wrapper/issues",
-                "source": "https://github.com/zbateson/mb-wrapper/tree/1.2.0"
+                "source": "https://github.com/zbateson/mb-wrapper/tree/1.2.1"
             },
             "funding": [
                 {
@@ -21352,7 +21352,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-11T23:05:44+00:00"
+            "time": "2024-03-18T04:31:04+00:00"
         },
         {
             "name": "zbateson/stream-decorators",
