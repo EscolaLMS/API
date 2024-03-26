@@ -24,6 +24,14 @@ composer-update:
 restart_queue_cron:
 	- docker compose restart escola_lms_queue_cron
 
+update-composer-to-git:
+	- git checkout develop 
+	- git pull 
+	- docker compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off composer update --no-scripts"
+	- git add composer.lock 
+	- git commit -m "updating dependecies"
+	- git push origin develop 
+
 
 swagger-generate:
 	- docker compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan l5-swagger:generate"
