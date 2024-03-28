@@ -136,16 +136,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.301.7",
+            "version": "3.301.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "2fd8cae93e87326f2263c420fa9031ad8903a2f2"
+                "reference": "23eda9eeb6c44a3ed6a12951b61020dc6048f7f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2fd8cae93e87326f2263c420fa9031ad8903a2f2",
-                "reference": "2fd8cae93e87326f2263c420fa9031ad8903a2f2",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/23eda9eeb6c44a3ed6a12951b61020dc6048f7f5",
+                "reference": "23eda9eeb6c44a3ed6a12951b61020dc6048f7f5",
                 "shasum": ""
             },
             "require": {
@@ -225,9 +225,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.301.7"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.301.9"
             },
-            "time": "2024-03-25T18:14:28+00:00"
+            "time": "2024-03-27T18:26:04+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -1281,16 +1281,16 @@
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "3.0.3",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "ced299686f41dce890debac69273b47ffe98a40c"
+                "reference": "4f988f8fdf580d53bdb2d1278fe93d1ed5462255"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/ced299686f41dce890debac69273b47ffe98a40c",
-                "reference": "ced299686f41dce890debac69273b47ffe98a40c",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/4f988f8fdf580d53bdb2d1278fe93d1ed5462255",
+                "reference": "4f988f8fdf580d53bdb2d1278fe93d1ed5462255",
                 "shasum": ""
             },
             "require": {
@@ -1301,7 +1301,7 @@
             "require-dev": {
                 "phpstan/phpstan": "^1.0",
                 "phpstan/phpstan-strict-rules": "^1.1",
-                "symfony/phpunit-bridge": "^6.0"
+                "phpunit/phpunit": "^8.5 || ^9.6 || ^10.5"
             },
             "type": "library",
             "autoload": {
@@ -1325,9 +1325,9 @@
                 "performance"
             ],
             "support": {
-                "irc": "irc://irc.freenode.org/composer",
+                "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/xdebug-handler/issues",
-                "source": "https://github.com/composer/xdebug-handler/tree/3.0.3"
+                "source": "https://github.com/composer/xdebug-handler/tree/3.0.4"
             },
             "funding": [
                 {
@@ -1343,7 +1343,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-02-25T21:32:43+00:00"
+            "time": "2024-03-26T18:29:49+00:00"
         },
         {
             "name": "darkaonline/l5-swagger",
@@ -3396,16 +3396,16 @@
         },
         {
             "name": "escolalms/courses",
-            "version": "0.4.38",
+            "version": "0.4.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Courses.git",
-                "reference": "394619f5ccc972e26ee72c742402d3ed032f6242"
+                "reference": "741a00b8f6f8a66b87f7db31cf47a8d3a1bbf690"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Courses/zipball/394619f5ccc972e26ee72c742402d3ed032f6242",
-                "reference": "394619f5ccc972e26ee72c742402d3ed032f6242",
+                "url": "https://api.github.com/repos/EscolaLMS/Courses/zipball/741a00b8f6f8a66b87f7db31cf47a8d3a1bbf690",
+                "reference": "741a00b8f6f8a66b87f7db31cf47a8d3a1bbf690",
                 "shasum": ""
             },
             "require": {
@@ -3465,9 +3465,9 @@
             "description": "Escola Headless LMS Courses",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Courses/issues",
-                "source": "https://github.com/EscolaLMS/Courses/tree/0.4.38"
+                "source": "https://github.com/EscolaLMS/Courses/tree/0.4.39"
             },
-            "time": "2024-03-25T09:29:47+00:00"
+            "time": "2024-03-28T10:26:57+00:00"
         },
         {
             "name": "escolalms/courses-import-export",
@@ -4304,16 +4304,16 @@
         },
         {
             "name": "escolalms/payments",
-            "version": "0.2.18",
+            "version": "0.2.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/payments.git",
-                "reference": "0b1ac5763753fcfd8956e3282b67938b1bbea048"
+                "reference": "baf8fb8aa34945e3e6fe8b8b571761724354de4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/payments/zipball/0b1ac5763753fcfd8956e3282b67938b1bbea048",
-                "reference": "0b1ac5763753fcfd8956e3282b67938b1bbea048",
+                "url": "https://api.github.com/repos/EscolaLMS/payments/zipball/baf8fb8aa34945e3e6fe8b8b571761724354de4d",
+                "reference": "baf8fb8aa34945e3e6fe8b8b571761724354de4d",
                 "shasum": ""
             },
             "require": {
@@ -4387,9 +4387,9 @@
             "description": "Escola LMS Payments Package.",
             "support": {
                 "issues": "https://github.com/EscolaLMS/payments/issues",
-                "source": "https://github.com/EscolaLMS/payments/tree/0.2.18"
+                "source": "https://github.com/EscolaLMS/payments/tree/0.2.19"
             },
-            "time": "2024-03-22T11:22:40+00:00"
+            "time": "2024-03-27T07:25:57+00:00"
         },
         {
             "name": "escolalms/pencil-spaces",
@@ -8417,16 +8417,16 @@
         },
         {
             "name": "laravel/horizon",
-            "version": "v5.23.1",
+            "version": "v5.23.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "7475de7eb5b465c2da84218002fe1a62b8175da0"
+                "reference": "96d154340f1223bcc161ea7cee355c8fc29ff81e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/7475de7eb5b465c2da84218002fe1a62b8175da0",
-                "reference": "7475de7eb5b465c2da84218002fe1a62b8175da0",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/96d154340f1223bcc161ea7cee355c8fc29ff81e",
+                "reference": "96d154340f1223bcc161ea7cee355c8fc29ff81e",
                 "shasum": ""
             },
             "require": {
@@ -8439,6 +8439,7 @@
                 "nesbot/carbon": "^2.17|^3.0",
                 "php": "^8.0",
                 "ramsey/uuid": "^4.0",
+                "symfony/console": "^6.0|^7.0",
                 "symfony/error-handler": "^6.0|^7.0",
                 "symfony/process": "^6.0|^7.0"
             },
@@ -8489,9 +8490,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/horizon/issues",
-                "source": "https://github.com/laravel/horizon/tree/v5.23.1"
+                "source": "https://github.com/laravel/horizon/tree/v5.23.2"
             },
-            "time": "2024-02-20T15:14:10+00:00"
+            "time": "2024-03-23T12:11:34+00:00"
         },
         {
             "name": "laravel/passport",
@@ -11668,16 +11669,16 @@
         },
         {
             "name": "php-http/discovery",
-            "version": "1.19.2",
+            "version": "1.19.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "61e1a1eb69c92741f5896d9e05fb8e9d7e8bb0cb"
+                "reference": "7fbed2f92518827eb0ece6bf869f8c6b054d5730"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/61e1a1eb69c92741f5896d9e05fb8e9d7e8bb0cb",
-                "reference": "61e1a1eb69c92741f5896d9e05fb8e9d7e8bb0cb",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/7fbed2f92518827eb0ece6bf869f8c6b054d5730",
+                "reference": "7fbed2f92518827eb0ece6bf869f8c6b054d5730",
                 "shasum": ""
             },
             "require": {
@@ -11686,6 +11687,7 @@
             },
             "conflict": {
                 "nyholm/psr7": "<1.0",
+                "sebastian/comparator": ">=5.0",
                 "zendframework/zend-diactoros": "*"
             },
             "provide": {
@@ -11701,7 +11703,7 @@
                 "php-http/httplug": "^1.0 || ^2.0",
                 "php-http/message-factory": "^1.0",
                 "phpspec/phpspec": "^5.1 || ^6.1 || ^7.3",
-                "symfony/phpunit-bridge": "^6.2"
+                "symfony/phpunit-bridge": "^6.4.4 || ^7.0.1"
             },
             "type": "composer-plugin",
             "extra": {
@@ -11740,9 +11742,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/discovery/issues",
-                "source": "https://github.com/php-http/discovery/tree/1.19.2"
+                "source": "https://github.com/php-http/discovery/tree/1.19.3"
             },
-            "time": "2023-11-30T16:49:05+00:00"
+            "time": "2024-03-28T07:38:36+00:00"
         },
         {
             "name": "php-http/guzzle7-adapter",
@@ -14461,16 +14463,16 @@
         },
         {
             "name": "swagger-api/swagger-ui",
-            "version": "v5.12.2",
+            "version": "v5.12.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swagger-api/swagger-ui.git",
-                "reference": "b2cf964dace1a06587104c52747155354eace927"
+                "reference": "7f4e4809eff7a10a94fb2e4883797436ab7a9010"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/b2cf964dace1a06587104c52747155354eace927",
-                "reference": "b2cf964dace1a06587104c52747155354eace927",
+                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/7f4e4809eff7a10a94fb2e4883797436ab7a9010",
+                "reference": "7f4e4809eff7a10a94fb2e4883797436ab7a9010",
                 "shasum": ""
             },
             "type": "library",
@@ -14516,9 +14518,9 @@
             ],
             "support": {
                 "issues": "https://github.com/swagger-api/swagger-ui/issues",
-                "source": "https://github.com/swagger-api/swagger-ui/tree/v5.12.2"
+                "source": "https://github.com/swagger-api/swagger-ui/tree/v5.12.3"
             },
-            "time": "2024-03-26T11:07:23+00:00"
+            "time": "2024-03-27T06:58:31+00:00"
         },
         {
             "name": "symfony/cache",
