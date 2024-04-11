@@ -17,7 +17,9 @@ RUN cp docker/envs/.env.postgres.prod /var/www/html/.env \
   # devilbox php.ini./ TODO this should be rather send to different custom file 
   && cp docker/conf/php/xxx-devilbox-default-php.ini /usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini \
   # overwrite some php-fpm settings
-  && cp docker/conf/php/php-fpm-custom.conf /usr/local/etc/php-fpm.d/php-fpm-custom.conf
+  && cp docker/conf/php/php-fpm-custom.conf /usr/local/etc/php-fpm.d/php-fpm-custom.conf \
+  # remove xdebug 
+  && rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && pecl uninstall xdebug
 RUN composer self-update && composer install --no-scripts
 RUN chown -R devilbox:devilbox /var/www/
 
