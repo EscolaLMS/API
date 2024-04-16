@@ -81,7 +81,6 @@ else
     php artisan db:seed --class=PermissionsSeeder --force --no-interaction
 fi
 
-php artisan storage:link --force --no-interaction
 php artisan h5p:storage-link
 
 # MULTI_DOMAINS
