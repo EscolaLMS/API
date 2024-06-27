@@ -9,5 +9,5 @@ return [
         'scorm_sco_tracking_table'   =>  'scorm_sco_tracking',
     ],
     // Scorm directory. You may create a custom path in file system
-    'disk'  =>  'local',
+    'disk'  =>  's3',
 ];
