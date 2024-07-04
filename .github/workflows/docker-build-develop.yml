@@ -34,6 +34,8 @@ jobs:
       - uses: mattermost/action-mattermost-notify@master
         with:
           MATTERMOST_WEBHOOK_URL: ${{ secrets.MATTERMOST_WEBHOOK_URL }}
+          PAYLOAD: |-
+            {\"text\":\"There is a new [escolalms/api:develop](https://hub.docker.com/r/escolalms/api/tags?page=1&name=develop) image built. k8s rollout will happen soon\"}
           
       - name: Send webook to hooks to rollout all devs on k8s 
         uses: distributhor/workflow-webhook@v3
