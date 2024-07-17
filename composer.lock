@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85711a60f95c47bceda26330dfc9c864",
+    "content-hash": "426b36d6a69f13e67bfdff61b1c67c14",
     "packages": [
         {
             "name": "aloha/twilio",
@@ -3776,16 +3776,16 @@
         },
         {
             "name": "escolalms/headless-h5p",
-            "version": "0.5.2",
+            "version": "0.4.47",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/H5P.git",
-                "reference": "c4f0d8a88d27cbc3b6711bfda04b01752a004dcf"
+                "reference": "8f524a235878075c4d5eb2c17fbcb63db9bb60ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/H5P/zipball/c4f0d8a88d27cbc3b6711bfda04b01752a004dcf",
-                "reference": "c4f0d8a88d27cbc3b6711bfda04b01752a004dcf",
+                "url": "https://api.github.com/repos/EscolaLMS/H5P/zipball/8f524a235878075c4d5eb2c17fbcb63db9bb60ea",
+                "reference": "8f524a235878075c4d5eb2c17fbcb63db9bb60ea",
                 "shasum": ""
             },
             "require": {
@@ -3794,14 +3794,13 @@
                 "escolalms/settings": "^0",
                 "h5p/h5p-core": "1.24.*|dev-master",
                 "h5p/h5p-editor": "1.24.*|dev-master",
-                "laravel/framework": ">=9.0",
+                "laravel/framework": ">=8.0",
                 "php": ">=7.4"
             },
             "require-dev": {
                 "guzzlehttp/guzzle": "^7",
                 "laravel/legacy-factories": "^1.0.4",
-                "nunomaduro/larastan": "^2.0",
-                "orchestra/testbench": "^7.0",
+                "orchestra/testbench": "^6.0",
                 "phpunit/phpunit": "^9.0"
             },
             "type": "package",
@@ -3833,9 +3832,9 @@
             "description": "Headless H5P Laravel REST API",
             "support": {
                 "issues": "https://github.com/EscolaLMS/H5P/issues",
-                "source": "https://github.com/EscolaLMS/H5P/tree/0.5.2"
+                "source": "https://github.com/EscolaLMS/H5P/tree/0.4.47"
             },
-            "time": "2024-07-02T07:12:18+00:00"
+            "time": "2024-06-27T12:11:02+00:00"
         },
         {
             "name": "escolalms/images",
