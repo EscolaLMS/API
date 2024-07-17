@@ -2821,16 +2821,16 @@
         },
         {
             "name": "escolalms/auth",
-            "version": "0.2.38",
+            "version": "0.2.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Auth.git",
-                "reference": "da25e562e3ac206bd54219f8e008326073f4008c"
+                "reference": "b6d829f2ab6f169efa2e461baa8fe6582dd97fff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Auth/zipball/da25e562e3ac206bd54219f8e008326073f4008c",
-                "reference": "da25e562e3ac206bd54219f8e008326073f4008c",
+                "url": "https://api.github.com/repos/EscolaLMS/Auth/zipball/b6d829f2ab6f169efa2e461baa8fe6582dd97fff",
+                "reference": "b6d829f2ab6f169efa2e461baa8fe6582dd97fff",
                 "shasum": ""
             },
             "require": {
@@ -2892,9 +2892,9 @@
             "description": "Escola Headless LMS Authorization",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Auth/issues",
-                "source": "https://github.com/EscolaLMS/Auth/tree/0.2.38"
+                "source": "https://github.com/EscolaLMS/Auth/tree/0.2.39"
             },
-            "time": "2024-07-17T06:47:18+00:00"
+            "time": "2024-07-17T10:19:06+00:00"
         },
         {
             "name": "escolalms/bookmarks_notes",
