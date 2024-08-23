@@ -9,12 +9,12 @@ Laravel Headless LMS REST API.
 [![downloads](https://img.shields.io/packagist/l/escolalms/api)](https://packagist.org/packages/escolalms/api)
 [![Maintainability](https://api.codeclimate.com/v1/badges/68b4fbde49bcd465e482/maintainability)](https://codeclimate.com/github/EscolaLMS/API/maintainability)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FEscolaLMS%2FAPI.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FEscolaLMS%2FAPI?ref=badge_shield)
+[![Known Vulnerabilities](https://snyk.io/test/github/EscolaLMS/API/badge.svg)](https://snyk.io/test/github/EscolaLMS/API)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=EscolaLMS_API&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=EscolaLMS_API)
 
 ## Packages
 
 List of all packages is available at [packagist.org/?query=escolalms](https://packagist.org/?query=escolalms).
-
-![Packages](https://github.com/EscolaLMS/.github/raw/main/deptrac-modules.png "Wellms Packages")
 
 ## Tests
 
