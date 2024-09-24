@@ -5,6 +5,8 @@
 /vendor
 .idea
 .env
+.env*
+!.env.example
 .env.backup
 .phpunit.result.cache
 Homestead.json
@@ -16,6 +18,11 @@ yarn-error.log
 docker/mysql-data
 docker/www_logs
 storage/h5p/temp
+
+storage/*
+!storage/app
+!storage/logs
+!storage/framework
 .env.local.testing
 /coverage
 

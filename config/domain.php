@@ -4,22 +4,15 @@ return [
   'env_stub' => '.env',
   'storage_dirs' => [
     'app' => [
-      'public' => [
-      ],
+      'public' => [],
     ],
     'framework' => [
-      'cache' => [
-      ],
-      'testing' => [
-      ],
-      'sessions' => [
-      ],
-      'views' => [
-      ],
+      'cache' => [],
+      'testing' => [],
+      'sessions' => [],
+      'views' => [],
     ],
-    'logs' => [
-    ],
+    'logs' => [],
   ],
-  'domains' => [
-  ],
- ];
+  'domains' => [],
+];

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('domain', function () {
-    return env('APP_NAME');
+    return 'Domain' . env('APP_NAME');
 });
 
 Route::get('events', [EventAPIController::class, 'index']);
