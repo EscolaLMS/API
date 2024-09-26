@@ -50,11 +50,12 @@ services:
       - LARAVEL_TRACKER_ENABLED=false
       - LARAVEL_FILESYSTEM_DRIVER=s3
       - LARAVEL_AWS_ACCESS_KEY_ID=masoud
-      - LARAVEL_AWS_SECRET_ACCESS_KEY=tg9t712TG1Odn17fisxXM9y01YrD
+      - LARAVEL_AWS_SECRET_ACCESS_KEY=minio_secretpassword
       - LARAVEL_AWS_DEFAULT_REGION=us-east-1
       - LARAVEL_AWS_BUCKET=wellms
+      # Intenal Docker address
       - LARAVEL_AWS_ENDPOINT="http://minio:9000"
-      - LARAVEL_AWS_URL="http://storage.localhost:1001/wellms"
+      - LARAVEL_AWS_URL="http://storage.localhost/wellms"
       - LARAVEL_AWS_USE_PATH_STYLE_ENDPOINT=true
     volumes:
       - ./:/var/www/html
@@ -115,9 +116,9 @@ services:
       - ./docker/postgres-data:/var/lib/postgresql/data
       - ./docker/postgres-backups:/var/lib/postgresql/backups
     environment:
-      - "POSTGRES_DB=${DB_DATABASE:-default}"
-      - "POSTGRES_USER=${DB_USERNAME:-default}"
-      - "POSTGRES_PASSWORD=${DB_PASSWORD:-secret}"
+      - "POSTGRES_DB=${POSTGRES_DB:-default}"
+      - "POSTGRES_USER=${POSTGRES_USER:-default}"
+      - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secret}"
       - TZ=Europe/Warsaw
 
   adminer:
@@ -152,16 +153,16 @@ services:
     image: bitnami/minio
     networks:
       - escola_lms
-    ports:
-      - "9000:9000"
-      - "9001:9001"
+    # ports:
+    #   - "9000:9000"
+    #   - "9001:9001"
     volumes:
       - ./docker/minio_storage:/data
       - ./docker/conf/minio:/docker-entrypoint-initdb.d
     environment:
-      MINIO_DEFAULT_BUCKETS: "${AWS_BUCKET:-download}"
-      MINIO_ROOT_USER: "${AWS_ACCESS_KEY_ID:-admin}"
-      MINIO_ROOT_PASSWORD: "${AWS_SECRET_ACCESS_KEY:-minio_secretpassword}"
+      MINIO_DEFAULT_BUCKETS: "${MINIO_DEFAULT_BUCKETS:-wellms}"
+      MINIO_ROOT_USER: "${MINIO_ROOT_USER:-admin}"
+      MINIO_ROOT_PASSWORD: "${MINIO_ROOT_PASSWORD:-minio_secretpassword}"
       # AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}:admin
       # AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}:minio_secretpassword
       # AWS_BUCKET: ${AWS_BUCKET}:wellms"

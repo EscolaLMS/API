@@ -37,18 +37,23 @@ class Variables
         return $pass;
     }
 
-    public static function listDomainVariables(string $domain_key, array $vars)
+    public static function listDomainVariables(string $domain_key, array $vars): array
     {
-        $output = "";
+        $output = [];
+        foreach ($vars as $key => $value) {
+            $output[$domain_key . "_" . $key] = $domain_key . "_" . $key . '=' . $value;
+        }
+        return $output;
+    }
+
+    public static function printVariables(array $vars): void
+    {
         $color = new Color;
         echo $color->info("Use those values for adding new domain\n");
         echo $color->info("Pass them into Docker Container Enviroment Variables\n");
         echo $color->info("-------------\n");
         foreach ($vars as $key => $value) {
-            $var = $domain_key . "_" . $key . '=' . $value . "\n";
-            $output .= $var;
-            echo $color->ok($var);
+            echo $color->ok($value . "\n");
         }
-        return $output;
     }
 }
