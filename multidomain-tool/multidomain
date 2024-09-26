@@ -1,0 +1,66 @@
+#!/usr/local/bin/php
+<?php
+
+/** 
+ * For anyone how seeks quality code here.
+ * This is a quick tool to generate a set of env variables.
+ * It's full of non-pure functions, global variables and other anti patters.
+ * But it's good enough. Have a good day
+ */
+
+require 'vendor/autoload.php';
+
+use Ahc\Cli\Application;
+use Ahc\Cli\Output\Color;
+use Ahc\Cli\IO\Interactor;
+use EscolaLms\MultidomainTool\Database;
+use EscolaLms\MultidomainTool\MinIO;
+use EscolaLms\MultidomainTool\Variables;
+
+if (php_sapi_name() !== 'cli') {
+    exit;
+}
+
+$app = new Application('Wellms multi-domain helper', '0.0.1');
+$color = new Color;
+echo $color->info('Wellms Headless LMS multi-domain helper' . "\n");
+
+
+$app
+    ->command('add', 'add domain', 'a') // alias a
+    ->arguments('[domain]')
+
+    ->action(function ($domain) use ($app, $color) {
+        $interactor = new Interactor;
+        if (empty($domain)) {
+            $domain = $interactor->prompt('Domain Name', '');
+        }
+        $domain_key = str_replace(['.', '-'], '_',  strtoupper($domain));
+        echo $color->info('Generating environment and variables for ' . "$domain domain\n");
+
+        if (Variables::checkEnvVars($app)) {
+            $minio_vars = MinIO::createUserPolicyBucket($domain);
+            $postgres_vars = Database::createPostgresUserAndDatabase($domain_key);
+
+            if ($minio_vars['success'] && $postgres_vars['success']) {
+                $vars = array_merge($minio_vars['vars'], $postgres_vars['vars']);
+                $vars_ouput = Variables::listDomainVariables($domain_key, $vars);
+                file_put_contents("build/{$domain}.env", $vars_ouput);
+                echo $color->info("If you forgot to copy those above, don't worry they are saved to " . realpath("build/{$domain}.env") . "\n");
+            }
+        };
+    })
+    // Done setting up this command for now, tap() to retreat back so we can add another command
+    ->tap()
+    ->command('remove', 'remove domain', 'r') // alias co
+    ->arguments('[domain]')
+    ->action(function ($domain) {
+        $interactor = new Interactor;
+        if (empty($domain)) {
+            $domain = $interactor->prompt('Domain Name', '');
+        }
+        $color = new Color;
+        echo $color->info('Implement logic for removing domain $domain');
+    });
+
+$app->handle($argv);

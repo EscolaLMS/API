@@ -63,6 +63,16 @@ if [ -n "$JWT_PRIVATE_KEY_BASE64" ]; then
     echo ${JWT_PRIVATE_KEY_BASE64} | base64 -d > storage/oauth-private.key
 fi
 
+
+
+
+if [ "$DISBALE_DB_MIGRATE" == 'true' ]
+then
+    echo "Disable db migrate"
+else 
+    php artisan migrate --force
+fi
+
 # generate passport keys only if storage/oauth-private.key is not set
 
 FILE=storage/oauth-private.key
@@ -75,16 +85,6 @@ else
     php artisan passport:client --personal --no-interaction
 fi
 
-# FIX me, do we nee to clear cache ? 
-#php artisan config:cache 
-
-if [ "$DISBALE_DB_MIGRATE" == 'true' ]
-then
-    echo "Disable db migrate"
-else 
-    php artisan migrate --force
-fi
-
 if [ "$DISBALE_DB_SEED" == 'true' ]
 then
     echo "Disable db:seed"
@@ -92,7 +92,6 @@ else
     php artisan db:seed --class=PermissionsSeeder --force --no-interaction
 fi
 
-php artisan storage:link --force --no-interaction
-php artisan h5p:storage-link
+/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 
 

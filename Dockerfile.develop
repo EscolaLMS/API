@@ -21,4 +21,4 @@ RUN cp docker/envs/.env.postgres.prod /var/www/html/.env \
 RUN composer self-update && composer install --no-scripts
 RUN chown -R devilbox:devilbox /var/www/
 
-CMD php docker/envs/envs.php && /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+CMD init.sh

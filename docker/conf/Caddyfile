@@ -1,5 +1,13 @@
+http://storage.localhost {
+    reverse_proxy minio:9000
+}
 
-http://api.localhost:1001 {
+http://minio.localhost {
+    reverse_proxy minio:9001
+}
+
+
+http://*.localhost {
     # Resolve the root directory for the app
     root * /var/www/html/public
 
@@ -30,14 +38,6 @@ http://api.localhost:1001 {
 
     header Access-Control-Allow-Credentials true
 
-}
-
-http://storage.localhost:1001 {
-    reverse_proxy minio:9000
-}
-
-http://minio.localhost:1001 {
-    reverse_proxy minio:9001
 }
 
 

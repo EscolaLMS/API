@@ -1,7 +1,6 @@
 #!/bin/bash
 
-echo "multidomains" 
-
+echo "Wellms multidomains init script!" 
 
 if [ "$DISBALE_PHP_FPM" == 'true' ]
 then
@@ -9,11 +8,8 @@ then
     echo php-fpm.conf disabled
 fi
 
-# if [ "$DISBALE_HORIZON" == 'true' ]
-# then
-#     rm -f /etc/supervisor/custom.d/horizon.conf
-#     echo horizon.conf disabled
-# fi
+# removing default horizon for multidomain
+rm -f /etc/supervisor/custom.d/horizon.conf
 
 if [ "$DISBALE_CADDY" == 'true' ]
 then
@@ -21,17 +17,13 @@ then
     echo caddy.conf disabled
 fi
 
-# if [ "$DISBALE_SCHEDULER" == 'true' ]
-# then
-#     rm -f /etc/supervisor/custom.d/scheduler.conf
-#     echo scheduler.conf disabled
-# fi
+# removing default scheduler for multidomain
+rm -f /etc/supervisor/custom.d/scheduler.conf
 
 # set env from `LARAVEL_` prefixed env vars
 # this also setup MULTI_DOMAINS eg 
 # when MULTI_DOMAINS: "api-sprawnymarketing.escolalms.com,api-gest.escolalms.com" 
 # then API_SPRAWNYMARKETING_ESCOLALMS_COM_APP_NAME: '"Sprawny Marketing"'
-
 
 # if binded by k8s or docker those folders might need to be recreated
 if [ ! -d "storage" ]; then mkdir storage; fi
@@ -41,29 +33,6 @@ if [ ! -d "storage/framework/views" ]; then mkdir storage/framework/views; fi
 if [ ! -d "storage/framework/cache" ]; then mkdir storage/framework/cache; fi
 if [ ! -d "storage/app" ]; then mkdir storage/app; fi
 if [ ! -d "storage/logs" ]; then mkdir storage/logs; fi
-
-# run all laravel related tasks 
-# klucze mozna trzymac jako zmienne srodowiskowe wiec .... 
-# https://github.com/gecche/laravel-multidomain/issues/51
-
-
-
-# FIX me, do we nee to clear cache ? 
-#php artisan config:cache 
-
-# if [ "$DISBALE_DB_MIGRATE" == 'true' ]
-# then
-#     echo "Disable db migrate"
-# else 
-#     php artisan migrate --force
-# fi
-
-# if [ "$DISBALE_DB_SEED" == 'true' ]
-# then
-#     echo "Disable db:seed"
-# else 
-#     php artisan db:seed --class=PermissionsSeeder --force --no-interaction
-# fi
 
 # generate general .env file for next specific domain files 
 # as `php artisan domain:add $domain` copy values from `.env`
@@ -80,6 +49,7 @@ if [ -n "$MULTI_DOMAINS" ]; then
     php artisan domain:add $domain
 
     # horizon
+    # TODO it considers only global variable, what if you want to control which domain has disabled Horizon
     if [ -z "$DISBALE_HORIZON" ] || [ "$DISBALE_HORIZON" != "true" ];
     then
       cp "docker/conf/supervisor/example/horizon.conf.example" "/etc/supervisor/custom.d/horizon.$domain.conf"
@@ -88,6 +58,7 @@ if [ -n "$MULTI_DOMAINS" ]; then
       echo "Horizon disabled"
     fi
     # scheduler
+    # TODO it considers only global variable, what if you want to control which domain has disabled scheduler
     if [ -z "$DISBALE_SCHEDULER" ] || [ "$DISBALE_SCHEDULER" != "true" ];
     then
       cp "docker/conf/supervisor/example/scheduler.conf.example" "/etc/supervisor/custom.d/scheduler.$domain.conf"
@@ -129,8 +100,18 @@ if [ -n "$MULTI_DOMAINS" ]; then
         echo ${!SPECIFIC_JWT_PRIVATE_KEY_BASE64} | base64 -d > /var/www/html/storage/${STORAGE_DIRECTORY}/oauth-private.key
     fi
 
-    # generate passport keys only if storage/oauth-private.key is not set
+   
+    
+    # db migrate
+    if [ "$DISBALE_DB_MIGRATE" == 'true' ]
+    then
+        echo "Disable db migrate"
+    else
+        php artisan migrate --force --domain=$domain
+    fi
 
+    # generate passport keys only if storage/oauth-private.key is not set
+    # note that app:keys are generated here as well 
     FILE=storage/${STORAGE_DIRECTORY}/oauth-private.key
     if [ -f "$FILE" ]; then
         echo "key file $FILE exists. Using one from file or env"     
@@ -141,61 +122,6 @@ if [ -n "$MULTI_DOMAINS" ]; then
         php artisan passport:client --personal --no-interaction --domain=$domain
     fi
 
-    # default .env is created not we fetch values from it for admin db access
-    source .env
-
-    # Variables
-    DB_USER=$STORAGE_DIRECTORY
-    DB_NAME=$STORAGE_DIRECTORY
-    DB_SUPERUSER=$POSTGRES_USER  # The PostgreSQL superuser or a user with sufficient privileges
-
-    # Generate a random password (12-character alphanumeric password)
-    DB_RND_PASSWORD=$(openssl rand -base64 12)
-
-    # Check if the user already exists
-    USER_EXISTS=$(PGPASSWORD=$DB_PASSWORD psql -h "$DB_HOST" -U "$DB_USERNAME" -tAc "SELECT 1 FROM pg_roles WHERE rolname='$DB_USER'")
-
-    if [ "$USER_EXISTS" = "1" ]; then
-        echo "User '$DB_USER' already exists."
-        # assuming 
-    else
-        echo "User '$DB_USER' dont exists."        
-        PGPASSWORD=$DB_PASSWORD psql -h "$DB_HOST" -U "$DB_USERNAME" -c "CREATE USER $DB_USER WITH PASSWORD '$DB_RND_PASSWORD';"
-        echo "User '$DB_USER' created with password: $DB_RND_PASSWORD"
-
-        # Create new PostgreSQL database
-    #     sudo -u $DB_SUPERUSER psql -c "CREATE DATABASE $DB_NAME;"
-    #     echo "Database '$DB_NAME' created."
-
-        php artisan domain:update_env $domain --domain_values='{"DB_USERNAME":"'$DB_USER'"}' 
-        php artisan domain:update_env $domain --domain_values='{"DB_PASSWORD":"'$DB_RND_PASSWORD'"}' 
-
-    fi
-
-    # Check if the database already exists
-    DB_EXISTS=$(PGPASSWORD=$DB_PASSWORD psql -h "$DB_HOST" -U "$DB_USERNAME" -tAc "SELECT 1 FROM pg_database WHERE datname='$DB_NAME'")
-
-    if [ "$DB_EXISTS" = "1" ]; then
-        echo "Database '$DB_NAME' already exists."
-    else
-        # Create new PostgreSQL database
-        PGPASSWORD=$DB_PASSWORD psql -h "$DB_HOST" -U "$DB_USERNAME" -c "CREATE DATABASE $DB_NAME;"
-        echo "Database '$DB_NAME' created."
-         php artisan domain:update_env $domain --domain_values='{"DB_DATABASE":"'$DB_NAME'"}' 
-    fi
-
-    # Grant privileges to the user on the database
-    PGPASSWORD=$DB_PASSWORD psql -h "$DB_HOST" -U "$DB_USERNAME" -c "GRANT ALL PRIVILEGES ON DATABASE $DB_NAME TO $DB_USER;"
-    echo "Privileges granted to user '$DB_USER' on database '$DB_NAME'."
-
-    # db migrate
-    if [ "$DISBALE_DB_MIGRATE" == 'true' ]
-    then
-        echo "Disable db migrate"
-    else
-        php artisan migrate --force --domain=$domain
-    fi
-
     # db seed
     if [ "$DISBALE_DB_SEED" == 'true' ]
     then
@@ -204,47 +130,9 @@ if [ -n "$MULTI_DOMAINS" ]; then
         php artisan db:seed --domain=$domain --class=PermissionsSeeder --force --no-interaction
     fi
 
-
-    # ////
-    # # create db if not exists
-    # if PGPASSWORD="$POSTGRES_PASSWORD" psql -h "$LARAVEL_DB_HOST" -U "$POSTGRES_USER" -d "$DB_NAME_VALUE" -c ";" >/dev/null 2>&1; then
-    #   echo "DB $DB_NAME_VALUE already exists"
-    # else
-    #   PGPASSWORD="$POSTGRES_PASSWORD" psql -h "$LARAVEL_DB_HOST" -U "$POSTGRES_USER" -c "CREATE DATABASE $DB_NAME_VALUE;"
-    #   echo "DB $DB_NAME_VALUE has been created"
-    # fi
-
-    # # db migrate
-    # if [ "$DISBALE_DB_MIGRATE" == 'true' ]
-    # then
-    #     echo "Disable db migrate"
-    # else
-    #     php artisan migrate --force --domain=$domain
-    # fi
-
-    # # db seed
-    # if [ "$DISBALE_DB_SEED" == 'true' ]
-    # then
-    #     echo "Disable db:seed"
-    # else
-    #     php artisan db:seed --domain=$domain --class=PermissionsSeeder --force --no-interaction
-    # fi
-
-    # # storage
-    # STORAGE_DIRECTORY=$(echo "$domain" | tr '[:upper:]' '[:lower:]' | tr '.' '_')
-    # STORAGE_PUBLIC_KEY="${DOMAIN_KEY}_APP_PUBLIC_STORAGE"
-    # STORAGE_PUBLIC_NAME=${!STORAGE_PUBLIC_KEY}
-    # # to nie bedzie potrzebne bo bedziemy korzystac z minio 
-    # if [ -n "$STORAGE_PUBLIC_NAME" ]; then
-    #   ln -s /var/www/html/storage/${STORAGE_DIRECTORY}/app/public public/storage${STORAGE_PUBLIC_NAME}
-    #   ln -s /var/www/html/storage/${STORAGE_DIRECTORY}/app/h5p public/h5p${STORAGE_PUBLIC_NAME}
-    # fi
-
-    # php artisan optimize:clear --domain=$domain
-
   done
 else
   echo "Environment variable MULTI_DOMAINS is empty."
 fi
 
-
+/usr/bin/supervisord -c /etc/supervisor/supervisord.conf

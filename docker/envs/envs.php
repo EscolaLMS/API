@@ -1,9 +1,12 @@
 <?php
 
-
 require realpath(__DIR__ . '/../../vendor/autoload.php');
+$env_path = __DIR__ . '/../../.env';
+if (!is_file($env_path)) {
+    file_put_contents($env_path, "");
+}
 
-$env_path = realpath(__DIR__ . '/../../.env');
+$env_path = realpath($env_path);
 
 $dotenv = Dotenv\Dotenv::createMutable(dirname($env_path));
 $dotenv->load();

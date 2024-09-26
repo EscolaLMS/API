@@ -12,7 +12,18 @@ Laravel Headless LMS REST API.
 [![Known Vulnerabilities](https://snyk.io/test/github/EscolaLMS/API/badge.svg)](https://snyk.io/test/github/EscolaLMS/API)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=EscolaLMS_API&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=EscolaLMS_API)
 
+## Documentation
+
+All the documentation is hosted at [docs.wellms.io](https://docs.wellms.io/).
+
+## Configuration
+
+Please not that API is based on Laravel but it's configured by environmental variables
+Please don't create or edit any `.env` file but use environmental variables with `LARAVEL_` prefix, see [docker-compose.yml](docker-compose.yml) for reference.
+
 ## Packages
+
+This API consists of Laravel and multiple packages.
 
 List of all packages is available at [packagist.org/?query=escolalms](https://packagist.org/?query=escolalms).
 
@@ -27,7 +38,9 @@ Summary code coverage from all the packages:
 [![cc](https://raw.githubusercontent.com/EscolaLMS/.github/main/api-tests/cc-tests.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
 [![cc](https://raw.githubusercontent.com/EscolaLMS/.github/main/api-tests/cc-assertions.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
 
-## Installation
+## Installation from source code
+
+If you want to use the software consider using our docker images or using [Create-LMS-App/](https://github.com/EscolaLMS/Create-LMS-App/) helper.
 
 You should consider install with our [installation package](https://docs.wellms.io/getting-started/guide.html).
 
@@ -73,32 +86,9 @@ Each packge contains their own php integration test this repo runs all of the
 
 To run use `./vendor/bin/phpunit`
 
-### End-to-end tests
-
-[Cypress.io](https://docs.cypress.io/) is running end-to-end tests
-
-To launch those use `yarn && yarn run cypress open`
-
-You can see the results in the [cypress dashboard](https://dashboard.cypress.io/projects/kmx5cw/runs) including video artifacts
-
 ## Tasks
 
 See [makefile](makefile) for all available devops tasks
-
-- `make test-phpunit`
-- `make bash`
-- `make composer-update`
-- `make swagger-generate`
-- `make migrate-fresh`
-- `make switch-to-postgres`
-- `make switch-to-mysql`
-- `make migrate-mysql`
-- `make migrate-postgres`
-- `make test-phpunit-postgres`
-- `make test-phpunit-mysql`
-- `make init`
-- `make init-mysql`
-- `make init-postgres`
 
 ## License
 
