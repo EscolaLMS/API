@@ -22,6 +22,7 @@ storage/h5p/temp
 storage/*
 !storage/app
 !storage/logs
+storage/logs/*
 !storage/framework
 .env.local.testing
 /coverage
