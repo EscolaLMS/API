@@ -49,7 +49,7 @@ services:
       - LARAVEL_MJML_BINARY_PATH=/usr/bin/mjml
       - LARAVEL_TRACKER_ENABLED=false
       - LARAVEL_FILESYSTEM_DRIVER=s3
-      - LARAVEL_AWS_ACCESS_KEY_ID=masoud
+      - LARAVEL_AWS_ACCESS_KEY_ID=admin
       - LARAVEL_AWS_SECRET_ACCESS_KEY=minio_secretpassword
       - LARAVEL_AWS_DEFAULT_REGION=us-east-1
       - LARAVEL_AWS_BUCKET=wellms
@@ -57,6 +57,7 @@ services:
       - LARAVEL_AWS_ENDPOINT="http://minio:9000"
       - LARAVEL_AWS_URL="http://storage.localhost/wellms"
       - LARAVEL_AWS_USE_PATH_STYLE_ENDPOINT=true
+      - LARAVEL_INITIAL_USER_PASSWORD=secret
     volumes:
       - ./:/var/www/html
     networks:
@@ -106,10 +107,18 @@ services:
   #   networks:
   #     - escola_lms
 
+  escola_lms_admin:
+    platform: linux/amd64
+    networks:
+      - escola_lms
+    image: escolalms/admin
+    environment:
+      - API_URL=http://api.localhost
+
   postgres:
     image: postgres:12
-    ports:
-      - "5432:5432"
+    # ports:
+    #   - "5432:5432"
     networks:
       - escola_lms
     volumes:
@@ -157,7 +166,7 @@ services:
     #   - "9000:9000"
     #   - "9001:9001"
     volumes:
-      - ./docker/minio_storage:/data
+      - ./docker/minio_storage:/bitnami/minio/data
       - ./docker/conf/minio:/docker-entrypoint-initdb.d
     environment:
       MINIO_DEFAULT_BUCKETS: "${MINIO_DEFAULT_BUCKETS:-wellms}"

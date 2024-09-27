@@ -28,13 +28,13 @@ class MinIO
         return $jar;
     }
 
-    public static function postToMinio(string $url, CookieJar $jar, $body): MinioResponse
+    public static function postToMinio(string $url, CookieJar $jar, $body, $method = 'POST'): MinioResponse
     {
 
         $client = new Client();
 
         try {
-            $response = $client->request('POST', $url, [
+            $response = $client->request($method, $url, [
                 'headers' => ['Content-Type' => 'application/json',],
                 'cookies' => $jar,
                 'json' =>  $body
@@ -74,6 +74,25 @@ class MinIO
             ];
         }
 
+        //make bucket public 
+        $setPolicy =  self::postToMinio("${MINIO_API_ENDPOINT}/buckets/${bucket_name}/set-policy", $cookieJar, ["access" => "PUBLIC", 'definition' => json_encode([
+            "Version" => "2012-10-17",
+            "Statement" => [
+                []
+            ]
+        ])], "PUT");
+
+        if ($setPolicy->success) {
+            echo $color->ok("MinIO. Bucket $bucket_name access set to public Successfully \n");
+        } else {
+            echo $color->warn("MinIO. Bucket $bucket_name access set to public Failed \n");
+            echo $color->error($setPolicy->message . "\n");
+            return [
+                'success' => false
+            ];
+        }
+
+
         // create a policy for accessing only one bucket
         $policy =  self::postToMinio("${MINIO_API_ENDPOINT}/policies", $cookieJar, ["name" => $domain, 'policy' => json_encode([
             "Version" => "2012-10-17",
@@ -90,7 +109,7 @@ class MinIO
         ])]);
 
         if ($policy->success) {
-            echo $color->ok("MinIO. Policy $bucket_name Created Succesfully \n");
+            echo $color->ok("MinIO. Policy $bucket_name Created Successfully \n");
         } else {
             echo $color->warn("MinIO. Policy $bucket_name Failed \n");
             echo $color->error($policy->message . "\n");
@@ -103,7 +122,7 @@ class MinIO
         $user = self::postToMinio("${MINIO_API_ENDPOINT}/users", $cookieJar, ["accessKey" => $bucket_name, "secretKey" => $password, "groups" => [], "policies" => [$domain]]);
 
         if ($user->success) {
-            echo $color->ok("MinIO. User $bucket_name Created Succesfully \n");
+            echo $color->ok("MinIO. User $bucket_name Created Successfully \n");
         } else {
             echo $color->warn("MinIO. User $bucket_name Failed \n");
             echo $color->error($user->message . "\n");

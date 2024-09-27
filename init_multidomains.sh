@@ -130,6 +130,8 @@ if [ -n "$MULTI_DOMAINS" ]; then
         php artisan db:seed --domain=$domain --class=PermissionsSeeder --force --no-interaction
     fi
 
+    php artisan h5p:storage-link --domain=$domain
+
   done
 else
   echo "Environment variable MULTI_DOMAINS is empty."

@@ -21,6 +21,10 @@ All the documentation is hosted at [docs.wellms.io](https://docs.wellms.io/).
 Please not that API is based on Laravel but it's configured by environmental variables
 Please don't create or edit any `.env` file but use environmental variables with `LARAVEL_` prefix, see [docker-compose.yml](docker-compose.yml) for reference.
 
+As we want this package to be stateless and easy to scale all configuration is stored either in database or in environmental variables.
+
+See [docs][docs] for more details.
+
 ## Packages
 
 This API consists of Laravel and multiple packages.
@@ -46,29 +50,7 @@ You should consider install with our [installation package](https://docs.wellms.
 
 To install default docker environment either clone this repo or use
 
-```bash
-composer create-project escolallms/api escola-lms
-```
-
-### Postgres (default)
-
-```sh
-make init
-```
-
-### Mysql
-
-```
-make init-mysql
-```
-
-## Demo & Credentials
-
-| Role    | Email ID              | Password |
-| ------- | --------------------- | -------- |
-| Admin   | admin@escolalms.com   | secret   |
-| Tutor   | tutor@escolalms.com   | secret   |
-| Student | student@escolalms.com | secret   |
+See [docs/multidomain.md][docs/multidomain.md] for more details how to quick start.
 
 ## Demo
 

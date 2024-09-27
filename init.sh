@@ -92,6 +92,8 @@ else
     php artisan db:seed --class=PermissionsSeeder --force --no-interaction
 fi
 
+php artisan h5p:storage-link
+
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 
 

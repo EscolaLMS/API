@@ -16,6 +16,7 @@
   "minimum-stability": "dev",
   "require": {
     "guzzlehttp/guzzle": "8.0.x-dev",
-    "adhocore/cli": "dev-main"
+    "adhocore/cli": "dev-main",
+    "phpseclib/phpseclib": "dev-master"
   }
 }

@@ -56,4 +56,10 @@ class Variables
             echo $color->ok($value . "\n");
         }
     }
+
+    public static function getRandomSecurePassword(): string
+    {
+        $bytes = openssl_random_pseudo_bytes(8);
+        return bin2hex($bytes);
+    }
 }

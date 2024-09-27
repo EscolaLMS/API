@@ -42,6 +42,10 @@ use EscolaLms\Video\Database\Seeders\VideoPermissionSeeder;
 use EscolaLms\Vouchers\Database\Seeders\VoucherPermissionsSeeder;
 use EscolaLms\Webinar\Database\Seeders\WebinarsPermissionSeeder;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class PermissionsSeeder extends Seeder
 {
@@ -92,5 +96,26 @@ class PermissionsSeeder extends Seeder
         $this->call(TopicTypeGiftPermissionSeeder::class);
         $this->call(BulkNotificationPermissionSeeder::class);
         $this->call(DictionariesPermissionSeeder::class);
+
+        // if there are no users, we need to create first admin 
+
+        $users = DB::table('users')->count();
+
+        if ($users === 0) {
+            echo "There are no users, we need to create first admin \n";
+            if (env("INITIAL_USER_PASSWORD")) {
+                $admin = User::firstOrCreate([
+                    'first_name' => env("INITIAL_USER_FIRST_NAME", 'Root'),
+                    'last_name' => env("INITIAL_USER_LAST_NAME", 'Admin'),
+                    'email' => env("INITIAL_USER_EMAIL", 'admin@escolalms.com'),
+                    'password' => Hash::make(env("INITIAL_USER_PASSWORD")),
+                    'is_active' => 1,
+                    'email_verified_at' => Carbon::now(),
+                ]);
+
+                $admin->guard_name = 'api';
+                $admin->assignRole('admin');
+            }
+        }
     }
 }
