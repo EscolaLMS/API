@@ -53,7 +53,9 @@ $app
                         ...Variables::listDomainVariables($domain_key, $minio_vars['vars']),
                         ...Variables::listDomainVariables($domain_key, $postgres_vars['vars']),
                         ...Variables::listDomainVariables($domain_key, ['JWT_PUBLIC_KEY_BASE64' => base64_encode($rsa_keys['publickey'])]),
-                        ...Variables::listDomainVariables($domain_key, ['JWT_PRIVATE_KEY_BASE64' => base64_encode($rsa_keys['privatekey'])])
+                        ...Variables::listDomainVariables($domain_key, ['JWT_PRIVATE_KEY_BASE64' => base64_encode($rsa_keys['privatekey'])]),
+                        ...Variables::listDomainVariables($domain_key, ['INITIAL_USER_PASSWORD' => Variables::getRandomSecurePassword()])
+
                     ];
                 }
             };
