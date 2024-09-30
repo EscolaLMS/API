@@ -115,6 +115,14 @@ services:
     environment:
       - API_URL=http://api.localhost
 
+  escola_lms_front:
+    platform: linux/amd64
+    networks:
+      - escola_lms
+    image: escolalms/demo
+    environment:
+      - API_URL=http://api.localhost
+
   postgres:
     image: postgres:12
     # ports:

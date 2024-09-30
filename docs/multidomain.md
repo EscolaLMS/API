@@ -1,28 +1,36 @@
 # Wellms Single or Multi Domain API Mode.
 
-Wellms API is working in two modes either
+Wellms API is working in two modes, either
 
 - single domain or catch all domains to one service
 - multiple domains to each service (different database, buckets, settings etc)
 
 Multi-domain is controlled by environmental variables and usage of [gecche/laravel-multidomain](https://github.com/gecche/laravel-multidomain)
 
-Please not that this API is based on Laravel but it's configured by environmental variables
-Please don't create or edit any `.env` file but use environmental variables with `LARAVEL_` prefix, see [docker-compose.yml](../docker-compose.yml) for reference.
+Please not that this API is based on Laravel but it's configured by environmental variables.
+Please don't create or edit any `.env` files but use environmental variables only with `LARAVEL_` prefix, see [docker-compose.yml](../docker-compose.yml) and [docs/enviromental-variables.md](enviromental-variables.md) for reference.
 
-As we want this app to be stateless and easy to scale so all configuration is stored either in database or in environmental variables, not inside .env or storage folder.
+As we want this app to be **stateless and easy to scale** so all configuration is stored either in database or in environmental variables, not inside `.env` or `storage` folder.
+
+Configuration and files are stored only in
+
+- environmental variables
+- database
+- s3 compatible buckets, eg s3, minIO etc.
 
 ## How it works. Example
 
-There is no better documentation than example, aka "specification by example"
+There is no better documentation than example, aka "specification by example".
 
-Launch Wellms api as usual with, eg `docker compose up -d` with `docker-compose.yml` package from this repository- now single domain wellms is working, as you can check under http://api.localhost
+### Single domain API.
 
-This tutorial assumes that all `*.localhost` addressed are forwarded to `127.0.0.1`, if this doesn't work on your machine you need to manually add each record for each domain in your `/etc/hosts` file.
+Launch Wellms api as usual with, eg `docker compose up -d` with `docker-compose.yml` package from [this repository](https://github.com/EscolaLMS/API) - now single domain wellms is working, as you can check under http://api.localhost
+
+This tutorial assumes that all `*.localhost`, `*.admin.localhost` and `*.app.localhost` addressed are forwarded to `127.0.0.1`, if this doesn't work on your machine you need to manually add each record for each domain in your `/etc/hosts` file.
 
 ### Single domain
 
-Launch application with default setting
+Launch application with default setting by cloning [API repository](https://github.com/EscolaLMS/API).
 
 First install dependencies
 
@@ -43,11 +51,13 @@ docker compose stop
 docker compose up -d
 ```
 
-Url [http://api.localhost/api/name](http://api.localhost/api/name) should return "Application Name: Wellms" and URL [http://api.localhost/api/courses](http://api.localhost/api/courses) JSON with courses.
+Url [http://api.localhost/api/name](http://api.localhost/api/name) should return "Application Name: Wellms" and URL [http://api.localhost/api/courses](http://api.localhost/api/courses) JSON with courses, yet empty list by default.
 
 Lets test it with Admin panel
 
 Go to url [http://api.admin.localhost/](http://api.admin.localhost/) use credentials `admin@escolasoft.com` and password `secret` (this refers to env variables `INITIAL_USER_EMAIL` and `INITIAL_USER_PASSWORD`)
+
+Go to URL [http://api.app.localhost/#/](http://api.app.localhost/#/) to see demo of your data.
 
 There isn't much content but if you want to generate some run command
 
@@ -57,17 +67,19 @@ docker compose run escola_lms_app php artisan db:seed --class=FullDatabaseSeeder
 
 This command generate lots of testing content but it takes few minutes to finish.
 
-That's it you can attach you first front to this headless LMS.
+That's it!! You can attach you first front to this headless LMS.
 
-To debug you can also use tools
+### Debugging
+
+- check all docker logs, specially Caddy, and php.
+
+To debug you can also use tools:
 
 - [adminer](https://www.adminer.org/) to check whats in the database [http://localhost:8078/](http://localhost:8078/). Use credentials from env vars to login, by default those are Database Type: Postgres, Server: postgres, username: default, password: secret, database: default
 - [MailHog](https://github.com/mailhog/MailHog) to simulate email sending. [http://localhost:8025/](http://localhost:8025/)
 - [MinIO](https://min.io/) to check your Object Store CDN http://minio.localhost/ Use credentials from env vars to login, by default those are username: admin, password: minio_secretpassword
 
-### Multidomain
-
-// todo test here
+### Multidomain. `multidomain` helper tool.
 
 Enter docker bash with `make bash` now do
 
@@ -183,7 +195,7 @@ Now run the following command
 docker compose -f docker-compose.yml -f docker-compose.saas.yml up -d
 ```
 
-It takes few second for first run to use those
+It takes few second for first run to use those variable effectively.
 
 Each of the links for generated domain should work now and return same response "Application Name: Wellms"
 
@@ -191,9 +203,9 @@ Each of the links for generated domain should work now and return same response 
 - http://api16576.localhost/api/name
 - http://api22800.localhost/api/name
 
-now we want to see if our variables are actually working
+Now we want to see if our variables are actually working
 
-add the following variables to `docker-compose.saas.yml`
+Add the following variables to `docker-compose.saas.yml`
 
 ```yaml
 - API17005_LOCALHOST_APP_NAME="App one"
@@ -201,13 +213,15 @@ add the following variables to `docker-compose.saas.yml`
 - API22800_LOCALHOST_APP_NAME="App three"
 ```
 
-run `docker compose -f docker-compose.yml -f docker-compose.saas.yml up -d` again and wait until server is responding.
+Run `docker compose -f docker-compose.yml -f docker-compose.saas.yml up -d` again and wait until server is responding.
 
 Now Each of the links for generated domain should work now and return different response "Application Name: App one", "Application Name: App two", etc
 
 - http://api17005.localhost/api/name
 - http://api16576.localhost/api/name
 - http://api22800.localhost/api/name
+
+### Admin panel
 
 Lets add admin panel config for those new api endpoints.
 Assuming we'll be using those domains for admin panel
@@ -227,7 +241,7 @@ we want to make sure that each admin panel is attached to correct api endpoint. 
 
 so first you need to pass list of domains, comma separated `MULTI_DOMAINS=api1104.admin.localhost,api6999.admin.localhost,api7438.admin.localhost` then you need to pass encrypted `REACT_APP_API_URL` variable, different for each domain.
 
-Domain is translated `api17005.localhost` into key `API17005_ADMIN_LOCALHOST`.Formula is simple Uppercase + replace `.` or `-` with `_` ten add `_` and name of variable to be passed.
+Domain is translated `api17005.localhost` into key `API17005_ADMIN_LOCALHOST`. Formula is simple Uppercase + replace `.` or `-` with `_` then add additional `_` and name of variable to be passed.
 
 ```php
 $domain_key = str_replace(['.', '-'], '_',  strtoupper($domain));
@@ -252,4 +266,25 @@ Open [http://api17005.admin.localhost/#/user/login](http://api17005.admin.localh
 
 Thats it - you can now add as many domains as you want, each have a separate configuration settings, bucket and database.
 
-TODO: tutorial on scaling
+### Frontend
+
+Most of advantages od headless comes with attaching API to your front. We have created a [React demo](https://github.com/EscolaLMS/Front) to showcase Wellms possibilities. It's deployed to docker images as well, using it it's very similar to Admin panel.
+
+Add this code to `docker-compose.saas.yml`
+
+```yaml
+escola_lms_front:
+  environment:
+    - MULTI_DOMAINS=api17005.app.localhost,api16576.app.localhost,api22800.app.localhost
+    - API16576_APP_LOCALHOST_VITE_APP_API_URL=http://api16576.localhost
+    - API17005_APP_LOCALHOST_VITE_APP_API_URL=http://api17005.localhost
+    - API22800_APP_LOCALHOST_VITE_APP_API_URL=http://api22800.localhost
+```
+
+Now you have fully working react frontend at links below.
+
+Assuming we'll be using those domains for each front, check all of you fronts attached to specific endpoint.
+
+- http://api17005.app.localhost
+- http://api16576.app.localhost
+- http://api22800.app.localhost
