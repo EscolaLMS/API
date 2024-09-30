@@ -15,35 +15,127 @@ services:
     networks:
       - escola_lms
     ports:
-      - "1001:1001"
-  #      - "443:443"
+      - "80:80"
+      - "443:443"
   escola_lms_app:
+    command: "./init.sh"
     image: escolalms/php:8.2-prod ## or escolalms/php:8-work for debugginh
+    environment:
+      - LARAVEL_APP_NAME=Wellms
+      - LARAVEL_APP_ENV=local
+      - LARAVEL_APP_KEY=base64:jgaCduGIEEmn4/UMJR5d38Y5ncfNE+rXqV3Fvewd37w=
+      - LARAVEL_APP_DEBUG=true
+      - LARAVEL_APP_LOG_LEVEL=debug
+      - LARAVEL_APP_URL=http://api.localhost
+      - LARAVEL_DB_CONNECTION=pgsql
+      - LARAVEL_DB_HOST=postgres
+      - LARAVEL_DB_PORT=5432
+      - LARAVEL_DB_DATABASE=default
+      - LARAVEL_DB_USERNAME=default
+      - LARAVEL_DB_PASSWORD=secret
+      - LARAVEL_REDIS_HOST=redis
+      - LARAVEL_REDIS_PASSWORD=escola_lms
+      - LARAVEL_REDIS_PORT=6379
+      - LARAVEL_BROADCAST_DRIVER=log
+      - LARAVEL_CACHE_DRIVER=redis
+      - LARAVEL_SESSION_DRIVER=cookie
+      - LARAVEL_QUEUE_DRIVER=redis
+      - LARAVEL_QUEUE_CONNECTION=redis
+      - LARAVEL_MAIL_DRIVER=smtp
+      - LARAVEL_MAIL_HOST=mailhog
+      - LARAVEL_MAIL_PORT=1025
+      - LARAVEL_MAIL_USERNAME=null
+      - LARAVEL_MAIL_PASSWORD=null
+      - LARAVEL_MJML_BINARY_PATH=/usr/bin/mjml
+      - LARAVEL_TRACKER_ENABLED=false
+      - LARAVEL_FILESYSTEM_DRIVER=s3
+      - LARAVEL_AWS_ACCESS_KEY_ID=admin
+      - LARAVEL_AWS_SECRET_ACCESS_KEY=minio_secretpassword
+      - LARAVEL_AWS_DEFAULT_REGION=us-east-1
+      - LARAVEL_AWS_BUCKET=wellms
+      # Intenal Docker address
+      - LARAVEL_AWS_ENDPOINT="http://minio:9000"
+      - LARAVEL_AWS_URL="http://storage.localhost/wellms"
+      - LARAVEL_AWS_USE_PATH_STYLE_ENDPOINT=true
+      - LARAVEL_INITIAL_USER_PASSWORD=secret
     volumes:
       - ./:/var/www/html
     networks:
       - escola_lms
 
-  escola_lms_queue_cron:
-    image: escolalms/php:8.2-prod ## or escolalms/php:8-work for debugginh
-    volumes:
-      - ./:/var/www/html
+  # escola_lms_queue_cron:
+  #   command: "./init.sh"
+  #   image: escolalms/php:8.2-prod ## or escolalms/php:8-work for debugginh
+  #   environment:
+  #     - LARAVEL_APP_NAME=Wellms
+  #     - LARAVEL_APP_ENV=local
+  #     - LARAVEL_APP_KEY=base64:jgaCduGIEEmn4/UMJR5d38Y5ncfNE+rXqV3Fvewd37w=
+  #     - LARAVEL_APP_DEBUG=true
+  #     - LARAVEL_APP_LOG_LEVEL=debug
+  #     - LARAVEL_APP_URL=http://api.localhost
+  #     - LARAVEL_DB_CONNECTION=pgsql
+  #     - LARAVEL_DB_HOST=postgres
+  #     - LARAVEL_DB_PORT=5432
+  #     - LARAVEL_DB_DATABASE=default
+  #     - LARAVEL_DB_USERNAME=default
+  #     - LARAVEL_DB_PASSWORD=secret
+  #     - LARAVEL_REDIS_HOST=redis
+  #     - LARAVEL_REDIS_PASSWORD=escola_lms
+  #     - LARAVEL_REDIS_PORT=6379
+  #     - LARAVEL_BROADCAST_DRIVER=log
+  #     - LARAVEL_CACHE_DRIVER=redis
+  #     - LARAVEL_SESSION_DRIVER=cookie
+  #     - LARAVEL_QUEUE_DRIVER=redis
+  #     - LARAVEL_QUEUE_CONNECTION=redis
+  #     - LARAVEL_MAIL_DRIVER=smtp
+  #     - LARAVEL_MAIL_HOST=mailhog
+  #     - LARAVEL_MAIL_PORT=1025
+  #     - LARAVEL_MAIL_USERNAME=null
+  #     - LARAVEL_MAIL_PASSWORD=null
+  #     - LARAVEL_MJML_BINARY_PATH=/usr/bin/mjml
+  #     - LARAVEL_TRACKER_ENABLED=false
+  #     - LARAVEL_FILESYSTEM_DRIVER=s3
+  #     - LARAVEL_AWS_ACCESS_KEY_ID=masoud
+  #     - LARAVEL_AWS_SECRET_ACCESS_KEY=tg9t712TG1Odn17fisxXM9y01YrD
+  #     - LARAVEL_AWS_DEFAULT_REGION=us-east-1
+  #     - LARAVEL_AWS_BUCKET=wellms
+  #     - LARAVEL_AWS_ENDPOINT="http://minio:9000"
+  #     - LARAVEL_AWS_URL="http://storage.localhost:1001/wellms"
+  #     - LARAVEL_AWS_USE_PATH_STYLE_ENDPOINT=true
+  #   volumes:
+  #     - ./:/var/www/html
+  #   networks:
+  #     - escola_lms
+
+  escola_lms_admin:
+    platform: linux/amd64
     networks:
       - escola_lms
+    image: escolalms/admin
+    environment:
+      - API_URL=http://api.localhost
+
+  escola_lms_front:
+    platform: linux/amd64
+    networks:
+      - escola_lms
+    image: escolalms/demo
+    environment:
+      - API_URL=http://api.localhost
 
   postgres:
     image: postgres:12
-    ports:
-      - "5432:5432"
+    # ports:
+    #   - "5432:5432"
     networks:
       - escola_lms
     volumes:
       - ./docker/postgres-data:/var/lib/postgresql/data
       - ./docker/postgres-backups:/var/lib/postgresql/backups
     environment:
-      - "POSTGRES_DB=${DB_DATABASE}"
-      - "POSTGRES_USER=${DB_USERNAME}"
-      - "POSTGRES_PASSWORD=${DB_PASSWORD}"
+      - "POSTGRES_DB=${POSTGRES_DB:-default}"
+      - "POSTGRES_USER=${POSTGRES_USER:-default}"
+      - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secret}"
       - TZ=Europe/Warsaw
 
   adminer:
@@ -67,7 +159,7 @@ services:
     networks:
       - escola_lms
     image: "redis"
-    command: "redis-server --requirepass ${REDIS_PASSWORD}"
+    command: "redis-server --requirepass ${REDIS_PASSWORD:-escola_lms}"
 
   reportbro:
     networks:
@@ -78,17 +170,17 @@ services:
     image: bitnami/minio
     networks:
       - escola_lms
-    ports:
-      - "9000:9000"
-      - "9001:9001"
+    # ports:
+    #   - "9000:9000"
+    #   - "9001:9001"
     volumes:
-      - ./docker/minio_storage:/data
+      - ./docker/minio_storage:/bitnami/minio/data
       - ./docker/conf/minio:/docker-entrypoint-initdb.d
     environment:
-      MINIO_DEFAULT_BUCKETS: "${AWS_BUCKET}:download"
-      MINIO_ROOT_USER: ${AWS_ACCESS_KEY_ID}
-      MINIO_ROOT_PASSWORD: ${AWS_SECRET_ACCESS_KEY}
-      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
-      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
-      AWS_BUCKET: ${AWS_BUCKET}
-      AWS_ENDPOINT: ${AWS_ENDPOINT}
+      MINIO_DEFAULT_BUCKETS: "${MINIO_DEFAULT_BUCKETS:-wellms}"
+      MINIO_ROOT_USER: "${MINIO_ROOT_USER:-admin}"
+      MINIO_ROOT_PASSWORD: "${MINIO_ROOT_PASSWORD:-minio_secretpassword}"
+      # AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}:admin
+      # AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}:minio_secretpassword
+      # AWS_BUCKET: ${AWS_BUCKET}:wellms"
+      # AWS_ENDPOINT: ${AWS_ENDPOINT}

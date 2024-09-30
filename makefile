@@ -51,11 +51,7 @@ tinker:
 
 migrate-fresh: migrate-fresh-quick h5p-seed
 
-# this one is called from composer inside docker
-link:
-	- mkdir -p "storage/app/public/h5p/libraries"
-	- php artisan storage:link
-	- cd public/assets/vendor/h5p && ln -sf ../../../../storage/app/public/h5p/libraries
+
 
 refresh: composer-update migrate-fresh h5p-seed
 
@@ -87,4 +83,3 @@ import-postgres:
 	- docker compose exec postgres bash -c "psql --dbname=$(POSTGRES_DB) < /var/lib/postgresql/backups/$(BACKUP_FILE)"
 
 init: docker-up switch-to-postgres composer-update migrate-fresh-quick
-
