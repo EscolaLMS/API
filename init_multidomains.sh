@@ -137,4 +137,6 @@ else
   echo "Environment variable MULTI_DOMAINS is empty."
 fi
 
+touch inited
+
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
