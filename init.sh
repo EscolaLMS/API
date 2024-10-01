@@ -50,6 +50,8 @@ mkdir storage/framework/cache
 mkdir storage/app
 mkdir storage/logs
 
+chmod -R 0766 storage
+
 # run all laravel related tasks 
 # klucze mozna trzymac jako zmienne srodowiskowe wiec .... 
 # https://github.com/gecche/laravel-multidomain/issues/51
