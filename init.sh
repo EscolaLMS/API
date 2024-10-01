@@ -2,6 +2,8 @@
 
 # disable paritcular supervisor job by deleting jobs files 
 
+rm inited
+
 if [ -n "$MULTI_DOMAINS" ]
 then
   ./init_multidomains.sh
@@ -93,6 +95,8 @@ else
 fi
 
 php artisan h5p:storage-link
+
+touch inited
 
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 

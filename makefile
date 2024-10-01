@@ -83,3 +83,6 @@ import-postgres:
 	- docker compose exec postgres bash -c "psql --dbname=$(POSTGRES_DB) < /var/lib/postgresql/backups/$(BACKUP_FILE)"
 
 init: docker-up switch-to-postgres composer-update migrate-fresh-quick
+
+wait: 
+	- docker compose exec --user=1000 escola_lms_app bash -c "./wait.sh"

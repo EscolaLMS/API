@@ -72,3 +72,5 @@ caddy/
 !docker/conf/caddy
 
 docker-compose.saas.yml
+
+inited
