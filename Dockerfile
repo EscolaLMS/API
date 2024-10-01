@@ -21,4 +21,4 @@ RUN cp docker/envs/.env.postgres.prod /var/www/html/.env \
 RUN composer self-update && composer install --no-scripts
 RUN chown -R devilbox:devilbox /var/www/
 
-CMD init.sh
+CMD /var/www/html/init.sh
