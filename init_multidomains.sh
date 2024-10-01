@@ -39,6 +39,17 @@ if [ ! -d "storage/logs" ]; then mkdir storage/logs; fi
 echo "Generating general .env file for next specific domain files"
 php docker/envs/envs.php 
 
+# if binded by k8s or docker those folders might need to be recreated
+mkdir storage
+mkdir storage/framework
+mkdir storage/framework/sessions
+mkdir storage/framework/views
+mkdir storage/framework/cache
+mkdir storage/app
+mkdir storage/logs
+
+chmod -R 0766 storage
+
 # MULTI_DOMAINS
 if [ -n "$MULTI_DOMAINS" ]; then
   IFS=',' read -ra domains <<< "$MULTI_DOMAINS"
