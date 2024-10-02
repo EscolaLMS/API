@@ -166,6 +166,11 @@ services:
       - escola_lms
     image: escolalms/reportbro-server:latest
 
+  mjml:
+    image: adrianrudnik/mjml-server
+    # ports:
+    #   - 8080:80
+
   minio:
     image: bitnami/minio
     networks:
