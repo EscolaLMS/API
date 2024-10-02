@@ -9,6 +9,9 @@ test-phpunit:
 bash:
 	- docker compose exec --user=1000 escola_lms_app bash
 
+bash-sudo:
+	- docker compose exec escola_lms_app bash
+
 migrate-fresh-quick:
 	- docker compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan migrate:fresh --seed"
 	- docker compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan passport:keys --force"
