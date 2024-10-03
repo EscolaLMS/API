@@ -1,0 +1,290 @@
+# Wellms Single or Multi Domain API Mode.
+
+Wellms API is working in two modes, either
+
+- single domain or catch all domains to one service
+- multiple domains to each service (different database, buckets, settings etc)
+
+Multi-domain is controlled by environmental variables and usage of [gecche/laravel-multidomain](https://github.com/gecche/laravel-multidomain)
+
+Please not that this API is based on Laravel but it's configured by environmental variables.
+Please don't create or edit any `.env` files but use environmental variables only with `LARAVEL_` prefix, see [docker-compose.yml](../docker-compose.yml) and [docs/enviromental-variables.md](enviromental-variables.md) for reference.
+
+As we want this app to be **stateless and easy to scale** so all configuration is stored either in database or in environmental variables, not inside `.env` or `storage` folder.
+
+Configuration and files are stored only in
+
+- environmental variables
+- database
+- s3 compatible buckets, eg s3, minIO etc.
+
+## How it works. Example
+
+There is no better documentation than example, aka "specification by example".
+
+### Single domain API.
+
+Launch Wellms api as usual with, eg `docker compose up -d` with `docker-compose.yml` package from [this repository](https://github.com/EscolaLMS/API) - now single domain wellms is working, as you can check under http://api.localhost
+
+This tutorial assumes that all `*.localhost`, `*.admin.localhost` and `*.app.localhost` addressed are forwarded to `127.0.0.1`, if this doesn't work on your machine you need to manually add each record for each domain in your `/etc/hosts` file.
+
+### Single domain
+
+Launch application with default setting by cloning [API repository](https://github.com/EscolaLMS/API).
+
+First install dependencies
+
+```bash
+docker compose run escola_lms_app composer install --ignore-platform-reqs --no-scripts
+```
+
+then run the application
+
+```bash
+docker compose up -d
+```
+
+in case of any unexpected error try to restart whole stack
+
+```bash
+docker compose stop
+docker compose up -d
+```
+
+Url [http://api.localhost/api/name](http://api.localhost/api/name) should return "Application Name: Wellms" and URL [http://api.localhost/api/courses](http://api.localhost/api/courses) JSON with courses, yet empty list by default.
+
+Lets test it with Admin panel
+
+Go to url [http://api.admin.localhost/](http://api.admin.localhost/) use credentials `admin@escolasoft.com` and password `secret` (this refers to env variables `INITIAL_USER_EMAIL` and `INITIAL_USER_PASSWORD`)
+
+Go to URL [http://api.app.localhost/#/](http://api.app.localhost/#/) to see demo of your data.
+
+There isn't much content but if you want to generate some run command
+
+```bash
+docker compose run escola_lms_app php artisan db:seed --class=FullDatabaseSeeder
+```
+
+This command generate lots of testing content but it takes few minutes to finish.
+
+That's it!! You can attach you first front to this headless LMS.
+
+### Debugging
+
+- check all docker logs, specially Caddy, and php.
+
+To debug you can also use tools:
+
+- [adminer](https://www.adminer.org/) to check whats in the database [http://localhost:8078/](http://localhost:8078/). Use credentials from env vars to login, by default those are Database Type: Postgres, Server: postgres, username: default, password: secret, database: default
+- [MailHog](https://github.com/mailhog/MailHog) to simulate email sending. [http://localhost:8025/](http://localhost:8025/)
+- [MinIO](https://min.io/) to check your Object Store CDN http://minio.localhost/ Use credentials from env vars to login, by default those are username: admin, password: minio_secretpassword
+
+### Multidomain. `multidomain` helper tool.
+
+Enter docker bash with `make bash` now do
+
+```bash
+make bash
+cd multidomain-tool
+composer install
+```
+
+Then you need to get to know some variables
+
+- `AWS_ROOT_ACCESS_KEY_ID` refers to root username to MinIO, default `admin`
+- `AWS_ROOT_SECRET_ACCESS_KEY` refers to root password to MinIO, default `minio_secretpassword`
+- `AWS_ENDPOINT` refers to internal minio ui accessible from docker image, default `http://minio:9000`
+- `AWS_API_ENDPOINT` refers to internal minio api accessible from docker image, default `http://minio:9001`
+- `AWS_URL_PREFIX` refers to external minio storage address, default `http://storage.localhost` (reversed proxy by Caddy)
+- `DB_ROOT_HOST` default `postgres`
+- `DB_ROOT_PORT` default `5432`
+- `DB_ROOT_USERNAME` default `default`
+- `DB_ROOT_PASSWORD` default `secret`
+
+once you know those you can run multidomain helper
+
+```bash
+AWS_ROOT_ACCESS_KEY_ID=admin \
+AWS_ROOT_SECRET_ACCESS_KEY=minio_secretpassword \
+AWS_ENDPOINT=http://minio:9000 \
+AWS_API_ENDPOINT=http://minio:9001 \
+AWS_URL_PREFIX=http://storage.localhost \
+DB_ROOT_HOST=postgres \
+DB_ROOT_PORT=5432 \
+DB_ROOT_USERNAME=default \
+DB_ROOT_PASSWORD=secret \
+ ./multidomain add api$RANDOM.localhost,api$RANDOM.localhost,api$RANDOM.localhost
+```
+
+where `api$RANDOM.localhost` will generate a random `api[0 - 32767].localhost address`, so command above is going to generate enviromental variables for 3 random domains.
+
+or you can skin the randomness and use 1,2,3
+
+```bash
+AWS_ROOT_ACCESS_KEY_ID=admin \
+AWS_ROOT_SECRET_ACCESS_KEY=minio_secretpassword \
+AWS_ENDPOINT=http://minio:9000 \
+AWS_API_ENDPOINT=http://minio:9001 \
+AWS_URL_PREFIX=http://storage.localhost \
+DB_ROOT_HOST=postgres \
+DB_ROOT_PORT=5432 \
+DB_ROOT_USERNAME=default \
+DB_ROOT_PASSWORD=secret \
+ ./multidomain add api1.localhost,api2.localhost,api3.localhost
+```
+
+The result will be something like
+
+```bash
+#...more lines for code...
+Use those values for adding new domain
+Pass them into Docker Container Enviroment Variables
+-------------
+API17005_LOCALHOST_INITIAL_USER_PASSWORD=9324c2719ed6bc4f
+API17005_LOCALHOST_AWS_ACCESS_KEY_ID=api17005localhost
+#... long list of variables ...
+#... long list of variables ...
+#... long list of variables ...
+MULTI_DOMAINS=api17005.localhost,api16576.localhost,api22800.localhost
+If you forgot to copy those above, don't worry they are saved to /var/www/html/multidomain-tool/build/api17005.localhost,api16576.localhost,api22800.localhost.env
+```
+
+New lets add those values into docker yaml setup, create a file `docker-compose.saas.yml`
+
+```yaml
+services:
+  escola_lms_app:
+    command: "./init.sh"
+    environment:
+      - API17005_LOCALHOST_AWS_ACCESS_KEY_ID=api17005localhost
+      - API17005_LOCALHOST_AWS_SECRET_ACCESS_KEY=4c58fa42cab44240
+      - API17005_LOCALHOST_AWS_BUCKET=api17005localhost
+      - API17005_LOCALHOST_AWS_URL=http://storage.localhost/api17005localhost
+      - API17005_LOCALHOST_DB_DATABASE="api17005_localhost"
+      - API17005_LOCALHOST_DB_USERNAME="api17005_localhost"
+      - API17005_LOCALHOST_DB_PASSWORD=9324c2719ed6bc4f
+      - API17005_LOCALHOST_JWT_PUBLIC_KEY_BASE64=LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0NCk1JSUNJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBZzhBTUlJQ0NnS0NBZ0VBdzkzaG4vQWNkZkhVZURjSlhielcNCnhHR1dxc1dMU2dWL0lhYUVwODdzdzFsT0h2QnZ2RTVhMUxNYjVJSmQ4VnV6bjFEREc1cVJFRmlpTHpSV09valoNCkhscGtqeit0T1BpVjltU044OTlWU1lLZmVzZ0NjbmVtR0VRSjdIb3VNWnkycFlSOG1NdkFiSnEzeFJnclNGc0cNCm9mTkdFQmx0QjJXUGI5cWdTcWcrYWN6UkhIU2wwMldUa2ZDWUJhL2xrTmgyVGlZbUEyTzAxSHdaR3h6MHhFOEMNCnNTVVFGNXFVSU91NlhMMXdOQWdEdFF4ZWlKcWRKWEtXZnY3TjRoSU9vQWRVUTd1MXF1bzFIRWtqdG9JNGYxMW8NCjZHeVQ1c044WUZON2xXRUdEdUNJbG9NVkpFNHd4T2labGVqYStYMXJLVmVLaXpDUFlkTEEyOHpSY24vbjlmc00NCkF4T0M5V0tIc0IyT29oQzlkeWpCS0RDdEhyUndndW1NOWxDY2ZWeFY2bFY4N1JwOXh3QWsvU1V3cGE2dWtWVDgNCkFVcjlqRXRlbjFkRllrdVc1Y1YrUjhEdU83aHJubHk5L3Uyc2RFVldEOWxJcGhpK0l1LzYrMm0reTNHSGJPdkcNCkY3dUxWQ1pmK1Eza1VjdTZzSXprbHRaSnB0a2hBTkUrRlgyd3pDVG53UDNDSVlKMFN0dzRyaGszV1hTNjVCTmsNCm1LRkdyUEFPMmVGWWI1S0tjR0NWMGFWRGVnVHQ5ZEROR1lPZW1EaEhYb2pRSXl5d2taSTk3ZHoyb0hMNVFwWWENCmd2RUd0UEEyN29xbVdjUEF1aEJOTjFoOVVCSmdKN2Rsa0g0OHVWV3VSeTZPZEl4STRyMXI3cm5sM2NPYjQydksNCmY5Z3UwN0d0TVpJTXorbDU1dlNtQTVjQ0F3RUFBUT09DQotLS0tLUVORCBQVUJMSUMgS0VZLS0tLS0=
+      - API17005_LOCALHOST_JWT_PRIVATE_KEY_BASE64=LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tDQpNSUlKUXdJQkFEQU5CZ2txaGtpRzl3MEJBUUVGQUFTQ0NTMHdnZ2twQWdFQUFvSUNBUUREM2VHZjhCeDE4ZFI0DQpOd2xkdk5iRVlaYXF4WXRLQlg4aHBvU256dXpEV1U0ZThHKzhUbHJVc3h2a2dsM3hXN09mVU1NYm1wRVFXS0l2DQpORlk2aU5rZVdtU1BQNjA0K0pYMlpJM3ozMVZKZ3A5NnlBSnlkNllZUkFuc2VpNHhuTGFsaEh5WXk4QnNtcmZGDQpHQ3RJV3dhaDgwWVFHVzBIWlk5djJxQktxRDVwek5FY2RLWFRaWk9SOEpnRnIrV1EySFpPSmlZRFk3VFVmQmtiDQpIUFRFVHdLeEpSQVhtcFFnNjdwY3ZYQTBDQU8xREY2SW1wMGxjcForL3MzaUVnNmdCMVJEdTdXcTZqVWNTU08yDQpnamgvWFdqb2JKUG13M3hnVTN1VllRWU80SWlXZ3hVa1RqREU2Sm1WNk5yNWZXc3BWNHFMTUk5aDBzRGJ6TkZ5DQpmK2YxK3d3REU0TDFZb2V3SFk2aUVMMTNLTUVvTUswZXRIQ0M2WXoyVUp4OVhGWHFWWHp0R24zSEFDVDlKVENsDQpycTZSVlB3QlN2Mk1TMTZmVjBWaVM1Ymx4WDVId080N3VHdWVYTDMrN2F4MFJWWVAyVWltR0w0aTcvcjdhYjdMDQpjWWRzNjhZWHU0dFVKbC81RGVSUnk3cXdqT1NXMWttbTJTRUEwVDRWZmJETUpPZkEvY0loZ25SSzNEaXVHVGRaDQpkTHJrRTJTWW9VYXM4QTdaNFZodmtvcHdZSlhScFVONkJPMzEwTTBaZzU2WU9FZGVpTkFqTExDUmtqM3QzUGFnDQpjdmxDbGhxQzhRYTA4RGJ1aXFaWnc4QzZFRTAzV0gxUUVtQW50MldRZmp5NVZhNUhMbzUwakVqaXZXdnV1ZVhkDQp3NXZqYThwLzJDN1RzYTB4a2d6UDZYbm05S1lEbHdJREFRQUJBb0lDQUV3bWovb20yR25pdzhDWlpVTFVrSXQ1DQpoYUtQZTBBa012RmFWR2tKd25PUTNSYWFWRmJaLythQ1hHM1RZY0xjN0ZFY2pUN0dNWEF4aFp6a3RFRzl3dXhTDQpLSmFwSXlmclBpSzFwWnNUVVkxckE2WXc3UUtrRWllTkRHNnNjaGxIM0pzdGoyTzRrKytsbDUxQmNGS0pVV0xWDQp1biszNHZQbFFJYzBjTzJWeSs1R2UyYWMwM3dGR2dLN2o5OW1LOUxNMWZJOFVyc3VvTGVjS0FhcWsxOWZlS1IyDQp6SExnM29hT0g3Nit5RWp5ZEw2SE9KblR3eFUwSDk3d0lndXJDWlNlUk55d3RramxGaEVSUHBsT3Q3aU5FS1NNDQowbFA5M1BWMmY2M3NNdmJGeFZUL1VkRHp0WEpaSEoxMEV1NjlIRlRPZkVieGNrMk9LdjFKL0lTUHhoZVVxMjQ0DQpGYnlPOXJJTFZFSm50Q2NENU1yZGtLem90TG1GWHRsZ3d2UnNOL3E0dGJKZEVtb2lFQTg1cStjRldWM2R0eE9rDQphejk0WHFqVS9FZ0k4dzZ2TlVtKzlnSzdQOVZTQ3lBYmFscHM0OGc0WUxjVUJSOFBMaUVOS2d5ei9xTDVFcEpNDQpUcksvYUlVMDNOWTBNOXVoWVFCak96VVdXU2ppbjFORVFHZitYSk43VUtNUHgyVkJKQkFOVFJ5ZHdSTjZUL211DQpoM1RsaEFFdDAvMDJnSnpSRVlEUHFIaFFqcnJxeFoyNjBYd3lUQ0RveTVLS0xwY214aUJGeFVPaHNFNktZVVN4DQp6ZFplYW1Jb2Fad2ZyR1h6RGFUVFdadlU4VXhqWFdkS1laenh4a0JWM3A1dGlxdEM2T0t4KzVyNVZtdFF2NHVMDQpmbE5EdWY2V2p5ME5kUFYzdTFNQkFvSUJBUUR5VmExSythMTlIbVkyTlZwdVZKeGwvTU1RR0RkSDNGUm5NZFZWDQpkblllOGkzSUlyVzFaR0NkV0hDZjR1MjdCS1Y3WU9XY3AwbGI3VkJKMXBYSWJrYzF6MEU5WVBTNElocll5alYrDQpMWm5Xb0NIV1JZWCtMbUZ6bVFOYkJjRURDemJnVlNFWW9uSUoyVkdhMWtuenA5YXl3ZmlrdDFvMFY2ZEZvcHhhDQpkWUlyeEF4ekF5QnZicjBidmlZclRTNDZQTC9iY0lUY3ZKVUJXLzloSmt2QllhWkZEdFRlclhhK2h1QTk5eTlLDQpVZ25RcTczU1JUbEZLd1BUTUdPOGlpR0pvWnp2ZFJMbU1pbU1lRE8wNm81eWJ2amxQZUZ0T0RyZGNMTlhxY1k4DQpSSXRYaFlSbW10RFR5blk2U1BGRExua2tyelV4OUVWY3JWMEcvU2JUY2U0a2hMNG5Bb0lCQVFETzZXV2ZtWk1MDQpIWXlER0tSNzd0bHBlbEhuQ294NWYzUlhrZFFBVVhCWkdZdkZ1cEFwZEZJcUxKaU5PV2JEOUNGQzlyYmgyc1ViDQpNOFVkTllGbHdPYmNUZEl5LzVDZ2dWaFNMOEFJQ2tTeWwvYm80NlRiemVLV3lpSWhLYi90QTc4SGFLOSs5VmZIDQowZnVaWEh3L2FQQ2swZklHNytOQ1pNM1UxV1hsa1ZVcWhyMDBUMi95Q2srcEJxVHBLUTVqc01UR0pZak1sS3hoDQp2aDJlOTNDNHg4MTc3RG5XQzZkbnlqS0VIVlVlYkJoM3R5RmdoRCtTVGozcGtXcGdqVmswZ0hhU3RERjRDLzltDQpFYzk2c20wMXFldDl5dmw0YWprQWNHQlQ1YjZVUnVqUFA3WTc3dTBMUkZhTStQeGQyZlVZeCtYVGl0MW04MjNRDQo3bGtsSHl2aXNHVVJBb0lCQUVpMzhRSjRuZGpYMEhBZjNuMFJJc1Z2N2REY2syb2E4YkR0d1VpZC9hQVhxQ2xRDQpVUnFYZm01NDVZTDFBOFdGQld0YWpreE4zck9aS09pZlhkOEJTSmtiRWthcTI0U05wMlM2ZVFiZUJEWGxZNEg2DQo1dFI1Y29EUHY3UUdxLzZQMU8zSVhlQVlqd1BwbEpWVURHanpTbmZsd1FrY2hCTUU0b3NBMnM1Q1NNZDlVd2NJDQpQeWx4SDRvOXF4Si9YSW5aUlBGQ2VId01rdUlQaXpqSjF4MjJnY0JqVFBsdE1CN0lObTRoeUswU3BTTmJCZUVkDQpLS3hhMWhEL2lrNC9YUVVCM0NmM0I2N1FDcXUrUGpYaDFORDkvKzQ2ZlhUYTFMOHlYSDdIMFZhd2N1ZldodjZMDQpJbk1MWkNMbFZKQ0dWNC9zaTVmcjV3eUNjVkh4a1Q4T0J4b3FReTBDZ2dFQkFMNStrU28wS1BXMTJiU2tqbUx2DQpqc2lXYml0SlFmVm1DNFhINDZmN1VuVWxtTktOSmNhVXFrVGIxQU5KVXJ5YjJiZWVEdGUzSTNzYzJhQS9yNGN2DQo1eHZ5cGRDQUMvWkp2emZEY0llMmRITDhoN3o0UU1LQk5kamY5allVQ3ZnNlY3aUpmL0ZpRGRRUkZoT20yMWxCDQowelBiZW5rNmlEK0xNUmwrOHBZOWpHeGZxbmdybm9QM1RFbndyUWxnM0RlWitqLzNOSkF0WE51TVBoY3A5bVNZDQp4eTBOV2w0ZlVwdXl3M2x3eS9uN1NUZUdxYnNEWnNmYk14TUQ1eTFIVlZhSjR5RER0enV2eUE1LzNVWTRXV1ZyDQpzRHliRDd6MkJzN0pwMVgya2RSUHlHMXVXZWVwM0NGZ1pGTGJ0UFR2QXNFeTRQdzJ3QW5WbWtnZCtJSzl4UmlxDQprQkVDZ2dFQkFKV2VDZ2JRd0Y0WG5NczBpRVF0TCswRUJhZVA4WGJQL3pEdk1NMTFuOGlxaWh2MlNzWXB1N0tFDQpUTHpWV3BlUlFGcXpUeXNJWUFXdHNnM1hJZXliVUlPNUdaVW5raEp3WFdiNWZ6WjlSSFVvQ3FOaXdzbmJ6ZkcwDQp5N3FxTlRhbW9rRDdvL2ZFSitwMDRHaWtaRzZZRXpXb2FPeVVudVl6RExuQ0JQODNITXY2d1NzUmxDcUlMcktTDQptakg4NlViSzRWMzZXeXpZbVBZSFZvSXlnOStiYjJVenFlYllEWTM0d3pyL3BGRFRTMGdpK3JNNGpLemtBOXF4DQpPb2xldXBDZEhud0V1eW1TSWIwRGtTOWd2RkVuUlFteWxERmphRU1qMGx2OE9aTTMrdmltSHBFTUVBNkdLa3RRDQo4Mm5HT09KM2IzLzJjV3ZWSm1qRWJQWmI2d051Rzl3PQ0KLS0tLS1FTkQgUFJJVkFURSBLRVktLS0tLQ==
+      - API16576_LOCALHOST_AWS_ACCESS_KEY_ID=api16576localhost
+      - API16576_LOCALHOST_AWS_SECRET_ACCESS_KEY=2a45e8263e3d4906
+      - API16576_LOCALHOST_AWS_BUCKET=api16576localhost
+      - API16576_LOCALHOST_AWS_URL=http://storage.localhost/api16576localhost
+      - API16576_LOCALHOST_DB_DATABASE="api16576_localhost"
+      - API16576_LOCALHOST_DB_USERNAME="api16576_localhost"
+      - API16576_LOCALHOST_DB_PASSWORD=5d654cd64fe1de1d
+      - API16576_LOCALHOST_JWT_PUBLIC_KEY_BASE64=LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0NCk1JSUNJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBZzhBTUlJQ0NnS0NBZ0VBc1lZTmozd0R3MU5CY2tRazIzL3YNCnAyOUY5RTN2WnU4U0EySnBQWGdRYnA4OG56eDJZdXQyMnkzZmFqcHRmNUhMc1NtU215MCtsRy81NjBDQTBJTUENCkU4ZkQyTDZac1l5ekw2cjdMTHM0RWVXVW1JdERkTFQ3WVRwcVIzaDFZSFQyTWZyOHlEOVBaRy80cXRSZ1VZK1cNCnJHdnNnbzNrWC9oeHhLaWEzZ1hOOStmREJYS1pvamdTUkJKUjh6Skc1SGZjMTAwKzNxL2xyYnZxckx1VWhmWnINCklsTEtlWmViQXozaVV6d3pjZTNEZFZ3NVdFN0dMaWpYNW5nV1k4NGUwNVZQQ05QR2VDS3gxc0x1RGpyRFNBUkENCnE4QmFCWkRxTjZkOTNkMjA2bDR5bXJDYy9WS1BvaGFTeVc4TVJvQklnN2FFQXZNSnhxSGFRbG9uWjZaeElseVENCkR1UmIwR0NzMWJSVSs2dyt2ek9Tb1FkNHp6N2ZsRW5Lc0JsYmM1YmRiQ2xNRHEvaUlueFc5NTFKMWUzVlNINzYNCklFZG5vb0pjcERRbzJML1kwWWU4Mm16cDdURVRMTmtFSERKZEt5bFVLYnJ5N0NJeFZxVXRjcms4Q0tsS2pncjgNCmFlSE1ZYkt0aGxjWjVPSTU4T3kwY1R6QWpNR3dkTUxnbjFXRHM3bm1Qalg5SDFEQzRkR0RKWXM4dVdrYXRDSEoNCk9vSytsQlF1Q0IzR0Z4cE92Q1hqeXVlVFc5TEV1OXVzOCtVc1hwcURxTTdCOFYvMnk1UWhhYlJGS1RuWEdKNHMNClFMQndONWlXb1ZrS2p1cFAzYlFGT2ZHRWFKNCtDZzN0WVZPWjJxdHFuMEFaM003ZTlRTk54YlhwcXBLOE1lT2YNCjNDWXkwSHlzYlpHR3pJdko0clFhSDdFQ0F3RUFBUT09DQotLS0tLUVORCBQVUJMSUMgS0VZLS0tLS0=
+      - API16576_LOCALHOST_JWT_PRIVATE_KEY_BASE64=LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tDQpNSUlKUWdJQkFEQU5CZ2txaGtpRzl3MEJBUUVGQUFTQ0NTd3dnZ2tvQWdFQUFvSUNBUUN4aGcyUGZBUERVMEZ5DQpSQ1RiZisrbmIwWDBUZTltN3hJRFltazllQkJ1bnp5ZlBIWmk2M2JiTGQ5cU9tMS9rY3V4S1pLYkxUNlViL25yDQpRSURRZ3dBVHg4UFl2cG14akxNdnF2c3N1emdSNVpTWWkwTjB0UHRoT21wSGVIVmdkUFl4K3Z6SVAwOWtiL2lxDQoxR0JSajVhc2EreUNqZVJmK0hIRXFKcmVCYzMzNThNRmNwbWlPQkpFRWxIek1rYmtkOXpYVFQ3ZXIrV3R1K3FzDQp1NVNGOW1zaVVzcDVsNXNEUGVKVFBETng3Y04xWERsWVRzWXVLTmZtZUJaanpoN1RsVThJMDhaNElySFd3dTRPDQpPc05JQkVDcndGb0ZrT28zcDMzZDNiVHFYakthc0p6OVVvK2lGcExKYnd4R2dFaUR0b1FDOHduR29kcENXaWRuDQpwbkVpWEpBTzVGdlFZS3pWdEZUN3JENi9NNUtoQjNqUFB0K1VTY3F3R1Z0emx0MXNLVXdPcitJaWZGYjNuVW5WDQo3ZFZJZnZvZ1IyZWlnbHlrTkNqWXY5alJoN3phYk9udE1STXMyUVFjTWwwcktWUXB1dkxzSWpGV3BTMXl1VHdJDQpxVXFPQ3Z4cDRjeGhzcTJHVnhuazRqbnc3TFJ4UE1DTXdiQjB3dUNmVllPenVlWStOZjBmVU1MaDBZTWxpenk1DQphUnEwSWNrNmdyNlVGQzRJSGNZWEdrNjhKZVBLNTVOYjBzUzcyNnp6NVN4ZW1vT296c0h4WC9iTGxDRnB0RVVwDQpPZGNZbml4QXNIQTNtSmFoV1FxTzZrL2R0QVU1OFlSb25qNEtEZTFoVTVuYXEycWZRQm5jenQ3MUEwM0Z0ZW1xDQprcnd4NDUvY0pqTFFmS3h0a1liTWk4bml0Qm9mc1FJREFRQUJBb0lDQUdsVkp4cXA5UG1pbnNTVUZtSi9TTTNLDQpRbkd4QkluSTlLRTVkVVJaeHpZOEdaWktJOXlSNWhZcTQ5TitFNWFNQlpaN0dsZ2t3bXNFL2Y5T2FLQlArbTNDDQpMRHlnNjBUa1BUWGRkK2VVdHJJM3pMR3VnRG54WU83UjRGbkQ2YkZ2OU55M0ZlSWpYcEl6dGhKMnJTZjMwT2xCDQpxRFhXeDFrQ2EwN0sxQWxFM0c5cC90ZHVwaVlRcXhYazRPY3lQOG8wTEw4N1FFQ1ZrZXhDQWY2MzFtcWVTZmMxDQp0Sm50RUxjZHN2cThUN0liNTh2dENzR1JEQm83ZGM5MEZhVG1tbmZrc2Q2RStkQXlsZDdlRHE0Mnc4UXBjYzMyDQo5Zk16aHlXNnBmNU5ISm1yaHM4dVdCZ2ZNc1owS21pSEVYdUxobnRRZ29mVmVVbDRvNjZYRzZadXBkWkRvZDJXDQoxcEFZQkJtM2hjeWZROVJQODJXVWJkRGs4elJRTDkrVHZUenNzRlpYcHNrcE0zYUgvVzVqN0xHVThBWGYwd3FyDQpXK1RCN2VJSVR2YzF1MzFHc295RVNyRjFhb0puYWxhd1dhRFUwTGJ2dnFLWVZxNzNKU0QzUm1SSjgyd2JzbGc5DQpvMXZNeWYrVW9aNTBwTk1NNjFPQW9QdW9UOTRPZGwzRm5TNnUrOHMrQU5Hb0pHd1R1NXF2dzBWS0xmSVJHeVR2DQo1Yk5zL2FEekk2ZitYWDJzV3ZaeHZ4RjVLbFpEVENHS2tHVWd4V1lVdG9lWjFpMTFraUJJMTJEMTZ2Nno3VGVLDQoyTnVpRDB2bDFRTWdIejZ4K3hGZGViWTdWck51d2l3c1d6UXZEUkVnYS9WMkJyOG9yQzVYVWV2d3RTQkw1c1ZtDQpTalZlU1hwbjZMTytsRFFrYXhPaEFvSUJBUURoVkpybkducW5ncGFmbzF4b3J0ekhVRmNUMkJnVnA0Q0RPaFB1DQpld1daTXZ2bVRBUzdXL0lGRVl5UHJLNzUvYXV5K1FSUEEvQUlZWG1jRzlLaGJUUDM0bElQR09yTGtsd2RWdnY4DQpJMHZxRTJHU1EzR2tycmRsSmR3Y0dYTk10d2RyQ3hyd3c3TC9lREFoVXAxei9pSWhndzBUWnU0UEs5c0g3SmF2DQpneWVHdXVObncyN1YzeldQOWlDOS81TzlFNFJYeGh2SzNVbUtYOStPL3NHK25DUWM1eHQzZmJCWFBWbnJ2WkJGDQpsRnYrUHNRcHJBemgvb0EwTG5iVXdvK0swREh5VEdnbkEwRUtMbjJST21DeW5kTVEwZHZMdHBjeTl5WHdKNVJ2DQpkWDNlQ0cvSGNoa242SlRGenVHVklKd01Famk5NFRwS2ViNWMzMDgvN1hCcEo5d0ZBb0lCQVFESnI2dXJJVDRMDQozU2FsTVZ0NUtuenRnOFdPamp6cVZqOTBjZEZhUlhDMjUrcXg2SmdhTXNSaVhHZjAycDhHTDFRSGM5N25JaXJvDQpNQVlQOVJEbHRPVGpXSEFkemM3MmhDZ2JqWUQzRU10R01QWTdwMjVVNS9XUDVOcStueGsvZjhlQlZKb3E0U3d2DQozNTh5cXlnQ2pVQ2k4ald3U3F0VVhRSmUraW9kTDVyNHdUcWdiQ3BESnBuV0J3aW5tOUR3UzR4YlUrQ2tHeUZMDQphYm1heVdOUkVFRUZpMXBiOXFQSGhJU1BpL1dGZHJiQXd0S0VlaTBNTEVaSzlwa0crbWlkR000OUdvbXVNOEtNDQo2K05JanF0Ti93SHBkWnA0SlpOWFV1Zjh0ZlgwaUgyb202bnMwR0RIVWdibVlza1VKR0Z4Nlp5OCtFNDhvak9qDQo2eTZDOXMwcVNQQzlBb0lCQVFEY2dOTzVWak16RzFyVXk2TlJtZFRaZ3loRGRoTlRsWC93YXZRNFN0RVdzMHJJDQplaG1qVTMzS01mc3dXaGM4OGwyRW5hVDJ3ZTZ4OU5seHg5UmVQaVE5N283STBXUnJaRVdhUEpZSWptM3FtWjdBDQo2QmtjeEJFWi9XdWhYOUp4L3laV1BSN1cvMXQ2SHA1UzdhckJhSzd6eG5BVVRZU20rZzYwZVhTWU9xdUNiLzY3DQpld2RLYWN6Ym5VczdReERMVlg4TCtnVVdoMmhBN2tNeWh1RUg2M3AzZ2oxaHVIREpYbk5SZTBia29DTko4Umc3DQpnMjl6OUg1M0VnVWRmV3ZFdHFvNTUwV0E3L0ZFeW12OG8za2ZNY3pyUjhKa1hzRWxrYS9oakluNGJLeUlqQTcrDQp5UXdPL3M0ZnFLMGVKelF0cCtNNUJWL3FvNnFDN2RCNnladFlmRFlWQW9JQkFEOEJJdGFsM3RVajgrT2RCSjlZDQpWNGgzSnFyKzRpYXVaTXBDbUF6a0xtN2xDaHNqdHdoUUhhdEFoTFVuNm8rckQwdjR0WVJzMXd5TG5BazJIRjQxDQo0VjdvRExZeXlkbVd0VlRPSXFDTDNZU0MzUmtMbDlyc1QzanhIQ2g2V1EvT0lndlQyd2xVS0ZLWVFBbzdENWVrDQplckdzaW5zVkNHcWxWNDFHQnd2eENDOTNaWkloMkIzOEhBaVJUL0hVS2pRMjFaVGVJZ29CODZlMFVtZjVTNDVTDQpUbzJsMThkc3lBTVc4YlpLR1p2azF2aG1wQThBZjd3U3hLNjhWRmVxdUMyRFIwSXRYUjlQU2hKdHlpV3JjL1k4DQptR05PK3I5WHRheU0ySzNJUmhwcTNSNWo2blJ4TUJwMEZIVzZIR2l2YU1XR0hoR21YQUp6QlVES3drL2xPM2hmDQpLdDBDZ2dFQUJLT3J4aytIYlRzY2RKNFptZVpMa0VBNURlaGptS2NnYUhPWEhTcERYNFlMMDRvTXRvUWpiMVNtDQpCZERUSjdqK05zaURuQWpDNzdpWFdZL1BwSC9McU5WQm5ycHZqZ1NpTThNWEs5ZkZoa1hDTCtNT0RRSTkxT2htDQpMQ1FKS21VT09PRW5CWGZIRjM3cVNjZkwzNitiV1lmYk1lTWhhbWJrZXNNTnhCS1VYTGl5UXBWOXJ2RjdTZlQ2DQpnUm44SHZ5Tmo2amRnM1hvMmNwUkZVUzhMeHR2SmlNWjg1RGYydGtaZXEwL3NaZVNRUTBLRXU0UjBOQTNFU3NLDQpxdlN5dlBFaVhMWmJmZEUzOWliZHdEQ296OUlUUTlRdnlzZys2RlZVYUorZks5a2hTMW5pZmdEOWdEcEM0aW42DQoxK2VQL0s1ZXY1ZERFVG1XdlVSZ3FQT1ZmaUprOXc9PQ0KLS0tLS1FTkQgUFJJVkFURSBLRVktLS0tLQ==
+      - API22800_LOCALHOST_AWS_ACCESS_KEY_ID=api22800localhost
+      - API22800_LOCALHOST_AWS_SECRET_ACCESS_KEY=f870d2d611b5f818
+      - API22800_LOCALHOST_AWS_BUCKET=api22800localhost
+      - API22800_LOCALHOST_AWS_URL=http://storage.localhost/api22800localhost
+      - API22800_LOCALHOST_DB_DATABASE="api22800_localhost"
+      - API22800_LOCALHOST_DB_USERNAME="api22800_localhost"
+      - API22800_LOCALHOST_DB_PASSWORD=ebb3c69a8d76d593
+      - API22800_LOCALHOST_JWT_PUBLIC_KEY_BASE64=LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0NCk1JSUNJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBZzhBTUlJQ0NnS0NBZ0VBNVE1QnFSMXlZaC9TT1diZGNFbHYNCjhXR1lwMXU2VFZQVUQwbzNoQW9CcjdEZ3hXanNCYkg2amhsNWFFTzFmSjlWamlIQ1JhL1VtMXluN1FHcGpib1QNClM4ZzdCU0YyaGFnZFVuNGZqTFNpWGNsRE1ONm94ZVQyc2E3cXRaanZyUGZoVnJMYm05WnlFY0RqQVJ6eVFrcXYNCjJQUDdiTTN3cVFKMnFIOHlVc3k1UTZVMHduRDBlVS9BWFBBOUhHMjdZQXlERzBHM0VicWQ1OFdQZ0FWYUg1cHcNClFkUW5kdnIzSGxnUk03UWw0VEl5Zkh4Tk9QdCtEZnpoVE1OZk1VbWZUYlRnVVcwYnhBOHFxbE5zc2xSYk9sRVUNClVZaXg0dzhKYktjWDJXcFNjRWs2OFNVY2lGcFlWa0pnd0gyQjhyK3g4YmhuOXNENGpaMHBJWkJ0a1EwODU4QUINClBPakI5cXRudU5JTjZjZThCM2tKS0xQd3VHcC82TktydUdBeDlSb01QUmlJZzVtR1dTT2JQMkpKS0Z4TzhNb2kNCmk4VFpRUHJURFR5UGhtMWV4ZTh4L085ZlVuY2tUbDc2UjJsSEIxT3oyTitEZDdUQnQva3hCMTE2RDV0cFRTR1QNCmJjaHBhNHF3YWpUbThTRkdwZmdGekI2UHJYdW5ERmpIeTRFa3dZMStwVkJtVzRzSGQvSTBCT3BGUFc1eUJucjMNCkxmam9hVFcrTGlyeTJ6d3owM3AvSm1mdGNRYmFZOEJJTTZ0VjdkOWVPNVh6enVzNXZhN1VwdmgrSllMckh4ZjYNCjBnQ2tzYXZ5cW8yWjk3dUF1WWlCeHRFWGwrNzV2SmE3emVTS2h5ZmorY0ZqdGtnbkpaZ2ozV0o2YzhOT1lGTTkNCjVCcy9FZG1NSzFXdytzMk9jaUI0YzRrQ0F3RUFBUT09DQotLS0tLUVORCBQVUJMSUMgS0VZLS0tLS0=
+      - API22800_LOCALHOST_JWT_PRIVATE_KEY_BASE64=LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tDQpNSUlKUWdJQkFEQU5CZ2txaGtpRzl3MEJBUUVGQUFTQ0NTd3dnZ2tvQWdFQUFvSUNBUURsRGtHcEhYSmlIOUk1DQpadDF3U1cveFlaaW5XN3BOVTlRUFNqZUVDZ0d2c09ERmFPd0ZzZnFPR1hsb1E3VjhuMVdPSWNKRnI5U2JYS2Z0DQpBYW1OdWhOTHlEc0ZJWGFGcUIxU2ZoK010S0pkeVVNdzNxakY1UGF4cnVxMW1PK3M5K0ZXc3R1YjFuSVJ3T01CDQpIUEpDU3EvWTgvdHN6ZkNwQW5hb2Z6SlN6TGxEcFRUQ2NQUjVUOEJjOEQwY2JidGdESU1iUWJjUnVwM254WStBDQpCVm9mbW5CQjFDZDIrdmNlV0JFenRDWGhNako4ZkUwNCszNE4vT0ZNdzE4eFNaOU50T0JSYlJ2RUR5cXFVMnl5DQpWRnM2VVJSUmlMSGpEd2xzcHhmWmFsSndTVHJ4SlJ5SVdsaFdRbURBZllIeXY3SHh1R2Yyd1BpTm5Ta2hrRzJSDQpEVHpud0FFODZNSDJxMmU0MGczcHg3d0hlUWtvcy9DNGFuL28wcXU0WURIMUdndzlHSWlEbVlaWkk1cy9Za2tvDQpYRTd3eWlLTHhObEErdE1OUEkrR2JWN0Y3ekg4NzE5U2R5Uk9YdnBIYVVjSFU3UFkzNE4zdE1HMytURUhYWG9QDQptMmxOSVpOdHlHbHJpckJxTk9ieElVYWwrQVhNSG8rdGU2Y01XTWZMZ1NUQmpYNmxVR1piaXdkMzhqUUU2a1U5DQpibklHZXZjdCtPaHBOYjR1S3ZMYlBEUFRlbjhtWisxeEJ0cGp3RWd6cTFYdDMxNDdsZlBPNnptOXJ0U20rSDRsDQpndXNmRi9yU0FLU3hxL0txalpuM3U0QzVpSUhHMFJlWDd2bThscnZONUlxSEorUDV3V08yU0NjbG1DUGRZbnB6DQp3MDVnVXoza0d6OFIyWXdyVmJENnpZNXlJSGh6aVFJREFRQUJBb0lDQURnVElXZnhXWXRFRndjT2M2K0ZpdTRnDQo0bW8yUG9tbnVBWjJPTmtPU2hOa3plSUdLYUhMVEhkMUxRK2xZOHk2aFF0aW9GakhEdGxwK1lKQUllNGNXNVQxDQowOTBSc0I1UVpiMUlPeGtMTDZTZUhPRGQ0WnR3emlQNW1tUVNxTHBEaE5yZ3RucVVLU0RIZzh0Rjl0amJ4K2pvDQo4ZWhWRWxHTjFOYXpMUEt3UTdxWHV5N08wRXJTaDFrNVJ2eXFzSEIzSDdHUWlPekNMdDRLczNLMzNMUlg3cHR2DQpBS3BVRGlOVGxBS0FXN1dod0ZKUmErWkRTenpKWjY2UE5jS3ZMMXlxcHkvSDhrQXhKbFRFVDV2b290ekg5SjF4DQpSWHM4dHlYdVVoeGJ0d3JlSXB2ZVpmbkxoRXk1dTAza2ErZXRualo2MnBqQjdSZGVIaStsVisxbXZENVA5djBuDQpuRnJoaUdPUzU2aWhrRkJBYlA3djAyUzVGNU9qeEE4Rnl3NlNvREZZQnZsOXFGUXFlNGJnU3pIQkJPY0VEL09VDQpsQy9OcFFqS0RndGpiWTgwM2ZDVWUxek9WZjA1a3R4dWJScFlqYy9sdkFsQVRoWXg2Rm8vWGdXYXl6ZEZ2NFR6DQptcnlkM3dBT0ZmUlBxVXdHNGpMald2ZUpKU2VhbkZlRkJSLzVFdVppQ2dsdE1vdU04OW1FWGNyVmpkTlhDN1NODQpSRVkrU3VsaE9nZzU4VHgzbVNRRFNwcjIvd2ZxUThDdnpyVnp6MjlXTHpkNFhJQjRFT1Jrd0UrUUZhZ0Y3YmI0DQpMV1U3M3lMUVcxTE9nMU9Fbjl6TUIrQXVPOEU4MW1LRE5LaFpFN1Z5Q1cybmdDMTBVWGwvdmZ2eTJGcDFxZTZZDQpkKzUxdWxCR1N1eWJGSG9LVjk0QkFvSUJBUUQ5eWpHZ2RxUlVrN0tQMDlJUHpwY1FSRmZHQURrcys0M2RmVnZaDQpWTzRDNEd1Z1QwcnNGUVhDK3FiWWYxRktoS29jYmZoNWFTWjlxOEQrZ0pUZndZQlFPNHQvcmRBb0Z4RXc5SmtvDQpNcEplSjF5RnZqbE1WdnBVYmYzRVdtS1YrVm9Wa2lhZzZZa1l0TUJac0t0LzBKRm5tTkIrK2FMc3dRcHdjUkJqDQpVUS9WVEtQR1RsSlowYTB2bTJJaHA5Rm45RkJsODdrcUFSV1lUa05MRFZsb0pYajlIZ2JQOXFROVRCOXIzMVRSDQpHbkxNV1JWZ0czWllhbHd4QmN6YWt0VGRlMzdHM3BPejYzdFNCelllVm5yTHpqL0JnaFZmM2NIVEZUamt1V2pEDQplWGdTYmZTT3VIcG5Na2dTTTQzQUc4QXA4dzJaUXBKY1ZXSnEvV0lybUg0WUVSb1pBb0lCQVFEbkRPdHZXV3BZDQphRm9zdVFOc3VCOHdYb0M5RVFDMi9Va05qZXBJZFdEenNtaXpqYk00M3BtdVZoRi80QmJWdTRCeDJsVHNEUS9NDQpvVzgvSExLVjFlRjlVRTVnQnM2ajVmenk2NWpITy9Sdks3NVFSdHFFeXd5NGZ4RGVvK25UN3l6OHNOZmtLcHMwDQpleXJoeXNRbTdJRkhuL08wN1hySk5nT2N5VkFOZVp1SGVjZy9WSnlDSG5VMmJpRXl2U3hBcVRMVCt0S1pCeExqDQo1cUR4RUNubEVyWDJldkJwYUNNdlVPc201b2FpVXN2ejhXK1QzTmhteTk5V0cwa0RxSVAvREkzcC9NckpEQjYxDQowNjNjNUVMU21sdXBkRUVLbkZiS0tyV0dQcFczWXhBTVNoTGs3bTRhYmtSdHRWSGMxWnpQYTlTL0JxbkhQUEdnDQpqTjlSZGZlZ05qTHhBb0lCQUZxemJuVUlzY1pBV3Vxb0swVFc4b292d3FiUzRady84djJibGIzZ2FvZkFxUFpNDQpJRnlyVHJuV1Z0YTgrZEtHQXozUjE2R2NnTk1kRlFaZjhkVGVGUHVYckUxZlV5dGd3eFlaOUxxM0NEUjZJTWp6DQpxUXF0Y3gzRmlaSXBNMTZpRlIzc2M3M0NlT3JKZm8wUFpOdHpNT1F6YXlCV0czSTlzM3RvRFJGUm9UVDhCUFFVDQpmYjMzLzhzcDN6SmtCYVQvWGRSeC9GVVV1aUVLcDJZbFNUUzlYN1ltaXd5Nyt3cWxMLzJmZlhLVjN6MUZBU3l0DQo0K2ZKYTFWaDIwcXFlMFVFbzlSeks1cDdxRUV5cnBhOUZYbk5KbUFFRzV0OVo0NEc0YVJzMXhJMVVVSlU1YmcwDQpHaHJUajRwaHZtRlFDYWQwWkFISUZ3TEV5VDJ2Zk94VHZZemdYOUVDZ2dFQVZwYjM4UDRRcGR0TjJDN3FRcWRxDQpRT1ZaMkFGMFJCLytiYzcrdTNNS0I2cVlKSnA1VFZuWFBJZlMvUnFOVkVKMTY3VklXRUs0NWhhbUszL2t5ZFNqDQpNaVNUaXRkaVAvaGthT0cwbXc0MEdDbkxwQ2c1b3NTNkdyYThLc1JCVUlUMVZpb3NicjBzOTJrbGRBTmFxYisrDQozNG5wZXFmNWVVajk1NWRtb2ZZdVBJSitjb1dTTmcyV0hmVCtDaGJ0YTdvOWEwWTRBTk91MTZ4S0txM0ZGYTJDDQpka0l5c1Q0dTJYKzQ4Ulk1NU1HazMrSmV6NHBYcTRiQ1IzSG9WaStrY0VSVE54cmZJS09qS3IrUERCYWJtSFB5DQo0RG5LV21DbkFoTXBmb3NiN3VONFV6SzdqQUp6VHdKK01LTmdiNk82cGQyaW1JaTF2ZzV2KzV4djRRYVY2L3dEDQo4UUtDQVFFQTRvR1JzYjQvd1hTSlhKb2l3RGZlQlVsb2F4TXJOUllqc0JhVEN2V3RJNzVzTk10U0s4YmoxRlB1DQpjNGRaTnFycFpiN3VDaG5INEQxdVQreXNrQXhDRVlieWZjQml4MzVzSXFKSzBLdGF3WmdiamVleHpxM3VnbWwyDQp5WTFGbSt0NjgxSENTN01wbE5QRkNHdVExMmd3MHA5eWJoRHh4dVhUeDJmNU1yWDNxcW9sYnJ0eVQvZ3hscFZCDQo1TkEzTHlaN011RWkyajRkZG9QWHVsbjFJaUZaeWR3ZTVJc1B0T3RIUkhFYzBaNHZHMVhjQkNrN3Uzb0NFRUFNDQp0TWFlamFmeU1lSGg2RG1Uc1BCMXI2TGYyeGpjMXZpQ1FwdCtHZnFORGppUkhabEVYM0pxRUdMelBVdHkzUVRTDQpWODZ4K29KZEZQSHpNQ1g2eHZTM1BiYXJvSHVNWGc9PQ0KLS0tLS1FTkQgUFJJVkFURSBLRVktLS0tLQ==
+      - API22800_LOCALHOST_INITIAL_USER_PASSWORD=9324c2719ed6bc4f
+      - API16576_LOCALHOST_INITIAL_USER_PASSWORD=9324c2719ed6bc4f
+      - API17005_LOCALHOST_INITIAL_USER_PASSWORD=9324c2719ed6bc4f
+      - MULTI_DOMAINS=api17005.localhost,api16576.localhost,api22800.localhost
+```
+
+Now run the following command
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.saas.yml up -d
+```
+
+It takes few second for first run to use those variable effectively.
+
+Each of the links for generated domain should work now and return same response "Application Name: Wellms"
+
+- http://api17005.localhost/api/name
+- http://api16576.localhost/api/name
+- http://api22800.localhost/api/name
+
+Now we want to see if our variables are actually working
+
+Add the following variables to `docker-compose.saas.yml`
+
+```yaml
+- API17005_LOCALHOST_APP_NAME="App one"
+- API16576_LOCALHOST_APP_NAME="App two"
+- API22800_LOCALHOST_APP_NAME="App three"
+```
+
+Run `docker compose -f docker-compose.yml -f docker-compose.saas.yml up -d` again and wait until server is responding.
+
+Now Each of the links for generated domain should work now and return different response "Application Name: App one", "Application Name: App two", etc
+
+- http://api17005.localhost/api/name
+- http://api16576.localhost/api/name
+- http://api22800.localhost/api/name
+
+### Admin panel
+
+Lets add admin panel config for those new api endpoints.
+Assuming we'll be using those domains for admin panel
+
+- http://api17005.admin.localhost
+- http://api16576.admin.localhost
+- http://api22800.admin.localhost
+
+we want to make sure that each admin panel is attached to correct api endpoint. Again we need to pass some environment variables, this time we'll create them manually
+
+```yaml
+- MULTI_DOMAINS=api17005.admin.localhost,api16576.admin.localhost,api22800.admin.localhost
+- API16576_ADMIN_LOCALHOST_REACT_APP_API_URL=http://api16576.localhost
+- API17005_ADMIN_LOCALHOST_REACT_APP_API_URL=http://api17005.localhost
+- API22800_ADMIN_LOCALHOST_REACT_APP_API_URL=http://api22800.localhost
+```
+
+so first you need to pass list of domains, comma separated `MULTI_DOMAINS=api1104.admin.localhost,api6999.admin.localhost,api7438.admin.localhost` then you need to pass encrypted `REACT_APP_API_URL` variable, different for each domain.
+
+Domain is translated `api17005.localhost` into key `API17005_ADMIN_LOCALHOST`. Formula is simple Uppercase + replace `.` or `-` with `_` then add additional `_` and name of variable to be passed.
+
+```php
+$domain_key = str_replace(['.', '-'], '_',  strtoupper($domain));
+```
+
+Passing REACT_APP_API_URL=http://api17005.localhost to admin panel at domain http://api17005.admin.localhost would be passed as env `API17005_ADMIN_LOCALHOST_REACT_APP_API_URL=http://api17005.localhost`
+
+add this code to `docker-compose.saas.yml`
+
+```yaml
+escola_lms_admin:
+  environment:
+    - MULTI_DOMAINS=api17005.admin.localhost,api16576.admin.localhost,api22800.admin.localhost
+    - API16576_ADMIN_LOCALHOST_REACT_APP_API_URL=http://api16576.localhost
+    - API17005_ADMIN_LOCALHOST_REACT_APP_API_URL=http://api17005.localhost
+    - API22800_ADMIN_LOCALHOST_REACT_APP_API_URL=http://api22800.localhost
+```
+
+run `docker compose -f docker-compose.yml -f docker-compose.saas.yml up -d` again and wait until server is responding.
+
+Open [http://api17005.admin.localhost/#/user/login](http://api17005.admin.localhost/#/user/login) use credentials `admin@escolasoft.com` and password set in env `API17005_LOCALHOST_INITIAL_USER_PASSWORD`
+
+Thats it - you can now add as many domains as you want, each have a separate configuration settings, bucket and database.
+
+### Frontend
+
+Most of advantages od headless comes with attaching API to your front. We have created a [React demo](https://github.com/EscolaLMS/Front) to showcase Wellms possibilities. It's deployed to docker images as well, using it it's very similar to Admin panel.
+
+Add this code to `docker-compose.saas.yml`
+
+```yaml
+escola_lms_front:
+  environment:
+    - MULTI_DOMAINS=api17005.app.localhost,api16576.app.localhost,api22800.app.localhost
+    - API16576_APP_LOCALHOST_VITE_APP_API_URL=http://api16576.localhost
+    - API17005_APP_LOCALHOST_VITE_APP_API_URL=http://api17005.localhost
+    - API22800_APP_LOCALHOST_VITE_APP_API_URL=http://api22800.localhost
+```
+
+Now you have fully working react frontend at links below.
+
+Assuming we'll be using those domains for each front, check all of you fronts attached to specific endpoint.
+
+- http://api17005.app.localhost
+- http://api16576.app.localhost
+- http://api22800.app.localhost

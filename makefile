@@ -9,6 +9,9 @@ test-phpunit:
 bash:
 	- docker compose exec --user=1000 escola_lms_app bash
 
+bash-sudo:
+	- docker compose exec escola_lms_app bash
+
 migrate-fresh-quick:
 	- docker compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan migrate:fresh --seed"
 	- docker compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan passport:keys --force"
@@ -51,11 +54,7 @@ tinker:
 
 migrate-fresh: migrate-fresh-quick h5p-seed
 
-# this one is called from composer inside docker
-link:
-	- mkdir -p "storage/app/public/h5p/libraries"
-	- php artisan storage:link
-	- cd public/assets/vendor/h5p && ln -sf ../../../../storage/app/public/h5p/libraries
+
 
 refresh: composer-update migrate-fresh h5p-seed
 
@@ -88,3 +87,5 @@ import-postgres:
 
 init: docker-up switch-to-postgres composer-update migrate-fresh-quick
 
+wait: 
+	- docker compose exec --user=1000 escola_lms_app bash -c "./wait.sh"
