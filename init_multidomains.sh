@@ -150,4 +150,9 @@ fi
 
 touch inited
 
+# TODO: Fixme
+# This is required so far as docker compose run this script as root 
+
+chown -R devilbox:devilbox /var/www/html/storage
+
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
