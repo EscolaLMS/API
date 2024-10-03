@@ -136,16 +136,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.322.8",
+            "version": "3.322.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "fb5099160e49b676277ae787ff721628e5e4dd5a"
+                "reference": "0adb58bc7989068b489d320970951163847b520b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/fb5099160e49b676277ae787ff721628e5e4dd5a",
-                "reference": "fb5099160e49b676277ae787ff721628e5e4dd5a",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0adb58bc7989068b489d320970951163847b520b",
+                "reference": "0adb58bc7989068b489d320970951163847b520b",
                 "shasum": ""
             },
             "require": {
@@ -228,9 +228,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.322.8"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.322.10"
             },
-            "time": "2024-09-30T19:09:25+00:00"
+            "time": "2024-10-02T18:14:16+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -944,16 +944,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.7.9",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "e30ccdd665828ae66eb1be78f056e39e1d5f55ab"
+                "reference": "d5e75c21ceeb6829918a75ed63b56c576b4a6261"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/e30ccdd665828ae66eb1be78f056e39e1d5f55ab",
-                "reference": "e30ccdd665828ae66eb1be78f056e39e1d5f55ab",
+                "url": "https://api.github.com/repos/composer/composer/zipball/d5e75c21ceeb6829918a75ed63b56c576b4a6261",
+                "reference": "d5e75c21ceeb6829918a75ed63b56c576b4a6261",
                 "shasum": ""
             },
             "require": {
@@ -998,7 +998,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.7-dev"
+                    "dev-main": "2.8-dev"
                 },
                 "phpstan": {
                     "includes": [
@@ -1038,7 +1038,7 @@
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
                 "security": "https://github.com/composer/composer/security/policy",
-                "source": "https://github.com/composer/composer/tree/2.7.9"
+                "source": "https://github.com/composer/composer/tree/2.8.0"
             },
             "funding": [
                 {
@@ -1054,7 +1054,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-04T12:43:28+00:00"
+            "time": "2024-10-02T14:40:29+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -3484,16 +3484,16 @@
         },
         {
             "name": "escolalms/courses",
-            "version": "0.4.40",
+            "version": "0.4.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Courses.git",
-                "reference": "c9db2061f08d18a528c5086cf2834133d05c4481"
+                "reference": "3f3b07f8433e21c9fb89ebf32153f2c80c047afb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Courses/zipball/c9db2061f08d18a528c5086cf2834133d05c4481",
-                "reference": "c9db2061f08d18a528c5086cf2834133d05c4481",
+                "url": "https://api.github.com/repos/EscolaLMS/Courses/zipball/3f3b07f8433e21c9fb89ebf32153f2c80c047afb",
+                "reference": "3f3b07f8433e21c9fb89ebf32153f2c80c047afb",
                 "shasum": ""
             },
             "require": {
@@ -3553,9 +3553,9 @@
             "description": "Escola Headless LMS Courses",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Courses/issues",
-                "source": "https://github.com/EscolaLMS/Courses/tree/0.4.40"
+                "source": "https://github.com/EscolaLMS/Courses/tree/0.4.41"
             },
-            "time": "2024-07-10T07:30:30+00:00"
+            "time": "2024-10-03T10:53:29+00:00"
         },
         {
             "name": "escolalms/courses-import-export",
@@ -11741,16 +11741,16 @@
         },
         {
             "name": "php-http/discovery",
-            "version": "1.19.4",
+            "version": "1.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "0700efda8d7526335132360167315fdab3aeb599"
+                "reference": "82fe4c73ef3363caed49ff8dd1539ba06044910d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/0700efda8d7526335132360167315fdab3aeb599",
-                "reference": "0700efda8d7526335132360167315fdab3aeb599",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/82fe4c73ef3363caed49ff8dd1539ba06044910d",
+                "reference": "82fe4c73ef3363caed49ff8dd1539ba06044910d",
                 "shasum": ""
             },
             "require": {
@@ -11814,9 +11814,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/discovery/issues",
-                "source": "https://github.com/php-http/discovery/tree/1.19.4"
+                "source": "https://github.com/php-http/discovery/tree/1.20.0"
             },
-            "time": "2024-03-29T13:00:05+00:00"
+            "time": "2024-10-02T11:20:13+00:00"
         },
         {
             "name": "php-http/guzzle7-adapter",
@@ -11939,16 +11939,16 @@
         },
         {
             "name": "php-http/message",
-            "version": "1.16.1",
+            "version": "1.16.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/message.git",
-                "reference": "5997f3289332c699fa2545c427826272498a2088"
+                "reference": "06dd5e8562f84e641bf929bfe699ee0f5ce8080a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/message/zipball/5997f3289332c699fa2545c427826272498a2088",
-                "reference": "5997f3289332c699fa2545c427826272498a2088",
+                "url": "https://api.github.com/repos/php-http/message/zipball/06dd5e8562f84e641bf929bfe699ee0f5ce8080a",
+                "reference": "06dd5e8562f84e641bf929bfe699ee0f5ce8080a",
                 "shasum": ""
             },
             "require": {
@@ -12002,9 +12002,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/message/issues",
-                "source": "https://github.com/php-http/message/tree/1.16.1"
+                "source": "https://github.com/php-http/message/tree/1.16.2"
             },
-            "time": "2024-03-07T13:22:09+00:00"
+            "time": "2024-10-02T11:34:13+00:00"
         },
         {
             "name": "php-http/message-factory",
@@ -17887,16 +17887,16 @@
         },
         {
             "name": "zircote/swagger-php",
-            "version": "4.10.6",
+            "version": "4.10.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zircote/swagger-php.git",
-                "reference": "e462ff5269ea0ec91070edd5d51dc7215bdea3b6"
+                "reference": "589821f0f1e2c083443749b52a31f077c524dbe6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/e462ff5269ea0ec91070edd5d51dc7215bdea3b6",
-                "reference": "e462ff5269ea0ec91070edd5d51dc7215bdea3b6",
+                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/589821f0f1e2c083443749b52a31f077c524dbe6",
+                "reference": "589821f0f1e2c083443749b52a31f077c524dbe6",
                 "shasum": ""
             },
             "require": {
@@ -17910,7 +17910,7 @@
             "require-dev": {
                 "composer/package-versions-deprecated": "^1.11",
                 "doctrine/annotations": "^1.7 || ^2.0",
-                "friendsofphp/php-cs-fixer": "^2.17 || ^3.47.1",
+                "friendsofphp/php-cs-fixer": "^2.17 || 3.62.0",
                 "phpstan/phpstan": "^1.6",
                 "phpunit/phpunit": ">=8",
                 "vimeo/psalm": "^4.23"
@@ -17962,9 +17962,9 @@
             ],
             "support": {
                 "issues": "https://github.com/zircote/swagger-php/issues",
-                "source": "https://github.com/zircote/swagger-php/tree/4.10.6"
+                "source": "https://github.com/zircote/swagger-php/tree/4.10.7"
             },
-            "time": "2024-07-26T03:04:43+00:00"
+            "time": "2024-10-02T01:43:50+00:00"
         }
     ],
     "packages-dev": [
@@ -19687,21 +19687,21 @@
         },
         {
             "name": "rector/rector",
-            "version": "1.2.5",
+            "version": "1.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "e98aa793ca3fcd17e893cfaf9103ac049775d339"
+                "reference": "6ca85da28159dbd3bb36211c5104b7bc91278e99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/e98aa793ca3fcd17e893cfaf9103ac049775d339",
-                "reference": "e98aa793ca3fcd17e893cfaf9103ac049775d339",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/6ca85da28159dbd3bb36211c5104b7bc91278e99",
+                "reference": "6ca85da28159dbd3bb36211c5104b7bc91278e99",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2|^8.0",
-                "phpstan/phpstan": "^1.12.2"
+                "phpstan/phpstan": "^1.12.5"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -19734,7 +19734,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/1.2.5"
+                "source": "https://github.com/rectorphp/rector/tree/1.2.6"
             },
             "funding": [
                 {
@@ -19742,7 +19742,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-08T17:43:24+00:00"
+            "time": "2024-10-03T08:56:44+00:00"
         },
         {
             "name": "sebastian/cli-parser",
