@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: escolalms/php:8
-      
+
     services:
       mysql:
         image: mysql:5.7
@@ -43,6 +43,8 @@ jobs:
 
       - name: Generate Swagger UI
         uses: Legion2/swagger-ui-action@v1
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           output: swagger-ui
           spec-file: "./storage/api-docs/api-docs.json"
