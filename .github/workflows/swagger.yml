@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: escolalms/php:8
-      
+
     services:
       mysql:
         image: mysql:5.7
@@ -52,6 +52,8 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: swagger-ui
