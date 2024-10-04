@@ -16,3 +16,5 @@ RUN composer self-update && composer install --no-scripts
 RUN chown -R devilbox:devilbox /var/www/
 
 CMD /var/www/html/init.sh
+
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "php", "artisan", "health" ]
