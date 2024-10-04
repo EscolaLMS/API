@@ -64,7 +64,7 @@ jobs:
           rm -f vendor/escolalms/cmi5/tests/Exceptions/Handler.php
 
       - name: Add pcov
-        run: pecl install pcov && docker-php-ext-enable pcov   
+        run: pecl install pcov && docker-php-ext-enable pcov
 
       - name: Run tests
         run: XDEBUG_MODE=off php -dpcov.enabled=1 -dpcov.directory=. ./vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text | tee coverage.txt
@@ -72,7 +72,7 @@ jobs:
       - name: Generate Badge
         run: php tests/badge.php
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: cc-badge.svg
           path: |
@@ -100,5 +100,5 @@ jobs:
           target-branch: "main"
 
       - name: Test get variable exported by push-to-another-repository
-        run: echo $DESTINATION_CLONED_DIRECTORY     
-        
+        run: echo $DESTINATION_CLONED_DIRECTORY
+
