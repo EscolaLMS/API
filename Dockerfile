@@ -5,7 +5,7 @@ COPY / /var/www/html
 RUN pecl install excimer
 RUN \
   # general supervisord settings
-  && cp docker/conf/supervisor/supervisord.conf /etc/supervisor/supervisord.conf \
+  cp docker/conf/supervisor/supervisord.conf /etc/supervisor/supervisord.conf \
   #   supervisord services 
   && cp -r docker/conf/supervisor/services/* /etc/supervisor/custom.d \
   # devilbox php.ini./ TODO this should be rather send to different custom file 
@@ -17,4 +17,4 @@ RUN chown -R devilbox:devilbox /var/www/
 
 CMD /var/www/html/init.sh
 
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "php", "artisan", "health" ]
+HEALTHCHECK --interval=30s --timeout=30s --start-period=10s --retries=5 CMD [ "php", "artisan", "health:check" ]

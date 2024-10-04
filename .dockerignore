@@ -15,10 +15,10 @@ yarn-error.log
 
 docker/mysql-data
 docker/www_logs
-docker
 docker/postgres-backups
 docker/minio_storage
 docker/postgres-data
+!docker/conf
 
 storage/h5p/temp
 .env.local.testing
