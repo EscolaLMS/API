@@ -184,6 +184,9 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         // Chumper\Zipper\ZipperServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
+
+        App\Providers\HealthCheckProvider::class,
+
     ],
 
     /*

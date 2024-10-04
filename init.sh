@@ -14,24 +14,25 @@ if [ "$DISBALE_PHP_FPM" == 'true' ]
 then
     rm -f /etc/supervisor/conf.d/php-fpm.conf
     echo php-fpm.conf disabled
+else 
+    echo php-fpm.conf enabled
 fi
 
 if [ "$DISBALE_HORIZON" == 'true' ]
 then
     rm -f /etc/supervisor/custom.d/horizon.conf
     echo horizon.conf disabled
+else 
+    echo horizon.conf enabled
 fi
 
-if [ "$DISBALE_CADDY" == 'true' ]
-then
-    rm -f /etc/supervisor/custom.d/caddy.conf
-    echo caddy.conf disabled
-fi
 
 if [ "$DISBALE_SCHEDULER" == 'true' ]
 then
     rm -f /etc/supervisor/custom.d/scheduler.conf
     echo scheduler.conf disabled
+else 
+    echo scheduler.conf enabled
 fi
 
 # set env from `LARAVEL_` prefixed env vars

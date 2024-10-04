@@ -96,6 +96,7 @@
     "predis/predis": "^2.2",
     "psr/http-message": "^1",
     "sentry/sentry-laravel": "^4.2",
+    "spatie/laravel-health": "^1.30",
     "spatie/laravel-permission": "^6.3",
     "staudenmeir/laravel-migration-views": "^1.0"
   },
