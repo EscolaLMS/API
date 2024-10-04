@@ -1,19 +1,10 @@
 FROM escolalms/php:8.2-work
 WORKDIR /var/www/html
-EXPOSE 80
 COPY / /var/www/html
-RUN apt install -y debian-archive-keyring apt-transport-https \
-  && curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg \
-  && curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list
-RUN apt-get update && apt-get install caddy -y
 RUN pecl install excimer
-RUN cp docker/envs/.env.postgres.prod /var/www/html/.env \
-  # general supervisord settings
-  && cp docker/conf/supervisor/supervisord.conf /etc/supervisor/supervisord.conf \
-  #   supervisord services 
+RUN cp docker/conf/supervisor/supervisord.conf /etc/supervisor/supervisord.conf \
+  #  supervisord services 
   && cp -r docker/conf/supervisor/services/* /etc/supervisor/custom.d \
-  # caddy file for routing 
-  && cp docker/conf/caddy/Caddyfile /etc/caddy/Caddyfile \
   # devilbox php.ini./ TODO this should be rather send to different custom file 
   && cp docker/conf/php/xxx-devilbox-default-php.ini /usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini \
   # overwrite some php-fpm settings
@@ -22,3 +13,5 @@ RUN composer self-update && composer install --no-scripts
 RUN chown -R devilbox:devilbox /var/www/
 
 CMD /var/www/html/init.sh
+
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=5 CMD [ "php", "artisan", "health:check" ]

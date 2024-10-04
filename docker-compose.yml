@@ -19,7 +19,10 @@ services:
       - "443:443"
   escola_lms_app:
     command: "./init.sh"
-    image: escolalms/php:8.2-prod ## or escolalms/php:8-work for debugginh
+    #image: escolalms/php:8.2-prod ## or escolalms/php:8-work for debugginh
+    build:
+      context: .
+      dockerfile: Dockerfile.develop
     environment:
       - LARAVEL_APP_NAME=Wellms
       - LARAVEL_APP_ENV=local

@@ -11,12 +11,6 @@ fi
 # removing default horizon for multidomain
 rm -f /etc/supervisor/custom.d/horizon.conf
 
-if [ "$DISBALE_CADDY" == 'true' ]
-then
-    rm -f /etc/supervisor/custom.d/caddy.conf
-    echo caddy.conf disabled
-fi
-
 # removing default scheduler for multidomain
 rm -f /etc/supervisor/custom.d/scheduler.conf
 
@@ -65,6 +59,7 @@ if [ -n "$MULTI_DOMAINS" ]; then
     then
       cp "docker/conf/supervisor/example/horizon.conf.example" "/etc/supervisor/custom.d/horizon.$domain.conf"
       sed "s/\$HORIZON_DOMAIN/$domain/g" "docker/conf/supervisor/example/horizon.conf.example" > "/etc/supervisor/custom.d/horizon.$domain.conf"
+      echo "Horizon enabled"
     else
       echo "Horizon disabled"
     fi
@@ -74,6 +69,7 @@ if [ -n "$MULTI_DOMAINS" ]; then
     then
       cp "docker/conf/supervisor/example/scheduler.conf.example" "/etc/supervisor/custom.d/scheduler.$domain.conf"
       sed "s/\$SCHEDULER_DOMAIN/$domain/g" "docker/conf/supervisor/example/scheduler.conf.example" > "/etc/supervisor/custom.d/scheduler.$domain.conf"
+      echo "Schedule enabled"
     else
       echo "Schedule disabled"
     fi
