@@ -41,7 +41,7 @@ class Variables
     {
         $output = [];
         foreach ($vars as $key => $value) {
-            $output[$domain_key . "_" . $key] = $domain_key . "_" . $key . '=' . $value;
+            $output[$domain_key . "_" . $key] = $domain_key . "_" . $key . ' : ' . $value;
         }
         return $output;
     }
