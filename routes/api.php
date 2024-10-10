@@ -17,19 +17,8 @@ use Spatie\Health\Http\Controllers\HealthCheckJsonResultsController;
 |
 */
 
-use App\Jobs\ProcessPodcast;
-
-
 Route::get('name', function () {
     return 'Application Name: ' . env('APP_NAME');
-});
-
-Route::get('fire', function () {
-
-    // ...
-
-    ProcessPodcast::dispatch();
-    return 'fire Name: ' . env('APP_NAME');
 });
 
 Route::get('events', [EventAPIController::class, 'index']);
