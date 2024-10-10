@@ -66,6 +66,26 @@ class Database
             ];
         }
 
+        // connect to database and 
+
+        // Connecting, selecting database
+        $dbconn_db = pg_connect("host={$_ENV['DB_ROOT_HOST']} user={$_ENV['DB_ROOT_USERNAME']} password={$_ENV['DB_ROOT_PASSWORD']} dbname={$domain}")
+            or die('Could not connect: ' . pg_last_error());
+
+        $query = "GRANT ALL ON SCHEMA public TO {$username}";
+        pg_prepare($dbconn_db, "", $query);
+        $result = pg_execute($dbconn_db, "", []);
+
+        if ($result) {
+            echo $color->ok("Postgres. GRANT ALL ON SCHEMA public granted to $username on database $username \n");
+        } else {
+            echo $color->warn("Postgres. GRANT ALL ON SCHEMA public granted to $username Failed \n");
+            echo $color->error(pg_last_error() . "\n");
+            return [
+                'success' => false
+            ];
+        }
+
         return [
             'success' => true,
             'vars' => [
