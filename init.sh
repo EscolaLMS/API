@@ -10,7 +10,7 @@ then
   exit 0;
 fi
 
-if [ "$DISBALE_PHP_FPM" == 'true' ]
+if [ "$DISABLE_PHP_FPM" == 'true' ]
 then
     rm -f /etc/supervisor/conf.d/php-fpm.conf
     echo php-fpm.conf disabled
@@ -18,7 +18,7 @@ else
     echo php-fpm.conf enabled
 fi
 
-if [ "$DISBALE_HORIZON" == 'true' ]
+if [ "$DISABLE_HORIZON" == 'true' ]
 then
     rm -f /etc/supervisor/custom.d/horizon.conf
     echo horizon.conf disabled
@@ -27,7 +27,7 @@ else
 fi
 
 
-if [ "$DISBALE_SCHEDULER" == 'true' ]
+if [ "$DISABLE_SCHEDULER" == 'true' ]
 then
     rm -f /etc/supervisor/custom.d/scheduler.conf
     echo scheduler.conf disabled
@@ -71,7 +71,7 @@ fi
 
 
 
-if [ "$DISBALE_DB_MIGRATE" == 'true' ]
+if [ "$DISABLE_DB_MIGRATE" == 'true' ]
 then
     echo "Disable db migrate"
 else 
@@ -90,7 +90,7 @@ else
     php artisan passport:client --personal --no-interaction
 fi
 
-if [ "$DISBALE_DB_SEED" == 'true' ]
+if [ "$DISABLE_DB_SEED" == 'true' ]
 then
     echo "Disable db:seed"
 else 
