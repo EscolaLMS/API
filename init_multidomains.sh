@@ -26,7 +26,7 @@ rm -f /etc/supervisor/custom.d/horizon.conf
 
 
 # removing default scheduler for multidomain
-# rm -f /etc/supervisor/custom.d/scheduler.conf
+rm -f /etc/supervisor/custom.d/scheduler.conf
 
 # set env from `LARAVEL_` prefixed env vars
 # this also setup MULTI_DOMAINS eg 
