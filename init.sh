@@ -23,6 +23,7 @@ then
     rm -f /etc/supervisor/custom.d/horizon.conf
     echo horizon.conf disabled
 else 
+    cp docker/conf/supervisor/services/horizon.conf /etc/supervisor/custom.d/horizon.conf
     echo horizon.conf enabled
 fi
 
@@ -32,6 +33,7 @@ then
     rm -f /etc/supervisor/custom.d/scheduler.conf
     echo scheduler.conf disabled
 else 
+    cp docker/conf/supervisor/services/scheduler.conf /etc/supervisor/custom.d/scheduler.conf
     echo scheduler.conf enabled
 fi
 
