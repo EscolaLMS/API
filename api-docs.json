@@ -6504,6 +6504,64 @@
                 ]
             }
         },
+        "/api/consultations/save-screen": {
+            "post": {
+                "tags": [
+                    "Consultations"
+                ],
+                "summary": "Save screen from jitsi meeting",
+                "description": "Report term consultation",
+                "operationId": "7a95c97b0135d1af5ef5464c635bc6fa",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "consultation_id": {
+                                        "type": "integer"
+                                    },
+                                    "user_termin_id": {
+                                        "type": "integer"
+                                    },
+                                    "user_email": {
+                                        "type": "string"
+                                    },
+                                    "timestamp": {
+                                        "type": "string",
+                                        "example": "2024-10-04 12:02:12"
+                                    },
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/consultations": {
             "get": {
                 "tags": [
