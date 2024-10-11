@@ -7,7 +7,7 @@ RUN \
   # general supervisord settings
   cp docker/conf/supervisor/supervisord.conf /etc/supervisor/supervisord.conf \
   #   supervisord services 
-  && cp -r docker/conf/supervisor/services/* /etc/supervisor/custom.d \
+  # && cp -r docker/conf/supervisor/services/* /etc/supervisor/custom.d \
   # devilbox php.ini./ TODO this should be rather send to different custom file 
   && cp docker/conf/php/xxx-devilbox-default-php.ini /usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini \
   # overwrite some php-fpm settings

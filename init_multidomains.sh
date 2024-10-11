@@ -13,7 +13,7 @@ fi
 
 if [ "$DISABLE_QUEUE" == 'true' ]
 then
-    rm -f /etc/supervisor/conf.d/multidomain_queue.conf
+    rm -f /etc/supervisor/custom.d/multidomain_queue.conf
     echo multidomain_queue.conf disabled
 else 
     cp docker/conf/supervisor/services/multidomain_queue.conf /etc/supervisor/custom.d/multidomain_queue.conf
