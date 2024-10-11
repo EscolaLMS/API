@@ -4,23 +4,23 @@ export POSTGRES_DB=postgresql://$(DB_USERNAME):$(DB_PASSWORD)@127.0.0.1:$(DB_POR
 export NOW_DB_PREFIX=$(date +\%Y-\%m-\%d-\%H:\%M:\%S)
 
 test-phpunit:
-	- docker compose exec --user=1000 escola_lms_app bash -c "./vendor/bin/phpunit"
+	- docker compose exec --user=1000 api bash -c "./vendor/bin/phpunit"
 
 bash:
-	- docker compose exec --user=1000 escola_lms_app bash
+	- docker compose exec --user=1000 api bash
 
 bash-sudo:
-	- docker compose exec escola_lms_app bash
+	- docker compose exec api bash
 
 migrate-fresh-quick:
-	- docker compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan migrate:fresh --seed"
-	- docker compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan passport:keys --force"
-	- docker compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan passport:client --personal --no-interaction"
-	- docker compose exec --user=1000 escola_lms_app bash -c "cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key"
+	- docker compose exec --user=1000 api bash -c "XDEBUG_MODE=off php artisan migrate:fresh --seed"
+	- docker compose exec --user=1000 api bash -c "XDEBUG_MODE=off php artisan passport:keys --force"
+	- docker compose exec --user=1000 api bash -c "XDEBUG_MODE=off php artisan passport:client --personal --no-interaction"
+	- docker compose exec --user=1000 api bash -c "cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key"
 
 composer-update:
-	- docker compose exec escola_lms_app bash -c "XDEBUG_MODE=off composer self-update"
-	- docker compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off composer update"
+	- docker compose exec api bash -c "XDEBUG_MODE=off composer self-update"
+	- docker compose exec --user=1000 api bash -c "XDEBUG_MODE=off composer update"
 ## supervisd must be restarted, horizon & scheduler must fetch new code
 	- docker compose restart escola_lms_queue_cron
 
@@ -30,27 +30,27 @@ restart_queue_cron:
 update-composer-to-git:
 	- git checkout develop 
 	- git pull 
-	- docker compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off composer update --no-scripts"
+	- docker compose exec --user=1000 api bash -c "XDEBUG_MODE=off composer update --no-scripts"
 	- git add composer.lock 
 	- git commit -m "updating dependecies"
 	- git push origin develop 
 
 
 swagger-generate:
-	- docker compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan l5-swagger:generate"
+	- docker compose exec --user=1000 api bash -c "XDEBUG_MODE=off php artisan l5-swagger:generate"
 
 h5p-seed:
-	- docker compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan db:seed --class=H5PLibrarySeeder"
-	- docker compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan db:seed --class=H5PContentSeeder"
-	- docker compose exec --user=1000 escola_lms_app bash -c "XDEBUG_MODE=off php artisan db:seed --class=H5PContentCoursesSeeder"
+	- docker compose exec --user=1000 api bash -c "XDEBUG_MODE=off php artisan db:seed --class=H5PLibrarySeeder"
+	- docker compose exec --user=1000 api bash -c "XDEBUG_MODE=off php artisan db:seed --class=H5PContentSeeder"
+	- docker compose exec --user=1000 api bash -c "XDEBUG_MODE=off php artisan db:seed --class=H5PContentCoursesSeeder"
 
 node-packages:
 # install globally at /usr/bin/mjml
-	- docker compose exec --user=1000 escola_lms_app bash -c "npm install -g mjml"
+	- docker compose exec --user=1000 api bash -c "npm install -g mjml"
 
 tinker:
 # use CTRL+C to quit and CTRL+D to refresh tinker
-	- docker compose exec --user=1000 escola_lms_app bash -c "while true; do php artisan tinker; done"
+	- docker compose exec --user=1000 api bash -c "while true; do php artisan tinker; done"
 
 migrate-fresh: migrate-fresh-quick h5p-seed
 
@@ -63,7 +63,7 @@ docker-up:
 
 switch-to-postgres:
 	- cp docker/envs/.env.postgres.example .env
-	- docker compose exec --user=1000 escola_lms_app bash -c "php artisan config:cache"
+	- docker compose exec --user=1000 api bash -c "php artisan config:cache"
 
 migrate-postgres: switch-to-postgres migrate-fresh-quick
 
@@ -88,4 +88,4 @@ import-postgres:
 init: docker-up switch-to-postgres composer-update migrate-fresh-quick
 
 wait: 
-	- docker compose exec --user=1000 escola_lms_app bash -c "./wait.sh"
+	- docker compose exec --user=1000 api bash -c "./wait.sh"
