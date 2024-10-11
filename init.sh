@@ -64,7 +64,6 @@ fi
 
 if [ -n "$JWT_PRIVATE_KEY_BASE64" ]; then
     echo "Storing private RSA key for JWT generation - storage/oauth-private.key"
-    mkdir -d /var/www/config/jwt/
     echo ${JWT_PRIVATE_KEY_BASE64} | base64 -d > storage/oauth-private.key
 fi
 
