@@ -16,7 +16,7 @@ then
     rm -f /etc/supervisor/conf.d/multidomain_queue.conf
     echo multidomain_queue.conf disabled
 else 
-    cp docker/conf/supervisor/services/multidomain_queue.conf /etc/supervisor/conf.d/multidomain_queue.conf
+    cp docker/conf/supervisor/services/multidomain_queue.conf /etc/supervisor/custom.d/multidomain_queue.conf
     echo multidomain_queue.conf enabled
 fi
 
@@ -95,7 +95,6 @@ if [ -n "$MULTI_DOMAINS" ]; then
 
     if [ -n "$JWT_PRIVATE_KEY_BASE64" ]; then
         echo "Storing private shared env JWT_PUBLIC_KEY_BASE64 RSA key for JWT generation - /var/www/html/storage/${STORAGE_DIRECTORY}/oauth-private.key"
-        mkdir -d /var/www/config/jwt/
         echo ${JWT_PRIVATE_KEY_BASE64} | base64 -d > /var/www/html/storage/${STORAGE_DIRECTORY}/oauth-private.key
     fi
 
