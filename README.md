@@ -14,7 +14,7 @@ Laravel Headless LMS REST API.
 
 ## Documentation
 
-All the documentation is hosted at [docs.wellms.io](https://docs.wellms.io/).
+Most of the documentation is hosted at [docs.wellms.io](https://docs.wellms.io/).
 
 ## Configuration
 
@@ -24,6 +24,29 @@ Please don't create or edit any `.env` file but use environmental variables with
 As we want this package to be stateless and easy to scale all configuration is stored either in database or in environmental variables.
 
 See [docs][docs] for more details.
+
+Application is designed to be stateless - it is controlled by [environmental variables](docs/enviromental-variables.md)
+
+## Installation from source code
+
+If you want to use the software consider using our docker images or using [Create-LMS-App/](https://github.com/EscolaLMS/Create-LMS-App/) helper.
+
+You should consider install with our [installation package](https://docs.wellms.io/getting-started/guide.html).
+
+To install default docker environment either clone this repo or use
+
+See [docs/multidomain.md][docs/multidomain.md] for more details how to quick start.
+
+### Quick start
+
+1. Clone this repo
+2. `docker compose up -d`
+
+## Demo
+
+[https://api-stage.escolalms.com/api/documentation](https://api-stage.escolalms.com/api/documentation)
+
+This is fully working demo. **Note** that content is regenerated every day - it's a seeder that is not persistent, every day database and files are cleared and rebuilt from skratch.
 
 ## Packages
 
@@ -41,22 +64,6 @@ Summary code coverage from all the packages:
 [![Tests Code Coverage](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml/badge.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
 [![cc](https://raw.githubusercontent.com/EscolaLMS/.github/main/api-tests/cc-tests.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
 [![cc](https://raw.githubusercontent.com/EscolaLMS/.github/main/api-tests/cc-assertions.svg)](https://github.com/EscolaLMS/API/actions/workflows/phpunit-cc.yml)
-
-## Installation from source code
-
-If you want to use the software consider using our docker images or using [Create-LMS-App/](https://github.com/EscolaLMS/Create-LMS-App/) helper.
-
-You should consider install with our [installation package](https://docs.wellms.io/getting-started/guide.html).
-
-To install default docker environment either clone this repo or use
-
-See [docs/multidomain.md][docs/multidomain.md] for more details how to quick start.
-
-## Demo
-
-[https://api-stage.escolalms.com/api/documentation](https://api-stage.escolalms.com/api/documentation)
-
-This is fully working demo. **Note** that content is regenerated every day - it's a seeder that is not persistent, every day database and files are cleared and rebuilt from skratch.
 
 ## Test
 

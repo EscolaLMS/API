@@ -17,8 +17,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
-  escola_lms_app:
-    command: "./init.sh"
+  api:
+    #command: "./init.sh"
     #image: escolalms/php:8.2-prod ## or escolalms/php:8-work for debugginh
     build:
       context: .
@@ -110,7 +110,7 @@ services:
   #   networks:
   #     - escola_lms
 
-  escola_lms_admin:
+  admin:
     platform: linux/amd64
     networks:
       - escola_lms
@@ -118,7 +118,7 @@ services:
     environment:
       - API_URL=http://api.localhost
 
-  escola_lms_front:
+  front:
     platform: linux/amd64
     networks:
       - escola_lms

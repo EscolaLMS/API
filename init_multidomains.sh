@@ -2,14 +2,28 @@
 
 echo "Wellms multidomains init script!" 
 
-if [ "$DISBALE_PHP_FPM" == 'true' ]
+if [ "$DISABLE_PHP_FPM" == 'true' ]
 then
     rm -f /etc/supervisor/conf.d/php-fpm.conf
     echo php-fpm.conf disabled
+else 
+    cp docker/conf/supervisor/services/php-fpm.conf /etc/supervisor/conf.d/php-fpm.conf
+    echo php-fpm.conf enabled
 fi
+
+if [ "$DISABLE_QUEUE" == 'true' ]
+then
+    rm -f /etc/supervisor/conf.d/multidomain_queue.conf
+    echo multidomain_queue.conf disabled
+else 
+    cp docker/conf/supervisor/services/multidomain_queue.conf /etc/supervisor/conf.d/multidomain_queue.conf
+    echo multidomain_queue.conf enabled
+fi
+
 
 # removing default horizon for multidomain
 rm -f /etc/supervisor/custom.d/horizon.conf
+
 
 # removing default scheduler for multidomain
 rm -f /etc/supervisor/custom.d/scheduler.conf
@@ -53,19 +67,8 @@ if [ -n "$MULTI_DOMAINS" ]; then
 
     php artisan domain:add $domain
 
-    # horizon
-    # TODO it considers only global variable, what if you want to control which domain has disabled Horizon
-    if [ -z "$DISBALE_HORIZON" ] || [ "$DISBALE_HORIZON" != "true" ];
-    then
-      cp "docker/conf/supervisor/example/horizon.conf.example" "/etc/supervisor/custom.d/horizon.$domain.conf"
-      sed "s/\$HORIZON_DOMAIN/$domain/g" "docker/conf/supervisor/example/horizon.conf.example" > "/etc/supervisor/custom.d/horizon.$domain.conf"
-      echo "Horizon enabled"
-    else
-      echo "Horizon disabled"
-    fi
-    # scheduler
-    # TODO it considers only global variable, what if you want to control which domain has disabled scheduler
-    if [ -z "$DISBALE_SCHEDULER" ] || [ "$DISBALE_SCHEDULER" != "true" ];
+     # TODO it considers only global variable, what if you want to control which domain has disabled scheduler
+    if [ -z "$DISABLE_SCHEDULER" ] || [ "$DISABLE_SCHEDULER" != "true" ];
     then
       cp "docker/conf/supervisor/example/scheduler.conf.example" "/etc/supervisor/custom.d/scheduler.$domain.conf"
       sed "s/\$SCHEDULER_DOMAIN/$domain/g" "docker/conf/supervisor/example/scheduler.conf.example" > "/etc/supervisor/custom.d/scheduler.$domain.conf"
@@ -110,7 +113,7 @@ if [ -n "$MULTI_DOMAINS" ]; then
    
     
     # db migrate
-    if [ "$DISBALE_DB_MIGRATE" == 'true' ]
+    if [ "$DISABLE_DB_MIGRATE" == 'true' ]
     then
         echo "Disable db migrate"
     else
@@ -130,7 +133,7 @@ if [ -n "$MULTI_DOMAINS" ]; then
     fi
 
     # db seed
-    if [ "$DISBALE_DB_SEED" == 'true' ]
+    if [ "$DISABLE_DB_SEED" == 'true' ]
     then
         echo "Disable db:seed"
     else
