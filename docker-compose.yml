@@ -2,13 +2,13 @@ version: "3.5"
 networks:
   escola_lms:
     name: escola_lms
-    driver: bridge
+    #driver: bridge
 services:
   caddy:
     image: caddy
     volumes:
       - ./docker/conf/Caddyfile:/etc/caddy/Caddyfile
-      - ./:/var/www/html
+      #- ./:/var/www/html
       - ./caddy/certs:/etc/caddy/certs
       - ./caddy/data:/data
       - ./caddy/config:/config
