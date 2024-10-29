@@ -1,4 +1,4 @@
-# Escola LMS
+# Escola LMS aka Wellms Headless LMS 
 
 Laravel Headless LMS REST API.
 
