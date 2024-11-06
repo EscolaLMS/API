@@ -76,6 +76,22 @@ class Database
         pg_prepare($dbconn_db, "", $query);
         $result = pg_execute($dbconn_db, "", []);
 
+        $queries = [
+            "GRANT USAGE ON SCHEMA public TO {$username}",
+            "GRANT ALL ON ALL TABLES IN SCHEMA public TO {$username}",
+            "GRANT ALL ON ALL ROUTINES IN SCHEMA public TO {$username}",
+            "GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO {$username}",
+            "ALTER DEFAULT PRIVILEGES FOR ROLE {$username} IN SCHEMA public GRANT ALL ON TABLES TO {$username}",
+            "ALTER DEFAULT PRIVILEGES FOR ROLE {$username} IN SCHEMA public GRANT ALL ON ROUTINES TO {$username}",
+            "ALTER DEFAULT PRIVILEGES FOR ROLE {$username} IN SCHEMA public GRANT ALL ON SEQUENCES TO {$username}",
+        ];
+
+        foreach ($queries as $query) {
+            $query = "GRANT ALL ON SCHEMA public TO {$username}";
+            pg_prepare($dbconn_db, "", $query);
+            $result = pg_execute($dbconn_db, "", []);
+        }
+
         if ($result) {
             echo $color->ok("Postgres. GRANT ALL ON SCHEMA public granted to $username on database $username \n");
         } else {

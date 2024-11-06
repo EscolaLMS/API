@@ -64,19 +64,18 @@ http://*.app.localhost {
 
 
 http://*.localhost {
-    # Resolve the root directory for the app
-    root * /var/www/html/public
 
     # Provide Zstd and Gzip compression
     encode zstd gzip
 
-    # Allow caddy to serve static files
-    file_server
-
     # Enable PHP-FPM
-    php_fastcgi escola_lms_app:9000 {
+
+    reverse_proxy api:9000 {
         header_up -Access-Control-Allow-Origin
         header_down -Access-Control-Allow-Origin
+        transport fastcgi {
+            env SCRIPT_FILENAME /var/www/html/index.php
+        }        
     }
 
     # Cors logic 
