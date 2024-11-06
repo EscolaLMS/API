@@ -6121,6 +6121,23 @@
                         "schema": {
                             "type": "integer"
                         }
+                    },
+                    {
+                        "name": "term",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "2024-10-31 10:45"
+                        }
+                    },
+                    {
+                        "name": "for_all_users",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
                     }
                 ],
                 "responses": {
@@ -6159,6 +6176,23 @@
                         "schema": {
                             "type": "integer"
                         }
+                    },
+                    {
+                        "name": "term",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "2024-10-31 10:45"
+                        }
+                    },
+                    {
+                        "name": "for_all_users",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
                     }
                 ],
                 "responses": {
@@ -6196,6 +6230,15 @@
                         "required": true,
                         "schema": {
                             "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "term",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "2024-10-31 10:45"
                         }
                     }
                 ],
@@ -6534,6 +6577,69 @@
                                     "file": {
                                         "type": "string",
                                         "format": "binary"
+                                    },
+                                    "executed_at": {
+                                        "type": "string",
+                                        "example": "2024-10-04 12:02:12"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/consultations/finish-term/{consultationTermId}": {
+            "post": {
+                "tags": [
+                    "Consultations"
+                ],
+                "summary": "Finish consultation term",
+                "description": "Finish consultation term",
+                "operationId": "162c023ed61118c56912637d240f5709",
+                "parameters": [
+                    {
+                        "name": "consultationTermId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "finished_at": {
+                                        "type": "string",
+                                        "example": "2024-10-04 12:02:12"
+                                    },
+                                    "term": {
+                                        "type": "string",
+                                        "example": "2024-10-04 12:02:12"
                                     }
                                 },
                                 "type": "object"
@@ -6887,7 +6993,14 @@
                                 "properties": {
                                     "executed_at": {
                                         "type": "string",
-                                        "example": "New term consultation"
+                                        "example": "2024-10-31 10:45"
+                                    },
+                                    "term": {
+                                        "type": "string",
+                                        "example": "2024-10-31 10:45"
+                                    },
+                                    "for_all_users": {
+                                        "type": "boolean"
                                     }
                                 },
                                 "type": "object"
@@ -21511,6 +21624,58 @@
                 "type": "object"
             },
             "ConsultationTerm": {
+                "properties": {
+                    "status": {
+                        "description": "status",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "date",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2022-04-15T04:00:00.000Z"
+                    },
+                    "duration": {
+                        "description": "duration",
+                        "type": "string",
+                        "example": "2 hours"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/User"
+                    },
+                    "is_ended": {
+                        "description": "is_ended",
+                        "type": "boolean"
+                    },
+                    "is_started": {
+                        "description": "is_started",
+                        "type": "boolean"
+                    },
+                    "in_coming": {
+                        "description": "in_coming",
+                        "type": "boolean"
+                    },
+                    "consultation_term_id": {
+                        "description": "consultation_term_id",
+                        "type": "integer"
+                    },
+                    "busy_terms": {
+                        "description": "busy_terms",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "": {
+                                    "type": "string",
+                                    "example": "2022-05-20T10:15:20.000000Z"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ConsultationUserTerm": {
                 "properties": {
                     "status": {
                         "description": "status",
