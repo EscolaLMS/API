@@ -30,6 +30,7 @@ restart_queue_cron:
 update-composer-to-git:
 	- git checkout develop 
 	- git pull 
+	- docker compose up -d api
 	- docker compose exec --user=1000 api bash -c "XDEBUG_MODE=off composer update --no-scripts"
 	- git add composer.lock 
 	- git commit -m "updating dependecies"

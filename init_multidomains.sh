@@ -139,7 +139,7 @@ if [ -n "$MULTI_DOMAINS" ]; then
         php artisan db:seed --domain=$domain --class=PermissionsSeeder --force --no-interaction
     fi
 
-    php artisan h5p:storage-link --domain=$domain
+    php artisan h5p:storage-link --overwrite --domain=$domain
 
   done
 else

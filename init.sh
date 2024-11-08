@@ -98,7 +98,7 @@ else
     php artisan db:seed --class=PermissionsSeeder --force --no-interaction
 fi
 
-php artisan h5p:storage-link
+php artisan h5p:storage-link --overwrite
 
 touch inited
 
