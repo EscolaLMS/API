@@ -21671,6 +21671,16 @@
                             },
                             "type": "object"
                         }
+                    },
+                    "finished_at": {
+                        "description": "consultation term finished date",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2022-04-15T04:00:00.000Z"
+                    },
+                    "consultation_id": {
+                        "description": "consultation ID",
+                        "type": "integer"
                     }
                 },
                 "type": "object"
@@ -21723,6 +21733,16 @@
                             },
                             "type": "object"
                         }
+                    },
+                    "finished_at": {
+                        "description": "consultation term finished date",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2022-04-15T04:00:00.000Z"
+                    },
+                    "consultation_id": {
+                        "description": "consultation ID",
+                        "type": "integer"
                     }
                 },
                 "type": "object"
