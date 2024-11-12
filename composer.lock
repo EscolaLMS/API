@@ -7,80 +7,6 @@
     "content-hash": "fd767488e5c1dd1828dab720bed4eb03",
     "packages": [
         {
-            "name": "aloha/twilio",
-            "version": "5.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/aloha/laravel-twilio.git",
-                "reference": "f430c272c4e21a53cab6aadade696ba8083e3207"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/aloha/laravel-twilio/zipball/f430c272c4e21a53cab6aadade696ba8083e3207",
-                "reference": "f430c272c4e21a53cab6aadade696ba8083e3207",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2.0",
-                "twilio/sdk": "^6.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16",
-                "illuminate/console": "~6||~7||~8",
-                "illuminate/support": "~6||~7||~8",
-                "phpunit/phpunit": "^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Aloha\\Twilio\\Support\\Laravel\\ServiceProvider"
-                    ],
-                    "aliases": {
-                        "Twilio": "Aloha\\Twilio\\Support\\Laravel\\Facade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Aloha\\Twilio\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Travis J Ryan",
-                    "email": "travisjryan@gmail.com"
-                },
-                {
-                    "name": "Hannes Van De Vreken",
-                    "email": "vandevreken.hannes@gmail.com"
-                }
-            ],
-            "description": "Twilio API for Laravel",
-            "homepage": "https://github.com/aloha/laravel-twilio",
-            "keywords": [
-                "ivr",
-                "laravel",
-                "sms",
-                "twilio"
-            ],
-            "support": {
-                "issues": "https://github.com/aloha/laravel-twilio/issues",
-                "source": "https://github.com/aloha/laravel-twilio/tree/5.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sponsors/hannesvdvreken",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-02-10T17:00:02+00:00"
-        },
-        {
             "name": "aws/aws-crt-php",
             "version": "v1.2.7",
             "source": {
@@ -5348,28 +5274,33 @@
         },
         {
             "name": "escolalms/templates-sms",
-            "version": "0.1.2",
+            "version": "0.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Templates-SMS.git",
-                "reference": "fe5b622f24d6dfeb407e12869e6aa0010d6429bb"
+                "reference": "f99ca932049529142535857b6c3eb3d6844cfb83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Templates-SMS/zipball/fe5b622f24d6dfeb407e12869e6aa0010d6429bb",
-                "reference": "fe5b622f24d6dfeb407e12869e6aa0010d6429bb",
+                "url": "https://api.github.com/repos/EscolaLMS/Templates-SMS/zipball/f99ca932049529142535857b6c3eb3d6844cfb83",
+                "reference": "f99ca932049529142535857b6c3eb3d6844cfb83",
                 "shasum": ""
             },
             "require": {
-                "aloha/twilio": "^5.0.0",
                 "escolalms/core": "^1.2.2",
-                "escolalms/settings": "^0",
-                "escolalms/templates": "^0.2.5",
-                "laravel/framework": "^8|^9",
-                "php": "^7.4|^8.0"
+                "escolalms/settings": ">=0.1.2",
+                "escolalms/templates": "^0",
+                "laravel/framework": ">=8.0",
+                "php": ">=7.4",
+                "twilio/sdk": "^6.42",
+                "tzsk/sms": "6.0.0"
             },
             "require-dev": {
+                "escolalms/auth": "^0",
+                "escolalms/cart": "^0",
                 "escolalms/consultations": "^0",
+                "escolalms/courses": "^0.4",
+                "nunomaduro/larastan": "^2.0",
                 "orchestra/testbench": ">=5.0",
                 "phpunit/phpunit": "^9.0"
             },
@@ -5401,9 +5332,9 @@
             "description": "Escola Headless LMS Templates for sms",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Templates-SMS/issues",
-                "source": "https://github.com/EscolaLMS/Templates-SMS/tree/0.1.2"
+                "source": "https://github.com/EscolaLMS/Templates-SMS/tree/0.1.12"
             },
-            "time": "2022-04-04T11:59:12+00:00"
+            "time": "2024-11-12T11:50:09+00:00"
         },
         {
             "name": "escolalms/topic-type-gift",
@@ -17833,6 +17764,104 @@
                 "source": "https://github.com/twilio/twilio-php/tree/6.44.4"
             },
             "time": "2023-02-22T19:59:53+00:00"
+        },
+        {
+            "name": "tzsk/sms",
+            "version": "6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tzsk/sms.git",
+                "reference": "387b3e750e911095be7a36f9181cb3cdd7d81929"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tzsk/sms/zipball/387b3e750e911095be7a36f9181cb3cdd7d81929",
+                "reference": "387b3e750e911095be7a36f9181cb3cdd7d81929",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.0",
+                "illuminate/http": "^8.0|^9.0",
+                "illuminate/support": "^8.0|^9.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "^3.87",
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "kavenegar/php": "^1.2",
+                "laravel/legacy-factories": "^1.0",
+                "mediaburst/clockworksms": "^2.0",
+                "melipayamak/php": "^1.0.0",
+                "orchestra/testbench": "^6.0|^7.0",
+                "phpunit/phpunit": "^9.3",
+                "sms77/api": "^v2.4.0",
+                "smsgatewayme/client": "^0.0.1",
+                "twilio/sdk": "^6.0",
+                "vimeo/psalm": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tzsk\\Sms\\SmsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Sms": "Tzsk\\Sms\\Facades\\Sms"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Helper.php"
+                ],
+                "psr-4": {
+                    "Tzsk\\Sms\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kazi Ahmed",
+                    "email": "mailtokmahmed@gmail.com",
+                    "homepage": "https://github.com/tzsk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel SMS Gateway Integration Package",
+            "homepage": "https://github.com/tzsk/sms",
+            "keywords": [
+                "laravel SMS gateway me",
+                "laravel SmsGateWay24",
+                "laravel farazsms",
+                "laravel kavenegar",
+                "laravel link mobility",
+                "laravel melipayamak",
+                "laravel sms gateway",
+                "laravel smsir",
+                "laravel textlocal",
+                "laravel tsms",
+                "laravel twilio",
+                "sms",
+                "tzsk"
+            ],
+            "support": {
+                "issues": "https://github.com/tzsk/sms/issues",
+                "source": "https://github.com/tzsk/sms/tree/6.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/KMAhmed",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/tzsk",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-04-02T05:56:41+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
