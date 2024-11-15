@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.325.7",
+            "version": "3.327.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "55852104253172e66c3358bf4c35281bbd8622b2"
+                "reference": "3d52ec587989b136e486f94eff3dd316465aeb42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/55852104253172e66c3358bf4c35281bbd8622b2",
-                "reference": "55852104253172e66c3358bf4c35281bbd8622b2",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/3d52ec587989b136e486f94eff3dd316465aeb42",
+                "reference": "3d52ec587989b136e486f94eff3dd316465aeb42",
                 "shasum": ""
             },
             "require": {
@@ -154,9 +154,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.325.7"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.327.1"
             },
-            "time": "2024-11-12T19:27:31+00:00"
+            "time": "2024-11-15T01:53:30+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -3225,16 +3225,16 @@
         },
         {
             "name": "escolalms/consultations",
-            "version": "0.2.48",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Consultations.git",
-                "reference": "5b08230cff8d666504d43544998e6c4079a83ebc"
+                "reference": "e87d44f726b4f745a66258ab83dcb70fa13ef523"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Consultations/zipball/5b08230cff8d666504d43544998e6c4079a83ebc",
-                "reference": "5b08230cff8d666504d43544998e6c4079a83ebc",
+                "url": "https://api.github.com/repos/EscolaLMS/Consultations/zipball/e87d44f726b4f745a66258ab83dcb70fa13ef523",
+                "reference": "e87d44f726b4f745a66258ab83dcb70fa13ef523",
                 "shasum": ""
             },
             "require": {
@@ -3282,9 +3282,9 @@
             "description": "Escola Headless LMS Consultations",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Consultations/issues",
-                "source": "https://github.com/EscolaLMS/Consultations/tree/0.2.48"
+                "source": "https://github.com/EscolaLMS/Consultations/tree/0.3.0"
             },
-            "time": "2024-11-08T08:43:37+00:00"
+            "time": "2024-11-15T08:52:16+00:00"
         },
         {
             "name": "escolalms/core",
@@ -3722,16 +3722,16 @@
         },
         {
             "name": "escolalms/headless-h5p",
-            "version": "0.5.5",
+            "version": "0.5.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/H5P.git",
-                "reference": "49ba8e6c6ecd8308fd3d6cefe2fb469d340d9835"
+                "reference": "3cd8a743c85eb5cbbf932a09ca3bf3b44d8e575f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/H5P/zipball/49ba8e6c6ecd8308fd3d6cefe2fb469d340d9835",
-                "reference": "49ba8e6c6ecd8308fd3d6cefe2fb469d340d9835",
+                "url": "https://api.github.com/repos/EscolaLMS/H5P/zipball/3cd8a743c85eb5cbbf932a09ca3bf3b44d8e575f",
+                "reference": "3cd8a743c85eb5cbbf932a09ca3bf3b44d8e575f",
                 "shasum": ""
             },
             "require": {
@@ -3779,9 +3779,9 @@
             "description": "Headless H5P Laravel REST API",
             "support": {
                 "issues": "https://github.com/EscolaLMS/H5P/issues",
-                "source": "https://github.com/EscolaLMS/H5P/tree/0.5.5"
+                "source": "https://github.com/EscolaLMS/H5P/tree/0.5.6"
             },
-            "time": "2024-11-13T16:29:02+00:00"
+            "time": "2024-11-15T08:47:56+00:00"
         },
         {
             "name": "escolalms/images",
@@ -4579,22 +4579,23 @@
         },
         {
             "name": "escolalms/questionnaire",
-            "version": "0.2.21",
+            "version": "0.2.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Questionnaire.git",
-                "reference": "a20e9d7bb8555af73c3310c1a5e61e90dc875fc9"
+                "reference": "2cdd1497ab186557ad2e08abd854f8750693332e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Questionnaire/zipball/a20e9d7bb8555af73c3310c1a5e61e90dc875fc9",
-                "reference": "a20e9d7bb8555af73c3310c1a5e61e90dc875fc9",
+                "url": "https://api.github.com/repos/EscolaLMS/Questionnaire/zipball/2cdd1497ab186557ad2e08abd854f8750693332e",
+                "reference": "2cdd1497ab186557ad2e08abd854f8750693332e",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "^2|^3",
                 "escolalms/core": "^1",
                 "laravel/framework": ">=8.0",
+                "maatwebsite/excel": "^3.1",
                 "php": ">=7.4|>=8"
             },
             "require-dev": {
@@ -4632,9 +4633,9 @@
             "description": "Escola LMS Questionnaire",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Questionnaire/issues",
-                "source": "https://github.com/EscolaLMS/Questionnaire/tree/0.2.21"
+                "source": "https://github.com/EscolaLMS/Questionnaire/tree/0.2.22"
             },
-            "time": "2024-10-14T07:36:56+00:00"
+            "time": "2024-11-07T15:21:23+00:00"
         },
         {
             "name": "escolalms/recommender",
