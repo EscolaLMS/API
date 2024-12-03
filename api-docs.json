@@ -23359,6 +23359,10 @@
                     "public_answers": {
                         "description": "whether answers to questions are public",
                         "type": "boolean"
+                    },
+                    "max_score": {
+                        "description": "maximum score for question",
+                        "type": "integer"
                     }
                 },
                 "type": "object"
