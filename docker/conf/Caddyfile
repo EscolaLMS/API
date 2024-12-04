@@ -17,7 +17,7 @@ http://*.admin.localhost {
     file_server
 
     # Enable PHP-FPM
-    reverse_proxy escola_lms_admin:80
+    reverse_proxy admin:80
 
     # Cors logic 
     @origin header Origin {http.request.header.Origin}
@@ -45,7 +45,7 @@ http://*.app.localhost {
     file_server
 
     # Enable PHP-FPM
-    reverse_proxy escola_lms_front:80
+    reverse_proxy front:80
 
     # Cors logic 
     @origin header Origin {http.request.header.Origin}

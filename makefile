@@ -19,6 +19,7 @@ migrate-fresh-quick:
 	- docker compose exec --user=1000 api bash -c "cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key"
 
 composer-update:
+	- docker compose up -d api
 	- docker compose exec api bash -c "XDEBUG_MODE=off composer self-update"
 	- docker compose exec --user=1000 api bash -c "XDEBUG_MODE=off composer update"
 ## supervisd must be restarted, horizon & scheduler must fetch new code

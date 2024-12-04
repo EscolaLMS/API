@@ -41,7 +41,7 @@
       <directory suffix=".php">./vendor/escolalms/templates-pdf/src</directory>
       <directory suffix=".php">./vendor/escolalms/questionnaire/src</directory>
       <directory suffix=".php">./vendor/escolalms/assign-without-account/src</directory>
-      <directory suffix=".php">./vendor/escolalms/tracker/src</directory>
+      <!-- <directory suffix=".php">./vendor/escolalms/tracker/src</directory> -->
       <directory suffix=".php">./vendor/escolalms/translations/src</directory>
       <directory suffix=".php">./vendor/escolalms/vouchers/src</directory>
       <directory suffix=".php">./vendor/escolalms/consultations/src</directory>
@@ -173,9 +173,11 @@
     <testsuite name="assign-without-account">
       <directory suffix="Test.php">./vendor/escolalms/assign-without-account/tests</directory>
     </testsuite>
+    <!--
     <testsuite name="tracker">
       <directory suffix="Test.php">./vendor/escolalms/tracker/tests</directory>
     </testsuite>
+    -->
     <testsuite name="translations">
       <directory suffix="Test.php">./vendor/escolalms/translations/tests</directory>
     </testsuite>

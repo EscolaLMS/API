@@ -81,7 +81,9 @@ class PermissionsSeeder extends Seeder
         $this->call(AssignWithoutAccountPermissionSeeder::class);
         $this->call(StationaryEventPermissionSeeder::class);
         $this->call(WebinarsPermissionSeeder::class);
-        $this->call(TrackerPermissionSeeder::class);
+        if (class_exists(TrackerPermissionSeeder::class)) {
+            $this->call(TrackerPermissionSeeder::class);
+        }
         $this->call(ModelFieldsPermissionTableSeeder::class);
         $this->call(VoucherPermissionsSeeder::class);
         $this->call(LrsPermissionSeeder::class);
