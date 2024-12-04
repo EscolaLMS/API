@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd767488e5c1dd1828dab720bed4eb03",
+    "content-hash": "f7750cedf0f989cda0a82f98514a87eb",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.332.2",
+            "version": "3.333.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "6790e53ab0aceca59e1d44fae06c66481013950c"
+                "reference": "11bb2709885c9954004620d3648e9355feb92a41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6790e53ab0aceca59e1d44fae06c66481013950c",
-                "reference": "6790e53ab0aceca59e1d44fae06c66481013950c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/11bb2709885c9954004620d3648e9355feb92a41",
+                "reference": "11bb2709885c9954004620d3648e9355feb92a41",
                 "shasum": ""
             },
             "require": {
@@ -154,9 +154,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.332.2"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.333.0"
             },
-            "time": "2024-12-03T06:16:16+00:00"
+            "time": "2024-12-03T19:06:47+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -5527,64 +5527,6 @@
             "time": "2024-07-02T07:24:29+00:00"
         },
         {
-            "name": "escolalms/tracker",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/EscolaLMS/Tracker.git",
-                "reference": "bccd3d155e7021aa9c256131d3063aef586edb3f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Tracker/zipball/bccd3d155e7021aa9c256131d3063aef586edb3f",
-                "reference": "bccd3d155e7021aa9c256131d3063aef586edb3f",
-                "shasum": ""
-            },
-            "require": {
-                "escolalms/auth": "^0",
-                "escolalms/core": "^1.2.2",
-                "laravel/framework": ">=8.0",
-                "php": ">=7.4"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^6",
-                "phpunit/phpunit": "^9.0"
-            },
-            "type": "package",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "EscolaLms\\Tracker\\EscolaLmsTrackerServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "EscolaLms\\Tracker\\": "src",
-                    "EscolaLms\\Tracker\\Tests\\": "tests",
-                    "EscolaLms\\Tracker\\Database\\Schemas\\": "database/schemas",
-                    "EscolaLms\\Tracker\\Database\\Seeders\\": "database/seeders",
-                    "EscolaLms\\Tracker\\Database\\Factories\\": "database/factories"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tomasz Smolarek",
-                    "email": "tomasz.smolarek@escolasoft.com"
-                }
-            ],
-            "description": "Escola Headless LMS Tracker",
-            "support": {
-                "issues": "https://github.com/EscolaLMS/Tracker/issues",
-                "source": "https://github.com/EscolaLMS/Tracker/tree/0.1.0"
-            },
-            "time": "2024-02-14T13:40:26+00:00"
-        },
-        {
             "name": "escolalms/translations",
             "version": "0.1.1",
             "source": {
@@ -6927,16 +6869,16 @@
         },
         {
             "name": "google/protobuf",
-            "version": "v4.29.0",
+            "version": "v4.29.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/protocolbuffers/protobuf-php.git",
-                "reference": "0ef6b2eb74b782f3f9023276c324d22e440f7587"
+                "reference": "6042b5483f8029e42473faeb8ef75ba266278381"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/0ef6b2eb74b782f3f9023276c324d22e440f7587",
-                "reference": "0ef6b2eb74b782f3f9023276c324d22e440f7587",
+                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/6042b5483f8029e42473faeb8ef75ba266278381",
+                "reference": "6042b5483f8029e42473faeb8ef75ba266278381",
                 "shasum": ""
             },
             "require": {
@@ -6965,9 +6907,9 @@
                 "proto"
             ],
             "support": {
-                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v4.29.0"
+                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v4.29.1"
             },
-            "time": "2024-11-27T18:37:40+00:00"
+            "time": "2024-12-03T22:07:45+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -19962,12 +19904,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "f4499090a223fb4b2b2e12d290d878de27dbda33"
+                "reference": "3877f3d6f48ebaad4bca7ac73902ba03c74d133b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/f4499090a223fb4b2b2e12d290d878de27dbda33",
-                "reference": "f4499090a223fb4b2b2e12d290d878de27dbda33",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/3877f3d6f48ebaad4bca7ac73902ba03c74d133b",
+                "reference": "3877f3d6f48ebaad4bca7ac73902ba03c74d133b",
                 "shasum": ""
             },
             "require": {
@@ -20006,7 +19948,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/main"
+                "source": "https://github.com/rectorphp/rector/tree/2.0.0-rc2"
             },
             "funding": [
                 {
@@ -20014,7 +19956,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-12-01T16:55:27+00:00"
+            "time": "2024-12-03T19:20:54+00:00"
         },
         {
             "name": "sebastian/cli-parser",
