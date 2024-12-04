@@ -70,6 +70,7 @@ Each
 | `DISABLE_PHP_FPM`                       | Disable PHP FPM Supervisor process                               | false               |
 | `DISABLE_HORIZON`                       | Disable Laravel Horizon Supervisor process                       | false               |
 | `DISABLE_SCHEDULER`                     | Disable Laravel Scheduler Supervisor process                     | false               |
+| `DISABLE_H5P_STORAGE_LINK`              | Disable h5p storage link                                         | false               |
 | `JWT_PUBLIC_KEY_BASE64`                 | Base64 encoded `storage/oauth-public.key`                        |                     |
 | `JWT_PRIVATE_KEY_BASE64`                | Base64 encoded `storage/oauth-private.key`                       |                     |
 | `${DOMAIN_KEY}_JWT_PUBLIC_KEY_BASE64`   | Base64 encoded `storage/oauth-public.key` for domain             |                     |
