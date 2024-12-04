@@ -98,7 +98,12 @@ else
     php artisan db:seed --class=PermissionsSeeder --force --no-interaction
 fi
 
-php artisan h5p:storage-link --overwrite
+if [ "$DISABLE_H5P_STORAGE_LINK" == 'true' ]
+then
+    echo "Disable h5p:storage-link"
+else 
+    php artisan h5p:storage-link --overwrite
+fi
 
 touch inited
 
