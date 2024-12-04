@@ -173,9 +173,11 @@
     <testsuite name="assign-without-account">
       <directory suffix="Test.php">./vendor/escolalms/assign-without-account/tests</directory>
     </testsuite>
-    // <testsuite name="tracker">
-    //   <directory suffix="Test.php">./vendor/escolalms/tracker/tests</directory>
-    // </testsuite>
+    <!--
+    <testsuite name="tracker">
+      <directory suffix="Test.php">./vendor/escolalms/tracker/tests</directory>
+    </testsuite>
+    -->
     <testsuite name="translations">
       <directory suffix="Test.php">./vendor/escolalms/translations/tests</directory>
     </testsuite>
