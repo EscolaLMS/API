@@ -3225,16 +3225,16 @@
         },
         {
             "name": "escolalms/consultations",
-            "version": "0.3.4",
+            "version": "0.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Consultations.git",
-                "reference": "9f86ec76d1921cb0652dfe4bfb24a926f919d5b3"
+                "reference": "21efcea22ac97aa0cf0dc9742959f7c958268f15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Consultations/zipball/9f86ec76d1921cb0652dfe4bfb24a926f919d5b3",
-                "reference": "9f86ec76d1921cb0652dfe4bfb24a926f919d5b3",
+                "url": "https://api.github.com/repos/EscolaLMS/Consultations/zipball/21efcea22ac97aa0cf0dc9742959f7c958268f15",
+                "reference": "21efcea22ac97aa0cf0dc9742959f7c958268f15",
                 "shasum": ""
             },
             "require": {
