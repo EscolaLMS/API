@@ -3282,9 +3282,9 @@
             "description": "Escola Headless LMS Consultations",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Consultations/issues",
-                "source": "https://github.com/EscolaLMS/Consultations/tree/0.3.4"
+                "source": "https://github.com/EscolaLMS/Consultations/tree/0.3.5"
             },
-            "time": "2024-12-06T07:05:40+00:00"
+            "time": "2024-12-06T12:56:19+00:00"
         },
         {
             "name": "escolalms/core",
