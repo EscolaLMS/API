@@ -3225,16 +3225,16 @@
         },
         {
             "name": "escolalms/consultations",
-            "version": "0.3.3",
+            "version": "0.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Consultations.git",
-                "reference": "31248f6a798898b83c721010cb0ca31a1af4f436"
+                "reference": "9f86ec76d1921cb0652dfe4bfb24a926f919d5b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Consultations/zipball/31248f6a798898b83c721010cb0ca31a1af4f436",
-                "reference": "31248f6a798898b83c721010cb0ca31a1af4f436",
+                "url": "https://api.github.com/repos/EscolaLMS/Consultations/zipball/9f86ec76d1921cb0652dfe4bfb24a926f919d5b3",
+                "reference": "9f86ec76d1921cb0652dfe4bfb24a926f919d5b3",
                 "shasum": ""
             },
             "require": {
@@ -3282,9 +3282,9 @@
             "description": "Escola Headless LMS Consultations",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Consultations/issues",
-                "source": "https://github.com/EscolaLMS/Consultations/tree/0.3.3"
+                "source": "https://github.com/EscolaLMS/Consultations/tree/0.3.4"
             },
-            "time": "2024-12-01T13:53:13+00:00"
+            "time": "2024-12-06T07:05:40+00:00"
         },
         {
             "name": "escolalms/core",
