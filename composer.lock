@@ -4579,16 +4579,16 @@
         },
         {
             "name": "escolalms/questionnaire",
-            "version": "0.2.24",
+            "version": "0.2.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Questionnaire.git",
-                "reference": "f2e3e8e20f75092ec2be06126f8beed23580db93"
+                "reference": "70287c78a14238edcdbf777a5ede0809cec6496d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Questionnaire/zipball/f2e3e8e20f75092ec2be06126f8beed23580db93",
-                "reference": "f2e3e8e20f75092ec2be06126f8beed23580db93",
+                "url": "https://api.github.com/repos/EscolaLMS/Questionnaire/zipball/70287c78a14238edcdbf777a5ede0809cec6496d",
+                "reference": "70287c78a14238edcdbf777a5ede0809cec6496d",
                 "shasum": ""
             },
             "require": {
@@ -4633,9 +4633,9 @@
             "description": "Escola LMS Questionnaire",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Questionnaire/issues",
-                "source": "https://github.com/EscolaLMS/Questionnaire/tree/0.2.24"
+                "source": "https://github.com/EscolaLMS/Questionnaire/tree/0.2.25"
             },
-            "time": "2024-12-03T09:06:00+00:00"
+            "time": "2024-12-09T08:10:45+00:00"
         },
         {
             "name": "escolalms/recommender",
