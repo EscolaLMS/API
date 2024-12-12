@@ -6600,13 +6600,21 @@
                                         "type": "string",
                                         "example": "2024-10-04 12:02:12"
                                     },
-                                    "file": {
-                                        "type": "string",
-                                        "format": "binary"
-                                    },
-                                    "executed_at": {
-                                        "type": "string",
-                                        "example": "2024-10-04 12:02:12"
+                                    "files": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "file": {
+                                                    "type": "string",
+                                                    "format": "binary"
+                                                },
+                                                "timestamp": {
+                                                    "type": "string",
+                                                    "example": "2024-10-04 12:02:12"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
                                     }
                                 },
                                 "type": "object"
