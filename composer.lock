@@ -1631,12 +1631,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Peopleaps\\Scorm\\ScormServiceProvider"
-                    ],
                     "aliases": {
                         "ScormManager": "Peopleaps\\Scorm\\Facade\\ScormManager"
-                    }
+                    },
+                    "providers": [
+                        "Peopleaps\\Scorm\\ScormServiceProvider"
+                    ]
                 }
             },
             "autoload": {
@@ -5707,16 +5707,16 @@
         },
         {
             "name": "escolalms/webinar",
-            "version": "0.1.36",
+            "version": "0.1.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Webinar.git",
-                "reference": "7ec6ede7e8e43d04381e04e9e70a49e4a5e06f6d"
+                "reference": "58809b139c5d42ec4a433ca21cf87e98507b1f57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Webinar/zipball/7ec6ede7e8e43d04381e04e9e70a49e4a5e06f6d",
-                "reference": "7ec6ede7e8e43d04381e04e9e70a49e4a5e06f6d",
+                "url": "https://api.github.com/repos/EscolaLMS/Webinar/zipball/58809b139c5d42ec4a433ca21cf87e98507b1f57",
+                "reference": "58809b139c5d42ec4a433ca21cf87e98507b1f57",
                 "shasum": ""
             },
             "require": {
@@ -5766,9 +5766,9 @@
             "description": "Escola Headless LMS Webinar",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Webinar/issues",
-                "source": "https://github.com/EscolaLMS/Webinar/tree/0.1.36"
+                "source": "https://github.com/EscolaLMS/Webinar/tree/0.1.37"
             },
-            "time": "2024-10-07T08:50:14+00:00"
+            "time": "2024-12-13T10:24:09+00:00"
         },
         {
             "name": "escolalms/youtube",
