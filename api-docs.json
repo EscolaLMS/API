@@ -6594,7 +6594,12 @@
                                         "type": "integer"
                                     },
                                     "user_email": {
+                                        "description": "required_without:user_id",
                                         "type": "string"
+                                    },
+                                    "user_id": {
+                                        "description": "required_without:user_email",
+                                        "type": "integer"
                                     },
                                     "timestamp": {
                                         "type": "string",
