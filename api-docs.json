@@ -6648,6 +6648,70 @@
                 ]
             }
         },
+        "/api/consultations/signed-screen-urls": {
+            "post": {
+                "tags": [
+                    "Consultations"
+                ],
+                "summary": "Generate signed url to save screens from jitsi meeting",
+                "operationId": "5e9f6b659c21c23d884cc98767eac66f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "consultation_id": {
+                                        "type": "integer"
+                                    },
+                                    "user_termin_id": {
+                                        "type": "integer"
+                                    },
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "executed_at": {
+                                        "type": "string",
+                                        "example": "2024-10-04 12:02:12"
+                                    },
+                                    "files": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "filename": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/consultations/finish-term/{consultationTermId}": {
             "post": {
                 "tags": [
