@@ -152,6 +152,39 @@ else
   echo "Environment variable MULTI_DOMAINS is empty."
 fi
 
+# Default setup 
+echo "Default setup"
+# This is required for create default laravel envs 
+if [ -n "$JWT_PUBLIC_KEY_BASE64" ]; then
+    echo "Storing public RSA key for JWT generation - storage/oauth-public.key"
+    echo ${JWT_PUBLIC_KEY_BASE64} | base64 -d > storage/oauth-public.key
+fi
+
+if [ -n "$JWT_PRIVATE_KEY_BASE64" ]; then
+    echo "Storing private RSA key for JWT generation - storage/oauth-private.key"
+    echo ${JWT_PRIVATE_KEY_BASE64} | base64 -d > storage/oauth-private.key
+fi
+
+
+if [ "$DISABLE_DB_MIGRATE" == 'true' ]
+then
+    echo "Disable db migrate"
+else 
+    php artisan migrate --force
+fi
+
+# generate passport keys only if storage/oauth-private.key is not set
+
+FILE=storage/oauth-private.key
+if [ -f "$FILE" ]; then
+    echo "$FILE exists."     
+else 
+    echo "$FILE does not exist. Generating app keys, passport keys and passport client"
+    php artisan key:generate --force --no-interaction
+    php artisan passport:keys --force --no-interaction 
+    php artisan passport:client --personal --no-interaction
+fi
+
 touch inited
 
 # TODO: Fixme

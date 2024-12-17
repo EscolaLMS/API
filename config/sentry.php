@@ -2,6 +2,12 @@
 
 return [
 
+    // Ignore OAuthServerException eg 
+    // The token violates some mandatory constraints, details:
+    // - The token is expired
+    'ignore_exceptions' => [
+        \League\OAuth2\Server\Exception\OAuthServerException::class,
+    ],
     // @see https://docs.sentry.io/product/sentry-basics/dsn-explainer/
     'dsn' => env('SENTRY_LARAVEL_DSN', env('SENTRY_DSN')),
 
