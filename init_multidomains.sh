@@ -180,9 +180,9 @@ if [ -f "$FILE" ]; then
     echo "$FILE exists."     
 else 
     echo "$FILE does not exist. Generating app keys, passport keys and passport client"
-    php artisan key:generate --force --no-interaction
+    #php artisan key:generate --force --no-interaction
     php artisan passport:keys --force --no-interaction 
-    php artisan passport:client --personal --no-interaction
+    #php artisan passport:client --personal --no-interaction
 fi
 
 touch inited
