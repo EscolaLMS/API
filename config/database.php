@@ -87,7 +87,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',
-            'sslmode' => 'prefer',
+            'sslmode' => isset($pgsql) ? $pgsql['sslmode'] : env('DB_SSL_MODE', 'prefer'),
         ],
 
         'sqlsrv' => [
