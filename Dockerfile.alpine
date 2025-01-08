@@ -1,0 +1,41 @@
+
+# docker build -t abc . -f Dockerfile.alpine
+FROM php:8.2-fpm-alpine
+WORKDIR /var/www/html
+EXPOSE 9000
+COPY / /var/www/html
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN apk add --no-cache \
+  $PHPIZE_DEPS \  
+  postgresql-dev \
+  ffmpeg \
+  unzip \
+  libzip-dev libpng-dev  libxml2-dev openssl-dev\
+  supervisor \ 
+  bash \
+  nodejs npm 
+RUN docker-php-ext-install zip pcntl bcmath gd session pcntl pdo pdo_pgsql pdo_mysql
+RUN pecl install excimer
+RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
+
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && php composer-setup.php && php -r "unlink('composer-setup.php');" && mv composer.phar /usr/local/bin/composer
+
+
+# apk del .build-deps && \
+# rm -Rf /tmp/*
+
+# RUN \
+#   # general supervisord settings
+#   cp docker/conf/supervisor/supervisord.conf /etc/supervisor/supervisord.conf \
+#   #   supervisord services 
+#   # && cp -r docker/conf/supervisor/services/* /etc/supervisor/custom.d \
+#   # devilbox php.ini./ TODO this should be rather send to different custom file 
+#   && cp docker/conf/php/xxx-devilbox-default-php.ini /usr/local/etc/php/conf.d/xxx-devilbox-default-php.ini \
+#   # overwrite some php-fpm settings
+#   && cp docker/conf/php/php-fpm-custom.conf /usr/local/etc/php-fpm.d/php-fpm-custom.conf
+RUN composer install --no-scripts
+#RUN chown -R devilbox:devilbox /var/www/
+
+CMD /var/www/html/init.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
+HEALTHCHECK --interval=30s --timeout=30s --start-period=10s --retries=5 CMD [ "php", "artisan", "health:check" ]

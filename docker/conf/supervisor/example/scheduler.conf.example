@@ -1,7 +1,7 @@
 [program:laravel-schedule-$SCHEDULER_DOMAIN]
 process_name=%(program_name)s_%(process_num)02d
 command=/bin/sh -c "while [ true ]; do (php /var/www/html/artisan schedule:run --domain=$SCHEDULER_DOMAIN --verbose --no-interaction &); sleep 60; done"
-user=devilbox
+#user=devilbox
 autostart=true
 autorestart=true
 numprocs=1
