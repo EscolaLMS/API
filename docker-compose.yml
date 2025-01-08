@@ -16,7 +16,7 @@ services:
       - "80:80"
       - "443:443"
   api:
-    # image: php:8.3-fpm-alpine ## or escolalms/php:8-work for debugginh
+    # image: escolalms/php:8.4-alpine ## or escolalms/php:8-work for debugginh
     # command: sleep infinity
     build:
       context: .
