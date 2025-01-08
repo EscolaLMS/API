@@ -1,107 +1,107 @@
 on: push
 name: Integration Tests
 jobs:
-  phpunit-mysql-php81:
-    runs-on: ubuntu-latest
-    container:
-      image: escolalms/php:8.1-work
+  # phpunit-mysql-php81:
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: escolalms/php:8.1-work
 
-    services:
-      mysql:
-        image: mariadb:10.5
-        env:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: test
-        ports:
-          - 33306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+  #   services:
+  #     mysql:
+  #       image: mariadb:10.5
+  #       env:
+  #         MYSQL_ROOT_PASSWORD: password
+  #         MYSQL_DATABASE: test
+  #       ports:
+  #         - 33306:3306
+  #       options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 1
 
-      - name: Copy environment configuration files
-        run: |
-          cp docker/envs/.env.ci.mysql .env
-          cp docker/envs/.env.ci.mysql .env.testing
-          cp docker/envs/phpunit.xml.mysql phpunit.xml
+  #     - name: Copy environment configuration files
+  #       run: |
+  #         cp docker/envs/.env.ci.mysql .env
+  #         cp docker/envs/.env.ci.mysql .env.testing
+  #         cp docker/envs/phpunit.xml.mysql phpunit.xml
 
-      - name: Update composer
-        run: |
-          apt-get install unzip -y
-          composer self-update
-          rm composer.lock # lock is for php >=8.2
-          composer install --no-scripts
+  #     - name: Update composer
+  #       run: |
+  #         apt-get install unzip -y
+  #         composer self-update
+  #         rm composer.lock # lock is for php >=8.2
+  #         composer install --no-scripts
 
-      - name: Prepare Laravel Application
-        run: |
-          php artisan key:generate
-          php artisan migrate:fresh
-          php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
-          php artisan passport:keys --force
-          php artisan passport:client --personal --no-interaction
-          cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
-          cp storage/oauth-public.key vendor/orchestra/testbench-core/laravel/storage/oauth-public.key
-          mkdir vendor/escolalms/lrs/src/../../storage/
-          cp storage/*.key vendor/escolalms/lrs/src/../../storage/
+  #     - name: Prepare Laravel Application
+  #       run: |
+  #         php artisan key:generate
+  #         php artisan migrate:fresh
+  #         php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
+  #         php artisan passport:keys --force
+  #         php artisan passport:client --personal --no-interaction
+  #         cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
+  #         cp storage/oauth-public.key vendor/orchestra/testbench-core/laravel/storage/oauth-public.key
+  #         mkdir vendor/escolalms/lrs/src/../../storage/
+  #         cp storage/*.key vendor/escolalms/lrs/src/../../storage/
 
-      - name: Special Migrations for Tests
-        run: php artisan migrate --path=vendor/escolalms/courses/tests/Database/Migrations
+  #     - name: Special Migrations for Tests
+  #       run: php artisan migrate --path=vendor/escolalms/courses/tests/Database/Migrations
 
-      - name: Run Testsuite
-        run: vendor/bin/phpunit
+  #     - name: Run Testsuite
+  #       run: vendor/bin/phpunit
 
-  phpunit-postgres-php81:
-    runs-on: ubuntu-latest
-    container:
-      image: escolalms/php:8.1-work
+  # phpunit-postgres-php81:
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: escolalms/php:8.1-work
 
-    services:
-      postgres:
-        image: postgres:12
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: test
-          TZ: Europe/Warsaw
-        ports:
-          - 5432:5432
+  #   services:
+  #     postgres:
+  #       image: postgres:12
+  #       env:
+  #         POSTGRES_USER: postgres
+  #         POSTGRES_PASSWORD: postgres
+  #         POSTGRES_DB: test
+  #         TZ: Europe/Warsaw
+  #       ports:
+  #         - 5432:5432
 
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 1
 
-      - name: Copy environment configuration files
-        run: |
-          cp docker/envs/.env.ci.postgres .env
-          cp docker/envs/phpunit.xml.postgres phpunit.xml
+  #     - name: Copy environment configuration files
+  #       run: |
+  #         cp docker/envs/.env.ci.postgres .env
+  #         cp docker/envs/phpunit.xml.postgres phpunit.xml
 
-      - name: Update composer
-        run: |
-          apt-get install git unzip -y
-          composer self-update
-          rm composer.lock # lock is for php >=8.2
-          composer install --no-scripts
+  #     - name: Update composer
+  #       run: |
+  #         apt-get install git unzip -y
+  #         composer self-update
+  #         rm composer.lock # lock is for php >=8.2
+  #         composer install --no-scripts
 
-      - name: Prepare Laravel Application
-        run: |
-          php artisan key:generate
-          php artisan migrate:fresh
-          php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
-          php artisan passport:keys --force
-          php artisan passport:client --personal --no-interaction
-          cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
-          cp storage/oauth-public.key vendor/orchestra/testbench-core/laravel/storage/oauth-public.key
-          mkdir vendor/escolalms/lrs/src/../../storage/
-          cp storage/*.key vendor/escolalms/lrs/src/../../storage/
+  #     - name: Prepare Laravel Application
+  #       run: |
+  #         php artisan key:generate
+  #         php artisan migrate:fresh
+  #         php artisan db:seed --class="Database\Seeders\PermissionsSeeder"
+  #         php artisan passport:keys --force
+  #         php artisan passport:client --personal --no-interaction
+  #         cp storage/oauth-private.key vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
+  #         cp storage/oauth-public.key vendor/orchestra/testbench-core/laravel/storage/oauth-public.key
+  #         mkdir vendor/escolalms/lrs/src/../../storage/
+  #         cp storage/*.key vendor/escolalms/lrs/src/../../storage/
 
-      - name: Special Migrations for Tests
-        run: php artisan migrate --path=vendor/escolalms/courses/tests/Database/Migrations
+  #     - name: Special Migrations for Tests
+  #       run: php artisan migrate --path=vendor/escolalms/courses/tests/Database/Migrations
 
-      - name: Run Testsuite
-        run: vendor/bin/phpunit
+  #     - name: Run Testsuite
+  #       run: vendor/bin/phpunit
 
   phpunit-postgres-php82:
     runs-on: ubuntu-latest
@@ -131,7 +131,7 @@ jobs:
 
       - name: Update composer
         run: |
-          #apt-get install git unzip -y
+          apt-get install git unzip -y
           composer self-update
           composer update --no-scripts
 
@@ -181,7 +181,7 @@ jobs:
 
       - name: Update composer
         run: |
-          apt-get install git unzip -y
+          #apt-get install git unzip -y
           composer self-update
           composer update --no-scripts
 
