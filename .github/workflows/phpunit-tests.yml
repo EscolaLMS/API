@@ -131,7 +131,7 @@ jobs:
 
       - name: Update composer
         run: |
-          apt-get install git unzip -y
+          #apt-get install git unzip -y
           composer self-update
           composer update --no-scripts
 
