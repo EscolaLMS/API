@@ -1,4 +1,3 @@
-version: "3.5"
 networks:
   escola_lms:
     name: escola_lms
@@ -17,10 +16,11 @@ services:
       - "80:80"
       - "443:443"
   api:
-    #image: escolalms/php:8.2-prod ## or escolalms/php:8-work for debugginh
+    # image: escolalms/php:8.4-alpine ## or escolalms/php:8-work for debugginh
+    # command: sleep infinity
     build:
       context: .
-      dockerfile: Dockerfile.develop
+      dockerfile: Dockerfile
     environment:
       - LARAVEL_APP_NAME=Wellms
       - LARAVEL_APP_ENV=local

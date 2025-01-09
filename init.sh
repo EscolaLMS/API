@@ -4,6 +4,9 @@
 
 rm inited
 
+mkdir -p /etc/supervisor/custom.d 
+mkdir -p /etc/supervisor/conf.d 
+
 if [ -n "$MULTI_DOMAINS" ]
 then
   ./init_multidomains.sh
@@ -16,6 +19,7 @@ then
     echo php-fpm.conf disabled
 else 
     echo php-fpm.conf enabled
+    cp docker/conf/supervisor/services/php-fpm.conf /etc/supervisor/conf.d/php-fpm.conf
 fi
 
 if [ "$DISABLE_HORIZON" == 'true' ]
@@ -109,9 +113,8 @@ touch inited
 
 # TODO: Fixme
 # This is required so far as docker compose run this script as root 
+chown -R www-data:www-data /var/www/html/storage
 
-chown -R devilbox:devilbox /var/www/html/storage
-
-/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+/usr/bin/supervisord -c /etc/supervisord.conf
 
 

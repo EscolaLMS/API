@@ -188,7 +188,7 @@ Creates the inited file to mark that initialization has been completed:
 touch inited
 ```
 
-### 15. Change Ownership of the storage Directory
+### 15. (Deprecated) Change Ownership of the storage Directory
 
 Changes the owner of the storage directory to `devilbox`:
 
@@ -430,7 +430,7 @@ touch inited
 
 Creates the inited file to indicate that the initialization process has completed.
 
-### 20. Change Ownership of the Storage Directory
+### 20. (Deprecated) Change Ownership of the Storage Directory
 
 ```bash
 chown -R devilbox:devilbox /var/www/html/storage
