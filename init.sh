@@ -18,6 +18,7 @@ then
     echo php-fpm.conf disabled
 else 
     echo php-fpm.conf enabled
+    cp docker/conf/supervisor/services/php-fpm.conf /etc/supervisor/conf.d/php-fpm.conf
 fi
 
 if [ "$DISABLE_HORIZON" == 'true' ]
