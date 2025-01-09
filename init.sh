@@ -5,6 +5,7 @@
 rm inited
 
 mkdir -p /etc/supervisor/custom.d 
+mkdir -p /etc/supervisor/conf.d 
 
 if [ -n "$MULTI_DOMAINS" ]
 then
