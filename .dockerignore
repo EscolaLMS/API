@@ -20,17 +20,12 @@ docker/minio_storage
 docker/postgres-data
 !docker/conf
 
-storage/h5p/temp
 .env.local.testing
 /coverage
 
-storage/h5p/libraries/**
-storage/h5p/editor/images/**
+storage
+storage/**/*
 
-storage/h5p/cachedassets/*
-storage/h5p/editor/**
-storage/scorm/**
-storage/imgcache
 
 escolasoft/**/vendor
 .DS_Store
@@ -45,7 +40,6 @@ bootstrap/cache/**/*
 /public/scorm/**
 
 
-storage/api-docs/api-docs.json
 #composer.lock
 yarn.lock
 
@@ -62,3 +56,6 @@ tests/coverage.xml
 tests/coverage.txt
 
 caddy
+
+.git
+docs
