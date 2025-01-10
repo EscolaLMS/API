@@ -2,10 +2,7 @@ FROM escolalms/php:8.3-alpine
 WORKDIR /var/www/html
 EXPOSE 9000
 COPY / /var/www/html
-COPY docker/docker-entrypoint.sh /docker-entrypoint.sh
-RUN docker-php-ext-install opcache
-RUN pecl install excimer apcu
-RUN docker-php-ext-enable apcu
+RUN pecl install excimer
 RUN \
   cp docker/conf/supervisor/supervisord.conf /etc/supervisord.conf \
   && cp docker/conf/php/escolalms-custom-php.ini /usr/local/etc/php/conf.d/escolalms-custom-php.ini \  
