@@ -74,3 +74,5 @@ caddy/
 docker-compose.saas.yml
 
 inited
+
+k6

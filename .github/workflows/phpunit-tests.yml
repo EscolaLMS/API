@@ -156,7 +156,7 @@ jobs:
   phpunit-postgres-php83:
     runs-on: ubuntu-latest
     container:
-      image: escolalms/php:8.3-alpine
+      image: escolalms/php:8.3-bookworm
 
     services:
       postgres:
