@@ -2,6 +2,8 @@ FROM escolalms/php:8.3-bookworm
 WORKDIR /var/www/html
 EXPOSE 9000
 COPY / /var/www/html
+COPY docker/docker-entrypoint.sh /docker-entrypoint.sh
+
 RUN pecl install excimer
 RUN \
   cp docker/conf/supervisor/supervisord.conf /etc/supervisord.conf \
