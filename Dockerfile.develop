@@ -1,4 +1,4 @@
-FROM escolalms/php:8.3-bookworm
+FROM escolalms/php:8.3-alpine
 WORKDIR /var/www/html
 EXPOSE 9000
 COPY / /var/www/html
