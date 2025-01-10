@@ -11,7 +11,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
         with:
-          platforms: 'arm64,arm'
+          platforms: "arm64,arm"
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Login to DockerHub
@@ -26,7 +26,7 @@ jobs:
           tags: escolalms/api:${{github.ref_name}}, escolalms/api:latest
           platforms: linux/amd64,linux/arm64
       - name: create release note
-        run: ./docker/release_note.sh 
+        run: ./docker/release_note.sh
       - name: Update GitHub Release
         uses: tubone24/update_release@v1.3.1
         env:
@@ -34,7 +34,6 @@ jobs:
         with:
           is_append_body: true
           body_path: ./result.md
-
 
       - name: Create the Mattermost Message
         run: |
@@ -45,8 +44,7 @@ jobs:
           PAYLOAD: |-
             {"text":"There is a new version ${{ github.ref_name }} [escolalms/api:latest](https://hub.docker.com/r/escolalms/api/tags?page=1&name=latest) image built. k8s rollout will happen soon"}
 
-          
-      - name: Send webook to hooks to rollout all devs on k8s 
+      - name: Send webook to hooks to rollout all devs on k8s
         uses: distributhor/workflow-webhook@v3
-        env:
+        with:
           webhook_url: ${{ secrets.K8S_WEBHOOK_URL_API_LATEST }}

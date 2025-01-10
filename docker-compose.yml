@@ -20,7 +20,7 @@ services:
     # command: sleep infinity
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.develop
     environment:
       - LARAVEL_APP_NAME=Wellms
       - LARAVEL_APP_ENV=local

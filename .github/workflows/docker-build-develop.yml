@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'develop'
+      - "develop"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,7 +27,7 @@ jobs:
           push: true
           tags: escolalms/api:${{github.ref_name}}
           platforms: linux/amd64
-          
+
       - name: Create the Mattermost Message
         run: |
           echo "{\"text\":\"There is a new [escolalms/api:develop](https://hub.docker.com/r/escolalms/api/tags?page=1&name=develop) image built. k8s rollout will happen soon\"}" > mattermost.json
@@ -36,8 +36,10 @@ jobs:
           MATTERMOST_WEBHOOK_URL: ${{ secrets.MATTERMOST_WEBHOOK_URL }}
           PAYLOAD: |-
             {"text":"There is a new [escolalms/api:develop](https://hub.docker.com/r/escolalms/api/tags?page=1&name=develop) image built. k8s rollout will happen soon"}
-          
-      - name: Send webook to hooks to rollout all devs on k8s 
+
+      - name: Send webook to hooks to rollout all devs on k8s
         uses: distributhor/workflow-webhook@v3
+        with:
+          webhook_url: ${{ secrets.K8S_WEBHOOK_URL_API_DEVELOP }}
         env:
           webhook_url: ${{ secrets.K8S_WEBHOOK_URL_API_DEVELOP }}
