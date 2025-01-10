@@ -2,6 +2,7 @@ FROM escolalms/php:8.3-bookworm
 WORKDIR /var/www/html
 EXPOSE 9000
 COPY / /var/www/html
+COPY docker/docker-entrypoint.sh /docker-entrypoint.sh
 RUN \
   cp docker/conf/supervisor/supervisord.conf /etc/supervisord.conf \
   && cp docker/conf/php/escolalms-custom-php.ini /usr/local/etc/php/conf.d/escolalms-custom-php.ini \  
