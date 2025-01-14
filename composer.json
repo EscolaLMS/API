@@ -142,6 +142,12 @@
       "Features\\": "features/"
     }
   },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "packages/model-fields"
+    }
+  ],
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
