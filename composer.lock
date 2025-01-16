@@ -4143,26 +4143,27 @@
         },
         {
             "name": "escolalms/model-fields",
-            "version": "0.0.24",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/model-fields.git",
-                "reference": "18daad4ce05842fd90fa1701b2ca03d7842ed3b6"
+                "reference": "33426803acb42897b7c9db3a8c464297eab4baa5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/model-fields/zipball/18daad4ce05842fd90fa1701b2ca03d7842ed3b6",
-                "reference": "18daad4ce05842fd90fa1701b2ca03d7842ed3b6",
+                "url": "https://api.github.com/repos/EscolaLMS/model-fields/zipball/33426803acb42897b7c9db3a8c464297eab4baa5",
+                "reference": "33426803acb42897b7c9db3a8c464297eab4baa5",
                 "shasum": ""
             },
             "require": {
                 "escolalms/core": "^1",
                 "laravel/framework": ">=8.0",
-                "php": ">=7.4"
+                "php": ">=8.0"
             },
             "require-dev": {
                 "escolalms/auth": "^0",
                 "infection/infection": "^0",
+                "nunomaduro/larastan": "^1.0",
                 "orchestra/testbench": "^6",
                 "phpunit/phpunit": "^9.0"
             },
@@ -4194,9 +4195,9 @@
             "description": "Escola LMS model-fields extension.",
             "support": {
                 "issues": "https://github.com/EscolaLMS/model-fields/issues",
-                "source": "https://github.com/EscolaLMS/model-fields/tree/0.0.24"
+                "source": "https://github.com/EscolaLMS/model-fields/tree/0.1.0"
             },
-            "time": "2024-06-11T08:46:41+00:00"
+            "time": "2025-01-16T20:31:58+00:00"
         },
         {
             "name": "escolalms/notifications",
