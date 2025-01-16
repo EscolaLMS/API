@@ -8570,6 +8570,44 @@
                 ]
             }
         },
+        "/api/courses/{id}/preview/{topic_id}": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "summary": "Preview the specified Course Topic is set to preview",
+                "description": "Get Topic with Topicable",
+                "operationId": "44af4dba3836bc5212148fccf8657c2b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Course",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "topic_id",
+                        "in": "path",
+                        "description": "id of Topic",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/tutors": {
             "get": {
                 "tags": [
