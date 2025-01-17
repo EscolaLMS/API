@@ -3409,16 +3409,16 @@
         },
         {
             "name": "escolalms/courses",
-            "version": "0.4.43",
+            "version": "0.4.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Courses.git",
-                "reference": "2a534a29980de29e58251fd115b44b5803320341"
+                "reference": "9a476e639886f6c5aaab37939471161f487e3d16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Courses/zipball/2a534a29980de29e58251fd115b44b5803320341",
-                "reference": "2a534a29980de29e58251fd115b44b5803320341",
+                "url": "https://api.github.com/repos/EscolaLMS/Courses/zipball/9a476e639886f6c5aaab37939471161f487e3d16",
+                "reference": "9a476e639886f6c5aaab37939471161f487e3d16",
                 "shasum": ""
             },
             "require": {
@@ -3478,9 +3478,9 @@
             "description": "Escola Headless LMS Courses",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Courses/issues",
-                "source": "https://github.com/EscolaLMS/Courses/tree/0.4.43"
+                "source": "https://github.com/EscolaLMS/Courses/tree/0.4.44"
             },
-            "time": "2025-01-16T11:14:11+00:00"
+            "time": "2025-01-17T12:46:08+00:00"
         },
         {
             "name": "escolalms/courses-import-export",
@@ -19086,16 +19086,16 @@
         },
         {
             "name": "php-di/invoker",
-            "version": "2.3.4",
+            "version": "2.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/Invoker.git",
-                "reference": "33234b32dafa8eb69202f950a1fc92055ed76a86"
+                "reference": "59f15608528d8a8838d69b422a919fd6b16aa576"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/Invoker/zipball/33234b32dafa8eb69202f950a1fc92055ed76a86",
-                "reference": "33234b32dafa8eb69202f950a1fc92055ed76a86",
+                "url": "https://api.github.com/repos/PHP-DI/Invoker/zipball/59f15608528d8a8838d69b422a919fd6b16aa576",
+                "reference": "59f15608528d8a8838d69b422a919fd6b16aa576",
                 "shasum": ""
             },
             "require": {
@@ -19129,7 +19129,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-DI/Invoker/issues",
-                "source": "https://github.com/PHP-DI/Invoker/tree/2.3.4"
+                "source": "https://github.com/PHP-DI/Invoker/tree/2.3.6"
             },
             "funding": [
                 {
@@ -19137,7 +19137,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-09-08T09:24:21+00:00"
+            "time": "2025-01-17T12:49:27+00:00"
         },
         {
             "name": "php-di/php-di",

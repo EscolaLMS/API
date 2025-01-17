@@ -29,13 +29,13 @@ restart_queue_cron:
 	- docker compose restart escola_lms_queue_cron
 
 update-composer-to-git:
-	- git checkout develop 
-	- git pull 
+	- git checkout develop
+	- git pull
 	- docker compose up -d api
 	- docker compose exec api bash -c "XDEBUG_MODE=off composer update --no-scripts"
-	- git add composer.lock 
-	- git commit -m "updating dependecies"
-	- git push origin develop 
+	- git add composer.lock
+	- git commit -m "updating dependencies"
+	- git push origin develop
 
 
 swagger-generate:
@@ -78,16 +78,16 @@ backup-postgres:
 	- docker compose exec postgres bash -c "pg_dump --clean --dbname=$(POSTGRES_DB) -f /var/lib/postgresql/backups/backup-$(NOW_DB_PREFIX).sql"
 	- docker compose exec postgres bash -c "cp /var/lib/postgresql/backups/backup-$(NOW_DB_PREFIX).sql  /var/lib/postgresql/backups/backup-latest.sql"
 
-# imports database backup from data folder 
-# make import BACKUP_FILE=backup-2020-09-15-14:49:22.sql 
-# or 
+# imports database backup from data folder
+# make import BACKUP_FILE=backup-2020-09-15-14:49:22.sql
+# or
 # make import BACKUP_FILE=backup-latest.sql
 #import-postgres: backup-postgres
 
-import-postgres: 
+import-postgres:
 	- docker compose exec postgres bash -c "psql --dbname=$(POSTGRES_DB) < /var/lib/postgresql/backups/$(BACKUP_FILE)"
 
 init: docker-up switch-to-postgres composer-update migrate-fresh-quick
 
-wait: 
+wait:
 	- docker compose exec api bash -c "./wait.sh"
