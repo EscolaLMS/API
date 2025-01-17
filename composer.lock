@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.337.0",
+            "version": "3.337.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "7e40cecb3ce66749bbd5eaa9f370de48c16acd6c"
+                "reference": "fa70febad922e9868c83bfe03c6d078fc2633e17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7e40cecb3ce66749bbd5eaa9f370de48c16acd6c",
-                "reference": "7e40cecb3ce66749bbd5eaa9f370de48c16acd6c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/fa70febad922e9868c83bfe03c6d078fc2633e17",
+                "reference": "fa70febad922e9868c83bfe03c6d078fc2633e17",
                 "shasum": ""
             },
             "require": {
@@ -154,9 +154,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.337.0"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.337.1"
             },
-            "time": "2025-01-15T19:58:52+00:00"
+            "time": "2025-01-16T19:12:46+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -3484,16 +3484,16 @@
         },
         {
             "name": "escolalms/courses-import-export",
-            "version": "0.1.22",
+            "version": "0.1.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Courses-Import-Export.git",
-                "reference": "e368d876399a0aacbe515c3d450a05ceb20cfe8f"
+                "reference": "939b925afe3f8fa66f9ccd3555f5820d85af877f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Courses-Import-Export/zipball/e368d876399a0aacbe515c3d450a05ceb20cfe8f",
-                "reference": "e368d876399a0aacbe515c3d450a05ceb20cfe8f",
+                "url": "https://api.github.com/repos/EscolaLMS/Courses-Import-Export/zipball/939b925afe3f8fa66f9ccd3555f5820d85af877f",
+                "reference": "939b925afe3f8fa66f9ccd3555f5820d85af877f",
                 "shasum": ""
             },
             "require": {
@@ -3508,6 +3508,7 @@
                 "escolalms/headless-h5p": "^0.4",
                 "escolalms/settings": "^0",
                 "escolalms/topic-types": "^0",
+                "nunomaduro/larastan": "^2.0",
                 "orchestra/testbench": ">=7.0",
                 "phpunit/phpunit": "^9.0"
             },
@@ -3539,9 +3540,9 @@
             "description": "Escola Headless LMS Courses Import Export",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Courses-Import-Export/issues",
-                "source": "https://github.com/EscolaLMS/Courses-Import-Export/tree/0.1.22"
+                "source": "https://github.com/EscolaLMS/Courses-Import-Export/tree/0.1.23"
             },
-            "time": "2024-05-23T06:27:48+00:00"
+            "time": "2025-01-17T09:05:58+00:00"
         },
         {
             "name": "escolalms/csv-users",
@@ -4143,26 +4144,27 @@
         },
         {
             "name": "escolalms/model-fields",
-            "version": "0.0.24",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/model-fields.git",
-                "reference": "18daad4ce05842fd90fa1701b2ca03d7842ed3b6"
+                "reference": "e1fb81a83a15d3d3aded8c56c4fbeff827a4f10d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/model-fields/zipball/18daad4ce05842fd90fa1701b2ca03d7842ed3b6",
-                "reference": "18daad4ce05842fd90fa1701b2ca03d7842ed3b6",
+                "url": "https://api.github.com/repos/EscolaLMS/model-fields/zipball/e1fb81a83a15d3d3aded8c56c4fbeff827a4f10d",
+                "reference": "e1fb81a83a15d3d3aded8c56c4fbeff827a4f10d",
                 "shasum": ""
             },
             "require": {
                 "escolalms/core": "^1",
                 "laravel/framework": ">=8.0",
-                "php": ">=7.4"
+                "php": ">=8.0"
             },
             "require-dev": {
                 "escolalms/auth": "^0",
                 "infection/infection": "^0",
+                "nunomaduro/larastan": "^1.0",
                 "orchestra/testbench": "^6",
                 "phpunit/phpunit": "^9.0"
             },
@@ -4194,9 +4196,9 @@
             "description": "Escola LMS model-fields extension.",
             "support": {
                 "issues": "https://github.com/EscolaLMS/model-fields/issues",
-                "source": "https://github.com/EscolaLMS/model-fields/tree/0.0.24"
+                "source": "https://github.com/EscolaLMS/model-fields/tree/0.1.1"
             },
-            "time": "2024-06-11T08:46:41+00:00"
+            "time": "2025-01-17T09:39:38+00:00"
         },
         {
             "name": "escolalms/notifications",
