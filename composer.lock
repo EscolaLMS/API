@@ -3484,16 +3484,16 @@
         },
         {
             "name": "escolalms/courses-import-export",
-            "version": "0.1.22",
+            "version": "0.1.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Courses-Import-Export.git",
-                "reference": "e368d876399a0aacbe515c3d450a05ceb20cfe8f"
+                "reference": "939b925afe3f8fa66f9ccd3555f5820d85af877f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Courses-Import-Export/zipball/e368d876399a0aacbe515c3d450a05ceb20cfe8f",
-                "reference": "e368d876399a0aacbe515c3d450a05ceb20cfe8f",
+                "url": "https://api.github.com/repos/EscolaLMS/Courses-Import-Export/zipball/939b925afe3f8fa66f9ccd3555f5820d85af877f",
+                "reference": "939b925afe3f8fa66f9ccd3555f5820d85af877f",
                 "shasum": ""
             },
             "require": {
@@ -3508,6 +3508,7 @@
                 "escolalms/headless-h5p": "^0.4",
                 "escolalms/settings": "^0",
                 "escolalms/topic-types": "^0",
+                "nunomaduro/larastan": "^2.0",
                 "orchestra/testbench": ">=7.0",
                 "phpunit/phpunit": "^9.0"
             },
@@ -3539,9 +3540,9 @@
             "description": "Escola Headless LMS Courses Import Export",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Courses-Import-Export/issues",
-                "source": "https://github.com/EscolaLMS/Courses-Import-Export/tree/0.1.22"
+                "source": "https://github.com/EscolaLMS/Courses-Import-Export/tree/0.1.23"
             },
-            "time": "2024-05-23T06:27:48+00:00"
+            "time": "2025-01-17T09:05:58+00:00"
         },
         {
             "name": "escolalms/csv-users",
