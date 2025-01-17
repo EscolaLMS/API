@@ -4144,16 +4144,16 @@
         },
         {
             "name": "escolalms/model-fields",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/model-fields.git",
-                "reference": "33426803acb42897b7c9db3a8c464297eab4baa5"
+                "reference": "e1fb81a83a15d3d3aded8c56c4fbeff827a4f10d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/model-fields/zipball/33426803acb42897b7c9db3a8c464297eab4baa5",
-                "reference": "33426803acb42897b7c9db3a8c464297eab4baa5",
+                "url": "https://api.github.com/repos/EscolaLMS/model-fields/zipball/e1fb81a83a15d3d3aded8c56c4fbeff827a4f10d",
+                "reference": "e1fb81a83a15d3d3aded8c56c4fbeff827a4f10d",
                 "shasum": ""
             },
             "require": {
@@ -4196,9 +4196,9 @@
             "description": "Escola LMS model-fields extension.",
             "support": {
                 "issues": "https://github.com/EscolaLMS/model-fields/issues",
-                "source": "https://github.com/EscolaLMS/model-fields/tree/0.1.0"
+                "source": "https://github.com/EscolaLMS/model-fields/tree/0.1.1"
             },
-            "time": "2025-01-16T20:31:58+00:00"
+            "time": "2025-01-17T09:39:38+00:00"
         },
         {
             "name": "escolalms/notifications",
