@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.337.1",
+            "version": "3.337.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "fa70febad922e9868c83bfe03c6d078fc2633e17"
+                "reference": "f885dd803a257da9d54e72a4750bba73e1196aee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/fa70febad922e9868c83bfe03c6d078fc2633e17",
-                "reference": "fa70febad922e9868c83bfe03c6d078fc2633e17",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f885dd803a257da9d54e72a4750bba73e1196aee",
+                "reference": "f885dd803a257da9d54e72a4750bba73e1196aee",
                 "shasum": ""
             },
             "require": {
@@ -154,9 +154,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.337.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.337.2"
             },
-            "time": "2025-01-16T19:12:46+00:00"
+            "time": "2025-01-17T19:10:04+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -5121,16 +5121,16 @@
         },
         {
             "name": "escolalms/templates-email",
-            "version": "0.1.67",
+            "version": "0.1.68",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Templates-Email.git",
-                "reference": "773bbb9741504d3fb83aca4f372253e0bcc03918"
+                "reference": "a4027ab53686f2fc5f5533fdbef2aceda50b7976"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Templates-Email/zipball/773bbb9741504d3fb83aca4f372253e0bcc03918",
-                "reference": "773bbb9741504d3fb83aca4f372253e0bcc03918",
+                "url": "https://api.github.com/repos/EscolaLMS/Templates-Email/zipball/a4027ab53686f2fc5f5533fdbef2aceda50b7976",
+                "reference": "a4027ab53686f2fc5f5533fdbef2aceda50b7976",
                 "shasum": ""
             },
             "require": {
@@ -5199,9 +5199,9 @@
             "description": "Escola Headless LMS Templates for Emails",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Templates-Email/issues",
-                "source": "https://github.com/EscolaLMS/Templates-Email/tree/0.1.67"
+                "source": "https://github.com/EscolaLMS/Templates-Email/tree/0.1.68"
             },
-            "time": "2024-11-12T10:33:17+00:00"
+            "time": "2025-01-18T17:11:10+00:00"
         },
         {
             "name": "escolalms/templates-pdf",
