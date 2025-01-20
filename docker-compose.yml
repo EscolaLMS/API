@@ -168,7 +168,8 @@ services:
     image: escolalms/reportbro-server:latest
 
   mjml:
-    image: adrianrudnik/mjml-server
+    image: danihodovic/mjml-server
+
     # ports:
     #   - 8080:80
 

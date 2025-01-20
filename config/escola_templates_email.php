@@ -2,7 +2,8 @@
 
 return [
     'mjml' => [
-        'use_api'          => !empty(env('MJML_API_ID')),
+        'api_url'          => env('MJML_API_URL'),
+        'use_api'          => !empty(env('MJML_API_URL')),
         //
         'binary_path'      => env('MJML_BINARY_PATH'),
         //
