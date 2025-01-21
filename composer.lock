@@ -4765,16 +4765,16 @@
         },
         {
             "name": "escolalms/scorm",
-            "version": "0.2.23",
+            "version": "0.2.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Scorm.git",
-                "reference": "7e8451d0e296487f09a157f34607a961d7fe9a73"
+                "reference": "12d378abd18c4ef16030b96504e12e079e7e9e55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Scorm/zipball/7e8451d0e296487f09a157f34607a961d7fe9a73",
-                "reference": "7e8451d0e296487f09a157f34607a961d7fe9a73",
+                "url": "https://api.github.com/repos/EscolaLMS/Scorm/zipball/12d378abd18c4ef16030b96504e12e079e7e9e55",
+                "reference": "12d378abd18c4ef16030b96504e12e079e7e9e55",
                 "shasum": ""
             },
             "require": {
@@ -4785,6 +4785,7 @@
                 "php": ">=7.4"
             },
             "require-dev": {
+                "nunomaduro/larastan": "^2.0",
                 "orchestra/testbench": ">=6",
                 "phpunit/phpunit": "^9.0"
             },
@@ -4816,9 +4817,9 @@
             "description": "Escola LMS SCORM management",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Scorm/issues",
-                "source": "https://github.com/EscolaLMS/Scorm/tree/0.2.23"
+                "source": "https://github.com/EscolaLMS/Scorm/tree/0.2.24"
             },
-            "time": "2024-03-22T08:32:34+00:00"
+            "time": "2024-07-10T06:37:58+00:00"
         },
         {
             "name": "escolalms/settings",
