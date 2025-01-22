@@ -15637,7 +15637,46 @@
                     "SCORM"
                 ],
                 "summary": "Read a page identified by a given slug identifier",
-                "operationId": "b710a23d97ea51e952083b667df0db2e",
+                "operationId": "229725b8c05241a361b71fc2fcf09a10",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "Unique uuid scorm identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "401": {
+                        "description": "endpoint requires authentication"
+                    },
+                    "403": {
+                        "description": "user doesn't have required access rights"
+                    },
+                    "500": {
+                        "description": "server-side error"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/scorm/show/{uuid}": {
+            "get": {
+                "tags": [
+                    "SCORM"
+                ],
+                "summary": "Read a page identified by a given slug identifier",
+                "operationId": "7cb75a870f3621c5c16e91df34f77f3d",
                 "parameters": [
                     {
                         "name": "uuid",
