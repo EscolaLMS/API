@@ -24243,6 +24243,17 @@
                 },
                 "type": "object"
             },
+            "GiftTopicSimpleResource": {
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
             "GiftUserSimpleResource": {
                 "properties": {
                     "id": {
