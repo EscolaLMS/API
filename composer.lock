@@ -5638,16 +5638,16 @@
         },
         {
             "name": "escolalms/vouchers",
-            "version": "0.1.21",
+            "version": "0.1.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Vouchers.git",
-                "reference": "84e3fa1d5a03f6c195fd4a033a64bbd93c1d9369"
+                "reference": "31a9b0cd1f30860be2276ae89abe9e1f67b968e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Vouchers/zipball/84e3fa1d5a03f6c195fd4a033a64bbd93c1d9369",
-                "reference": "84e3fa1d5a03f6c195fd4a033a64bbd93c1d9369",
+                "url": "https://api.github.com/repos/EscolaLMS/Vouchers/zipball/31a9b0cd1f30860be2276ae89abe9e1f67b968e9",
+                "reference": "31a9b0cd1f30860be2276ae89abe9e1f67b968e9",
                 "shasum": ""
             },
             "require": {
@@ -5658,8 +5658,9 @@
             "require-dev": {
                 "barryvdh/laravel-ide-helper": "^2.12",
                 "escolalms/settings": "^0.1.91",
-                "nunomaduro/collision": "^5.11",
-                "orchestra/testbench": "^5.0|^6.0",
+                "nunomaduro/collision": ">=5.11",
+                "nunomaduro/larastan": "^2.0",
+                "orchestra/testbench": ">=5.0",
                 "phpunit/phpunit": "^9.0"
             },
             "type": "package",
@@ -5691,9 +5692,9 @@
             "description": "Escola LMS Vouchers",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Vouchers/issues",
-                "source": "https://github.com/EscolaLMS/Vouchers/tree/0.1.21"
+                "source": "https://github.com/EscolaLMS/Vouchers/tree/0.1.22"
             },
-            "time": "2024-02-14T13:41:21+00:00"
+            "time": "2025-08-18T09:31:06+00:00"
         },
         {
             "name": "escolalms/webinar",
