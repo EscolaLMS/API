@@ -37,9 +37,9 @@ jobs:
           PAYLOAD: |-
             {"text":"There is a new [escolalms/api:develop](https://hub.docker.com/r/escolalms/api/tags?page=1&name=develop) image built. k8s rollout will happen soon"}
 
-      - name: Send webook to hooks to rollout all devs on k8s
-        uses: distributhor/workflow-webhook@v3
-        with:
-          webhook_url: ${{ secrets.K8S_WEBHOOK_URL_API_DEVELOP }}
-        env:
-          webhook_url: ${{ secrets.K8S_WEBHOOK_URL_API_DEVELOP }}
+#      - name: Send webook to hooks to rollout all devs on k8s
+#        uses: distributhor/workflow-webhook@v3
+#        with:
+#          webhook_url: ${{ secrets.K8S_WEBHOOK_URL_API_DEVELOP }}
+#        env:
+#          webhook_url: ${{ secrets.K8S_WEBHOOK_URL_API_DEVELOP }}
