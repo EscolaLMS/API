@@ -3553,6 +3553,9 @@
                                         "items": {
                                             "type": "integer"
                                         }
+                                    },
+                                    "language": {
+                                        "type": "string"
                                     }
                                 },
                                 "type": "object"
@@ -3700,6 +3703,10 @@
                                         "items": {
                                             "type": "integer"
                                         }
+                                    },
+                                    "language": {
+                                        "description": "language",
+                                        "type": "string"
                                     }
                                 },
                                 "type": "object"
@@ -21451,6 +21458,15 @@
                             },
                             "type": "object"
                         }
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "language": {
+                        "type": "string"
                     }
                 },
                 "type": "object"
