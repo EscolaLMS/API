@@ -21420,6 +21420,23 @@
                 },
                 "type": "object"
             },
+            "ProductCategorySimpleResource": {
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "name_with_breadcrumbs": {
+                        "type": "string"
+                    },
+                    "slug": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
             "MyProductResource": {
                 "properties": {
                     "id": {
@@ -21463,6 +21480,12 @@
                         "type": "array",
                         "items": {
                             "type": "string"
+                        }
+                    },
+                    "categories": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ProductCategorySimpleResource"
                         }
                     },
                     "language": {
