@@ -49,7 +49,7 @@
     "escolalms/core": "^1",
     "escolalms/course-access": "^0",
     "escolalms/courses": "^0",
-    "escolalms/courses-import-export": "^0.1.21",
+    "escolalms/courses-import-export": "^0",
     "escolalms/csv-users": "^0",
     "escolalms/dictionaries": "^0",
     "escolalms/files": "^0",
