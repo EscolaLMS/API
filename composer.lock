@@ -5431,16 +5431,16 @@
         },
         {
             "name": "escolalms/topic-types",
-            "version": "0.2.52",
+            "version": "0.2.53",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/topic-types.git",
-                "reference": "8074abb1d64b187503f525784f7e46f486a56894"
+                "reference": "eb24fad04a6364ef259d0709316a4f9e293c00ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/topic-types/zipball/8074abb1d64b187503f525784f7e46f486a56894",
-                "reference": "8074abb1d64b187503f525784f7e46f486a56894",
+                "url": "https://api.github.com/repos/EscolaLMS/topic-types/zipball/eb24fad04a6364ef259d0709316a4f9e293c00ab",
+                "reference": "eb24fad04a6364ef259d0709316a4f9e293c00ab",
                 "shasum": ""
             },
             "require": {
@@ -5495,9 +5495,9 @@
             "description": "Escola Headless LMS Topic Types",
             "support": {
                 "issues": "https://github.com/EscolaLMS/topic-types/issues",
-                "source": "https://github.com/EscolaLMS/topic-types/tree/0.2.52"
+                "source": "https://github.com/EscolaLMS/topic-types/tree/0.2.53"
             },
-            "time": "2025-11-24T11:53:51+00:00"
+            "time": "2025-11-24T13:30:15+00:00"
         },
         {
             "name": "escolalms/translations",
