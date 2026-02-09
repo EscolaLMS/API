@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.369.24",
+            "version": "3.369.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "17f404a47879c1fb47175ac2b61881ab0dc2dc5c"
+                "reference": "068195b2980cf5cf4ade2515850d461186db3310"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/17f404a47879c1fb47175ac2b61881ab0dc2dc5c",
-                "reference": "17f404a47879c1fb47175ac2b61881ab0dc2dc5c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/068195b2980cf5cf4ade2515850d461186db3310",
+                "reference": "068195b2980cf5cf4ade2515850d461186db3310",
                 "shasum": ""
             },
             "require": {
@@ -153,9 +153,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.369.24"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.369.29"
             },
-            "time": "2026-01-30T19:14:32+00:00"
+            "time": "2026-02-06T19:08:50+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -2082,29 +2082,29 @@
         },
         {
             "name": "doctrine/deprecations",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/deprecations.git",
-                "reference": "459c2f5dd3d6a4633d3b5f46ee2b1c40f57d3f38"
+                "reference": "d4fe3e6fd9bb9e72557a19674f44d8ac7db4c6ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/459c2f5dd3d6a4633d3b5f46ee2b1c40f57d3f38",
-                "reference": "459c2f5dd3d6a4633d3b5f46ee2b1c40f57d3f38",
+                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/d4fe3e6fd9bb9e72557a19674f44d8ac7db4c6ca",
+                "reference": "d4fe3e6fd9bb9e72557a19674f44d8ac7db4c6ca",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1 || ^8.0"
             },
             "conflict": {
-                "phpunit/phpunit": "<=7.5 || >=13"
+                "phpunit/phpunit": "<=7.5 || >=14"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^9 || ^12 || ^13",
-                "phpstan/phpstan": "1.4.10 || 2.1.11",
+                "doctrine/coding-standard": "^9 || ^12 || ^14",
+                "phpstan/phpstan": "1.4.10 || 2.1.30",
                 "phpstan/phpstan-phpunit": "^1.0 || ^2",
-                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.6 || ^10.5 || ^11.5 || ^12",
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.6 || ^10.5 || ^11.5 || ^12.4 || ^13.0",
                 "psr/log": "^1 || ^2 || ^3"
             },
             "suggest": {
@@ -2124,9 +2124,9 @@
             "homepage": "https://www.doctrine-project.org/",
             "support": {
                 "issues": "https://github.com/doctrine/deprecations/issues",
-                "source": "https://github.com/doctrine/deprecations/tree/1.1.5"
+                "source": "https://github.com/doctrine/deprecations/tree/1.1.6"
             },
-            "time": "2025-04-07T20:06:18+00:00"
+            "time": "2026-02-07T07:09:04+00:00"
         },
         {
             "name": "doctrine/event-manager",
@@ -4608,16 +4608,16 @@
         },
         {
             "name": "escolalms/recommender",
-            "version": "0.0.6",
+            "version": "0.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Recommender.git",
-                "reference": "70e4b8cbe9507c5aa07210a26b378fe100449d64"
+                "reference": "39a09ab2e0bd99bdb4bb729f9065a49b47f20049"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Recommender/zipball/70e4b8cbe9507c5aa07210a26b378fe100449d64",
-                "reference": "70e4b8cbe9507c5aa07210a26b378fe100449d64",
+                "url": "https://api.github.com/repos/EscolaLMS/Recommender/zipball/39a09ab2e0bd99bdb4bb729f9065a49b47f20049",
+                "reference": "39a09ab2e0bd99bdb4bb729f9065a49b47f20049",
                 "shasum": ""
             },
             "require": {
@@ -4631,6 +4631,7 @@
             },
             "require-dev": {
                 "darkaonline/l5-swagger": "8.1.0",
+                "doctrine/dbal": "^2.13",
                 "orchestra/testbench": ">=5.0",
                 "phpunit/phpunit": "^9.0"
             },
@@ -4663,9 +4664,9 @@
             "description": "Escola Headless LMS Recommender",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Recommender/issues",
-                "source": "https://github.com/EscolaLMS/Recommender/tree/0.0.6"
+                "source": "https://github.com/EscolaLMS/Recommender/tree/0.0.7"
             },
-            "time": "2025-06-16T12:14:22+00:00"
+            "time": "2026-02-09T12:37:52+00:00"
         },
         {
             "name": "escolalms/reports",
@@ -10660,16 +10661,16 @@
         },
         {
             "name": "nette/schema",
-            "version": "v1.3.3",
+            "version": "v1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/schema.git",
-                "reference": "2befc2f42d7c715fd9d95efc31b1081e5d765004"
+                "reference": "086497a2f34b82fede9b5a41cc8e131d087cd8f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/schema/zipball/2befc2f42d7c715fd9d95efc31b1081e5d765004",
-                "reference": "2befc2f42d7c715fd9d95efc31b1081e5d765004",
+                "url": "https://api.github.com/repos/nette/schema/zipball/086497a2f34b82fede9b5a41cc8e131d087cd8f7",
+                "reference": "086497a2f34b82fede9b5a41cc8e131d087cd8f7",
                 "shasum": ""
             },
             "require": {
@@ -10677,8 +10678,8 @@
                 "php": "8.1 - 8.5"
             },
             "require-dev": {
-                "nette/tester": "^2.5.2",
-                "phpstan/phpstan-nette": "^2.0@stable",
+                "nette/tester": "^2.6",
+                "phpstan/phpstan": "^2.0@stable",
                 "tracy/tracy": "^2.8"
             },
             "type": "library",
@@ -10719,22 +10720,22 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/schema/issues",
-                "source": "https://github.com/nette/schema/tree/v1.3.3"
+                "source": "https://github.com/nette/schema/tree/v1.3.4"
             },
-            "time": "2025-10-30T22:57:59+00:00"
+            "time": "2026-02-08T02:54:00+00:00"
         },
         {
             "name": "nette/utils",
-            "version": "v4.1.1",
+            "version": "v4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "c99059c0315591f1a0db7ad6002000288ab8dc72"
+                "reference": "f76b5dc3d6c6d3043c8d937df2698515b99cbaf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/c99059c0315591f1a0db7ad6002000288ab8dc72",
-                "reference": "c99059c0315591f1a0db7ad6002000288ab8dc72",
+                "url": "https://api.github.com/repos/nette/utils/zipball/f76b5dc3d6c6d3043c8d937df2698515b99cbaf5",
+                "reference": "f76b5dc3d6c6d3043c8d937df2698515b99cbaf5",
                 "shasum": ""
             },
             "require": {
@@ -10747,7 +10748,7 @@
             "require-dev": {
                 "jetbrains/phpstorm-attributes": "^1.2",
                 "nette/tester": "^2.5",
-                "phpstan/phpstan-nette": "^2.0@stable",
+                "phpstan/phpstan": "^2.0@stable",
                 "tracy/tracy": "^2.9"
             },
             "suggest": {
@@ -10808,9 +10809,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/utils/issues",
-                "source": "https://github.com/nette/utils/tree/v4.1.1"
+                "source": "https://github.com/nette/utils/tree/v4.1.2"
             },
-            "time": "2025-12-22T12:14:32+00:00"
+            "time": "2026-02-03T17:21:09+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -11035,31 +11036,32 @@
         },
         {
             "name": "omnipay/common",
-            "version": "v3.4.0",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/omnipay-common.git",
-                "reference": "83552de28815c5e46f66360c4d52c3a82a7d5efc"
+                "reference": "17ce9d4702be5e879d4de5175392a1ffd13afe22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/omnipay-common/zipball/83552de28815c5e46f66360c4d52c3a82a7d5efc",
-                "reference": "83552de28815c5e46f66360c4d52c3a82a7d5efc",
+                "url": "https://api.github.com/repos/thephpleague/omnipay-common/zipball/17ce9d4702be5e879d4de5175392a1ffd13afe22",
+                "reference": "17ce9d4702be5e879d4de5175392a1ffd13afe22",
                 "shasum": ""
             },
             "require": {
                 "moneyphp/money": "^3.1|^4.0.3",
-                "php": "^7.2|^8",
+                "php": "^8",
                 "php-http/client-implementation": "^1",
                 "php-http/discovery": "^1.14",
                 "php-http/message": "^1.5",
-                "php-http/message-factory": "^1.1",
-                "symfony/http-foundation": "^2.1|^3|^4|^5|^6|^7"
+                "psr/http-factory": "^1",
+                "symfony/http-foundation": "^2.1|^3|^4|^5|^6|^7|^8"
             },
             "require-dev": {
                 "http-interop/http-factory-guzzle": "^1.1",
                 "omnipay/tests": "^4.1",
                 "php-http/guzzle7-adapter": "^1",
+                "php-http/message-factory": "^1.1",
                 "php-http/mock-client": "^1.6",
                 "squizlabs/php_codesniffer": "^3.8.1"
             },
@@ -11069,7 +11071,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1.x-dev"
+                    "dev-master": "3.5.x-dev"
                 }
             },
             "autoload": {
@@ -11117,7 +11119,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/omnipay-common/issues",
-                "source": "https://github.com/thephpleague/omnipay-common/tree/v3.4.0"
+                "source": "https://github.com/thephpleague/omnipay-common/tree/v3.5.0"
             },
             "funding": [
                 {
@@ -11125,7 +11127,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-03T09:25:00+00:00"
+            "time": "2026-01-29T11:37:04+00:00"
         },
         {
             "name": "omnipay/stripe",
@@ -11961,61 +11963,6 @@
                 "source": "https://github.com/php-http/message/tree/1.16.2"
             },
             "time": "2024-10-02T11:34:13+00:00"
-        },
-        {
-            "name": "php-http/message-factory",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-http/message-factory.git",
-                "reference": "4d8778e1c7d405cbb471574821c1ff5b68cc8f57"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-http/message-factory/zipball/4d8778e1c7d405cbb471574821c1ff5b68cc8f57",
-                "reference": "4d8778e1c7d405cbb471574821c1ff5b68cc8f57",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4",
-                "psr/http-message": "^1.0 || ^2.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Http\\Message\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Márk Sági-Kazár",
-                    "email": "mark.sagikazar@gmail.com"
-                }
-            ],
-            "description": "Factory interfaces for PSR-7 HTTP Message",
-            "homepage": "http://php-http.org",
-            "keywords": [
-                "factory",
-                "http",
-                "message",
-                "stream",
-                "uri"
-            ],
-            "support": {
-                "issues": "https://github.com/php-http/message-factory/issues",
-                "source": "https://github.com/php-http/message-factory/tree/1.1.0"
-            },
-            "abandoned": "psr/http-factory",
-            "time": "2023-04-14T14:16:17+00:00"
         },
         {
             "name": "php-http/promise",
@@ -19423,27 +19370,27 @@
         },
         {
             "name": "php-mock/php-mock",
-            "version": "2.6.2",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-mock/php-mock.git",
-                "reference": "e134d210e4707c29724ebc7fe50d220123f0fdd9"
+                "reference": "b59734f19765296bb0311942850d02288a224890"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-mock/php-mock/zipball/e134d210e4707c29724ebc7fe50d220123f0fdd9",
-                "reference": "e134d210e4707c29724ebc7fe50d220123f0fdd9",
+                "url": "https://api.github.com/repos/php-mock/php-mock/zipball/b59734f19765296bb0311942850d02288a224890",
+                "reference": "b59734f19765296bb0311942850d02288a224890",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.6 || ^7.0 || ^8.0",
-                "phpunit/php-text-template": "^1 || ^2 || ^3 || ^4 || ^5"
+                "phpunit/php-text-template": "^1 || ^2 || ^3 || ^4 || ^5 || ^6"
             },
             "replace": {
                 "malkusch/php-mock": "*"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5 || ^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0",
+                "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5 || ^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
                 "squizlabs/php_codesniffer": "^3.8"
             },
             "suggest": {
@@ -19487,7 +19434,7 @@
             ],
             "support": {
                 "issues": "https://github.com/php-mock/php-mock/issues",
-                "source": "https://github.com/php-mock/php-mock/tree/2.6.2"
+                "source": "https://github.com/php-mock/php-mock/tree/2.7.0"
             },
             "funding": [
                 {
@@ -19495,29 +19442,29 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-08-18T19:59:14+00:00"
+            "time": "2026-02-06T07:39:37+00:00"
         },
         {
             "name": "php-mock/php-mock-integration",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-mock/php-mock-integration.git",
-                "reference": "8ceb860f343a143af604efeb66a7a124381cc52e"
+                "reference": "cbbf39705ec13dece5b04133cef4e2fd3137a345"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-mock/php-mock-integration/zipball/8ceb860f343a143af604efeb66a7a124381cc52e",
-                "reference": "8ceb860f343a143af604efeb66a7a124381cc52e",
+                "url": "https://api.github.com/repos/php-mock/php-mock-integration/zipball/cbbf39705ec13dece5b04133cef4e2fd3137a345",
+                "reference": "cbbf39705ec13dece5b04133cef4e2fd3137a345",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6",
                 "php-mock/php-mock": "^2.5",
-                "phpunit/php-text-template": "^1 || ^2 || ^3 || ^4 || ^5"
+                "phpunit/php-text-template": "^1 || ^2 || ^3 || ^4 || ^5 || ^6"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7.27 || ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12"
+                "phpunit/phpunit": "^5.7.27 || ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || ^13"
             },
             "type": "library",
             "autoload": {
@@ -19550,7 +19497,7 @@
             ],
             "support": {
                 "issues": "https://github.com/php-mock/php-mock-integration/issues",
-                "source": "https://github.com/php-mock/php-mock-integration/tree/3.0.0"
+                "source": "https://github.com/php-mock/php-mock-integration/tree/3.1.0"
             },
             "funding": [
                 {
@@ -19558,26 +19505,26 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-08T19:22:38+00:00"
+            "time": "2026-02-06T07:44:43+00:00"
         },
         {
             "name": "php-mock/php-mock-phpunit",
-            "version": "2.14.0",
+            "version": "2.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-mock/php-mock-phpunit.git",
-                "reference": "c074f7a260cb80bdc7cf0823dc23174bc49064e1"
+                "reference": "701df15b183f25af663af134eb71353cd838b955"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-mock/php-mock-phpunit/zipball/c074f7a260cb80bdc7cf0823dc23174bc49064e1",
-                "reference": "c074f7a260cb80bdc7cf0823dc23174bc49064e1",
+                "url": "https://api.github.com/repos/php-mock/php-mock-phpunit/zipball/701df15b183f25af663af134eb71353cd838b955",
+                "reference": "701df15b183f25af663af134eb71353cd838b955",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7",
                 "php-mock/php-mock-integration": "^3.0",
-                "phpunit/phpunit": "^6 || ^7 || ^8 || ^9 || ^10.0.17 || ^11 || ^12.0.9"
+                "phpunit/phpunit": "^6 || ^7 || ^8 || ^9 || ^10.0.17 || ^11 || ^12.0.9 || ^13"
             },
             "require-dev": {
                 "mockery/mockery": "^1.3.6"
@@ -19618,7 +19565,7 @@
             ],
             "support": {
                 "issues": "https://github.com/php-mock/php-mock-phpunit/issues",
-                "source": "https://github.com/php-mock/php-mock-phpunit/tree/2.14.0"
+                "source": "https://github.com/php-mock/php-mock-phpunit/tree/2.15.0"
             },
             "funding": [
                 {
@@ -19626,7 +19573,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-19T21:07:31+00:00"
+            "time": "2026-02-06T09:12:10+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -21517,16 +21464,16 @@
         },
         {
             "name": "spatie/ray",
-            "version": "1.45.0",
+            "version": "1.46.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/ray.git",
-                "reference": "68920c418d10fe103722d366faa575533d26434f"
+                "reference": "a227afd1899581d81af1fd5ebec03d34157ed2d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/ray/zipball/68920c418d10fe103722d366faa575533d26434f",
-                "reference": "68920c418d10fe103722d366faa575533d26434f",
+                "url": "https://api.github.com/repos/spatie/ray/zipball/a227afd1899581d81af1fd5ebec03d34157ed2d2",
+                "reference": "a227afd1899581d81af1fd5ebec03d34157ed2d2",
                 "shasum": ""
             },
             "require": {
@@ -21586,7 +21533,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/ray/issues",
-                "source": "https://github.com/spatie/ray/tree/1.45.0"
+                "source": "https://github.com/spatie/ray/tree/1.46.0"
             },
             "funding": [
                 {
@@ -21598,7 +21545,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-01-26T18:45:30+00:00"
+            "time": "2026-02-06T07:38:10+00:00"
         },
         {
             "name": "symfony/polyfill-iconv",
