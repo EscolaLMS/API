@@ -191,3 +191,21 @@ services:
       # AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}:minio_secretpassword
       # AWS_BUCKET: ${AWS_BUCKET}:wellms"
       # AWS_ENDPOINT: ${AWS_ENDPOINT}
+
+  soketi:
+    image: quay.io/soketi/soketi:latest
+    networks:
+      - escola_lms
+    expose:
+      - "6001"
+      - "9601"
+    environment:
+      SOKETI_DEFAULT_APP_ID: uuid
+      SOKETI_DEFAULT_APP_KEY: key_TEST
+      SOKETI_DEFAULT_APP_SECRET: secret_TEST
+      SOKETI_ADAPTER: redis
+      SOKETI_REDIS_HOST: redis
+      SOKETI_REDIS_PORT: 6379
+      SOKETI_REDIS_PASSWORD: escola_lms
+      SOKETI_METRICS_SERVER_PORT: 9601
+      SOKETI_METRICS_ENABLED: 1

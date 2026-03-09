@@ -6,6 +6,14 @@ http://minio.localhost {
     reverse_proxy minio:9001
 }
 
+http://ws.localhost {
+    reverse_proxy soketi:6001
+}
+
+http://metrics.localhost {
+    reverse_proxy soketi:9601
+}
+
 http://*.admin.localhost {
     # Resolve the root directory for the app
     root * /var/www/html/public

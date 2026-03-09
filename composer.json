@@ -94,6 +94,7 @@
     "league/flysystem-aws-s3-v3": "^3.0",
     "predis/predis": "^2.2",
     "psr/http-message": "^1",
+    "pusher/pusher-php-server": "^7.2",
     "sentry/sentry-laravel": "^4.2",
     "spatie/laravel-health": "^1.30",
     "spatie/laravel-permission": "^6.3",
