@@ -25,7 +25,7 @@ class TestBroadcast implements ShouldBroadcast
         private string|array $message,
         private bool $private = false,
     ) {
-        Log::info('construct: ' . $this->channel . ' message: ' . $this->message . ' private: ' . $this->private);
+        Log::info('construct: ' . $this->channel . ' message: ' . json_encode($this->message) . ' private: ' . $this->private);
     }
 
     /**
