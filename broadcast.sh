@@ -8,7 +8,7 @@ if [ -n "$MULTI_DOMAINS" ]; then
     for domain in "${domains[@]}"; do
       # supervisor is set for stdout so it just make fuzz
       # echo "queue work for $domain"
-      php /var/www/html/artisan queue:work --queue=default --max-jobs=20 --stop-when-empty --domain=$domain
+      php /var/www/html/artisan queue:work --queue=broadcast --max-jobs=20 --stop-when-empty --domain=$domain
     done
   done
 else
