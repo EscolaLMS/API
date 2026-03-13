@@ -20,6 +20,14 @@ else
     echo multidomain_queue.conf enabled
 fi
 
+if [ "$DISABLE_BROADCAST" == 'true' ]
+then
+    rm -f /etc/supervisor/custom.d/multidomain_broadcast.conf
+    echo multidomain_broadcast.conf disabled
+else
+    cp docker/conf/supervisor/services/multidomain_broadcast.conf /etc/supervisor/custom.d/multidomain_broadcast.conf
+    echo multidomain_broadcast.conf enabled
+fi
 
 # removing default horizon for multidomain
 rm -f /etc/supervisor/custom.d/horizon.conf
