@@ -15141,6 +15141,162 @@
                 ]
             }
         },
+        "/api/admin/recommender/aggregated-frames/{modelType}/{modelId}/{term}": {
+            "get": {
+                "tags": [
+                    "Admin Recommender"
+                ],
+                "summary": "Aggregated Frames with interval",
+                "description": "Get aggregated frames for model and term with interval",
+                "operationId": "4939c06a0d329250e6e78219cf163ac5",
+                "parameters": [
+                    {
+                        "name": "modelType",
+                        "in": "path",
+                        "description": "Model type",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "modelId",
+                        "in": "path",
+                        "description": "ID of model",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "term",
+                        "in": "path",
+                        "description": "Model term",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "interval",
+                        "in": "query",
+                        "description": "Interval",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/recommender/analytics/{modelType}/{modelId}": {
+            "get": {
+                "tags": [
+                    "Admin Recommender"
+                ],
+                "summary": "Model analytics",
+                "description": "Get model analytics",
+                "operationId": "0a7a71836ea459c59eeee2655b89096c",
+                "parameters": [
+                    {
+                        "name": "modelType",
+                        "in": "path",
+                        "description": "Model type",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "modelId",
+                        "in": "path",
+                        "description": "ID of model",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/recommender/analytics/{modelType}/{modelId}/{term}": {
+            "get": {
+                "tags": [
+                    "Admin Recommender"
+                ],
+                "summary": "Model term analytics",
+                "description": "Get Model term analytics",
+                "operationId": "a9fe5c964006a1554d1b2ceaf7ebc915",
+                "parameters": [
+                    {
+                        "name": "modelType",
+                        "in": "path",
+                        "description": "Model type",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "modelId",
+                        "in": "path",
+                        "description": "ID of model",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "term",
+                        "in": "path",
+                        "description": "Model term",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/reports/metrics": {
             "get": {
                 "tags": [
@@ -23557,6 +23713,111 @@
                     "model_class": {
                         "description": "model_class",
                         "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "AggregatedFrame": {
+                "properties": {
+                    "window_start": {
+                        "description": "window_start",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "window_end": {
+                        "description": "window_end",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "attention": {
+                        "description": "attention",
+                        "type": "numeric"
+                    },
+                    "max_emotion": {
+                        "description": "max_emotion",
+                        "type": "string"
+                    },
+                    "max_emotion_percentage": {
+                        "description": "max_emotion_percentage",
+                        "type": "numeric"
+                    },
+                    "avg_angry": {
+                        "description": "avg_angry",
+                        "type": "numeric"
+                    },
+                    "avg_disgusted": {
+                        "description": "avg_disgusted",
+                        "type": "numeric"
+                    },
+                    "avg_fearful": {
+                        "description": "avg_fearful",
+                        "type": "numeric"
+                    },
+                    "avg_happy": {
+                        "description": "avg_happy",
+                        "type": "numeric"
+                    },
+                    "avg_neutral": {
+                        "description": "avg_neutral",
+                        "type": "numeric"
+                    },
+                    "avg_sad": {
+                        "description": "avg_sad",
+                        "type": "numeric"
+                    },
+                    "avg_surprised": {
+                        "description": "avg_surprised",
+                        "type": "numeric"
+                    }
+                },
+                "type": "object"
+            },
+            "ModelAnalytics": {
+                "properties": {
+                    "term": {
+                        "description": "term",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "attention": {
+                        "description": "attention",
+                        "type": "numeric"
+                    },
+                    "max_emotion": {
+                        "description": "max_emotion",
+                        "type": "string"
+                    },
+                    "max_emotion_percentage": {
+                        "description": "max_emotion_percentage",
+                        "type": "numeric"
+                    },
+                    "avg_angry": {
+                        "description": "avg_angry",
+                        "type": "numeric"
+                    },
+                    "avg_disgusted": {
+                        "description": "avg_disgusted",
+                        "type": "numeric"
+                    },
+                    "avg_fearful": {
+                        "description": "avg_fearful",
+                        "type": "numeric"
+                    },
+                    "avg_happy": {
+                        "description": "avg_happy",
+                        "type": "numeric"
+                    },
+                    "avg_neutral": {
+                        "description": "avg_neutral",
+                        "type": "numeric"
+                    },
+                    "avg_sad": {
+                        "description": "avg_sad",
+                        "type": "numeric"
+                    },
+                    "avg_surprised": {
+                        "description": "avg_surprised",
+                        "type": "numeric"
                     }
                 },
                 "type": "object"
