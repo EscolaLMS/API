@@ -15202,6 +15202,67 @@
                 ]
             }
         },
+        "/api/admin/recommender/terms/{modelType}": {
+            "get": {
+                "tags": [
+                    "Admin Recommender"
+                ],
+                "summary": "Model type terms analytics",
+                "description": "Get Model type terms analytics",
+                "operationId": "23c6af6f3357c22d37cfb023f7a87acc",
+                "parameters": [
+                    {
+                        "name": "modelType",
+                        "in": "path",
+                        "description": "Model type",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Model name",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "term_from",
+                        "in": "query",
+                        "description": "Term date from",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "term_to",
+                        "in": "query",
+                        "description": "Term date to",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/recommender/analytics/{modelType}/{modelId}": {
             "get": {
                 "tags": [
@@ -15209,7 +15270,7 @@
                 ],
                 "summary": "Model analytics",
                 "description": "Get model analytics",
-                "operationId": "0a7a71836ea459c59eeee2655b89096c",
+                "operationId": "50765593a6eb82141228eefc7a0f90b1",
                 "parameters": [
                     {
                         "name": "modelType",
@@ -15252,7 +15313,7 @@
                 ],
                 "summary": "Model term analytics",
                 "description": "Get Model term analytics",
-                "operationId": "a9fe5c964006a1554d1b2ceaf7ebc915",
+                "operationId": "53d78e1d0602a8a7d99d66447c7d8774",
                 "parameters": [
                     {
                         "name": "modelType",
@@ -23818,6 +23879,68 @@
                     "avg_surprised": {
                         "description": "avg_surprised",
                         "type": "numeric"
+                    }
+                },
+                "type": "object"
+            },
+            "TermAnalytic": {
+                "properties": {
+                    "term": {
+                        "description": "term",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "attention": {
+                        "description": "attention",
+                        "type": "numeric"
+                    },
+                    "max_emotion": {
+                        "description": "max_emotion",
+                        "type": "string"
+                    },
+                    "max_emotion_percentage": {
+                        "description": "max_emotion_percentage",
+                        "type": "numeric"
+                    },
+                    "avg_angry": {
+                        "description": "avg_angry",
+                        "type": "numeric"
+                    },
+                    "avg_disgusted": {
+                        "description": "avg_disgusted",
+                        "type": "numeric"
+                    },
+                    "avg_fearful": {
+                        "description": "avg_fearful",
+                        "type": "numeric"
+                    },
+                    "avg_happy": {
+                        "description": "avg_happy",
+                        "type": "numeric"
+                    },
+                    "avg_neutral": {
+                        "description": "avg_neutral",
+                        "type": "numeric"
+                    },
+                    "avg_sad": {
+                        "description": "avg_sad",
+                        "type": "numeric"
+                    },
+                    "avg_surprised": {
+                        "description": "avg_surprised",
+                        "type": "numeric"
+                    },
+                    "model_id": {
+                        "description": "model_id",
+                        "type": "numeric"
+                    },
+                    "model_type": {
+                        "description": "model_type",
+                        "type": "string"
+                    },
+                    "model_name": {
+                        "description": "model_name",
+                        "type": "string"
                     }
                 },
                 "type": "object"
