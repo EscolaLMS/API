@@ -5100,16 +5100,16 @@
         },
         {
             "name": "escolalms/templates-email",
-            "version": "0.1.68",
+            "version": "0.1.69",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Templates-Email.git",
-                "reference": "a4027ab53686f2fc5f5533fdbef2aceda50b7976"
+                "reference": "2703752ea899e1fd5886506db7af48c1693b4230"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Templates-Email/zipball/a4027ab53686f2fc5f5533fdbef2aceda50b7976",
-                "reference": "a4027ab53686f2fc5f5533fdbef2aceda50b7976",
+                "url": "https://api.github.com/repos/EscolaLMS/Templates-Email/zipball/2703752ea899e1fd5886506db7af48c1693b4230",
+                "reference": "2703752ea899e1fd5886506db7af48c1693b4230",
                 "shasum": ""
             },
             "require": {
@@ -5178,9 +5178,9 @@
             "description": "Escola Headless LMS Templates for Emails",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Templates-Email/issues",
-                "source": "https://github.com/EscolaLMS/Templates-Email/tree/0.1.68"
+                "source": "https://github.com/EscolaLMS/Templates-Email/tree/0.1.69"
             },
-            "time": "2025-01-18T17:11:10+00:00"
+            "time": "2026-03-25T11:27:15+00:00"
         },
         {
             "name": "escolalms/templates-pdf",
