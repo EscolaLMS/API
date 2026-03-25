@@ -5686,16 +5686,16 @@
         },
         {
             "name": "escolalms/webinar",
-            "version": "0.1.38",
+            "version": "0.1.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Webinar.git",
-                "reference": "deef52457b961fe4732b424875e561b3e94f5fc2"
+                "reference": "f9590be3155a4ffb07794f731ea6aee29214922f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Webinar/zipball/deef52457b961fe4732b424875e561b3e94f5fc2",
-                "reference": "deef52457b961fe4732b424875e561b3e94f5fc2",
+                "url": "https://api.github.com/repos/EscolaLMS/Webinar/zipball/f9590be3155a4ffb07794f731ea6aee29214922f",
+                "reference": "f9590be3155a4ffb07794f731ea6aee29214922f",
                 "shasum": ""
             },
             "require": {
@@ -5745,9 +5745,9 @@
             "description": "Escola Headless LMS Webinar",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Webinar/issues",
-                "source": "https://github.com/EscolaLMS/Webinar/tree/0.1.38"
+                "source": "https://github.com/EscolaLMS/Webinar/tree/0.1.39"
             },
-            "time": "2026-03-25T06:36:58+00:00"
+            "time": "2026-03-25T07:32:24+00:00"
         },
         {
             "name": "escolalms/youtube",
