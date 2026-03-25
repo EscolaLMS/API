@@ -5686,16 +5686,16 @@
         },
         {
             "name": "escolalms/webinar",
-            "version": "0.1.39",
+            "version": "0.1.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Webinar.git",
-                "reference": "f9590be3155a4ffb07794f731ea6aee29214922f"
+                "reference": "e54e71ee07246af956120688bde74c2c0792f445"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Webinar/zipball/f9590be3155a4ffb07794f731ea6aee29214922f",
-                "reference": "f9590be3155a4ffb07794f731ea6aee29214922f",
+                "url": "https://api.github.com/repos/EscolaLMS/Webinar/zipball/e54e71ee07246af956120688bde74c2c0792f445",
+                "reference": "e54e71ee07246af956120688bde74c2c0792f445",
                 "shasum": ""
             },
             "require": {
@@ -5745,9 +5745,9 @@
             "description": "Escola Headless LMS Webinar",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Webinar/issues",
-                "source": "https://github.com/EscolaLMS/Webinar/tree/0.1.39"
+                "source": "https://github.com/EscolaLMS/Webinar/tree/0.1.40"
             },
-            "time": "2026-03-25T07:32:24+00:00"
+            "time": "2026-03-25T09:42:16+00:00"
         },
         {
             "name": "escolalms/youtube",
@@ -9253,16 +9253,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.32.0",
+            "version": "3.33.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "254b1595b16b22dbddaaef9ed6ca9fdac4956725"
+                "reference": "570b8871e0ce693764434b29154c54b434905350"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/254b1595b16b22dbddaaef9ed6ca9fdac4956725",
-                "reference": "254b1595b16b22dbddaaef9ed6ca9fdac4956725",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/570b8871e0ce693764434b29154c54b434905350",
+                "reference": "570b8871e0ce693764434b29154c54b434905350",
                 "shasum": ""
             },
             "require": {
@@ -9330,9 +9330,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.32.0"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.33.0"
             },
-            "time": "2026-02-25T17:01:41+00:00"
+            "time": "2026-03-25T07:59:30+00:00"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
