@@ -4056,16 +4056,16 @@
         },
         {
             "name": "escolalms/mattermost",
-            "version": "0.1.5",
+            "version": "0.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Mattermost.git",
-                "reference": "d11c3e751c3050a20135568229418e83eb7a8254"
+                "reference": "3581d3824d49603836078681ee1c1140e2649375"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Mattermost/zipball/d11c3e751c3050a20135568229418e83eb7a8254",
-                "reference": "d11c3e751c3050a20135568229418e83eb7a8254",
+                "url": "https://api.github.com/repos/EscolaLMS/Mattermost/zipball/3581d3824d49603836078681ee1c1140e2649375",
+                "reference": "3581d3824d49603836078681ee1c1140e2649375",
                 "shasum": ""
             },
             "require": {
@@ -4081,7 +4081,8 @@
                 "escolalms/course-access": "^0",
                 "escolalms/courses": "^0",
                 "escolalms/webinar": "^0",
-                "orchestra/testbench": ">=5.0",
+                "nunomaduro/larastan": "^2.0",
+                "orchestra/testbench": ">=7.0",
                 "phpunit/phpunit": "^9.0"
             },
             "type": "package",
@@ -4111,9 +4112,9 @@
             "description": "Escola LMS mattermost integration.",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Mattermost/issues",
-                "source": "https://github.com/EscolaLMS/Mattermost/tree/0.1.5"
+                "source": "https://github.com/EscolaLMS/Mattermost/tree/0.1.6"
             },
-            "time": "2023-02-21T12:18:45+00:00"
+            "time": "2026-03-25T11:00:31+00:00"
         },
         {
             "name": "escolalms/model-fields",
