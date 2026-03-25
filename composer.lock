@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.373.7",
+            "version": "3.373.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "4402bd10f913e66b7271f44466be8d5ba6c9146e"
+                "reference": "a73e12fe5d010f3c6cda2f6f020b5a475444487d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4402bd10f913e66b7271f44466be8d5ba6c9146e",
-                "reference": "4402bd10f913e66b7271f44466be8d5ba6c9146e",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a73e12fe5d010f3c6cda2f6f020b5a475444487d",
+                "reference": "a73e12fe5d010f3c6cda2f6f020b5a475444487d",
                 "shasum": ""
             },
             "require": {
@@ -153,9 +153,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.373.7"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.373.9"
             },
-            "time": "2026-03-20T18:14:19+00:00"
+            "time": "2026-03-24T18:06:07+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -1345,16 +1345,16 @@
         },
         {
             "name": "cuyz/valinor",
-            "version": "2.3.2",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CuyZ/Valinor.git",
-                "reference": "3b9f3f54901371d589776502aab3da3a046801a7"
+                "reference": "3b0afa3a287ed7f3a69aab223726cf1139454c34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CuyZ/Valinor/zipball/3b9f3f54901371d589776502aab3da3a046801a7",
-                "reference": "3b9f3f54901371d589776502aab3da3a046801a7",
+                "url": "https://api.github.com/repos/CuyZ/Valinor/zipball/3b0afa3a287ed7f3a69aab223726cf1139454c34",
+                "reference": "3b0afa3a287ed7f3a69aab223726cf1139454c34",
                 "shasum": ""
             },
             "require": {
@@ -1366,14 +1366,15 @@
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.91",
-                "infection/infection": "^0.31",
+                "infection/infection": "^0.32",
                 "marcocesarato/php-conventional-changelog": "^1.12",
                 "mikey179/vfsstream": "^1.6.10",
                 "phpbench/phpbench": "^1.3",
                 "phpstan/phpstan": "^2.0",
                 "phpstan/phpstan-phpunit": "^2.0",
                 "phpstan/phpstan-strict-rules": "^2.0",
-                "phpunit/phpunit": "^10.5",
+                "phpunit/phpunit": "^11.5",
+                "psr/http-message": "^2.0",
                 "rector/rector": "^2.0",
                 "vimeo/psalm": "^6.0"
             },
@@ -1409,7 +1410,7 @@
             ],
             "support": {
                 "issues": "https://github.com/CuyZ/Valinor/issues",
-                "source": "https://github.com/CuyZ/Valinor/tree/2.3.2"
+                "source": "https://github.com/CuyZ/Valinor/tree/2.4.0"
             },
             "funding": [
                 {
@@ -1417,7 +1418,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-23T15:26:34+00:00"
+            "time": "2026-03-23T17:38:05+00:00"
         },
         {
             "name": "darkaonline/l5-swagger",
@@ -4055,16 +4056,16 @@
         },
         {
             "name": "escolalms/mattermost",
-            "version": "0.1.5",
+            "version": "0.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Mattermost.git",
-                "reference": "d11c3e751c3050a20135568229418e83eb7a8254"
+                "reference": "3581d3824d49603836078681ee1c1140e2649375"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Mattermost/zipball/d11c3e751c3050a20135568229418e83eb7a8254",
-                "reference": "d11c3e751c3050a20135568229418e83eb7a8254",
+                "url": "https://api.github.com/repos/EscolaLMS/Mattermost/zipball/3581d3824d49603836078681ee1c1140e2649375",
+                "reference": "3581d3824d49603836078681ee1c1140e2649375",
                 "shasum": ""
             },
             "require": {
@@ -4080,7 +4081,8 @@
                 "escolalms/course-access": "^0",
                 "escolalms/courses": "^0",
                 "escolalms/webinar": "^0",
-                "orchestra/testbench": ">=5.0",
+                "nunomaduro/larastan": "^2.0",
+                "orchestra/testbench": ">=7.0",
                 "phpunit/phpunit": "^9.0"
             },
             "type": "package",
@@ -4110,9 +4112,9 @@
             "description": "Escola LMS mattermost integration.",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Mattermost/issues",
-                "source": "https://github.com/EscolaLMS/Mattermost/tree/0.1.5"
+                "source": "https://github.com/EscolaLMS/Mattermost/tree/0.1.6"
             },
-            "time": "2023-02-21T12:18:45+00:00"
+            "time": "2026-03-25T11:00:31+00:00"
         },
         {
             "name": "escolalms/model-fields",
@@ -4608,16 +4610,16 @@
         },
         {
             "name": "escolalms/recommender",
-            "version": "0.0.10",
+            "version": "0.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Recommender.git",
-                "reference": "0f9289a24d820748d81e96f1fba6565e48126fa3"
+                "reference": "caffd14d6fd780cffab31e4130ab3e5f07e11c89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Recommender/zipball/0f9289a24d820748d81e96f1fba6565e48126fa3",
-                "reference": "0f9289a24d820748d81e96f1fba6565e48126fa3",
+                "url": "https://api.github.com/repos/EscolaLMS/Recommender/zipball/caffd14d6fd780cffab31e4130ab3e5f07e11c89",
+                "reference": "caffd14d6fd780cffab31e4130ab3e5f07e11c89",
                 "shasum": ""
             },
             "require": {
@@ -4666,9 +4668,9 @@
             "description": "Escola Headless LMS Recommender",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Recommender/issues",
-                "source": "https://github.com/EscolaLMS/Recommender/tree/0.0.10"
+                "source": "https://github.com/EscolaLMS/Recommender/tree/0.0.11"
             },
-            "time": "2026-03-23T16:07:14+00:00"
+            "time": "2026-03-24T13:32:28+00:00"
         },
         {
             "name": "escolalms/reports",
@@ -5098,16 +5100,16 @@
         },
         {
             "name": "escolalms/templates-email",
-            "version": "0.1.68",
+            "version": "0.1.69",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Templates-Email.git",
-                "reference": "a4027ab53686f2fc5f5533fdbef2aceda50b7976"
+                "reference": "2703752ea899e1fd5886506db7af48c1693b4230"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Templates-Email/zipball/a4027ab53686f2fc5f5533fdbef2aceda50b7976",
-                "reference": "a4027ab53686f2fc5f5533fdbef2aceda50b7976",
+                "url": "https://api.github.com/repos/EscolaLMS/Templates-Email/zipball/2703752ea899e1fd5886506db7af48c1693b4230",
+                "reference": "2703752ea899e1fd5886506db7af48c1693b4230",
                 "shasum": ""
             },
             "require": {
@@ -5176,9 +5178,9 @@
             "description": "Escola Headless LMS Templates for Emails",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Templates-Email/issues",
-                "source": "https://github.com/EscolaLMS/Templates-Email/tree/0.1.68"
+                "source": "https://github.com/EscolaLMS/Templates-Email/tree/0.1.69"
             },
-            "time": "2025-01-18T17:11:10+00:00"
+            "time": "2026-03-25T11:27:15+00:00"
         },
         {
             "name": "escolalms/templates-pdf",
@@ -5685,16 +5687,16 @@
         },
         {
             "name": "escolalms/webinar",
-            "version": "0.1.37",
+            "version": "0.1.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Webinar.git",
-                "reference": "58809b139c5d42ec4a433ca21cf87e98507b1f57"
+                "reference": "e54e71ee07246af956120688bde74c2c0792f445"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Webinar/zipball/58809b139c5d42ec4a433ca21cf87e98507b1f57",
-                "reference": "58809b139c5d42ec4a433ca21cf87e98507b1f57",
+                "url": "https://api.github.com/repos/EscolaLMS/Webinar/zipball/e54e71ee07246af956120688bde74c2c0792f445",
+                "reference": "e54e71ee07246af956120688bde74c2c0792f445",
                 "shasum": ""
             },
             "require": {
@@ -5744,22 +5746,22 @@
             "description": "Escola Headless LMS Webinar",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Webinar/issues",
-                "source": "https://github.com/EscolaLMS/Webinar/tree/0.1.37"
+                "source": "https://github.com/EscolaLMS/Webinar/tree/0.1.40"
             },
-            "time": "2024-12-13T10:24:09+00:00"
+            "time": "2026-03-25T09:42:16+00:00"
         },
         {
             "name": "escolalms/youtube",
-            "version": "0.1.5",
+            "version": "0.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Youtube.git",
-                "reference": "ab459057146e4755960d89196c24b6049479d449"
+                "reference": "8d710f3d88c4beb558d9a5e283741f7d39acc444"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Youtube/zipball/ab459057146e4755960d89196c24b6049479d449",
-                "reference": "ab459057146e4755960d89196c24b6049479d449",
+                "url": "https://api.github.com/repos/EscolaLMS/Youtube/zipball/8d710f3d88c4beb558d9a5e283741f7d39acc444",
+                "reference": "8d710f3d88c4beb558d9a5e283741f7d39acc444",
                 "shasum": ""
             },
             "require": {
@@ -5801,9 +5803,9 @@
             "description": "Escola LMS youtube integration.",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Youtube/issues",
-                "source": "https://github.com/EscolaLMS/Youtube/tree/0.1.5"
+                "source": "https://github.com/EscolaLMS/Youtube/tree/0.1.6"
             },
-            "time": "2024-07-10T06:10:56+00:00"
+            "time": "2026-03-24T14:17:30+00:00"
         },
         {
             "name": "evenement/evenement",
@@ -6586,16 +6588,16 @@
         },
         {
             "name": "google/cloud-storage",
-            "version": "v1.49.2",
+            "version": "v1.50.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-cloud-php-storage.git",
-                "reference": "1cab44377fc65c7feba1f706970f3abf5ccba392"
+                "reference": "8ca5b85ed33776f532bbbf8ae2b34933148c05d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-storage/zipball/1cab44377fc65c7feba1f706970f3abf5ccba392",
-                "reference": "1cab44377fc65c7feba1f706970f3abf5ccba392",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-storage/zipball/8ca5b85ed33776f532bbbf8ae2b34933148c05d2",
+                "reference": "8ca5b85ed33776f532bbbf8ae2b34933148c05d2",
                 "shasum": ""
             },
             "require": {
@@ -6637,9 +6639,9 @@
             ],
             "description": "Cloud Storage Client for PHP",
             "support": {
-                "source": "https://github.com/googleapis/google-cloud-php-storage/tree/v1.49.2"
+                "source": "https://github.com/googleapis/google-cloud-php-storage/tree/v1.50.0"
             },
-            "time": "2026-01-23T22:57:13+00:00"
+            "time": "2026-03-23T23:35:56+00:00"
         },
         {
             "name": "google/common-protos",
@@ -8668,16 +8670,16 @@
         },
         {
             "name": "laravel/socialite",
-            "version": "v5.25.0",
+            "version": "v5.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "231f572e1a37c9ca1fb8085e9fb8608285beafb3"
+                "reference": "1d26f0c653a5f0e88859f4197830a29fe0cc59d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/231f572e1a37c9ca1fb8085e9fb8608285beafb3",
-                "reference": "231f572e1a37c9ca1fb8085e9fb8608285beafb3",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/1d26f0c653a5f0e88859f4197830a29fe0cc59d0",
+                "reference": "1d26f0c653a5f0e88859f4197830a29fe0cc59d0",
                 "shasum": ""
             },
             "require": {
@@ -8736,7 +8738,7 @@
                 "issues": "https://github.com/laravel/socialite/issues",
                 "source": "https://github.com/laravel/socialite"
             },
-            "time": "2026-02-27T13:56:35+00:00"
+            "time": "2026-03-24T18:37:47+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -9252,16 +9254,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.32.0",
+            "version": "3.33.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "254b1595b16b22dbddaaef9ed6ca9fdac4956725"
+                "reference": "570b8871e0ce693764434b29154c54b434905350"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/254b1595b16b22dbddaaef9ed6ca9fdac4956725",
-                "reference": "254b1595b16b22dbddaaef9ed6ca9fdac4956725",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/570b8871e0ce693764434b29154c54b434905350",
+                "reference": "570b8871e0ce693764434b29154c54b434905350",
                 "shasum": ""
             },
             "require": {
@@ -9329,9 +9331,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.32.0"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.33.0"
             },
-            "time": "2026-02-25T17:01:41+00:00"
+            "time": "2026-03-25T07:59:30+00:00"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -13968,23 +13970,23 @@
         },
         {
             "name": "sentry/sentry-laravel",
-            "version": "4.23.0",
+            "version": "4.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-laravel.git",
-                "reference": "dcb44590017c613f62018e5e3163cb704b1da9a7"
+                "reference": "f823bd85e38e06cb4f1b7a82d48a2fc95320b31d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-laravel/zipball/dcb44590017c613f62018e5e3163cb704b1da9a7",
-                "reference": "dcb44590017c613f62018e5e3163cb704b1da9a7",
+                "url": "https://api.github.com/repos/getsentry/sentry-laravel/zipball/f823bd85e38e06cb4f1b7a82d48a2fc95320b31d",
+                "reference": "f823bd85e38e06cb4f1b7a82d48a2fc95320b31d",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "^6.0 | ^7.0 | ^8.0 | ^9.0 | ^10.0 | ^11.0 | ^12.0 | ^13.0",
                 "nyholm/psr7": "^1.0",
                 "php": "^7.2 | ^8.0",
-                "sentry/sentry": "^4.22.0",
+                "sentry/sentry": "^4.23.0",
                 "symfony/psr-http-message-bridge": "^1.0 | ^2.0 | ^6.0 | ^7.0 | ^8.0"
             },
             "require-dev": {
@@ -14043,7 +14045,7 @@
             ],
             "support": {
                 "issues": "https://github.com/getsentry/sentry-laravel/issues",
-                "source": "https://github.com/getsentry/sentry-laravel/tree/4.23.0"
+                "source": "https://github.com/getsentry/sentry-laravel/tree/4.24.0"
             },
             "funding": [
                 {
@@ -14055,7 +14057,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2026-03-19T13:22:14+00:00"
+            "time": "2026-03-24T10:33:54+00:00"
         },
         {
             "name": "smalot/pdfparser",
