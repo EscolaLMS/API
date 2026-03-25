@@ -15230,7 +15230,7 @@
                         }
                     },
                     {
-                        "name": "term_from",
+                        "name": "date_from",
                         "in": "query",
                         "description": "Term date from",
                         "required": false,
@@ -15239,12 +15239,48 @@
                         }
                     },
                     {
-                        "name": "term_to",
+                        "name": "date_to",
                         "in": "query",
                         "description": "Term date to",
                         "required": false,
                         "schema": {
                             "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "description": "Order by: id, name, term",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "asc or desc",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Elements per page",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
                         }
                     }
                 ],
@@ -15336,7 +15372,7 @@
                     {
                         "name": "term",
                         "in": "path",
-                        "description": "Model term",
+                        "description": "Model term id",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -21049,6 +21085,67 @@
                 ]
             }
         },
+        "/api/webinars/signed-screen-urls": {
+            "post": {
+                "tags": [
+                    "Webinars"
+                ],
+                "summary": "Generate signed url to save screens from jitsi meeting",
+                "operationId": "dc95a8a81d32a8fc78ec5e128a8d65b3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "webinar_id": {
+                                        "type": "integer"
+                                    },
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "executed_at": {
+                                        "type": "string",
+                                        "example": "2024-10-04 12:02:12"
+                                    },
+                                    "files": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "filename": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/webinars": {
             "get": {
                 "tags": [
@@ -23940,6 +24037,10 @@
                     },
                     "model_name": {
                         "description": "model_name",
+                        "type": "string"
+                    },
+                    "rating": {
+                        "description": "Model term users rating",
                         "type": "string"
                     }
                 },
