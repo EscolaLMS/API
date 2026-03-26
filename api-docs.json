@@ -15202,6 +15202,100 @@
                 ]
             }
         },
+        "/api/recommender/meet-recordings": {
+            "post": {
+                "tags": [
+                    "Recommender"
+                ],
+                "summary": "Meet recordings",
+                "description": "Set meet recording time start or stop",
+                "operationId": "835aeeb94b886bea1bec71a186c786d2",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MeetRecording"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/recommender/meet-recordings/screens": {
+            "post": {
+                "tags": [
+                    "Recommender"
+                ],
+                "summary": "Meet recordings screens",
+                "description": "Save meet recordings screens",
+                "operationId": "ff63c3ad329ae49f2476dff40258cc47",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "model_id": {
+                                        "type": "integer"
+                                    },
+                                    "model_type": {
+                                        "type": "string"
+                                    },
+                                    "term": {
+                                        "type": "string",
+                                        "example": "2024-10-04 12:02:12"
+                                    },
+                                    "files": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "file": {
+                                                    "type": "string",
+                                                    "format": "binary"
+                                                },
+                                                "timestamp": {
+                                                    "type": "string",
+                                                    "example": "2024-10-04 12:02:12"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/recommender/terms/{modelType}": {
             "get": {
                 "tags": [
@@ -24046,6 +24140,50 @@
                 },
                 "type": "object"
             },
+            "MeetRecording": {
+                "required": [
+                    "model_type",
+                    "model_id",
+                    "term"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "id",
+                        "type": "integer"
+                    },
+                    "model_type": {
+                        "description": "model_type",
+                        "type": "string"
+                    },
+                    "model_id": {
+                        "description": "model_id",
+                        "type": "integer"
+                    },
+                    "term": {
+                        "description": "term",
+                        "type": "timestamp"
+                    },
+                    "start_at": {
+                        "description": "start_at",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "end_at": {
+                        "description": "end_at",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "url": {
+                        "description": "url",
+                        "type": "string"
+                    },
+                    "url_expiration_time_millis": {
+                        "description": "url_expiration_time_millis",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
             "Setting": {
                 "required": [
                     "title"
@@ -25336,6 +25474,10 @@
         {
             "name": "Admin Recommender",
             "description": "Admin Recommender"
+        },
+        {
+            "name": "Recommender",
+            "description": "Recommender"
         },
         {
             "name": "Admin Reports",
