@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.373.9",
+            "version": "3.374.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "a73e12fe5d010f3c6cda2f6f020b5a475444487d"
+                "reference": "18525c8cc2a3aa2c1db23ceca5f57c5f8380d9c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a73e12fe5d010f3c6cda2f6f020b5a475444487d",
-                "reference": "a73e12fe5d010f3c6cda2f6f020b5a475444487d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/18525c8cc2a3aa2c1db23ceca5f57c5f8380d9c4",
+                "reference": "18525c8cc2a3aa2c1db23ceca5f57c5f8380d9c4",
                 "shasum": ""
             },
             "require": {
@@ -153,9 +153,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.373.9"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.374.0"
             },
-            "time": "2026-03-24T18:06:07+00:00"
+            "time": "2026-03-25T18:05:48+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -4610,16 +4610,16 @@
         },
         {
             "name": "escolalms/recommender",
-            "version": "0.0.11",
+            "version": "0.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Recommender.git",
-                "reference": "caffd14d6fd780cffab31e4130ab3e5f07e11c89"
+                "reference": "8edf87e1d8db21b0fbcb04c4ac9a8edeecc165c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Recommender/zipball/caffd14d6fd780cffab31e4130ab3e5f07e11c89",
-                "reference": "caffd14d6fd780cffab31e4130ab3e5f07e11c89",
+                "url": "https://api.github.com/repos/EscolaLMS/Recommender/zipball/8edf87e1d8db21b0fbcb04c4ac9a8edeecc165c7",
+                "reference": "8edf87e1d8db21b0fbcb04c4ac9a8edeecc165c7",
                 "shasum": ""
             },
             "require": {
@@ -4668,9 +4668,9 @@
             "description": "Escola Headless LMS Recommender",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Recommender/issues",
-                "source": "https://github.com/EscolaLMS/Recommender/tree/0.0.11"
+                "source": "https://github.com/EscolaLMS/Recommender/tree/0.0.12"
             },
-            "time": "2026-03-24T13:32:28+00:00"
+            "time": "2026-03-26T12:37:04+00:00"
         },
         {
             "name": "escolalms/reports",
@@ -6956,20 +6956,20 @@
         },
         {
             "name": "grpc/grpc",
-            "version": "1.74.0",
+            "version": "1.78.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/grpc/grpc-php.git",
-                "reference": "32bf4dba256d60d395582fb6e4e8d3936bcdb713"
+                "reference": "9891a9aa0de41c4ceb07a50dbb5a3aa96c229082"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/grpc/grpc-php/zipball/32bf4dba256d60d395582fb6e4e8d3936bcdb713",
-                "reference": "32bf4dba256d60d395582fb6e4e8d3936bcdb713",
+                "url": "https://api.github.com/repos/grpc/grpc-php/zipball/9891a9aa0de41c4ceb07a50dbb5a3aa96c229082",
+                "reference": "9891a9aa0de41c4ceb07a50dbb5a3aa96c229082",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.0.0"
+                "php": ">=7.1.0"
             },
             "require-dev": {
                 "google/auth": "^v1.3.0"
@@ -6994,9 +6994,9 @@
                 "rpc"
             ],
             "support": {
-                "source": "https://github.com/grpc/grpc-php/tree/v1.74.0"
+                "source": "https://github.com/grpc/grpc-php/tree/v1.78.0"
             },
-            "time": "2025-07-24T20:02:16+00:00"
+            "time": "2026-03-25T08:47:43+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
