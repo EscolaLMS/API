@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.374.0",
+            "version": "3.375.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "18525c8cc2a3aa2c1db23ceca5f57c5f8380d9c4"
+                "reference": "6cfa1798c3fa0182d902eda9419dca48c86d74a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/18525c8cc2a3aa2c1db23ceca5f57c5f8380d9c4",
-                "reference": "18525c8cc2a3aa2c1db23ceca5f57c5f8380d9c4",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6cfa1798c3fa0182d902eda9419dca48c86d74a1",
+                "reference": "6cfa1798c3fa0182d902eda9419dca48c86d74a1",
                 "shasum": ""
             },
             "require": {
@@ -153,9 +153,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.374.0"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.375.0"
             },
-            "time": "2026-03-25T18:05:48+00:00"
+            "time": "2026-03-30T19:30:55+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -236,22 +236,22 @@
         },
         {
             "name": "bensampo/laravel-enum",
-            "version": "v6.12.2",
+            "version": "v6.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BenSampo/laravel-enum.git",
-                "reference": "c4c3c1e63dd1d215fc91c88cb83ac11212ad322c"
+                "reference": "067df676131295e2084d9d1a0f1dee811a1d4c99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BenSampo/laravel-enum/zipball/c4c3c1e63dd1d215fc91c88cb83ac11212ad322c",
-                "reference": "c4c3c1e63dd1d215fc91c88cb83ac11212ad322c",
+                "url": "https://api.github.com/repos/BenSampo/laravel-enum/zipball/067df676131295e2084d9d1a0f1dee811a1d4c99",
+                "reference": "067df676131295e2084d9d1a0f1dee811a1d4c99",
                 "shasum": ""
             },
             "require": {
                 "composer/class-map-generator": "^1",
-                "illuminate/contracts": "^9 || ^10 || ^11 || ^12",
-                "illuminate/support": "^9 || ^10 || ^11 || ^12",
+                "illuminate/contracts": "^9 || ^10 || ^11 || ^12 || ^13",
+                "illuminate/support": "^9 || ^10 || ^11 || ^12 || ^13",
                 "laminas/laminas-code": "^3.4 || ^4",
                 "nikic/php-parser": "^4.13.2 || ^5",
                 "php": "^8"
@@ -262,12 +262,12 @@
                 "larastan/larastan": "^2.9.14 || ^3.1",
                 "mll-lab/php-cs-fixer-config": "^5.10",
                 "mockery/mockery": "^1.6.12",
-                "orchestra/testbench": "^7.6.1 || ^8.33 || ^9.11 || ^10",
+                "orchestra/testbench": "^7.6.1 || ^8.33 || ^9.11 || ^10 || ^11",
                 "phpstan/extension-installer": "^1.4.3",
                 "phpstan/phpstan": "^1.12.19 || ^2.1.6",
                 "phpstan/phpstan-mockery": "^1.1.3 || ^2",
                 "phpstan/phpstan-phpunit": "^1.4.2 || ^2.0.4",
-                "phpunit/phpunit": "^9.5.21 || ^10.5.45 || ^11.5.10",
+                "phpunit/phpunit": "^9.5.21 || ^10.5.45 || ^11.5.10 || ^12",
                 "rector/rector": "^1.2.10 || ^2.0.9",
                 "symplify/rule-doc-generator": "^11.2 || ^12.2.5"
             },
@@ -316,7 +316,7 @@
             ],
             "support": {
                 "issues": "https://github.com/BenSampo/laravel-enum/issues",
-                "source": "https://github.com/BenSampo/laravel-enum/tree/v6.12.2"
+                "source": "https://github.com/BenSampo/laravel-enum/tree/v6.14.0"
             },
             "funding": [
                 {
@@ -324,7 +324,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-08-12T08:34:06+00:00"
+            "time": "2026-03-29T17:00:09+00:00"
         },
         {
             "name": "beste/clock",
@@ -720,16 +720,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.5.10",
+            "version": "1.5.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "961a5e4056dd2e4a2eedcac7576075947c28bf63"
+                "reference": "68ff39175e8e94a4bb1d259407ce51a6a60f09e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/961a5e4056dd2e4a2eedcac7576075947c28bf63",
-                "reference": "961a5e4056dd2e4a2eedcac7576075947c28bf63",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/68ff39175e8e94a4bb1d259407ce51a6a60f09e6",
+                "reference": "68ff39175e8e94a4bb1d259407ce51a6a60f09e6",
                 "shasum": ""
             },
             "require": {
@@ -776,7 +776,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/ca-bundle/issues",
-                "source": "https://github.com/composer/ca-bundle/tree/1.5.10"
+                "source": "https://github.com/composer/ca-bundle/tree/1.5.11"
             },
             "funding": [
                 {
@@ -788,20 +788,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-12-08T15:06:51+00:00"
+            "time": "2026-03-30T09:16:10+00:00"
         },
         {
             "name": "composer/class-map-generator",
-            "version": "1.7.1",
+            "version": "1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/class-map-generator.git",
-                "reference": "8f5fa3cc214230e71f54924bd0197a3bcc705eb1"
+                "reference": "6a9c2f0970022ab00dc58c07d0685dd712f2231b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/class-map-generator/zipball/8f5fa3cc214230e71f54924bd0197a3bcc705eb1",
-                "reference": "8f5fa3cc214230e71f54924bd0197a3bcc705eb1",
+                "url": "https://api.github.com/repos/composer/class-map-generator/zipball/6a9c2f0970022ab00dc58c07d0685dd712f2231b",
+                "reference": "6a9c2f0970022ab00dc58c07d0685dd712f2231b",
                 "shasum": ""
             },
             "require": {
@@ -845,7 +845,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/class-map-generator/issues",
-                "source": "https://github.com/composer/class-map-generator/tree/1.7.1"
+                "source": "https://github.com/composer/class-map-generator/tree/1.7.2"
             },
             "funding": [
                 {
@@ -857,7 +857,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-12-29T13:15:25+00:00"
+            "time": "2026-03-30T15:36:56+00:00"
         },
         {
             "name": "composer/composer",
@@ -4610,16 +4610,16 @@
         },
         {
             "name": "escolalms/recommender",
-            "version": "0.0.12",
+            "version": "0.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Recommender.git",
-                "reference": "8edf87e1d8db21b0fbcb04c4ac9a8edeecc165c7"
+                "reference": "1c2572ead428c319898bf21bee8619943355a2ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Recommender/zipball/8edf87e1d8db21b0fbcb04c4ac9a8edeecc165c7",
-                "reference": "8edf87e1d8db21b0fbcb04c4ac9a8edeecc165c7",
+                "url": "https://api.github.com/repos/EscolaLMS/Recommender/zipball/1c2572ead428c319898bf21bee8619943355a2ad",
+                "reference": "1c2572ead428c319898bf21bee8619943355a2ad",
                 "shasum": ""
             },
             "require": {
@@ -4668,9 +4668,9 @@
             "description": "Escola Headless LMS Recommender",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Recommender/issues",
-                "source": "https://github.com/EscolaLMS/Recommender/tree/0.0.12"
+                "source": "https://github.com/EscolaLMS/Recommender/tree/0.0.13"
             },
-            "time": "2026-03-26T12:37:04+00:00"
+            "time": "2026-03-31T07:44:17+00:00"
         },
         {
             "name": "escolalms/reports",
@@ -6346,16 +6346,16 @@
         },
         {
             "name": "google/apiclient",
-            "version": "v2.19.0",
+            "version": "v2.19.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client.git",
-                "reference": "b18fa8aed7b2b2dd4bcce74e2c7d267e16007ea9"
+                "reference": "703ba9acfaf4ba71306108207feafb6d1d137eb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client/zipball/b18fa8aed7b2b2dd4bcce74e2c7d267e16007ea9",
-                "reference": "b18fa8aed7b2b2dd4bcce74e2c7d267e16007ea9",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client/zipball/703ba9acfaf4ba71306108207feafb6d1d137eb0",
+                "reference": "703ba9acfaf4ba71306108207feafb6d1d137eb0",
                 "shasum": ""
             },
             "require": {
@@ -6366,11 +6366,11 @@
                 "guzzlehttp/psr7": "^2.6",
                 "monolog/monolog": "^2.9||^3.0",
                 "php": "^8.1",
-                "phpseclib/phpseclib": "^3.0.36"
+                "phpseclib/phpseclib": "^3.0.50"
             },
             "require-dev": {
                 "cache/filesystem-adapter": "^1.1",
-                "composer/composer": "^1.10.23",
+                "composer/composer": "^2.9",
                 "phpcompatibility/php-compatibility": "^9.2",
                 "phpspec/prophecy-phpunit": "^2.1",
                 "phpunit/phpunit": "^9.6",
@@ -6383,6 +6383,9 @@
             },
             "type": "library",
             "extra": {
+                "component": {
+                    "entry": "src/Client.php"
+                },
                 "branch-alias": {
                     "dev-main": "2.x-dev"
                 }
@@ -6409,9 +6412,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client/issues",
-                "source": "https://github.com/googleapis/google-api-php-client/tree/v2.19.0"
+                "source": "https://github.com/googleapis/google-api-php-client/tree/v2.19.2"
             },
-            "time": "2026-01-09T19:59:47+00:00"
+            "time": "2026-03-30T18:54:44+00:00"
         },
         {
             "name": "google/apiclient-services",
@@ -6956,16 +6959,16 @@
         },
         {
             "name": "grpc/grpc",
-            "version": "1.78.0",
+            "version": "1.80.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/grpc/grpc-php.git",
-                "reference": "9891a9aa0de41c4ceb07a50dbb5a3aa96c229082"
+                "reference": "a0dc463d5d5064cdd7ff344f13f61d7e233f9b5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/grpc/grpc-php/zipball/9891a9aa0de41c4ceb07a50dbb5a3aa96c229082",
-                "reference": "9891a9aa0de41c4ceb07a50dbb5a3aa96c229082",
+                "url": "https://api.github.com/repos/grpc/grpc-php/zipball/a0dc463d5d5064cdd7ff344f13f61d7e233f9b5a",
+                "reference": "a0dc463d5d5064cdd7ff344f13f61d7e233f9b5a",
                 "shasum": ""
             },
             "require": {
@@ -6994,9 +6997,9 @@
                 "rpc"
             ],
             "support": {
-                "source": "https://github.com/grpc/grpc-php/tree/v1.78.0"
+                "source": "https://github.com/grpc/grpc-php/tree/v1.80.0"
             },
-            "time": "2026-03-25T08:47:43+00:00"
+            "time": "2026-03-30T09:22:39+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -8550,16 +8553,16 @@
         },
         {
             "name": "laravel/sentinel",
-            "version": "v1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sentinel.git",
-                "reference": "7a98db53e0d9d6f61387f3141c07477f97425603"
+                "reference": "972d9885d9d14312a118e9565c4e6ecc5e751ea1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sentinel/zipball/7a98db53e0d9d6f61387f3141c07477f97425603",
-                "reference": "7a98db53e0d9d6f61387f3141c07477f97425603",
+                "url": "https://api.github.com/repos/laravel/sentinel/zipball/972d9885d9d14312a118e9565c4e6ecc5e751ea1",
+                "reference": "972d9885d9d14312a118e9565c4e6ecc5e751ea1",
                 "shasum": ""
             },
             "require": {
@@ -8578,9 +8581,6 @@
                     "providers": [
                         "Laravel\\Sentinel\\SentinelServiceProvider"
                     ]
-                },
-                "branch-alias": {
-                    "dev-main": "1.x-dev"
                 }
             },
             "autoload": {
@@ -8603,9 +8603,9 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/laravel/sentinel/tree/v1.0.1"
+                "source": "https://github.com/laravel/sentinel/tree/v1.1.0"
             },
-            "time": "2026-02-12T13:32:54+00:00"
+            "time": "2026-03-24T14:03:38+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -13877,16 +13877,16 @@
         },
         {
             "name": "sentry/sentry",
-            "version": "4.23.0",
+            "version": "4.23.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
-                "reference": "121a674d5fffcdb8e414b75c1b76edba8e592b66"
+                "reference": "eccf30d8abcf55189a1dc0eb3d946a61d42fb4df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/121a674d5fffcdb8e414b75c1b76edba8e592b66",
-                "reference": "121a674d5fffcdb8e414b75c1b76edba8e592b66",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/eccf30d8abcf55189a1dc0eb3d946a61d42fb4df",
+                "reference": "eccf30d8abcf55189a1dc0eb3d946a61d42fb4df",
                 "shasum": ""
             },
             "require": {
@@ -13954,7 +13954,7 @@
             ],
             "support": {
                 "issues": "https://github.com/getsentry/sentry-php/issues",
-                "source": "https://github.com/getsentry/sentry-php/tree/4.23.0"
+                "source": "https://github.com/getsentry/sentry-php/tree/4.23.1"
             },
             "funding": [
                 {
@@ -13966,7 +13966,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2026-03-23T13:15:52+00:00"
+            "time": "2026-03-27T18:26:46+00:00"
         },
         {
             "name": "sentry/sentry-laravel",
