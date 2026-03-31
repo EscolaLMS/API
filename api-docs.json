@@ -15141,67 +15141,6 @@
                 ]
             }
         },
-        "/api/admin/recommender/aggregated-frames/{modelType}/{modelId}/{term}": {
-            "get": {
-                "tags": [
-                    "Admin Recommender"
-                ],
-                "summary": "Aggregated Frames with interval",
-                "description": "Get aggregated frames for model and term with interval",
-                "operationId": "4939c06a0d329250e6e78219cf163ac5",
-                "parameters": [
-                    {
-                        "name": "modelType",
-                        "in": "path",
-                        "description": "Model type",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "modelId",
-                        "in": "path",
-                        "description": "ID of model",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "term",
-                        "in": "path",
-                        "description": "Model term",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "interval",
-                        "in": "query",
-                        "description": "Interval",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "passport": []
-                    }
-                ]
-            }
-        },
         "/api/recommender/meet-recordings": {
             "post": {
                 "tags": [
@@ -15264,7 +15203,7 @@
                                         "items": {
                                             "properties": {
                                                 "file": {
-                                                    "type": "string",
+                                                    "type": "file",
                                                     "format": "binary"
                                                 },
                                                 "timestamp": {
@@ -15467,6 +15406,49 @@
                         "name": "term",
                         "in": "path",
                         "description": "Model term id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/recommender/analytics/aggregated-frames/{id}": {
+            "get": {
+                "tags": [
+                    "Admin Recommender"
+                ],
+                "summary": "Aggregated Frames with interval",
+                "description": "Get aggregated frames for model and term with interval",
+                "operationId": "54a586f6f83ab2e4543969497dd23ec7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of term analytic",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "interval",
+                        "in": "query",
+                        "description": "Interval",
                         "required": true,
                         "schema": {
                             "type": "integer"
