@@ -5687,16 +5687,16 @@
         },
         {
             "name": "escolalms/webinar",
-            "version": "0.1.40",
+            "version": "0.1.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Webinar.git",
-                "reference": "e54e71ee07246af956120688bde74c2c0792f445"
+                "reference": "0691934e5a76521d15d815d028979258cedac0f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Webinar/zipball/e54e71ee07246af956120688bde74c2c0792f445",
-                "reference": "e54e71ee07246af956120688bde74c2c0792f445",
+                "url": "https://api.github.com/repos/EscolaLMS/Webinar/zipball/0691934e5a76521d15d815d028979258cedac0f3",
+                "reference": "0691934e5a76521d15d815d028979258cedac0f3",
                 "shasum": ""
             },
             "require": {
@@ -5746,9 +5746,9 @@
             "description": "Escola Headless LMS Webinar",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Webinar/issues",
-                "source": "https://github.com/EscolaLMS/Webinar/tree/0.1.40"
+                "source": "https://github.com/EscolaLMS/Webinar/tree/0.1.41"
             },
-            "time": "2026-03-25T09:42:16+00:00"
+            "time": "2026-04-02T13:23:59+00:00"
         },
         {
             "name": "escolalms/youtube",
@@ -7749,16 +7749,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "v6.7.2",
+            "version": "6.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jsonrainbow/json-schema.git",
-                "reference": "6fea66c7204683af437864e7c4e7abf383d14bc0"
+                "reference": "89ac92bcfe5d0a8a4433c7b89d394553ae7250cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/6fea66c7204683af437864e7c4e7abf383d14bc0",
-                "reference": "6fea66c7204683af437864e7c4e7abf383d14bc0",
+                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/89ac92bcfe5d0a8a4433c7b89d394553ae7250cc",
+                "reference": "89ac92bcfe5d0a8a4433c7b89d394553ae7250cc",
                 "shasum": ""
             },
             "require": {
@@ -7818,9 +7818,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jsonrainbow/json-schema/issues",
-                "source": "https://github.com/jsonrainbow/json-schema/tree/v6.7.2"
+                "source": "https://github.com/jsonrainbow/json-schema/tree/6.8.0"
             },
-            "time": "2026-02-15T15:06:22+00:00"
+            "time": "2026-04-02T12:43:11+00:00"
         },
         {
             "name": "kreait/firebase-php",
