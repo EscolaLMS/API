@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.376.1",
+            "version": "3.376.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "475b367bb518fdfafd44b0848534f6636e0886e9"
+                "reference": "fe7773b1e069a45aa74e09cdd65219af6039ff6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/475b367bb518fdfafd44b0848534f6636e0886e9",
-                "reference": "475b367bb518fdfafd44b0848534f6636e0886e9",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/fe7773b1e069a45aa74e09cdd65219af6039ff6b",
+                "reference": "fe7773b1e069a45aa74e09cdd65219af6039ff6b",
                 "shasum": ""
             },
             "require": {
@@ -153,9 +153,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.376.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.376.4"
             },
-            "time": "2026-04-01T18:11:20+00:00"
+            "time": "2026-04-06T18:18:41+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -4610,16 +4610,16 @@
         },
         {
             "name": "escolalms/recommender",
-            "version": "0.0.14",
+            "version": "0.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Recommender.git",
-                "reference": "8d4c0f9ca794c1dad9159ed933131ecb80222343"
+                "reference": "c97b4aec745c79b1657fc797b9028dcdf9e98afe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Recommender/zipball/8d4c0f9ca794c1dad9159ed933131ecb80222343",
-                "reference": "8d4c0f9ca794c1dad9159ed933131ecb80222343",
+                "url": "https://api.github.com/repos/EscolaLMS/Recommender/zipball/c97b4aec745c79b1657fc797b9028dcdf9e98afe",
+                "reference": "c97b4aec745c79b1657fc797b9028dcdf9e98afe",
                 "shasum": ""
             },
             "require": {
@@ -4668,9 +4668,9 @@
             "description": "Escola Headless LMS Recommender",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Recommender/issues",
-                "source": "https://github.com/EscolaLMS/Recommender/tree/0.0.14"
+                "source": "https://github.com/EscolaLMS/Recommender/tree/0.0.15"
             },
-            "time": "2026-04-02T06:43:09+00:00"
+            "time": "2026-04-07T06:56:00+00:00"
         },
         {
             "name": "escolalms/reports",
@@ -6418,16 +6418,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.435.0",
+            "version": "v0.436.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "1edf0f5f2876945c372366107b4d7a387b17a6b9"
+                "reference": "42493f9565963a0456b1edace1eb5f1cc53f2f73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/1edf0f5f2876945c372366107b4d7a387b17a6b9",
-                "reference": "1edf0f5f2876945c372366107b4d7a387b17a6b9",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/42493f9565963a0456b1edace1eb5f1cc53f2f73",
+                "reference": "42493f9565963a0456b1edace1eb5f1cc53f2f73",
                 "shasum": ""
             },
             "require": {
@@ -6456,9 +6456,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.435.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.436.0"
             },
-            "time": "2026-03-01T01:14:26+00:00"
+            "time": "2026-04-06T01:28:26+00:00"
         },
         {
             "name": "google/auth",
