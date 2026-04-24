@@ -1,24 +1,24 @@
 #!/bin/bash
 
-echo "Wellms multidomains init script!" 
+echo "Wellms multidomains init script!"
 
 if [ "$DISABLE_PHP_FPM" == 'true' ]
 then
     rm -f /etc/supervisor/conf.d/php-fpm.conf
     echo php-fpm.conf disabled
-else 
+else
     cp docker/conf/supervisor/services/php-fpm.conf /etc/supervisor/conf.d/php-fpm.conf
     echo php-fpm.conf enabled
 fi
 
-if [ "$DISABLE_QUEUE" == 'true' ]
-then
-    rm -f /etc/supervisor/custom.d/multidomain_queue.conf
-    echo multidomain_queue.conf disabled
-else 
-    cp docker/conf/supervisor/services/multidomain_queue.conf /etc/supervisor/custom.d/multidomain_queue.conf
-    echo multidomain_queue.conf enabled
-fi
+#if [ "$DISABLE_QUEUE" == 'true' ]
+#then
+#    rm -f /etc/supervisor/custom.d/multidomain_queue.conf
+#    echo multidomain_queue.conf disabled
+#else
+#    cp docker/conf/supervisor/services/multidomain_queue.conf /etc/supervisor/custom.d/multidomain_queue.conf
+#    echo multidomain_queue.conf enabled
+#fi
 
 if [ "$DISABLE_BROADCAST" == 'true' ]
 then
@@ -37,8 +37,8 @@ rm -f /etc/supervisor/custom.d/horizon.conf
 rm -f /etc/supervisor/custom.d/scheduler.conf
 
 # set env from `LARAVEL_` prefixed env vars
-# this also setup MULTI_DOMAINS eg 
-# when MULTI_DOMAINS: "api-sprawnymarketing.escolalms.com,api-gest.escolalms.com" 
+# this also setup MULTI_DOMAINS eg
+# when MULTI_DOMAINS: "api-sprawnymarketing.escolalms.com,api-gest.escolalms.com"
 # then API_SPRAWNYMARKETING_ESCOLALMS_COM_APP_NAME: '"Sprawny Marketing"'
 
 # if binded by k8s or docker those folders might need to be recreated
@@ -50,10 +50,10 @@ if [ ! -d "storage/framework/cache" ]; then mkdir storage/framework/cache; fi
 if [ ! -d "storage/app" ]; then mkdir storage/app; fi
 if [ ! -d "storage/logs" ]; then mkdir storage/logs; fi
 
-# generate general .env file for next specific domain files 
+# generate general .env file for next specific domain files
 # as `php artisan domain:add $domain` copy values from `.env`
 echo "Generating general .env file for next specific domain files"
-php docker/envs/envs.php 
+php docker/envs/envs.php
 
 # if binded by k8s or docker those folders might need to be recreated
 mkdir storage
@@ -84,6 +84,16 @@ if [ -n "$MULTI_DOMAINS" ]; then
     else
       echo "Schedule disabled"
     fi
+
+    if [ -z "$DISABLE_QUEUE" ] || [ "$DISABLE_QUEUE" != "true" ];
+    then
+      cp "docker/conf/supervisor/example/queue.conf.example" "/etc/supervisor/custom.d/queue.$domain.conf"
+      sed "s/\$QUEUE_DOMAIN/$domain/g" "docker/conf/supervisor/example/queue.conf.example" > "/etc/supervisor/custom.d/queue.$domain.conf"
+      echo "Queue for $domain enabled"
+    else
+      echo "Queue for $domain disabled"
+    fi
+
     # delare variables
     DOMAIN_KEY=$(echo "$domain" | tr '[:lower:]' '[:upper:]')
     DOMAIN_KEY=$(echo "$DOMAIN_KEY" | tr '.-' '__')
@@ -95,7 +105,7 @@ if [ -n "$MULTI_DOMAINS" ]; then
 
     php docker/envs/envs_multidomains.php $domain $DOMAIN_KEY
 
-    # create keys from env base64 variables 
+    # create keys from env base64 variables
     if [ -n "$JWT_PUBLIC_KEY_BASE64" ]; then
         echo "Storing public shared env JWT_PUBLIC_KEY_BASE64 RSA key for JWT generation -  /var/www/html/storage/${STORAGE_DIRECTORY}/oauth-public.key"
         echo ${JWT_PUBLIC_KEY_BASE64} | base64 -d > /var/www/html/storage/${STORAGE_DIRECTORY}/oauth-public.key
@@ -117,8 +127,8 @@ if [ -n "$MULTI_DOMAINS" ]; then
         echo ${!SPECIFIC_JWT_PRIVATE_KEY_BASE64} | base64 -d > /var/www/html/storage/${STORAGE_DIRECTORY}/oauth-private.key
     fi
 
-   
-    
+
+
     # db migrate
     if [ "$DISABLE_DB_MIGRATE" == 'true' ]
     then
@@ -128,11 +138,11 @@ if [ -n "$MULTI_DOMAINS" ]; then
     fi
 
     # generate passport keys only if storage/oauth-private.key is not set
-    # note that app:keys are generated here as well 
+    # note that app:keys are generated here as well
     FILE=storage/${STORAGE_DIRECTORY}/oauth-private.key
     if [ -f "$FILE" ]; then
-        echo "key file $FILE exists. Using one from file or env"     
-    else 
+        echo "key file $FILE exists. Using one from file or env"
+    else
         echo "$FILE does not exist. Generating app keys, passport keys and passport client"
         php artisan key:generate --force --no-interaction --domain=$domain
         php artisan passport:keys --force --no-interaction --domain=$domain
@@ -153,16 +163,16 @@ if [ -n "$MULTI_DOMAINS" ]; then
     else
         php artisan h5p:storage-link --overwrite --domain=$domain
     fi
-    
+
 
   done
 else
   echo "Environment variable MULTI_DOMAINS is empty."
 fi
 
-# Default setup 
+# Default setup
 echo "Default setup"
-# This is required for create default laravel envs 
+# This is required for create default laravel envs
 if [ -n "$JWT_PUBLIC_KEY_BASE64" ]; then
     echo "Storing public RSA key for JWT generation - storage/oauth-public.key"
     echo ${JWT_PUBLIC_KEY_BASE64} | base64 -d > storage/oauth-public.key
@@ -177,7 +187,7 @@ fi
 if [ "$DISABLE_DB_MIGRATE" == 'true' ]
 then
     echo "Disable db migrate"
-else 
+else
     php artisan migrate --force
 fi
 
@@ -185,18 +195,18 @@ fi
 
 FILE=storage/oauth-private.key
 if [ -f "$FILE" ]; then
-    echo "$FILE exists."     
-else 
+    echo "$FILE exists."
+else
     echo "$FILE does not exist. Generating app keys, passport keys and passport client"
     #php artisan key:generate --force --no-interaction
-    php artisan passport:keys --force --no-interaction 
+    php artisan passport:keys --force --no-interaction
     #php artisan passport:client --personal --no-interaction
 fi
 
 touch inited
 
 # TODO: Fixme
-# This is required so far as docker compose run this script as root 
+# This is required so far as docker compose run this script as root
 
 chown -R www-data:www-data /var/www/html/storage
 
