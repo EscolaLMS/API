@@ -1,0 +1,19 @@
+[program:laravel-queue-$QUEUE_DOMAIN]
+process_name=%(program_name)s_%(process_num)02d
+command=php /var/www/html/artisan queue:work --domain=$QUEUE_DOMAIN --queue=default,broadcast,video --sleep=3 --tries=3 --timeout=600
+#user=devilbox
+autostart=true
+autorestart=true
+numprocs=1
+redirect_stderr=true
+stopwaitsecs=3600
+#logfile=/etc/supervisor/conf.d/horizon.log
+
+
+stdout_logfile          = /dev/stdout
+stdout_logfile_maxbytes = 0
+stdout_events_enabled   = true
+
+stderr_logfile          = /dev/stderr
+stderr_logfile_maxbytes = 0
+stderr_events_enabled   = true
