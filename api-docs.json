@@ -24163,9 +24163,14 @@
                         "description": "url",
                         "type": "string"
                     },
-                    "url_expiration_time_millis": {
-                        "description": "url_expiration_time_millis",
-                        "type": "integer"
+                    "url_expires_at": {
+                        "description": "url_expires_at",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "processing_video": {
+                        "description": "processing_video",
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
