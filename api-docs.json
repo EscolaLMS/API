@@ -19499,6 +19499,56 @@
                 ]
             }
         },
+        "/api/admin/gift-quizes": {
+            "get": {
+                "tags": [
+                    "Gift Quiz"
+                ],
+                "summary": "List gift quizes of a course (for report filter select)",
+                "operationId": "287b96904bfab4c962e7e4bbb68409c1",
+                "parameters": [
+                    {
+                        "name": "course_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/GiftQuizSimpleResource"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/api/admin/gift-quizes/{id}": {
             "get": {
                 "tags": [
@@ -19712,6 +19762,118 @@
                                     "type": "object"
                                 }
                             }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/quiz-attempts/{id}/feedback": {
+            "patch": {
+                "tags": [
+                    "Admin Gift Quiz Attempt"
+                ],
+                "summary": "Add, edit or remove tutor feedback for a quiz attempt",
+                "description": "Sets the tutor feedback (light rich text or video link) on a quiz attempt. Sending null or an empty string removes it.",
+                "operationId": "cae4f078652e88e8992514f50ffbba54",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AdminUpdateQuizAttemptFeedbackRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {},
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/quiz-attempts/export": {
+            "get": {
+                "tags": [
+                    "Admin Gift Quiz Attempt"
+                ],
+                "summary": "Export course quiz results to an XLSX or XLS file",
+                "description": "Exports all attempts of all students. Without topic_gift_quiz_id every quiz of the course is exported to a separate worksheet; with it a single worksheet is exported. The format query parameter selects the spreadsheet format (xlsx or xls), defaulting to xlsx.",
+                "operationId": "11eaefc5693d5ba06228f1eaa81e6d5a",
+                "parameters": [
+                    {
+                        "name": "course_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "topic_gift_quiz_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "description": "Output spreadsheet format. Defaults to xlsx.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "xlsx",
+                            "enum": [
+                                "xlsx",
+                                "xls"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull operation",
+                        "content": {
+                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {},
+                            "application/vnd.ms-excel": {}
                         }
                     }
                 },
@@ -20019,6 +20181,50 @@
             }
         },
         "/api/admin/topic-project-solutions/{id}": {
+            "get": {
+                "tags": [
+                    "Admin Project Solution"
+                ],
+                "summary": "Get a single project solution",
+                "description": "Get a single project solution (with tutor feedback) by id",
+                "operationId": "91942ee4b9f52efa2e05f1e38d78b4bd",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/ProjectSolutionResource"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
             "delete": {
                 "tags": [
                     "Admin Project Solution"
@@ -20037,6 +20243,108 @@
                         }
                     }
                 ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/topic-project-solutions/{id}/feedback": {
+            "patch": {
+                "tags": [
+                    "Admin Project Solution"
+                ],
+                "summary": "Add, edit or remove tutor feedback for a project solution",
+                "description": "Sets the tutor feedback (rich text or video link) on a project solution. Sending null or an empty string removes it.",
+                "operationId": "adca360c3137921b6f278012dab9efaf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AdminUpdateProjectSolutionFeedbackRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/ProjectSolutionResource"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/topic-project-solutions/{id}/grade": {
+            "patch": {
+                "tags": [
+                    "Admin Project Solution"
+                ],
+                "summary": "Grade the specified Project Solution",
+                "description": "Set score and max_score for a Project Solution",
+                "operationId": "7e943180c220d0e7ece96c23c74b3f24",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AdminGradeProjectSolutionRequest"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -20186,6 +20494,50 @@
             }
         },
         "/api/topic-project-solutions/{id}": {
+            "get": {
+                "tags": [
+                    "Project Solution"
+                ],
+                "summary": "Get a single project solution",
+                "description": "Get my single project solution (with tutor feedback) by id",
+                "operationId": "550cd3c7aef299a78900326b4a5aefb6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/ProjectSolutionResource"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
             "delete": {
                 "tags": [
                     "Project Solution"
@@ -24869,6 +25221,24 @@
                     },
                     "min_pass_score": {
                         "type": "number"
+                    },
+                    "counts_to_grade": {
+                        "type": "boolean"
+                    },
+                    "weight": {
+                        "type": "integer"
+                    },
+                    "randomize_order": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            },
+            "AdminUpdateQuizAttemptFeedbackRequest": {
+                "properties": {
+                    "feedback": {
+                        "description": "Tutor feedback (light rich text or video link). Send null or empty to remove it.",
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -24947,6 +25317,22 @@
                 },
                 "type": "object"
             },
+            "GiftQuizSimpleResource": {
+                "properties": {
+                    "id": {
+                        "description": "topic_gift_quiz_id (value used to filter quiz reports)",
+                        "type": "number"
+                    },
+                    "title": {
+                        "description": "quiz title taken from its topic",
+                        "type": "string"
+                    },
+                    "topic_id": {
+                        "type": "number"
+                    }
+                },
+                "type": "object"
+            },
             "GiftTopicSimpleResource": {
                 "properties": {
                     "id": {
@@ -24972,6 +25358,26 @@
                     },
                     "email": {
                         "description": "email",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "AdminGradeProjectSolutionRequest": {
+                "required": [
+                    "score"
+                ],
+                "properties": {
+                    "score": {
+                        "type": "number"
+                    }
+                },
+                "type": "object"
+            },
+            "AdminUpdateProjectSolutionFeedbackRequest": {
+                "properties": {
+                    "feedback": {
+                        "description": "Tutor feedback (rich text). Send null or empty to remove it.",
                         "type": "string"
                     }
                 },
@@ -25016,6 +25422,23 @@
                     "user_id": {
                         "description": "user_id",
                         "type": "number"
+                    },
+                    "tutor_feedback": {
+                        "description": "tutor feedback (rich text or video link)",
+                        "type": "string"
+                    },
+                    "score": {
+                        "description": "score",
+                        "type": "number"
+                    },
+                    "max_score": {
+                        "description": "max_score",
+                        "type": "number"
+                    },
+                    "graded_at": {
+                        "description": "graded_at",
+                        "type": "string",
+                        "format": "date-time"
                     }
                 },
                 "type": "object"
