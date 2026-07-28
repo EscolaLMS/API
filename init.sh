@@ -57,7 +57,7 @@ mkdir storage/framework/cache
 mkdir storage/app
 mkdir storage/logs
 
-chmod -R 0766 storage
+chmod -R 0775 storage
 
 # run all laravel related tasks 
 # klucze mozna trzymac jako zmienne srodowiskowe wiec .... 
