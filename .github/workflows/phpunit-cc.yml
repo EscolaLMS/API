@@ -41,7 +41,7 @@ jobs:
         run: |
           apt-get install unzip -y
           composer self-update
-          composer install
+          composer update
 
       - name: Prepare Laravel Application
         run: |

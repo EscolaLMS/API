@@ -36,7 +36,7 @@ jobs:
         run: |
           apt-get install unzip -y
           composer self-update
-          composer install
+          composer update
 
       - name: Generage openapi
         run: php artisan l5-swagger:generate
