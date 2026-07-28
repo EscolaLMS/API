@@ -25,6 +25,7 @@
 
         <button type="submit" id="submit-button">Create Payment Method</button>
 
+        <label for="payment-method-id">Payment method ID</label>
         <input type="text" id="payment-method-id" />
     </form>
 

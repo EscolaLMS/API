@@ -32,7 +32,7 @@ jobs:
   #         apt-get install unzip -y
   #         composer self-update
   #         rm composer.lock # lock is for php >=8.2
-  #         composer install --no-scripts
+  #         composer update --no-scripts
 
   #     - name: Prepare Laravel Application
   #       run: |
@@ -83,7 +83,7 @@ jobs:
   #         apt-get install git unzip -y
   #         composer self-update
   #         rm composer.lock # lock is for php >=8.2
-  #         composer install --no-scripts
+  #         composer update --no-scripts
 
   #     - name: Prepare Laravel Application
   #       run: |

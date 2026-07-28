@@ -64,7 +64,7 @@ mkdir storage/framework/cache
 mkdir storage/app
 mkdir storage/logs
 
-chmod -R 0766 storage
+chmod -R 0775 storage
 
 # MULTI_DOMAINS
 if [ -n "$MULTI_DOMAINS" ]; then
