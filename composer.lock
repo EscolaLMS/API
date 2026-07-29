@@ -4596,16 +4596,16 @@
         },
         {
             "name": "escolalms/recommender",
-            "version": "0.0.32",
+            "version": "0.0.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EscolaLMS/Recommender.git",
-                "reference": "93115b54cb42ac821b3953dc95f69c37e9ee5e8c"
+                "reference": "b61aa2ff80d12e9f4ee80ae1b935a80face5f581"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EscolaLMS/Recommender/zipball/93115b54cb42ac821b3953dc95f69c37e9ee5e8c",
-                "reference": "93115b54cb42ac821b3953dc95f69c37e9ee5e8c",
+                "url": "https://api.github.com/repos/EscolaLMS/Recommender/zipball/b61aa2ff80d12e9f4ee80ae1b935a80face5f581",
+                "reference": "b61aa2ff80d12e9f4ee80ae1b935a80face5f581",
                 "shasum": ""
             },
             "require": {
@@ -4654,9 +4654,9 @@
             "description": "Escola Headless LMS Recommender",
             "support": {
                 "issues": "https://github.com/EscolaLMS/Recommender/issues",
-                "source": "https://github.com/EscolaLMS/Recommender/tree/0.0.32"
+                "source": "https://github.com/EscolaLMS/Recommender/tree/0.0.33"
             },
-            "time": "2026-07-29T05:06:55+00:00"
+            "time": "2026-07-29T09:13:17+00:00"
         },
         {
             "name": "escolalms/reports",
