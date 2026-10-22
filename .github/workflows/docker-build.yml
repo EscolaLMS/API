@@ -7,43 +7,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
-        with:
-          platforms: 'arm64,arm'
+        uses: actions/checkout@v4
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
       - name: Login to DockerHub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v6
         with:
+          context: .
+          pull: true
+          no-cache: true
           push: true
-          tags: escolalms/api:${{github.ref_name}}, escolalms/api:latest
-          platforms: linux/amd64,linux/arm64
-      - name: create release note
-        run: ./docker/release_note.sh 
-      - name: Update GitHub Release
-        uses: tubone24/update_release@v1.3.1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          is_append_body: true
-          body_path: ./result.md
-
-
-      - name: Create the Mattermost Message
-        run: |
-          echo "{\"text\":\"There is a new version ${{ github.ref_name }} [escolalms/api:latest](https://hub.docker.com/r/escolalms/api/tags?page=1&name=latest) image built. k8s rollout will happen soon\"}" > mattermost.json
-      - uses: mattermost/action-mattermost-notify@master
-        env:
-          MATTERMOST_WEBHOOK_URL: ${{ secrets.MATTERMOST_WEBHOOK_URL }}
-          
-      - name: Send webook to hooks to rollout all devs on k8s 
-        uses: distributhor/workflow-webhook@v3
-        env:
-          webhook_url: ${{ secrets.K8S_WEBHOOK_URL_API_LATEST }}
+          tags: escolalms/api:${{ github.ref_name }}
+          platforms: linux/amd64
