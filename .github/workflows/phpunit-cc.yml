@@ -12,7 +12,7 @@ jobs:
 #    runs-on: self-hosted
     runs-on: ubuntu-latest
     container:
-      image: php:8.4-cli
+      image: php:8.4-cli-alpine
 
     services:
       mysql:
@@ -25,15 +25,15 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
-      - name: Install PHP extensions and Composer
-        run: |
-          apt-get update && apt-get install -y --no-install-recommends git unzip
-          curl -sSLf -o /usr/local/bin/install-php-extensions https://github.com/mlocati/docker-php-extension-installer/releases/download/2.12.3/install-php-extensions
-          chmod +x /usr/local/bin/install-php-extensions
-          install-php-extensions @composer-2.10.3 bcmath gd intl pcntl pdo_mysql pdo_pgsql redis zip pcov
-
       - name: Instantiate package
         uses: actions/checkout@v4
+
+      - name: Install PHP extensions and Composer
+        run: |
+          apk add --no-cache bash git unzip ffmpeg
+          sh docker/php/install-extensions.sh pcov
+          curl --proto '=https' --tlsv1.2 -sSf -o /usr/local/bin/composer https://getcomposer.org/download/latest-2.x/composer.phar
+          chmod +x /usr/local/bin/composer
 
       - name: Copy environment configuration files
         run: |
@@ -41,8 +41,8 @@ jobs:
           cp docker/envs/.env.ci.mysql .env.testing
           cp docker/envs/phpunit.xml.cc phpunit.xml
 
-      - name: Update composer
-        run: composer update
+      - name: Install composer dependencies
+        run: composer install --no-interaction
 
       - name: Prepare Laravel Application
         run: |

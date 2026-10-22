@@ -11,7 +11,7 @@ jobs:
   swagger-gh-pages:
     runs-on: ubuntu-latest
     container:
-      image: php:8.4-cli
+      image: php:8.4-cli-alpine
 
     services:
       mysql:
@@ -24,23 +24,23 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
-      - name: Install PHP extensions and Composer
-        run: |
-          apt-get update && apt-get install -y --no-install-recommends git unzip
-          curl -sSLf -o /usr/local/bin/install-php-extensions https://github.com/mlocati/docker-php-extension-installer/releases/download/2.12.3/install-php-extensions
-          chmod +x /usr/local/bin/install-php-extensions
-          install-php-extensions @composer-2.10.3 bcmath gd intl pcntl pdo_mysql pdo_pgsql redis zip
-
       - name: Instantiate package
         uses: actions/checkout@v4
+
+      - name: Install PHP extensions and Composer
+        run: |
+          apk add --no-cache bash git unzip
+          sh docker/php/install-extensions.sh
+          curl --proto '=https' --tlsv1.2 -sSf -o /usr/local/bin/composer https://getcomposer.org/download/latest-2.x/composer.phar
+          chmod +x /usr/local/bin/composer
 
       - name: Prepare Laravel Application
         run: |
           cp docker/envs/.env.ci.mysql .env
           cp docker/envs/phpunit.xml.mysql phpunit.xml
 
-      - name: Update composer
-        run: composer update
+      - name: Install composer dependencies
+        run: composer install --no-interaction
 
       - name: Generage openapi
         run: php artisan l5-swagger:generate

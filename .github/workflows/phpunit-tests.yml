@@ -3,14 +3,8 @@ name: Integration Tests
 jobs:
   phpunit-postgres:
     runs-on: ubuntu-latest
-    # 8.4 is the supported version; 8.5 is an early warning only
-    continue-on-error: ${{ matrix.php != '8.4' }}
-    strategy:
-      fail-fast: false
-      matrix:
-        php: ["8.4", "8.5"]
     container:
-      image: php:${{ matrix.php }}-cli
+      image: php:8.4-cli-alpine
 
     services:
       postgres:
@@ -24,24 +18,23 @@ jobs:
           - 5432:5432
 
     steps:
+      - name: Instantiate package
+        uses: actions/checkout@v4
+
       - name: Install PHP extensions and Composer
         run: |
-          apt-get update && apt-get install -y --no-install-recommends git unzip
-          curl -sSLf -o /usr/local/bin/install-php-extensions https://github.com/mlocati/docker-php-extension-installer/releases/download/2.12.3/install-php-extensions
-          chmod +x /usr/local/bin/install-php-extensions
-          install-php-extensions @composer-2.10.3 bcmath gd intl pcntl pdo_mysql pdo_pgsql redis zip
-
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
+          apk add --no-cache bash git unzip ffmpeg
+          sh docker/php/install-extensions.sh
+          curl --proto '=https' --tlsv1.2 -sSf -o /usr/local/bin/composer https://getcomposer.org/download/latest-2.x/composer.phar
+          chmod +x /usr/local/bin/composer
 
       - name: Copy environment configuration files
         run: |
           cp docker/envs/.env.ci.postgres .env
           cp docker/envs/phpunit.xml.postgres phpunit.xml
 
-      - name: Update composer
-        run: composer update --no-scripts
+      - name: Install composer dependencies
+        run: composer install --no-scripts --no-interaction
 
       - name: Prepare Laravel Application
         run: |

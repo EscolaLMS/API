@@ -1,11 +1,10 @@
 ARG PHP_IMAGE=php:8.4-fpm-alpine
-# Set BASE_IMAGE to a published base image to skip building the php-base stage.
 ARG BASE_IMAGE=php-base
 
 FROM ${PHP_IMAGE} AS php-base
 
-COPY --from=mlocati/php-extension-installer:2.12.3 /usr/bin/install-php-extensions /usr/local/bin/
-COPY --from=composer:2.10.3 /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
+COPY docker/php/install-extensions.sh /usr/local/bin/install-extensions.sh
 
 RUN apk add --no-cache \
     bash \
@@ -13,17 +12,7 @@ RUN apk add --no-cache \
     ffmpeg \
     unzip \
     jpegoptim optipng pngquant gifsicle libwebp \
-  && install-php-extensions \
-    apcu \
-    bcmath \
-    gd \
-    intl \
-    opcache \
-    pcntl \
-    pdo_mysql \
-    pdo_pgsql \
-    redis \
-    zip
+  && install-extensions.sh
 
 COPY docker/docker-entrypoint.sh /docker-entrypoint.sh
 
@@ -46,7 +35,10 @@ CMD /var/www/html/init.sh
 HEALTHCHECK --interval=30s --timeout=30s --start-period=10s --retries=5 CMD [ "php", "artisan", "health:check" ]
 
 FROM app AS develop
-RUN install-php-extensions excimer
+RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS linux-headers \
+  && pecl install excimer \
+  && docker-php-ext-enable excimer \
+  && apk del --no-network .build-deps \
+  && rm -rf /tmp/pear
 
-# Default target - keep last.
 FROM app AS production
