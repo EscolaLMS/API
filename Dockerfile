@@ -15,6 +15,9 @@ RUN apk add --no-cache \
   && install-extensions.sh
 
 COPY docker/docker-entrypoint.sh /docker-entrypoint.sh
+COPY docker/conf/supervisor/supervisord.conf /etc/supervisord.conf
+COPY docker/conf/php/escolalms-custom-php.ini /usr/local/etc/php/conf.d/escolalms-custom-php.ini
+COPY docker/conf/php/php-fpm-custom.conf /usr/local/etc/php-fpm.d/zz-escolalms.conf
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 WORKDIR /var/www/html
@@ -24,10 +27,6 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 FROM ${BASE_IMAGE} AS app
 WORKDIR /var/www/html
 COPY / /var/www/html
-RUN \
-  cp docker/conf/supervisor/supervisord.conf /etc/supervisord.conf \
-  && cp docker/conf/php/escolalms-custom-php.ini /usr/local/etc/php/conf.d/escolalms-custom-php.ini \
-  && cp docker/conf/php/php-fpm-custom.conf /usr/local/etc/php-fpm.d/zz-escolalms.conf
 RUN composer install --no-scripts --no-dev --no-interaction --prefer-dist
 
 CMD /var/www/html/init.sh
