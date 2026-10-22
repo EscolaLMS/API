@@ -7,6 +7,7 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use League\OAuth2\Server\Exception\OAuthServerException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -55,6 +56,15 @@ class Handler extends ExceptionHandler
                 app('sentry')->captureException($e);
             }
         });
+    }
+
+    public function report(Throwable $e)
+    {
+        if ($e instanceof OAuthServerException && $e->getCode() == 9) {
+            return;
+        }
+
+        parent::report($e);
     }
 
     protected function invalidJson($request, ValidationException $exception): JsonResponse
