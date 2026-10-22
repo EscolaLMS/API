@@ -16,11 +16,11 @@ services:
       - "80:80"
       - "443:443"
   api:
-    # image: escolalms/php:8.4-alpine ## or escolalms/php:8-work for debugginh
+    # PHP base image is built from the php-base stage in Dockerfile
     # command: sleep infinity
     build:
       context: .
-      dockerfile: Dockerfile.develop
+      target: develop
     environment:
       - LARAVEL_APP_NAME=Wellms
       - LARAVEL_APP_ENV=local
@@ -66,7 +66,8 @@ services:
 
   # escola_lms_queue_cron:
   #   command: "./init.sh"
-  #   image: escolalms/php:8.2-prod ## or escolalms/php:8-work for debugginh
+  #   build:
+  #     context: .
   #   environment:
   #     - LARAVEL_APP_NAME=Wellms
   #     - LARAVEL_APP_ENV=local

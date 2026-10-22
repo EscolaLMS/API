@@ -11,8 +11,9 @@ jobs:
   phpunit-code-coverage:
 #    runs-on: self-hosted
     runs-on: ubuntu-latest
-    container:
-      image: escolalms/php:8.2-work
+    defaults:
+      run:
+        shell: docker exec php sh -e {0}
 
     services:
       mysql:
@@ -20,16 +21,40 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: test
-        ports:
-          - 33306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Instantiate package
-        run: apt-get install git -y
+        uses: actions/checkout@v4
 
-      - name: Instantiate package
-        uses: actions/checkout@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build PHP base image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: php-base
+          load: true
+          tags: wellms-php-base:ci
+          cache-from: type=gha,scope=php-base
+          cache-to: type=gha,mode=max,scope=php-base
+
+      - name: Start PHP container
+        shell: bash
+        run: >
+          docker run -d --name php
+          --network ${{ job.services.mysql.network }}
+          -v ${{ github.workspace }}:/var/www/html
+          -v ${{ runner.temp }}:${{ runner.temp }}
+          wellms-php-base:ci sleep infinity
+
+      - name: Install pcov
+        run: |
+          apk add --no-cache --virtual .build-deps $PHPIZE_DEPS linux-headers
+          pecl install pcov
+          docker-php-ext-enable pcov
+          apk del --no-network .build-deps
 
       - name: Copy environment configuration files
         run: |
@@ -37,11 +62,8 @@ jobs:
           cp docker/envs/.env.ci.mysql .env.testing
           cp docker/envs/phpunit.xml.cc phpunit.xml
 
-      - name: Update composer
-        run: |
-          apt-get install unzip -y
-          composer self-update
-          composer update
+      - name: Install composer dependencies
+        run: composer install --no-interaction
 
       - name: Prepare Laravel Application
         run: |
@@ -62,9 +84,6 @@ jobs:
         run:
           rm -f vendor/escolalms/lrs/tests/Exceptions/Handler.php
           rm -f vendor/escolalms/cmi5/tests/Exceptions/Handler.php
-
-      - name: Add pcov
-        run: pecl install pcov && docker-php-ext-enable pcov
 
       - name: Run tests
         run: XDEBUG_MODE=off php -dpcov.enabled=1 -dpcov.directory=. ./vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text | tee coverage.txt
@@ -100,5 +119,6 @@ jobs:
           target-branch: "main"
 
       - name: Test get variable exported by push-to-another-repository
+        shell: bash
         run: echo $DESTINATION_CLONED_DIRECTORY
 

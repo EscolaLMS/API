@@ -190,10 +190,10 @@ touch inited
 
 ### 15. (Deprecated) Change Ownership of the storage Directory
 
-Changes the owner of the storage directory to `devilbox`:
+Changes the owner of the storage directory to `www-data`:
 
 ```bash
-chown -R devilbox:devilbox /var/www/html/storage
+chown -R www-data:www-data /var/www/html/storage
 ```
 
 ### 16. Start Supervisor Process Manager
@@ -433,10 +433,10 @@ Creates the inited file to indicate that the initialization process has complete
 ### 20. (Deprecated) Change Ownership of the Storage Directory
 
 ```bash
-chown -R devilbox:devilbox /var/www/html/storage
+chown -R www-data:www-data /var/www/html/storage
 ```
 
-Ensures that the storage directory and its contents are owned by the appropriate user (devilbox).
+Ensures that the storage directory and its contents are owned by the appropriate user (www-data).
 
 ### 21. Start Supervisor Process Manager
 

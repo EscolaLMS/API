@@ -10,8 +10,9 @@ on:
 jobs:
   swagger-gh-pages:
     runs-on: ubuntu-latest
-    container:
-      image: escolalms/php:8
+    defaults:
+      run:
+        shell: docker exec php sh -e {0}
 
     services:
       mysql:
@@ -19,24 +20,41 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: test
-        ports:
-          - 33306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Instantiate package
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build PHP base image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: php-base
+          load: true
+          tags: wellms-php-base:ci
+          cache-from: type=gha,scope=php-base
+          cache-to: type=gha,mode=max,scope=php-base
+
+      - name: Start PHP container
+        shell: bash
+        run: >
+          docker run -d --name php
+          --network ${{ job.services.mysql.network }}
+          -v ${{ github.workspace }}:/var/www/html
+          -v ${{ runner.temp }}:${{ runner.temp }}
+          wellms-php-base:ci sleep infinity
 
       - name: Prepare Laravel Application
         run: |
           cp docker/envs/.env.ci.mysql .env
           cp docker/envs/phpunit.xml.mysql phpunit.xml
 
-      - name: Update composer
-        run: |
-          apt-get install unzip -y
-          composer self-update
-          composer update
+      - name: Install composer dependencies
+        run: composer install --no-interaction
 
       - name: Generage openapi
         run: php artisan l5-swagger:generate
@@ -48,9 +66,6 @@ jobs:
         with:
           output: swagger-ui
           spec-file: "./storage/api-docs/api-docs.json"
-
-      - name: Install git
-        run: apt-get install git -y
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
