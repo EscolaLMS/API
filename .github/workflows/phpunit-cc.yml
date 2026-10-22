@@ -12,7 +12,7 @@ jobs:
 #    runs-on: self-hosted
     runs-on: ubuntu-latest
     container:
-      image: escolalms/php:8.2-work
+      image: php:8.4-cli
 
     services:
       mysql:
@@ -25,11 +25,15 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
-      - name: Instantiate package
-        run: apt-get install git -y
+      - name: Install PHP extensions and Composer
+        run: |
+          apt-get update && apt-get install -y --no-install-recommends git unzip
+          curl -sSLf -o /usr/local/bin/install-php-extensions https://github.com/mlocati/docker-php-extension-installer/releases/download/2.12.3/install-php-extensions
+          chmod +x /usr/local/bin/install-php-extensions
+          install-php-extensions @composer-2.10.3 bcmath gd intl pcntl pdo_mysql pdo_pgsql redis zip pcov
 
       - name: Instantiate package
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Copy environment configuration files
         run: |
@@ -38,10 +42,7 @@ jobs:
           cp docker/envs/phpunit.xml.cc phpunit.xml
 
       - name: Update composer
-        run: |
-          apt-get install unzip -y
-          composer self-update
-          composer update
+        run: composer update
 
       - name: Prepare Laravel Application
         run: |
@@ -62,9 +63,6 @@ jobs:
         run:
           rm -f vendor/escolalms/lrs/tests/Exceptions/Handler.php
           rm -f vendor/escolalms/cmi5/tests/Exceptions/Handler.php
-
-      - name: Add pcov
-        run: pecl install pcov && docker-php-ext-enable pcov
 
       - name: Run tests
         run: XDEBUG_MODE=off php -dpcov.enabled=1 -dpcov.directory=. ./vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text | tee coverage.txt
