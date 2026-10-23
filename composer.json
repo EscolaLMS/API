@@ -54,7 +54,7 @@
     "escolalms/csv-users": "^0",
     "escolalms/dictionaries": "^0",
     "escolalms/files": "^0",
-    "escolalms/headless-h5p": "^0",
+    "escolalms/headless-h5p": "^0.4.48",
     "escolalms/images": "^0",
     "escolalms/invoices": "^0",
     "escolalms/lrs": "^0",
